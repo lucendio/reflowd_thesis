@@ -135,6 +135,7 @@ pdf:
 	--output="$(OUTPUT_DIR)/index.pdf" \
 	--dpi=96 \
 	--chapters \
+	--toc \
 	--number-sections \
 	--number-offset=1,1,1 \
 	\
@@ -149,7 +150,6 @@ pdf:
 	\
 	"$(CWD)/metadata.yml" \
 	"$(STYLES_DIR)/tompollard.variables.yml" \
-	"$(CWD)/index.md" \
 	"$(CONTENTS_DIR)/"*.md
 
 
@@ -173,6 +173,7 @@ html:
 	--to=html5 \
 	--output="$(OUTPUT_DIR)/index.html" \
 	--chapters \
+	--toc \
 	--number-sections \
 	--number-offset=1,1,1 \
 	\
@@ -183,7 +184,6 @@ html:
 	\
 	"$(CWD)/metadata.yml" \
 	"$(STYLES_DIR)/tompollard.variables.yml" \
-	"$(CWD)/index.md" \
 	"$(CONTENTS_DIR)/"*.md
 
 	@rm -rf $(OUTPUT_DIR)/assets/*

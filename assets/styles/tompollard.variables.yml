@@ -8,13 +8,13 @@ fontsize: '12pt'
 #fontfamily
 
 classoption:
-    -   'openright'
-#    -   'titlepage'
+#    -   'openright'
+    -   'titlepage'
 #    -   'numbers=noenddot'
 #    -   'headinclude'
 #    -   'footinclude=true'
-#    -   'cleardoublepage=empty'
-#    -   'dottedtoc'
+    -   'cleardoublepage=empty'
+    -   'dottedtoc'
 #    -   'BCOR=5mm'
 
 #mainfont: 'texgyrepagella'
