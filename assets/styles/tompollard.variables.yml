@@ -1,0 +1,30 @@
+---
+# latex params (pandoc.org/MANUAL.html#variables-for-latex)
+
+documentclass: 'report'
+papersize: 'a4'
+fontsize: '12pt'
+#linestretch: '1.25'     # line space
+#fontfamily
+
+classoption:
+    -   'openright'
+#    -   'titlepage'
+#    -   'numbers=noenddot'
+#    -   'headinclude'
+#    -   'footinclude=true'
+#    -   'cleardoublepage=empty'
+#    -   'dottedtoc'
+#    -   'BCOR=5mm'
+
+#mainfont: 'texgyrepagella'
+#mainfontoptions:
+#    -   'Extension   = .otf'
+#    -   'UprightFont = *-regular'
+#    -   'ItalicFont  = *-italic'
+#    -   'BoldItalicFont = *-bolditalic'
+#sansfont: 'Verdana'
+#urlcolor: 'webbrow'
+#linkcolor: 'RoyalBlue'
+#citecolor: 'webgreen'
+...

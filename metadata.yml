@@ -1,0 +1,46 @@
+---
+title:  'Master Thesis: Open Specification of a user-controlled Web Service for Personal Data'
+subtitle: ''
+author:
+    -   'G. Jahn'
+#institute: 'HTW, Institute 4 - Computer Science, Communication and Economic'
+
+# should be: last change at
+date:   \today
+version: '0.0.1'
+
+abstract: 'TODO'
+keywords:
+    -   'personal data'
+    -   'personal data as a service'
+    -   'web service architecture'
+    -   'open specification'
+    -   'masters thesis'
+# tags: []
+
+lang: 'en'
+
+
+# can only be file contents not a path ref to a file
+header-includes: |
+include-before: |
+include-after: |
+
+
+links-as-notes: true
+toc: true
+toc-title: 'Table of Contents'
+toc-depth: 3
+lof: true   # include list of figures
+lot: true   # include list of tables
+link-citations: true
+
+
+bibliography: [
+    './assets/bibliographie/books.bib',
+    './assets/bibliographie/papers.bib',
+    './assets/bibliographie/urls.bib',
+]
+
+csl: './assets/citation/ieee-with-url.csl'
+...
