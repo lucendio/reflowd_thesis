@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta name="generator" content="pandoc" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+                    <meta name="author" content="G. Jahn" />
+                        <title>Master Thesis: Open Specification of a user-controlled Web Service for Personal Data</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                    <link rel="stylesheet" href="./assets/styles/tompollard.css" />
+                                <script src="js/jquery.js"></script>
+        <script src="js/diff.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+                <!--
+                    <div id="header">
+                <h1 class="title">Master Thesis: Open Specification of a user-controlled Web Service for Personal Data</h1>
+                                                <h2 class="author">G. Jahn</h2>
+                                            </div>
+                -->
+        <div id="title-page">
+            <h1>This is the title of the thesis</h1>
+            <h2>Firstname Surname</h2>
+        </div>
+                    <div id="TOC">
+                <ul>
+                <li><a href="#introduction"><span class="toc-section-number">2</span> Introduction</a><ul>
+                <li><a href="#motivation"><span class="toc-section-number">2.2</span> Motivation</a></li>
+                <li><a href="#purpose-outcome"><span class="toc-section-number">2.3</span> Purpose &amp; Outcome</a></li>
+                <li><a href="#glossary"><span class="toc-section-number">2.4</span> Glossary</a></li>
+                </ul></li>
+                <li><a href="#fundamentals"><span class="toc-section-number">3</span> Fundamentals</a><ul>
+                <li><a href="#personal-data-in-the-context-of-big-data---movement"><span class="toc-section-number">3.2</span> Personal data in the context of Big Data - Movement</a></li>
+                <li><a href="#personal-data-as-of-the-law"><span class="toc-section-number">3.3</span> Personal data as of the Law</a></li>
+                <li><a href="#personal-data-as-a-product"><span class="toc-section-number">3.4</span> Personal Data as a Product</a></li>
+                <li><a href="#digital-identity"><span class="toc-section-number">3.5</span> Digital Identity</a></li>
+                <li><a href="#related-work"><span class="toc-section-number">3.6</span> Related Work</a><ul>
+                <li><a href="#existing-systems"><span class="toc-section-number">3.6.2</span> Existing Systems</a></li>
+                <li><a href="#existing-organisations"><span class="toc-section-number">3.6.3</span> Existing Organisations</a></li>
+                </ul></li>
+                <li><a href="#application"><span class="toc-section-number">3.7</span> Application</a><ul>
+                <li><a href="#use-cases"><span class="toc-section-number">3.7.2</span> Use Cases</a></li>
+                <li><a href="#user-stories"><span class="toc-section-number">3.7.3</span> User Stories</a></li>
+                </ul></li>
+                </ul></li>
+                <li><a href="#concepts"><span class="toc-section-number">4</span> Concepts</a><ul>
+                <li><a href="#data-ownership"><span class="toc-section-number">4.2</span> Data Ownership</a></li>
+                <li><a href="#identity-verification"><span class="toc-section-number">4.3</span> Identity Verification</a></li>
+                <li><a href="#authentication"><span class="toc-section-number">4.4</span> Authentication</a></li>
+                <li><a href="#data-reliability"><span class="toc-section-number">4.5</span> Data Reliability</a></li>
+                <li><a href="#exposing-data"><span class="toc-section-number">4.6</span> Exposing Data</a></li>
+                <li><a href="#encapsulation"><span class="toc-section-number">4.7</span> Encapsulation</a></li>
+                <li><a href="#open-standards"><span class="toc-section-number">4.8</span> Open Standards</a></li>
+                <li><a href="#hosting"><span class="toc-section-number">4.9</span> Hosting</a></li>
+                </ul></li>
+                <li><a href="#architecture"><span class="toc-section-number">5</span> Architecture</a><ul>
+                <li><a href="#requirements"><span class="toc-section-number">5.2</span> Requirements</a><ul>
+                <li><a href="#components"><span class="toc-section-number">5.2.2</span> Components</a></li>
+                </ul></li>
+                <li><a href="#possible-directions"><span class="toc-section-number">5.3</span> Possible Directions</a></li>
+                <li><a href="#overview"><span class="toc-section-number">5.4</span> Overview</a><ul>
+                <li><a href="#componenta"><span class="toc-section-number">5.4.2</span> $componentA</a></li>
+                <li><a href="#componentb"><span class="toc-section-number">5.4.3</span> $componentB</a></li>
+                </ul></li>
+                <li><a href="#security"><span class="toc-section-number">5.5</span> Security</a><ul>
+                <li><a href="#environment"><span class="toc-section-number">5.5.2</span> Environment</a></li>
+                <li><a href="#transport"><span class="toc-section-number">5.5.3</span> Transport</a></li>
+                <li><a href="#storage"><span class="toc-section-number">5.5.4</span> Storage</a></li>
+                <li><a href="#authentication-1"><span class="toc-section-number">5.5.5</span> Authentication</a></li>
+                <li><a href="#attack-scenarios"><span class="toc-section-number">5.5.6</span> Attack Scenarios</a></li>
+                </ul></li>
+                <li><a href="#plugins"><span class="toc-section-number">5.6</span> Plugins</a></li>
+                </ul></li>
+                <li><a href="#data"><span class="toc-section-number">6</span> Data</a><ul>
+                <li><a href="#modelling"><span class="toc-section-number">6.2</span> Modelling</a></li>
+                <li><a href="#categories"><span class="toc-section-number">6.3</span> Categories</a></li>
+                <li><a href="#types"><span class="toc-section-number">6.4</span> Types</a></li>
+                <li><a href="#flows"><span class="toc-section-number">6.5</span> Flows</a></li>
+                <li><a href="#persistence"><span class="toc-section-number">6.6</span> Persistence</a></li>
+                <li><a href="#history"><span class="toc-section-number">6.7</span> History</a></li>
+                <li><a href="#management-and-administration"><span class="toc-section-number">6.8</span> Management and Administration</a><ul>
+                <li><a href="#access-permission"><span class="toc-section-number">6.8.2</span> Access &amp; Permission</a></li>
+                </ul></li>
+                <li><a href="#consumption"><span class="toc-section-number">6.9</span> Consumption</a><ul>
+                <li><a href="#manually"><span class="toc-section-number">6.9.2</span> Manually</a></li>
+                <li><a href="#automatically"><span class="toc-section-number">6.9.3</span> Automatically</a></li>
+                </ul></li>
+                </ul></li>
+                <li><a href="#interfaces"><span class="toc-section-number">7</span> Interfaces</a><ul>
+                <li><a href="#internal"><span class="toc-section-number">7.2</span> Internal</a></li>
+                <li><a href="#external"><span class="toc-section-number">7.3</span> External</a></li>
+                </ul></li>
+                <li><a href="#conclusion"><span class="toc-section-number">8</span> Conclusion</a><ul>
+                <li><a href="#ethical-social-impact-todo-or-relevance"><span class="toc-section-number">8.2</span> Ethical &amp; Social Impact (TODO: or “Relevance”)</a></li>
+                <li><a href="#business-models-monetisation"><span class="toc-section-number">8.3</span> Business Models &amp; Monetisation</a></li>
+                <li><a href="#challenges"><span class="toc-section-number">8.4</span> Challenges</a></li>
+                <li><a href="#solutions"><span class="toc-section-number">8.5</span> Solutions</a></li>
+                <li><a href="#future-work"><span class="toc-section-number">8.6</span> Future Work</a></li>
+                <li><a href="#summary"><span class="toc-section-number">8.7</span> Summary</a></li>
+                </ul></li>
+                </ul>
+            </div>
+                                <section id="introduction" class="level1">
+<h1><span class="header-section-number">2</span> Introduction</h1>
+<section id="motivation" class="level2">
+<h2><span class="header-section-number">2.2</span> Motivation</h2>
+<ul>
+<li>discriminate humans related to certain data, by interpreting results of deep learning and<br />
+using neuronal networking and trying to extract information out of data haystacks</li>
+<li>correlation is no proof of causation</li>
+</ul>
+</section>
+<section id="purpose-outcome" class="level2">
+<h2><span class="header-section-number">2.3</span> Purpose &amp; Outcome</h2>
+<ul>
+<li>Personal Data Store (aka. Service, Space, Vault, Cloud, Management/Manager), VRM (Vendor<br />
+Relation Management) aka “CRM upside down”</li>
+<li>Open Source</li>
+</ul>
+</section>
+<section id="glossary" class="level2">
+<h2><span class="header-section-number">2.4</span> Glossary</h2>
+<ul>
+<li>serverless: https://auth0.com/blog/2016/06/09/what-is-serverless/</li>
+<li>digital footprints: TODO</li>
+<li>owner: person who controls (and probably hosts) the data service containing her personal data</li>
+</ul>
+</section>
+</section>
+<section id="fundamentals" class="level1">
+<h1><span class="header-section-number">3</span> Fundamentals</h1>
+<section id="personal-data-in-the-context-of-big-data---movement" class="level2">
+<h2><span class="header-section-number">3.2</span> Personal data in the context of Big Data - Movement</h2>
+<ul>
+<li>difference between users <em>profile/account data</em> and their <em>meta data</em>?</li>
+</ul>
+</section>
+<section id="personal-data-as-of-the-law" class="level2">
+<h2><span class="header-section-number">3.3</span> Personal data as of the Law</h2>
+<ul>
+<li>who is the owner in what situation or under what circumstance?</li>
+<li>difference between “Personal Data” and the owner of that data?</li>
+</ul>
+</section>
+<section id="personal-data-as-a-product" class="level2">
+<h2><span class="header-section-number">3.4</span> Personal Data as a Product</h2>
+<ul>
+<li>individuals then get in role of selling/offering it’s own data to those who were previously<br />
+collecting them</li>
+</ul>
+</section>
+<section id="digital-identity" class="level2">
+<h2><span class="header-section-number">3.5</span> Digital Identity</h2>
+<ul>
+<li><p>identity defining data (e.g. history of personal ID card)</p></li>
+<li>with such a system a human being is represented by a non-physical abstraction of herself.<br />
+Which essentially is a list of attributes, that are at least for legal and civil<br />
+administration purposes important. Their values in total are unique and representing the<br />
+corresponding human. Certain attributes hold unique values within it’s own context, for<br />
+example the <em>social security number</em>.</li>
+<li>Thus it’s not necessary to know the values of all attributes in order to identify it’s<br />
+owner</li>
+<li><p>therefore its imported to not see it as a reduction of a living individual to some bits and<br />
+bytes</p></li>
+<li><p>what will happen with her data service after a person died?</p></li>
+</ul>
+</section>
+<section id="related-work" class="level2">
+<h2><span class="header-section-number">3.6</span> Related Work</h2>
+<p>TODO</p>
+<section id="existing-systems" class="level3">
+<h3><span class="header-section-number">3.6.2</span> Existing Systems</h3>
+<ul>
+<li>openPDS/safeAnswer [http://openpds.media.mit.edu/]</li>
+<li>TAS3 aka ZXID aka Synergetics (lead arch Sampo Kellomäki also Co-Authored openPDS papers)</li>
+<li>Higgins [https://www.eclipse.org/higgins/]</li>
+<li>Hub-of-All-Things [http://hubofallthings.com/what-is-the-hat/]</li>
+<li>ownyourinfo [http://www.ownyourinfo.com]</li>
+<li>PAGORA [http://www.paoga.com]</li>
+<li>PRIME/PrimeLife [https://www.prime-project.eu, http://primelife.ercim.eu/]</li>
+<li>databox.me (reference implementation w/ the “solid” framework)</li>
+<li>Microsoft HealthVault</li>
+<li>Industrial Data Space (german research project mainly driven by Fraunhofer Institute)</li>
+<li>Polis (greek research project from 2008) [http://polis.ee.duth.gr/Polis/index.php]</li>
+<li>MyData [https://mydatafi.wordpress.com/]</li>
+<li>Meeco (killing the ad provider middle man) [https://meeco.me/how-it-works.html]</li>
+<li>RESPECT network [https://www.respectnetwork.com/]</li>
+<li>aWise AEGIS [http://www.ewise.com/aegis]</li>
+</ul>
+</section>
+<section id="existing-organisations" class="level3">
+<h3><span class="header-section-number">3.6.3</span> Existing Organisations</h3>
+<ul>
+<li>Kantara Initiative (former “Liberty Alliance”) [https://kantarainitiative.org/]</li>
+<li>Open Identity Exchange [http://openidentityexchange.org/resources/white-papers/]</li>
+<li>Qiy Foundation [https://www.qiyfoundation.org/]</li>
+</ul>
+</section>
+</section>
+<section id="application" class="level2">
+<h2><span class="header-section-number">3.7</span> Application</h2>
+<section id="use-cases" class="level3">
+<h3><span class="header-section-number">3.7.2</span> Use Cases</h3>
+<p>TODO: should be more general, differently from each other</p>
+</section>
+<section id="user-stories" class="level3">
+<h3><span class="header-section-number">3.7.3</span> User Stories</h3>
+<ul>
+<li>package shipment after buying sth online</li>
+<li>social network accessing arbitrary profile data</li>
+<li>making an online purchase</li>
+<li>credibility (requesting credit permission) validation by a certain financial institution:<br />
+accessing arbitrary data</li>
+<li>patient/health record</li>
+<li>care (movement) data</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="concepts" class="level1">
+<h1><span class="header-section-number">4</span> Concepts</h1>
+<p>NOTE: here we discuss a variety of possibilities –&gt; conceptual work</p>
+<section id="data-ownership" class="level2">
+<h2><span class="header-section-number">4.2</span> Data Ownership</h2>
+<ul>
+<li>user-centric, full control</li>
+</ul>
+</section>
+<section id="identity-verification" class="level2">
+<h2><span class="header-section-number">4.3</span> Identity Verification</h2>
+<ul>
+<li>maybe go with a CA
+<ul>
+<li>revoking the cert which provides the authenticity of the individual’s digital identity<br />
+should only be possible with a two-factor secret. One part of this secret is owned by<br />
+the CA and the other half has the individual behind the personal API</li>
+</ul></li>
+</ul>
+</section>
+<section id="authentication" class="level2">
+<h2><span class="header-section-number">4.4</span> Authentication</h2>
+<ul>
+<li>NOTE: does not mean this tool authenticates it’s owner against third party platforms like<br />
+OpenID does. but it could play the role of the 2n factor in a multi-factor authentication<br />
+process (if the mobile-device-architecture was chosen)</li>
+<li>refers primarily to the process of a data consumer (third party, which needs the data for<br />
+whatever reason) verifies her admission to request</li>
+</ul>
+</section>
+<section id="data-reliability" class="level2">
+<h2><span class="header-section-number">4.5</span> Data Reliability</h2>
+<ul>
+<li>is this data (in this case identity) certified or not (results in higher value)</li>
+</ul>
+</section>
+<section id="exposing-data" class="level2">
+<h2><span class="header-section-number">4.6</span> Exposing Data</h2>
+<ul>
+<li>pure/plain data request/resonse</li>
+<li>remote computation/execution (assuming there is no client for the consumer)<br />
+like https://webtask.io/</li>
+</ul>
+</section>
+<section id="encapsulation" class="level2">
+<h2><span class="header-section-number">4.7</span> Encapsulation</h2>
+<ul>
+<li>containerization (coreos, rkt, mirageos aka unikernal)</li>
+</ul>
+</section>
+<section id="open-standards" class="level2">
+<h2><span class="header-section-number">4.8</span> Open Standards</h2>
+<ul>
+<li>what standards can be used for which tasks</li>
+</ul>
+</section>
+<section id="hosting" class="level2">
+<h2><span class="header-section-number">4.9</span> Hosting</h2>
+<ul>
+<li>DYI</li>
+<li>Usability</li>
+</ul>
+</section>
+</section>
+<section id="architecture" class="level1">
+<h1><span class="header-section-number">5</span> Architecture</h1>
+<p>NOTE: based on the previous discussion, here we show our results and solutions</p>
+<section id="requirements" class="level2">
+<h2><span class="header-section-number">5.2</span> Requirements</h2>
+<section id="components" class="level3">
+<h3><span class="header-section-number">5.2.2</span> Components</h3>
+</section>
+</section>
+<section id="possible-directions" class="level2">
+<h2><span class="header-section-number">5.3</span> Possible Directions</h2>
+<ul>
+<li>cloud or local storage</li>
+<li>which components can go where</li>
+</ul>
+</section>
+<section id="overview" class="level2">
+<h2><span class="header-section-number">5.4</span> Overview</h2>
+<ul>
+<li>distributed architecture (e.g. notification/queue server + mobile device for persistence<br />
+and administration)</li>
+</ul>
+<section id="componenta" class="level3">
+<h3><span class="header-section-number">5.4.2</span> $componentA</h3>
+</section>
+<section id="componentb" class="level3">
+<h3><span class="header-section-number">5.4.3</span> $componentB</h3>
+</section>
+</section>
+<section id="security" class="level2">
+<h2><span class="header-section-number">5.5</span> Security</h2>
+<ul>
+<li>the downside of having not just parts of the personal data in different places (which is<br />
+currently the common way to store), is in case of security breach, it would increase the<br />
+possible damage by an exponential rate<br />
+Thereby all data is exposed at once, instead of not just the parts which a single service<br />
+has stored</li>
+</ul>
+<section id="environment" class="level3">
+<h3><span class="header-section-number">5.5.2</span> Environment</h3>
+</section>
+<section id="transport" class="level3">
+<h3><span class="header-section-number">5.5.3</span> Transport</h3>
+</section>
+<section id="storage" class="level3">
+<h3><span class="header-section-number">5.5.4</span> Storage</h3>
+</section>
+<section id="authentication-1" class="level3">
+<h3><span class="header-section-number">5.5.5</span> Authentication</h3>
+<ul>
+<li>how should consumer authenticate?</li>
+</ul>
+</section>
+<section id="attack-scenarios" class="level3">
+<h3><span class="header-section-number">5.5.6</span> Attack Scenarios</h3>
+</section>
+</section>
+<section id="plugins" class="level2">
+<h2><span class="header-section-number">5.6</span> Plugins</h2>
+<ul>
+<li>but for what? and not harm security at the same time</li>
+</ul>
+</section>
+</section>
+<section id="data" class="level1">
+<h1><span class="header-section-number">6</span> Data</h1>
+<ul>
+<li>keep in mind to make it all somehow extendible, e.g. by using and storing<br />
+corresponding schemas</li>
+</ul>
+<section id="modelling" class="level2">
+<h2><span class="header-section-number">6.2</span> Modelling</h2>
+</section>
+<section id="categories" class="level2">
+<h2><span class="header-section-number">6.3</span> Categories</h2>
+</section>
+<section id="types" class="level2">
+<h2><span class="header-section-number">6.4</span> Types</h2>
+</section>
+<section id="flows" class="level2">
+<h2><span class="header-section-number">6.5</span> Flows</h2>
+</section>
+<section id="persistence" class="level2">
+<h2><span class="header-section-number">6.6</span> Persistence</h2>
+<ul>
+<li>database requirements</li>
+</ul>
+</section>
+<section id="history" class="level2">
+<h2><span class="header-section-number">6.7</span> History</h2>
+<ul>
+<li>data versioning</li>
+<li>access logs</li>
+</ul>
+</section>
+<section id="management-and-administration" class="level2">
+<h2><span class="header-section-number">6.8</span> Management and Administration</h2>
+<section id="access-permission" class="level3">
+<h3><span class="header-section-number">6.8.2</span> Access &amp; Permission</h3>
+<ul>
+<li>data needs to have an expiration date</li>
+</ul>
+</section>
+</section>
+<section id="consumption" class="level2">
+<h2><span class="header-section-number">6.9</span> Consumption</h2>
+<ul>
+<li>how data will get into the system</li>
+<li>hwo is the user able to do that, and how does it works</li>
+</ul>
+<section id="manually" class="level3">
+<h3><span class="header-section-number">6.9.2</span> Manually</h3>
+</section>
+<section id="automatically" class="level3">
+<h3><span class="header-section-number">6.9.3</span> Automatically</h3>
+</section>
+</section>
+</section>
+<section id="interfaces" class="level1">
+<h1><span class="header-section-number">7</span> Interfaces</h1>
+<section id="internal" class="level2">
+<h2><span class="header-section-number">7.2</span> Internal</h2>
+</section>
+<section id="external" class="level2">
+<h2><span class="header-section-number">7.3</span> External</h2>
+<ul>
+<li>should there be a way to somehow request information about what data is available/queryable,<br />
+or would this be result in spam/crawler and security issues (also a question for the topic of<br />
+permissions/sensibility level of certain data)</li>
+</ul>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1><span class="header-section-number">8</span> Conclusion</h1>
+<section id="ethical-social-impact-todo-or-relevance" class="level2">
+<h2><span class="header-section-number">8.2</span> Ethical &amp; Social Impact (TODO: or “Relevance”)</h2>
+</section>
+<section id="business-models-monetisation" class="level2">
+<h2><span class="header-section-number">8.3</span> Business Models &amp; Monetisation</h2>
+<ul>
+<li>possible resulting direct or indirect business models</li>
+<li>owner might want</li>
+</ul>
+</section>
+<section id="challenges" class="level2">
+<h2><span class="header-section-number">8.4</span> Challenges</h2>
+</section>
+<section id="solutions" class="level2">
+<h2><span class="header-section-number">8.5</span> Solutions</h2>
+</section>
+<section id="future-work" class="level2">
+<h2><span class="header-section-number">8.6</span> Future Work</h2>
+</section>
+<section id="summary" class="level2">
+<h2><span class="header-section-number">8.7</span> Summary</h2>
+<ul>
+<li>main focus</li>
+<li>unique features</li>
+<li>technology stack &amp; standards</li>
+<li>resources</li>
+</ul>
+</section>
+</section>
+            </body>
+</html>

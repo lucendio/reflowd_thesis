@@ -49,6 +49,7 @@ __NOTE:__ currently it only supports OSX
 +   https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/
 +   http://galahad.well.ox.ac.uk/repro/
 +   https://ineed.coffee/4008/how-to-write-an-acm-styled-conference-paper-using-markdownpandoc/
++   http://tech.lauritz.me/easy-latex-with-markdown-pandoc/
 
 
 ### Documentation and knowledge
@@ -67,3 +68,7 @@ __NOTE:__ currently it only supports OSX
 
 +   https://github.com/tompollard/phd_thesis_markdown
 +   https://github.com/chiakaivalya/thesis-markdown-pandoc
+
++   https://github.com/svmiller/svm-r-markdown-templates
++   https://github.com/ismayc/thesisdown/tree/master/inst/rmarkdown/templates/thesis/skeleton
++   https://github.com/sikessle/pandoc-thesis-template
