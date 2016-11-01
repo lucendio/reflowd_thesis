@@ -11,15 +11,11 @@
 
 
 
-### Categories (or Class)
+### Categories (or Classes)
 
 
 
 ### Types
-
-
-
-### Flows
 
 
 
@@ -29,16 +25,13 @@
 
 
 
-### Management and Administration
-
-
 #### Access & Permission
 
 +   data needs to have an expiration date
 
 
 
-### Consumption (data income)
+### Consumption (data inflow)
 
 +   how data will get into the system
 +   hwo is the user able to do that, and how does it works
@@ -50,7 +43,7 @@
 
 
 
-### Exposure (data output)
+### Emission (data outflow)
 
 +   depending on what category of data, they might need to get anonymized somehow before they 
     leave the system

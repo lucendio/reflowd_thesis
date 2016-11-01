@@ -10,7 +10,7 @@ date:   \today
 version: '0.0.1'
 
 abstract: >
-            Data is currency of tomorrow. Organizations, whether in the private or public
+            Data is the currency of tomorrow. Organizations, whether in the private or public
             sector, gathering enormous amounts of personal (big) data. This data is harvested and
             incorporated by these third parties, but were created by individuals and therefore
             should belong to them. People depending on all their data. Their identity
@@ -46,7 +46,7 @@ include-after: |
 
 links-as-notes: true
 toc-title: 'Table of Contents'
-toc-depth: 3
+toc-depth: 2
 link-citations: true
 
 

@@ -19,7 +19,7 @@ Introduction
 
 
 
-## Glossary 
+## Terminologies 
 
 +   serverless: https://auth0.com/blog/2016/06/09/what-is-serverless/
 +   digital footprints: TODO

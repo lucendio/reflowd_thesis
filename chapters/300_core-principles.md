@@ -1,4 +1,4 @@
-Concepts
+Core Principles
 ==========================================
 
 
@@ -26,10 +26,11 @@ NOTE: here we discuss a variety of possibilities --> conceptual work
     -   ePerso
     -   E-Post/de-mail
     
++   Authentication 
 
 
 
-## Authentication
+## Authorisation
 
 +   NOTE: does not mean this tool authenticates it's owner against third party platforms like 
     OpenID does. but it could play the role of the 2n factor in a multi-factor authentication 
@@ -39,13 +40,13 @@ NOTE: here we discuss a variety of possibilities --> conceptual work
 
 
 
-## Data Reliability
+## Authentic Data
 
 +   is this data (in this case identity) certified or not (results in higher value)
 
 
 
-## Exposing Data
+## Supervised Data Access
 
 +   pure/plain data request/resonse 
 +   remote computation/execution (assuming there is no client for the consumer) 
@@ -59,16 +60,12 @@ NOTE: here we discuss a variety of possibilities --> conceptual work
 
 
 
-## Open Standards
+## Open Development
 
-+   what standards can be used for which tasks
++   which and why open standards
++   why open source
++   collaborative transparent development 
 
-
-
-## Hosting
-
-+   DYI
-+   Usability
-
-
-
++   Hosting & Administration
+    -   DYI
+    -   Usability

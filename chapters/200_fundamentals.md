@@ -3,23 +3,23 @@ Fundamentals
 
 
 
-## Personal data in the context of Big Data - Movement
+## Personal Data in the context of the Big Data Movement
 
 +   difference between users *profile/account data* and their *meta data*?
-
-
-
-## Personal data as of the Law
-
-+   who is the owner in what situation or under what circumstance?
-+   difference between "Personal Data" and the owner of that data?
 
 
 
 ## Personal Data as a Product
 
 +   individuals then get in role of selling/offering it's own data to those who were previously 
-    collecting them 
+    collecting them
+
+
+
+## Personal Data as of the Law
+
++   who is the owner in what situation or under what circumstance?
++   difference between "Personal Data" and the owner of that data?
 
 
 
@@ -41,13 +41,24 @@ Fundamentals
 
 
 
+## Use Cases (NOTE: maybe move to 100_introduction)
+
++   package shipment after buying sth online 
++   social network accessing arbitrary profile data
++   making an online purchase
++   credibility (requesting credit permission) validation by a certain financial institution: 
+    accessing arbitrary data
++   patient/health record
++   care (movement) data
+
+
 
 ## Related Work
 
 TODO
 
 
-### Existing Systems
+### Research
 
 +   openPDS/safeAnswer [http://openpds.media.mit.edu/]
 +   TAS3 aka ZXID aka Synergetics (lead arch Sampo Kellomäki also Co-Authored openPDS papers)
@@ -60,37 +71,36 @@ TODO
 +   Microsoft HealthVault
 +   Industrial Data Space (german research project mainly driven by Fraunhofer Institute)
 +   Polis (greek research project from 2008) [http://polis.ee.duth.gr/Polis/index.php]
-+   MyData [https://mydatafi.wordpress.com/]
-+   Meeco (killing the ad provider middle man) [https://meeco.me/how-it-works.html]
-+   RESPECT network [https://www.respectnetwork.com/]
-+   aWise AEGIS [http://www.ewise.com/aegis]
 
 
-### Existing Organisations
+### Organisations
 
 +   Kantara Initiative (former "Liberty Alliance") [https://kantarainitiative.org/]
 +   Open Identity Exchange [http://openidentityexchange.org/resources/white-papers/]
 +   Qiy Foundation [https://www.qiyfoundation.org/]
 
 
+### Commercial Products
 
-## Application
++   MyData [https://mydatafi.wordpress.com/]
++   Meeco (killing the ad provider middle man) [https://meeco.me/how-it-works.html]
++   RESPECT network [https://www.respectnetwork.com/]
++   aWise AEGIS [http://www.ewise.com/aegis]
 
 
-### Use Cases
 
-TODO: should be more general, differently from each other
+## Standards and Specifications
+
++   http(s)
++   all the *Semantic Web* stuff
++   Container/App spec
++   JWT
++   oAuth (?)
++   JSON
++   REST
++   GraphQL
 
 
-### User Stories 
-
-+   package shipment after buying sth online 
-+   social network accessing arbitrary profile data
-+   making an online purchase
-+   credibility (requesting credit permission) validation by a certain financial institution: 
-    accessing arbitrary data
-+   patient/health record
-+   care (movement) data
 
 
 
