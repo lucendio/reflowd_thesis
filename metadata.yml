@@ -9,9 +9,26 @@ author:
 date:   \today
 version: '0.0.1'
 
-abstract: 'TODO'
+abstract: >
+            Data is currency of tomorrow. Organizations, whether in the private or public
+            sector, gathering enormous amounts of personal (big) data. This data is harvested and
+            incorporated by these third parties, but were created by individuals and therefore
+            should belong to them. People depending on all their data. Their identity
+            as well as their personality are defined by their personal data.
+            Meanwhile data silo operators are hammering onto these haystacks eager trying to
+            find any kind of correlations worth interpreting, thereby almost inevitably
+            discriminating the rightful owners.
+            To reduce the possibility of discrimination only the least amount of data that is
+            required should be handed over to the third party. Thus the individual has to be in
+            charge of the whole process. A personal data service will empower its user to regain
+            full control over her data and facilitates detailed information on every data flow.
+            To be able to trust such a tool, the user should be able to look inside. Therefore
+            a personal data service has to be open source and developed transparently, which
+            then also allows to self-host it.
+
+
 keywords:
-    -   'personal data'
+    -   'personal data store'
     -   'personal data as a service'
     -   'web service architecture'
     -   'open specification'

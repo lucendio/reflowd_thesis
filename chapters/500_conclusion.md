@@ -10,7 +10,9 @@ Conclusion
 ## Business Models & Monetisation
 
 +   possible resulting direct or indirect business models
-+   owner might want
++   owner might want to sell her data, only under her conditions. therefore some kind of 
+    infrastructure and process is required (such as payment transfer, data anonymization, market
+    place to offer data)
 
 
 

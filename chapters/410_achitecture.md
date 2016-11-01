@@ -1,36 +1,36 @@
-Architecture
-==========================================
+## Architecture
+
 
 
 NOTE: based on the previous discussion, here we show our results and solutions
 
 
-## Requirements
+### Requirements
 
-### Components
+#### Components
 
 
 
-## Possible Directions
+### Possible Directions
 
 +   cloud or local storage
 +   which components can go where
 
 
 
-## Overview
+### Overview
 
 +   distributed architecture (e.g. notification/queue server + mobile device for persistence
     and administration)
 
-### $componentA
+#### $componentA
 
 
-### $componentB
+#### $componentB
 
 
 
-## Security
+### Security
 
 +   the downside of having not just parts of the personal data in different places (which is
     currently the common way to store), is in case of security breach, it would increase the 
@@ -39,25 +39,27 @@ NOTE: based on the previous discussion, here we show our results and solutions
     has stored
 
 
-### Environment
+#### Environment
 
 
-### Transport
+#### Transport
+
++   https only, but which ciphers?
 
 
-### Storage
+#### Storage
 
 
-### Authentication
+#### Authentication
 
 +   how should consumer authenticate?
 
 
-### Attack Scenarios
+#### Attack Scenarios
 
 
 
-## Plugins
+### Plugins
 
 +   but for what? and not harm security at the same time 
 

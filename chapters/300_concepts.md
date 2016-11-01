@@ -14,10 +14,18 @@ NOTE: here we discuss a variety of possibilities --> conceptual work
 
 ## Identity Verification
 
-+   maybe go with a CA
++   maybe go with a Signing/verifying Authority (aka CA)
+    -   do I trust the gov or certain companies more? Which interests do these Role/Stakeholder 
+        have?
     -   revoking the cert which provides the authenticity of the individual's digital identity 
         should only be possible with a two-factor secret. One part of this secret is owned by 
         the CA and the other half has the individual behind the personal API
+        
++   TODO: look into
+    -   PKI
+    -   ePerso
+    -   E-Post/de-mail
+    
 
 
 
