@@ -16,11 +16,3 @@ Introduction
 +   Personal Data Store (aka. Service, Space, Vault, Cloud, Management/Manager), VRM (Vendor 
     Relation Management) aka "CRM upside down"
 +   Open Source
-
-
-
-## Terminologies 
-
-+   serverless: https://auth0.com/blog/2016/06/09/what-is-serverless/
-+   digital footprints: TODO
-+   owner: person who controls (and probably hosts) the data service containing her personal data 

@@ -30,7 +30,7 @@ NOTE: here we discuss a variety of possibilities --> conceptual work
 
 
 
-## Authorisation
+## Authorisation (remove in favour of data access?)
 
 +   NOTE: does not mean this tool authenticates it's owner against third party platforms like 
     OpenID does. but it could play the role of the 2n factor in a multi-factor authentication 

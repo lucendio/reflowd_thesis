@@ -7,7 +7,7 @@ Specification
 
 
 
-## Processes (TODO: find another word)
+## Processes (TODO: find another word; "Protocol flows"?)
 
 
 
