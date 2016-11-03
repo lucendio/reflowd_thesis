@@ -22,5 +22,8 @@
 
 ### Plugins
 
-+   but for what? and not harm security at the same time 
++   but for what? and not harm security at the same time?
+    maybe just for data types and admin UI to display analytical (time based) data in other ways
++   what about extensions (see iOS 10) to let other apps consume data; only on a mobile device and 
+    only if the data is stored there
 

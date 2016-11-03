@@ -28,7 +28,10 @@ Conclusion
 
 
 
+
 ## Future Work
+
++   maybe enable the tool to play the role of an own OpenID provider?
 
 
 
@@ -38,3 +41,4 @@ Conclusion
 +   unique features
 +   technology stack & standards
 +   resources
++   the tool might be not a bulletproof vest, but
