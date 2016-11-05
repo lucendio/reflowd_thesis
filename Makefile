@@ -134,7 +134,7 @@ pdf:
 	\
 	--output="$(OUTPUT_DIR)/index.pdf" \
 	--dpi=96 \
-	--chapters \
+	--top-level-division=chapter \
 	--toc \
 	--number-sections \
 	--number-offset=1,1,1 \
