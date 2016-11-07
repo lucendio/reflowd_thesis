@@ -11,6 +11,35 @@ Fundamentals
 
 ## Personal Data as a Product
 
+...to do what exactly? (NOTE: was previously in *Motivation*)
++   If one would ask 
+    collectors for their motivation to do so, most likely the answer would be something along
+    the lines of *"We want to have a better understanding of our customers"*. To do what exactly?
+
++   To predict what might be the next thing I am supposed to buy Or what things I probably would 
+    like to consume but most certainly not yet know of?
++   Let's take a look at some examples. An advertising service uses tracking data for targeted advertising. The more 
+    data they collect about an individual, the more accurate decisions they are able to make on 
+    what ads they have to display are the ones the individual will click on and then will go 
+    all the way down to disclose a successful purchase. This makes the placed advertisement 
+    more valuable for google and therefore more expensive to the advertiser, 
+    because of a high precision.
+    Or a streaming provider content recommendation is also based on heavy user profiling 
+    done by looking at her consumption history, tracked platform interactions and probably many 
+    more vectors. 
+    As always, it depends on the business model, but it seems to be consensual, that it 
+    all comes down to improving and enhancing the collector's product (NOTE: needs at least
+    some empirical evidence), in order to satisfy the customers - and that on the other hand
+    depends on who is seen as customers.
++   Nevertheless if we change the perspective, a lot of great things can be achieved with the help 
+    of huge amounts of personal data, such as:
+    -   planing and managing human resources for situations, like e.g. big events where attendees 
+        might need some help [@estimating-the-locations-of-emergency-events-from-twitter-streams_2014]
+    -   predicting infrastructure workloads [http://ieeexplore.ieee.org/document/7336197/]
+    -   making more accurate diagnostics to improve their therapy [@the-practice-of-predictive-analytics-in-healthcare_2013]
+    -   finding patters in climate changes, which otherwise wont get revealed [@data-collection-for-climate-changes_2014].
+
+
 +   individuals then get in role of selling/offering it's own data to those who were previously 
     collecting them
 

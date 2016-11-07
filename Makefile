@@ -61,7 +61,8 @@ define EXTENSIONS
 +yaml_metadata_block\
 \
 +lists_without_preceding_blankline\
-+hard_line_breaks\
+-hard_line_breaks\
+-ignore_line_breaks\
 -emoji\
 -tex_math_single_backslash\
 +tex_math_double_backslash\
