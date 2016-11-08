@@ -44,6 +44,12 @@ Fundamentals
     collecting them
 
 
++   It is all about understanding the human being and why she behaves as she does. The 
+    challenge is not only to computing certain motives but rather concluding to the right ones. 
+    When analyzing computed results with the corresponding data models and trying to conclude, 
+    it is important to keep in mind, that correlation is no proof of causation.
+    
+
 
 ## Personal Data as of the Law
 

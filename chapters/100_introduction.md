@@ -33,18 +33,24 @@ humans, is in fact the *cognitive bias* [@wikipedia_2016_cognitive-bias] of the 
 modeled in machine executable language and made to reveal the patterns their creators were looking 
 for.
 
-In addition to the identity-defining data mentioned above humans intend also to create more and 
-more data on a daily basis - pro-actively e.g by writing a tweet and passively e.g by appending 
-their current location to that tweet when submitting it.
-As a result there are huge amount of data to collect, aggregate and analyze.
+In addition to the identity-defining data mentioned above humans have the habit to create more and 
+more data on a daily basis - pro-actively e.g by writing a tweet and passively e.g by allowing 
+the twitter app accessing their current location while submitting the tweet. 
+As a result already tremendous amounts of data keeps growing bigger and bigger waiting to
+get harvested, collected, aggregated, analyzed and finally interpreted. The crux here is, the 
+more data being made available [@video_2015_big-data-and-deep-learning_discrimination]to *mine* 
+on, the chances are much higher to isolate data sets, that differ from each other but are 
+coherent in theirselves. Then it is just a matter of the preceded questioning how to distinguish 
+the data set and thereby the related individuals from each other.
 
-So it happens  
+So to lower potential discrimination we either need to erase responsible parts from the machines, 
+therefore raising awareness and teaching people about the issue of discrimination are crucial, 
+or we*re trying to prevent our data from falling into these data silos. The later will be adressed
+in this work.
 
 
 
-
-
-
+## Purpose & Outcome
 
 +   It is a matter of individual perception what's good or bad, what's armful or what's an
     advantage. Collecting, aggregating and analyzing data is foremostly just science and 
@@ -52,26 +58,11 @@ So it happens
     are serving. Hence it should be decided by the data creators, what's happening to their 
     data and what parts of them are used.
 
-+   Additionally 
 
+The idea here is (1) to make the individual capable of controlling her entire data distribution
+and (2) thus reducing the amount of *potentially discriminatory* 
+[@paper_2008_discrimination-aware-data-mining] attributes leaking into arbitrary calculations. 
 
-
-+   It is all about understanding the human being and why she behaves as she does. The 
-    challenge is not only to computing certain motives but rather concluding to the right ones. 
-    When analyzing computed results with the corresponding data models and trying to conclude, 
-    it is important to keep in mind, that correlation is no proof of causation.
-
-+   To tackle the issue of potential discrimination by human-made algorithms
-
-
-+   The idea here is (1) to make the individual capable of controlling her entire data distribution
-    and (2) thus reducing [@video_2015_big-data-and-deep-learning_discrimination] the amount 
-    of *potentially discriminatory* [@paper_2008_discrimination-aware-data-mining] attributes 
-    leaking into arbitrary calculations. 
-
-
-
-## Purpose & Outcome
 
 +   Personal Data Store (aka. Service, Space, Vault, Cloud, Management/Manager), VRM (Vendor 
     Relation Management) aka "CRM upside down"
