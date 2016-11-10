@@ -90,7 +90,7 @@ Fundamentals
 
 ## Related Work
 
-TODO
++   much more research since the data mining, big data, deep learning 
 
 
 ### Research
