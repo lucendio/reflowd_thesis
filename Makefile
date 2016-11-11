@@ -173,7 +173,7 @@ html:
 	\
 	--to=html5 \
 	--output="$(OUTPUT_DIR)/index.html" \
-	--chapters \
+	--top-level-division=chapter \
 	--toc \
 	--number-sections \
 	--number-offset=1,1,1 \

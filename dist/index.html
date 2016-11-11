@@ -47,13 +47,17 @@
                 <li><a href="#core-principles"><span class="toc-section-number">4</span> Core Principles</a><ul>
                 <li><a href="#data-ownership"><span class="toc-section-number">4.2</span> Data Ownership</a></li>
                 <li><a href="#identity-verification"><span class="toc-section-number">4.3</span> Identity Verification</a></li>
-                <li><a href="#authorisation"><span class="toc-section-number">4.4</span> Authorisation</a></li>
+                <li><a href="#authorisation-remove-in-favour-of-data-access"><span class="toc-section-number">4.4</span> Authorisation (remove in favour of data access?)</a></li>
                 <li><a href="#authentic-data"><span class="toc-section-number">4.5</span> Authentic Data</a></li>
                 <li><a href="#supervised-data-access"><span class="toc-section-number">4.6</span> Supervised Data Access</a></li>
                 <li><a href="#encapsulation"><span class="toc-section-number">4.7</span> Encapsulation</a></li>
                 <li><a href="#open-development"><span class="toc-section-number">4.8</span> Open Development</a></li>
                 </ul></li>
-                <li><a href="#requirements"><span class="toc-section-number">5</span> Requirements</a></li>
+                <li><a href="#requirements"><span class="toc-section-number">5</span> Requirements</a><ul>
+                <li><a href="#user-interaction"><span class="toc-section-number">5.2</span> User Interaction</a></li>
+                <li><a href="#management-organisation"><span class="toc-section-number">5.3</span> Management &amp; Organisation</a></li>
+                <li><a href="#administration"><span class="toc-section-number">5.4</span> Administration</a></li>
+                </ul></li>
                 <li><a href="#design"><span class="toc-section-number">6</span> Design</a><ul>
                 <li><a href="#architecture"><span class="toc-section-number">6.2</span> Architecture</a><ul>
                 <li><a href="#overview"><span class="toc-section-number">6.2.2</span> Overview</a></li>
@@ -65,9 +69,10 @@
                 <li><a href="#categories-or-classes"><span class="toc-section-number">6.3.3</span> Categories (or Classes)</a></li>
                 <li><a href="#types"><span class="toc-section-number">6.3.4</span> Types</a></li>
                 <li><a href="#persistence"><span class="toc-section-number">6.3.5</span> Persistence</a></li>
-                <li><a href="#consumption-data-inflow"><span class="toc-section-number">6.3.6</span> Consumption (data inflow)</a></li>
-                <li><a href="#emission-data-outflow"><span class="toc-section-number">6.3.7</span> Emission (data outflow)</a></li>
-                <li><a href="#history"><span class="toc-section-number">6.3.8</span> History</a></li>
+                <li><a href="#access-permission"><span class="toc-section-number">6.3.6</span> Access &amp; Permission</a></li>
+                <li><a href="#consumption-data-inflow"><span class="toc-section-number">6.3.7</span> Consumption (data inflow)</a></li>
+                <li><a href="#emission-data-outflow"><span class="toc-section-number">6.3.8</span> Emission (data outflow)</a></li>
+                <li><a href="#history"><span class="toc-section-number">6.3.9</span> History</a></li>
                 </ul></li>
                 <li><a href="#interfaces"><span class="toc-section-number">6.4</span> Interfaces</a><ul>
                 <li><a href="#internal"><span class="toc-section-number">6.4.2</span> Internal</a></li>
@@ -75,7 +80,7 @@
                 </ul></li>
                 </ul></li>
                 <li><a href="#specification"><span class="toc-section-number">7</span> Specification</a><ul>
-                <li><a href="#processes-todo-find-another-word"><span class="toc-section-number">7.2</span> Processes (TODO: find another word)</a></li>
+                <li><a href="#processes-todo-find-another-word-protocol-flows"><span class="toc-section-number">7.2</span> Processes (TODO: find another word; “Protocol flows”?)</a></li>
                 <li><a href="#application-programming-interfaces"><span class="toc-section-number">7.3</span> Application Programming Interfaces</a></li>
                 <li><a href="#graphical-user-interfaces"><span class="toc-section-number">7.4</span> Graphical User Interfaces</a></li>
                 <li><a href="#security"><span class="toc-section-number">7.5</span> Security</a><ul>
@@ -104,19 +109,22 @@
 <h1><span class="header-section-number">2</span> Introduction</h1>
 <section id="motivation" class="level2">
 <h2><span class="header-section-number">2.2</span> Motivation</h2>
-<ul>
-<li>discriminate humans related to certain data, by interpreting results of deep learning and<br />
-using neuronal networking and trying to extract information out of data haystacks</li>
-<li>correlation is no proof of causation</li>
-</ul>
+<p>Nowadays it is rare to find someone who doesn’t collects data about some kind of things, particularly humans are the targets of choice for the <em>Big Data Movement</em>. But since humans are all individuals, which means we are all distinct from each other - more or less. Some of us are sharing a bit more similarities, but most are much less similar to each other. Since these few similarities are widely shared, they should be less important, because it seems to be intuitively the nature of inflationary occurrence, but instead the opposite happens to be the case. It allows to determine who is part of a subset with a specific, and therefore shared, attribute and who isn’t, in order to relate apparently common known stereo typical patters onto the individuals in that subset just to predict outcomes of the corresponding problem or question. In other words, searching for causation where in best case one might find correlations - or so called <em>discrimination</em>, which</p>
+<blockquote>
+<p>[…] refers to unfair or unequal treatment of people based on membership to a category or a minority, without regard to individual merit. <em><span class="citation" data-cites="paper_2008_discrimination-aware-data-mining">[<a href="#ref-paper_2008_discrimination-aware-data-mining">1</a>]</span></em></p>
+</blockquote>
+<p>When interacting directly with each other, discrimination of human beings is still a serious issue in our society, but also when humans leveraging computers and algorithms to uncover former unnoticed information in order to include them in their decision making. For example when granting credits, hiring employees, investigating crimes or renting flats. Approving or denying is all happening based on data about the affected individuals <span class="citation" data-cites="book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge">[<a href="#ref-book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge">2</a>]</span>, which is nothing but discrimination, but on a much larger scale and with less effort - almost parenthetically. The described phenomenon is originally referred as <em>Bias in computer systems</em> <span class="citation" data-cites="paper_1996_bias-in-computer-systems">[<a href="#ref-paper_1996_bias-in-computer-systems">3</a>]</span>. What at fist seems to look like machines going rouge on humans, is in fact the <em>cognitive bias</em> <span class="citation" data-cites="wikipedia_2016_cognitive-bias">[<a href="#ref-wikipedia_2016_cognitive-bias">4</a>]</span> of the human nature, modeled in machine executable language and made to reveal the patterns their creators were looking for.</p>
+<p>In addition to the identity-defining data mentioned above humans have the habit to create more and more data on a daily basis - pro-actively e.g by writing a tweet and passively e.g by allowing the twitter app accessing their current location while submitting the tweet. As a result already tremendous amounts of data keeps growing bigger and bigger waiting to get harvested, collected, aggregated, analyzed and finally interpreted. The crux here is, the more data being made available <span class="citation" data-cites="video_2015_big-data-and-deep-learning_discrimination">[<a href="#ref-video_2015_big-data-and-deep-learning_discrimination">5</a>]</span> to <em>mine</em> on, the chances are much higher to isolate data sets, that differ from each other but are coherent in theirselves. Then it is just a matter of the preceded questioning how to distinguish the data set and thereby the related individuals from each other.</p>
+<p>So to lower potential discrimination we either need to erase responsible parts from the machines, therefore raising awareness and teaching people about the issue of discrimination are crucial, or we*re trying to prevent our data from falling into these data silos. The later will be addressed in this work.</p>
 </section>
 <section id="purpose-outcome" class="level2">
 <h2><span class="header-section-number">2.3</span> Purpose &amp; Outcome</h2>
-<ul>
-<li>Personal Data Store (aka. Service, Space, Vault, Cloud, Management/Manager), VRM (Vendor<br />
-Relation Management) aka “CRM upside down”</li>
-<li>Open Source</li>
-</ul>
+<p>From an individual’s perspective providing data to third parties might not seem harmful at all. Instead they eventually get improved services in return, e.g. more adequate recommendations and fitting advertisement, or more helpful therapies and more secure environments. That said, though it is a matter of perception what’s good and bad, what’s harmful and what’s an advantage. Computing data to leverage decision making is essentially just science and technology and it’s up to the humans how such tools are getting utilized and what purposes they are serving. Hence it should be decided by the data creators, how their data get processed and what parts of them are used.</p>
+<p>To tackle the described issue the initial idea here is (1) to equip individuals with the ability to control and maintain their entire data distribution and (2) thus reducing the amount of <em>potentially discriminatory</em> <span class="citation" data-cites="paper_2008_discrimination-aware-data-mining">[<a href="#ref-paper_2008_discrimination-aware-data-mining">1</a>]</span> attributes leaking into arbitrary calculations. To do so people need a reliable and trustworthy tool, which assists them in managing all their <em>personal data</em> and making them accessible for 3rd parties but under their own conditions. After getting permission granted these data consumers might have the most accurate and reliable one-stop resource to an individuals’s data at hand, while urged to respect their privacy at the same time. However this also comes with downsides in terms of security and potential data loss. Elaborating on that and discussing different solutions will be part of the [design process][Design].</p>
+<p>The way how to solve the described dilemma is not new. Early days of work done in this field can be dated back to the Mid-2000s where studies were made e.g. about recent developments in the industry or user’s concerning about privacy, and the term <em>Vendor Relationship Management (VRM)</em> were used initially within the context of user-centric personal data management, which also led into the <em>ProjectVRM</em> <span class="citation" data-cites="web_2010_projectvrm_about">[<a href="#ref-web_2010_projectvrm_about">6</a>]</span> started by the <em>Berkman Klein Center for Internet &amp; Society at Hardvard University</em>. Since then a great amount of effort went into this research area until today, while also commercial products and business models trying to solve certain problems. For instance concepts such as the <em>Personal Data Store (PDS)</em> <span class="citation" data-cites="paper_2013_the-personal-data-store-approach-to-personal-data-security_2013">[<a href="#ref-paper_2013_the-personal-data-store-approach-to-personal-data-security_2013">7</a>]</span> or a <em>MyData</em> <span class="citation" data-cites="whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing">[<a href="#ref-whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing">8</a>]</span> implementation called <em>Meeco</em> <span class="citation" data-cites="web_2016_meeco-how-it-works">[<a href="#ref-web_2016_meeco-how-it-works">9</a>]</span>, which will all be covered in a more detailed way within the following chapter.</p>
+<p>The work and research done for this thesis will be the foundation for an <em>Open Specification</em>, which by itself is a manual to implement a concept called <em>Personal Data as a Service</em>. Important topics like how the architecture will look like, where the actual data can be stored, how to obtain data from the external API or what requirements a user interface for data management need to satisfy, will be examined. After the thesis will be finished, the majority of core issues should already be addressed and can then get outlined in the specification document. Only then the task to actual implement certain components can begin. The reason for that is, when sensitive subjects especially like people’s privacy is at risk, all aspects in question deserve a careful considerations and then get addressed properly. Thus it is indispensable to put adequate effort primarily into the theoretical work. To be clear though, that doesn’t mean writing code to test out theories and ideas can’t be done during research and specification development. It might even help to spot some flaws and eventually trigger evolvement.</p>
+<p>To ensure a great level of trust to this project and the resulting software, it is vital to make the development process fully transparent and encourage people to get involved. Therefore it is required to open source all related software and documents <span class="citation" data-cites="repo_2016_pdaas-spec">[<a href="#ref-repo_2016_pdaas-spec">10</a>]</span> from day one on.</p>
+<p>In summary, this document is meant to be the initial step in a development process fabricating a tool to manage all data that defines her identity controlled and administrated by it’s owner, and maybe give her a more precise understanding about where her personal information flow and how this might effect her privacy.</p>
 </section>
 <section id="terminologies" class="level2">
 <h2><span class="header-section-number">2.4</span> Terminologies</h2>
@@ -124,6 +132,7 @@ Relation Management) aka “CRM upside down”</li>
 <li>serverless: https://auth0.com/blog/2016/06/09/what-is-serverless/</li>
 <li>digital footprints: TODO</li>
 <li>owner: person who controls (and probably hosts) the data service containing her personal data</li>
+<li>(data) consumer: Third party, external entity requesting data, authorized by the owner to do so</li>
 </ul>
 </section>
 </section>
@@ -137,9 +146,20 @@ Relation Management) aka “CRM upside down”</li>
 </section>
 <section id="personal-data-as-a-product" class="level2">
 <h2><span class="header-section-number">3.3</span> Personal Data as a Product</h2>
+<p>…to do what exactly? (NOTE: was previously in <em>Motivation</em>)</p>
 <ul>
-<li>individuals then get in role of selling/offering it’s own data to those who were previously<br />
-collecting them</li>
+<li><p>If one would ask collectors for their motivation to do so, most likely the answer would be something along the lines of <em>“We want to have a better understanding of our customers”</em>. To do what exactly?</p></li>
+<li>To predict what might be the next thing I am supposed to buy Or what things I probably would like to consume but most certainly not yet know of?</li>
+<li>Let’s take a look at some examples. An advertising service uses tracking data for targeted advertising. The more data they collect about an individual, the more accurate decisions they are able to make on what ads they have to display are the ones the individual will click on and then will go all the way down to disclose a successful purchase. This makes the placed advertisement more valuable for google and therefore more expensive to the advertiser, because of a high precision. Or a streaming provider content recommendation is also based on heavy user profiling done by looking at her consumption history, tracked platform interactions and probably many more vectors. As always, it depends on the business model, but it seems to be consensual, that it all comes down to improving and enhancing the collector’s product (NOTE: needs at least some empirical evidence), in order to satisfy the customers - and that on the other hand depends on who is seen as customers.</li>
+<li>Nevertheless if we change the perspective, a lot of great things can be achieved with the help of huge amounts of personal data, such as:
+<ul>
+<li>planing and managing human resources for situations, like e.g. big events where attendees might need some help <span class="citation" data-cites="estimating-the-locations-of-emergency-events-from-twitter-streams_2014">[<a href="#ref-estimating-the-locations-of-emergency-events-from-twitter-streams_2014">11</a>]</span></li>
+<li>predicting infrastructure workloads [http://ieeexplore.ieee.org/document/7336197/]</li>
+<li>making more accurate diagnostics to improve their therapy <span class="citation" data-cites="the-practice-of-predictive-analytics-in-healthcare_2013">[<a href="#ref-the-practice-of-predictive-analytics-in-healthcare_2013">12</a>]</span></li>
+<li>finding patters in climate changes, which otherwise wont get revealed <span class="citation" data-cites="data-collection-for-climate-changes_2014">[<a href="#ref-data-collection-for-climate-changes_2014">13</a>]</span>.</li>
+</ul></li>
+<li><p>individuals then get in role of selling/offering it’s own data to those who were previously collecting them</p></li>
+<li><p>It is all about understanding the human being and why she behaves as she does. The challenge is not only to computing certain motives but rather concluding to the right ones. When analyzing computed results with the corresponding data models and trying to conclude, it is important to keep in mind, that correlation is no proof of causation.</p></li>
 </ul>
 </section>
 <section id="personal-data-as-of-the-law" class="level2">
@@ -153,15 +173,9 @@ collecting them</li>
 <h2><span class="header-section-number">3.5</span> Digital Identity</h2>
 <ul>
 <li><p>identity defining data (e.g. history of personal ID card)</p></li>
-<li>with such a system a human being is represented by a non-physical abstraction of herself.<br />
-Which essentially is a list of attributes, that are at least for legal and civil<br />
-administration purposes important. Their values in total are unique and representing the<br />
-corresponding human. Certain attributes hold unique values within it’s own context, for<br />
-example the <em>social security number</em>.</li>
-<li>Thus it’s not necessary to know the values of all attributes in order to identify it’s<br />
-owner</li>
-<li><p>therefore its imported to not see it as a reduction of a living individual to some bits and<br />
-bytes</p></li>
+<li>with such a system a human being is represented by a non-physical abstraction of herself. Which essentially is a list of attributes, that are at least for legal and civil administration purposes important. Their values in total are unique and representing the corresponding human. Certain attributes hold unique values within it’s own context, for example the <em>social security number</em>.</li>
+<li>Thus it’s not necessary to know the values of all attributes in order to identify it’s owner</li>
+<li><p>therefore its imported to not see it as a reduction of a living individual to some bits and bytes</p></li>
 <li><p>what will happen with her data service after a person died?</p></li>
 </ul>
 </section>
@@ -171,15 +185,16 @@ bytes</p></li>
 <li>package shipment after buying sth online</li>
 <li>social network accessing arbitrary profile data</li>
 <li>making an online purchase</li>
-<li>credibility (requesting credit permission) validation by a certain financial institution:<br />
-accessing arbitrary data</li>
+<li>credibility (requesting credit permission) validation by a certain financial institution: accessing arbitrary data</li>
 <li>patient/health record</li>
 <li>care (movement) data</li>
 </ul>
 </section>
 <section id="related-work" class="level2">
 <h2><span class="header-section-number">3.7</span> Related Work</h2>
-<p>TODO</p>
+<ul>
+<li>much more research since the data mining, big data, deep learning</li>
+</ul>
 <section id="research" class="level3">
 <h3><span class="header-section-number">3.7.2</span> Research</h3>
 <ul>
@@ -242,11 +257,8 @@ accessing arbitrary data</li>
 <ul>
 <li>maybe go with a Signing/verifying Authority (aka CA)
 <ul>
-<li>do I trust the gov or certain companies more? Which interests do these Role/Stakeholder<br />
-have?</li>
-<li>revoking the cert which provides the authenticity of the individual’s digital identity<br />
-should only be possible with a two-factor secret. One part of this secret is owned by<br />
-the CA and the other half has the individual behind the personal API</li>
+<li>do I trust the gov or certain companies more? Which interests do these Role/Stakeholder have?</li>
+<li>revoking the cert which provides the authenticity of the individual’s digital identity should only be possible with a two-factor secret. One part of this secret is owned by the CA and the other half has the individual behind the personal API</li>
 </ul></li>
 <li>TODO: look into
 <ul>
@@ -257,14 +269,11 @@ the CA and the other half has the individual behind the personal API</li>
 <li>Authentication</li>
 </ul>
 </section>
-<section id="authorisation" class="level2">
-<h2><span class="header-section-number">4.4</span> Authorisation</h2>
+<section id="authorisation-remove-in-favour-of-data-access" class="level2">
+<h2><span class="header-section-number">4.4</span> Authorisation (remove in favour of data access?)</h2>
 <ul>
-<li>NOTE: does not mean this tool authenticates it’s owner against third party platforms like<br />
-OpenID does. but it could play the role of the 2n factor in a multi-factor authentication<br />
-process (if the mobile-device-architecture was chosen)</li>
-<li>refers primarily to the process of a data consumer (third party, which needs the data for<br />
-whatever reason) verifies her admission to request</li>
+<li>NOTE: does not mean this tool authenticates it’s owner against third party platforms like OpenID does. but it could play the role of the 2n factor in a multi-factor authentication process (if the mobile-device-architecture was chosen)</li>
+<li>refers primarily to the process of a data consumer (third party, which needs the data for whatever reason) verifies her admission to request</li>
 </ul>
 </section>
 <section id="authentic-data" class="level2">
@@ -277,8 +286,7 @@ whatever reason) verifies her admission to request</li>
 <h2><span class="header-section-number">4.6</span> Supervised Data Access</h2>
 <ul>
 <li>pure/plain data request/resonse</li>
-<li>remote computation/execution (assuming there is no client for the consumer)<br />
-like https://webtask.io/</li>
+<li>remote computation/execution (assuming there is no client for the consumer) like https://webtask.io/</li>
 </ul>
 </section>
 <section id="encapsulation" class="level2">
@@ -303,6 +311,18 @@ like https://webtask.io/</li>
 </section>
 <section id="requirements" class="level1">
 <h1><span class="header-section-number">5</span> Requirements</h1>
+<section id="user-interaction" class="level2">
+<h2><span class="header-section-number">5.2</span> User Interaction</h2>
+<ul>
+<li>as effortless as possible</li>
+</ul>
+</section>
+<section id="management-organisation" class="level2">
+<h2><span class="header-section-number">5.3</span> Management &amp; Organisation</h2>
+</section>
+<section id="administration" class="level2">
+<h2><span class="header-section-number">5.4</span> Administration</h2>
+</section>
 </section>
 <section id="design" class="level1">
 <h1><span class="header-section-number">6</span> Design</h1>
@@ -319,8 +339,7 @@ like https://webtask.io/</li>
 <section id="overview" class="level3">
 <h3><span class="header-section-number">6.2.2</span> Overview</h3>
 <ul>
-<li>distributed architecture (e.g. notification/queue server + mobile device for persistence<br />
-and administration)</li>
+<li>distributed architecture (e.g. notification/queue server + mobile device for persistence and administration)</li>
 </ul>
 </section>
 <section id="components" class="level3">
@@ -329,15 +348,16 @@ and administration)</li>
 <section id="plugins" class="level3">
 <h3><span class="header-section-number">6.2.4</span> Plugins</h3>
 <ul>
-<li>but for what? and not harm security at the same time</li>
+<li>but for what? and not harm security at the same time? maybe just for data types and admin UI to display analytical (time based) data in other ways</li>
+<li>what about extensions (see iOS 10) to let other apps consume data; only on a mobile device and only if the data is stored there</li>
 </ul>
 </section>
 </section>
 <section id="data" class="level2">
 <h2><span class="header-section-number">6.3</span> Data</h2>
 <ul>
-<li>keep in mind to make it all somehow extendible, e.g. by using and storing<br />
-corresponding schemas</li>
+<li><p>keep in mind to make it all somehow extendible, e.g. by using and storing corresponding schemas</p></li>
+<li><p>NOTE: step numbers marked with a <code>*</code> are somehow tasks which are happening in the background and don’t require any user interaction</p></li>
 </ul>
 <section id="modelling" class="level3">
 <h3><span class="header-section-number">6.3.2</span> Modelling</h3>
@@ -353,35 +373,42 @@ corresponding schemas</li>
 <ul>
 <li>database requirements</li>
 </ul>
-<section id="access-permission" class="level4">
-<h4><span class="header-section-number">6.3.5.1</span> Access &amp; Permission</h4>
+</section>
+<section id="access-permission" class="level3">
+<h3><span class="header-section-number">6.3.6</span> Access &amp; Permission</h3>
 <ul>
 <li>data needs to have an expiration date</li>
 </ul>
-</section>
+<p><strong>IF01 - Authorizing a consumer to request certain data</strong></p>
+<ol type="1">
+<li>owner creates a new endpoint URI (like <em>pdaas.ownersdomain.tld/e/consumer-name</em>) within the <em>management user interface</em></li>
+<li>owner passes this URI on to the <em>consumer</em>, e.g. through submitting a form or using any arbitrary, eventually insecure channel 3*) consumer need to call this URI for the fist time to verify it’s authenticity</li>
+<li>owner then get’s a notification which asks her for permissions to access certain data under the listed conditions 5*) consumer will be informed about the outcome of the owner’s decision (NOTE: alongside with some details? how do they look like? XXX need to be in the spec)</li>
+</ol>
 </section>
 <section id="consumption-data-inflow" class="level3">
-<h3><span class="header-section-number">6.3.6</span> Consumption (data inflow)</h3>
+<h3><span class="header-section-number">6.3.7</span> Consumption (data inflow)</h3>
 <ul>
 <li>how data will get into the system</li>
 <li>hwo is the user able to do that, and how does it works</li>
 </ul>
 <section id="manually" class="level4">
-<h4><span class="header-section-number">6.3.6.1</span> Manually</h4>
+<h4><span class="header-section-number">6.3.7.1</span> Manually</h4>
 </section>
 <section id="automatically" class="level4">
-<h4><span class="header-section-number">6.3.6.2</span> Automatically</h4>
+<h4><span class="header-section-number">6.3.7.2</span> Automatically</h4>
 </section>
 </section>
 <section id="emission-data-outflow" class="level3">
-<h3><span class="header-section-number">6.3.7</span> Emission (data outflow)</h3>
+<h3><span class="header-section-number">6.3.8</span> Emission (data outflow)</h3>
 <ul>
-<li>depending on what category of data, they might need to get anonymized somehow before they<br />
-leave the system</li>
+<li><p>depending on what category of data, they might need to get anonymized somehow before they leave the system</p></li>
+<li><p>oAuth (1.0a and 2) requires consumers to register upfront. Since the current flow indicates that the initial step is done by the owner, that would cause an overhead in user interactions. Although the owner already <em>authorized</em> the consumer simply by submitting a unique URI (<code>pdaas-server.tld/register?crt=CONSUMER_REGISTER_TOKEN</code>), of which the <code>crt</code> is considered private. Even though the registration provides the consumer with mandatory information such as a consumer identifier (v1: <code>oauth_consumer_key</code>, v2: <code>client_id</code>) and, depending on the client type, a secret (see https://tools.ietf.org/html/rfc6749#section-2), this process it is not part the specification (https://oauth.net/core/1.0a/#rfc.section.4.2, https://tools.ietf.org/html/rfc6749#section-2). This enables the possibility of integrating oAuth into the consumer registration flow by using the <code>CONSUMER_REGISTRATION_TOKEN</code> as oAuth’s <em>client identifier</em>. The lack of credentials (v1: <code>auth_consumer_secret</code>, v2: <code>client_secret</code>) would require transferring the consumer identifier done over a secure channel (e.g. TLS). That would leave <em>oAuth2</em> as the version of choice, since it relies on <em>HTTPS</em> adn therefore makes the <em>secret</em> optional. Where on the other side oAuth 1.0a requires a <em>secret</em> to create a signature in order to support insecure connections..</p></li>
+<li><p>A general and URI for 3rd parties to register (aka requesting authentication) would raise the issue of dealing with spam request and how to distinct these from the actual ones.</p></li>
 </ul>
 </section>
 <section id="history" class="level3">
-<h3><span class="header-section-number">6.3.8</span> History</h3>
+<h3><span class="header-section-number">6.3.9</span> History</h3>
 <ul>
 <li>data versioning</li>
 <li>access logs</li>
@@ -399,15 +426,12 @@ leave the system</li>
 <section id="external" class="level3">
 <h3><span class="header-section-number">6.4.3</span> External</h3>
 <ul>
-<li><p>should there be a way to somehow request information about what data is available/queryable,<br />
-or would this be result in spam/crawler and security issues (also a question for the topic of<br />
-permissions/sensibility level of certain data)</p></li>
+<li><p>should there be a way to somehow request information about what data is available/queryable, or would this be result in spam/crawler and security issues (also a question for the topic of permissions/sensibility level of certain data)</p></li>
 <li>certain types of requests, depending on expire date:
 <ul>
 <li>“ask me any time”</li>
 <li>“allowed until further notice”</li>
-<li>one-time permission (but respecting certain http error codes and possible timeout - that<br />
-might not count)</li>
+<li>one-time permission (but respecting certain http error codes and possible timeout - that might not count)</li>
 </ul></li>
 </ul>
 </section>
@@ -418,8 +442,8 @@ might not count)</li>
 <ul>
 <li>what does <em>open</em> in Open Specification even mean?</li>
 </ul>
-<section id="processes-todo-find-another-word" class="level2">
-<h2><span class="header-section-number">7.2</span> Processes (TODO: find another word)</h2>
+<section id="processes-todo-find-another-word-protocol-flows" class="level2">
+<h2><span class="header-section-number">7.2</span> Processes (TODO: find another word; “Protocol flows”?)</h2>
 </section>
 <section id="application-programming-interfaces" class="level2">
 <h2><span class="header-section-number">7.3</span> Application Programming Interfaces</h2>
@@ -430,11 +454,10 @@ might not count)</li>
 <section id="security" class="level2">
 <h2><span class="header-section-number">7.5</span> Security</h2>
 <ul>
-<li>the downside of having not just parts of the personal data in different places (which is<br />
-currently the common way to store), is in case of security breach, it would increase the<br />
-possible damage by an exponential rate<br />
-Thereby all data is exposed at once, instead of not just the parts which a single service<br />
-has stored</li>
+<li>the downside of having not just parts of the personal data in different places (which is currently the common way to store), is in case of security breach, it would increase the possible damage by an exponential rate Thereby all data is exposed at once, instead of not just the parts which a single service has stored</li>
+<li><p>does it matter from what origin the data request was made? how to check that? is the requester’s server domain in the http header? eventually there is no way to check that, so me might need to go with request logging and trying to detect abnormal behaviour</p></li>
+<li><p>is the consumer able to call the access request URI repeatedly and any time? (meaning will this be stateless or stateful?)</p></li>
+<li><p>initial consumer registration would be done on a common and valid https:443 CA-certified connection. after transferring their cert to them as a response, all subsequent calls need to go to their own endpoint, defined as subdomains like <code>consumer-name.owners-notification-server.tld</code></p></li>
 </ul>
 <section id="environment" class="level3">
 <h3><span class="header-section-number">7.5.2</span> Environment</h3>
@@ -442,7 +465,7 @@ has stored</li>
 <section id="transport" class="level3">
 <h3><span class="header-section-number">7.5.3</span> Transport</h3>
 <ul>
-<li>https only, but which ciphers?</li>
+<li>communication between internal components <em>must</em> be done in https only, but which ciphers? eventually even http/2?</li>
 </ul>
 </section>
 <section id="storage" class="level3">
@@ -474,9 +497,7 @@ has stored</li>
 <h2><span class="header-section-number">8.3</span> Business Models &amp; Monetisation</h2>
 <ul>
 <li>possible resulting direct or indirect business models</li>
-<li>owner might want to sell her data, only under her conditions. therefore some kind of<br />
-infrastructure and process is required (such as payment transfer, data anonymization, market<br />
-place to offer data)</li>
+<li>owner might want to sell her data, only under her conditions. therefore some kind of infrastructure and process is required (such as payment transfer, data anonymization, market place to offer data)</li>
 </ul>
 </section>
 <section id="challenges" class="level2">
@@ -490,6 +511,9 @@ place to offer data)</li>
 </section>
 <section id="future-work" class="level2">
 <h2><span class="header-section-number">8.7</span> Future Work</h2>
+<ul>
+<li>maybe enable the tool to play the role of an own OpenID provider?</li>
+</ul>
 </section>
 <section id="summary" class="level2">
 <h2><span class="header-section-number">8.8</span> Summary</h2>
@@ -498,7 +522,49 @@ place to offer data)</li>
 <li>unique features</li>
 <li>technology stack &amp; standards</li>
 <li>resources</li>
+<li>the tool might be not a bulletproof vest, but</li>
 </ul>
+<div id="refs" class="references">
+<div id="ref-paper_2008_discrimination-aware-data-mining">
+<p>[1] D. Pedreshi, S. Ruggieri, and F. Turini, “Discrimination-aware data mining,” in <em>Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining</em>, 2008, pp. 560–568 [Online]. Available: <a href="http://dl.acm.org/citation.cfm?id=1401959" class="uri">http://dl.acm.org/citation.cfm?id=1401959</a>. [Accessed: 03-Nov-2016]</p>
+</div>
+<div id="ref-book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge">
+<p>[2] S. Spiekermann, <em>Ethical IT Innovation: A Value-Based System Design Approach</em>. CRC Press; Taylor &amp; Francis Group, LLC, 2015, pp. 66–72 [Online]. Available: <a href="https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355" class="uri">https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355</a></p>
+</div>
+<div id="ref-paper_1996_bias-in-computer-systems">
+<p>[3] B. Friedman and H. Nissenbaum, “Bias in computer systems,” <em>ACM Transactions on Information Systems (TOIS)</em>, vol. 14, no. 3, pp. 330–347, 1996 [Online]. Available: <a href="http://dl.acm.org/citation.cfm?id=230561" class="uri">http://dl.acm.org/citation.cfm?id=230561</a>. [Accessed: 07-Nov-2016]</p>
+</div>
+<div id="ref-wikipedia_2016_cognitive-bias">
+<p>[4] “Cognitive bias,” <em>Wikipedia</em>, Oct-2016. [Online]. Available: <a href="https://en.wikipedia.org/w/index.php?title=Cognitive_bias&amp;oldid=742803386" class="uri">https://en.wikipedia.org/w/index.php?title=Cognitive_bias&amp;oldid=742803386</a>. [Accessed: 08-Nov-2016]</p>
+</div>
+<div id="ref-video_2015_big-data-and-deep-learning_discrimination">
+<p>[5] A. Dewes, “C3TV - Say hi to your new boss: How algorithms might soon control our lives.” 29-Dec-2015. [Online]. Available: <a href="https://media.ccc.de/v/32c3-7482-say_hi_to_your_new_boss_how_algorithms_might_soon_control_our_lives#video&amp;t=1538" class="uri">https://media.ccc.de/v/32c3-7482-say_hi_to_your_new_boss_how_algorithms_might_soon_control_our_lives#video&amp;t=1538</a>. [Accessed: 03-Nov-2016]</p>
+</div>
+<div id="ref-web_2010_projectvrm_about">
+<p>[6] “ProjectVRM - about. ProjectVRM,” 25-Feb-2010. [Online]. Available: <a href="https://blogs.harvard.edu/vrm/about/" class="uri">https://blogs.harvard.edu/vrm/about/</a>. [Accessed: 09-Nov-2016]</p>
+</div>
+<div id="ref-paper_2013_the-personal-data-store-approach-to-personal-data-security_2013">
+<p>[7] Tom Kirkham, Sandra Winfield, Serge Ravet, and S. Kellomaki, “The personal data store approach to personal data security,” <em>IEEE Security &amp; Privacy</em>, vol. 11, no. 5, pp. 12–19, 2013. </p>
+</div>
+<div id="ref-whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing">
+<p>[8] A. Poikola, K. Kuikkaniemi, and H. Honko, “MyData – a nordic model for human-centered personal data management and processing,” pp. 1–12, 2014 [Online]. Available: <a href="https://www.lvm.fi/documents/20181/859937/MyData-nordic-model/2e9b4eb0-68d7-463b-9460-821493449a63" class="uri">https://www.lvm.fi/documents/20181/859937/MyData-nordic-model/2e9b4eb0-68d7-463b-9460-821493449a63</a>. [Accessed: 10-Nov-2016]</p>
+</div>
+<div id="ref-web_2016_meeco-how-it-works">
+<p>[9] “Meeco how it works.” [Online]. Available: <a href="https://meeco.me/how-it-works.html" class="uri">https://meeco.me/how-it-works.html</a>. [Accessed: 09-Nov-2016]</p>
+</div>
+<div id="ref-repo_2016_pdaas-spec">
+<p>[10] “Open specification of the concept called personal data as a service (pdaas). GitHub.” [Online]. Available: <a href="https://github.com/lucendio/pdaas_spec" class="uri">https://github.com/lucendio/pdaas_spec</a>. [Accessed: 11-Nov-2016]</p>
+</div>
+<div id="ref-estimating-the-locations-of-emergency-events-from-twitter-streams_2014">
+<p>[11] J. Ao, P. Zhang, and Y. Cao, “Estimating the Locations of Emergency Events from Twitter Streams,” <em>Procedia Computer Science</em>, vol. 31, pp. 731–739, 2014 [Online]. Available: <a href="http://linkinghub.elsevier.com/retrieve/pii/S1877050914004980" class="uri">http://linkinghub.elsevier.com/retrieve/pii/S1877050914004980</a>. [Accessed: 05-Nov-2016]</p>
+</div>
+<div id="ref-the-practice-of-predictive-analytics-in-healthcare_2013">
+<p>[12] G. Palem, “The Practice of Predictive Analytics in Healthcare,” <em>ResearchGate</em>, Apr. 2013 [Online]. Available: <a href="https://www.researchgate.net/publication/236336250_The_Practice_of_Predictive_Analytics_in_Healthcare" class="uri">https://www.researchgate.net/publication/236336250_The_Practice_of_Predictive_Analytics_in_Healthcare</a>. [Accessed: 05-Nov-2016]</p>
+</div>
+<div id="ref-data-collection-for-climate-changes_2014">
+<p>[13] N. Burger, B. Ghosh-Dastidar, A. Grant, G. Joseph, T. Ruder, O. Tchakeva, and Q. Wodon, “Data Collection for the Study on Climate Change and Migration in the MENA Region,” 2014 [Online]. Available: <a href="https://mpra.ub.uni-muenchen.de/56929/" class="uri">https://mpra.ub.uni-muenchen.de/56929/</a>. [Accessed: 04-Nov-2016]</p>
+</div>
+</div>
 </section>
 </section>
             </body>

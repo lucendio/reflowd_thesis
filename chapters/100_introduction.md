@@ -61,14 +61,16 @@ to the humans how such tools are getting utilized and what purposes they are ser
 should be decided by the data creators, how their data get processed and what parts of them 
 are used.
 
-To tackle the described issue the initial idea here is (1) to enable individuals with the ability 
+To tackle the described issue the initial idea here is (1) to equip individuals with the ability 
 to control and maintain their entire data distribution and (2) thus reducing the amount of 
 *potentially discriminatory* [@paper_2008_discrimination-aware-data-mining] attributes leaking 
-into arbitrary calculations. To do so people need a reliable and trustworthy tool, which helps 
-to manage all their *personal data*
-
-respect privacy and is secure
-
+into arbitrary calculations. To do so people need a reliable and trustworthy tool, which assists 
+them in managing all their *personal data* and making them accessible for 3rd parties but under 
+their own conditions. After getting permission granted these data consumers might have the most 
+accurate and reliable one-stop resource to an individuals's data at hand, while urged to respect 
+their privacy at the same time. However this also comes with downsides in terms of security and 
+potential data loss. Elaborating on that and discussing different solutions will be part of the 
+[design process][Design].
 
 The way how to solve the described dilemma is not new. Early days of work done in this field can be 
 dated back to the Mid-2000s where studies were made e.g. about recent developments in the 
@@ -83,21 +85,25 @@ solve certain problems. For instance concepts such as the *Personal Data Store (
 implementation called *Meeco* [@web_2016_meeco-how-it-works], which will all be covered in 
 a more detailed way within the following chapter.
 
+The work and research done for this thesis will be the foundation for an *Open Specification*, 
+which by itself is a manual to implement a concept called *Personal Data as a Service*. Important 
+topics like how the architecture will look like, where the actual data can be stored, how to 
+obtain data from the external API or what requirements a user interface for data management 
+need to satisfy, will be examined. After the thesis will be finished, the majority of core issues 
+should already be addressed and can then get outlined in the specification document. 
+Only then the task to actual implement certain components can begin. The reason for that is, 
+when sensitive subjects especially like people's privacy is at risk, all aspects in question 
+deserve a careful considerations and then get addressed properly. Thus it is indispensable to 
+put adequate effort primarily into the theoretical work. To be clear though, that doesn't mean 
+writing code to test out theories and ideas can't be done during research and specification 
+development. It might even help to spot some flaws and eventually trigger evolvement.
 
+To ensure a great level of trust to this project and the resulting software, it is vital to make 
+the development process fully transparent and encourage people to get involved.
+Therefore it is required to open source all related software and documents [@repo_2016_pdaas-spec] 
+from day one on.
 
-The work and research done for this thesis is intended to be the foundation for an
-*Open Specification* which by itself is a manual to implement a *Personal Data as a Service*.
-
-
-Furthermore to ensure a minimum level of trust
-
-it is vital to make the development process fully transparent, encourage people to get involved
-and 
-of every
-
-+   Open Source
-
-The approach discussed in this document shall be the initial step in creating a tool to manager 
-all the data that defines her identity controlled and administrated by it's owner, and maybe
-give her a more precise understanding about where her personal information flows and how this
- might effect her privacy.
+In summary, this document is meant to be the initial step in a development process fabricating 
+a tool to manage all data that defines her identity controlled and administrated by it's owner, 
+and maybe give her a more precise understanding about where her personal information flow and 
+how this might effect her privacy.
