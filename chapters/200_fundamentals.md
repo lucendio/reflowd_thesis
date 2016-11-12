@@ -5,6 +5,18 @@ Fundamentals
 
 ## Personal Data in the context of the Big Data Movement
 
++   big data itself initially refers to a huge blob of data containing more or less
+    structured data sets [@web_2016_oxford_definition_big-data], whose size might have exceeded 
+    the capabilities of retrieving certain information almost only by hand. Such high data 
+    haystacks usually come along with new challenges in logistic and resource management, when 
+    information retrieval needs to get automated on a large scale 
+    [@web_2016_wikipedia_definition_big-data].
+
++   now to the ctx??!
++   what data
++   how are they collected
++   what is the (self-)understanding og such data form within the community
+
 +   difference between users *profile/account data* and their *meta data*?
 
 
