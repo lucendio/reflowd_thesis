@@ -5,12 +5,32 @@ Fundamentals
 
 ## Personal Data in the context of the Big Data Movement
 
-+   big data itself initially refers to a huge blob of data containing more or less
++   big data itself initially can be seen as a *huge blob of data* containing more or less
     structured data sets [@web_2016_oxford_definition_big-data], whose size might have exceeded 
     the capabilities of retrieving certain information almost only by hand. Such high data 
     haystacks usually come along with new challenges in logistic and resource management, when 
     information retrieval needs to get automated on a large scale 
-    [@web_2016_wikipedia_definition_big-data].
+    [@web_2016_wikipedia_definition_big-data]. Theses practices are commonly referred to *Big 
+    Data (Analysis)* including distributed computing and machine learning. 
++   Big Data, or to be more precise, collecting and analyzing big data, serves the prior purpose 
+    to extract useful information, which on the other hand depends on what was the opening 
+    question about, but also what data sets the corpus is containing.
++   At first, (A) formalizing question(s) that the results have to answer. 
+    Secondly, (B) deciding what data is needed and appropriate and then start collecting. Third, 
+    (C) designing data models accordingly and correlate with the data
+    (D) next, analyse and interpret the results. (E) last but not least, make business decisions
+    based und the analysis.
+    
++   since quite a few businesses (in terms of purpose or intention) are based around the concept 
+    of customers, which are generally somewhat entities consisting of at least one human being. In 
+    the context of this thesis, these entities are individuals with a unique identity. And to 
+    understand the behaviour, decision making and needs of her customers a vendor, who owns the 
+    business, needs to know as much as possible about them, when she wants to know what changes
+    she needs to address in order to move towards the most lucrative business.
++   personal data and information reflecting all this knowledge. It starts in profile data, such
+    as gender, age, residency TODO
+    
+    
 
 +   now to the ctx??!
 +   what data
