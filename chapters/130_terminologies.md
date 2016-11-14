@@ -1,9 +1,6 @@
 ## Terminologies 
 
-__Digital Identity:__ all digital data about, related to and created by an individual, that would 
-also identifies this person as the rightful owner and physical counterpart. It can also be seen 
-as an avatar in the digital world or as the digital part of a human's identity. 
-[@whitepaper_2012_the-value-of-our-digital-identity_definition]
+
 
 __Web Service:__ TODO
 
@@ -12,7 +9,8 @@ __Open Specification:__ TODO
 __Big Data:__ deep learning, neural networks
 
 __Personal Data as a Service (PDaaS):__ a web service controlled, owned and maybe even hosted 
-by an individual, which provides access to to the owner's personal data
+by an individual, which provides access to the owner's personal data and offers maintainability 
+as well as permission management. 
 
 
 __Personal Data Store:__ TODO

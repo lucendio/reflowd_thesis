@@ -16,10 +16,10 @@ Fundamentals
     to extract useful information, which on the other hand depends on what was the opening 
     question about, but also what data sets the corpus is containing.
 +   At first, (A) formalizing question(s) that the results have to answer. 
-    Secondly, (B) deciding what data is needed and appropriate and then start collecting. Third, 
-    (C) designing data models accordingly and correlate with the data
-    (D) next, analyse and interpret the results. (E) last but not least, make business decisions
-    based und the analysis.
+    Secondly, (B) deciding what data is needed and appropriate and then start collecting. Third, (C) 
+    designing data models accordingly and correlate with the data (D) next, analyse and interpret 
+    the results. (E) last but not least, make business decisions based und the analyses 
+    ([@paper_2015_big-data-analytics_a-survey] Fig. 3).
     
 +   since quite a few businesses (in terms of purpose or intention) are based around the concept 
     of customers, which are generally somewhat entities consisting of at least one human being. In 
@@ -27,8 +27,33 @@ Fundamentals
     understand the behaviour, decision making and needs of her customers a vendor, who owns the 
     business, needs to know as much as possible about them, when she wants to know what changes
     she needs to address in order to move towards the most lucrative business.
-+   personal data and information reflecting all this knowledge. It starts in profile data, such
-    as gender, age, residency TODO
++   personal data and information are reflecting all this knowledge. It starts with profile data, such
+    as gender, age, residency or income, goes on with time series events like geo-location changes, 
+    or web search history and goes all the way up to health data and self-created content like 
+    *Tweets* [^tweets] or videos.
+
++   all these classes of personal data hold a major share in the field of big data analysis (TODO: find statistics
+    showing shares of data types/classes/categories, [@book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining])
++   but, depending on the specific attributes, they might be not that easy to acquire. in general
+    most businesses obtain data from within their own platforms. some data might be in the user's 
+    rang of control (e.g. customer or profile data), but most of the data comes from interacting
+    directly (content creation, inputs) or indirectly (transactions, meta information). the level
+    of sensitivity is mainly based on the purpose of the platform (benefit for the user) and what
+    is the provider's demand from the users commitment (e.g. required inputs or usage requires 
+    access to location)
++   from a technical perspective collecting passively created data is as simple as integrating 
+    logging mechanisms in the program logic. since the industry moved towards the cloud 
+    [^because-of-the-cloud] most scenarios involved server-client architectures. Furthermore 
+    the *always-on* philosophy evolved to an imperative state. standalone software is starting 
+    to call the author's servers from time to time, just to make sure the user behaves properly 
+    For browsers it is already common narrative to make here and then requests to the server - still 
+    preventable though, but when it comes to native mobile apps it is almost impossible 
+    [@web_2016_answers-io] to notice such behaviour and therefore preventing from doing so.
++   so these architectural ??? made it possible to gather potentially usable information captured on
+    the client
+    but not only transmitting information about client events and interactions, but also al kinds of
+    transactions, environment monitoring and ???  will be collected, stored and measured
+    
     
     
 
@@ -38,6 +63,17 @@ Fundamentals
 +   what is the (self-)understanding og such data form within the community
 
 +   difference between users *profile/account data* and their *meta data*?
+
+
+[^tweets]: public massages published by an account on [twitter.com](twitter.com), which will be 
+           displayed in the timeline of all her subscribers and also might contain additional 
+           types of content like images, links or video
+           
+[^because-of-the-cloud]: side note - one might come to the conclusion, that only the trend towards
+                         the *cloud* made it actually possible to collect to such an extent we are 
+                         all observing these days, because standalone software should not 
+                         necessarily require internet connection and therefore the vendors had no
+                         way to gather information whatsoever
 
 
 
@@ -64,7 +100,7 @@ Fundamentals
     some empirical evidence), in order to satisfy the customers - and that on the other hand
     depends on who is seen as customers.
 +   Nevertheless if we change the perspective, a lot of great things can be achieved with the help 
-    of huge amounts of personal data, such as:
+    of myriad of personal data, such as:
     -   planing and managing human resources for situations, like e.g. big events where attendees 
         might need some help [@estimating-the-locations-of-emergency-events-from-twitter-streams_2014]
     -   predicting infrastructure workloads [http://ieeexplore.ieee.org/document/7336197/]
@@ -87,6 +123,9 @@ Fundamentals
 
 +   who is the owner in what situation or under what circumstance?
 +   difference between "Personal Data" and the owner of that data?
++   what is *Personal Data* (law/rule or just policy/guideline)
++   EU and USA (since server might be located outside the state or effective range)
++   what about *terms and conditions* popular platforms?
 
 
 
@@ -105,6 +144,11 @@ Fundamentals
     bytes
     
 +   what will happen with her data service after a person died?
+
++   __Digital Identity:__ all digital data about, related to and created by an individual, that would 
+    also identifies this person as the rightful owner and physical counterpart. It can also be seen 
+    as an avatar in the digital world or as the digital part of a human's identity. 
+    [@whitepaper_2012_the-value-of-our-digital-identity_definition]
 
 
 

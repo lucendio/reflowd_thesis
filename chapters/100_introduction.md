@@ -45,7 +45,7 @@ the data set and thereby the related individuals from each other.
 
 So to lower potential discrimination we either need to erase responsible parts from the machines, 
 therefore raising awareness and teaching people about the issue of discrimination are crucial, 
-or we*re trying to prevent our data from falling into these data silos. The later will be 
+or we're trying to prevent our data from falling into these data silos. The later will be 
 addressed in this work.
 
 
@@ -53,7 +53,7 @@ addressed in this work.
 ## Purpose & Outcome
 
 From an individual's perspective providing data to third parties might not seem harmful at all.
-Instead they eventually get improved services in return, e.g. more adequate recommendations and 
+Instead eventually one get improved services in return, e.g. more adequate recommendations and 
 fitting advertisement, or more helpful therapies and more secure environments. That said, though
 it is a matter of perception what's good and bad, what's harmful and what's an advantage.
 Computing data to leverage decision making is essentially just science and technology and it's up 
