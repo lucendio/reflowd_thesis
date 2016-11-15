@@ -43,26 +43,34 @@ Fundamentals
     access to location)
 +   from a technical perspective collecting passively created data is as simple as integrating 
     logging mechanisms in the program logic. since the industry moved towards the cloud 
-    [^because-of-the-cloud] most scenarios involved server-client architectures. Furthermore 
+    [^because-of-the-cloud] most scenarios utilized server-client architectures. Furthermore 
     the *always-on* philosophy evolved to an imperative state. standalone software is starting 
-    to call the author's servers from time to time, just to make sure the user behaves properly 
-    For browsers it is already common narrative to make here and then requests to the server - still 
+    to call the author's servers from time to time, just to make sure the user behaves properly. 
+    For browsers it was already a common narrative to make here and then requests to the server - still 
     preventable though, but when it comes to native mobile apps it is almost impossible 
-    [@web_2016_answers-io] to notice such behaviour and therefore preventing from doing so.
-+   so these architectural ??? made it possible to gather potentially usable information captured on
-    the client
-    but not only transmitting information about client events and interactions, but also al kinds of
-    transactions, environment monitoring and ???  will be collected, stored and measured
-    
-    
-    
+    [@web_2016_answers-io] to notice such behaviour and therefore preventing apps from doing so.
++   these architectural developments were inducing the gathering of potentially useful information 
+    from all over the system on a large scale. 
+    Logging events, caused by the user's interactions, on the client, which then get forwarded 
+    to backend servers. Or keeping track of all kinds of transactions, which is done directly in the 
+    backend. Before running together in a designated place, all these collected chucks of data are 
+    getting enriched with meta information. Finally get stored and probably never removed again - 
+    all for later analyses.
 
-+   now to the ctx??!
-+   what data
-+   how are they collected
-+   what is the (self-)understanding og such data form within the community
++   what is the (self-)understanding of such data form within the community
 
-+   difference between users *profile/account data* and their *meta data*?
++   earlier in the text a difference was made between actively created and passively created data 
++   based on that one could say *profile/account data* is actively created, because it got into 
+    the system by the user's actively made decision to insert these information into a form and
+    submit it - for whatever reason. whereas detecting the user's current location and adding this
+    information to the submitted form is *meta data*
++   of cause, it is debatable whether these kind of data belongs, in the sense of being the 
+    rightful owner, to the user or to the author or owner of the software containing the code
+    that effectively created the data.
++   maybe personal data is every data/information whose creation (or digital existence) is a 
+    direct result of user interaction/engagement?
++   lets have a look into what the rule book says about that --> next topic
+
 
 
 [^tweets]: public massages published by an account on [twitter.com](twitter.com), which will be 
