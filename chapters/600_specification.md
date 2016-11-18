@@ -51,6 +51,8 @@ Specification
 
 ### Storage
 
++   documents based DB instead of Relational DBS, because of structure/model flexibility 
+
 
 ### Authentication
 

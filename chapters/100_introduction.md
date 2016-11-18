@@ -5,9 +5,10 @@ Introduction
 
 ## Motivation
 
-Nowadays it is rare to find someone who doesn't collects data about some kind of things, 
-particularly humans are the targets of choice for the *Big Data Movement*. But since 
-humans are all individuals, which means we are all distinct from each other - more or less.
+Nowadays it is rare to find someone who doesn't collect data about some kind of things, 
+particularly humans are the targets of choice for the *Big Data Movement* 
+[@web_2016_privacy-international-about-big-data]. But since humans are all individuals, which 
+means we are all distinct from each other - more or less.
 Some of us are sharing a bit more similarities, but most are much less similar to each other.
 Since these few similarities are widely shared, they should be less important, because it seems 
 to be intuitively the nature of inflationary occurrence, but instead the opposite happens to be 
@@ -23,15 +24,15 @@ called *discrimination*, which
 When interacting directly with each other, discrimination of human beings is still a serious issue 
 in our society, but also when humans leveraging computers and algorithms to uncover former 
 unnoticed information in order to include them in their decision making. For example when 
-granting credits, hiring employees, investigating crimes or renting flats. Approving or denying 
+qualifying for a loan, hiring employees, investigating crimes or renting flats. Approving or denying 
 is all happening based on data about the affected individuals
 [@book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge], which is nothing
-but discrimination, but on a much larger scale and with less effort - almost parenthetically. 
+but discrimination, just on a much larger scale and with less effort - almost parenthetically. 
 The described phenomenon is originally referred as *Bias in computer systems*
-[@paper_1996_bias-in-computer-systems]. What at fist seems to look like machines going rouge on 
+[@paper_1996_bias-in-computer-systems]. What at first seems to look like machines going rouge on 
 humans, is in fact the *cognitive bias* [@wikipedia_2016_cognitive-bias] of the human nature, 
 modeled in machine executable language and made to reveal the patterns their creators were looking 
-for.
+for - the *"Inheritance of humanness"* [@web_2016_big-data-is-people] so to say.
 
 In addition to the identity-defining data mentioned above humans have the habit to create more and 
 more data on a daily basis - pro-actively e.g by writing a tweet and passively e.g by allowing 

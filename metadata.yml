@@ -53,7 +53,9 @@ link-citations: true
 bibliography: [
     './assets/bibliographie/books.bib',
     './assets/bibliographie/papers.bib',
+    './assets/bibliographie/reports.bib',
     './assets/bibliographie/urls.bib',
+    './assets/bibliographie/graphics.bib'
 ]
 
 csl: './assets/citation/ieee-with-url.csl'

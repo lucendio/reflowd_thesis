@@ -32,6 +32,7 @@ Conclusion
 ## Future Work
 
 +   maybe enable the tool to play the role of an own OpenID provider?
++   going one step further and train machine (predictor) by our self with our own data (https://www.technologyreview.com/s/514356/stephen-wolfram-on-personal-analytics/) 
 
 
 

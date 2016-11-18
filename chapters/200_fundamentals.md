@@ -3,6 +3,21 @@ Fundamentals
 
 
 
+## Personal Data as of the Law
+
++   who is the owner in what situation or under what circumstance?
++   difference between "Personal Data" and the owner of that data?
++   what is *Personal Data* (law/rule or just policy/guideline)
++   EU and USA (since server might be located outside the state or effective range)
++   what about *terms and conditions* popular platforms?
+
+[@report_2014_big-data_seizing-opportunities-preserving-values]
+
++   ownership? (https://united-kingdom.taylorwessing.com/globaldatahub/article_big_data_ownership.html)
+    https://lifehacker.com/you-dont-own-your-data-1556088120
++   https://www.eff.org/deeplinks/2015/07/big-tech-does-not-speak-internet
+
+
 ## Personal Data in the context of the Big Data Movement
 
 +   big data itself initially can be seen as a *huge blob of data* containing more or less
@@ -22,8 +37,9 @@ Fundamentals
     ([@paper_2015_big-data-analytics_a-survey] Fig. 3).
     
 +   since quite a few businesses (in terms of purpose or intention) are based around the concept 
-    of customers, which are generally somewhat entities consisting of at least one human being. In 
-    the context of this thesis, these entities are individuals with a unique identity. And to 
+    of customers, which are generally somewhat entities consisting of at least one human being,
+    personal data takes a major part in what *Big Data* can be about. 
+    In the context of this thesis, these entities are individuals with a unique identity. And to 
     understand the behaviour, decision making and needs of her customers a vendor, who owns the 
     business, needs to know as much as possible about them, when she wants to know what changes
     she needs to address in order to move towards the most lucrative business.
@@ -32,8 +48,10 @@ Fundamentals
     or web search history and goes all the way up to health data and self-created content like 
     *Tweets* [^tweets] or videos.
 
-+   all these classes of personal data hold a major share in the field of big data analysis (TODO: find statistics
-    showing shares of data types/classes/categories, [@book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining])
++   all these classes of personal data hold a major share[^its-all-somehow-personal] in the field 
+    of data analytics (TODO: find statistics
+    showing shares of data types/classes/categories, [@book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining]
+    [@web_2013_big-data-collection-collides-with-privacy-concerns])
 +   but, depending on the specific attributes, they might be not that easy to acquire. in general
     most businesses obtain data from within their own platforms. some data might be in the user's 
     rang of control (e.g. customer or profile data), but most of the data comes from interacting
@@ -50,14 +68,37 @@ Fundamentals
     preventable though, but when it comes to native mobile apps it is almost impossible 
     [@web_2016_answers-io] to notice such behaviour and therefore preventing apps from doing so.
 +   these architectural developments were inducing the gathering of potentially useful information 
-    from all over the system on a large scale. 
+    from all over the system on a large scale [@web_2016_big-data-enthusiasts-should-not-ignore]. 
     Logging events, caused by the user's interactions, on the client, which then get forwarded 
     to backend servers. Or keeping track of all kinds of transactions, which is done directly in the 
-    backend. Before running together in a designated place, all these collected chucks of data are 
-    getting enriched with meta information. Finally get stored and probably never removed again - 
-    all for later analyses.
+    backend. Before running together in a designated place, all these collected chucks of data 
+    (TODO or "data points") are getting enriched with meta information. Finally get stored and 
+    probably never removed again - all for later analyses.
 
-+   what is the (self-)understanding of such data form within the community
++   The mindset in the *Big Data Community* is grounded on the basic assumption of 
+    *more data is more helpful*, which already is emphasised by the often-cited concept of the 
+    three *Vs* (Volume, Velocity, Variety) [@report_2001_3d-data-management-controlling-data-volume-velocity-and-variety]. 
+    which is not entirely wrong, because it lies in the nature of pattern and correlation discovery,
+    to provide increasing quality results [@paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data],
+    while enriching the overall data with more precise data sets.
+    But when new technologies are emerging, questioning the downsides and possible negative 
+    mid- or long-term impacts are typically not very likely to be a high priority. The focus lies 
+    on e.g. trying to to reach and eventually breach boundaries while beginning to evolve. So 
+    non-technical aspects such as privacy and security awareness doesn't come in naturally, instead 
+    a wider range of research needs to be done alongside the evolution process and the increasing 
+    adoption rate in order to uncover such issues. Only then they can addressed properly on 
+    different levels - technical, political as well as social. So that the *Big Data Community*
+    itself is able to evolve, too.
+    All in all it's a balancing act between respecting the user's privacy and having enough data 
+    at hand to satisfy the initial questioning with the computed results. Therefore people
+    working in such contexts need to have advanced domain knowledge, be aware of any downsides or 
+    pitfalls and need to be sensible about the ramifications of their approaches and doings.
+    Such improvements are already happening, not only originating from the field's forward thinkers
+    [@web_2016_the-state-of-big-data], 
+    but also advocated by governments, consumer rights organisations and even leading Tech-Companies 
+    start trying to do better [@web_2016_apple_customer-letter] [@web_2016_what-is-differential-privacy]
+    [@web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption] - as discussed in the section 
+    [TODO see personal data as of the law], 
 
 +   earlier in the text a difference was made between actively created and passively created data 
 +   based on that one could say *profile/account data* is actively created, because it got into 
@@ -69,23 +110,37 @@ Fundamentals
     that effectively created the data.
 +   maybe personal data is every data/information whose creation (or digital existence) is a 
     direct result of user interaction/engagement?
-+   lets have a look into what the rule book says about that --> next topic
++   lets have a look into what the rule book says about that --> next topic (law)
 
 
+
+
+[^its-all-somehow-personal]: it doesn't matter whether an individual or just someone on behalf of 
+    an organisation spend money for something. at the end of the day, they are all humans on this 
+    planet and in a capitalistic oriented world money needs to flow and profits needs to be 
+    maximized. So to know where it will flow or why it will flow in a certain direction it is 
+    crucial to know everything about it's decision maker - the humans on this planet.
 
 [^tweets]: public massages published by an account on [twitter.com](twitter.com), which will be 
-           displayed in the timeline of all her subscribers and also might contain additional 
-           types of content like images, links or video
+    displayed in the timeline of all her subscribers and also might contain additional types of 
+    content like images, links or video
            
 [^because-of-the-cloud]: side note - one might come to the conclusion, that only the trend towards
-                         the *cloud* made it actually possible to collect to such an extent we are 
-                         all observing these days, because standalone software should not 
-                         necessarily require internet connection and therefore the vendors had no
-                         way to gather information whatsoever
+    the *cloud* made it actually possible to collect to such an extent we are  all observing these 
+    days, because standalone software should not necessarily require internet connection and 
+    therefore the vendors had no way to gather information whatsoever
 
 
 
 ## Personal Data as a Product
+
+TODO: consider to maybe merge with previous section (big data) 
+
+some revenue stats: [@graphic_2014_data-collection-online-and-offline]
+categories of personal data and it's target usage [@graphic_2012_personal-data-ecosystem]
+
+https://www.technologyreview.com/s/514346/the-data-made-me-do-it/ (at beginning)
+https://www.technologyreview.com/s/514351/has-big-data-made-anonymity-impossible/ (at the end)
 
 ...to do what exactly? (NOTE: was previously in *Motivation*)
 +   If one would ask 
@@ -124,16 +179,6 @@ Fundamentals
     challenge is not only to computing certain motives but rather concluding to the right ones. 
     When analyzing computed results with the corresponding data models and trying to conclude, 
     it is important to keep in mind, that correlation is no proof of causation.
-    
-
-
-## Personal Data as of the Law
-
-+   who is the owner in what situation or under what circumstance?
-+   difference between "Personal Data" and the owner of that data?
-+   what is *Personal Data* (law/rule or just policy/guideline)
-+   EU and USA (since server might be located outside the state or effective range)
-+   what about *terms and conditions* popular platforms?
 
 
 
@@ -165,7 +210,7 @@ Fundamentals
 +   package shipment after buying sth online 
 +   social network accessing arbitrary profile data
 +   making an online purchase
-+   credibility (requesting credit permission) validation by a certain financial institution: 
++   credibility (applying for a loan) validation by a certain financial institution: 
     accessing arbitrary data
 +   patient/health record
 +   care (movement) data
