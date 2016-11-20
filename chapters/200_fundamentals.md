@@ -3,23 +3,125 @@ Fundamentals
 
 
 
-## Personal Data
+## Personal Data, Ownership and Digital Identity
+
++   *Personal Data* definition
+    -   general - freely spoken
+    -   as of EU law (incl citation)
+    -   as of US law (incl citation)
+    -   is it just policy/guideline or enforceable too (law/rule)? what relevance/impact have
+        companies *terms and conditions*?
+    -   EU and USA (since server might be located outside the state or effective range)
+
++   *Ownership* of personal data
+    -   who is the owner in what situation or under what circumstances?
+    -   am I the owner when I was the one who was collecting them? Does it depend whether the 
+        resource was public or somewhat private?
+    -   what will happen with her data service after a person died?
+    
++   *Digital Identity*
+    -   what is a *DI*? and in comparison to *Personal Data*? 
+    -   what is required to make the PDaaS used or seen as a *DI*?
+
+
+####################################################################################################
+
+
++   In the context of this document and all related work, *Personal Data* (or *Personal 
+    Information*) is specified as a set of data attributes (key-value-pairs), that are related 
+    to an individual or defining her as such. Combining a subset of these attributes can result in
+    a unique fingerprint as well as values of single attribute can be unique, depending on the 
+    context. Not only external imposed attributes, such as social security number, birth or
+    customer ID, are part of an individual's personal data. Also the data created by individual, 
+    no matter if pro-active or passively - belongs to her; for instance time series data such as 
+    geo-location or blog posts.
+    
++   The European *Data Protection Regulations* defining *Personal Data* as follows:
+>   ‘personal data’ means any information relating to an identified or identifiable natural person 
+>   (‘data subject’); an identifiable natural person is one who can be identified, directly or 
+>   indirectly, in particular by reference to an identifier such as a name, an identification 
+>   number, location data, an online identifier or to one or more factors specific to the physical, 
+>   physiological, genetic, mental, economic, cultural or social identity of that natural person;
+    *[@regulation_2016_eu_general-data-protection-regulation_definition]*
+    
++   The U.S.A. has little legislation on defining and protecting consumer's privacy. At least they
+    have no explicit bills addressing such area [@web_2016_wikipedia_information-privacy-law_us]. 
+    Though some of the existing sectoral laws consist of partially applicable policies and 
+    guidelines [@web_2016_data-protection-laws-in-the-us]; most of them addressing specific types
+    of data.
+    In 2015 the White House made an attempt to fill the gap with the *Consumer Privacy Bill of 
+    Rights Act*, but to this date it didn't passes the draft state. According to the critics, it 
+    lags of concrete enforceable rules consumers can rely on 
+    [@web_2015_white-house-releases-consumer-privacy-bill-draft]. The draft contains a general 
+    definition of *Personal Data*:
+>   “Personal data” means any data that are under the control of a covered entity, not otherwise 
+>   generally available to the public through lawful means, and are linked, or as a practical matter 
+>   linkable by the covered entity, to a specific individual, or linked to a device that is 
+>   associated with or routinely used by an individual, including but not limited to [...]
+>   *[@bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition]*
++   followed by a list of concrete data points, e.g. email or postal address, name, social security 
+    number and alike.
+    Aside from the legislation with bills, a few third-party organisation can also participate by
+    and add new or overwriting existing rules and policies. Namely for example the *Federal 
+    Communications Commission* (FCC), recently releasing *Rules to Protect Broadband Consumer 
+    Privacy* including a list of categories of sensitive information
+    [@rules_2016_fcc_to-protect-broadband-consumer-privacy_sensitive-types-of-data],
+    which wants *Personally Identifiable Information* (alias Personal Data) to be 
+    understood as:
+>   [...] any information that is linked or linkable to an individual. [...] information is 
+>   “linked” or “linkable” to an individual if it can be used on its own, in context, or in 
+>   combination to identify an individual or to logically associate with other information about a 
+>   specific individual. 
+>   *[@rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information]*
+   
+
++   Despite the minor difference in the details, they all have similar ideas of personal data and
+    their belonging. (TODO ???)
+    
+    
 
 
 
-## Personal Data as of the Law
 
-+   who is the owner in what situation or under what circumstance?
-+   difference between "Personal Data" and the owner of that data?
-+   what is *Personal Data* (law/rule or just policy/guideline)
-+   EU and USA (since server might be located outside the state or effective range)
-+   what about *terms and conditions* popular platforms?
+__Ownership__
++   Since the U.S. law barely handles consumer privacy, it also touches just briefly on ownership 
+    of data and in a rather generic manner.
+
+
+
++   A __Digital Identity__ goes a step further by not only representing and associating a living 
+    human being, but also providing an additional level of authenticity verification/insurance. 
++   NOTE: maybe the dif goes as follows - personal data becomes a *DI* only when the data set holds 
+    enough attributes or specific attributes to be unique in the given context, and therefore 
+    allowing to identify associated individual (??); not really, same goes for personal data
++   all digital data about, related to and created by an individual, that would 
+    also identify this person as the rightful owner and physical counterpart. It can also be seen 
+    as an avatar in the digital world or as the digital part of a human's identity. 
+    [@whitepaper_2012_the-value-of-our-digital-identity_definition]
+
++   identity defining data (e.g. history of personal ID card)
+
++   with such a system a human being is represented by a non-physical abstraction of herself.
+    Which essentially is a list of attributes, that are at least for legal and civil
+    administration purposes important. Their values in total are unique and representing the 
+    corresponding human. Certain attributes hold unique values within it's own context, for 
+    example the *social security number*. 
++   Thus it's not necessary to know the values of all attributes in order to identify it's
+    owner
++   therefore its imported to not see it as a reduction of a living individual to some bits and
+    bytes
+
+
+[^eu-data-protection-regulation]: passed 2016, immediately enforceable in every member country of 
+    the European Union, will supersede *Data Protection Directive 95/46/EC* 
+
 
 [@report_2014_big-data_seizing-opportunities-preserving-values]
 
 +   ownership? (https://united-kingdom.taylorwessing.com/globaldatahub/article_big_data_ownership.html)
     https://lifehacker.com/you-dont-own-your-data-1556088120
 +   https://www.eff.org/deeplinks/2015/07/big-tech-does-not-speak-internet
+
 
 
 ## Personal Data in the context of the Big Data Movement
@@ -136,11 +238,6 @@ Fundamentals
 
 ## Personal Data as a Product
 
-
-
-categories of personal data and it's target usage [@graphic_2012_personal-data-ecosystem]
-
-
 +   *Big Data Analytics* by itself just comprises a structured and technical-aided procedure, 
     serving the purpose of finding invisible information, that might be helpful to make (right) 
     (business) decisions. Though, if one would ask data collectors about their motivation, most 
@@ -184,33 +281,32 @@ categories of personal data and it's target usage [@graphic_2012_personal-data-e
     -   finding patters in climate changes, which otherwise wouldn't be detected 
         [@data-collection-for-climate-changes_2014].
     
-+   Through all these examples, some of them might not necessarily founded on personal data whereas 
-    others primarily depend on them and others again only implicitly rely on data collected from 
-    individuals. 
-
++   Through all these examples, some of them might not necessarily founded on personal data, whereas 
+    others primarily depend on them and yet others only implicitly rely on data collected from 
+    individuals.
     As always, it depends on the purpose - also known as *business model* - but it seems to be 
     consensual, that it all comes down to improving and enhancing the collector's product 
     in order to satisfy the customers - and that on the other hand depends on what is meant to 
     be the product and who is seen as customers.
     
-    Putting a top 10 list of industries using utilizing *Big Data* 
++   Putting a top 10 list of industries using utilizing *Big Data* 
     [@graphic_2015_applications-of-big-data-in-10-industry-verticals] right next to visualization 
     showing categories of personal data targeted by data collectors  
     [@graphic_2012_personal-data-ecosystem], at least 7 [^industries-as-data-collectors] of these 
     industries can be identified as data collectors, whereas less then a half 
     [^industries-as-data-brokers] are taking part of being a *Data Broker*, but almost all of them 
-    are using people's personal data, whether collected by themselves or acquired from *Data Broker*.
+    are using people's personal data, whether collected by themselves or acquired from 
+    *Data Broker*.
     
-    TODO 
-    is is save to say that *Personal Data* is highly important and and crucial when it comes to
-    data analytics for business purposes.
-
-
-
-+   It is all about understanding the human being and why she behaves as she does. The 
-    challenge is not only to compute certain motives but rather concluding to the right ones. 
++   At this point it's save to say, that *Personal Data* is either seen directly as a product, 
+    especially from a Dater Broker's point of view, or indirectly due to it's essential part in 
+    *Big Data* practices. The former generates direct revenue by selling these data and the latter 
+    might affect a business's product quality in a positive manner and thereby increasing 
+    revenue as well.
++   At the end it all comes down to understanding the human being and why she behaves as she does. 
+    The challenge is not only to compute certain motives but rather concluding to the right ones. 
     When analyzing computed results with the corresponding data models and trying to conclude, 
-    it is important to keep in mind, that correlation is no proof of causation.
+    it is important to keep in mind, that correlation is by far no proof of causation.
     
     
 +   individuals then get in role of selling/offering it's own data to those who were previously 
@@ -222,30 +318,6 @@ categories of personal data and it's target usage [@graphic_2012_personal-data-e
 
 [^industries-as-data-brokers]: Banking and Securities; Communication, Media & Entertainment;
     Insurance; Energy & Utilities
-
-
-
-## Digital Identity
-
-+   identity defining data (e.g. history of personal ID card)
-
-+   with such a system a human being is represented by a non-physical abstraction of herself.
-    Which essentially is a list of attributes, that are at least for legal and civil
-    administration purposes important. Their values in total are unique and representing the 
-    corresponding human. Certain attributes hold unique values within it's own context, for 
-    example the *social security number*. 
-+   Thus it's not necessary to know the values of all attributes in order to identify it's
-    owner
-+   therefore its imported to not see it as a reduction of a living individual to some bits and
-    bytes
-    
-+   what will happen with her data service after a person died?
-
-+   __Digital Identity:__ all digital data about, related to and created by an individual, that would 
-    also identifies this person as the rightful owner and physical counterpart. It can also be seen 
-    as an avatar in the digital world or as the digital part of a human's identity. 
-    [@whitepaper_2012_the-value-of-our-digital-identity_definition]
-
 
 
 ## Use Cases (NOTE: maybe move to 100_introduction)
@@ -263,6 +335,11 @@ categories of personal data and it's target usage [@graphic_2012_personal-data-e
 ## Related Work
 
 +   much more research since the data mining, big data, deep learning 
+
+Different terms, same meaning:
++   Personal Agent
++   Personal Data Vault
++   Personal Data Store
 
 
 ### Research
@@ -306,8 +383,3 @@ categories of personal data and it's target usage [@graphic_2012_personal-data-e
 +   JSON
 +   REST
 +   GraphQL
-
-
-
-
-

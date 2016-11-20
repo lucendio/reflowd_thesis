@@ -18,6 +18,8 @@ Conclusion
 
 ## Challenges
 
++   adoption rate of such technology
+
 
 
 ## Solutions

@@ -54,6 +54,7 @@ bibliography: [
     './assets/bibliographie/books.bib',
     './assets/bibliographie/papers.bib',
     './assets/bibliographie/reports.bib',
+    './assets/bibliographie/legislation.bib',
     './assets/bibliographie/urls.bib',
     './assets/bibliographie/graphics.bib'
 ]
