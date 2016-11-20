@@ -6,12 +6,12 @@ Fundamentals
 ## Personal Data, Ownership and Digital Identity
 
 +   *Personal Data* definition
-    -   general - freely spoken
-    -   as of EU law (incl citation)
-    -   as of US law (incl citation)
-    -   is it just policy/guideline or enforceable too (law/rule)? what relevance/impact have
+    +   general - freely spoken
+    +   as of EU law (incl citation)
+    +   as of US law (incl citation)
+    +   is it just policy/guideline or enforceable too (law/rule)? what relevance/impact have
         companies *terms and conditions*?
-    -   EU and USA (since server might be located outside the state or effective range)
+    +   EU and USA (since server might be located outside the state or effective range)
 
 +   *Ownership* of personal data
     -   who is the owner in what situation or under what circumstances?
@@ -28,21 +28,22 @@ Fundamentals
 
 
 +   In the context of this document and all related work, *Personal Data* (or *Personal 
-    Information*) is specified as a set of data attributes (key-value-pairs), that are related 
+    Information*) is specified as a set of data points (key-value-pairs), that are related 
     to an individual or defining her as such. Combining a subset of these attributes can result in
     a unique fingerprint as well as values of single attribute can be unique, depending on the 
     context. Not only external imposed attributes, such as social security number, birth or
     customer ID, are part of an individual's personal data. Also the data created by individual, 
     no matter if pro-active or passively - belongs to her; for instance time series data such as 
-    geo-location or blog posts.
+    geo-location or blog posts. All personal data solely associating with an individual, holds as 
+    well the ownership of the same.
     
-+   The European *Data Protection Regulations* defining *Personal Data* as follows:
++   The european *Data Protection Regulations* defining *Personal Data* as follows:
 >   ‘personal data’ means any information relating to an identified or identifiable natural person 
 >   (‘data subject’); an identifiable natural person is one who can be identified, directly or 
 >   indirectly, in particular by reference to an identifier such as a name, an identification 
 >   number, location data, an online identifier or to one or more factors specific to the physical, 
 >   physiological, genetic, mental, economic, cultural or social identity of that natural person;
-    *[@regulation_2016_eu_general-data-protection-regulation_definition]*
+>   *[@regulation_2016_eu_general-data-protection-regulation_definition]*
     
 +   The U.S.A. has little legislation on defining and protecting consumer's privacy. At least they
     have no explicit bills addressing such area [@web_2016_wikipedia_information-privacy-law_us]. 
@@ -72,18 +73,59 @@ Fundamentals
 >   “linked” or “linkable” to an individual if it can be used on its own, in context, or in 
 >   combination to identify an individual or to logically associate with other information about a 
 >   specific individual. 
->   *[@rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information]*
-   
+>   *[@rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information]*   
 
-+   Despite the minor difference in the details, they all have similar ideas of personal data and
-    their belonging. (TODO ???)
++   Despite minor difference in detail, they all have similar ideas of personal data and
+    their belonging. Even though, the version proposed by EU is almost identical with the 
+    definition introduced for the context of this work. Although the FCC's statutory authorities
+    might be somewhat debatable regarding certain topics, the *Communications Act* as a U.S. 
+    federal law equips the FCC with power to regulate and legislate.
     
++   Having a common opinion on what data points are belonging to person is the foundation to 
+    define a set of rules on how deal with *Personal Data* accordingly. Every business, 
+    operating within the EU, is required [^eu-data-protection-regulation_informing-data-subject] 
+    to provide it's users with a *Privacy Policy*, while e.g. in the U.S. - as mentioned above - 
+    only partially and depending on context and data type users must be informed about which and 
+    how their data get processed [@web_2016_privacy-policies-are-mandatory-by-law]. 
     
++   A user commonly agrees on the privacy policy, by starting to interact with 
+    the author's business, thus every *Privacy Policy* is required to be publicly accessible; e.g. 
+    before creating an account.
+>   By clicking Create an account, you agree to our [Terms](https://www.facebook.com/legal/terms) 
+>   and that you have read our [Data Policy](https://www.facebook.com/about/privacy), including 
+>   our [Cookie Use](https://www.facebook.com/policies/cookies/). 
+>   *[web_2016_facebooks-landing-page_policy-acknowledgement]*
++   It can be seen more likely an information notice, that translates and specifies general 
+    given law, rather then a contract.
++   With such knowledge at hand, it is up to each individual, if the service's benefits are worth 
+    sharing some personal data, while simultaneously acquiescing potential downsides concerning 
+    the privacy of such data.
+    
++   Every entity who is doing so, muss process Personal data according to the law and their 
+    *Privacy Policy*. If they policies are violating existing law or the entity effectively goes 
+    against the law with their actual doing, penalties might follow. Depending on the level and 
+    impact of their infringement in addition the law itself, aside from revising their wrong-doings 
+    the entity might have to compensate the affected individuals, pay a fine or get revoked their 
+    license.
+    
++   Not only privacy laws, but every legal jurisdiction has it's limitations - concerning their
+    territorial nature - which makes legislation not exactly an appropriate tool when it comes 
+    to fixing existing issues and strengthen the individual's privacy and rights in a global 
+    context like the *world wide web*.
+    If no international agreement is in place [@web_2016_international-privacy-standards], only 
+    those laws are considered valid and enforcible where the organisation is registered, and 
+    maybe the fact where (meaning in which area of jurisdiction) the their servers are located 
+    or the data is processed and stored.
 
 
 
+Whereas __Ownership__ of *Personal Data* is generally addressed in the organisation's 
+*Terms of Service*, which an individual might need to accept in order to establish a (legal) 
+relationship with it's author 
 
-__Ownership__
+the contents (of ToS) is not against any appliable law; or the regarding issues are lacking of any 
+legislative addressing.
+
 +   Since the U.S. law barely handles consumer privacy, it also touches just briefly on ownership 
     of data and in a rather generic manner.
 
@@ -114,6 +156,9 @@ __Ownership__
 
 [^eu-data-protection-regulation]: passed 2016, immediately enforceable in every member country of 
     the European Union, will supersede *Data Protection Directive 95/46/EC* 
+    
+[^eu-data-protection-regulation_informing-data-subject]: according to article 12-14 of the *EU
+    General Data Protection Regulation 2016/679*
 
 
 [@report_2014_big-data_seizing-opportunities-preserving-values]
