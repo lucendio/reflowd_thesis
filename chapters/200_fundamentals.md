@@ -29,13 +29,15 @@ Fundamentals
 
 +   In the context of this document and all related work, *Personal Data* (or *Personal 
     Information*) is specified as a set of data points (key-value-pairs), that are related 
-    to an individual or defining her as such. Combining a subset of these attributes can result in
-    a unique fingerprint as well as values of single attribute can be unique, depending on the 
+    to an individual or defining her personality. A subset of these attributes combined can 
+    result in a unique fingerprint as well as values of single attribute, depending on the 
     context. Not only external imposed attributes, such as social security number, birth or
-    customer ID, are part of an individual's personal data. Also the data created by individual, 
-    no matter if pro-active or passively - belongs to her; for instance time series data such as 
-    geo-location or blog posts. All personal data solely associating with an individual, holds as 
-    well the ownership of the same.
+    customer ID, are part of an individual's personal data. Data (pro-)actively created by that 
+    individual - including meta data - belongs to her as well; for instance time series data 
+    such as bank account history, a written blog posts or a geo-location attached to her tweet as
+    meta information. That also includes data, captured by someone ore something on or about the 
+    individual's private living space and property. Generally speaking, all data solely associating 
+    with an individual, is in the ownership of the same.
     
 +   The european *Data Protection Regulations* defining *Personal Data* as follows:
 >   ‘personal data’ means any information relating to an identified or identifiable natural person 
@@ -123,12 +125,40 @@ Whereas __Ownership__ of *Personal Data* is generally addressed in the organisat
 *Terms of Service*, which an individual might need to accept in order to establish a (legal) 
 relationship with it's author 
 
+
+Ownership in the sense of having full control over it's personal data and how they get processed at 
+any given point in time; that's not only highly expensive, but also very inconvenient for both
+parties - owner and data consumer.
+
 the contents (of ToS) is not against any appliable law; or the regarding issues are lacking of any 
 legislative addressing.
 
+
++   Data consumers might argue, that they had invested in enabling themselves to collect, 
+    process and store personal data, so it belongs to them.
+    But from the data owner's point of view it might only be the case as long as as she would
+    benefit as well somehow, e.g. using products, services or features, offered by consumers,
+    which quality depends on personal data. 
+    If the data owner chooses to move to a competitor might what to bring her personal data with
+    her. But then again the former data consumer would object, competitors would
+    benefit from all investments the consumer has made, but without any effort.
+    Though, not entirely wrong, two aspects need to be emphasize. (A) In order to archive a high
+    level of quality for their analytics and therefore in making right decisions to gain 
+    improvement, it's vital to huge amount of effort in developing these underlying technologies,
+    not only in acquiring personal data. Which again only constitutes (B) the foundation of various 
+    subsequential computations followed by an ongoing collecting, aggregation and 
+    analytics of actively and passively created data and meta data (e.g. food deliver history or
+    platform interactions and tracking). Given the initially introduced definition of *personal 
+    data* only a fraction of the involved data belongs to its owner. Hence the large part should 
+    remain to the data collector and should either be deleted or sufficiently anonymized, if the 
+    owner cancels the relationship. The data owner should not depend on the collector's willingness
+    when it comes to handing over her personal data (e.g. list of favorites or delivery history).
+    Instead, using her own tool to provide the consumer with required data (e.g. list of favorites)
+    or tap into her data creating interactions (e.g. food deliveries) on her own.
+
+    
 +   Since the U.S. law barely handles consumer privacy, it also touches just briefly on ownership 
     of data and in a rather generic manner.
-
 
 
 +   A __Digital Identity__ goes a step further by not only representing and associating a living 
