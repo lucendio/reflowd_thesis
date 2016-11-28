@@ -33,9 +33,9 @@ Fundamentals
     result in a unique fingerprint as well as values of single attribute, depending on the 
     context. Not only external imposed attributes, such as social security number, birth or
     customer ID, are part of an individual's personal data. Data (pro-)actively created by that 
-    individual - including meta data - belongs to her as well; for instance time series data 
-    such as bank account history, a written blog posts or a geo-location attached to her tweet as
-    meta information. That also includes data, captured by someone ore something on or about the 
+    individual - including manually enriched metadata - belongs to her as well; for example time 
+    series data such as bank account history, a written blog posts or a geo-location attached to 
+    her tweet as meta information. That also includes data, captured by someone ore something on or about the 
     individual's private living space and property. Generally speaking, all data solely associating 
     with an individual, is in the ownership of the same.
     
@@ -121,17 +121,31 @@ Fundamentals
 
 
 
-Whereas __Ownership__ of *Personal Data* is generally addressed in the organisation's 
-*Terms of Service*, which an individual might need to accept in order to establish a (legal) 
-relationship with it's author 
+Whereas __Ownership__ of *Personal Data* has no legal ground what so ever. Intuitively the 
+concepts of copyright might apply, because the data, created by its owner, seems to be her
+*intellectual property*. Such property implies to be a result of a creative process, but 
+unfortunately there is no *threshold of originality* in facts, like *personal data* is.
 
-
-Ownership in the sense of having full control over it's personal data and how they get processed at 
++   Ownership in the sense of having full control over it's personal data and how they get processed at 
 any given point in time; that's not only highly expensive, but also very inconvenient for both
 parties - owner and data consumer.
 
-the contents (of ToS) is not against any appliable law; or the regarding issues are lacking of any 
+
+is typically addressed in the organisation's 
+*Terms of Service*, which an individual might have to accept in order to establish a (legal) 
+relationship with it's author.
+
+the contents (of ToS) is not against any applicable law; or the regarding issues are lacking of any 
 legislative addressing.
+
+The european DPR [^abbr_dpr] contains only one occurrence of the word *ownership*, which is not 
+even related to the context of *personal data* or the *data subject*. 
+
+The DPR only stats, that *"Natural persons should have control of their own personal data."* 
+[@regulation_2016_eu_general-data-protection-regulation_ownership]. 
+Wheras Commissioner J. Rosenworcel wants *"consumers [...] to [...] take some ownership of what is 
+done with their personal information."* 
+[@rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership]
 
 
 +   Data consumers might argue, that they had invested in enabling themselves to collect, 
@@ -147,14 +161,16 @@ legislative addressing.
     improvement, it's vital to huge amount of effort in developing these underlying technologies,
     not only in acquiring personal data. Which again only constitutes (B) the foundation of various 
     subsequential computations followed by an ongoing collecting, aggregation and 
-    analytics of actively and passively created data and meta data (e.g. food deliver history or
+    analytics of actively and passively created data and metadata (e.g. food deliver history or
     platform interactions and tracking). Given the initially introduced definition of *personal 
-    data* only a fraction of the involved data belongs to its owner. Hence the large part should 
-    remain to the data collector and should either be deleted or sufficiently anonymized, if the 
-    owner cancels the relationship. The data owner should not depend on the collector's willingness
-    when it comes to handing over her personal data (e.g. list of favorites or delivery history).
-    Instead, using her own tool to provide the consumer with required data (e.g. list of favorites)
-    or tap into her data creating interactions (e.g. food deliveries) on her own.
+    data* only a fraction of the involved data belongs to its owner. The large part consists of 
+    highly valuable metadata [@web_2013_why-metadata-matters] 
+    [@web_2016_why-you-need-metadata-for-big-data-to-success]and therefore should remain to the 
+    data collector and either be deleted or sufficiently anonymized, if the owner cancels the 
+    relationship. The data owner should not depend on the collector's willingness when it comes 
+    to handing over her personal data (e.g. list of favorites or delivery history). Instead, 
+    using her own tool to provide the consumer with required data (e.g. list of favorites) or 
+    tap into her data creating interactions (e.g. food deliveries) on her own.
 
     
 +   Since the U.S. law barely handles consumer privacy, it also touches just briefly on ownership 
@@ -182,6 +198,9 @@ legislative addressing.
     owner
 +   therefore its imported to not see it as a reduction of a living individual to some bits and
     bytes
+    
++   Since it doesn't exist any legal concepts on *personal data* ownership, a technical solution
+could help to reinforce some control 
 
 
 [^eu-data-protection-regulation]: passed 2016, immediately enforceable in every member country of 
@@ -189,6 +208,8 @@ legislative addressing.
     
 [^eu-data-protection-regulation_informing-data-subject]: according to article 12-14 of the *EU
     General Data Protection Regulation 2016/679*
+    
+[^abbr_dpr]: EU Data Protection Regulation
 
 
 [@report_2014_big-data_seizing-opportunities-preserving-values]
