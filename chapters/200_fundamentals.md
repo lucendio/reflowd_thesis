@@ -15,7 +15,7 @@ Fundamentals
 
 +   *Ownership* of personal data
     -   who is the owner in what situation or under what circumstances?
-    -   am I the owner when I was the one who was collecting them? Does it depend whether the 
+    -   am I the owner when I was the one who was collecting them? Does it depend on whether the 
         resource was public or somewhat private?
     -   what will happen with her data service after a person died?
     
@@ -32,7 +32,8 @@ Fundamentals
     to an individual or defining her personality. A subset of these attributes combined can 
     result in a unique fingerprint as well as values of single attribute, depending on the 
     context. Not only external imposed attributes, such as social security number, birth or
-    customer ID, are part of an individual's personal data. Data (pro-)actively created by that 
+    customer ID, henceforth summarized as *personal information*, are part of an individual's 
+    personal data. Data (pro-)actively created by that 
     individual - including manually enriched metadata - belongs to her as well; for example time 
     series data such as bank account history, a written blog posts or a geo-location attached to 
     her tweet as meta information. That also includes data, captured by someone ore something on or about the 
@@ -121,60 +122,93 @@ Fundamentals
 
 
 
-Whereas __Ownership__ of *Personal Data* has no legal ground what so ever. Intuitively the 
-concepts of copyright might apply, because the data, created by its owner, seems to be her
-*intellectual property*. Such property implies to be a result of a creative process, but 
-unfortunately there is no *threshold of originality* in facts, like *personal data* is.
+Whereas __Ownership__ of *Personal Data* has no legal ground foundation so ever. The concepts of 
+intellectual property protection and copyright might intuitively be applicable, because the data, 
+created by its owner, seems to be her *intellectual property*. Such property implies to be a result 
+of a creative process though, but unfortunately there is no *threshold of originality* in facts, 
+like *personal information* is [@paper_2014_who-owns-yours-data]. 
 
-+   Ownership in the sense of having full control over it's personal data and how they get processed at 
-any given point in time; that's not only highly expensive, but also very inconvenient for both
-parties - owner and data consumer.
++   Ownership in the sense of having exclusive control over it's personal data and how they get 
+processed at any given point in time; this not only comes with high costs, but is also very 
+inconvenient for both parties - owner and data consumer. It consists of two concepts: (A) the right
+to do what every is desired with their property and (B) in which rules and mechanisms the ownership 
+can be assigned to someone [@book_1987_private-ownership_definition].
 
-
-is typically addressed in the organisation's 
-*Terms of Service*, which an individual might have to accept in order to establish a (legal) 
-relationship with it's author.
-
-the contents (of ToS) is not against any applicable law; or the regarding issues are lacking of any 
-legislative addressing.
-
-The european DPR [^abbr_dpr] contains only one occurrence of the word *ownership*, which is not 
-even related to the context of *personal data* or the *data subject*. 
-
-The DPR only stats, that *"Natural persons should have control of their own personal data."* 
++   The european DPR [^abbr_dpr] contains only one occurrence of the word *ownership*, which is not 
+even related to the context of *personal data* or the *data subject*. It only stats, that 
+*"Natural persons should have control of their own personal data."* 
 [@regulation_2016_eu_general-data-protection-regulation_ownership]. 
-Wheras Commissioner J. Rosenworcel wants *"consumers [...] to [...] take some ownership of what is 
-done with their personal information."* 
+Whereas Commissioner J. Rosenworcel of the FCC wants *"consumers [...] to [...] take some ownership 
+of what is done with their personal information."* 
 [@rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership]
 
++   Typically the question of data ownership is addressed in data consumer's *Terms of Service* 
+(ToS), which an individual might have to accept in order to establish a (legal) relationship with 
+it's author. I should be kept in mind, that *ToS* might change over time; not necessarily to the 
+users advantage. All addressed issues (by the ToS) must not violate any applicable or related law, 
+otherwise the *ToS* might not be legally recognized.
+Taking the following excerpts from different *ToS*:
+ 
+>   You own all of the content and information you post on Facebook, and you can control how 
+>   it is shared [...]. *(under "2. Sharing Your Content and Information", by Facebook
+>   [@web_2016_facebook_terms-of-service])*
 
-+   Data consumers might argue, that they had invested in enabling themselves to collect, 
-    process and store personal data, so it belongs to them.
-    But from the data owner's point of view it might only be the case as long as as she would
-    benefit as well somehow, e.g. using products, services or features, offered by consumers,
-    which quality depends on personal data. 
-    If the data owner chooses to move to a competitor might what to bring her personal data with
-    her. But then again the former data consumer would object, competitors would
-    benefit from all investments the consumer has made, but without any effort.
-    Though, not entirely wrong, two aspects need to be emphasize. (A) In order to archive a high
-    level of quality for their analytics and therefore in making right decisions to gain 
-    improvement, it's vital to huge amount of effort in developing these underlying technologies,
-    not only in acquiring personal data. Which again only constitutes (B) the foundation of various 
-    subsequential computations followed by an ongoing collecting, aggregation and 
-    analytics of actively and passively created data and metadata (e.g. food deliver history or
-    platform interactions and tracking). Given the initially introduced definition of *personal 
-    data* only a fraction of the involved data belongs to its owner. The large part consists of 
-    highly valuable metadata [@web_2013_why-metadata-matters] 
-    [@web_2016_why-you-need-metadata-for-big-data-to-success]and therefore should remain to the 
-    data collector and either be deleted or sufficiently anonymized, if the owner cancels the 
-    relationship. The data owner should not depend on the collector's willingness when it comes 
-    to handing over her personal data (e.g. list of favorites or delivery history). Instead, 
-    using her own tool to provide the consumer with required data (e.g. list of favorites) or 
-    tap into her data creating interactions (e.g. food deliveries) on her own.
+>   You retain your rights to any Content you submit, post or display on or through the Services. 
+>   What’s yours is yours — you own your Content. *(under "3. Content on the Services", by Twitter
+>   [@web_2016_twitter_terms-of-service])* 
 
-    
-+   Since the U.S. law barely handles consumer privacy, it also touches just briefly on ownership 
-    of data and in a rather generic manner.
+>   Some of our Services allow you to upload, submit, store, send or receive content. You retain 
+>   ownership of any intellectual property rights that you hold in that content. In short, what 
+>   belongs to you stays yours. *(under "Your Content in our Services", by Google 
+>   [@web_2016_google_terms-of-service])*
+
+>   Except for material we may license to you, Apple does not claim ownership of the materials 
+>   and/or Content you submit or make available on the Service "(under "H. Content Submitted 
+>   or Made Available by You on the Service", by Apple [@web_2016_apple-icloud_terms-of-service])*
+
+All these statements are followed by the same term, stating that the user grants the author a 
+worldwide license to do almost any imaginable thing with her data. This even applies to Apple, 
+if the user is *"submitting or posting [...] Content on areas of the Service that are accessible
+by the public or other users with whom [the user] consent to share [...] Content"*
+[@web_2016_apple-icloud_terms-of-service].
++   It is worth noticing, that in every *ToS* it is only referred to the data owner's 
+content, not all her personal data. As mentioned above, personal information are no 
+intellectual property, but playing an important role in data analytics though.
++   In addition to that, the meaning of *ownership* used in the quoted *ToS* is missing a 
+clear outline and thus causing ambiguity and leaving room for interpretation. Nor the actual 
+definition of *ownership*, as described earlier, is applicable for these kind of cases, since 
+the user losing all its control is by design. Handing over data to the consumer annihilates
+the exclusive control over the data and revokes the ability of assigning such control. There 
+is no (legislation based) way to establish a feasible concept of *ownership*, if the data consumer 
+has no motivation to promote the user a comprehensive owner of her data.
+ 
++   Leaving all the legal layer aside for a moment and switching the perspectives a bit; 
+Data consumers might argue, that they had invested in enabling themselves to collect, process 
+and store personal data, so it belongs to them. But from the data owner's point of view it might 
+only be the case as long as as she would benefit as well somehow, e.g. using products, services 
+or features, offered by consumers, which quality depends on personal data. 
+If the data owner chooses to move to a competitor might what to bring her personal data with
+her. But then again the former data consumer would object, competitors would
+benefit from all investments the consumer has made, but without any effort.
+Though, not entirely wrong, two aspects need to be emphasize. (A) In order to archive a high
+level of quality for their analytics and therefore in making right decisions to gain 
+improvement, it's vital to huge amount of effort in developing these underlying technologies,
+not only in acquiring personal data. Which again only constitutes (B) the foundation of various 
+subsequential computations followed by an ongoing collecting, aggregation and 
+analytics of actively and passively created data and metadata (e.g. food deliver history or
+platform interactions and tracking). Given the initially introduced definition of *personal 
+data* only a fraction of the involved data belongs to its owner. The large part consists of 
+highly valuable metadata [@web_2013_why-metadata-matters] 
+[@web_2016_why-you-need-metadata-for-big-data-to-success]and therefore should remain to the 
+data collector and either be deleted or sufficiently anonymized, if the owner cancels the 
+relationship. The data owner should not depend on the collector's willingness when it comes 
+to handing over her personal data (e.g. list of favorites or delivery history). Instead, 
+using her own tool to provide the consumer with required data (e.g. list of favorites) or 
+tap into her data creating interactions (e.g. food deliveries) on her own.
+
++   Whether an individual dies or a user deletes her account, as long as certain data point are
+shared with / connected to other users, the data will remain. At least when it comes to facebook.
+
 
 
 +   A __Digital Identity__ goes a step further by not only representing and associating a living 
@@ -186,6 +220,8 @@ done with their personal information."*
     also identify this person as the rightful owner and physical counterpart. It can also be seen 
     as an avatar in the digital world or as the digital part of a human's identity. 
     [@whitepaper_2012_the-value-of-our-digital-identity_definition]
+    
++   virtual identity
 
 +   identity defining data (e.g. history of personal ID card)
 

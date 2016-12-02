@@ -10,6 +10,8 @@ __Big Data:__ deep learning, neural networks
 
 __Personal Data:__ TODO
 
+__Personal Information__ part of *personal data*, predominantly static data points; TODO
+
 __Personal Data as a Service (PDaaS):__ a web service controlled, owned and maybe even hosted 
 by an individual, which provides access to the owner's personal data and offers maintainability 
 as well as permission management. 
