@@ -3,8 +3,20 @@ Fundamentals
 
 
 
-## Personal Data, Ownership and Digital Identity
+The following chapter shall provide the foundational knowledge about concepts like *Personal 
+Identity* or *Big Data* and therefore ensures a common understanding on their relation to the 
+problem this work tries to solve. Additionally it is given a brief overview on what existing 
+standards and technologies might be used, and summarizes the research already been made as well 
+as it's current state.
 
+
+
+## Digital Identity, Personal Data and Ownership 
+
++   *Digital Identity*
+    -   what is a *DI*? and in comparison to *Personal Data*? 
+    -   what is required to make the PDaaS used or seen as a *DI*?
+    
 +   *Personal Data* definition
     +   general - freely spoken
     +   as of EU law (incl citation)
@@ -18,27 +30,47 @@ Fundamentals
     -   am I the owner when I was the one who was collecting them? Does it depend on whether the 
         resource was public or somewhat private?
     -   what will happen with her data service after a person died?
-    
-+   *Digital Identity*
-    -   what is a *DI*? and in comparison to *Personal Data*? 
-    -   what is required to make the PDaaS used or seen as a *DI*?
 
 
 ####################################################################################################
 
 
-+   In the context of this document and all related work, *Personal Data* (or *Personal 
-    Information*) is specified as a set of data points (key-value-pairs), that are related 
-    to an individual or defining her personality. A subset of these attributes combined can 
-    result in a unique fingerprint as well as values of single attribute, depending on the 
-    context. Not only external imposed attributes, such as social security number, birth or
-    customer ID, henceforth summarized as *personal information*, are part of an individual's 
-    personal data. Data (pro-)actively created by that 
-    individual - including manually enriched metadata - belongs to her as well; for example time 
-    series data such as bank account history, a written blog posts or a geo-location attached to 
-    her tweet as meta information. That also includes data, captured by someone ore something on or about the 
-    individual's private living space and property. Generally speaking, all data solely associating 
-    with an individual, is in the ownership of the same.
++   A __Digital Identity__ is a non-physical abstraction of an entity, such as an organisation,
+an individual, a device or even software, which allows bidirectional association. In the context 
+of this document, it only refers to human beings. Therefore a *digital identity* is the 
+individual's representation in digital systems, consisting of identity-defining data, such as 
+*personal information* and it's history and preferences 
+[@whitepaper_2012_the-value-of-our-digital-identity_definition]. *Personal information*, in this 
+case, refers to inherent (date of birth) and imposed (credit card number) characteristics.
+
++   From a technical perspective a DI is essentially a collection of characteristics, attributes
+and time series data (e.g. interaction logs or bank account history). A subset of these attributes 
+combined can form unique fingerprint, like certain single data points (e.g. social security number)
+in their own context might be, too. Thus it might not be necessary to know the values of all 
+attributes in order to identify a person as the rightful owner and physical counterpart. 
+It can also be seen as an avatar in the digital world or as the digital part of a human's identity. 
+Therefore its important to not view the *DI* as a reduction of a living individual to some bits 
+and bytes, but rather as a appropriate representation for certain purposes and contexts.
+ 
++   It is also possible to provide an additional level of authenticity insurance for data 
+related to an entity. Therefor an unrelated third party, which needs to be approved not only by
+the related individual, but also by all entities participating in a context, which might be 
+relevant e.g. for some administration purposes.
++   But the concept would also impose a new level of attacking vectors to the identity owner, such as 
+identity theft. The attacker is no longer required to be physically present to be able to steal 
+certain unique identifiers from a person. It is sufficient to gain access to area where the 
+sensitive data is stored.
+
+
+
++   In the context of this document and all related work, __Personal Data__ is specified as a
+    combination of an individual's *Digital Identity* and all of it's ever created intellectual 
+    property (e.g. posts, images, tweets or comments). This includes all sorts of tracking data 
+    and interaction monitoring, as well as metadata manually or automated enriching content 
+    (e.g.geo-location attached to a tweet as meta information). Data, captured by someone ore 
+    something on or about the individual's private living space and property. 
+    Simply every data point reflecting the individual's personality - partly or as a whole - is 
+    seen as *personal data*.
     
 +   The european *Data Protection Regulations* defining *Personal Data* as follows:
 >   ‘personal data’ means any information relating to an identified or identifiable natural person 
@@ -173,7 +205,9 @@ by the public or other users with whom [the user] consent to share [...] Content
 [@web_2016_apple-icloud_terms-of-service].
 +   It is worth noticing, that in every *ToS* it is only referred to the data owner's 
 content, not all her personal data. As mentioned above, personal information are no 
-intellectual property, but playing an important role in data analytics though.
+intellectual property, but playing an important role in data analytics though. Which is why
+*privacy policies* are in place, to ensure at least some user enlightenment, even though it
+doesn't compensate the lack of control.
 +   In addition to that, the meaning of *ownership* used in the quoted *ToS* is missing a 
 clear outline and thus causing ambiguity and leaving room for interpretation. Nor the actual 
 definition of *ownership*, as described earlier, is applicable for these kind of cases, since 
@@ -199,7 +233,7 @@ analytics of actively and passively created data and metadata (e.g. food deliver
 platform interactions and tracking). Given the initially introduced definition of *personal 
 data* only a fraction of the involved data belongs to its owner. The large part consists of 
 highly valuable metadata [@web_2013_why-metadata-matters] 
-[@web_2016_why-you-need-metadata-for-big-data-to-success]and therefore should remain to the 
+[@web_2016_why-you-need-metadata-for-big-data-to-success] and therefore should remain to the 
 data collector and either be deleted or sufficiently anonymized, if the owner cancels the 
 relationship. The data owner should not depend on the collector's willingness when it comes 
 to handing over her personal data (e.g. list of favorites or delivery history). Instead, 
@@ -209,34 +243,9 @@ tap into her data creating interactions (e.g. food deliveries) on her own.
 +   Whether an individual dies or a user deletes her account, as long as certain data point are
 shared with / connected to other users, the data will remain. At least when it comes to facebook.
 
-
-
-+   A __Digital Identity__ goes a step further by not only representing and associating a living 
-    human being, but also providing an additional level of authenticity verification/insurance. 
-+   NOTE: maybe the dif goes as follows - personal data becomes a *DI* only when the data set holds 
-    enough attributes or specific attributes to be unique in the given context, and therefore 
-    allowing to identify associated individual (??); not really, same goes for personal data
-+   all digital data about, related to and created by an individual, that would 
-    also identify this person as the rightful owner and physical counterpart. It can also be seen 
-    as an avatar in the digital world or as the digital part of a human's identity. 
-    [@whitepaper_2012_the-value-of-our-digital-identity_definition]
-    
-+   virtual identity
-
-+   identity defining data (e.g. history of personal ID card)
-
-+   with such a system a human being is represented by a non-physical abstraction of herself.
-    Which essentially is a list of attributes, that are at least for legal and civil
-    administration purposes important. Their values in total are unique and representing the 
-    corresponding human. Certain attributes hold unique values within it's own context, for 
-    example the *social security number*. 
-+   Thus it's not necessary to know the values of all attributes in order to identify it's
-    owner
-+   therefore its imported to not see it as a reduction of a living individual to some bits and
-    bytes
-    
-+   Since it doesn't exist any legal concepts on *personal data* ownership, a technical solution
-could help to reinforce some control 
++   Generally speaking, all data solely associating with an individual, is in the ownership of 
+the same. But since it doesn't exist any legal concepts on *personal data* ownership, a 
+technical solution could help to regain some control. 
 
 
 [^eu-data-protection-regulation]: passed 2016, immediately enforceable in every member country of 
@@ -246,13 +255,6 @@ could help to reinforce some control
     General Data Protection Regulation 2016/679*
     
 [^abbr_dpr]: EU Data Protection Regulation
-
-
-[@report_2014_big-data_seizing-opportunities-preserving-values]
-
-+   ownership? (https://united-kingdom.taylorwessing.com/globaldatahub/article_big_data_ownership.html)
-    https://lifehacker.com/you-dont-own-your-data-1556088120
-+   https://www.eff.org/deeplinks/2015/07/big-tech-does-not-speak-internet
 
 
 
@@ -450,6 +452,7 @@ could help to reinforce some control
 
 [^industries-as-data-brokers]: Banking and Securities; Communication, Media & Entertainment;
     Insurance; Energy & Utilities
+
 
 
 ## Use Cases (NOTE: maybe move to 100_introduction)

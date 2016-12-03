@@ -2,6 +2,9 @@ Core Principles
 ==========================================
 
 
+
+In the following chapter the certain core principles of the system will be examined 
+
 NOTE: here we discuss a variety of possibilities --> conceptual work
 
 
