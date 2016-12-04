@@ -455,18 +455,6 @@ technical solution could help to regain some control.
 
 
 
-## Use Cases (NOTE: maybe move to 100_introduction)
-
-+   package shipment after buying sth online 
-+   social network accessing arbitrary profile data
-+   making an online purchase
-+   credibility (applying for a loan) validation by a certain financial institution: 
-    accessing arbitrary data
-+   patient/health record
-+   care (movement) data
-
-
-
 ## Related Work
 
 +   much more research since the data mining, big data, deep learning 

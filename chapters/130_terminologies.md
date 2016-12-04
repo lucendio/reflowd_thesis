@@ -8,6 +8,8 @@ __Open Specification:__ TODO
 
 __Big Data:__ deep learning, neural networks
 
+__profile data:__ individual's inherent data; TODO
+
 __Personal Data:__ TODO
 
 __Personal Information__  predominantly static data points related to an individual

@@ -29,19 +29,19 @@
                 <li><a href="#introduction"><span class="toc-section-number">2</span> Introduction</a><ul>
                 <li><a href="#motivation"><span class="toc-section-number">2.2</span> Motivation</a></li>
                 <li><a href="#purpose-outcome"><span class="toc-section-number">2.3</span> Purpose &amp; Outcome</a></li>
-                <li><a href="#terminologies"><span class="toc-section-number">2.4</span> Terminologies</a></li>
+                <li><a href="#scenarios"><span class="toc-section-number">2.4</span> Scenarios</a></li>
+                <li><a href="#terminologies"><span class="toc-section-number">2.5</span> Terminologies</a></li>
                 </ul></li>
                 <li><a href="#fundamentals"><span class="toc-section-number">3</span> Fundamentals</a><ul>
                 <li><a href="#digital-identity-personal-data-and-ownership"><span class="toc-section-number">3.2</span> Digital Identity, Personal Data and Ownership</a></li>
                 <li><a href="#personal-data-in-the-context-of-the-big-data-movement"><span class="toc-section-number">3.3</span> Personal Data in the context of the Big Data Movement</a></li>
                 <li><a href="#personal-data-as-a-product"><span class="toc-section-number">3.4</span> Personal Data as a Product</a></li>
-                <li><a href="#use-cases-note-maybe-move-to-100_introduction"><span class="toc-section-number">3.5</span> Use Cases (NOTE: maybe move to 100_introduction)</a></li>
-                <li><a href="#related-work"><span class="toc-section-number">3.6</span> Related Work</a><ul>
-                <li><a href="#research"><span class="toc-section-number">3.6.2</span> Research</a></li>
-                <li><a href="#organisations"><span class="toc-section-number">3.6.3</span> Organisations</a></li>
-                <li><a href="#commercial-products"><span class="toc-section-number">3.6.4</span> Commercial Products</a></li>
+                <li><a href="#related-work"><span class="toc-section-number">3.5</span> Related Work</a><ul>
+                <li><a href="#research"><span class="toc-section-number">3.5.2</span> Research</a></li>
+                <li><a href="#organisations"><span class="toc-section-number">3.5.3</span> Organisations</a></li>
+                <li><a href="#commercial-products"><span class="toc-section-number">3.5.4</span> Commercial Products</a></li>
                 </ul></li>
-                <li><a href="#standards-and-specifications"><span class="toc-section-number">3.7</span> Standards and Specifications</a></li>
+                <li><a href="#standards-and-specifications"><span class="toc-section-number">3.6</span> Standards and Specifications</a></li>
                 </ul></li>
                 <li><a href="#core-principles"><span class="toc-section-number">4</span> Core Principles</a><ul>
                 <li><a href="#data-ownership"><span class="toc-section-number">4.2</span> Data Ownership</a></li>
@@ -125,11 +125,44 @@
 <p>To ensure a great level of trust to this project and the resulting software, it is vital to make the development process fully transparent and encourage people to get involved. Therefore it is required to open source all related software and documents <span class="citation" data-cites="repo_2016_pdaas-spec">[<a href="#ref-repo_2016_pdaas-spec">12</a>]</span> from day one on.</p>
 <p>In summary, this document is meant to be the initial step in a development process fabricating a tool to manage all data that defines her identity controlled and administrated by it’s owner, and maybe give her a more precise understanding about where her personal information flow and how this might effect her privacy.</p>
 </section>
+<section id="scenarios" class="level2">
+<h2><span class="header-section-number">2.4</span> Scenarios</h2>
+<p>The following use cases shall depict different situations and possible ways such emerging software might be applicable or useful, while providing it’s user with more control over her personal data. Some of them are more practical and realistic, like ordering and purchasing online a product, others might have no current usage, but showing a certain potential to become more relevant when new technologies and business models emerge, followed by new demands of data.</p>
+<section id="section" class="level100">
+<p><span class="header-section-number">2.4.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1</span> </p>
+<ul>
+<li>order sth online, purchase, and package shipment</li>
+<li>social network accessing arbitrary profile data</li>
+<li>credibility (applying for a loan) validation by a certain financial institution: accessing arbitrary data</li>
+<li>patient/health record</li>
+<li>care (movement) data</li>
+</ul>
+</section>
+<section id="section-1" class="level100">
+<p><span class="header-section-number">2.4.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2</span> </p>
+</section>
+<section id="ordering-a-product-online" class="level4">
+<h4><span class="header-section-number">2.4.1.1</span> Ordering a product online</h4>
+<p>The data owner searches through the web to find a new toaster, since her old one recently broke. After some clicks and reviews, she found her soon-to-become latest member of the household’s kitchenware. After putting the model name in a price search engine, hoping to save some money, the first entry, offering a 23% discount, caught her attention. She decides to have a deeper look into the toasters and thus has heading towards the original web shop entry. Finally she came around and put the item onto her card, despite tha fact, that she has never bought something from that online shop before. Then she proceeded to checkout to place her order. The UI is asking her to either insert her credentials, proceed without registration or sign-in, or insert s URI to an endpoint of her <em>Personal Data as a Service</em>. TODO: the following description might need some adjustments according data flow / process description She opens up the management panel of her <em>PDaaS</em> and creates a new entry in a list of data consumers, that already have access to characteristics of her personal data. As a result, she receives a URI, which she inserts according, as mentioned before; after she assures herself that the data exchange with the shop through the browser is based on a secure connection (HTTPS). Under this URI, the shop-system can then request data, that is required for a successful transaction. Moving on to the next step after submitting the URI, the data owner is ask to decide how she would like to pay. The choices are: credit card, invoice, paypal or bank transfer. She chooses the last one, submits her selection and thereby completes her order. After a moment, a push notification pops up on her mobile device, which is a permission request from her <em>PDaaS</em>, asking for granting the shop-system, she just places the order, access to her full name, address and email. Additionally she can decide between three states of how log the permission wil be valid: <em>one-time-only</em>, <em>expires-on-date</em> and <em>until-further-notice</em>. Since she never ordered at this shop before and might never again, she decided to grant access only for this specific occasion. After the shop-system receives the data, it sends an email to the data owner, containing some information about her order, including the shop’s bank details. which then enables her to actually pay the amount due. After the system recognizes the payment has coming in, it triggers the shipment of the toaster. In order to get a full impression of how the whole process might have look like when the data owner had chosen one of the other payment methods, the differences will be describes in the following. If the data owner would have wanted to pay with her credit card, the only difference would have been, that the shop-system had requested also to access the credit card number and it’s belonging secret, and when sending the email the system would have omitted the information about the shop’s bank details. Being able to choose paying with invoice where possible only because the <em>PDaaS</em> response has indicated, that it’s containing <em>profile data</em> is certified and therefore trustworthy. Which reduces the shop owner’s risk and would have enabled him in case of fraud or misuse to take action. Choosing to involve paypal as a <em>middleman</em> to process the payment, requires the data owner to had already granted paypal certain access to her <em>PDaaS</em>. If that’s the case, then the shop-system would have ask also for her paypal-ID, which then the system will use to request the payment directly from paypal. This on the other side will cause paypal to consult the <em>PDaaS</em>, which results in a second notification, asking the data owner for permission to proceed. After the payment transfer was successful, the shipment will gets initiated. And with the package arriving at the data owner’s doorstep the whole transaction has finished.</p>
+</section>
+<section id="interacting-with-a-social-network" class="level4">
+<h4><span class="header-section-number">2.4.1.2</span> Interacting with a social network</h4>
+<p>Entering a social network for the first time, only take the URI to the data owner’s <em>PDaaS</em> and a password. The data owner receives a notification on her mobile device asking for permission to access certain data about her. If her mobile device is currently not at hand, she can also use the administration panel provided by her <em>PDaaS</em> and reachable with a web browser on every internet-enabled device. Within that panel pending permission reviews will be indicated. Whether the data owner has already reviews the request or not, she should be able to login to the social network. After doing so, she should not be able to see any of her information. After granting permissions to the social network to accessing certain data <em>until-further-notice</em> and reloading the session, she then should see all her So every time, someone on that network tries to access her information, whom she has allowed to see that information (which is managed by the user only from within the network), the network pulls the data from the owner’s <em>PDaaS</em>, if it’s still permitted to do so. It’s also imaginable, that the social network and a <em>PDaaS</em> are establishing a backward channel. This channel could be used to send all the content she would create over time while interacting with the social network and it’s participants back to her <em>PDaaS</em>. The network itself only stores a reference to all content object, whether it’s for example an image, a post or comment on somebody else’s post and if it’s needed the actual content will be fetched from the owner’s <em>PDaaS</em>.</p>
+</section>
+<section id="car-data" class="level4">
+<h4><span class="header-section-number">2.4.1.3</span> Car data</h4>
+<p>The car itself has no on-board hardware to establish a wide range wireless connection to the outside. Only from inside the car one can connect to it (wired or wireless). If a passenger connects her device to the automobile, two things are then happening. First, a wifi network is with a connection to the internet is provided to everyone inside, and second, all connections, the car might want to establish, need to go through that device. This give the device owner full control over any data exchange that might happen. This again makes two this possible:</p>
+<ol type="A">
+<li>permission management over data the car is trying to send and (B) tapping into the data stream and collect them in <em>PDaaS</em> associated with the mobile device. It would also be conceivable to deny any connection the car would like make and thus ensure that all data the car is generating and providing will go into the <em>PDaaS</em> and . It then somebody is interested in such data, they have to ask for permission.</li>
+</ol>
+</section>
+</section>
 <section id="terminologies" class="level2">
-<h2><span class="header-section-number">2.4</span> Terminologies</h2>
+<h2><span class="header-section-number">2.5</span> Terminologies</h2>
 <p><strong>Web Service:</strong> TODO</p>
 <p><strong>Open Specification:</strong> TODO</p>
 <p><strong>Big Data:</strong> deep learning, neural networks</p>
+<p><strong>profile data:</strong> individual’s inherent data; TODO</p>
 <p><strong>Personal Data:</strong> TODO</p>
 <p><strong>Personal Information</strong> predominantly static data points related to an individual</p>
 <p><strong>Personal Data as a Service (PDaaS):</strong> a web service controlled, owned and maybe even hosted by an individual, which provides access to the owner’s personal data and offers maintainability as well as permission management.</p>
@@ -169,7 +202,7 @@
 <li>what will happen with her data service after a person died?</li>
 </ul></li>
 </ul>
-<section id="section" class="level100">
+<section id="section-2" class="level100">
 <p><span class="header-section-number">3.2.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1</span> </p>
 <ul>
 <li><p>A <strong>Digital Identity</strong> is a non-physical abstraction of an entity, such as an organisation, an individual, a device or even software, which allows bidirectional association. In the context of this document, it only refers to human beings. Therefore a <em>digital identity</em> is the individual’s representation in digital systems, consisting of identity-defining data, such as <em>personal information</em> and it’s history and preferences <span class="citation" data-cites="whitepaper_2012_the-value-of-our-digital-identity_definition">[<a href="#ref-whitepaper_2012_the-value-of-our-digital-identity_definition">16</a>]</span>. <em>Personal information</em>, in this case, refers to inherent (date of birth) and imposed (credit card number) characteristics.</p></li>
@@ -256,19 +289,8 @@
 <li><p>individuals then get in role of selling/offering it’s own data to those who were previously collecting them</p></li>
 </ul>
 </section>
-<section id="use-cases-note-maybe-move-to-100_introduction" class="level2">
-<h2><span class="header-section-number">3.5</span> Use Cases (NOTE: maybe move to 100_introduction)</h2>
-<ul>
-<li>package shipment after buying sth online</li>
-<li>social network accessing arbitrary profile data</li>
-<li>making an online purchase</li>
-<li>credibility (applying for a loan) validation by a certain financial institution: accessing arbitrary data</li>
-<li>patient/health record</li>
-<li>care (movement) data</li>
-</ul>
-</section>
 <section id="related-work" class="level2">
-<h2><span class="header-section-number">3.6</span> Related Work</h2>
+<h2><span class="header-section-number">3.5</span> Related Work</h2>
 <ul>
 <li>much more research since the data mining, big data, deep learning</li>
 </ul>
@@ -279,7 +301,7 @@
 <li>Personal Data Store</li>
 </ul>
 <section id="research" class="level3">
-<h3><span class="header-section-number">3.6.2</span> Research</h3>
+<h3><span class="header-section-number">3.5.2</span> Research</h3>
 <ul>
 <li>openPDS/safeAnswer [http://openpds.media.mit.edu/]</li>
 <li>TAS3 aka ZXID aka Synergetics (lead arch Sampo Kellomäki also Co-Authored openPDS papers)</li>
@@ -295,7 +317,7 @@
 </ul>
 </section>
 <section id="organisations" class="level3">
-<h3><span class="header-section-number">3.6.3</span> Organisations</h3>
+<h3><span class="header-section-number">3.5.3</span> Organisations</h3>
 <ul>
 <li>Kantara Initiative (former “Liberty Alliance”) [https://kantarainitiative.org/]</li>
 <li>Open Identity Exchange [http://openidentityexchange.org/resources/white-papers/]</li>
@@ -303,7 +325,7 @@
 </ul>
 </section>
 <section id="commercial-products" class="level3">
-<h3><span class="header-section-number">3.6.4</span> Commercial Products</h3>
+<h3><span class="header-section-number">3.5.4</span> Commercial Products</h3>
 <ul>
 <li>MyData [https://mydatafi.wordpress.com/]</li>
 <li>Meeco (killing the ad provider middle man) [https://meeco.me/how-it-works.html]</li>
@@ -313,7 +335,7 @@
 </section>
 </section>
 <section id="standards-and-specifications" class="level2">
-<h2><span class="header-section-number">3.7</span> Standards and Specifications</h2>
+<h2><span class="header-section-number">3.6</span> Standards and Specifications</h2>
 <ul>
 <li>http(s)</li>
 <li>all the <em>Semantic Web</em> stuff</li>
