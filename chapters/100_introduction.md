@@ -141,8 +141,8 @@ first entry, offering a 23% discount, caught her attention. She decides to have 
 into the toasters and thus has heading towards the original web shop entry. Finally she came around 
 and put the item onto her card, despite tha fact, that she has never bought something from that 
 online shop before. Then she proceeded to checkout to place her order.
-The UI is asking her to either insert her credentials, proceed without registration or sign-in, or
-insert s URI to an endpoint of her *Personal Data as a Service*.
+The shop-interface is asking her to either insert her credentials, proceed without registration or 
+sign-in, or insert s URI to an endpoint of her *Personal Data as a Service*.
 TODO: the following description might need some adjustments according data flow / process description
 She opens up the management panel of her *PDaaS* and creates a new entry in a list of data consumers,
 that already have access to characteristics of her personal data. As a result, she receives
@@ -201,7 +201,76 @@ a reference to all content object, whether it's for example an image, a post or 
 else's post and if it's needed the actual content will be fetched from the owner's *PDaaS*. 
 
 
-#### Car data
+#### Applying for a loan and checking creditworthiness
+
+The data owner would like to buy an apartment. In order to finance such a acquisition, she needs a 
+funding, which in her case, will be based on a loan. During a conversation in a credit institute 
+of her choice, an account consultant describes to her what data will be required in order to 
+decide about her creditworthiness. 
+While giving a consensual nod, she takes out her smartphone and brings up the management panel of 
+her *PDaaS*. With a few taps she has just created a new *data consumer*. The panel then shows
+a QR-Code, that holds a URI to a dedicated endpoint of the data owners *PDaaS*. She shows that code
+to her consultant, who then scans it. While handling some more formalities and talking about 
+several issues and possible products she might be interested it, she gets a notification on her 
+phone, informing her about a permission request the institute just made. It lists all the different 
+data points the institute would like to access in order to calculate her scoring, such as address,
+monthly income, relationship status and family, history of banking or other current loans. After 
+some back and forth and solving some misunderstandings with the help of her consultant, she decided 
+to just partially allow access to the requested data and just for this time and purpose. The 
+consultant kindly pointed out, that these decisions might have an impact on the scoring and thereby 
+on the lending and it's terms. After the consultant got a signal from the computer system, the two 
+then finishing up their meeting and the consultants informed the data data owner about the next 
+steps, which includes a note, that the institute will contact her within the next few days, when 
+they have come to a conclusion. In case of a positive outcome a new appointment need to be made, 
+for doing all the paperwork and signing the contract.
+From a technical point of view, two different ways of computing the score are imaginable. The first
+one would be, transferring only the plain data - request, containing the query and response 
+containing the data - including the expire date and information regarding the signature state. But 
+the actual computations and analytics to obtain the score, will happen within the infrastructure 
+of the credit institute. When this process is over, all transferred personal data has to be 
+deleted. An alternative could prevent the data from leaving the *PDaaS*, in which the institute's
+request won't consists of a data query. Instead it would came along with an chunk of software and 
+some information on how to run it. The *PDaaS* server will provide an isolated runtime in which 
+the software then gets executed. After the process has finished, the result will be send back to 
+the credit institute's infrastructure.
+
+
+#### Maintain and provide it's own health/patient record
+
+Some time ago on a hiking trip in a moment of carelessness the data owner has accidently broke 
+her leg. She came into a hospital and went straight into surgery, where the physicians could fix 
+the injury. Time went by and the leg has healed completely. After she woke up today she felt
+some pain coming from that area where her leg was broken. She decided to call in sick and went 
+straight to a doctor nearby. During her recovery she visited that doctor regularly.
+At the reception desk, she opens up the *PDaaS*'s management panel on her smartphone and searched
+through the list of data consumers. After she found the entry for this clinic, she flipped her 
+phone to show the receptionist the corresponding QR-Code, which she started to scans immediately.
+However the receptionist couldn'd see any data on the screen, because the access has already 
+expired. The data owner only had permitted access for the estimated time of recovery, which was 
+over some time ago. That's why she got a notification, to re-grant some access. Going through 
+the data points the clinic-system has requested, she noticed that her address is incorrect. 
+Last month she moved out and into a bigger apartment just down the street. She must 
+have forgot to change that data, which she corrects immediately right before submitting the 
+access configurations for the clinic-system. She also included the access to all the data 
+originated from that time after her accident. A moment later the receptionist confirms to now
+being able to see all necessary data. 
+The data owner takes a seat in the waiting room. While passing some time, she had a deeper look 
+into her list of data consumers; some of them she couldn't even remember and for others she was 
+surprised to what data she has granted access to and started to reduce certain permissions, 
+if it was appropriate in her eyes. She even removed some of the entries.
+The appointment with her doctor went great. He even had to review the x-ray images in order to 
+make a adequate differential diagnosis. 
+After the visit, she had to make a quick stop at a pharmacy along the way to pickup the drugs 
+her doctor had prescribed for her to reduce the pain. She had to wait in the queue with two other 
+customers being in front of her. She realized, that it's the first time she has been here. So she 
+prepared a new entry in her data consumer list, including all information about her prescriptions. 
+So by the time she get served, she just let the person behind the register scan her code. In the 
+next seconds the data owner gets a quick confirmation notification about the request that just 
+happened. A moment later the pharmacist come back with her drugs, which she then pays in cash 
+and the transaction is done.
+
+
+#### Vehicle data and mobility
 
 The car itself has no on-board hardware to establish a wide range wireless connection to the 
 outside. Only from inside the car one can connect to it (wired or wireless). If a passenger
@@ -214,4 +283,7 @@ and collect them in *PDaaS* associated with the mobile device.
 It would also be conceivable to deny any connection the car would like make and thus ensure that 
 all data the car is generating and providing will go into the *PDaaS* and . It then somebody is 
 interested in such data, they have to ask for permission.
+
+The same concept about movement tracking and vehicle data can also be applied on driving (motor) 
+bicycle.
  
