@@ -272,18 +272,19 @@ and the transaction is done.
 
 #### Vehicle data and mobility
 
-The car itself has no on-board hardware to establish a wide range wireless connection to the 
-outside. Only from inside the car one can connect to it (wired or wireless). If a passenger
-connects her device to the automobile, two things are then happening. First, a wifi network
-is with a connection to the internet is provided to everyone inside, and second, all connections, 
-the car might want to establish, need to go through that device. This give the device owner full
-control over any data exchange that might happen. This again makes two this possible: 
-(A) permission management over data the car is trying to send and (B) tapping into the data stream
-and collect them in *PDaaS* associated with the mobile device.
-It would also be conceivable to deny any connection the car would like make and thus ensure that 
-all data the car is generating and providing will go into the *PDaaS* and . It then somebody is 
-interested in such data, they have to ask for permission.
-
-The same concept about movement tracking and vehicle data can also be applied on driving (motor) 
+Assuming a car itself has no hardware on board in order to establish a wireless wide area 
+connection to an outside access node. Only from the inside one can connect to the car (wired or 
+wireless).
+After entering a car, on the data owner's mobile device pops up a notification asking for 
+permission to connect to that device. In addition to the expiration date, the data owner can
+choose to en- or disable two more options. First, a wifi network with an uplink to the internet 
+can be provided to everyone inside the car. Secondly, connections, the car might want to establish, 
+in order to emit data via internet - which, regardless, have to go through the currently linked 
+mobile device. Thus the device owner gains full control over any external data transfer that might 
+happen. This again would allow two things: (A) permission management for all outgoing data and (B) 
+funnel all data generated and provided by the car into the *PDaaS* associated with that linked 
+device. It might also be feasible to deny any connection the car is trying to make. Thus the data
+will only be stored in the *PDaaS*. If somebody is interested in such then have to ask for 
+access permission.
+That same concept about movement tracking and vehicle data could also be applied to driving (motor) 
 bicycle.
- 

@@ -11,6 +11,8 @@ as it's current state.
 
 
 
+####################################################################################################
+
 ## Digital Identity, Personal Data and Ownership 
 
 +   *Digital Identity*
@@ -30,7 +32,6 @@ as it's current state.
     -   am I the owner when I was the one who was collecting them? Does it depend on whether the 
         resource was public or somewhat private?
     -   what will happen with her data service after a person died?
-
 
 ####################################################################################################
 
@@ -457,6 +458,23 @@ technical solution could help to regain some control.
 
 ## Related Work
 
+The idea about a digital vault, controlled and maintained by it's owner, the individual, isn't new.
+Holding her most sensitive and valuable collections of bits and bytes, protected from all these 
+data brokers and authorities. While interacting with the digital and physical world, opening and 
+closing it's door from time to time, to either put something important for her inside or retrieving 
+an information important for someone else.
+
+[@podcast_2015_cre-neuronale-netze]
+
+neuronal network breakthrough 2007 cutesy of G. Hinton [@youtube_2007_next-gen-of-neural-networks]
+
+The initial motivation and research could be viewed as an early counter-movement and reaction to
+the growing field of deep learning, big data analytics and most recently data mining 
+which was a result of advancements in hardware resources and performance happening alongside.
+parallel distributed processing
+
+  
+  
 +   much more research since the data mining, big data, deep learning 
 
 Different terms, same meaning:
