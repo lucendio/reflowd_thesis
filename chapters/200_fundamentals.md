@@ -458,24 +458,25 @@ technical solution could help to regain some control.
 
 ## Related Work
 
-The idea about a digital vault, controlled and maintained by it's owner, the individual, isn't new.
-Holding her most sensitive and valuable collections of bits and bytes, protected from all these 
-data brokers and authorities. While interacting with the digital and physical world, opening and 
-closing it's door from time to time, to either put something important for her inside or retrieving 
-an information important for someone else.
+The idea of a digital vault, controlled and maintained by it's owner, the individual, isn't 
+that new. Holding her most sensitive and valuable collections of bits and bytes, protected from 
+all these data brokers and authorities, while interacting with the digital and physical world, 
+opening and closing it's door from time to time, to either put something important for her inside 
+or retrieving an information important for someone else.
+While in the mid and late 2000s the growth of computer performance and capacity were crossing 
+it's zenith (see Moore's Law [@paper_1965_moors-law]), at the same time the internet was starting 
+to become a key part in many people's lives and in society as a whole. Facilitated by these 
+circumstances, *cloud computing* has been on the rise, causing the shift towards parallel 
+distributed processing and patterns alike. Thereby making it possible to rethink solutions from 
+the past and trying to go new ways, namely the breakthrough 2007 in *neuronal networks* cutesy 
+of G. Hinton [@podcast_2015_cre-neuronale-netze]. As a result, fields like *deep machine 
+learning*, *big data analytics* and most recently *data mining*, were gaining a wide range of 
+attention. In almost any industry a greater amount of resources is invested in these areas 
+[@web_2016_industries-intention-to-invest-in-big-data]. 
 
-[@podcast_2015_cre-neuronale-netze]
-
-neuronal network breakthrough 2007 cutesy of G. Hinton [@youtube_2007_next-gen-of-neural-networks]
-
-The initial motivation and research could be viewed as an early counter-movement and reaction to
-the growing field of deep learning, big data analytics and most recently data mining 
-which was a result of advancements in hardware resources and performance happening alongside.
-parallel distributed processing
-
-  
-  
-+   much more research since the data mining, big data, deep learning 
+The initial research motivation could be seen as a counter-movement away from the *cloud*, 
+starting to focus again on the individual, it's privacy and digital alter ego.
+ 
 
 Different terms, same meaning:
 +   Personal Agent
@@ -485,6 +486,7 @@ Different terms, same meaning:
 
 ### Research
 
++   ProjectVRM [https://cyber.harvard.edu/projectvrm/Main_Page]
 +   openPDS/safeAnswer [http://openpds.media.mit.edu/]
 +   TAS3 aka ZXID aka Synergetics (lead arch Sampo Kellomäki also Co-Authored openPDS papers)
 +   Higgins [https://www.eclipse.org/higgins/]
