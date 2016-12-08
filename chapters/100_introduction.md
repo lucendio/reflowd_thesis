@@ -5,49 +5,49 @@ Introduction
 
 ## Motivation
 
-Nowadays it is rare to find someone who doesn't collect data about some kind of things, 
+Nowadays it is rare to find someone that does not collect data about some kind of thing; 
 particularly humans are the targets of choice for the *Big Data Movement* 
-[@web_2016_privacy-international-about-big-data]. But since humans are all individuals, which 
-means we are all distinct from each other - more or less.
-Some of us are sharing a bit more similarities, but most are much less similar to each other.
-Since these few similarities are widely shared, they should be less important, because it seems 
-to be intuitively the nature of inflationary occurrence, but instead the opposite happens to be 
-the case. It allows to determine who is part of a subset with a specific, and therefore shared, 
-attribute and who isn't, in order to relate apparently common known stereo typical patters onto 
-the individuals in that subset just to predict outcomes of the corresponding problem or question. 
-In other words, searching for causation where in best case one might find correlations - or so 
-called *discrimination*, which
+[@web_2016_privacy-international-about-big-data]. Since humans are all individuals, they 
+are - more or less - distinct from each other. However, subsets of individuals might share a 
+minor set of attributes, but the bulk is still very unique to an individual, given that
+the overall variety of attributes is fairly complex. That small amount of shared attributes 
+might seem to be less important, due to the nature of inflationary occurrence, but the opposite 
+turns out to be true. These similarities allow to determine the individuals who are part of a 
+subset and the ones who arn't. Stereotypical patterns are applied to these subsets and thus to
+all relating individuals. Thus enriched information are then used to help predicting outcomes 
+of problems or questions regarding these individuals. In other words, searching for causation 
+where in best the case one might find correlations - or so called *discrimination*, which
 
 >   [...] refers to unfair or unequal treatment of people based on membership to a category or a
 >   minority, without regard to individual merit. *[@paper_2008_discrimination-aware-data-mining]*
 
 When interacting directly with each other, discrimination of human beings is still a serious issue 
-in our society, but also when humans leveraging computers and algorithms to uncover former 
+in our society, but also when humans leverage computers and algorithms to uncover formerly 
 unnoticed information in order to include them in their decision making. For example when 
-qualifying for a loan, hiring employees, investigating crimes or renting flats. Approving or denying 
-is all happening based on data about the affected individuals
-[@book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge], which is nothing
-but discrimination, just on a much larger scale and with less effort - almost parenthetically. 
-The described phenomenon is originally referred as *Bias in computer systems*
-[@paper_1996_bias-in-computer-systems]. What at first seems to look like machines going rouge on 
-humans, is in fact the *cognitive bias* [@wikipedia_2016_cognitive-bias] of the human nature, 
+qualifying for a loan, hiring employees, investigating crimes or renting flats. Approval or denial, 
+the decision is based on computed data about the individuals in question
+[@book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge], which is simply
+discrimination on a much larger scale and with less effort - almost parenthetically. 
+The described phenomenon is originally referred to as *Bias in computer systems*
+[@paper_1996_bias-in-computer-systems]. What at first seems like machines going rouge on 
+humans, is, in fact, the *cognitive bias* [@wikipedia_2016_cognitive-bias] of human nature, 
 modeled in machine executable language and made to reveal the patterns their creators were looking 
 for - the *"Inheritance of humanness"* [@web_2016_big-data-is-people] so to say.
 
-In addition to the identity-defining data mentioned above humans have the habit to create more and 
-more data on a daily basis - pro-actively e.g by writing a tweet and passively e.g by allowing 
-the twitter app accessing their current location while submitting the tweet. 
-As a result already tremendous amounts of data keeps growing bigger and bigger waiting to
-get harvested, collected, aggregated, analyzed and finally interpreted. The crux here is, the 
-more data being made available [@video_2015_big-data-and-deep-learning_discrimination] to *mine* 
-on, the chances are much higher to isolate data sets, that differ from each other but are 
-coherent in theirselves. Then it is just a matter of the preceded questioning how to distinguish 
-the data set and thereby the related individuals from each other.
+In addition to the identity-defining data mentioned above, humans have the habit to create more and 
+more data on a daily basis - pro-actively (e.g by writing a tweet) and passively (e.g by allowing 
+the twitter app accessing their current location while submitting the tweet). 
+As a result, already tremendous amounts of data keep growing bigger and bigger, waiting to
+be harvested, collected, aggregated, analyzed and finally interpreted. The crux here is, the 
+more data being made available [@video_2015_big-data-and-deep-learning_discrimination] to *mine*, 
+the higher the chances to isolate data sets, that differ from each other but are 
+coherent in themselves. Then it is just a matter of how to distinguish the data set and thereby 
+the related individuals from each other.
 
-So to lower potential discrimination we either need to erase responsible parts from the machines, 
-therefore raising awareness and teaching people about the issue of discrimination are crucial, 
-or we're trying to prevent our data from falling into these data silos. The later will be 
-addressed in this work.
+In order to lower potential discrimination we either need to erase responsible parts from the 
+machines, thereby it's crucial raising awareness and teaching people about the issue of 
+discrimination, or we try to prevent our data from falling into these data silos. The latter 
+will be addressed in this work.
 
 
 

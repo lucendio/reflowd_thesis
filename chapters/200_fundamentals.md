@@ -474,17 +474,33 @@ learning*, *big data analytics* and most recently *data mining*, were gaining a 
 attention. In almost any industry a greater amount of resources is invested in these areas 
 [@web_2016_industries-intention-to-invest-in-big-data]. 
 
-The initial research motivation could be seen as a counter-movement away from the *cloud*, 
-starting to focus again on the individual, it's privacy and digital alter ego.
- 
+The initial research motivation can be seen as a counter-movement away from the *cloud*, 
+starting to focus again on privacy, the individual and it's digital alter ego.
 
-Different terms, same meaning:
-+   Personal Agent
-+   Personal Data Vault
-+   Personal Data Store
+From simple middleware-solutions, via full-fledged software-based platforms, through embedded
+hardware devices, a great variety of approaches were starting to appear in the mid 2000s until 
+this day. A side effect was, that over time various research teams and projects have invented
+and coined different terms, all referring to the same concept. The following list shows some
+examples *(alphabetical order)*:
+
++   Databox
++   Personal ...
+    -   Agent
+    -   Container
+    -   Data Store/Service (PDS)
+    -   Data Vault
+    -   Information Hub
++   Vendor Relationship Management (VRM)
 
 
 ### Research
+
+One of the first research projects, and also the most active and influential one, is the 
+*ProjectVRM*, which originated from *Berkman Center for Internet & Society* at *Harvard University*.
+As it's name implies, it  was inspired by the thought of turning the concepts of a *Customer 
+Relationship Management* (CRM) upside down, putting the vendor's customers back in control of 
+the data formerly managed by the vendors, not mentioning the unneeded redundancy. 
+
 
 +   ProjectVRM [https://cyber.harvard.edu/projectvrm/Main_Page]
 +   openPDS/safeAnswer [http://openpds.media.mit.edu/]
@@ -496,7 +512,7 @@ Different terms, same meaning:
 +   PRIME/PrimeLife [https://www.prime-project.eu, http://primelife.ercim.eu/]
 +   databox.me (reference implementation w/ the "solid" framework)
 +   Microsoft HealthVault
-+   Industrial Data Space (german research project mainly driven by Fraunhofer Institute)
++   Industrial Data Space (german research project mainly driven by Fraunhofer-Gesellschaft)
 +   Polis (greek research project from 2008) [http://polis.ee.duth.gr/Polis/index.php]
 
 
