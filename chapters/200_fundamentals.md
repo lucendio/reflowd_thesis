@@ -484,22 +484,55 @@ and coined different terms, all referring to the same concept. The following lis
 examples *(alphabetical order)*:
 
 +   Databox
++   Identity Manager
 +   Personal ...
     -   Agent
     -   Container
-    -   Data Store/Service (PDS)
+    -   Data Store/Service/Stream (PDS)
     -   Data Vault
     -   Information Hub
+    -   Information Management System (PIMS)
 +   Vendor Relationship Management (VRM)
 
 
 ### Research
 
-One of the first research projects, and also the most active and influential one, is the 
-*ProjectVRM*, which originated from *Berkman Center for Internet & Society* at *Harvard University*.
-As it's name implies, it  was inspired by the thought of turning the concepts of a *Customer 
-Relationship Management* (CRM) upside down, putting the vendor's customers back in control of 
-the data formerly managed by the vendors, not mentioning the unneeded redundancy. 
+One of the first research projects is *ProjectVRM*, which originated from *Berkman Center 
+for Internet & Society* at *Harvard University*. As it's name implies, it was inspired by the 
+idea of turning the concepts of a *Customer Relationship Management* (CRM) upside down. This puts 
+the vendor's customers back in charge of their data priorly managed by the vendors. It also solves 
+the problem of unintended data redundancy. Over time the project has growing to the largest and 
+most influential in this research field. It transformed into an umbrella and hub for all kinds 
+of projects and research related to that topic [@web_2016_projectvrm_development-work], whether 
+it's frameworks or standards, services offering e.g. privacy protection, reference implementations, 
+applications, software or hardware components. *VRM* became more and more a synonym for a set of 
+principles [@web_2016_projectvrm_principles], including for example "Customers must have control 
+of data they generate and gather. [They] must be able to assert their own terms of engagement." 
+These principles can be found in various ways across a lot of research done within this area.
+
+Another research, worth mentioning, because of the ground work it has done, is the european 
+funded project called *Trusted Architecture for Securely Shared Service* (TAS3). The project,
+which lasted for a period of 4 years and ended in 2011, led to the open source reference 
+implementation called *ZXID* [^more-infos_zxid]. The major goal was, to develop an architecture,
+that takes all involved parties into account, whether it's commercial businesses or it's users,
+ while at the same time 
+ keeping security it's priority number one.
+ presenting an end-to-end solution
+ it's downside is the rather complex architecture (http://homes.esat.kuleuven.ac.be/~decockd/tas3/final.deliverables/pm42/TAS3_D02p1_TAS3.Architecture_final.pdf p. 24)
+
+
+which is probably the closest development research to what the work related to this document aims 
+to create.
+
+Aside from all the research projects, applications with a commercial interest were starting to 
+occur as well in a variety of sectors. Microsoft's HealthVault, for example, which  
+
+*Meeco*, based on the MyData-Project [TODO], which essentially just cuts out the advertisement 
+service provider as a middle man inherits that role by itself. The platform does provide
+the data owners with more control over what information they reveal, but it doesn't go the next 
+step, which would means real decoupling from the advertisement market and finding a suitable 
+business model that focuses on the data owner, instead of surrounding them with just another 
+walled garden. 
 
 
 +   ProjectVRM [https://cyber.harvard.edu/projectvrm/Main_Page]
@@ -530,6 +563,10 @@ the data formerly managed by the vendors, not mentioning the unneeded redundancy
 +   RESPECT network [https://www.respectnetwork.com/]
 +   aWise AEGIS [http://www.ewise.com/aegis]
 
+
+
+[^more-infos_zxid]: more information on the project, the code and the author, Sampo Kellomäki, can
+    be found under *zxid.org*
 
 
 ## Standards and Specifications

@@ -304,19 +304,25 @@
 <p>From simple middleware-solutions, via full-fledged software-based platforms, through embedded hardware devices, a great variety of approaches were starting to appear in the mid 2000s until this day. A side effect was, that over time various research teams and projects have invented and coined different terms, all referring to the same concept. The following list shows some examples <em>(alphabetical order)</em>:</p>
 <ul>
 <li>Databox</li>
+<li>Identity Manager</li>
 <li>Personal …
 <ul>
 <li>Agent</li>
 <li>Container</li>
-<li>Data Store/Service (PDS)</li>
+<li>Data Store/Service/Stream (PDS)</li>
 <li>Data Vault</li>
 <li>Information Hub</li>
+<li>Information Management System (PIMS)</li>
 </ul></li>
 <li>Vendor Relationship Management (VRM)</li>
 </ul>
 <section id="research" class="level3">
 <h3><span class="header-section-number">3.5.2</span> Research</h3>
-<p>One of the first research projects, and also the most active and influential one, is the <em>ProjectVRM</em>, which originated from <em>Berkman Center for Internet &amp; Society</em> at <em>Harvard University</em>. As it’s name implies, it was inspired by the thought of turning the concepts of a <em>Customer Relationship Management</em> (CRM) upside down, putting the vendor’s customers back in control of the data formerly managed by the vendors, not mentioning the unneeded redundancy.</p>
+<p>One of the first research projects is <em>ProjectVRM</em>, which originated from <em>Berkman Center for Internet &amp; Society</em> at <em>Harvard University</em>. As it’s name implies, it was inspired by the idea of turning the concepts of a <em>Customer Relationship Management</em> (CRM) upside down. This puts the vendor’s customers back in charge of their data priorly managed by the vendors. It also solves the problem of unintended data redundancy. Over time the project has growing to the largest and most influential in this research field. It transformed into an umbrella and hub for all kinds of projects and research related to that topic <span class="citation" data-cites="web_2016_projectvrm_development-work">[<a href="#ref-web_2016_projectvrm_development-work">60</a>]</span>, whether it’s frameworks or standards, services offering e.g. privacy protection, reference implementations, applications, software or hardware components. <em>VRM</em> became more and more a synonym for a set of principles <span class="citation" data-cites="web_2016_projectvrm_principles">[<a href="#ref-web_2016_projectvrm_principles">61</a>]</span>, including for example “Customers must have control of data they generate and gather. [They] must be able to assert their own terms of engagement.” These principles can be found in various ways across a lot of research done within this area.</p>
+<p>Another research, worth mentioning, because of the ground work it has done, is the european funded project called <em>Trusted Architecture for Securely Shared Service</em> (TAS3). The project, which lasted for a period of 4 years and ended in 2011, led to the open source reference implementation called <em>ZXID</em>.<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> The major goal was, to develop an architecture, that takes all involved parties into account, whether it’s commercial businesses or it’s users, while at the same time keeping security it’s priority number one. presenting an end-to-end solution it’s downside is the rather complex architecture (http://homes.esat.kuleuven.ac.be/~decockd/tas3/final.deliverables/pm42/TAS3_D02p1_TAS3.Architecture_final.pdf p. 24)</p>
+<p>which is probably the closest development research to what the work related to this document aims to create.</p>
+<p>Aside from all the research projects, applications with a commercial interest were starting to occur as well in a variety of sectors. Microsoft’s HealthVault, for example, which</p>
+<p><em>Meeco</em>, based on the MyData-Project [TODO], which essentially just cuts out the advertisement service provider as a middle man inherits that role by itself. The platform does provide the data owners with more control over what information they reveal, but it doesn’t go the next step, which would means real decoupling from the advertisement market and finding a suitable business model that focuses on the data owner, instead of surrounding them with just another walled garden.</p>
 <ul>
 <li>ProjectVRM [https://cyber.harvard.edu/projectvrm/Main_Page]</li>
 <li>openPDS/safeAnswer [http://openpds.media.mit.edu/]</li>
@@ -832,6 +838,12 @@
 <div id="ref-web_2016_industries-intention-to-invest-in-big-data">
 <p>[59] L. Columbus, “51% of enterprises intend to invest more in big data,” 22-May-2016. [Online]. Available: <a href="http://www.forbes.com/sites/louiscolumbus/2016/05/22/51-of-enterprises-intend-to-invest-more-in-big-data/" class="uri">http://www.forbes.com/sites/louiscolumbus/2016/05/22/51-of-enterprises-intend-to-invest-more-in-big-data/</a>. [Accessed: 07-Dec-2016]</p>
 </div>
+<div id="ref-web_2016_projectvrm_development-work">
+<p>[60] “ProjectVRM - cDevelopment work. ProjectVRM,” 28-Nov-2016. [Online]. Available: <a href="https://cyber.harvard.edu/projectvrm/VRM_Development_Work" class="uri">https://cyber.harvard.edu/projectvrm/VRM_Development_Work</a>. [Accessed: 09-Dec-2016]</p>
+</div>
+<div id="ref-web_2016_projectvrm_principles">
+<p>[61] “ProjectVRM - principles. ProjectVRM,” 28-Nov-2016. [Online]. Available: <a href="https://cyber.harvard.edu/projectvrm/Main_Page#VRM_Principles" class="uri">https://cyber.harvard.edu/projectvrm/Main_Page#VRM_Principles</a>. [Accessed: 09-Dec-2016]</p>
+</div>
 </div>
 </section>
 </section>
@@ -845,6 +857,7 @@
 <li id="fn5"><p>side note - one might come to the conclusion, that only the trend towards the <em>cloud</em> made it actually possible to collect to such an extent we are all observing these days, because standalone software should not necessarily require internet connection and therefore the vendors had no way to gather information whatsoever<a href="#fnref5">↩</a></p></li>
 <li id="fn6"><p>Banking and Securities; Communication, Media &amp; Entertainment; Healthcare Providers; Government; Insurance; Retail &amp; Wholesale Trade; Energy &amp; Utilities<a href="#fnref6">↩</a></p></li>
 <li id="fn7"><p>Banking and Securities; Communication, Media &amp; Entertainment; Insurance; Energy &amp; Utilities<a href="#fnref7">↩</a></p></li>
+<li id="fn8"><p>more information on the project, the code and the author, Sampo Kellomäki, can be found under <em>zxid.org</em><a href="#fnref8">↩</a></p></li>
 </ol>
 </section>
             </body>
