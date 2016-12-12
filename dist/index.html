@@ -38,8 +38,6 @@
                 <li><a href="#personal-data-as-a-product"><span class="toc-section-number">3.4</span> Personal Data as a Product</a></li>
                 <li><a href="#related-work"><span class="toc-section-number">3.5</span> Related Work</a><ul>
                 <li><a href="#research"><span class="toc-section-number">3.5.2</span> Research</a></li>
-                <li><a href="#organisations"><span class="toc-section-number">3.5.3</span> Organisations</a></li>
-                <li><a href="#commercial-products"><span class="toc-section-number">3.5.4</span> Commercial Products</a></li>
                 </ul></li>
                 <li><a href="#standards-and-specifications"><span class="toc-section-number">3.6</span> Standards and Specifications</a></li>
                 </ul></li>
@@ -319,10 +317,14 @@
 <section id="research" class="level3">
 <h3><span class="header-section-number">3.5.2</span> Research</h3>
 <p>One of the first research projects is <em>ProjectVRM</em>, which originated from <em>Berkman Center for Internet &amp; Society</em> at <em>Harvard University</em>. As it’s name implies, it was inspired by the idea of turning the concepts of a <em>Customer Relationship Management</em> (CRM) upside down. This puts the vendor’s customers back in charge of their data priorly managed by the vendors. It also solves the problem of unintended data redundancy. Over time the project has growing to the largest and most influential in this research field. It transformed into an umbrella and hub for all kinds of projects and research related to that topic <span class="citation" data-cites="web_2016_projectvrm_development-work">[<a href="#ref-web_2016_projectvrm_development-work">60</a>]</span>, whether it’s frameworks or standards, services offering e.g. privacy protection, reference implementations, applications, software or hardware components. <em>VRM</em> became more and more a synonym for a set of principles <span class="citation" data-cites="web_2016_projectvrm_principles">[<a href="#ref-web_2016_projectvrm_principles">61</a>]</span>, including for example “Customers must have control of data they generate and gather. [They] must be able to assert their own terms of engagement.” These principles can be found in various ways across a lot of research done within this area.</p>
-<p>Another research, worth mentioning, because of the ground work it has done, is the european funded project called <em>Trusted Architecture for Securely Shared Service</em> (TAS3). The project, which lasted for a period of 4 years and ended in 2011, led to the open source reference implementation called <em>ZXID</em>.<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> The major goal was, to develop an architecture, that takes all involved parties into account, whether it’s commercial businesses or it’s users, while at the same time keeping security it’s priority number one. presenting an end-to-end solution it’s downside is the rather complex architecture (http://homes.esat.kuleuven.ac.be/~decockd/tas3/final.deliverables/pm42/TAS3_D02p1_TAS3.Architecture_final.pdf p. 24)</p>
-<p>which is probably the closest development research to what the work related to this document aims to create.</p>
-<p>Aside from all the research projects, applications with a commercial interest were starting to occur as well in a variety of sectors. Microsoft’s HealthVault, for example, which</p>
+<p>Another research that is worth mentioning, because of the foundational work it has been done, is the european funded project called <em>Trusted Architecture for Securely Shared Service</em> (TAS3). The project led to a open source reference implementation called <em>ZXID</em>.<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> The major goal was, to develop an architecture, that takes all involved parties into account, whether it’s commercial businesses (vendors) or it’s users (customers), in order to fit into more sophisticated and dynamic processes, but demanding a very high level of user-centric security at the same time. Due to these requirements the architecture ended up being rather complex <span class="citation" data-cites="graphic_2011_architecture_components-of-organization-domain">[<a href="#ref-graphic_2011_architecture_components-of-organization-domain">62</a>]</span>. <em>ZXID</em> as it’s implementation incorporates several standards like SAML 2.0<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a> and XACML,<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a> has only three third-party dependencies which are <em>OpenSSL</em>, <em>cURL (libcurl)</em> and <em>zlib</em> and as of now it supports Java, PHP and Perl. The project lasted for a period of 4 years and after it ended in 2011, the research work has pursued - among others - by the <em>Liberty Alliance Project</em>, which is now part of the <em>Kantara Initiative</em>, including all documents and results. The results were taken up occasionally, recently from the IEEE <span class="citation" data-cites="paper_2014_personal-data-store-approach">[<a href="#ref-paper_2014_personal-data-store-approach">63</a>]</span>.</p>
+<p>A research project, that is probably the closest to what this document aims to create, bears the name <em>openPDS</em> <span class="citation" data-cites="paper_2012_openpds_on-trusted-use-of-large-scale-personal-data">[<a href="#ref-paper_2012_openpds_on-trusted-use-of-large-scale-personal-data">64</a>]</span> and is done by the <em>Humans Dynamics Lab</em>, which is part of the <em>MIT Media Laboratories</em>.</p>
+<p>With the idea of <em>SafeAnswers</em> <span class="citation" data-cites="paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers">[<a href="#ref-paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers">65</a>]</span>, the team even goes a step further. The concept behind that, is based around <em>remote code execution</em>, briefly described in <a href="#header-applying-for-a-loan-and-checking-creditworthiness">one of the user stories during the first chapter</a>.</p>
+<p>Aside from all the research projects done within the scientific context, applications with a commercial interest were starting to occur in a variety of sectors, too. Microsoft’s HealthVault, for example, which</p>
 <p><em>Meeco</em>, based on the MyData-Project [TODO], which essentially just cuts out the advertisement service provider as a middle man inherits that role by itself. The platform does provide the data owners with more control over what information they reveal, but it doesn’t go the next step, which would means real decoupling from the advertisement market and finding a suitable business model that focuses on the data owner, instead of surrounding them with just another walled garden.</p>
+<p>Hereafter a list of selected research projects, work and commercial products regarding this issue about <em>personal data</em> can be found:</p>
+<section id="research-1" class="level4">
+<h4><span class="header-section-number">3.5.2.1</span> Research</h4>
 <ul>
 <li>ProjectVRM [https://cyber.harvard.edu/projectvrm/Main_Page]</li>
 <li>openPDS/safeAnswer [http://openpds.media.mit.edu/]</li>
@@ -332,28 +334,29 @@
 <li>ownyourinfo [http://www.ownyourinfo.com]</li>
 <li>PAGORA [http://www.paoga.com]</li>
 <li>PRIME/PrimeLife [https://www.prime-project.eu, http://primelife.ercim.eu/]</li>
-<li>databox.me (reference implementation w/ the “solid” framework)</li>
-<li>Microsoft HealthVault</li>
+<li>databox.me (reference implementation of the “solid” framework)</li>
 <li>Industrial Data Space (german research project mainly driven by Fraunhofer-Gesellschaft)</li>
 <li>Polis (greek research project from 2008) [http://polis.ee.duth.gr/Polis/index.php]</li>
 </ul>
 </section>
-<section id="organisations" class="level3">
-<h3><span class="header-section-number">3.5.3</span> Organisations</h3>
+<section id="organisations" class="level4">
+<h4><span class="header-section-number">3.5.2.2</span> Organisations</h4>
 <ul>
-<li>Kantara Initiative (former “Liberty Alliance”) [https://kantarainitiative.org/]</li>
+<li>Kantara Initiative (former “Liberty Alliance Project”) [https://kantarainitiative.org/]</li>
 <li>Open Identity Exchange [http://openidentityexchange.org/resources/white-papers/]</li>
 <li>Qiy Foundation [https://www.qiyfoundation.org/]</li>
 </ul>
 </section>
-<section id="commercial-products" class="level3">
-<h3><span class="header-section-number">3.5.4</span> Commercial Products</h3>
+<section id="commercial-products" class="level4">
+<h4><span class="header-section-number">3.5.2.3</span> Commercial Products</h4>
 <ul>
 <li>MyData [https://mydatafi.wordpress.com/]</li>
 <li>Meeco (killing the ad provider middle man) [https://meeco.me/how-it-works.html]</li>
 <li>RESPECT network [https://www.respectnetwork.com/]</li>
 <li>aWise AEGIS [http://www.ewise.com/aegis]</li>
+<li>Microsoft HealthVault</li>
 </ul>
+</section>
 </section>
 </section>
 <section id="standards-and-specifications" class="level2">
@@ -844,6 +847,18 @@
 <div id="ref-web_2016_projectvrm_principles">
 <p>[61] “ProjectVRM - principles. ProjectVRM,” 28-Nov-2016. [Online]. Available: <a href="https://cyber.harvard.edu/projectvrm/Main_Page#VRM_Principles" class="uri">https://cyber.harvard.edu/projectvrm/Main_Page#VRM_Principles</a>. [Accessed: 09-Dec-2016]</p>
 </div>
+<div id="ref-graphic_2011_architecture_components-of-organization-domain">
+<p>[62] The TAS3 Consortium, “TAS3 architecture - figure 2.2: Major components of organization domain.” Jul. 2011 [Online]. Available: <a href="http://homes.esat.kuleuven.ac.be/~decockd/tas3/final.deliverables/pm42/TAS3_D02p1_TAS3.Architecture_final.pdf" class="uri">http://homes.esat.kuleuven.ac.be/~decockd/tas3/final.deliverables/pm42/TAS3_D02p1_TAS3.Architecture_final.pdf</a></p>
+</div>
+<div id="ref-paper_2014_personal-data-store-approach">
+<p>[63] T. Kirkham, S. Winfield, S. Ravet, and S. Kellomaki, “The personal data store approach to personal data security,” <em>IEEE Security &amp; Privacy</em>, vol. 11, no. 5, pp. 12–19, 2013. </p>
+</div>
+<div id="ref-paper_2012_openpds_on-trusted-use-of-large-scale-personal-data">
+<p>[64] Y.-A. de Montjoye, S. S. Wang, A. Pentland, D. T. T. Anh, A. Datta, and others, “On the trusted use of large-scale personal data.” <em>IEEE Data Eng. Bull.</em>, vol. 35, no. 4, pp. 5–8, 2012 [Online]. Available: <a href="http://sites.computer.org/debull/a12dec/a12dec-cd.pdf#page=7" class="uri">http://sites.computer.org/debull/a12dec/a12dec-cd.pdf#page=7</a>. [Accessed: 30-Oct-2016]</p>
+</div>
+<div id="ref-paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers">
+<p>[65] Y.-A. de Montjoye, E. Shmueli, S. S. Wang, and A. S. Pentland, “openPDS: Protecting the privacy of metadata through SafeAnswers,” <em>PLoS ONE</em>, vol. 9, no. 7, p. e98790, Jul. 2014 [Online]. Available: <a href="http://dx.plos.org/10.1371/journal.pone.0098790" class="uri">http://dx.plos.org/10.1371/journal.pone.0098790</a>. [Accessed: 30-Oct-2016]</p>
+</div>
 </div>
 </section>
 </section>
@@ -858,6 +873,8 @@
 <li id="fn6"><p>Banking and Securities; Communication, Media &amp; Entertainment; Healthcare Providers; Government; Insurance; Retail &amp; Wholesale Trade; Energy &amp; Utilities<a href="#fnref6">↩</a></p></li>
 <li id="fn7"><p>Banking and Securities; Communication, Media &amp; Entertainment; Insurance; Energy &amp; Utilities<a href="#fnref7">↩</a></p></li>
 <li id="fn8"><p>more information on the project, the code and the author, Sampo Kellomäki, can be found under <em>zxid.org</em><a href="#fnref8">↩</a></p></li>
+<li id="fn9"><p>Security Assertion Markup Language 2.0<a href="#fnref9">↩</a></p></li>
+<li id="fn10"><p>eXtensible Access Control Markup Language<a href="#fnref10">↩</a></p></li>
 </ol>
 </section>
             </body>

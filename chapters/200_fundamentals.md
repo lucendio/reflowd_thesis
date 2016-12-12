@@ -510,30 +510,49 @@ principles [@web_2016_projectvrm_principles], including for example "Customers m
 of data they generate and gather. [They] must be able to assert their own terms of engagement." 
 These principles can be found in various ways across a lot of research done within this area.
 
-Another research, worth mentioning, because of the ground work it has done, is the european 
-funded project called *Trusted Architecture for Securely Shared Service* (TAS3). The project,
-which lasted for a period of 4 years and ended in 2011, led to the open source reference 
-implementation called *ZXID* [^more-infos_zxid]. The major goal was, to develop an architecture,
-that takes all involved parties into account, whether it's commercial businesses or it's users,
- while at the same time 
- keeping security it's priority number one.
- presenting an end-to-end solution
- it's downside is the rather complex architecture (http://homes.esat.kuleuven.ac.be/~decockd/tas3/final.deliverables/pm42/TAS3_D02p1_TAS3.Architecture_final.pdf p. 24)
+Another research that is worth mentioning, because of the foundational work it has been done, is 
+the european funded project called *Trusted Architecture for Securely Shared Service* (TAS3). 
+The project led to a open source 
+reference implementation called *ZXID* [^more-infos_zxid]. The major goal was, to develop an 
+architecture, that takes all involved parties into account, whether it's commercial businesses 
+(vendors) or it's users (customers), in order to fit into more sophisticated and dynamic processes, 
+but demanding a very high level of user-centric security at the same time. Due to these 
+requirements the architecture ended up being rather complex 
+[@graphic_2011_architecture_components-of-organization-domain]. *ZXID* as it's implementation
+incorporates several standards like SAML 2.0 [^abbr_saml2] and XACML [^abbr_xacml], has only
+three third-party dependencies which are *OpenSSL*, *cURL (libcurl)* and *zlib* and as of now it
+supports Java, PHP and Perl.
+The project lasted for a period of 4 years and after it ended in 2011, the research work has 
+pursued - among others - by the *Liberty Alliance Project*, which is now part of the *Kantara 
+Initiative*, including all documents and results. The results were taken up occasionally, recently 
+from the IEEE [@paper_2014_personal-data-store-approach].
 
 
-which is probably the closest development research to what the work related to this document aims 
-to create.
+A research project, that is probably the closest to what this document aims to create, bears the
+name *openPDS* [@paper_2012_openpds_on-trusted-use-of-large-scale-personal-data] and is done by 
+the *Humans Dynamics Lab*, which is part of the *MIT Media Laboratories*.  
 
-Aside from all the research projects, applications with a commercial interest were starting to 
-occur as well in a variety of sectors. Microsoft's HealthVault, for example, which  
+With the idea of *SafeAnswers* 
+[@paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers], the team even goes a 
+step further. The concept behind that, is based around *remote code execution*, briefly described 
+in [one of the user stories during the first chapter](#header-applying-for-a-loan-and-checking-creditworthiness). 
+
+
+Aside from all the research projects done within the scientific context, applications with a 
+commercial interest were starting to occur in a variety of sectors, too. Microsoft's HealthVault, 
+for example, which  
 
 *Meeco*, based on the MyData-Project [TODO], which essentially just cuts out the advertisement 
 service provider as a middle man inherits that role by itself. The platform does provide
 the data owners with more control over what information they reveal, but it doesn't go the next 
 step, which would means real decoupling from the advertisement market and finding a suitable 
 business model that focuses on the data owner, instead of surrounding them with just another 
-walled garden. 
+walled garden.
 
+Hereafter a list of selected research projects, work and commercial products regarding this issue 
+about *personal data* can be found:
+
+#### Research
 
 +   ProjectVRM [https://cyber.harvard.edu/projectvrm/Main_Page]
 +   openPDS/safeAnswer [http://openpds.media.mit.edu/]
@@ -543,30 +562,34 @@ walled garden.
 +   ownyourinfo [http://www.ownyourinfo.com]
 +   PAGORA [http://www.paoga.com]
 +   PRIME/PrimeLife [https://www.prime-project.eu, http://primelife.ercim.eu/]
-+   databox.me (reference implementation w/ the "solid" framework)
-+   Microsoft HealthVault
++   databox.me (reference implementation of the "solid" framework)
 +   Industrial Data Space (german research project mainly driven by Fraunhofer-Gesellschaft)
 +   Polis (greek research project from 2008) [http://polis.ee.duth.gr/Polis/index.php]
 
 
-### Organisations
+#### Organisations
 
-+   Kantara Initiative (former "Liberty Alliance") [https://kantarainitiative.org/]
++   Kantara Initiative (former "Liberty Alliance Project") [https://kantarainitiative.org/]
 +   Open Identity Exchange [http://openidentityexchange.org/resources/white-papers/]
 +   Qiy Foundation [https://www.qiyfoundation.org/]
 
 
-### Commercial Products
+#### Commercial Products
 
 +   MyData [https://mydatafi.wordpress.com/]
 +   Meeco (killing the ad provider middle man) [https://meeco.me/how-it-works.html]
 +   RESPECT network [https://www.respectnetwork.com/]
 +   aWise AEGIS [http://www.ewise.com/aegis]
-
++   Microsoft HealthVault
 
 
 [^more-infos_zxid]: more information on the project, the code and the author, Sampo Kellomäki, can
     be found under *zxid.org*
+    
+[^abbr_saml2]: Security Assertion Markup Language 2.0
+
+[^abbr_xacml]: eXtensible Access Control Markup Language
+
 
 
 ## Standards and Specifications
