@@ -24,7 +24,7 @@ abstract: >
             full control over her data and facilitates detailed information on every data flow.
             To be able to trust such a tool, the user should be able to look inside. Therefore
             a personal data service has to be open source and developed transparently, which
-            then would also encurage self-hosting.
+            would then also encourage self-hosting.
 
 
 keywords:
@@ -56,7 +56,8 @@ bibliography: [
     './assets/bibliographie/reports.bib',
     './assets/bibliographie/legislation.bib',
     './assets/bibliographie/urls.bib',
-    './assets/bibliographie/graphics.bib'
+    './assets/bibliographie/graphics.bib',
+    './assets/bibliographie/media.bib'
 ]
 
 csl: './assets/citation/ieee-with-url.csl'
