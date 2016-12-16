@@ -585,7 +585,7 @@ regarding the issue around *personal data*:
 +   ownyourinfo [http://www.ownyourinfo.com]
 +   PAGORA [http://www.paoga.com]
 +   PRIME/PrimeLife [https://www.prime-project.eu, http://primelife.ercim.eu/]
-+   databox.me (reference implementation of the "solid" framework)
++   databox.me (reference implementation of the *[Solid framework](https://github.com/solid/solid)*)
 +   Polis (greek research project from 2008) [http://polis.ee.duth.gr/Polis/index.php]
 
 
@@ -613,15 +613,56 @@ regarding the issue around *personal data*:
 
 ## Standards and Specifications
 
-The overall attempt is to involve as much standards as possible, because it increases the chances
-of interoperability and thereby it lowers the effort, that needs to be made,in order to integrate
-with third parties or other APIs.
+When developing an *Open Specification* it comes naturally to build upon open technologies, 
+which shall be understood as open standards and open source; *open* in the sense of *unrestricted 
+accessible by everybody*; not to be confused with free - as in *freedom* - software. In this case, 
+advocating such a an openness enables not only to develop implementations of the specification in 
+a collaborative way, but also the specification itself, and makes it possible for anyone who is 
+interested to participate or even to contribute. For everyone who just want to use open 
+technologies, a license defining rules and conditions is typically enclosed somehow. But regardless 
+of the motivation everybody who is interested in getting to know how these hard- or software 
+blackboxes-by-design are actually working, is thus able to look into it. 
 
-+   http(s)
-+   all the *Semantic Web* stuff
-+   Container/App spec
-+   JWT
+So the overall attempt is to involve as much standards as possible, because it increases the chances
+of interoperability and thereby it lowers the effort, that might be needed, in order to integrate
+with third parties or other APIs.
+Hereinafter, some of these possible technologies will be touched on just briefly, why they might 
+be a reasonable choice and what purposes they might going to service.
+
++   __HTTP(S)__, well known as the transport layer for the *World Wide Web* is most likely going
+to fulfill the same purpose in the context of this work. Whether internal components (local or 
+as part of a distributed system) talk to each other or data consumers request information.
+Features introduces with Version 2 of the protocol are yet to be known of their relevance and 
+corresponding use cases.
+The *Transport Layer Security* embedded in the protocol provides encryption during transfer, which 
+reduces the vulnerability to *man-in-the-middle* attacks and thus ensures data integrity. Due to 
+it's asymmetrical cryptographic concepts used to establish a connection, *TLS* also allows 
+to verify the integrity of the entity on the the connection's counterside, and, depending on the 
+integration, it could even used for authentication.
+*Websockes* might also be a possibility to communicate between components or even with external 
+parties, which has the advantage of high efficient ongoing connections using for real-time data 
+exchange or remotely pending process responses, while at the same time avoiding HTTP's long-polling
+abilities. 
+
+__JSON__ is an alternative data serialization format to XML, heavily used in web contexts, whose 
+syntax is inspired by the JavaScript object-literal notation.
+
 +   oAuth (?)
-+   JSON
+Whereas version 2 can be seen more like a framework
+
++   JWT
+stateless authentication
+or the token itself holds the state. There is were the use of *HTTP* comes in handy, because the 
+token is stored within the HTTP header and can be passed through all communication points, where
+then certain data could be read and therewith verified.
+
 +   REST
-+   GraphQL
+
+The *QL* in __GraphQL__ stands for *query language*. It's goal is to query data from arbitrary 
+and possibly multiple data sources with it's related data points might be structured like a graph,
+meaning multiple data points, which might be related to each other somehow, indirectly "linked" 
+through each other.  
+
++   all the *Semantic Web* stuff
+
++   Container/App spec
