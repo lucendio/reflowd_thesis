@@ -57,7 +57,8 @@ bibliography: [
     './assets/bibliographie/legislation.bib',
     './assets/bibliographie/urls.bib',
     './assets/bibliographie/graphics.bib',
-    './assets/bibliographie/media.bib'
+    './assets/bibliographie/media.bib',
+    './assets/bibliographie/specs.bib'
 ]
 
 csl: './assets/citation/ieee-with-url.csl'

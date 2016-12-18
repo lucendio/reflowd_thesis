@@ -194,6 +194,41 @@ html:
 
 
 
+tex:
+	@pandoc \
+	--standalone \
+	--smart \
+	\
+	--from=markdown$(MARKDOWN_EXTENSIONS) \
+	--default-image-extension=png \
+	\
+	--filter=pandoc-citeproc \
+	\
+	--template="$(TEMPLATES_DIR)/tompollard.latex" \
+	\
+	--to=latex \
+	--output="$(OUTPUT_DIR)/index.tex" \
+	--dpi=96 \
+	--top-level-division=chapter \
+	--toc \
+	--number-sections \
+	--number-offset=1,1,1 \
+	\
+	--highlight-style=pygments \
+	\
+	--latex-engine=xelatex \
+	--latex-engine-opt= \
+	\
+	--data-dir="$(PANDOC_DATA_DIR)" \
+	\
+	--include-in-header=$(STYLES_DIR)/tompollard.latex-header.tex \
+	\
+	"$(CWD)/metadata.yml" \
+	"$(STYLES_DIR)/tompollard.variables.yml" \
+	"$(CONTENTS_DIR)/"*.md
+
+
+
 .PHONY: install help pdf html
 
 

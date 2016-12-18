@@ -74,6 +74,7 @@
                 <li><a href="#interfaces"><span class="toc-section-number">6.4</span> Interfaces</a><ul>
                 <li><a href="#internal"><span class="toc-section-number">6.4.2</span> Internal</a></li>
                 <li><a href="#external"><span class="toc-section-number">6.4.3</span> External</a></li>
+                <li><a href="#authentication"><span class="toc-section-number">6.4.4</span> Authentication</a></li>
                 </ul></li>
                 </ul></li>
                 <li><a href="#specification"><span class="toc-section-number">7</span> Specification</a><ul>
@@ -84,7 +85,7 @@
                 <li><a href="#environment"><span class="toc-section-number">7.5.2</span> Environment</a></li>
                 <li><a href="#transport"><span class="toc-section-number">7.5.3</span> Transport</a></li>
                 <li><a href="#storage"><span class="toc-section-number">7.5.4</span> Storage</a></li>
-                <li><a href="#authentication"><span class="toc-section-number">7.5.5</span> Authentication</a></li>
+                <li><a href="#authentication-1"><span class="toc-section-number">7.5.5</span> Authentication</a></li>
                 </ul></li>
                 <li><a href="#recommendations"><span class="toc-section-number">7.6</span> Recommendations</a><ul>
                 <li><a href="#software-dependencies"><span class="toc-section-number">7.6.2</span> Software Dependencies</a></li>
@@ -331,7 +332,7 @@
 <li>ownyourinfo [http://www.ownyourinfo.com]</li>
 <li>PAGORA [http://www.paoga.com]</li>
 <li>PRIME/PrimeLife [https://www.prime-project.eu, http://primelife.ercim.eu/]</li>
-<li>databox.me (reference implementation of the “solid” framework)</li>
+<li>databox.me (reference implementation of the <em><a href="https://github.com/solid/solid">Solid framework</a></em>)</li>
 <li>Polis (greek research project from 2008) [http://polis.ee.duth.gr/Polis/index.php]</li>
 </ul>
 </section>
@@ -354,16 +355,18 @@
 </section>
 <section id="standards-and-specifications" class="level2">
 <h2><span class="header-section-number">3.6</span> Standards and Specifications</h2>
-<p>The overall attempt is to involve as much standards as possible, because it increases the chances of interoperability and thereby it lowers the effort, that needs to be made,in order to integrate with third parties or other APIs.</p>
+<p>When developing an <em>Open Specification</em> it comes naturally to build upon open technologies, which shall be understood as open standards and open source; <em>open</em> in the sense of <em>unrestricted accessible by everybody</em>; not to be confused with free - as in <em>freedom</em> - software. In this case, advocating such a an openness enables not only to develop implementations of the specification in a collaborative way, but also the specification itself, and makes it possible for anyone who is interested to participate or even to contribute. For everyone who just want to use open technologies, a license defining rules and conditions is typically enclosed somehow. But regardless of the motivation everybody who is interested in getting to know how these hard- or software blackboxes-by-design are actually working, is thus able to look into it.</p>
+<p>So the overall attempt is to involve as much standards as possible, because it increases the chances of interoperability and thereby it lowers the effort, that might be needed, in order to integrate with third parties or other APIs. Hereinafter, some of these possible technologies will be touched on just briefly, why they might be a reasonable choice and what purposes they might going to service.</p>
+<p><strong>HTTP(S)</strong> <span class="citation" data-cites="web_spec_http1">[<a href="#ref-web_spec_http1">73</a>]</span>, well known as the transport layer for the <em>World Wide Web</em> is most likely going to fulfill the same purpose in the context of this work. Whether internal components (local or as part of a distributed system) talk to each other or data consumers request information. Features introduces with Version 2 <span class="citation" data-cites="web_spec_http2">[<a href="#ref-web_spec_http2">74</a>]</span> of the protocol are yet to be known of their relevance and corresponding use cases. The <em>Transport Layer Security</em> <span class="citation" data-cites="web_spec_tls">[<a href="#ref-web_spec_tls">75</a>]</span> embedded in the protocol provides encryption during transfer, which reduces the vulnerability to <em>man-in-the-middle</em> attacks and thus ensures data integrity. Due to it’s asymmetrical cryptographic concepts used to establish a connection, <em>TLS</em> also allows to verify the integrity of the entity on the the connection’s counterside, and, depending on the integration, it could even used for authentication. <em>Websockes</em> <span class="citation" data-cites="web_spec_websockets">[<a href="#ref-web_spec_websockets">76</a>]</span> might also be a possibility to communicate between components or even with external parties, which has the advantage of high efficient ongoing connections using for real-time data exchange or remotely pending process responses, while at the same time avoiding HTTP’s long-polling abilities.</p>
+<p><strong>JSON</strong><a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a> is an alternative data serialization format to XML, heavily used in web contexts to transfer data via <em>HTTP</em>, whose syntax is inspired by the JavaScript object-literal notation.</p>
+<p>The open standard <strong>OAuth</strong> defines a process flow for authorizing third parties to access externally hosted resources, such as the user’s profile image from <em>facebook</em>. The authorisation validation is done with the help of a previously generated token. However generating and supplying such a token can be initiated in a variety of ways depending on the situation, e.g. with the user entering her credentials (<code>grant_type=authorization_code</code>). This design mistakenly <span class="citation" data-cites="web_2012_problem-with-oauth-for-authentication">[<a href="#ref-web_2012_problem-with-oauth-for-authentication">79</a>]</span> lead to <em>OAuth</em> integrations with the intention to provide an authentication service whether as an alternative or as an addition to existing in-house solution. Therewith the application authors pass the responsibility on to the OAuth-supporting data providers. While <em>version 1.0a</em> <span class="citation" data-cites="web_spec_oauth-1a">[<a href="#ref-web_spec_oauth-1a">80</a>]</span>, seen as a protocol, provides integrity for transferred data by using signatures and confidentiality by encrypting data ahead of transfer. Whereas <em>version 2.0</em> <span class="citation" data-cites="web_spec_oauth-2">[<a href="#ref-web_spec_oauth-2">81</a>]</span>, labeled as a framework, just requires <em>TLS</em>. It also includes certain process flows for specific platforms, such as <em>“web applications, desktop applications, mobile phones, and living room devices”</em> <span class="citation" data-cites="web_2016_oauth-2">[<a href="#ref-web_2016_oauth-2">82</a>]</span>.</p>
+<p>With <strong>OpenID</strong> on the other side, the authenticity of a requesting user gets verified, which is by design. An in-depth description of the whole process can be found in the protocol’s same-titled open standard. With decentralisation kept in mind, the protocols’s nature encourages to design a distributed application architecture, similar to the idea behind <em>microservices</em>, but without owning all services involved, <em>decentralized authentication as a service</em> so to speak. An application owner doesn’t have to write or implement it’s own user management system, instead it is sufficient to just integrate these parts from the standard need to support signing in with <em>OpenID</em>. Equally the user is not required to register a new account whenever it is necessary, instead she can use her <em>OpenID</em>, already created by another identity provider, to authenticate with the application. The extension <em>OpenID Attribute Exchange</em> allows to import additional profile data. <em>OpenID Connect</em> <span class="citation" data-cites="web_spec_openid-connect-1">[<a href="#ref-web_spec_openid-connect-1">83</a>]</span> is the third iteration of the OpenID technology <em>Connect</em> is to OpenID what <em>facebook connect</em> is to <em>facebook</em>, except for the additional authentication layer, which is build upon <em>OAuth2.0</em> and therefore enables, aside from authorisation mechanisms, third parties to authenticate an OpenID-user and makes certain data available about that account via REST interface.</p>
+<p>If it’s necessary for certain components, as part of a distributed software, to make them stateless, apart from changing the architecture so that the state at that point is not needed anymore, the only other option would be to carry the state along (TODO: or “passing the state around”). This is a common use case for a <strong>JSON Web Token</strong> <em>(JWT)</em> <span class="citation" data-cites="web_spec_json-web-token">[<a href="#ref-web_spec_json-web-token">84</a>]</span>. A <em>JWT</em>, as it’s name implies, is syntactically speaking formatted as <em>JSON</em>, but URI-safe into <em>Base64</em> encoded, before it gets transferred. The token itself holds the state. Here is where the use of <em>HTTP</em> comes in handy, because the token can be stored within the HTTP header and therefore can be passed through all communication points, where then certain data could be readout and therewith get verified. Such a token typically consists of three parts: information about itself, a payload, which can be arbitrary data such as user or state information, and a signature; all separated with a period. Additional standards define encryption <em>(JWE<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>)</em> to ensure confidentiality and signatures <em>(JWS<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>)</em> to preserve integrity of it’s contents. Using a <em>JWT</em> for authentication purposes, that is described as <em>stateless authentication</em>, because the verifying entity doesn’t need to be aware of session IDs or know anything about a certain state. So instead of the backend interface being constrained to check a state (<code>isLoggedIn(sessionId)</code> or <code>isAuthorized(sessionId)</code>) on every incoming request in order to verify permissions, it just needs</p>
+<p><strong>REST(ful)</strong><a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a> design is mainly a convention (TODO: or pattern) commonly accepted</p>
+<p>The <em>QL</em> in <strong>GraphQL</strong> <span class="citation" data-cites="web_spec_graphql">[<a href="#ref-web_spec_graphql">88</a>]</span> stands for <em>query language</em>. It’s goal is to query data from arbitrary and possibly multiple data sources with it’s related data points might be structured like a graph, meaning multiple data points, which might be related to each other somehow, indirectly “linked” through each other.</p>
 <ul>
-<li>http(s)</li>
-<li>all the <em>Semantic Web</em> stuff</li>
-<li>Container/App spec</li>
-<li>JWT</li>
-<li>oAuth (?)</li>
-<li>JSON</li>
-<li>REST</li>
-<li>GraphQL</li>
+<li><p>all the <em>Semantic Web</em> stuff Solid <span class="citation" data-cites="web_spec_solid">[<a href="#ref-web_spec_solid">89</a>]</span></p></li>
+<li><p>Container/App spec appc spec opencontainer initiative</p></li>
 </ul>
 </section>
 </section>
@@ -561,6 +564,14 @@
 </ul></li>
 </ul>
 </section>
+<section id="authentication" class="level3">
+<h3><span class="header-section-number">6.4.4</span> Authentication</h3>
+<ul>
+<li>regarding oAuth as authentication: Priorly users tented to reuse their password for different account, nowadays they but alsod tent to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">90</a>]</span>.</li>
+</ul>
+<p>Thus the platform owners leave the responsibility of</p>
+<p>Many websites and platforms understand those <em>login-with $platformName</em> mechanisms as an outsourced service that handles all security- and user-related tasks.</p>
+</section>
 </section>
 </section>
 <section id="specification" class="level1">
@@ -600,7 +611,7 @@
 <li>documents based DB instead of Relational DBS, because of structure/model flexibility</li>
 </ul>
 </section>
-<section id="authentication" class="level3">
+<section id="authentication-1" class="level3">
 <h3><span class="header-section-number">7.5.5</span> Authentication</h3>
 <ul>
 <li>how should consumer authenticate?</li>
@@ -874,6 +885,60 @@
 <div id="ref-whitepaper_2016_industrial-data-space">
 <p>[72] B. Prof. Dr.-Ing. Otto, S. Prof. Dr. Auer, J. Cirullies, J. Prof. Dr. Jürjens, N. Menz, J. Schon, and S. Dr. Wenzel, “Industrial data space - digital sovereignity over data.” Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V., 17-Aug-2016 [Online]. Available: <a href="http://www.industrialdataspace.org/wp-content/uploads/2016/09/whitepaper-industrial-data-space-eng.pdf" class="uri">http://www.industrialdataspace.org/wp-content/uploads/2016/09/whitepaper-industrial-data-space-eng.pdf</a></p>
 </div>
+<div id="ref-web_spec_http1">
+<p>[73] P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T. Fielding, and J. Gettys, “Hypertext transfer protocol – HTTP/1.1,” Jun-1999. [Online]. Available: <a href="https://tools.ietf.org/html/rfc2616" class="uri">https://tools.ietf.org/html/rfc2616</a>. [Accessed: 17-Dec-2016]</p>
+</div>
+<div id="ref-web_spec_http2">
+<p>[74] M. Belshe, M. Thomson, and R. Peon, “Hypertext transfer protocol version 2 (HTTP/2),” May-2015. [Online]. Available: <a href="https://tools.ietf.org/html/rfc7540" class="uri">https://tools.ietf.org/html/rfc7540</a>. [Accessed: 17-Dec-2016]</p>
+</div>
+<div id="ref-web_spec_tls">
+<p>[75] T. Dierks and E. Rescorla, “The transport layer security (TLS) protocol version 1.2,” Aug-2008. [Online]. Available: <a href="https://tools.ietf.org/html/rfc5246" class="uri">https://tools.ietf.org/html/rfc5246</a>. [Accessed: 17-Dec-2016]</p>
+</div>
+<div id="ref-web_spec_websockets">
+<p>[76] I. Fette and A. Melnikov, “The WebSocket protocol,” Dec-2011. [Online]. Available: <a href="https://tools.ietf.org/html/rfc6455" class="uri">https://tools.ietf.org/html/rfc6455</a>. [Accessed: 17-Dec-2016]</p>
+</div>
+<div id="ref-web_spec_json">
+<p>[77] D. Crockford, “The JSON data interchange format.” ECMA International, Oct-2013 [Online]. Available: <a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf" class="uri">http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf</a></p>
+</div>
+<div id="ref-web_rfc_json">
+<p>[78] T. Bray, “The JavaScript object notation (JSON) data interchange format,” Mar-2014. [Online]. Available: <a href="https://tools.ietf.org/html/rfc7159" class="uri">https://tools.ietf.org/html/rfc7159</a>. [Accessed: 17-Dec-2016]</p>
+</div>
+<div id="ref-web_2012_problem-with-oauth-for-authentication">
+<p>[79] J. Bradley, “The problem with OAuth for authentication.” 28-Jan-2012. [Online]. Available: <a href="http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html" class="uri">http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html</a>. [Accessed: 17-Dec-2016]</p>
+</div>
+<div id="ref-web_spec_oauth-1a">
+<p>[80] “OAuth core 1.0a.” [Online]. Available: <a href="https://oauth.net/core/1.0a/" class="uri">https://oauth.net/core/1.0a/</a>. [Accessed: 18-Dec-2016]</p>
+</div>
+<div id="ref-web_spec_oauth-2">
+<p>[81] D. Hardt, “The OAuth 2.0 authorization framework,” Oct-2012. [Online]. Available: <a href="https://tools.ietf.org/html/rfc6749" class="uri">https://tools.ietf.org/html/rfc6749</a>. [Accessed: 18-Dec-2016]</p>
+</div>
+<div id="ref-web_2016_oauth-2">
+<p>[82] I. O. WG, “OAuth 2.0.” [Online]. Available: <a href="https://oauth.net/2/" class="uri">https://oauth.net/2/</a>. [Accessed: 16-Dec-2016]</p>
+</div>
+<div id="ref-web_spec_openid-connect-1">
+<p>[83] “OpenID connect core 1.0 incorporating errata set 1,” 08-Nov-2014. [Online]. Available: <a href="https://openid.net/specs/openid-connect-core-1_0.html" class="uri">https://openid.net/specs/openid-connect-core-1_0.html</a>. [Accessed: 17-Dec-2016]</p>
+</div>
+<div id="ref-web_spec_json-web-token">
+<p>[84] J. Bradley, N. Sakimura, and M. Jones, “JSON web token (JWT),” May-2015. [Online]. Available: <a href="https://tools.ietf.org/html/rfc7519" class="uri">https://tools.ietf.org/html/rfc7519</a>. [Accessed: 17-Dec-2016]</p>
+</div>
+<div id="ref-web_spec_json-web-encryption">
+<p>[85] J. Hildebrand and M. Jones, “JSON web encryption (JWE),” May-2015. [Online]. Available: <a href="https://tools.ietf.org/html/rfc7516" class="uri">https://tools.ietf.org/html/rfc7516</a>. [Accessed: 17-Dec-2016]</p>
+</div>
+<div id="ref-web_spec_json-web-signature">
+<p>[86] J. Bradley, N. Sakimura, and M. Jones, “JSON web signature (JWS),” May-2015. [Online]. Available: <a href="https://tools.ietf.org/html/rfc7515" class="uri">https://tools.ietf.org/html/rfc7515</a>. [Accessed: 17-Dec-2016]</p>
+</div>
+<div id="ref-web_spec_rest">
+<p>[87] T. Fielding, “Representational state transfer (REST),” in <em>Architectural styles and the design of network-based software architectures</em>, University of California, Irvine, 2000, pp. 76–106 [Online]. Available: <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf" class="uri">https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf</a></p>
+</div>
+<div id="ref-web_spec_graphql">
+<p>[88] “GraphQL,” Oct-2016. [Online]. Available: <a href="https://facebook.github.io/graphql/" class="uri">https://facebook.github.io/graphql/</a>. [Accessed: 17-Dec-2016]</p>
+</div>
+<div id="ref-web_spec_solid">
+<p>[89] “Solid specification,” 03-Mar-2016. [Online]. Available: <a href="https://github.com/solid/solid-spec" class="uri">https://github.com/solid/solid-spec</a>. [Accessed: 17-Dec-2016]</p>
+</div>
+<div id="ref-web_2009-success-of-facebook-connect">
+<p>[90] N. Carlson, “Facebook connect is a huge success – by the numbers,” 01-Jul-2009. [Online]. Available: <a href="http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7" class="uri">http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7</a>. [Accessed: 16-Dec-2016]</p>
+</div>
 </div>
 </section>
 </section>
@@ -890,6 +955,11 @@
 <li id="fn8"><p>more information on the project, the code and the author, Sampo Kellomäki, can be found under <em>zxid.org</em><a href="#fnref8">↩</a></p></li>
 <li id="fn9"><p>Security Assertion Markup Language 2.0<a href="#fnref9">↩</a></p></li>
 <li id="fn10"><p>eXtensible Access Control Markup Language<a href="#fnref10">↩</a></p></li>
+<li id="fn11"><p>The JavaScript Object Notation (JSON) Data Interchange Format; ECMA Standard<br />
+<span class="citation" data-cites="web_spec_json">[<a href="#ref-web_spec_json">77</a>]</span> and Internet Engineering Task Force RFC 7159 <span class="citation" data-cites="web_rfc_json">[<a href="#ref-web_rfc_json">78</a>]</span><a href="#fnref11">↩</a></p></li>
+<li id="fn12"><p>JSON Web Encryption, Internet Engineering Task Force RFC 7516 <span class="citation" data-cites="web_spec_json-web-encryption">[<a href="#ref-web_spec_json-web-encryption">85</a>]</span><a href="#fnref12">↩</a></p></li>
+<li id="fn13"><p>JSON Web Signature, Internet Engineering Task Force RFC 7515 <span class="citation" data-cites="web_spec_json-web-signature">[<a href="#ref-web_spec_json-web-signature">86</a>]</span><a href="#fnref13">↩</a></p></li>
+<li id="fn14"><p><em>Representational State Transfer</em>, introduces by Roy Fielding in his doctoral dissertation <span class="citation" data-cites="web_spec_rest">[<a href="#ref-web_spec_rest">87</a>]</span><a href="#fnref14">↩</a></p></li>
 </ol>
 </section>
             </body>
