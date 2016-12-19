@@ -34,3 +34,5 @@ Thus the platform owners leave the responsibility of
 Many websites and platforms
 understand those *login-with $platformName* mechanisms as an outsourced service that handles all
 security- and user-related tasks.
+
+what about token stealing when using jwt?

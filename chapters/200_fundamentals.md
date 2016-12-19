@@ -697,20 +697,55 @@ the verifying entity doesn't need to be aware of session IDs or know anything ab
 So instead of the backend interface being constrained to check a state (`isLoggedIn(sessionId)` or 
 `isAuthorized(sessionId)`) on every incoming request in order to verify permissions, it just needs 
 
-__REST(ful)__ [^abbr_rest] design is mainly a convention (TODO: or pattern) 
-commonly accepted
+__REST(ful)__ [^abbr_rest] is a common set of principles to design web resources communication, 
+primarily server-client relations, in a more generic and thereby interoperable way. Aside from 
+hierarchically structured URIs, which reflect semantic meanings, it involves a group of rudimentary 
+vocabulary [^http_methods] to provide basic Create-Read-Update-Delete operations across distributed
+systems. The entire request need to contain everything that is required to get proceeded, e.g. state 
+data and possibly authentication. These operation normally wont get applied directly to the 
+responsible component. Instead the whole system (or certain services) exposes a restful API, with
+which a third party can then interact. 
 
-The *QL* in __GraphQL__ [@web_spec_graphql] stands for *query language*. It's goal is to query data 
-from arbitrary and possibly multiple data sources with it's related data points might be structured 
-like a graph, meaning multiple data points, which might be related to each other somehow, indirectly 
-"linked" through each other.  
+The *QL* in __GraphQL__ [@web_spec_graphql] stands for *query language*. It's goal is to abstract
+multiple data sources in order to unify them under one API and make all containing data queryable,
+including all relating data points. The returned data, emitted in JSON syntax, can exhibit 
+graph-like structures, meaning multiple data points, that might be somehow related to each other, or 
+in other words: indirectly "linked" through each other. These, naturally deep-leveled structures,
+can be described by the syntax of the query language.
 
-+   all the *Semantic Web* stuff
-Solid [@web_spec_solid]
+The term __Semantic Web__ bundles a conglomerate of standards addressing syntax, schemas, assess
+control and integration around the idea of *web of data* to *"allow data being shared and reused 
+across"* [web_2016_w3c_semantic-web-activity] or within several scopes and contexts.
+Alongside several others, the following three standards have a certain relevance to that  concept.
+RDF [^abbr_rdf] basically defines the syntax. OWL [^abbr_owl] provides the guidelines on how the 
+semantics and schemas should be defined and with SPARQL [@web_w3c-tr_sparql], the query language for 
+the RDF format, the data can be retrieved.
+A picture emerges in which the web is used as a database, queried by URIs with a query language.
+An example would be a person's email address, which is available under a specific domain (preferable 
+owned by that person) - or to be more precise, an URI *(WebID) [@web_w3c-draft_webid]* - and 
+provided in a certain syntax *(RDF)* and tagged with the semantic *(OWL)* of a email address; all 
+embedded in a valid html page. This information can be queried *(SPARQL)*, which requires at least 
+the URI, working as a unique identifier. 
+While defining the standards, an importancy was to define a syntax which is also valid markup, in 
+order to maintain a single source of trough and save redundant work.
+Related to this topic is the work on a specification called __Solid__ [^abbr_solid]. Based on the 
+*Linked Data* principals, that are facilitated through the standards just mentioned and the 
+*WebAccessControl* [@web_2016_wiki_webaccesscontrol] system, the project focuses on decentralization 
+and personal data. A reference implementation called *databox* [@web_2016_demo_databox] combines all 
+these technologies and is build on top. 
+
+The concept of application or software __container__ is about abstraction from the native operating 
+system. It 
+encapsulates a sandboxed runtime 
+Typically it involves certain steps of virtualization, 
+sandbox containing only the absolutely necessary dependencies (e.g. binaries).
+Aside from obvious benefits such as runtime separation and code integrity through signing, it also
+enables (almost) effortless scalability down to the component level.
 
 +   Container/App spec
 appc spec
 opencontainer initiative
+ 
 
 
 
@@ -725,3 +760,12 @@ opencontainer initiative
 
 [^abbr_rest]: *Representational State Transfer*, introduces by Roy Fielding in his doctoral 
     dissertation [@web_spec_rest] 
+
+[^http_methods]: knows as HTTP Methods or Verbs [@web_spec_http-methods] (e.g. GET, OPTIONS, PUT, 
+    DELETE)
+    
+[^abbr_rdf]: Resource Description Framework [@web_w3c-tr_rdf]
+
+[^abbr_owl]: Web Ontology Language [@web_w3c-tr_owl]
+
+[^abbr_solid]: social linked data [@web_spec_solid]
