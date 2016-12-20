@@ -734,18 +734,28 @@ Related to this topic is the work on a specification called __Solid__ [^abbr_sol
 and personal data. A reference implementation called *databox* [@web_2016_demo_databox] combines all 
 these technologies and is build on top. 
 
-The concept of application or software __container__ is about abstraction from the native operating 
-system. It 
-encapsulates a sandboxed runtime 
-Typically it involves certain steps of virtualization, 
-sandbox containing only the absolutely necessary dependencies (e.g. binaries).
-Aside from obvious benefits such as runtime separation and code integrity through signing, it also
-enables (almost) effortless scalability down to the component level.
-
-+   Container/App spec
-appc spec
-opencontainer initiative
- 
+The concept of application (or software) __container__ is about encapsulating runtime environments 
+by introducing an additional layer of abstraction. A container bundles just the software 
+dependencies (e.g. binaries) that are absolutely necessary so that the enclosed program is able to 
+run properly. The actual container separation is done, aside from others, with the help of two 
+features provided by the Linux kernel. *Cgroups* [^abbr_cgroups], which define or restrict how much 
+of the existing resources a group of processes (e.g. CPU, memory or network) can use. Whereas 
+*namespaces* [@web_2016_kernel-namespace] define or restrict what parts of the system can be 
+accessed or seen by a process (e.g. filesystem, user, other processes).
+The idea of encapsulating programs from the operating system-level is not new, Technologies, such as 
+*libvirt*, *systemd-nspawn*, *jails*, or *hypervisors* (e.g. VMware, KVM, virtualbox) have been used 
+for years, but were usually too cumbersome and never reached a great level of convenience, so that 
+only people with a certain expertise were able to handle systems build upon virtualization, but 
+people with other backgrounds couldn't and weren't that much interested. Until *Docker* and *rkt* 
+emerged. After some years of separated work, both authors, and others, recently joined forces in the 
+*Open Container Initiative* [@web_2016_open-container-initiative], which aims to harmonize the 
+diverged landscape and start building common ground to ensure a higher interoperability, and that in 
+turn is requisite for orchestration. It also marks the initial draft of the specifications for 
+runtime [@web_oci-spec_runtime] and image [@web_oci-spec_image] definition, on which the work is 
+still ongoing.
+This concept of *containerization* also inherits the a ability known from *emulation*, because it 
+allows a certain set of software to run on a system that otherwise is not supported, e.g. mobile 
+devices. It only requires the runtime to be working.
 
 
 
@@ -769,3 +779,5 @@ opencontainer initiative
 [^abbr_owl]: Web Ontology Language [@web_w3c-tr_owl]
 
 [^abbr_solid]: social linked data [@web_spec_solid]
+
+[^abbr_cgroups]: control groups [@web_2015_cgroup-doc]
