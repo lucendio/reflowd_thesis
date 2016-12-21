@@ -46,7 +46,7 @@ include-after: |
 
 links-as-notes: true
 toc-title: 'Table of Contents'
-toc-depth: 2
+toc-depth: 1
 link-citations: true
 
 

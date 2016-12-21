@@ -51,12 +51,13 @@
                 <li><a href="#open-development"><span class="toc-section-number">4.8</span> Open Development</a></li>
                 </ul></li>
                 <li><a href="#requirements"><span class="toc-section-number">5</span> Requirements</a><ul>
-                <li><a href="#user-interaction"><span class="toc-section-number">5.2</span> User Interaction</a></li>
-                <li><a href="#management-organisation"><span class="toc-section-number">5.3</span> Management &amp; Organisation</a></li>
-                <li><a href="#administration"><span class="toc-section-number">5.4</span> Administration</a></li>
+                <li><a href="#the-system"><span class="toc-section-number">5.2</span> The System</a></li>
+                <li><a href="#the-user"><span class="toc-section-number">5.3</span> The User</a></li>
+                <li><a href="#the-software"><span class="toc-section-number">5.4</span> The Software</a></li>
+                <li><a href="#the-functionality"><span class="toc-section-number">5.5</span> The Functionality</a></li>
                 </ul></li>
                 <li><a href="#design-discussion"><span class="toc-section-number">6</span> Design Discussion</a><ul>
-                <li><a href="#architecture"><span class="toc-section-number">6.2</span> Architecture</a><ul>
+                <li><a href="#architecture-1"><span class="toc-section-number">6.2</span> Architecture</a><ul>
                 <li><a href="#overview"><span class="toc-section-number">6.2.2</span> Overview</a></li>
                 <li><a href="#components"><span class="toc-section-number">6.2.3</span> Components</a></li>
                 <li><a href="#plugins"><span class="toc-section-number">6.2.4</span> Plugins</a></li>
@@ -65,13 +66,13 @@
                 <li><a href="#modelling"><span class="toc-section-number">6.3.2</span> Modelling</a></li>
                 <li><a href="#categories-or-classes"><span class="toc-section-number">6.3.3</span> Categories (or Classes)</a></li>
                 <li><a href="#types"><span class="toc-section-number">6.3.4</span> Types</a></li>
-                <li><a href="#persistence"><span class="toc-section-number">6.3.5</span> Persistence</a></li>
+                <li><a href="#persistence-1"><span class="toc-section-number">6.3.5</span> Persistence</a></li>
                 <li><a href="#access-permission"><span class="toc-section-number">6.3.6</span> Access &amp; Permission</a></li>
                 <li><a href="#consumption-data-inflow"><span class="toc-section-number">6.3.7</span> Consumption (data inflow)</a></li>
                 <li><a href="#emission-data-outflow"><span class="toc-section-number">6.3.8</span> Emission (data outflow)</a></li>
                 <li><a href="#history"><span class="toc-section-number">6.3.9</span> History</a></li>
                 </ul></li>
-                <li><a href="#interfaces"><span class="toc-section-number">6.4</span> Interfaces</a><ul>
+                <li><a href="#interfaces-1"><span class="toc-section-number">6.4</span> Interfaces</a><ul>
                 <li><a href="#internal"><span class="toc-section-number">6.4.2</span> Internal</a></li>
                 <li><a href="#external"><span class="toc-section-number">6.4.3</span> External</a></li>
                 <li><a href="#authentication"><span class="toc-section-number">6.4.4</span> Authentication</a></li>
@@ -178,6 +179,9 @@
 <p><strong>Owner:</strong> person who controls (and probably hosts) the data service containing her personal data (TODO: or maybe <em>data source</em>/<em>subject</em> and <em>data collector</em>)</p>
 <p><strong>(Data) Consumer:</strong> Third party, external entity requesting data, authorized by the owner to do so</p>
 <p><strong>Data Broker(s):</strong> entities with commercial interests, that collect, aggregate and analyze information/data of any kind - in this case about human beings - from different sources in order to enrich the data sets, to finally license the resulting corpora to other organisations. <span class="citation" data-cites="report_2014_data-brokers">[<a href="#ref-report_2014_data-brokers">15</a>]</span></p>
+<p><strong>permission request:</strong> fist attempt to request access to certain data in the <em>PDaaS</em></p>
+<p><strong>access profile:</strong> a data set about a third party that already made an permission request. The set contains additional information and access rules</p>
+<p><strong>data access:</strong> after a third party’s <em>permission request</em> got reviewed and saved, that entity is then able to make an attempt to access data.</p>
 </section>
 </section>
 <section id="fundamentals" class="level1">
@@ -437,23 +441,98 @@
 </section>
 <section id="requirements" class="level1">
 <h1><span class="header-section-number">5</span> Requirements</h1>
-<section id="user-interaction" class="level2">
-<h2><span class="header-section-number">5.2</span> User Interaction</h2>
+<p>The subsequent requirements shall be served as a list of features on the on hand, to get an idea about what the end result might look like, and to give an overview about priorities (can/could, may/might, should, must/have to) on the other hand. Following chapters may contain specific references to the requirements listed below.</p>
+<section id="the-system" class="level2">
+<h2><span class="header-section-number">5.2</span> The System</h2>
+<p>The system perspective includes the overall architecture, fundamental building blocks, such as storage &amp; persistence layer, business logic and outmost interfaces.</p>
+<section id="architecture" class="level4">
+<h4><span class="header-section-number">5.2.1.1</span> Architecture:</h4>
+<p><strong><em><span id="sa01">S.A.01</span></em> - Portability</strong><br />
++ all components should be relocatable and function independently</p>
 <ul>
-<li>as effortless as possible</li>
+<li>the different components from the system should be able to get relocated and remain to be fully functional</li>
 </ul>
 </section>
-<section id="management-organisation" class="level2">
-<h2><span class="header-section-number">5.3</span> Management &amp; Organisation</h2>
+<section id="persistence" class="level4">
+<h4><span class="header-section-number">5.2.1.2</span> Persistence:</h4>
+<p><em><span id="sp01">S.P.01</span></em>: data may only leave the system if it’s absolutely necessary and no other option exists to preserve the goal of that process</p>
+<p><em><span id="sp02">S.P.02</span></em>: the data structure and data models must show high flexibility and must not consist of strong relations</p>
+<p><em><span id="sp03">S.P.03</span></em>: the storage (engine) should be supported on different platforms (incl. mobile devices)</p>
 </section>
-<section id="administration" class="level2">
-<h2><span class="header-section-number">5.4</span> Administration</h2>
+<section id="interfaces" class="level4">
+<h4><span class="header-section-number">5.2.1.3</span> Interfaces:</h4>
+<p><strong><em><span id="si01">S.I.01</span></em> - Documentation</strong><br />
+All interfaces between components have to be documented, in a way that the components themselves can be replaced without any impact to the rest of the system</p>
+</section>
+</section>
+<section id="the-user" class="level2">
+<h2><span class="header-section-number">5.3</span> The User</h2>
+<p>Not only humans that are using the resulting software are seen as a <em>user</em>. Also developers and other contributors may use the software, documentations or program code from a technical standpoint.</p>
+<section id="administration" class="level4">
+<h4><span class="header-section-number">5.3.1.1</span> Administration:</h4>
+<p><em><span id="ua01">U.A.01</span></em>:</p>
+</section>
+<section id="management-organisation" class="level4">
+<h4><span class="header-section-number">5.3.1.2</span> Management &amp; Organisation:</h4>
+<p><em><span id="umo01">U.MO.01</span></em>:</p>
+</section>
+</section>
+<section id="the-software" class="level2">
+<h2><span class="header-section-number">5.4</span> The Software</h2>
+<section id="visual-user-interface" class="level4">
+<h4><span class="header-section-number">5.4.1.1</span> Visual User Interface:</h4>
+<p><strong><em><span id="pviu01">P.VIU.01</span></em> - Responsive user interface</strong><br />
+The visual user interface has to be responsive to the available space</p>
+<p><strong><em><span id="pviu02">P.VIU.02</span></em> - Platform support</strong><br />
++ must at least web UI (provided by the server)</p>
+<ul>
+<li>should mobile to benefit from notifications and storing data on that device</li>
+</ul>
+<p><strong><em><span id="pviu03">P.VIU.03</span></em> - Access Profiles</strong><br />
+The user should be capable of filtering, sorting and searching through that list of profiles</p>
+<p><strong><em><span id="pviu04">P.VIU.04</span></em> - Access History</strong>  The user must be provided with a list of all past permission requests and data accesses. This tool should have filter, search and sort mechanisms.</p>
+<ul>
+<li>requires <a href="#pb01">access logging</a></li>
+</ul>
+</section>
+<section id="interactions" class="level4">
+<h4><span class="header-section-number">5.4.1.2</span> Interactions:</h4>
+<p><strong><em><span id="pi01">P.I.01</span></em> - Effort</strong><br />
+Common interactions processes, like changing <em>profile data</em>, importing data sets or manage <em>permission request</em> have to be require as little effort as possible. This means short UI response time on the one hand and and as less single inputs as possible to complete a task.</p>
+<p><strong><em><span id="pi02">P.I.02</span></em> - Design</strong><br />
+The visual user interface must be designed and structured in such a way that is is highly intuitive for the user to operate. Thus, it is important e.g. to use meaningful icons and appropriate labels. TODO: emphasize more UI aspects (or not)</p>
+<p><strong><em><span id="pi03">P.I.03</span></em> - Notifications</strong><br />
+The user should be notified about every interaction with the <em>PDaaS</em> originated by a third party immediately after it’s occurrence, but she must get notified at least about every <em>permission request</em>. This behaviour should be configurable; depending on the <em>permission type</em> and on every <em>access profile</em>. Regardless of the configuration the notifications themselves must show up and pending user interactions must be indicated in the user interface.</p>
+<p><strong><em><span id="pi04">P.I.04</span></em> - Permission Request Review</strong><br />
+</p>
+</section>
+<section id="behaviour" class="level4">
+<h4><span class="header-section-number">5.4.1.3</span> Behaviour:</h4>
+<p><strong><em><span id="pb01">P.B.01</span></em> - Access Logging</strong><br />
+All interactions and changes in the persistence layer should be logged. At least all data request must be logged. Such log is the foundation of the <em>access history</em>, with this the user is able to keep track of and look up past accesses.</p>
+<p><strong><em><span id="pb02">P.B.02</span></em> - Real time</strong><br />
++ web ui in browser on desktop should be connected to the server through websockets to support real time (e.g. permission request got reviewed on mobile device, but notification indicator reflects “still pending”)</p>
+<ul>
+<li>if just one client is associated to the system, real time (in the sense of keeping UI state up to date) would not be required</li>
+</ul>
+</section>
+</section>
+<section id="the-functionality" class="level2">
+<h2><span class="header-section-number">5.5</span> The Functionality</h2>
+<p><em><span id="f01">F.01</span></em>: The system</p>
+<p>the process of granting access to certain data points has to be effortless and intuitive</p>
+<p>data owners</p>
+<p>data consumers</p>
+<p>data owners can use permission templates to predefine rules for later application to data consumer requests</p>
+<p>a process involving data transaction must always be initiated by the data owner</p>
+<p>the data owner should be able to (semi-)automate additional an ongoing data imports from multiple data sources (e.g. IoT, browser plugin)</p>
 </section>
 </section>
 <section id="design-discussion" class="level1">
 <h1><span class="header-section-number">6</span> Design Discussion</h1>
-<p>major design decisions will be discussed and views from several perspectives</p>
-<section id="architecture" class="level2">
+<p>The following chapter documents the processes of some design decision makings, examines possible issues emerging alongside and discuses different solutions obtained from several perspectives in order to evaluate their advantages and disadvantages. Probably not every issue will get it’s<br />
+deserved rome , but major aspects will be addressed.</p>
+<section id="architecture-1" class="level2">
 <h2><span class="header-section-number">6.2</span> Architecture</h2>
 <ul>
 <li>showing possible directions, e.g.:
@@ -495,7 +574,7 @@
 <section id="types" class="level3">
 <h3><span class="header-section-number">6.3.4</span> Types</h3>
 </section>
-<section id="persistence" class="level3">
+<section id="persistence-1" class="level3">
 <h3><span class="header-section-number">6.3.5</span> Persistence</h3>
 <ul>
 <li>database requirements</li>
@@ -542,7 +621,7 @@
 </ul>
 </section>
 </section>
-<section id="interfaces" class="level2">
+<section id="interfaces-1" class="level2">
 <h2><span class="header-section-number">6.4</span> Interfaces</h2>
 <section id="internal" class="level3">
 <h3><span class="header-section-number">6.4.2</span> Internal</h3>
@@ -650,6 +729,12 @@
 </section>
 <section id="attack-scenarios" class="level2">
 <h2><span class="header-section-number">8.6</span> Attack Scenarios</h2>
+<ul>
+<li>single point of failure (data-wise),
+<ul>
+<li>but considering what data users already put into their social networks (or: thE social network: fb), they/it has already become a de facto data silo and is thus a single point of failure. If that service breaks or get down, the data from all users might be lost or worse (stolen). The aspect of data decentralisation achieved by individual data stores can be valued as positive.</li>
+</ul></li>
+</ul>
 </section>
 <section id="future-work" class="level2">
 <h2><span class="header-section-number">8.7</span> Future Work</h2>

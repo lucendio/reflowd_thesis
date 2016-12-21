@@ -38,3 +38,11 @@ __Data Broker(s):__ entities with commercial interests, that collect, aggregate 
 information/data of any kind - in this case about human beings - from different sources in order 
 to enrich the data sets, to finally license the resulting corpora to other organisations.
 [@report_2014_data-brokers]
+
+__permission request:__ fist attempt to request access to certain data in the *PDaaS*
+
+__access profile:__ a data set about a third party that already made an permission request. The set
+    contains additional information and access rules
+    
+__data access:__ after a third party's *permission request* got reviewed and saved, that entity
+is then able to make an attempt to access data.
