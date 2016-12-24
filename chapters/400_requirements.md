@@ -12,46 +12,50 @@ Subsequent chapters may contain specific references to the requirements listed b
 
 ## The System
 
-The system perspective includes the overall architecture, fundamental building blocks, such as
+The system perspective includes the overall design, fundamental building blocks, such as
 storage & persistence layer, business logic and outmost interfaces.
 
 
 #### Architecture/Design:
 
 __*[S.A.01]{#sa01}* - Portability__\
-+   all components should be relocatable and function independently
-+   the different components from the system should be able to get relocated and remain 
-to be fully functional
+All major components should be designed and communicate between each other in a way to be able to 
+get relocated while the system has to remain fully functional. It has to be possible to build a
+distributed system, that may require to place certain components into different environments/devices. 
 
 __*[S.A.02]{#sa02}* - Roles__\
-The system has to define two types of roles. The first on is the 
-[operator](#terminologies--operator), who has to be in control of the system. The operator takes 
-care of the data that might be provided and decides about which third party get's access to what 
-data. The second type are the [consumers](#terminologies--consumer). These are external third 
-parties that desire certain data about or from the operator.
+The system has to define two types of roles. The first one is the 
+[operator](#terminologies--operator), who is in control of the system and, depending on the 
+architecture, must be at least on individual but can be more. The operator takes care of all the 
+data that then get's provided and decides about which third party get's access to what data. The second 
+type are the [consumers](#terminologies--consumer). These are external third parties that desire 
+certain data about or from the operator.
 (see [Terminologies](#terminologies))
 
 
 #### Persistence:
 
 __*[S.P.01]{#sp01}* - Data Outflow__\
-Data must only leave the system if it's absolutely necessary and no other option exists to preserve 
+Data may only leave the system if it's absolutely necessary and no other option exists to preserve 
 the goal of that process.
 
 __*[S.P.02]{#sp02}* - Data Relationship__\
-the data structure and data models must show high flexibility and must not consist of strong 
-relations and serration.
+Data structures and data models must show high flexibility and may not consist of strong relations 
+and serration.
 
 __*[S.P.03]{#sp03}* - Schema and Structure__\
-+   user can create new data types (based on a schema)
+The *Operator* can create new data types (based on a schema) in order to extend the capabilities of
+the data API. Structures and schemas can change over time ([S.P.04](#sp04)). 
+Every data set and data point has to relate to a corresponding and existing type, whether it's a 
+simple type (string, integer, boolean, etc.) or a structured composition based on a schema.
 
 __*[S.P.04]{#sp04}* - Write__\
 Primarily the operator is the only one who has the permissions to add, change or remove data. This
 is done either by using the appropriate forms provided by visual user interface or import 
 mechanisms. The later could be enabled through (A) support for file upload containing supported 
 formats, (B) data API restricted to the operator or (C) defining an external source reachable via 
-http (e.g. *RESTful URI*) in order to (semi-)automate additional an ongoing data import from multiple 
-data sources (e.g. IoT, browser plugin).
+http (e.g. *RESTful URI*) in order to (semi-)automate additional an ongoing data import from 
+multiple data sources (e.g. IoT, browser plugin).
 Additionally, it might be possible in the future to allow *data consumers* letting some data to flow
 back into the operator's system, after she is certain about it's validity and usefulness.
 
@@ -60,25 +64,35 @@ back into the operator's system, after she is certain about it's validity and us
 #### Interfaces:
 
 __*[S.I.01]{#si01}* - Documentation__\
-All interfaces between components have to be documented, in a way that the components themselves can 
-be replaced without any impact to the rest of the system
+The interfaces of all components have to be documented; in a way that the components themselves can 
+be replaced without any impact to the rest of the system. This also involves comprehensive 
+information on how to communicate and what endpoints are provided, including required arguments and 
+result structure.
 
 __*[S.I.02]{#si02}* - External Data Query__\
 Data consumer can request a schema, in order to know how the response data will actually look like,
-since certain parts of the data structure might change over time (see [[S.P.03](#sp03), 
-[S.P.04](#sp04)]).
-
-+   a process involving data transaction must always be initiated by the data subjects
+since certain parts of the data structure might change over time (see [S.P.03](#sp03), 
+[S.P.04](#sp04)).
+After checking if the access request is permitted, the system first parses and validates the query 
+and eventually proceeds to actually execute the included query. When querying data from the system, 
+the *data consumer* might be required tp provide a schema, which should force him to be as precise 
+as possible about what data is exactly needed. In addition to that, the consuming entity must 
+provide some *meaningful* text, describing the purpose of the requested data. He should not be 
+allowed to place wildcard selectors for data points in the query. Instead he must always define
+a more specific filter or a maximum number of items, if the query retrieves more then one element.
 
 __*[S.I.03]{#si03}* - Formats__\
-+   JSON(-like) everywhere (query language, response)
+When components communicating between each other or interactions with the system from the outside 
+take place, all data send back and forth should be serialized/structured in a JSON or JSON-like
+structure.
 
 
 
 ## The User
 
-Not only humans that are using the resulting software are seen as a *user*. Also developers and
-other contributors may use the software, documentations or program code from a technical standpoint. 
+Primarily seen as users are data consumers and the operator of the system. But not only those, 
+also developers and other contributors may use the specification, documentations or resulting 
+program code in order to create additional pieces. 
 
 
 #### Administration:
@@ -133,8 +147,12 @@ request*. This behaviour should be configurable; depending on the *permission ty
 *access profile*. Regardless of the configuration the notifications themselves must show up and
 pending user interactions must be indicated in the user interface. 
 
-__*[P.I.04]{#pi04}* - Permission Request Review__\
+__*[P.I.04]{#pi04}* - Permission Request & Review__\
++   a process involving data transaction must always be initiated by the data subjects
+Before a *data consumer* is able to access data, firstly the *operator* need to *invite* him, by
+sending him a URI to a unique endpoint
 +   TODO: how should that look like?
++   4 possible permission types: *one-time-only*, *expires-on-date* and *until-further-notice*
 
 __*[P.I.05]{#pi05}* - Templating__\
 The operator should be able to create templates for *access profiles* nad *permission rules* in 

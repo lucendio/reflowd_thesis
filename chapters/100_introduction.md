@@ -150,8 +150,8 @@ a URI, which she inserts according, as mentioned before; after she assures herse
 exchange with the shop through the browser is based on a secure connection (HTTPS). Under this URI, 
 the shop-system can then request data, that is required for a successful transaction. Moving on to
 the next step after submitting the URI, the data subject is ask to decide how she would like to pay.
-The choices are: credit card, invoice, paypal or bank transfer. She chooses the last one, submits
-her selection and thereby completes her order.
+The choices are: credit card, invoice, online payment provider of choice or bank transfer. She 
+chooses the last one, submits her selection and thereby completes her order.
 After a moment, a push notification pops up on her mobile device, which is a permission request 
 from her *PDaaS*, asking for granting the shop-system, she just places the order, access to her 
 full name, address and email. Additionally she can decide between three states of how log the 
