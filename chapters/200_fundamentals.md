@@ -627,9 +627,9 @@ integrity. Due to it's asymmetrical cryptographic concepts used to establish a c
 also allows to verify the integrity of the entity on the the connection's counterside, and, 
 depending on the integration, it could even used for authentication.
 *Websockes* [@web_spec_websockets] might also be a possibility to communicate between components or 
-even with external parties, which has the advantage of high efficient ongoing connections using for 
-real-time data exchange or remotely pending process responses, while at the same time avoiding 
-HTTP's long-polling abilities. 
+even with external parties, which has the advantage of high efficient ongoing bidirectional 
+connections using for real-time data exchange or remotely pending process responses, while at the 
+same time avoiding HTTP's long-polling abilities. 
 
 __JSON__ [^abbr_json] is an alternative data serialization format to XML, heavily used in web 
 contexts to transfer data via *HTTP*, whose syntax is inspired by the JavaScript object-literal 

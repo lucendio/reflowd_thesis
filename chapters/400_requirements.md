@@ -10,12 +10,6 @@ Subsequent chapters may contain specific references to the requirements listed b
 
 
 
-## The System
-
-The system perspective includes the overall design, fundamental building blocks, such as
-storage & persistence layer, business logic and outmost interfaces.
-
-
 #### Architecture/Design:
 
 __*[S.A.01]{#sa01}* - Portability__\
@@ -60,7 +54,6 @@ Additionally, it might be possible in the future to allow *data consumers* letti
 back into the operator's system, after she is certain about it's validity and usefulness.
 
 
-
 #### Interfaces:
 
 __*[S.I.01]{#si01}* - Documentation__\
@@ -87,45 +80,29 @@ take place, all data send back and forth should be serialized/structured in a JS
 structure.
 
 
-
-## The User
-
-Primarily seen as users are data consumers and the operator of the system. But not only those, 
-also developers and other contributors may use the specification, documentations or resulting 
-program code in order to create additional pieces. 
-
-
-#### Administration:
-
-*[U.A.01]{#ua01}*:
-
-
-#### Management & Organisation:
-
-*[U.MO.01]{#umo01}*:
-
-
-
-## The Software
-
-
 #### Visual User Interface:
 
 __*[P.VIU.01]{#pviu01}* - Responsive user interface__\
-The visual user interface has to be responsive to the available space
+The visual user interface has to be responsive to the available space, because of the diversity of
+screen sizes nowadays.
 
 __*[P.VIU.02]{#pviu02}* - Platform support__\
-+   must at least web UI (provided by the server)
-+   should mobile to benefit from notifications and storing data on that device
+The user interface must be at least implemented based on web technologies, that is provided by a
+server and is thus available on any platform that comes with a modern browser.
+To enable additional features and behavior, at least for mobile devices it is recommended to build 
+a user interface upon native supported technologies, such as *Swift* and *Java*. The operator would 
+benefit from capabilities such as *push notifications* and storing data on that device.
 
 __*[P.VIU.03]{#pviu03}* - Access Profiles__\
-The operator should be capable of filtering, sorting and searching through that list of profiles. 
-She also should be able to create templates for 
+The operator should be capable of filtering, sorting and searching through the list of *access 
+profiles*; for a better administration experience and to easily find certain entries while the 
+overall amount increases over time.
  
 __*[P.VIU.04]{#pviu04}* - Access History__\ 
-The user must be provided with a list of all past permission requests and data accesses. This tool 
-should have filter, search and sort mechanisms.
-+  requires [access logging](#pb01)
+The operator must be provided with a list of all past permission requests and data accesses, in 
+order to monitor who is accessing what data and when, and thus being capable of evaluating and 
+eventually stopping certain access and data usage. This tool should have filter, search and sort 
+capabilities. It is build upon and therefore requires the [access logging](#pb01) functionality.
 
 
 #### Interactions:
@@ -134,11 +111,15 @@ __*[P.I.01]{#pi01}* - Effort__\
 Common interactions processes, like changing *profile data*, importing data sets or manage 
 *permission request* have to require as little effort as possible. This means short UI response 
 time on the one hand and as less single input and interaction steps as possible to complete a task.
+Given these circumstances, the *permission request review* and *access profile creation* might 
+become a special challenge. 
 
 __*[P.I.02]{#pi02}* - Design__\
 The visual user interface must be designed and structured in such a way that is is highly intuitive
 for the user to operate. Thus, it is important e.g. to use meaningful icons and appropriate labels.
-TODO: emphasize more UI aspects (or not)
+It also means a flat and not crammed menu navigation. Context related interaction elements should be
+positioned within the area designated for that context.
+TODO: maybe emphasize more UI aspects (or not)
 
 __*[P.I.03]{#pi03}* - Notifications__\
 The user should be notified about every interaction with the *PDaaS* originated by a third party 
@@ -148,11 +129,21 @@ request*. This behaviour should be configurable; depending on the *permission ty
 pending user interactions must be indicated in the user interface. 
 
 __*[P.I.04]{#pi04}* - Permission Request & Review__\
-+   a process involving data transaction must always be initiated by the data subjects
-Before a *data consumer* is able to access data, firstly the *operator* need to *invite* him, by
-sending him a URI to a unique endpoint
-+   TODO: how should that look like?
-+   4 possible permission types: *one-time-only*, *expires-on-date* and *until-further-notice*
+A process involving data transaction must always be initiated by the data subjects. So before a 
+*data consumer* is able to access data, first the *operator* need to *invite* him and tell him 
+whereto address his requests. This has to be done by sending him a URI leading to an endpoint, that 
+needs to be unique among all *data consumers* interacting with the same instance of the system.
+When a *data consumer* makes the first attempt to connect to the system, it must be a well formed
+*permission request*, which has to include information about the *consumer*, what data he wants to
+get access to, for what purpose and how log or how often the data need to be requested. The operator
+then reviews these information and creates an access profile based on that information. A key
+configuration in such a profile has to be what defines when this permission expires. The operator
+should be able to decide between three *permission types*:
++   *one-time-only*
++   *expires-on-date*
++   *until-further-notice*
+After creating the profile, a response must be send to the *data consumer*, which should contain
+the review result and permission type set by the operator. 
 
 __*[P.I.05]{#pi05}* - Templating__\
 The operator should be able to create templates for *access profiles* nad *permission rules* in 
@@ -168,15 +159,9 @@ must be logged. Such log is the foundation of the *access history*, with this th
 keep track of and look up past accesses.
 
 __*[P.B.02]{#pb02}* - Real time__\
-+   web ui in browser on desktop should be connected to the server through websockets to support 
-real time (e.g. permission request got reviewed on mobile device, but notification indicator 
-reflects "still pending")
-+   if just one client is associated to the system, real time (in the sense of keeping UI state up 
-to date) would not be required
-
-
-
-## The Functionality
-
-
-*[F.01]{#f01}*: The system 
+Real time communication might be essential for time-critical data transaction. Hence at least one
+user interfaces should be connected to the server through an ongoing connection to enable
+real time support (example scenario: permission request got reviewed on mobile device, but 
+notification indicator reflects "still pending"). But if just one client is associated to the 
+system, real time (in the sense of keeping UI state up to date) would not be necessary.
+(see [P.VIU.02](#pviu02}))
