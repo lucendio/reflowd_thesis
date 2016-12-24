@@ -29,7 +29,7 @@ Specification
 +   does it matter from what origin the data request was made? how to check that? is the 
     requester's server domain in the http header?
     eventually there is no way to check that, so me might need to go with request logging and
-    trying to detect abnormal behaviour
+    trying to detect abnormal behaviour/occurrence with a learning artificial intelligence
     
 +   is the consumer able to call the access request URI repeatedly and any time? (meaning will this
     be stateless or stateful?)
@@ -52,6 +52,9 @@ Specification
 ### Storage
 
 +   documents based DB instead of Relational DBS, because of structure/model flexibility 
++   graphql because of it's nature to abstract a storage engine, which comes in handy when the 
+actual storage gets relocated (e.g. from a server to a mobile device)
+
 
 
 ### Authentication

@@ -157,15 +157,15 @@ sensitive data is stored.
 
 Whereas __Ownership__ of *Personal Data* has no legal ground foundation so ever. The concepts of 
 intellectual property protection and copyright might intuitively be applicable, because the data, 
-created by its owner, seems to be her *intellectual property*. Such property implies to be a result 
+created by the data subject, seems to be her *intellectual property*. Such property implies to be a result 
 of a creative process though, but unfortunately there is no *threshold of originality* in facts, 
 like *personal information* is [@paper_2014_who-owns-yours-data]. 
 
 +   Ownership in the sense of having exclusive control over it's personal data and how they get 
 processed at any given point in time; this not only comes with high costs, but is also very 
-inconvenient for both parties - owner and data consumer. It consists of two concepts: (A) the right
-to do what every is desired with their property and (B) in which rules and mechanisms the ownership 
-can be assigned to someone [@book_1987_private-ownership_definition].
+inconvenient for both parties - data subject and data consumer. It consists of two concepts: (A) the 
+right to do what every is desired with their property and (B) in which rules and mechanisms the 
+ownership can be assigned to someone [@book_1987_private-ownership_definition].
 
 +   The european DPR [^abbr_dpr] contains only one occurrence of the word *ownership*, which is not 
 even related to the context of *personal data* or the *data subject*. It only stats, that 
@@ -204,7 +204,7 @@ worldwide license to do almost any imaginable thing with her data. This even app
 if the user is *"submitting or posting [...] Content on areas of the Service that are accessible
 by the public or other users with whom [the user] consent to share [...] Content"*
 [@web_2016_apple-icloud_terms-of-service].
-+   It is worth noticing, that in every *ToS* it is only referred to the data owner's 
++   It is worth noticing, that in every *ToS* it is only referred to the data subject's 
 content, not all her personal data. As mentioned above, personal information are no 
 intellectual property, but playing an important role in data analytics though. Which is why
 *privacy policies* are in place, to ensure at least some user enlightenment, even though it
@@ -215,14 +215,14 @@ definition of *ownership*, as described earlier, is applicable for these kind of
 the user losing all its control is by design. Handing over data to the consumer annihilates
 the exclusive control over the data and revokes the ability of assigning such control. There 
 is no (legislation based) way to establish a feasible concept of *ownership*, if the data consumer 
-has no motivation to promote the user a comprehensive owner of her data.
+has no motivation to promote the user the a comprehensive owner of her data.
  
 +   Leaving all the legal layer aside for a moment and switching the perspectives a bit; 
 Data consumers might argue, that they had invested in enabling themselves to collect, process 
-and store personal data, so it belongs to them. But from the data owner's point of view it might 
+and store personal data, so it belongs to them. But from the data subject's point of view it might 
 only be the case as long as as she would benefit as well somehow, e.g. using products, services 
 or features, offered by consumers, which quality depends on personal data. 
-If the data owner chooses to move to a competitor might what to bring her personal data with
+If the data subject chooses to move to a competitor might what to bring her personal data with
 her. But then again the former data consumer would object, competitors would
 benefit from all investments the consumer has made, but without any effort.
 Though, not entirely wrong, two aspects need to be emphasize. (A) In order to archive a high
@@ -232,11 +232,11 @@ not only in acquiring personal data. Which again only constitutes (B) the founda
 subsequential computations followed by an ongoing collecting, aggregation and 
 analytics of actively and passively created data and metadata (e.g. food deliver history or
 platform interactions and tracking). Given the initially introduced definition of *personal 
-data* only a fraction of the involved data belongs to its owner. The large part consists of 
-highly valuable metadata [@web_2013_why-metadata-matters] 
+data* it appears to only be a fraction of the involved data belonging to its owner. The larger part 
+consists of highly valuable metadata [@web_2013_why-metadata-matters] 
 [@web_2016_why-you-need-metadata-for-big-data-to-success] and therefore should remain to the 
 data collector and either be deleted or sufficiently anonymized, if the owner cancels the 
-relationship. The data owner should not depend on the collector's willingness when it comes 
+relationship. The data subject should not depend on the collector's willingness when it comes 
 to handing over her personal data (e.g. list of favorites or delivery history). Instead, 
 using her own tool to provide the consumer with required data (e.g. list of favorites) or 
 tap into her data creating interactions (e.g. food deliveries) on her own.
@@ -458,7 +458,7 @@ technical solution could help to regain some control.
 
 ## Related Work
 
-The idea of a digital vault, controlled and maintained by it's owner, the individual, isn't 
+The idea of a digital vault, controlled and maintained by the data subject, the individual, isn't 
 that new. Holding her most sensitive and valuable collections of bits and bytes, protected from 
 all these data brokers and authorities, while interacting with the digital and physical world, 
 opening and closing it's door from time to time, to either put something important for her inside 
@@ -493,9 +493,6 @@ examples *(alphabetical order)*:
     -   Information Hub
     -   Information Management System (PIMS)
 +   Vendor Relationship Management (VRM)
-
-
-### Research
 
 One of the first research projects is *ProjectVRM*, which originated from *Berkman Center 
 for Internet & Society* at *Harvard University*. As it's name implies, it was inspired by the 
@@ -533,7 +530,7 @@ name *openPDS* [@paper_2012_openpds_on-trusted-use-of-large-scale-personal-data]
 Laboratories*. Despite the usual concepts of
 a *PDS*, it introduces multi-platform components and user interfaces including a mobile devices
 and separating the persistence layer physically at the same time. This facilitates administrative
-tasks regardless of the data owner's position and time.
+tasks regardless of the data subject's position and time.
 Moreover, with their idea of *SafeAnswers* 
 [@paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers], the team even goes a 
 step further. The concept behind that, is based around *remote code execution*, briefly described 
@@ -543,7 +540,7 @@ This question consists of two representation: (A) a short explanation of what th
 wants to know and which data might be involved and thus what information a data consumer actually 
 will receive, instead of raw data the consumer could then use for all kinds of purposes e.g. 
 data aggregation or mining. Aside from that, the request payload also includes (B) a code-based
-representation, which gets executed in a sandbox on the data owner's *PDS* system with the 
+representation, which gets executed in a sandbox on the data subjects's *PDS* system with the 
 necessary data as arguments. The resulting output is answer and response all in once.
 
 Aside from all the research projects done within the scientific context, applications with a 
@@ -557,9 +554,9 @@ make the most accurate decisions on medical treatment.
 [whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing], 
 which essentially just cuts out the advertisement 
 service provider as a middle man inherits that role by itself. The platform does provide
-the data owners with more control over what information they reveal, but it doesn't go the 
+the data subjects with more control over what information they reveal, but it doesn't go the 
 so eagerly demanded next step, which would means real decoupling from the advertisement market 
-and finding a suitable business model that focuses on the data owner, instead of surrounding them 
+and finding a suitable business model that focuses on the data subject, instead of surrounding them 
 with just another walled garden.
 
 A recently announced project, sponsored by Germany's *Federal Ministry of Education and Research*, 
@@ -578,7 +575,7 @@ interoperability and accessibility.
 Hereafter a selective list can be found of further research projects, work and commercial products 
 regarding the issue around *personal data*:
 
-#### Research
+__Research__
 
 +   Higgins [https://www.eclipse.org/higgins/]
 +   Hub-of-All-Things [http://hubofallthings.com/what-is-the-hat/]
@@ -589,13 +586,13 @@ regarding the issue around *personal data*:
 +   Polis (greek research project from 2008) [http://polis.ee.duth.gr/Polis/index.php]
 
 
-#### Organisations
+__Organisations__
 
 +   Open Identity Exchange [http://openidentityexchange.org/resources/white-papers/]
 +   Qiy Foundation [https://www.qiyfoundation.org/]
 
 
-#### Commercial Products
+__Commercial Products__
 
 +   MyData [https://mydatafi.wordpress.com/]
 +   RESPECT network [https://www.respectnetwork.com/]
@@ -613,17 +610,7 @@ regarding the issue around *personal data*:
 
 ## Standards and Specifications
 
-When developing an *Open Specification* it comes naturally to build upon open technologies, 
-which shall be understood as open standards and open source; *open* in the sense of *unrestricted 
-accessible by everybody*; not to be confused with free - as in *freedom* - software. In this case, 
-advocating such a an openness enables not only to develop implementations of the specification in 
-a collaborative way, but also the specification itself, and makes it possible for anyone who is 
-interested to participate or even to contribute. For everyone who just want to use open 
-technologies, a license defining rules and conditions is typically enclosed somehow. But regardless 
-of the motivation everybody who is interested in getting to know how these hard- or software 
-blackboxes-by-design are actually working, is thus able to look into it. 
-
-So the overall attempt is to involve as much standards as possible, because it increases the chances
+The overall attempt is to involve as much standards as possible, because it increases the chances
 of interoperability and thereby it lowers the effort, that might be needed, in order to integrate
 with third parties or other APIs.
 Hereinafter, some of these possible technologies will be touched on just briefly, why they might 

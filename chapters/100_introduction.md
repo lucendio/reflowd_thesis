@@ -105,9 +105,9 @@ Therefore it is required to open source all related software and documents [@rep
 from day one on.
 
 In summary, this document is meant to be the initial step in a development process fabricating 
-a tool to manage all data that defines her identity controlled and administrated by it's owner, 
-and maybe give her a more precise understanding about where her personal information flow and 
-how this might effect her privacy.
+a tool to manage all data defining a data subject's identity, that is controlled and administrated 
+by that individual, so that maybe she is giving a more precise understanding about where her 
+personal information flows and how this might effect her privacy.
 
 
 
@@ -134,7 +134,7 @@ new technologies and business models emerge, followed by new demands of data.
 
 #### Ordering a product online
  
-The data owner searches through the web to find a new toaster, since her old one recently broke.
+The data subject searches through the web to find a new toaster, since her old one recently broke.
 After some clicks and reviews, she found her soon-to-become latest member of the household's 
 kitchenware. After putting the model name in a price search engine, hoping to save some money, the
 first entry, offering a 23% discount, caught her attention. She decides to have a deeper look 
@@ -149,7 +149,7 @@ that already have access to characteristics of her personal data. As a result, s
 a URI, which she inserts according, as mentioned before; after she assures herself that the data 
 exchange with the shop through the browser is based on a secure connection (HTTPS). Under this URI, 
 the shop-system can then request data, that is required for a successful transaction. Moving on to
-the next step after submitting the URI, the data owner is ask to decide how she would like to pay.
+the next step after submitting the URI, the data subject is ask to decide how she would like to pay.
 The choices are: credit card, invoice, paypal or bank transfer. She chooses the last one, submits
 her selection and thereby completes her order.
 After a moment, a push notification pops up on her mobile device, which is a permission request 
@@ -158,58 +158,58 @@ full name, address and email. Additionally she can decide between three states o
 permission wil be valid: *one-time-only*, *expires-on-date* and *until-further-notice*. Since
 she never ordered at this shop before and might never again, she decided to grant access only
 for this specific occasion.
-After the shop-system receives the data, it sends an email to the data owner, containing some 
+After the shop-system receives the data, it sends an email to the data subject, containing some 
 information about her order, including the shop's bank details. which then enables her to
 actually pay the amount due. After the system recognizes the payment has coming in, it triggers
 the shipment of the toaster.
-In order to get a full impression of how the whole process might have look like when the data owner
+In order to get a full impression of how the whole process might have look like when the data subject
 had chosen one of the other payment methods, the differences will be describes in the following.
-If the data owner would have wanted to pay with her credit card, the only difference would have 
+If the data subject would have wanted to pay with her credit card, the only difference would have 
 been, that the shop-system had requested also to access the credit card number and it's belonging 
 secret, and when sending the email the system would have omitted the information about the shop's 
 bank details.
 Being able to choose paying with invoice where possible only because the *PDaaS* response has 
 indicated, that it's containing *profile data* is certified and therefore trustworthy. Which
 reduces the shop owner's risk and would have enabled him in case of fraud or misuse to take action.
-Choosing to involve paypal as a *middleman* to process the payment, requires the data owner to 
+Choosing to involve paypal as a *middleman* to process the payment, requires the data subject to 
 had already granted paypal certain access to her *PDaaS*. If that's the case, then the shop-system
 would have ask also for her paypal-ID, which then the system will use to request the payment
 directly from paypal. This on the other side will cause paypal to consult the *PDaaS*, which 
-results in a second notification, asking the data owner for permission to proceed. After the
+results in a second notification, asking the data subject for permission to proceed. After the
 payment transfer was successful, the shipment will gets initiated. And with the package arriving at 
-the data owner's doorstep the whole transaction has finished.
+the data subject's doorstep the whole transaction has finished.
 
 
 #### Interacting with a social network
 
-Entering a social network for the first time, only take the URI to the data owner's *PDaaS* and
-a password. The data owner receives a notification on her mobile device asking for permission to
+Entering a social network for the first time, only take the URI to the data subject's *PDaaS* and
+a password. The data subject receives a notification on her mobile device asking for permission to
 access certain data about her. If her mobile device is currently not at hand, she can also use 
 the administration panel provided by her *PDaaS* and reachable with a web browser on every 
 internet-enabled device. Within that panel pending permission reviews will be indicated.
-Whether the data owner has already reviews the request or not, she should be able to login to
+Whether the data subject has already reviewed the request or not, she should be able to login to
 the social network. After doing so, she should not be able to see any of her information. After 
 granting permissions to the social network to accessing certain data *until-further-notice* and 
 reloading the session, she then should see all her 
 So every time, someone on that network tries to access her information, whom she has allowed to 
 see that information (which is managed by the user only from within the network), the network 
-pulls the data from the owner's *PDaaS*, if it's still permitted to do so.
+pulls the data from the data subjects's *PDaaS*, if it's still permitted to do so.
 It's also imaginable, that the social network and a *PDaaS* are establishing a backward channel.
 This channel could be used to send all the content she would create over time while interacting
 with the social network and it's participants back to her *PDaaS*. The network itself only stores
 a reference to all content object, whether it's for example an image, a post or comment on somebody 
-else's post and if it's needed the actual content will be fetched from the owner's *PDaaS*. 
+else's post and if it's needed the actual content will be fetched from the data subject's *PDaaS*. 
 
 
 #### Applying for a loan and checking creditworthiness
 
-The data owner would like to buy an apartment. In order to finance such a acquisition, she needs a 
+The data subject would like to buy an apartment. In order to finance such a acquisition, she needs a 
 funding, which in her case, will be based on a loan. During a conversation in a credit institute 
 of her choice, an account consultant describes to her what data will be required in order to 
 decide about her creditworthiness. 
 While giving a consensual nod, she takes out her smartphone and brings up the management panel of 
 her *PDaaS*. With a few taps she has just created a new *data consumer*. The panel then shows
-a QR-Code, that holds a URI to a dedicated endpoint of the data owners *PDaaS*. She shows that code
+a QR-Code, that holds a URI to a dedicated endpoint of the data subject's *PDaaS*. She shows that code
 to her consultant, who then scans it. While handling some more formalities and talking about 
 several issues and possible products she might be interested it, she gets a notification on her 
 phone, informing her about a permission request the institute just made. It lists all the different 
@@ -219,7 +219,7 @@ some back and forth and solving some misunderstandings with the help of her cons
 to just partially allow access to the requested data and just for this time and purpose. The 
 consultant kindly pointed out, that these decisions might have an impact on the scoring and thereby 
 on the lending and it's terms. After the consultant got a signal from the computer system, the two 
-then finishing up their meeting and the consultants informed the data data owner about the next 
+then finishing up their meeting and the consultants informed the data data subject about the next 
 steps, which includes a note, that the institute will contact her within the next few days, when 
 they have come to a conclusion. In case of a positive outcome a new appointment need to be made, 
 for doing all the paperwork and signing the contract.
@@ -237,7 +237,7 @@ the credit institute's infrastructure.
 
 #### Maintain and provide it's own health/patient record
 
-Some time ago on a hiking trip in a moment of carelessness the data owner has accidently broke 
+Some time ago on a hiking trip in a moment of carelessness the data subject has accidently broke 
 her leg. She came into a hospital and went straight into surgery, where the physicians could fix 
 the injury. Time went by and the leg has healed completely. After she woke up today she felt
 some pain coming from that area where her leg was broken. She decided to call in sick and went 
@@ -246,7 +246,7 @@ At the reception desk, she opens up the *PDaaS*'s management panel on her smartp
 through the list of data consumers. After she found the entry for this clinic, she flipped her 
 phone to show the receptionist the corresponding QR-Code, which she started to scans immediately.
 However the receptionist couldn'd see any data on the screen, because the access has already 
-expired. The data owner only had permitted access for the estimated time of recovery, which was 
+expired. The data subject only had permitted access for the estimated time of recovery, which was 
 over some time ago. That's why she got a notification, to re-grant some access. Going through 
 the data points the clinic-system has requested, she noticed that her address is incorrect. 
 Last month she moved out and into a bigger apartment just down the street. She must 
@@ -254,7 +254,7 @@ have forgot to change that data, which she corrects immediately right before sub
 access configurations for the clinic-system. She also included the access to all the data 
 originated from that time after her accident. A moment later the receptionist confirms to now
 being able to see all necessary data. 
-The data owner takes a seat in the waiting room. While passing some time, she had a deeper look 
+The data subject takes a seat in the waiting room. While passing some time, she had a deeper look 
 into her list of data consumers; some of them she couldn't even remember and for others she was 
 surprised to what data she has granted access to and started to reduce certain permissions, 
 if it was appropriate in her eyes. She even removed some of the entries.
@@ -265,7 +265,7 @@ her doctor had prescribed for her to reduce the pain. She had to wait in the que
 customers being in front of her. She realized, that it's the first time she has been here. So she 
 prepared a new entry in her data consumer list, including all information about her prescriptions. 
 So by the time she get served, she just let the person behind the register scan her code. In the 
-next seconds the data owner gets a quick confirmation notification about the request that just 
+next seconds the data subject gets a quick confirmation notification about the request that just 
 happened. A moment later the pharmacist come back with her drugs, which she then pays in cash 
 and the transaction is done.
 
@@ -275,8 +275,8 @@ and the transaction is done.
 Assuming a car itself has no hardware on board in order to establish a wireless wide area 
 connection to an outside access node. Only from the inside one can connect to the car (wired or 
 wireless).
-After entering a car, on the data owner's mobile device pops up a notification asking for 
-permission to connect to that device. In addition to the expiration date, the data owner can
+After entering a car, on the data subject's mobile device pops up a notification asking for 
+permission to connect to that device. In addition to the expiration date, the data subject can
 choose to en- or disable two more options. First, a wifi network with an uplink to the internet 
 can be provided to everyone inside the car. Secondly, connections, the car might want to establish, 
 in order to emit data via internet - which, regardless, have to go through the currently linked 

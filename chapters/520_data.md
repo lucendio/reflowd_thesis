@@ -33,15 +33,15 @@
 
 +   data needs to have an expiration date
 
-__IF01 - Authorizing a consumer to request certain data__
-1)  owner creates a new endpoint URI (like *pdaas.ownersdomain.tld/e/consumer-name*) within the
-    *management user interface*
-2)  owner passes this URI on to the *consumer*, e.g. through submitting a form or using any 
+__IF01 - Authorizing a data consumer to request certain data__
+1)  operator creates a new endpoint URI (like *pdaas.datasubjectsdomain.tld/e/consumer-name*) within 
+    the *management user interface*
+2)  operator passes this URI on to the *consumer*, e.g. through submitting a form or using any 
     arbitrary, eventually insecure channel
 3*) consumer need to call this URI for the fist time to verify it's authenticity 
-4)  owner then get's a notification which asks her for permissions to access certain data under the 
+4)  operator then get's a notification which asks her for permissions to access certain data under the 
     listed conditions
-5*) consumer will be informed about the outcome of the owner's decision (NOTE: alongside with 
+5*) consumer will be informed about the outcome of the operator's decision (NOTE: alongside with 
     some details? how do they look like? XXX need to be in the spec)
 
 
