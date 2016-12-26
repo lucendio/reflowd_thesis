@@ -420,42 +420,42 @@ through the browser is based on a secure connection (HTTPS). Under this
 URI, the shop-system can then request data, that is required for a
 successful transaction. Moving on to the next step after submitting the
 URI, the data subject is ask to decide how she would like to pay. The
-choices are: credit card, invoice, paypal or bank transfer. She chooses
-the last one, submits her selection and thereby completes her order.
-After a moment, a push notification pops up on her mobile device, which
-is a permission request from her \emph{PDaaS}, asking for granting the
-shop-system, she just places the order, access to her full name, address
-and email. Additionally she can decide between three states of how log
-the permission wil be valid: \emph{one-time-only},
-\emph{expires-on-date} and \emph{until-further-notice}. Since she never
-ordered at this shop before and might never again, she decided to grant
-access only for this specific occasion. After the shop-system receives
-the data, it sends an email to the data subject, containing some
-information about her order, including the shop's bank details. which
-then enables her to actually pay the amount due. After the system
-recognizes the payment has coming in, it triggers the shipment of the
-toaster. In order to get a full impression of how the whole process
-might have look like when the data subject had chosen one of the other
-payment methods, the differences will be describes in the following. If
-the data subject would have wanted to pay with her credit card, the only
-difference would have been, that the shop-system had requested also to
-access the credit card number and it's belonging secret, and when
-sending the email the system would have omitted the information about
-the shop's bank details. Being able to choose paying with invoice where
-possible only because the \emph{PDaaS} response has indicated, that it's
-containing \emph{profile data} is certified and therefore trustworthy.
-Which reduces the shop owner's risk and would have enabled him in case
-of fraud or misuse to take action. Choosing to involve paypal as a
-\emph{middleman} to process the payment, requires the data subject to
-had already granted paypal certain access to her \emph{PDaaS}. If that's
-the case, then the shop-system would have ask also for her paypal-ID,
-which then the system will use to request the payment directly from
-paypal. This on the other side will cause paypal to consult the
-\emph{PDaaS}, which results in a second notification, asking the data
-subject for permission to proceed. After the payment transfer was
-successful, the shipment will gets initiated. And with the package
-arriving at the data subject's doorstep the whole transaction has
-finished.
+choices are: credit card, invoice, online payment provider of choice or
+bank transfer. She chooses the last one, submits her selection and
+thereby completes her order. After a moment, a push notification pops up
+on her mobile device, which is a permission request from her
+\emph{PDaaS}, asking for granting the shop-system, she just places the
+order, access to her full name, address and email. Additionally she can
+decide between three states of how log the permission wil be valid:
+\emph{one-time-only}, \emph{expires-on-date} and
+\emph{until-further-notice}. Since she never ordered at this shop before
+and might never again, she decided to grant access only for this
+specific occasion. After the shop-system receives the data, it sends an
+email to the data subject, containing some information about her order,
+including the shop's bank details. which then enables her to actually
+pay the amount due. After the system recognizes the payment has coming
+in, it triggers the shipment of the toaster. In order to get a full
+impression of how the whole process might have look like when the data
+subject had chosen one of the other payment methods, the differences
+will be describes in the following. If the data subject would have
+wanted to pay with her credit card, the only difference would have been,
+that the shop-system had requested also to access the credit card number
+and it's belonging secret, and when sending the email the system would
+have omitted the information about the shop's bank details. Being able
+to choose paying with invoice where possible only because the
+\emph{PDaaS} response has indicated, that it's containing \emph{profile
+data} is certified and therefore trustworthy. Which reduces the shop
+owner's risk and would have enabled him in case of fraud or misuse to
+take action. Choosing to involve paypal as a \emph{middleman} to process
+the payment, requires the data subject to had already granted paypal
+certain access to her \emph{PDaaS}. If that's the case, then the
+shop-system would have ask also for her paypal-ID, which then the system
+will use to request the payment directly from paypal. This on the other
+side will cause paypal to consult the \emph{PDaaS}, which results in a
+second notification, asking the data subject for permission to proceed.
+After the payment transfer was successful, the shipment will gets
+initiated. And with the package arriving at the data subject's doorstep
+the whole transaction has finished.
 
 \subsubsection{Interacting with a social
 network}\label{interacting-with-a-social-network}
@@ -660,8 +660,9 @@ work tries to solve. Additionally it is given a brief overview on what
 existing standards and technologies might be used, and summarizes the
 research already been made as well as it's current state.
 
-\section{Digital Identity, Personal Data and
-Ownership}\label{digital-identity-personal-data-and-ownership}
+\hypertarget{digital-identity-personal-data-and-ownership}{\section{Digital
+Identity, Personal Data and
+Ownership}\label{digital-identity-personal-data-and-ownership}}
 
 \begin{itemize}
 \tightlist
@@ -749,6 +750,7 @@ Ownership}\label{digital-identity-personal-data-and-ownership}
   In the context of this document and all related work, \textbf{Personal
   Data} is specified as a combination of an individual's \emph{Digital
   Identity} and all of it's ever created intellectual property
+  {[}\protect\hyperlink{ref-web_2016_wikipedia_intellectual-property}{17}{]}
   (e.g.~posts, images, tweets or comments). This includes all sorts of
   tracking data and interaction monitoring, as well as metadata manually
   or automated enriching content (e.g.geo-location attached to a tweet
@@ -767,21 +769,21 @@ Ownership}\label{digital-identity-personal-data-and-ownership}
   identifier or to one or more factors specific to the physical,
   \textgreater{} physiological, genetic, mental, economic, cultural or
   social identity of that natural person; \textgreater{}
-  \emph{{[}\protect\hyperlink{ref-regulation_2016_eu_general-data-protection-regulation_definition}{17}{]}}
+  \emph{{[}\protect\hyperlink{ref-regulation_2016_eu_general-data-protection-regulation_definition}{18}{]}}
 \item
   The U.S.A. has little legislation on defining and protecting
   consumer's privacy. At least they have no explicit bills addressing
   such area
-  {[}\protect\hyperlink{ref-web_2016_wikipedia_information-privacy-law_us}{18}{]}.
+  {[}\protect\hyperlink{ref-web_2016_wikipedia_information-privacy-law_us}{19}{]}.
   Though some of the existing sectoral laws consist of partially
   applicable policies and guidelines
-  {[}\protect\hyperlink{ref-web_2016_data-protection-laws-in-the-us}{19}{]};
+  {[}\protect\hyperlink{ref-web_2016_data-protection-laws-in-the-us}{20}{]};
   most of them addressing specific types of data. In 2015 the White
   House made an attempt to fill the gap with the \emph{Consumer Privacy
   Bill of Rights Act}, but to this date it didn't passes the draft
   state. According to the critics, it lags of concrete enforceable rules
   consumers can rely on
-  {[}\protect\hyperlink{ref-web_2015_white-house-releases-consumer-privacy-bill-draft}{20}{]}.
+  {[}\protect\hyperlink{ref-web_2015_white-house-releases-consumer-privacy-bill-draft}{21}{]}.
   The draft contains a general definition of \emph{Personal Data}:
   \textgreater{} ``Personal data'' means any data that are under the
   control of a covered entity, not otherwise \textgreater{} generally
@@ -790,7 +792,7 @@ Ownership}\label{digital-identity-personal-data-and-ownership}
   specific individual, or linked to a device that is \textgreater{}
   associated with or routinely used by an individual, including but not
   limited to {[}\ldots{}{]} \textgreater{}
-  \emph{{[}\protect\hyperlink{ref-bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition}{21}{]}}
+  \emph{{[}\protect\hyperlink{ref-bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition}{22}{]}}
 \item
   followed by a list of concrete data points, e.g.~email or postal
   address, name, social security number and alike. Aside from the
@@ -799,7 +801,7 @@ Ownership}\label{digital-identity-personal-data-and-ownership}
   Namely for example the \emph{Federal Communications Commission} (FCC),
   recently releasing \emph{Rules to Protect Broadband Consumer Privacy}
   including a list of categories of sensitive information
-  {[}\protect\hyperlink{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_sensitive-types-of-data}{22}{]},
+  {[}\protect\hyperlink{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_sensitive-types-of-data}{23}{]},
   which wants \emph{Personally Identifiable Information} (alias Personal
   Data) to be understood as: \textgreater{} {[}\ldots{}{]} any
   information that is linked or linkable to an individual.
@@ -808,7 +810,7 @@ Ownership}\label{digital-identity-personal-data-and-ownership}
   context, or in \textgreater{} combination to identify an individual or
   to logically associate with other information about a \textgreater{}
   specific individual. \textgreater{}
-  \emph{{[}\protect\hyperlink{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information}{23}{]}}
+  \emph{{[}\protect\hyperlink{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information}{24}{]}}
 \item
   Despite minor difference in detail, they all have similar ideas of
   personal data and their belonging. Even though, the version proposed
@@ -826,7 +828,7 @@ Ownership}\label{digital-identity-personal-data-and-ownership}
   with a \emph{Privacy Policy}, while e.g.~in the U.S. - as mentioned
   above - only partially and depending on context and data type users
   must be informed about which and how their data get processed
-  {[}\protect\hyperlink{ref-web_2016_privacy-policies-are-mandatory-by-law}{24}{]}.
+  {[}\protect\hyperlink{ref-web_2016_privacy-policies-are-mandatory-by-law}{25}{]}.
 \item
   A user commonly agrees on the privacy policy, by starting to interact
   with the author's business, thus every \emph{Privacy Policy} is
@@ -863,7 +865,7 @@ Ownership}\label{digital-identity-personal-data-and-ownership}
   existing issues and strengthen the individual's privacy and rights in
   a global context like the \emph{world wide web}. If no international
   agreement is in place
-  {[}\protect\hyperlink{ref-web_2016_international-privacy-standards}{25}{]},
+  {[}\protect\hyperlink{ref-web_2016_international-privacy-standards}{26}{]},
   only those laws are considered valid and enforcible where the
   organisation is registered, and maybe the fact where (meaning in which
   area of jurisdiction) the their servers are located or the data is
@@ -871,34 +873,35 @@ Ownership}\label{digital-identity-personal-data-and-ownership}
 \end{itemize}
 
 Whereas \textbf{Ownership} of \emph{Personal Data} has no legal ground
-foundation so ever. The concepts of intellectual property protection and
-copyright might intuitively be applicable, because the data, created by
-the data subject, seems to be her \emph{intellectual property}. Such
-property implies to be a result of a creative process though, but
-unfortunately there is no \emph{threshold of originality} in facts, like
-\emph{personal information} is
-{[}\protect\hyperlink{ref-paper_2014_who-owns-yours-data}{26}{]}.
+foundation what so ever. The concepts of intellectual property
+protection and copyright might intuitively be applicable, because the
+data, created by the data subject, seems to be her \emph{intellectual
+property}. Such property implies to be a result of a creative process
+though, but unfortunately there is no \emph{threshold of originality} in
+facts, like \emph{personal information} is
+{[}\protect\hyperlink{ref-paper_2014_who-owns-yours-data}{27}{]}.
 
 \begin{itemize}
 \item
   Ownership in the sense of having exclusive control over it's personal
   data and how they get processed at any given point in time; this not
   only comes with high costs, but is also very inconvenient for both
-  parties - data subject and data consumer. It consists of two concepts:
-  (A) the right to do what every is desired with their property and (B)
-  in which rules and mechanisms the ownership can be assigned to someone
-  {[}\protect\hyperlink{ref-book_1987_private-ownership_definition}{27}{]}.
+  parties - data subject and data consumer. It consists of two
+  \protect\hypertarget{def-ownership}{}{concepts}: (A) the right to do
+  what every is desired with their property and (B) in which rules and
+  mechanisms the ownership can be assigned to someone
+  {[}\protect\hyperlink{ref-book_1987_private-ownership_definition}{28}{]}.
 \item
   The european DPR\footnote{EU Data Protection Regulation} contains only
   one occurrence of the word \emph{ownership}, which is not even related
   to the context of \emph{personal data} or the \emph{data subject}. It
   only stats, that \emph{``Natural persons should have control of their
   own personal data.''}
-  {[}\protect\hyperlink{ref-regulation_2016_eu_general-data-protection-regulation_ownership}{28}{]}.
+  {[}\protect\hyperlink{ref-regulation_2016_eu_general-data-protection-regulation_ownership}{29}{]}.
   Whereas Commissioner J. Rosenworcel of the FCC wants \emph{``consumers
   {[}\ldots{}{]} to {[}\ldots{}{]} take some ownership of what is done
   with their personal information.''}
-  {[}\protect\hyperlink{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership}{29}{]}
+  {[}\protect\hyperlink{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership}{30}{]}
 \item
   Typically the question of data ownership is addressed in data
   consumer's \emph{Terms of Service} (ToS), which an individual might
@@ -914,14 +917,14 @@ unfortunately there is no \emph{threshold of originality} in facts, like
 You own all of the content and information you post on Facebook, and you
 can control how it is shared {[}\ldots{}{]}. \emph{(under ``2. Sharing
 Your Content and Information'', by Facebook
-{[}\protect\hyperlink{ref-web_2016_facebook_terms-of-service}{30}{]})}
+{[}\protect\hyperlink{ref-web_2016_facebook_terms-of-service}{31}{]})}
 \end{quote}
 
 \begin{quote}
 You retain your rights to any Content you submit, post or display on or
 through the Services. What's yours is yours --- you own your Content.
 \emph{(under ``3. Content on the Services'', by Twitter
-{[}\protect\hyperlink{ref-web_2016_twitter_terms-of-service}{31}{]})}
+{[}\protect\hyperlink{ref-web_2016_twitter_terms-of-service}{32}{]})}
 \end{quote}
 
 \begin{quote}
@@ -929,7 +932,7 @@ Some of our Services allow you to upload, submit, store, send or receive
 content. You retain ownership of any intellectual property rights that
 you hold in that content. In short, what belongs to you stays yours.
 \emph{(under ``Your Content in our Services'', by Google
-{[}\protect\hyperlink{ref-web_2016_google_terms-of-service}{32}{]})}
+{[}\protect\hyperlink{ref-web_2016_google_terms-of-service}{33}{]})}
 \end{quote}
 
 \begin{quote}
@@ -937,7 +940,7 @@ Except for material we may license to you, Apple does not claim
 ownership of the materials and/or Content you submit or make available
 on the Service ``(under''H. Content Submitted or Made Available by You
 on the Service``, by Apple
-{[}\protect\hyperlink{ref-web_2016_apple-icloud_terms-of-service}{33}{]})*
+{[}\protect\hyperlink{ref-web_2016_apple-icloud_terms-of-service}{34}{]})*
 \end{quote}
 
 All these statements are followed by the same term, stating that the
@@ -946,7 +949,7 @@ thing with her data. This even applies to Apple, if the user is
 \emph{``submitting or posting {[}\ldots{}{]} Content on areas of the
 Service that are accessible by the public or other users with whom
 {[}the user{]} consent to share {[}\ldots{}{]} Content''}
-{[}\protect\hyperlink{ref-web_2016_apple-icloud_terms-of-service}{33}{]}.
+{[}\protect\hyperlink{ref-web_2016_apple-icloud_terms-of-service}{34}{]}.
 
 \begin{itemize}
 \item
@@ -990,8 +993,8 @@ Service that are accessible by the public or other users with whom
   introduced definition of \emph{personal data} it appears to only be a
   fraction of the involved data belonging to its owner. The larger part
   consists of highly valuable metadata
-  {[}\protect\hyperlink{ref-web_2013_why-metadata-matters}{34}{]}
-  {[}\protect\hyperlink{ref-web_2016_why-you-need-metadata-for-big-data-to-success}{35}{]}
+  {[}\protect\hyperlink{ref-web_2013_why-metadata-matters}{35}{]}
+  {[}\protect\hyperlink{ref-web_2016_why-you-need-metadata-for-big-data-to-success}{36}{]}
   and therefore should remain to the data collector and either be
   deleted or sufficiently anonymized, if the owner cancels the
   relationship. The data subject should not depend on the collector's
@@ -1018,12 +1021,12 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
 \item
   big data itself initially can be seen as a \emph{huge blob of data}
   containing more or less structured data sets
-  {[}\protect\hyperlink{ref-web_2016_oxford_definition_big-data}{36}{]},
+  {[}\protect\hyperlink{ref-web_2016_oxford_definition_big-data}{37}{]},
   whose size might have exceeded the capabilities of retrieving certain
   information almost only by hand. Such high data haystacks usually come
   along with new challenges in logistic and resource management, when
   information retrieval needs to get automated on a large scale
-  {[}\protect\hyperlink{ref-web_2016_wikipedia_definition_big-data}{37}{]}.
+  {[}\protect\hyperlink{ref-web_2016_wikipedia_definition_big-data}{38}{]}.
   Theses practices are commonly referred to \emph{Big Data (Analysis)}
   including distributed computing and machine learning.
 \item
@@ -1037,7 +1040,7 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
   start collecting. Third, (C) designing data models accordingly and
   correlate with the data (D) next, analyse and interpret the results.
   (E) last but not least, make business decisions based und the analyses
-  ({[}\protect\hyperlink{ref-paper_2015_big-data-analytics_a-survey}{38}{]}
+  ({[}\protect\hyperlink{ref-paper_2015_big-data-analytics_a-survey}{39}{]}
   Fig. 3).
 \item
   since quite a few businesses (in terms of purpose or intention) are
@@ -1051,13 +1054,14 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
   address in order to move towards the most lucrative business.
 \item
   personal data and information are reflecting all this knowledge. It
-  starts with profile data, such as gender, age, residency or income,
-  goes on with time series events like geo-location changes, or web
-  search history and goes all the way up to health data and self-created
-  content like \emph{Tweets}\footnote{public massages published by an
-    account on \url{twitter.com}, which will be displayed in the
-    timeline of all her subscribers and also might contain additional
-    types of content like images, links or video} or videos.
+  starts with profile (or sensitive) data, such as gender, age,
+  residency or income, goes on with time series events like geo-location
+  changes, or web search history and goes all the way up to health data
+  and self-created content like \emph{Tweets}\footnote{public massages
+    published by an account on \url{twitter.com}, which will be
+    displayed in the timeline of all her subscribers and also might
+    contain additional types of content like images, links or video} or
+  videos.
 \item
   all these classes of personal data hold a major share\footnote{it
     doesn't matter whether an individual or just someone on behalf of an
@@ -1068,8 +1072,8 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
     crucial to know everything about it's decision maker - the humans on
     this planet.} in the field of data analytics (TODO: find statistics
   showing shares of data types/classes/categories,
-  {[}\protect\hyperlink{ref-book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining}{39}{]}
-  {[}\protect\hyperlink{ref-web_2013_big-data-collection-collides-with-privacy-concerns}{40}{]})
+  {[}\protect\hyperlink{ref-book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining}{40}{]}
+  {[}\protect\hyperlink{ref-web_2013_big-data-collection-collides-with-privacy-concerns}{41}{]})
 \item
   but, depending on the specific attributes, they might be not that easy
   to acquire. in general most businesses obtain data from within their
@@ -1096,13 +1100,13 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
   narrative to make here and then requests to the server - still
   preventable though, but when it comes to native mobile apps it is
   almost impossible
-  {[}\protect\hyperlink{ref-web_2016_answers-io}{41}{]} to notice such
+  {[}\protect\hyperlink{ref-web_2016_answers-io}{42}{]} to notice such
   behaviour and therefore preventing apps from doing so.
 \item
   these architectural developments were inducing the gathering of
   potentially useful information from all over the system on a large
   scale
-  {[}\protect\hyperlink{ref-web_2016_big-data-enthusiasts-should-not-ignore}{42}{]}.
+  {[}\protect\hyperlink{ref-web_2016_big-data-enthusiasts-should-not-ignore}{43}{]}.
   Logging events, caused by the user's interactions, on the client,
   which then get forwarded to backend servers. Or keeping track of all
   kinds of transactions, which is done directly in the backend. Before
@@ -1115,10 +1119,10 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
   assumption of \emph{more data is more helpful}, which already is
   emphasised by the often-cited concept of the three \emph{Vs} (Volume,
   Velocity, Variety)
-  {[}\protect\hyperlink{ref-report_2001_3d-data-management-controlling-data-volume-velocity-and-variety}{43}{]}.
+  {[}\protect\hyperlink{ref-report_2001_3d-data-management-controlling-data-volume-velocity-and-variety}{44}{]}.
   which is not entirely wrong, because it lies in the nature of pattern
   and correlation discovery, to provide increasing quality results
-  {[}\protect\hyperlink{ref-paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data}{44}{]},
+  {[}\protect\hyperlink{ref-paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data}{45}{]},
   while enriching the overall data with more precise data sets. But when
   new technologies are emerging, questioning the downsides and possible
   negative mid- or long-term impacts are typically not very likely to be
@@ -1137,12 +1141,12 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
   and need to be sensible about the ramifications of their approaches
   and doings. Such improvements are already happening, not only
   originating from the field's forward thinkers
-  {[}\protect\hyperlink{ref-web_2016_the-state-of-big-data}{45}{]}, but
+  {[}\protect\hyperlink{ref-web_2016_the-state-of-big-data}{46}{]}, but
   also advocated by governments, consumer rights organisations and even
   leading Tech-Companies start trying to do better
-  {[}\protect\hyperlink{ref-web_2016_apple_customer-letter}{46}{]}
-  {[}\protect\hyperlink{ref-web_2016_what-is-differential-privacy}{47}{]}
-  {[}\protect\hyperlink{ref-web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption}{48}{]}
+  {[}\protect\hyperlink{ref-web_2016_apple_customer-letter}{47}{]}
+  {[}\protect\hyperlink{ref-web_2016_what-is-differential-privacy}{48}{]}
+  {[}\protect\hyperlink{ref-web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption}{49}{]}
   - as discussed in the section {[}TODO see personal data as of the
   law{]},
 \item
@@ -1192,8 +1196,8 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
   user profiling done by looking at her consumption history, tracked
   platform interactions and probably many more vectors. Another example
   is \emph{Google Traffic}
-  {[}\protect\hyperlink{ref-web_2007_introducing-google-traffic}{49}{]}
-  {[}\protect\hyperlink{ref-web_2016_wikipedia_google-traffic}{50}{]}, a
+  {[}\protect\hyperlink{ref-web_2007_introducing-google-traffic}{50}{]}
+  {[}\protect\hyperlink{ref-web_2016_wikipedia_google-traffic}{51}{]}, a
   service, integrated as a feature in \emph{Google Maps}, which is
   Google's web mapping service. \emph{Google Traffic} visualises
   real-time traffic conditions, when using \emph{Maps} as a navigation
@@ -1204,7 +1208,7 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
   Google's infrastructure. This, however, only is made possible, because
   Google's services are widely used in addition to the fact that the
   majority of mobile devices
-  {[}\protect\hyperlink{ref-graphic_2016_global-mobile-os-market-share}{51}{]}
+  {[}\protect\hyperlink{ref-graphic_2016_global-mobile-os-market-share}{52}{]}
   is driven by Android, an mobile operating system developed by Google,
   that deeply integrates with it's services. For this case the same
   assertion can be made - the more constantly streaming geo-location
@@ -1221,17 +1225,17 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
   \item
     planing and managing human resources for situations, like e.g.~big
     events or emergency situations where attendees might need some help
-    {[}\protect\hyperlink{ref-estimating-the-locations-of-emergency-events-from-twitter-streams_2014}{52}{]}
+    {[}\protect\hyperlink{ref-estimating-the-locations-of-emergency-events-from-twitter-streams_2014}{53}{]}
   \item
     predicting infrastructure workloads {[}TODO
     http://ieeexplore.ieee.org/document/7336197/{]}
   \item
     making more accurate diagnostics to improve their therapy
-    {[}\protect\hyperlink{ref-the-practice-of-predictive-analytics-in-healthcare_2013}{53}{]}
+    {[}\protect\hyperlink{ref-the-practice-of-predictive-analytics-in-healthcare_2013}{54}{]}
   \item
     finding patters in climate changes, which otherwise wouldn't be
     detected
-    {[}\protect\hyperlink{ref-data-collection-for-climate-changes_2014}{54}{]}.
+    {[}\protect\hyperlink{ref-data-collection-for-climate-changes_2014}{55}{]}.
   \end{itemize}
 \item
   Through all these examples, some of them might not necessarily founded
@@ -1244,10 +1248,10 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
   be the product and who is seen as customers.
 \item
   Putting a top 10 list of industries using utilizing \emph{Big Data}
-  {[}\protect\hyperlink{ref-graphic_2015_applications-of-big-data-in-10-industry-verticals}{55}{]}
+  {[}\protect\hyperlink{ref-graphic_2015_applications-of-big-data-in-10-industry-verticals}{56}{]}
   right next to visualization showing categories of personal data
   targeted by data collectors\\
-  {[}\protect\hyperlink{ref-graphic_2012_personal-data-ecosystem}{56}{]},
+  {[}\protect\hyperlink{ref-graphic_2012_personal-data-ecosystem}{57}{]},
   at least 7\footnote{Banking and Securities; Communication, Media \&
     Entertainment; Healthcare Providers; Government; Insurance; Retail
     \& Wholesale Trade; Energy \& Utilities} of these industries can be
@@ -1285,7 +1289,7 @@ world, opening and closing it's door from time to time, to either put
 something important for her inside or retrieving an information
 important for someone else. While in the mid and late 2000s the growth
 of computer performance and capacity were crossing it's zenith (see
-Moore's Law {[}\protect\hyperlink{ref-paper_1965_moors-law}{57}{]}), at
+Moore's Law {[}\protect\hyperlink{ref-paper_1965_moors-law}{58}{]}), at
 the same time the internet was starting to become a key part in many
 people's lives and in society as a whole. Facilitated by these
 circumstances, \emph{cloud computing} has been on the rise, causing the
@@ -1293,12 +1297,12 @@ shift towards parallel distributed processing and patterns alike.
 Thereby making it possible to rethink solutions from the past and trying
 to go new ways, namely the breakthrough 2007 in \emph{neuronal networks}
 cutesy of G. Hinton
-{[}\protect\hyperlink{ref-podcast_2015_cre-neuronale-netze}{58}{]}. As a
+{[}\protect\hyperlink{ref-podcast_2015_cre-neuronale-netze}{59}{]}. As a
 result, fields like \emph{deep machine learning}, \emph{big data
 analytics} and most recently \emph{data mining}, were gaining a wide
 range of attention. In almost any industry a greater amount of resources
 is invested in these areas
-{[}\protect\hyperlink{ref-web_2016_industries-intention-to-invest-in-big-data}{59}{]}.
+{[}\protect\hyperlink{ref-web_2016_industries-intention-to-invest-in-big-data}{60}{]}.
 
 The initial research motivation can be seen as a counter-movement away
 from the \emph{cloud}, starting to focus again on privacy, the
@@ -1349,12 +1353,12 @@ problem of unintended data redundancy. Over time the project has growing
 to the largest and most influential in this research field. It
 transformed into an umbrella and hub for all kinds of projects and
 research related to that topic
-{[}\protect\hyperlink{ref-web_2016_projectvrm_development-work}{60}{]},
+{[}\protect\hyperlink{ref-web_2016_projectvrm_development-work}{61}{]},
 whether it's frameworks or standards, services offering e.g.~privacy
 protection, reference implementations, applications, software or
 hardware components. \emph{VRM} became more and more a synonym for a set
 of principles
-{[}\protect\hyperlink{ref-web_2016_projectvrm_principles}{61}{]},
+{[}\protect\hyperlink{ref-web_2016_projectvrm_principles}{62}{]},
 including for example \emph{``Customers must have control of data they
 generate and gather. {[}They{]} must be able to assert their own terms
 of engagement.''} These principles can be found in various ways across a
@@ -1372,7 +1376,7 @@ into account, whether it's commercial businesses (vendors) or it's users
 processes, but at the same time demanding a high level of user-centric
 security facilitate i.a. by a developed policy framework. Due to these
 requirements the architecture ended up being rather complex
-{[}\protect\hyperlink{ref-graphic_2011_architecture_components-of-organization-domain}{62}{]}.
+{[}\protect\hyperlink{ref-graphic_2011_architecture_components-of-organization-domain}{63}{]}.
 \emph{ZXID} as it's implementation incorporates several standards like
 SAML 2.0\footnote{Security Assertion Markup Language 2.0} and
 XACML,\footnote{eXtensible Access Control Markup Language} has only
@@ -1381,23 +1385,23 @@ three third-party dependencies which are \emph{OpenSSL}, \emph{cURL
 The project lasted for a period of 4 years, but after it ended in 2011,
 the research work has pursued i.a. by the \emph{Liberty Alliance
 Project}, which is now part of the \emph{Kantara Initiative}
-{[}\protect\hyperlink{ref-web_kantara-initiative}{63}{]}, including all
+{[}\protect\hyperlink{ref-web_kantara-initiative}{64}{]}, including all
 documents and results. These results were taken up occasionally,
 recently from the IEEE
-{[}\protect\hyperlink{ref-paper_2014_personal-data-store-approach}{64}{]}.
+{[}\protect\hyperlink{ref-paper_2014_personal-data-store-approach}{65}{]}.
 
 A research project, which is probably the closest to what this document
 aims to create, bears the name \emph{openPDS}
-{[}\protect\hyperlink{ref-paper_2012_openpds_on-trusted-use-of-large-scale-personal-data}{65}{]}
+{[}\protect\hyperlink{ref-paper_2012_openpds_on-trusted-use-of-large-scale-personal-data}{66}{]}
 and is done by \emph{Humans Dynamics Lab}
-{[}\protect\hyperlink{ref-web_mit_openpds-safeanswers-project-page}{66}{]},
+{[}\protect\hyperlink{ref-web_mit_openpds-safeanswers-project-page}{67}{]},
 which is part of \emph{MIT Media Laboratories}. Despite the usual
 concepts of a \emph{PDS}, it introduces multi-platform components and
 user interfaces including a mobile devices and separating the
 persistence layer physically at the same time. This facilitates
 administrative tasks regardless of the data subject's position and time.
 Moreover, with their idea of \emph{SafeAnswers}
-{[}\protect\hyperlink{ref-paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers}{67}{]},
+{[}\protect\hyperlink{ref-paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers}{68}{]},
 the team even goes a step further. The concept behind that, is based
 around \emph{remote code execution}, briefly described in
 \protect\hyperlink{header-applying-for-a-loan-and-checking-creditworthiness}{one
@@ -1416,21 +1420,21 @@ response all in once.
 Aside from all the research projects done within the scientific context,
 applications with a commercial interest were starting to occur in a
 variety of sectors, too. Microsoft's HealthVault
-{[}\protect\hyperlink{ref-web_microsoft_healthvault}{68}{]}, for
+{[}\protect\hyperlink{ref-web_microsoft_healthvault}{69}{]}, for
 example, which aims to replace all the paper-based patient file and
 combine them in one digital version. This results in a patient-centered
 medical data and documents archive, helping doctors to make the most
 accurate decisions on medical treatment.
 
-\emph{Meeco} {[}\protect\hyperlink{ref-web_meeco_how-it-works}{69}{]}
-{[}\protect\hyperlink{ref-slides_2015_meeco-case-study}{70}{]}, based on
+\emph{Meeco} {[}\protect\hyperlink{ref-web_meeco_how-it-works}{70}{]}
+{[}\protect\hyperlink{ref-slides_2015_meeco-case-study}{71}{]}, based on
 the MyData-Project
 {[}whitepaper\_2014\_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing{]},
 which essentially just cuts out the advertisement service provider as a
 middle man inherits that role by itself. The platform does provide the
 data subjects with more control over what information they reveal, but
 it doesn't go the so eagerly demanded next step, which would means real
-decoupling from the advertisement market and finding a suitable business
+uncoupling from the advertisement market and finding a suitable business
 model that focuses on the data subject, instead of surrounding them with
 just another walled garden.
 
@@ -1440,13 +1444,13 @@ primarily by \emph{Fraunhofer-Gesellschaft} in cooperation with several
 private companies like \emph{PricewaterhouseCoopers AG},
 \emph{Volkswagen AG}, \emph{thyssenkrupp AG} or \emph{REWE Systems
 GmbH}, is the so called \emph{Industrial Data Space}
-{[}\protect\hyperlink{ref-web_industrial-data-space}{71}{]}. The project
+{[}\protect\hyperlink{ref-web_industrial-data-space}{72}{]}. The project
 unifies both, research and commercial interests and runs over time
 period of three years until the third quarter of 2018. It aims to
 \emph{``{[}\ldots{}{]} to facilitate the secure exchange and easy
 linkage of data in business ecosystems''}, where at the same time
 \emph{``{[}\ldots{}{]} ensuring digital sovereignty of data owners''}
-{[}\protect\hyperlink{ref-whitepaper_2016_industrial-data-space}{72}{]}.
+{[}\protect\hyperlink{ref-whitepaper_2016_industrial-data-space}{73}{]}.
 It will be interesting to see how these two, yet rather distinct
 objectives, will come together in the future. Based on the white paper,
 the project's focus mainly seems to lie in enabling and standardizing
@@ -1513,33 +1517,34 @@ or other APIs. Hereinafter, some of these possible technologies will be
 touched on just briefly, why they might be a reasonable choice and what
 purposes they might going to service.
 
-\textbf{HTTP(S)} {[}\protect\hyperlink{ref-web_spec_http1}{73}{]}, well
+\textbf{HTTP(S)} {[}\protect\hyperlink{ref-web_spec_http1}{74}{]}, well
 known as the transport layer for the \emph{World Wide Web} is most
 likely going to fulfill the same purpose in the context of this work.
 Whether internal components (local or as part of a distributed system)
 talk to each other or data consumers request information. Features
 introduces with Version 2
-{[}\protect\hyperlink{ref-web_spec_http2}{74}{]} of the protocol are yet
+{[}\protect\hyperlink{ref-web_spec_http2}{75}{]} of the protocol are yet
 to be known of their relevance and corresponding use cases. The
 \emph{Transport Layer Security}
-{[}\protect\hyperlink{ref-web_spec_tls}{75}{]} embedded in the protocol
+{[}\protect\hyperlink{ref-web_spec_tls}{76}{]} embedded in the protocol
 provides encryption during transfer, which reduces the vulnerability to
 \emph{man-in-the-middle} attacks and thus ensures data integrity. Due to
 it's asymmetrical cryptographic concepts used to establish a connection,
 \emph{TLS} also allows to verify the integrity of the entity on the the
 connection's counterside, and, depending on the integration, it could
 even used for authentication. \emph{Websockes}
-{[}\protect\hyperlink{ref-web_spec_websockets}{76}{]} might also be a
+{[}\protect\hyperlink{ref-web_spec_websockets}{77}{]} might also be a
 possibility to communicate between components or even with external
-parties, which has the advantage of high efficient ongoing connections
-using for real-time data exchange or remotely pending process responses,
-while at the same time avoiding HTTP's long-polling abilities.
+parties, which has the advantage of high efficient ongoing bidirectional
+connections using for real-time data exchange or remotely pending
+process responses, while at the same time avoiding HTTP's long-polling
+abilities.
 
 \textbf{JSON}\footnote{The JavaScript Object Notation (JSON) Data
   Interchange Format; ECMA Standard\\
-  {[}\protect\hyperlink{ref-web_spec_json}{77}{]} and Internet
+  {[}\protect\hyperlink{ref-web_spec_json}{78}{]} and Internet
   Engineering Task Force RFC 7159
-  {[}\protect\hyperlink{ref-web_rfc_json}{78}{]}} is an alternative data
+  {[}\protect\hyperlink{ref-web_rfc_json}{79}{]}} is an alternative data
 serialization format to XML, heavily used in web contexts to transfer
 data via \emph{HTTP}, whose syntax is inspired by the JavaScript
 object-literal notation.
@@ -1551,20 +1556,20 @@ with the help of a previously generated token. However generating and
 supplying such a token can be initiated in a variety of ways depending
 on the situation, e.g.~with the user entering her credentials
 (\texttt{grant\_type=authorization\_code}). This design mistakenly
-{[}\protect\hyperlink{ref-web_2012_problem-with-oauth-for-authentication}{79}{]}
+{[}\protect\hyperlink{ref-web_2012_problem-with-oauth-for-authentication}{80}{]}
 lead to \emph{OAuth} integrations with the intention to provide an
 authentication service whether as an alternative or as an addition to
 existing in-house solution. Therewith the application authors pass the
 responsibility on to the OAuth-supporting data providers. While
-\emph{version 1.0a} {[}\protect\hyperlink{ref-web_spec_oauth-1a}{80}{]},
+\emph{version 1.0a} {[}\protect\hyperlink{ref-web_spec_oauth-1a}{81}{]},
 seen as a protocol, provides integrity for transferred data by using
 signatures and confidentiality by encrypting data ahead of transfer.
 Whereas \emph{version 2.0}
-{[}\protect\hyperlink{ref-web_spec_oauth-2}{81}{]}, labeled as a
+{[}\protect\hyperlink{ref-web_spec_oauth-2}{82}{]}, labeled as a
 framework, just requires \emph{TLS}. It also includes certain process
 flows for specific platforms, such as \emph{``web applications, desktop
 applications, mobile phones, and living room devices''}
-{[}\protect\hyperlink{ref-web_2016_oauth-2}{82}{]}.
+{[}\protect\hyperlink{ref-web_2016_oauth-2}{83}{]}.
 
 With \textbf{OpenID} on the other side, the authenticity of a requesting
 user gets verified, which is by design. An in-depth description of the
@@ -1581,7 +1586,7 @@ is necessary, instead she can use her \emph{OpenID}, already created by
 another identity provider, to authenticate with the application. The
 extension \emph{OpenID Attribute Exchange} allows to import additional
 profile data. \emph{OpenID Connect}
-{[}\protect\hyperlink{ref-web_spec_openid-connect-1}{83}{]} is the third
+{[}\protect\hyperlink{ref-web_spec_openid-connect-1}{84}{]} is the third
 iteration of the OpenID technology \emph{Connect} is to OpenID what
 \emph{facebook connect} is to \emph{facebook}, except for the additional
 authentication layer, which is build upon \emph{OAuth2.0} and therefore
@@ -1594,7 +1599,7 @@ software, to make them stateless, apart from changing the architecture
 so that the state at that point is not needed anymore, the only other
 option would be to carry the state along (TODO: or ``passing the state
 around''). This is a common use case for a \textbf{JSON Web Token}
-\emph{(JWT)} {[}\protect\hyperlink{ref-web_spec_json-web-token}{84}{]}.
+\emph{(JWT)} {[}\protect\hyperlink{ref-web_spec_json-web-token}{85}{]}.
 A \emph{JWT}, as it's name implies, is syntactically speaking formatted
 as \emph{JSON}, but URI-safe into \emph{Base64} encoded, before it gets
 transferred. The token itself holds the state. Here is where the use of
@@ -1606,10 +1611,10 @@ about itself, a payload, which can be arbitrary data such as user or
 state information, and a signature; all separated with a period.
 Additional standards define encryption \emph{(JWE\footnote{JSON Web
   Encryption, Internet Engineering Task Force RFC 7516
-  {[}\protect\hyperlink{ref-web_spec_json-web-encryption}{85}{]}})} to
+  {[}\protect\hyperlink{ref-web_spec_json-web-encryption}{86}{]}})} to
 ensure confidentiality and signatures \emph{(JWS\footnote{JSON Web
   Signature, Internet Engineering Task Force RFC 7515
-  {[}\protect\hyperlink{ref-web_spec_json-web-signature}{86}{]}})} to
+  {[}\protect\hyperlink{ref-web_spec_json-web-signature}{87}{]}})} to
 preserve integrity of it's contents. Using a \emph{JWT} for
 authentication purposes, that is described as \emph{stateless
 authentication}, because the verifying entity doesn't need to be aware
@@ -1620,13 +1625,13 @@ every incoming request in order to verify permissions, it just needs
 
 \textbf{REST(ful)}\footnote{\emph{Representational State Transfer},
   introduces by Roy Fielding in his doctoral dissertation
-  {[}\protect\hyperlink{ref-web_spec_rest}{87}{]}} is a common set of
+  {[}\protect\hyperlink{ref-web_spec_rest}{88}{]}} is a common set of
 principles to design web resources communication, primarily
 server-client relations, in a more generic and thereby interoperable
 way. Aside from hierarchically structured URIs, which reflect semantic
 meanings, it involves a group of rudimentary vocabulary\footnote{knows
   as HTTP Methods or Verbs
-  {[}\protect\hyperlink{ref-web_spec_http-methods}{88}{]} (e.g.~GET,
+  {[}\protect\hyperlink{ref-web_spec_http-methods}{89}{]} (e.g.~GET,
   OPTIONS, PUT, DELETE)} to provide basic Create-Read-Update-Delete
 operations across distributed systems. The entire request need to
 contain everything that is required to get proceeded, e.g.~state data
@@ -1636,7 +1641,7 @@ certain services) exposes a restful API, with which a third party can
 then interact.
 
 The \emph{QL} in \textbf{GraphQL}
-{[}\protect\hyperlink{ref-web_spec_graphql}{89}{]} stands for
+{[}\protect\hyperlink{ref-web_spec_graphql}{90}{]} stands for
 \emph{query language}. It's goal is to abstract multiple data sources in
 order to unify them under one API and make all containing data
 queryable, including all relating data points. The returned data,
@@ -1652,17 +1657,17 @@ idea of \emph{web of data} to \emph{``allow data being shared and reused
 across''} {[}web\_2016\_w3c\_semantic-web-activity{]} or within several
 scopes and contexts. Alongside several others, the following three
 standards have a certain relevance to that concept. RDF\footnote{Resource
-  Description Framework {[}\protect\hyperlink{ref-web_w3c-tr_rdf}{90}{]}}
+  Description Framework {[}\protect\hyperlink{ref-web_w3c-tr_rdf}{91}{]}}
 basically defines the syntax. OWL\footnote{Web Ontology Language
-  {[}\protect\hyperlink{ref-web_w3c-tr_owl}{91}{]}} provides the
+  {[}\protect\hyperlink{ref-web_w3c-tr_owl}{92}{]}} provides the
 guidelines on how the semantics and schemas should be defined and with
-SPARQL {[}\protect\hyperlink{ref-web_w3c-tr_sparql}{92}{]}, the query
+SPARQL {[}\protect\hyperlink{ref-web_w3c-tr_sparql}{93}{]}, the query
 language for the RDF format, the data can be retrieved. A picture
 emerges in which the web is used as a database, queried by URIs with a
 query language. An example would be a person's email address, which is
 available under a specific domain (preferable owned by that person) - or
 to be more precise, an URI \emph{(WebID)
-{[}\protect\hyperlink{ref-web_w3c-draft_webid}{93}{]}} - and provided in
+{[}\protect\hyperlink{ref-web_w3c-draft_webid}{94}{]}} - and provided in
 a certain syntax \emph{(RDF)} and tagged with the semantic \emph{(OWL)}
 of a email address; all embedded in a valid html page. This information
 can be queried \emph{(SPARQL)}, which requires at least the URI, working
@@ -1670,13 +1675,13 @@ as a unique identifier. While defining the standards, an importancy was
 to define a syntax which is also valid markup, in order to maintain a
 single source of trough and save redundant work. Related to this topic
 is the work on a specification called \textbf{Solid}.\footnote{social
-  linked data {[}\protect\hyperlink{ref-web_spec_solid}{94}{]}} Based on
-the \emph{Linked Data} principals, that are facilitated through the
+  linked data {[}\protect\hyperlink{ref-web_spec_solid}{95}{]}} Based on
+the \emph{Linked Data} principles, that are facilitated through the
 standards just mentioned and the \emph{WebAccessControl}
-{[}\protect\hyperlink{ref-web_2016_wiki_webaccesscontrol}{95}{]} system,
+{[}\protect\hyperlink{ref-web_2016_wiki_webaccesscontrol}{96}{]} system,
 the project focuses on decentralization and personal data. A reference
 implementation called \emph{databox}
-{[}\protect\hyperlink{ref-web_2016_demo_databox}{96}{]} combines all
+{[}\protect\hyperlink{ref-web_2016_demo_databox}{97}{]} combines all
 these technologies and is build on top.
 
 The concept of application (or software) \textbf{container} is about
@@ -1686,10 +1691,10 @@ abstraction. A container bundles just the software dependencies
 program is able to run properly. The actual container separation is
 done, aside from others, with the help of two features provided by the
 Linux kernel. \emph{Cgroups},\footnote{control groups
-  {[}\protect\hyperlink{ref-web_2015_cgroup-doc}{97}{]}} which define or
+  {[}\protect\hyperlink{ref-web_2015_cgroup-doc}{98}{]}} which define or
 restrict how much of the existing resources a group of processes
 (e.g.~CPU, memory or network) can use. Whereas \emph{namespaces}
-{[}\protect\hyperlink{ref-web_2016_kernel-namespace}{98}{]} define or
+{[}\protect\hyperlink{ref-web_2016_kernel-namespace}{99}{]} define or
 restrict what parts of the system can be accessed or seen by a process
 (e.g.~filesystem, user, other processes). The idea of encapsulating
 programs from the operating system-level is not new, Technologies, such
@@ -1702,92 +1707,97 @@ backgrounds couldn't and weren't that much interested. Until
 \emph{Docker} and \emph{rkt} emerged. After some years of separated
 work, both authors, and others, recently joined forces in the \emph{Open
 Container Initiative}
-{[}\protect\hyperlink{ref-web_2016_open-container-initiative}{99}{]},
+{[}\protect\hyperlink{ref-web_2016_open-container-initiative}{100}{]},
 which aims to harmonize the diverged landscape and start building common
 ground to ensure a higher interoperability, and that in turn is
 requisite for orchestration. It also marks the initial draft of the
 specifications for runtime
-{[}\protect\hyperlink{ref-web_oci-spec_runtime}{100}{]} and image
-{[}\protect\hyperlink{ref-web_oci-spec_image}{101}{]} definition, on
+{[}\protect\hyperlink{ref-web_oci-spec_runtime}{101}{]} and image
+{[}\protect\hyperlink{ref-web_oci-spec_image}{102}{]} definition, on
 which the work is still ongoing. This concept of \emph{containerization}
 also inherits the a ability known from \emph{emulation}, because it
 allows a certain set of software to run on a system that otherwise is
 not supported, e.g.~mobile devices. It only requires the runtime to be
 working.
 
-\chapter{Core Principles}\label{core-principles}
+\hypertarget{core-principles}{\chapter{Core
+Principles}\label{core-principles}}
 
-In the following chapter the certain core principles of the system will
-be examined
-
-NOTE: here we discuss a variety of possibilities --\textgreater{}
-conceptual work
+Right from the start a set of principles have build the cornerstones and
+orientation marks of the idea behind the \emph{PDaaS}. Those, who meant
+to be reflected also by the arising \emph{Open Specification}, will be
+explained further within the following sections.
 
 \section{Data Ownership}\label{data-ownership}
 
-\begin{itemize}
-\tightlist
-\item
-  user-centric, full control
-\end{itemize}
+Depending on the standpoint, the question about ownership of certain
+data might not that trivial to answer. As stated in the
+\protect\hyperlink{digital-identity-personal-data-and-ownership}{previous
+section}, ownership requires a certain amount of originality to become
+intellectual property, which is not the case for personal data - at
+least for all the non-creative content. Thus there is no legal ground
+for an individual to license those data, that obviously belongs to her.
+Switching the perspective from the \emph{data subject} to the data
+\emph{consumer}; for them, several laws exist addressing conditions and
+rules regarding data acquisition, processing and usage. Leaving aside
+the absence of any legislation regarding data ownership, it can not be
+denied, that is seems unnatural not being the owner of all the data that
+reflects her identity and her as an individual. So instead of defining
+those rules meant to protect data subjects, but demanding data consumers
+to comply with, the proposal here is to put the entity, to whom the data
+is related to, in control of defining, who can access her data and what
+accessor is allowed to do with it. This would make the \emph{data
+subject}, \protect\hyperlink{def-ownership}{per definition} and
+effectively, to the owner of those data. Although, it is to be noted,
+that the legal rulebook for data consumers mentioned before, remains a
+highly important, since this project is not able to cover every use
+case, that might occur.
+
+Promoted from the data subject to the data owner, in the center of the
+\emph{PDaaS}, the operator gains abilities to have as much control over
+all the data related to her as possible, to determine in a very precise
+ways what data of hers can be accessed by third parties and to literally
+carry all her personal data with her.
 
 \section{Identity Verification}\label{identity-verification}
 
-\begin{itemize}
-\tightlist
-\item
-  maybe go with a Signing/verifying Authority (aka CA)
+When an instance of this system is going to be the digital counterpart
+of an individuals identity or it's \emph{personal agent}
+{[}\protect\hyperlink{ref-book_2015_ethical-it-innovation}{103}{]}, then
+everyone who relies on the information that agent is providing, must
+also be able to trust the source from where that data is coming from and
+vice versa; the \emph{operator} must be able to verify the authenticity
+of the requesting source, too; regardless if it's the initial
+\emph{permission request} or further \emph{access attempts}. Based on
+these mechanisms, the system can also provide an authentication services
+to all sorts of generic or restricted platforms for the associated
+identity, including second factor abilities
 
-  \begin{itemize}
-  \tightlist
-  \item
-    do I trust the gov or certain companies more? Which interests do
-    these Role/Stakeholder have?
-  \item
-    revoking the cert which provides the authenticity of the
-    individual's digital identity should only be possible with a
-    two-factor secret. One part of this secret is owned by the CA and
-    the other half has the individual behind the personal API
-  \end{itemize}
-\item
-  TODO: look into
-
-  \begin{itemize}
-  \tightlist
-  \item
-    PKI
-  \item
-    ePerso
-  \item
-    E-Post/de-mail
-  \end{itemize}
-\item
-  Authentication
-\end{itemize}
-
-\section{Authorisation (remove in favour of data
-access?)}\label{authorisation-remove-in-favour-of-data-access}
-
-\begin{itemize}
-\tightlist
-\item
-  NOTE: does not mean this tool authenticates it's assiciated data
-  subject against third party platforms like OpenID does. but it could
-  play the role of the 2n factor in a multi-factor authentication
-  process (if the mobile-device-architecture was chosen)
-\item
-  refers primarily to the process of a data consumer (third party, which
-  needs the data for whatever reason) verifies her admission to request
-\end{itemize}
-
-\section{Authentic (TODO: or reliable)
-Data}\label{authentic-todo-or-reliable-data}
+\section{Reliable Data}\label{reliable-data}
 
 \begin{itemize}
 \tightlist
 \item
   is this data (in this case identity) certified or not (results in
   higher value)
+\end{itemize}
+
+So the \emph{data consumer} must be certain that the received data is
+correct and authentic, and those really belong to the individual, who is
+currently involved in that specific process.
+
+\section{Authorisation}\label{authorisation}
+
+\begin{itemize}
+\tightlist
+\item
+  NOTE: does not mean this tool authenticates it's associates data
+  subject against third party platforms like OpenID does. but it could
+  play the role of the 2n factor in a multi-factor authentication
+  process (if the mobile-device-architecture was chosen)
+\item
+  refers primarily to the process of a data consumer (third party, which
+  needs the data for whatever reason) verifies her admission to request
 \end{itemize}
 
 \section{Supervised Data Access}\label{supervised-data-access}
@@ -1807,6 +1817,17 @@ Data}\label{authentic-todo-or-reliable-data}
 \tightlist
 \item
   containerization (coreos, rkt, mirageos aka unikernal)
+\end{itemize}
+
+\section{Flexible Application}\label{flexible-application}
+
+\begin{itemize}
+\tightlist
+\item
+  using and fitting into all kinds of scenarios: e.g.~storing cara data,
+  providing sensitive profile data, being patient file
+\item
+  without increasing system complexity (!
 \end{itemize}
 
 \section{Open Development}\label{open-development}
@@ -1846,55 +1867,62 @@ able to look into it.
 
 \chapter{Requirements}\label{requirements}
 
-The subsequent requirements shall be served as a list of features on the
+Derived from the \protect\hyperlink{core-principles}{Core Principles},
+the subsequent requirements shall be served as a list of features on the
 one hand, to get an idea about how the open specification and thus the
 resulting software might look like, and to give an overview about
 priorities (can/could, may/might, should, must/have to) on the other
-hand. Subsequent chapters may contain specific references to the
-requirements listed below.
-
-\section{The System}\label{the-system}
-
-The system perspective includes the overall architecture, fundamental
-building blocks, such as storage \& persistence layer, business logic
-and outmost interfaces.
+hand. Other chapters may contain specific references to the requirements
+listed below.
 
 \subsubsection{Architecture/Design:}\label{architecturedesign}
 
 \textbf{\emph{\protect\hypertarget{sa01}{}{S.A.01}} - Portability}\\
-+ all components should be relocatable and function independently
-
-\begin{itemize}
-\tightlist
-\item
-  the different components from the system should be able to get
-  relocated and remain to be fully functional
-\end{itemize}
+All major components should be designed and communicate between each
+other in a way to be able to get relocated while the system has to
+remain fully functional. It has to be possible to build a distributed
+system, that may require to place certain components into different
+environments/devices.
 
 \textbf{\emph{\protect\hypertarget{sa02}{}{S.A.02}} - Roles}\\
-The system has to define two types of roles. The first on is the
-\protect\hyperlink{terminologies--operator}{operator}, who has to be in
-control of the system. The operator takes care of the data that might be
-provided and decides about which third party get's access to what data.
-The second type are the
+The system has to define two types of roles. The first one is the
+\protect\hyperlink{terminologies--operator}{operator}, who is in control
+of the system and, depending on the architecture, must be at least on
+individual but can be more. The operator takes care of all the data that
+then get's provided and decides about which third party get's access to
+what data. The second type are the
 \protect\hyperlink{terminologies--consumer}{consumers}. These are
 external third parties that desire certain data about or from the
 operator. (see \protect\hyperlink{terminologies}{Terminologies})
 
+\textbf{\emph{\protect\hypertarget{sa03}{}{S.A.03}} - Authenticity}\\
+Since they have to rely on the data, both entities - everyone belonging
+to one of the \emph{\protect\hyperlink{sa02}{roles}} - should be able to
+ensure the authenticity of it's opponent and the data in question. It
+should be possible to opt out, if that level of reliability is not
+necessary. Whereas if one of the parties demanding the other one of
+providing such level, but the other doesn't, then the access attempt
+will fail.
+
 \subsubsection{Persistence:}\label{persistence}
 
 \textbf{\emph{\protect\hypertarget{sp01}{}{S.P.01}} - Data Outflow}\\
-Data must only leave the system if it's absolutely necessary and no
-other option exists to preserve the goal of that process.
+Data may only leave the system if it's absolutely necessary and no other
+option exists to preserve the goal of that process.
 
 \textbf{\emph{\protect\hypertarget{sp02}{}{S.P.02}} - Data
 Relationship}\\
-the data structure and data models must show high flexibility and must
-not consist of strong relations and serration.
+Data structures and data models must show high flexibility and may not
+consist of strong relations and serration.
 
 \textbf{\emph{\protect\hypertarget{sp03}{}{S.P.03}} - Schema and
 Structure}\\
-+ user can create new data types (based on a schema)
+The \emph{Operator} can create new data types (based on a schema) in
+order to extend the capabilities of the data API. Structures and schemas
+can change over time (\protect\hyperlink{sp04}{S.P.04}). Every data set
+and data point has to relate to a corresponding and existing type,
+whether it's a simple type (string, integer, boolean, etc.) or a
+structured composition based on a schema.
 
 \textbf{\emph{\protect\hypertarget{sp04}{}{S.P.04}} - Write}\\
 Primarily the operator is the only one who has the permissions to add,
@@ -1912,77 +1940,65 @@ it's validity and usefulness.
 \subsubsection{Interfaces:}\label{interfaces}
 
 \textbf{\emph{\protect\hypertarget{si01}{}{S.I.01}} - Documentation}\\
-All interfaces between components have to be documented, in a way that
+The interfaces of all components have to be documented; in a way that
 the components themselves can be replaced without any impact to the rest
-of the system
+of the system. This also involves comprehensive information on how to
+communicate and what endpoints are provided, including required
+arguments and result structure.
 
 \textbf{\emph{\protect\hypertarget{si02}{}{S.I.02}} - External Data
 Query}\\
 Data consumer can request a schema, in order to know how the response
 data will actually look like, since certain parts of the data structure
-might change over time (see {[}\protect\hyperlink{sp03}{S.P.03},
-\protect\hyperlink{sp04}{S.P.04}{]}).
-
-\begin{itemize}
-\tightlist
-\item
-  a process involving data transaction must always be initiated by the
-  data subjects
-\end{itemize}
+might change over time (see \protect\hyperlink{sp03}{S.P.03},
+\protect\hyperlink{sp04}{S.P.04}). After checking if the access request
+is permitted, the system first parses and validates the query and
+eventually proceeds to actually execute the included query. When
+querying data from the system, the \emph{data consumer} might be
+required tp provide a schema, which should force him to be as precise as
+possible about what data is exactly needed. In addition to that, the
+consuming entity must provide some \emph{meaningful} text, describing
+the purpose of the requested data. He should not be allowed to place
+wildcard selectors for data points in the query. Instead he must always
+define a more specific filter or a maximum number of items, if the query
+retrieves more then one element.
 
 \textbf{\emph{\protect\hypertarget{si03}{}{S.I.03}} - Formats}\\
-+ JSON(-like) everywhere (query language, response)
-
-\section{The User}\label{the-user}
-
-Not only humans that are using the resulting software are seen as a
-\emph{user}. Also developers and other contributors may use the
-software, documentations or program code from a technical standpoint.
-
-\subsubsection{Administration:}\label{administration}
-
-\emph{\protect\hypertarget{ua01}{}{U.A.01}}:
-
-\subsubsection{Management \&
-Organisation:}\label{management-organisation}
-
-\emph{\protect\hypertarget{umo01}{}{U.MO.01}}:
-
-\section{The Software}\label{the-software}
+When components communicating between each other or interactions with
+the system from the outside take place, all data send back and forth
+should be serialized/structured in a JSON or JSON-like structure.
 
 \subsubsection{Visual User Interface:}\label{visual-user-interface}
 
 \textbf{\emph{\protect\hypertarget{pviu01}{}{P.VIU.01}} - Responsive
 user interface}\\
-The visual user interface has to be responsive to the available space
+The visual user interface has to be responsive to the available space,
+because of the diversity of screen sizes nowadays.
 
 \textbf{\emph{\protect\hypertarget{pviu02}{}{P.VIU.02}} - Platform
 support}\\
-+ must at least web UI (provided by the server)
-
-\begin{itemize}
-\tightlist
-\item
-  should mobile to benefit from notifications and storing data on that
-  device
-\end{itemize}
+The user interface must be at least implemented based on web
+technologies, that is provided by a server and is thus available on any
+platform that comes with a modern browser. To enable additional features
+and behavior, at least for mobile devices it is recommended to build a
+user interface upon native supported technologies, such as \emph{Swift}
+and \emph{Java}. The operator would benefit from capabilities such as
+\emph{push notifications} and storing data on that device.
 
 \textbf{\emph{\protect\hypertarget{pviu03}{}{P.VIU.03}} - Access
 Profiles}\\
 The operator should be capable of filtering, sorting and searching
-through that list of profiles. She also should be able to create
-templates for
+through the list of \emph{access profiles}; for a better administration
+experience and to easily find certain entries while the overall amount
+increases over time.
 
 \textbf{\emph{\protect\hypertarget{pviu04}{}{P.VIU.04}} - Access
-History}~ The user must be provided with a list of all past permission
-requests and data accesses. This tool should have filter, search and
-sort mechanisms.
-
-\begin{itemize}
-\tightlist
-\item
-  requires \protect\hyperlink{pb01}{access logging}
-\end{itemize}
+History}~ The operator must be provided with a list of all past
+permission requests and data accesses, in order to monitor who is
+accessing what data and when, and thus being capable of evaluating and
+eventually stopping certain access and data usage. This tool should have
+filter, search and sort capabilities. It is build upon and therefore
+requires the \protect\hyperlink{pb01}{access logging} functionality.
 
 \subsubsection{Interactions:}\label{interactions}
 
@@ -1991,13 +2007,17 @@ Common interactions processes, like changing \emph{profile data},
 importing data sets or manage \emph{permission request} have to require
 as little effort as possible. This means short UI response time on the
 one hand and as less single input and interaction steps as possible to
-complete a task.
+complete a task. Given these circumstances, the \emph{permission request
+review} and \emph{access profile creation} might become a special
+challenge.
 
 \textbf{\emph{\protect\hypertarget{pi02}{}{P.I.02}} - Design}\\
 The visual user interface must be designed and structured in such a way
 that is is highly intuitive for the user to operate. Thus, it is
-important e.g.~to use meaningful icons and appropriate labels. TODO:
-emphasize more UI aspects (or not)
+important e.g.~to use meaningful icons and appropriate labels. It also
+means a flat and not crammed menu navigation. Context related
+interaction elements should be positioned within the area designated for
+that context. TODO: maybe emphasize more UI aspects (or not)
 
 \textbf{\emph{\protect\hypertarget{pi03}{}{P.I.03}} - Notifications}\\
 The user should be notified about every interaction with the
@@ -2010,8 +2030,33 @@ must show up and pending user interactions must be indicated in the user
 interface.
 
 \textbf{\emph{\protect\hypertarget{pi04}{}{P.I.04}} - Permission Request
-Review}\\
-+ TODO: how should that look like?
+\& Review}\\
+A process involving data transaction must always be initiated by the
+data subjects. So before a \emph{data consumer} is able to access data,
+first the \emph{operator} need to \emph{invite} him and tell him whereto
+address his requests. This has to be done by sending him a URI leading
+to an endpoint, that needs to be unique among all \emph{data consumers}
+interacting with the same instance of the system. When a \emph{data
+consumer} makes the first attempt to connect to the system, it must be a
+well formed \emph{permission request}, which has to include information
+about the \emph{consumer}, what data he wants to get access to, for what
+purpose and how log or how often the data need to be requested. The
+operator then reviews these information and creates an access profile
+based on that information. A key configuration in such a profile has to
+be what defines when this permission expires. The operator should be
+able to decide between three \emph{permission types}:
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{one-time-only}
+\item
+  \emph{expires-on-date}
+\item
+  \emph{until-further-notice} After creating the profile, a response
+  must be send to the \emph{data consumer}, which should contain the
+  review result and permission type set by the operator.
+\end{itemize}
 
 \textbf{\emph{\protect\hypertarget{pi05}{}{P.I.05}} - Templating}\\
 The operator should be able to create templates for \emph{access
@@ -2036,20 +2081,14 @@ the \emph{access history}, with this the user is able to keep track of
 and look up past accesses.
 
 \textbf{\emph{\protect\hypertarget{pb02}{}{P.B.02}} - Real time}\\
-+ web ui in browser on desktop should be connected to the server through
-websockets to support real time (e.g.~permission request got reviewed on
-mobile device, but notification indicator reflects ``still pending'')
-
-\begin{itemize}
-\tightlist
-\item
-  if just one client is associated to the system, real time (in the
-  sense of keeping UI state up to date) would not be required
-\end{itemize}
-
-\section{The Functionality}\label{the-functionality}
-
-\emph{\protect\hypertarget{f01}{}{F.01}}: The system
+Real time communication might be essential for time-critical data
+transaction. Hence at least one user interfaces should be connected to
+the server through an ongoing connection to enable real time support
+(example scenario: permission request got reviewed on mobile device, but
+notification indicator reflects ``still pending''). But if just one
+client is associated to the system, real time (in the sense of keeping
+UI state up to date) would not be necessary. (see
+\protect\hyperlink{pviu02ux5cux257D}{P.VIU.02})
 
 \chapter{Design Discussion}\label{design-discussion}
 
@@ -2060,7 +2099,10 @@ evaluate their advantages and disadvantages. Probably not every issue
 will get it's\\
 deserved rome , but major aspects will be addressed.
 
-\subsubsection{Data Exchange/Access Process
+NOTE: here we discuss a variety of possibilities --\textgreater{}
+conceptual work
+
+\section{Data Exchange/Access Process
 Design}\label{data-exchangeaccess-process-design}
 
 \begin{enumerate}
@@ -2077,6 +2119,41 @@ Design}\label{data-exchangeaccess-process-design}
   encryption of the data, he has requested, in order to work with /
   compute that data
 \end{enumerate}
+
+\section{Verification /
+Authentication}\label{verification-authentication}
+
+\begin{itemize}
+\tightlist
+\item
+  maybe go with a Signing/verifying Authority (aka CA)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    do I trust the gov or certain companies more? Which interests do
+    these Role/Stakeholder have?
+  \item
+    revoking the cert which provides the authenticity of the
+    individual's digital identity should only be possible with a
+    two-factor secret. One part of this secret is owned by the CA and
+    the other half has the individual behind the personal API
+  \end{itemize}
+\item
+  TODO: look into
+
+  \begin{itemize}
+  \tightlist
+  \item
+    PKI
+  \item
+    ePerso
+  \item
+    E-Post/de-mail
+  \end{itemize}
+\item
+  Authentication
+\end{itemize}
 
 \section{Architecture}\label{architecture}
 
@@ -2358,7 +2435,7 @@ Design}\label{data-exchangeaccess-process-design}
   password for different account, nowadays they but alsod tent to get
   tired of creating new accounts and profiles over and over again
   instead of having just one account for everything
-  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{102}{]}.
+  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{104}{]}.
 \end{itemize}
 
 Thus the platform owners leave the responsibility of
@@ -2618,231 +2695,237 @@ Available:
 identity,'' \emph{Boston Cons. Gr}, 2012 {[}Online{]}. Available:
 \url{https://www.libertyglobal.com/PDF/public-policy/The-Value-of-Our-Digital-Identity.pdf}
 
+\hypertarget{ref-web_2016_wikipedia_intellectual-property}{}
+{[}17{]} ``Outline of intellectual property,'' 11-Oct-2016.
+{[}Online{]}. Available:
+\url{https://en.wikipedia.org/w/index.php?title=Outline_of_intellectual_property\&oldid=743830160}.
+{[}Accessed: 25-Dec-2016{]}
+
 \hypertarget{ref-regulation_2016_eu_general-data-protection-regulation_definition}{}
-{[}17{]} \emph{General data protection regulation}. 2016, p. L 119/33
+{[}18{]} \emph{General data protection regulation}. 2016, p. L 119/33
 {[}Online{]}. Available:
 \url{http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679}
 
 \hypertarget{ref-web_2016_wikipedia_information-privacy-law_us}{}
-{[}18{]} Wikipedia, ``Information privacy law,'' 13-Nov-2016.
+{[}19{]} Wikipedia, ``Information privacy law,'' 13-Nov-2016.
 {[}Online{]}. Available:
 \url{https://en.wikipedia.org/wiki/Information_privacy_law\#United_States}.
 {[}Accessed: 20-Nov-2016{]}
 
 \hypertarget{ref-web_2016_data-protection-laws-in-the-us}{}
-{[}19{]} I. J. (Loeb \& Loeb), ``PLC - data protection in the united
+{[}20{]} I. J. (Loeb \& Loeb), ``PLC - data protection in the united
 states: Overview,'' 01-Jul-2013. {[}Online{]}. Available:
 \url{http://us.practicallaw.com/6-502-0467}. {[}Accessed: 20-Nov-2016{]}
 
 \hypertarget{ref-web_2015_white-house-releases-consumer-privacy-bill-draft}{}
-{[}20{]} A. Wilhelm, ``White house drops `consumer privacy bill of
+{[}21{]} A. Wilhelm, ``White house drops `consumer privacy bill of
 rights act' draft. TechCrunch,'' 27-Feb-2015. {[}Online{]}. Available:
 \url{http://social.techcrunch.com/2015/02/27/white-house-drops-consumer-privacy-bill-of-rights-act-draft/}.
 {[}Accessed: 20-Nov-2016{]}
 
 \hypertarget{ref-bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition}{}
-{[}21{]} \emph{Administration discussion draft: Consumer privacy bill of
+{[}22{]} \emph{Administration discussion draft: Consumer privacy bill of
 rights act of 2015}. 2015 {[}Online{]}. Available:
 \url{https://www.whitehouse.gov/sites/default/files/omb/legislative/letters/cpbr-act-of-2015-discussion-draft.pdf}
 
 \hypertarget{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_sensitive-types-of-data}{}
-{[}22{]} \emph{Report and order}. 2016 {[}Online{]}. Available:
+{[}23{]} \emph{Report and order}. 2016 {[}Online{]}. Available:
 \url{https://transition.fcc.gov/Daily_Releases/Daily_Business/2016/db1103/FCC-16-148A1.pdf}.
 {[}Accessed: 20-Nov-2016{]}
 
 \hypertarget{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information}{}
-{[}23{]} \emph{Notice of proposed rulemaking}. 2016 {[}Online{]}.
+{[}24{]} \emph{Notice of proposed rulemaking}. 2016 {[}Online{]}.
 Available:
 \url{https://apps.fcc.gov/edocs_public/attachmatch/FCC-16-39A1.pdf}.
 {[}Accessed: 20-Nov-2016{]}
 
 \hypertarget{ref-web_2016_privacy-policies-are-mandatory-by-law}{}
-{[}24{]} ``Privacy policies are mandatory by law,'' 23-Oct-2016.
+{[}25{]} ``Privacy policies are mandatory by law,'' 23-Oct-2016.
 {[}Online{]}. Available:
 \url{https://termsfeed.com/blog/privacy-policy-mandatory-law/}.
 {[}Accessed: 20-Nov-2016{]}
 
 \hypertarget{ref-web_2016_international-privacy-standards}{}
-{[}25{]} ``International privacy standards,'' 29-Sep-2016. {[}Online{]}.
+{[}26{]} ``International privacy standards,'' 29-Sep-2016. {[}Online{]}.
 Available:
 \url{https://www.eff.org/issues/international-privacy-standards}.
 {[}Accessed: 20-Nov-2016{]}
 
 \hypertarget{ref-paper_2014_who-owns-yours-data}{}
-{[}26{]} G. Rosner, ``Who owns your data?'' presented at the UbiComp
+{[}27{]} G. Rosner, ``Who owns your data?'' presented at the UbiComp
 '14, september 13 - 17 2014, seattle, wa, usa, 2014, pp. 623--628
 {[}Online{]}. Available:
 \url{http://dl.acm.org/citation.cfm?doid=2638728.2641679}. {[}Accessed:
 01-Dec-2016{]}
 
 \hypertarget{ref-book_1987_private-ownership_definition}{}
-{[}27{]} J. Grunebaum, \emph{Private ownership}. Routledge \& Kegan
+{[}28{]} J. Grunebaum, \emph{Private ownership}. Routledge \& Kegan
 Paul, 1987, p. 213.
 
 \hypertarget{ref-regulation_2016_eu_general-data-protection-regulation_ownership}{}
-{[}28{]} \emph{General data protection regulation}. 2016, p. L 119/12
+{[}29{]} \emph{General data protection regulation}. 2016, p. L 119/12
 {[}Online{]}. Available:
 \url{http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679}
 
 \hypertarget{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership}{}
-{[}29{]} \emph{Report and order}. 2016 {[}Online{]}. Available:
+{[}30{]} \emph{Report and order}. 2016 {[}Online{]}. Available:
 \url{https://transition.fcc.gov/Daily_Releases/Daily_Business/2016/db1103/FCC-16-148A1.pdf}.
 {[}Accessed: 20-Nov-2016{]}
 
 \hypertarget{ref-web_2016_facebook_terms-of-service}{}
-{[}30{]} Facebook, ``Facebooks's terms of service. Statement of rights
+{[}31{]} Facebook, ``Facebooks's terms of service. Statement of rights
 and responsibilities,'' 30-Jan-2015. {[}Online{]}. Available:
 \url{https://www.facebook.com/legal/terms}. {[}Accessed: 01-Dec-2016{]}
 
 \hypertarget{ref-web_2016_twitter_terms-of-service}{}
-{[}31{]} Twitter, ``Twitters's terms of service. Twitter terms of
+{[}32{]} Twitter, ``Twitters's terms of service. Twitter terms of
 service,'' 30-Sep-2016. {[}Online{]}. Available:
 \url{https://twitter.com/tos\#intlTerms}. {[}Accessed: 01-Dec-2016{]}
 
 \hypertarget{ref-web_2016_google_terms-of-service}{}
-{[}32{]} Google, ``Google's terms of service. Google terms of service,''
+{[}33{]} Google, ``Google's terms of service. Google terms of service,''
 30-Apr-2014. {[}Online{]}. Available:
 \url{https://www.google.com/intl/en/policies/terms/regional.html}.
 {[}Accessed: 01-Dec-2016{]}
 
 \hypertarget{ref-web_2016_apple-icloud_terms-of-service}{}
-{[}33{]} Apple, ``Apple's iClound terms and conditions. V. content and
+{[}34{]} Apple, ``Apple's iClound terms and conditions. V. content and
 your conduct,'' 25-Sep-2016. {[}Online{]}. Available:
 \url{https://www.apple.com/legal/internet-services/icloud/en/terms.html}.
 {[}Accessed: 01-Dec-2016{]}
 
 \hypertarget{ref-web_2013_why-metadata-matters}{}
-{[}34{]} ``Why metadata matters,'' 07-Jun-2013. {[}Online{]}. Available:
+{[}35{]} ``Why metadata matters,'' 07-Jun-2013. {[}Online{]}. Available:
 \url{https://www.eff.org/deeplinks/2013/06/why-metadata-matters}.
 {[}Accessed: 24-Nov-2016{]}
 
 \hypertarget{ref-web_2016_why-you-need-metadata-for-big-data-to-success}{}
-{[}35{]} J. P. Stevens, ``Why you need metadata for big data success,''
+{[}36{]} J. P. Stevens, ``Why you need metadata for big data success,''
 06-Apr-2016. {[}Online{]}. Available:
 \url{http://www.datasciencecentral.com/profiles/blogs/why-you-need-metadata-for-big-data-success}.
 {[}Accessed: 24-Nov-2016{]}
 
 \hypertarget{ref-web_2016_oxford_definition_big-data}{}
-{[}36{]} ``Big data n.'' {[}Online{]}. Available:
+{[}37{]} ``Big data n.'' {[}Online{]}. Available:
 \url{http://www.oed.com/view/Entry/18833\#eid301162177}. {[}Accessed:
 11-Nov-2016{]}
 
 \hypertarget{ref-web_2016_wikipedia_definition_big-data}{}
-{[}37{]} Wikipedia, ``Big data,'' 11-Nov-2016. {[}Online{]}. Available:
+{[}38{]} Wikipedia, ``Big data,'' 11-Nov-2016. {[}Online{]}. Available:
 \url{https://en.wikipedia.org/w/index.php?title=Big_data\&oldid=748964100}.
 {[}Accessed: 11-Nov-2016{]}
 
 \hypertarget{ref-paper_2015_big-data-analytics_a-survey}{}
-{[}38{]} C.-W. Tsai, C.-F. Lai, H.-C. Chao, and A. V. Vasilakos, ``Big
+{[}39{]} C.-W. Tsai, C.-F. Lai, H.-C. Chao, and A. V. Vasilakos, ``Big
 data analytics: A survey,'' \emph{Journal of Big Data}, vol. 2, no. 1,
 p. 21, Oct. 2015 {[}Online{]}. Available:
 \url{http://journalofbigdata.springeropen.com/articles/10.1186/s40537-015-0030-3}.
 {[}Accessed: 13-Nov-2016{]}
 
 \hypertarget{ref-book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining}{}
-{[}39{]} O. R. Zaïane, \emph{Principles of knowledge discovery in
+{[}40{]} O. R. Zaïane, \emph{Principles of knowledge discovery in
 databases}. 1999, pp. 1--2 {[}Online{]}. Available:
 \url{https://webdocs.cs.ualberta.ca/~zaiane/courses/cmput690/notes/Chapter1/}.
 {[}Accessed: 13-Nov-2016{]}
 
 \hypertarget{ref-web_2013_big-data-collection-collides-with-privacy-concerns}{}
-{[}40{]} ``Big data collection collides with privacy concerns, analysts
+{[}41{]} ``Big data collection collides with privacy concerns, analysts
 say. PCWorld,'' 10-Feb-2013. {[}Online{]}. Available:
 \url{http://www.pcworld.com/article/2027789/big-data-collection-collides-with-privacy-concerns-analysts-say.html}.
 {[}Accessed: 15-Nov-2016{]}
 
 \hypertarget{ref-web_2016_answers-io}{}
-{[}41{]} ``Answers.io. Answers.'' {[}Online{]}. Available:
+{[}42{]} ``Answers.io. Answers.'' {[}Online{]}. Available:
 \url{https://answers.io/answers}. {[}Accessed: 14-Nov-2016{]}
 
 \hypertarget{ref-web_2016_big-data-enthusiasts-should-not-ignore}{}
-{[}42{]} A. L. Burgelman, N. L. Burgelman, and NGDATA, ``Attention, big
+{[}43{]} A. L. Burgelman, N. L. Burgelman, and NGDATA, ``Attention, big
 data enthusiasts: Here's what you shouldn't ignore. WIRED.''
 {[}Online{]}. Available:
 \url{https://www.wired.com/insights/2013/02/attention-big-data-enthusiasts-heres-what-you-shouldnt-ignore/}.
 {[}Accessed: 15-Nov-2016{]}
 
 \hypertarget{ref-report_2001_3d-data-management-controlling-data-volume-velocity-and-variety}{}
-{[}43{]} D. Laney, ``3D data management: Controlling data volume,
+{[}44{]} D. Laney, ``3D data management: Controlling data volume,
 velocity, and variety,'' META Group, February 2001 {[}Online{]}.
 Available:
 \url{http://blogs.gartner.com/doug-laney/files/2012/01/ad949-3D-Data-Management-Controlling-Data-Volume-Velocity-and-Variety.pdf}
 
 \hypertarget{ref-paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data}{}
-{[}44{]} M. Hilbert, ``Big data for development: A review of promises
+{[}45{]} M. Hilbert, ``Big data for development: A review of promises
 and challenges,'' \emph{Development Policy Review}, vol. 34, no. 1, pp.
 135--174, December 2015 {[}Online{]}. Available:
 \url{http://dx.doi.org/10.1111/dpr.12142}
 
 \hypertarget{ref-web_2016_the-state-of-big-data}{}
-{[}45{]} N. Davis Kho, ``The state of big data,'' 24-Feb-2016.
+{[}46{]} N. Davis Kho, ``The state of big data,'' 24-Feb-2016.
 {[}Online{]}. Available:
 \url{http://www.econtentmag.com/Articles/Editorial/Feature/The-State-of-Big-Data-108666.htm}.
 {[}Accessed: 18-Nov-2016{]}
 
 \hypertarget{ref-web_2016_apple_customer-letter}{}
-{[}46{]} T. C. (Apple's CEO), ``A message to our customers. Customer
+{[}47{]} T. C. (Apple's CEO), ``A message to our customers. Customer
 letter,'' 16-Feb-2016. {[}Online{]}. Available:
 \url{http://www.apple.com/customer-letter/}. {[}Accessed: 18-Nov-2016{]}
 
 \hypertarget{ref-web_2016_what-is-differential-privacy}{}
-{[}47{]} M. Green, ``What is differential privacy? A few thoughts on
+{[}48{]} M. Green, ``What is differential privacy? A few thoughts on
 cryptographic engineering,'' 15-Jun-2016. {[}Online{]}. Available:
 \url{https://blog.cryptographyengineering.com/2016/06/15/what-is-differential-privacy/}.
 {[}Accessed: 18-Nov-2016{]}
 
 \hypertarget{ref-web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption}{}
-{[}48{]} B. Budington, ``WhatsApp rolls out end-to-end encryption to its
+{[}49{]} B. Budington, ``WhatsApp rolls out end-to-end encryption to its
 over one billion users,'' 07-Apr-2016. {[}Online{]}. Available:
 \url{https://www.eff.org/deeplinks/2016/04/whatsapp-rolls-out-end-end-encryption-its-1bn-users}.
 {[}Accessed: 18-Nov-2016{]}
 
 \hypertarget{ref-web_2007_introducing-google-traffic}{}
-{[}49{]} ``Stuck in traffic? Insights from googlers into our products,
+{[}50{]} ``Stuck in traffic? Insights from googlers into our products,
 technology, and the google culture,'' 28-Feb-2007. {[}Online{]}.
 Available:
 \url{https://googleblog.blogspot.com/2007/02/stuck-in-traffic.html}.
 {[}Accessed: 18-Nov-2016{]}
 
 \hypertarget{ref-web_2016_wikipedia_google-traffic}{}
-{[}50{]} Wikipedia, ``Google traffic,'' 25-Oct-2016. {[}Online{]}.
+{[}51{]} Wikipedia, ``Google traffic,'' 25-Oct-2016. {[}Online{]}.
 Available:
 \url{https://en.wikipedia.org/w/index.php?title=Google_Traffic\&oldid=746200591}.
 {[}Accessed: 18-Nov-2016{]}
 
 \hypertarget{ref-graphic_2016_global-mobile-os-market-share}{}
-{[}51{]} ``Global mobile OS market share.'' {[}Online{]}. Available:
+{[}52{]} ``Global mobile OS market share.'' {[}Online{]}. Available:
 \url{https://www.statista.com/statistics/266136/global-market-share-held-by-smartphone-operating-systems/}.
 {[}Accessed: 18-Nov-2016{]}
 
 \hypertarget{ref-estimating-the-locations-of-emergency-events-from-twitter-streams_2014}{}
-{[}52{]} J. Ao, P. Zhang, and Y. Cao, ``Estimating the Locations of
+{[}53{]} J. Ao, P. Zhang, and Y. Cao, ``Estimating the Locations of
 Emergency Events from Twitter Streams,'' \emph{Procedia Computer
 Science}, vol. 31, pp. 731--739, 2014 {[}Online{]}. Available:
 \url{http://linkinghub.elsevier.com/retrieve/pii/S1877050914004980}.
 {[}Accessed: 05-Nov-2016{]}
 
 \hypertarget{ref-the-practice-of-predictive-analytics-in-healthcare_2013}{}
-{[}53{]} G. Palem, ``The Practice of Predictive Analytics in
+{[}54{]} G. Palem, ``The Practice of Predictive Analytics in
 Healthcare,'' \emph{ResearchGate}, Apr. 2013 {[}Online{]}. Available:
 \url{https://www.researchgate.net/publication/236336250_The_Practice_of_Predictive_Analytics_in_Healthcare}.
 {[}Accessed: 05-Nov-2016{]}
 
 \hypertarget{ref-data-collection-for-climate-changes_2014}{}
-{[}54{]} N. Burger, B. Ghosh-Dastidar, A. Grant, G. Joseph, T. Ruder, O.
+{[}55{]} N. Burger, B. Ghosh-Dastidar, A. Grant, G. Joseph, T. Ruder, O.
 Tchakeva, and Q. Wodon, ``Data Collection for the Study on Climate
 Change and Migration in the MENA Region,'' 2014 {[}Online{]}. Available:
 \url{https://mpra.ub.uni-muenchen.de/56929/}. {[}Accessed:
 04-Nov-2016{]}
 
 \hypertarget{ref-graphic_2015_applications-of-big-data-in-10-industry-verticals}{}
-{[}55{]} M. Gaitho, ``Applications of big data in 10 industry
+{[}56{]} M. Gaitho, ``Applications of big data in 10 industry
 verticals,'' 20-Oct-2015. {[}Online{]}. Available:
 \url{https://www.simplilearn.com/big-data-applications-in-industries-article}.
 {[}Accessed: 19-Nov-2016{]}
 
 \hypertarget{ref-graphic_2012_personal-data-ecosystem}{}
-{[}56{]} F. T. C. USA, ``Personal data ecosystem,'' \emph{Protecting
+{[}57{]} F. T. C. USA, ``Personal data ecosystem,'' \emph{Protecting
 Consumer Privacy in an Era of Rapid Change - Recommendations for
 Business and Policymakers - FTC Report}, March-2012. {[}Online{]}.
 Available:
@@ -2850,52 +2933,52 @@ Available:
 {[}Accessed: 17-Nov-2016{]}
 
 \hypertarget{ref-paper_1965_moors-law}{}
-{[}57{]} G. E. Moore, ``Cramming more components onto integrated
+{[}58{]} G. E. Moore, ``Cramming more components onto integrated
 circuits,'' \emph{Electronics}, vol. 38, p. 4, Apr. 1965 {[}Online{]}.
 Available:
 \url{https://drive.google.com/file/d/0By83v5TWkGjvQkpBcXJKT1I1TTA/}.
 {[}Accessed: 07-Dec-2016{]}
 
 \hypertarget{ref-podcast_2015_cre-neuronale-netze}{}
-{[}58{]} T. Pritlove and U. Schöneberg, \emph{Neuronale netze}. 2015
+{[}59{]} T. Pritlove and U. Schöneberg, \emph{Neuronale netze}. 2015
 {[}Online{]}. Available: \url{https://cre.fm/cre208-neuronale-netze}.
 {[}Accessed: 06-Dec-2016{]}
 
 \hypertarget{ref-web_2016_industries-intention-to-invest-in-big-data}{}
-{[}59{]} L. Columbus, ``51\% of enterprises intend to invest more in big
+{[}60{]} L. Columbus, ``51\% of enterprises intend to invest more in big
 data,'' 22-May-2016. {[}Online{]}. Available:
 \url{http://www.forbes.com/sites/louiscolumbus/2016/05/22/51-of-enterprises-intend-to-invest-more-in-big-data/}.
 {[}Accessed: 07-Dec-2016{]}
 
 \hypertarget{ref-web_2016_projectvrm_development-work}{}
-{[}60{]} ``ProjectVRM - cDevelopment work. ProjectVRM,'' 28-Nov-2016.
+{[}61{]} ``ProjectVRM - cDevelopment work. ProjectVRM,'' 28-Nov-2016.
 {[}Online{]}. Available:
 \url{https://cyber.harvard.edu/projectvrm/VRM_Development_Work}.
 {[}Accessed: 09-Dec-2016{]}
 
 \hypertarget{ref-web_2016_projectvrm_principles}{}
-{[}61{]} ``ProjectVRM - principles. ProjectVRM,'' 28-Nov-2016.
+{[}62{]} ``ProjectVRM - principles. ProjectVRM,'' 28-Nov-2016.
 {[}Online{]}. Available:
 \url{https://cyber.harvard.edu/projectvrm/Main_Page\#VRM_Principles}.
 {[}Accessed: 09-Dec-2016{]}
 
 \hypertarget{ref-graphic_2011_architecture_components-of-organization-domain}{}
-{[}62{]} The TAS3 Consortium, ``TAS3 architecture - figure 2.2: Major
+{[}63{]} The TAS3 Consortium, ``TAS3 architecture - figure 2.2: Major
 components of organization domain.'' Jul. 2011 {[}Online{]}. Available:
 \url{http://homes.esat.kuleuven.ac.be/~decockd/tas3/final.deliverables/pm42/TAS3_D02p1_TAS3.Architecture_final.pdf}
 
 \hypertarget{ref-web_kantara-initiative}{}
-{[}63{]} ``Kantara initiative -- join. innovate. trust.'' {[}Online{]}.
+{[}64{]} ``Kantara initiative -- join. innovate. trust.'' {[}Online{]}.
 Available: \url{https://kantarainitiative.org/}. {[}Accessed:
 14-Dec-2016{]}
 
 \hypertarget{ref-paper_2014_personal-data-store-approach}{}
-{[}64{]} T. Kirkham, S. Winfield, S. Ravet, and S. Kellomaki, ``The
+{[}65{]} T. Kirkham, S. Winfield, S. Ravet, and S. Kellomaki, ``The
 personal data store approach to personal data security,'' \emph{IEEE
 Security \& Privacy}, vol. 11, no. 5, pp. 12--19, 2013.
 
 \hypertarget{ref-paper_2012_openpds_on-trusted-use-of-large-scale-personal-data}{}
-{[}65{]} Y.-A. de Montjoye, S. S. Wang, A. Pentland, D. T. T. Anh, A.
+{[}66{]} Y.-A. de Montjoye, S. S. Wang, A. Pentland, D. T. T. Anh, A.
 Datta, and others, ``On the trusted use of large-scale personal data.''
 \emph{IEEE Data Eng. Bull.}, vol. 35, no. 4, pp. 5--8, 2012
 {[}Online{]}. Available:
@@ -2903,38 +2986,38 @@ Datta, and others, ``On the trusted use of large-scale personal data.''
 {[}Accessed: 30-Oct-2016{]}
 
 \hypertarget{ref-web_mit_openpds-safeanswers-project-page}{}
-{[}66{]} ``openPDS/SafeAnswers - the privacy-preserving personal data
+{[}67{]} ``openPDS/SafeAnswers - the privacy-preserving personal data
 store.'' {[}Online{]}. Available: \url{http://openpds.media.mit.edu/}.
 {[}Accessed: 14-Dec-2016{]}
 
 \hypertarget{ref-paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers}{}
-{[}67{]} Y.-A. de Montjoye, E. Shmueli, S. S. Wang, and A. S. Pentland,
+{[}68{]} Y.-A. de Montjoye, E. Shmueli, S. S. Wang, and A. S. Pentland,
 ``openPDS: Protecting the privacy of metadata through SafeAnswers,''
 \emph{PLoS ONE}, vol. 9, no. 7, p. e98790, Jul. 2014 {[}Online{]}.
 Available: \url{http://dx.plos.org/10.1371/journal.pone.0098790}.
 {[}Accessed: 30-Oct-2016{]}
 
 \hypertarget{ref-web_microsoft_healthvault}{}
-{[}68{]} ``Microsoft HealthVault. Overview.'' {[}Online{]}. Available:
+{[}69{]} ``Microsoft HealthVault. Overview.'' {[}Online{]}. Available:
 \url{https://www.healthvault.com/de/en/overview}. {[}Accessed:
 14-Dec-2016{]}
 
 \hypertarget{ref-web_meeco_how-it-works}{}
-{[}69{]} ``How it works meeco.'' {[}Online{]}. Available:
+{[}70{]} ``How it works meeco.'' {[}Online{]}. Available:
 \url{https://meeco.me/how-it-works.html}. {[}Accessed: 14-Dec-2016{]}
 
 \hypertarget{ref-slides_2015_meeco-case-study}{}
-{[}70{]} M. Page, ``Online adver\textgreater{}sing -- booming or
+{[}71{]} M. Page, ``Online adver\textgreater{}sing -- booming or
 broken?'' Sep-2015 {[}Online{]}. Available:
 \url{https://meeco.me/assets/pdf/Meeco_Case_Study_Online_Advertising-Booming_or_Broken_Sept_2015.pdf}
 
 \hypertarget{ref-web_industrial-data-space}{}
-{[}71{]} ``The principles. Industrial data space e.V.'' {[}Online{]}.
+{[}72{]} ``The principles. Industrial data space e.V.'' {[}Online{]}.
 Available: \url{http://www.industrialdataspace.org/en/the-principles/}.
 {[}Accessed: 14-Dec-2016{]}
 
 \hypertarget{ref-whitepaper_2016_industrial-data-space}{}
-{[}72{]} B. Prof. Dr.-Ing. Otto, S. Prof. Dr. Auer, J. Cirullies, J.
+{[}73{]} B. Prof. Dr.-Ing. Otto, S. Prof. Dr. Auer, J. Cirullies, J.
 Prof. Dr. Jürjens, N. Menz, J. Schon, and S. Dr. Wenzel, ``Industrial
 data space - digital sovereignity over data.'' Fraunhofer-Gesellschaft
 zur Förderung der angewandten Forschung e.V., 17-Aug-2016 {[}Online{]}.
@@ -2942,155 +3025,161 @@ Available:
 \url{http://www.industrialdataspace.org/wp-content/uploads/2016/09/whitepaper-industrial-data-space-eng.pdf}
 
 \hypertarget{ref-web_spec_http1}{}
-{[}73{]} P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T.
+{[}74{]} P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T.
 Fielding, and J. Gettys, ``Hypertext transfer protocol -- HTTP/1.1,''
 Jun-1999. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc2616}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_http2}{}
-{[}74{]} M. Belshe, M. Thomson, and R. Peon, ``Hypertext transfer
+{[}75{]} M. Belshe, M. Thomson, and R. Peon, ``Hypertext transfer
 protocol version 2 (HTTP/2),'' May-2015. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc7540}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_tls}{}
-{[}75{]} T. Dierks and E. Rescorla, ``The transport layer security (TLS)
+{[}76{]} T. Dierks and E. Rescorla, ``The transport layer security (TLS)
 protocol version 1.2,'' Aug-2008. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc5246}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_websockets}{}
-{[}76{]} I. Fette and A. Melnikov, ``The WebSocket protocol,'' Dec-2011.
+{[}77{]} I. Fette and A. Melnikov, ``The WebSocket protocol,'' Dec-2011.
 {[}Online{]}. Available: \url{https://tools.ietf.org/html/rfc6455}.
 {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_json}{}
-{[}77{]} D. Crockford, ``The JSON data interchange format.'' ECMA
+{[}78{]} D. Crockford, ``The JSON data interchange format.'' ECMA
 International, Oct-2013 {[}Online{]}. Available:
 \url{http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf}
 
 \hypertarget{ref-web_rfc_json}{}
-{[}78{]} T. Bray, ``The JavaScript object notation (JSON) data
+{[}79{]} T. Bray, ``The JavaScript object notation (JSON) data
 interchange format,'' Mar-2014. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc7159}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_2012_problem-with-oauth-for-authentication}{}
-{[}79{]} J. Bradley, ``The problem with OAuth for authentication.''
+{[}80{]} J. Bradley, ``The problem with OAuth for authentication.''
 28-Jan-2012. {[}Online{]}. Available:
 \url{http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html}.
 {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_oauth-1a}{}
-{[}80{]} ``OAuth core 1.0a.'' {[}Online{]}. Available:
+{[}81{]} ``OAuth core 1.0a.'' {[}Online{]}. Available:
 \url{https://oauth.net/core/1.0a/}. {[}Accessed: 18-Dec-2016{]}
 
 \hypertarget{ref-web_spec_oauth-2}{}
-{[}81{]} D. Hardt, ``The OAuth 2.0 authorization framework,'' Oct-2012.
+{[}82{]} D. Hardt, ``The OAuth 2.0 authorization framework,'' Oct-2012.
 {[}Online{]}. Available: \url{https://tools.ietf.org/html/rfc6749}.
 {[}Accessed: 18-Dec-2016{]}
 
 \hypertarget{ref-web_2016_oauth-2}{}
-{[}82{]} I. O. WG, ``OAuth 2.0.'' {[}Online{]}. Available:
+{[}83{]} I. O. WG, ``OAuth 2.0.'' {[}Online{]}. Available:
 \url{https://oauth.net/2/}. {[}Accessed: 16-Dec-2016{]}
 
 \hypertarget{ref-web_spec_openid-connect-1}{}
-{[}83{]} ``OpenID connect core 1.0 incorporating errata set 1,''
+{[}84{]} ``OpenID connect core 1.0 incorporating errata set 1,''
 08-Nov-2014. {[}Online{]}. Available:
 \url{https://openid.net/specs/openid-connect-core-1_0.html}.
 {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_json-web-token}{}
-{[}84{]} J. Bradley, N. Sakimura, and M. Jones, ``JSON web token
+{[}85{]} J. Bradley, N. Sakimura, and M. Jones, ``JSON web token
 (JWT),'' May-2015. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc7519}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_json-web-encryption}{}
-{[}85{]} J. Hildebrand and M. Jones, ``JSON web encryption (JWE),''
+{[}86{]} J. Hildebrand and M. Jones, ``JSON web encryption (JWE),''
 May-2015. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc7516}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_json-web-signature}{}
-{[}86{]} J. Bradley, N. Sakimura, and M. Jones, ``JSON web signature
+{[}87{]} J. Bradley, N. Sakimura, and M. Jones, ``JSON web signature
 (JWS),'' May-2015. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc7515}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_rest}{}
-{[}87{]} T. Fielding, ``Representational state transfer (REST),'' in
+{[}88{]} T. Fielding, ``Representational state transfer (REST),'' in
 \emph{Architectural styles and the design of network-based software
 architectures}, University of California, Irvine, 2000, pp. 76--106
 {[}Online{]}. Available:
 \url{https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf}
 
 \hypertarget{ref-web_spec_http-methods}{}
-{[}88{]} P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T.
+{[}89{]} P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T.
 Fielding, and J. Gettys, ``HTTP methods,'' Jun-1999. {[}Online{]}.
 Available: \url{https://tools.ietf.org/html/rfc2616\#section-9}.
 {[}Accessed: 18-Dec-2016{]}
 
 \hypertarget{ref-web_spec_graphql}{}
-{[}89{]} ``GraphQL,'' Oct-2016. {[}Online{]}. Available:
+{[}90{]} ``GraphQL,'' Oct-2016. {[}Online{]}. Available:
 \url{https://facebook.github.io/graphql/}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_w3c-tr_rdf}{}
-{[}90{]} D. Beckett and B. McBride, ``RDF/XML syntax specification
+{[}91{]} D. Beckett and B. McBride, ``RDF/XML syntax specification
 (revised),'' 10-Feb-2004. {[}Online{]}. Available:
 \url{https://www.w3.org/TR/REC-rdf-syntax/}. {[}Accessed: 19-Dec-2016{]}
 
 \hypertarget{ref-web_w3c-tr_owl}{}
-{[}91{]} W. O. W. Group, ``OWL 2 web ontology language document overview
+{[}92{]} W. O. W. Group, ``OWL 2 web ontology language document overview
 (second edition),'' 11-Dec-2012. {[}Online{]}. Available:
 \url{https://www.w3.org/TR/owl2-overview/}. {[}Accessed: 19-Dec-2016{]}
 
 \hypertarget{ref-web_w3c-tr_sparql}{}
-{[}92{]} S. Harris, A. Seaborne, and E. Prud'hommeaux, ``SPARQL 1.1
+{[}93{]} S. Harris, A. Seaborne, and E. Prud'hommeaux, ``SPARQL 1.1
 query language,'' 21-Mar-2013. {[}Online{]}. Available:
 \url{https://www.w3.org/TR/sparql11-query/}. {[}Accessed: 19-Dec-2016{]}
 
 \hypertarget{ref-web_w3c-draft_webid}{}
-{[}93{]} ``WebID specifications.'' {[}Online{]}. Available:
+{[}94{]} ``WebID specifications.'' {[}Online{]}. Available:
 \url{https://www.w3.org/2005/Incubator/webid/spec/}. {[}Accessed:
 19-Dec-2016{]}
 
 \hypertarget{ref-web_spec_solid}{}
-{[}94{]} ``Solid specification,'' 03-Mar-2016. {[}Online{]}. Available:
+{[}95{]} ``Solid specification,'' 03-Mar-2016. {[}Online{]}. Available:
 \url{https://github.com/solid/solid-spec}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_2016_wiki_webaccesscontrol}{}
-{[}95{]} ``WebAccessControl - w3c wiki.'' {[}Online{]}. Available:
+{[}96{]} ``WebAccessControl - w3c wiki.'' {[}Online{]}. Available:
 \url{https://www.w3.org/wiki/WebAccessControl}. {[}Accessed:
 19-Dec-2016{]}
 
 \hypertarget{ref-web_2016_demo_databox}{}
-{[}96{]} ``Databox.me.'' {[}Online{]}. Available:
+{[}97{]} ``Databox.me.'' {[}Online{]}. Available:
 \url{https://databox.me/}. {[}Accessed: 19-Dec-2016{]}
 
 \hypertarget{ref-web_2015_cgroup-doc}{}
-{[}97{]} T. Heo, ``Control group (v2) documentation,'' Oct-2015.
+{[}98{]} T. Heo, ``Control group (v2) documentation,'' Oct-2015.
 {[}Online{]}. Available:
 \url{https://www.kernel.org/doc/Documentation/cgroup-v2.txt}.
 {[}Accessed: 20-Dec-2016{]}
 
 \hypertarget{ref-web_2016_kernel-namespace}{}
-{[}98{]} ``Overview of linux namespaces,'' 12-Dec-2016. {[}Online{]}.
+{[}99{]} ``Overview of linux namespaces,'' 12-Dec-2016. {[}Online{]}.
 Available: \url{http://man7.org/linux/man-pages/man7/namespaces.7.html}.
 {[}Accessed: 20-Dec-2016{]}
 
 \hypertarget{ref-web_2016_open-container-initiative}{}
-{[}99{]} ``Open container initiative.'' {[}Online{]}. Available:
+{[}100{]} ``Open container initiative.'' {[}Online{]}. Available:
 \url{https://www.opencontainers.org/}. {[}Accessed: 20-Dec-2016{]}
 
 \hypertarget{ref-web_oci-spec_runtime}{}
-{[}100{]} ``Container runtime specification (v1.0.0-rc3),'' 12-Dec-2016.
+{[}101{]} ``Container runtime specification (v1.0.0-rc3),'' 12-Dec-2016.
 {[}Online{]}. Available:
 \url{https://github.com/opencontainers/runtime-spec/tree/v1.0.0-rc3}.
 {[}Accessed: 20-Dec-2016{]}
 
 \hypertarget{ref-web_oci-spec_image}{}
-{[}101{]} ``Container image specification (v1.0.0-rc3),'' 30-Nov-2016.
+{[}102{]} ``Container image specification (v1.0.0-rc3),'' 30-Nov-2016.
 {[}Online{]}. Available:
 \url{https://github.com/opencontainers/image-spec/tree/v1.0.0-rc3}.
 {[}Accessed: 20-Dec-2016{]}
 
+\hypertarget{ref-book_2015_ethical-it-innovation}{}
+{[}103{]} S. Spiekermann, \emph{Ethical IT Innovation: A Value-Based
+System Design Approach}. CRC Press; Taylor \& Francis Group, LLC, 2015
+{[}Online{]}. Available:
+\url{https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355}
+
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}102{]} N. Carlson, ``Facebook connect is a huge success -- by the
+{[}104{]} N. Carlson, ``Facebook connect is a huge success -- by the
 numbers,'' 01-Jul-2009. {[}Online{]}. Available:
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 {[}Accessed: 16-Dec-2016{]}

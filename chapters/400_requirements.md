@@ -3,10 +3,11 @@ Requirements
 
 
 
-The subsequent requirements shall be served as a list of features on the one hand, to get an idea 
-about how the open specification and thus the resulting software might look like, and to give an 
-overview about priorities (can/could, may/might, should, must/have to) on the other hand. 
-Subsequent chapters may contain specific references to the requirements listed below.
+Derived from the [Core Principles](#core-principles), the subsequent requirements shall be served as 
+a list of features on the one hand, to get an idea about how the open specification and thus the 
+resulting software might look like, and to give an overview about priorities (can/could, may/might, 
+should, must/have to) on the other hand. 
+Other chapters may contain specific references to the requirements listed below.
 
 
 
@@ -25,6 +26,13 @@ data that then get's provided and decides about which third party get's access t
 type are the [consumers](#terminologies--consumer). These are external third parties that desire 
 certain data about or from the operator.
 (see [Terminologies](#terminologies))
+
+__*[S.A.03]{#sa03}* - Authenticity__\
+Since they have to rely on the data, both entities - everyone belonging to one of the 
+*[roles](#sa02)* - should be able to ensure the authenticity of it's opponent and the data in 
+question. It should be possible to opt out, if that level of reliability is not necessary. Whereas 
+if one of the parties demanding the other one of providing such level, but the other doesn't, then
+the access attempt will fail.
 
 
 #### Persistence:

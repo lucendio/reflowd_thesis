@@ -66,7 +66,7 @@ sensitive data is stored.
 
 +   In the context of this document and all related work, __Personal Data__ is specified as a
     combination of an individual's *Digital Identity* and all of it's ever created intellectual 
-    property (e.g. posts, images, tweets or comments). This includes all sorts of tracking data 
+    property [@web_2016_wikipedia_intellectual-property] (e.g. posts, images, tweets or comments). This includes all sorts of tracking data 
     and interaction monitoring, as well as metadata manually or automated enriching content 
     (e.g.geo-location attached to a tweet as meta information). Data, captured by someone ore 
     something on or about the individual's private living space and property. 
@@ -155,15 +155,15 @@ sensitive data is stored.
 
 
 
-Whereas __Ownership__ of *Personal Data* has no legal ground foundation so ever. The concepts of 
-intellectual property protection and copyright might intuitively be applicable, because the data, 
+Whereas __Ownership__ of *Personal Data* has no legal ground foundation what so ever. The concepts 
+of intellectual property protection and copyright might intuitively be applicable, because the data, 
 created by the data subject, seems to be her *intellectual property*. Such property implies to be a result 
 of a creative process though, but unfortunately there is no *threshold of originality* in facts, 
 like *personal information* is [@paper_2014_who-owns-yours-data]. 
 
 +   Ownership in the sense of having exclusive control over it's personal data and how they get 
 processed at any given point in time; this not only comes with high costs, but is also very 
-inconvenient for both parties - data subject and data consumer. It consists of two concepts: (A) the 
+inconvenient for both parties - data subject and data consumer. It consists of two [concepts]{#def-ownership}: (A) the 
 right to do what every is desired with their property and (B) in which rules and mechanisms the 
 ownership can be assigned to someone [@book_1987_private-ownership_definition].
 
@@ -284,7 +284,7 @@ technical solution could help to regain some control.
     understand the behaviour, decision making and needs of her customers a vendor, who owns the 
     business, needs to know as much as possible about them, when she wants to know what changes
     she needs to address in order to move towards the most lucrative business.
-+   personal data and information are reflecting all this knowledge. It starts with profile data, such
++   personal data and information are reflecting all this knowledge. It starts with profile (or sensitive) data, such
     as gender, age, residency or income, goes on with time series events like geo-location changes, 
     or web search history and goes all the way up to health data and self-created content like 
     *Tweets* [^tweets] or videos.
@@ -555,7 +555,7 @@ make the most accurate decisions on medical treatment.
 which essentially just cuts out the advertisement 
 service provider as a middle man inherits that role by itself. The platform does provide
 the data subjects with more control over what information they reveal, but it doesn't go the 
-so eagerly demanded next step, which would means real decoupling from the advertisement market 
+so eagerly demanded next step, which would means real uncoupling from the advertisement market 
 and finding a suitable business model that focuses on the data subject, instead of surrounding them 
 with just another walled garden.
 
@@ -716,7 +716,7 @@ the URI, working as a unique identifier.
 While defining the standards, an importancy was to define a syntax which is also valid markup, in 
 order to maintain a single source of trough and save redundant work.
 Related to this topic is the work on a specification called __Solid__ [^abbr_solid]. Based on the 
-*Linked Data* principals, that are facilitated through the standards just mentioned and the 
+*Linked Data* principles, that are facilitated through the standards just mentioned and the 
 *WebAccessControl* [@web_2016_wiki_webaccesscontrol] system, the project focuses on decentralization 
 and personal data. A reference implementation called *databox* [@web_2016_demo_databox] combines all 
 these technologies and is build on top. 
