@@ -28,7 +28,7 @@ data. Although, it is to be noted, that the legal rulebook for data consumers me
 remains a highly important, since this project is not able to cover every use case, that might 
 occur.
 
-Promoted from the data subject to the data owner, in the center of the *PDaaS*, the operator gains 
+Promoted from the data subject to the data owner, being the center of the *PDaaS*, the operator gains 
 abilities to have as much control over all the data related to her as possible, to determine in a 
 very precise ways what data of hers can be accessed by third parties and to literally carry all her 
 personal data with her. 
@@ -44,34 +44,49 @@ is coming from and vice versa; the *operator* must be able to verify the authent
 of the requesting source, too; regardless if it's the initial *permission request* or further 
 *access attempts*.
 Based on these mechanisms, the system can also provide an authentication services to all sorts of 
-generic or restricted platforms for the associated identity, including second factor abilities
+generic or restricted platforms for the associated identity, including second factor abilities.
 
 
 
 ## Reliable Data
 
-+   is this data (in this case identity) certified or not (results in higher value)
-
-So the *data consumer* must be certain that the received data is correct and authentic, and those really belong to the individual, who is currently involved in that 
-specific process.
-
+Being able to verify the authenticity of a communication partner means only to be half-way through.
+Data consumers also need to trust the data itself, which is attributed to the following properties. 
+(A) *integrity* - which means the recipient can verify, that the data, sent to her, is still the 
+same, or if someone has tampered with the obtained data. (B) *authenticity* - it is somehow ensured, 
+or the recipient must be certain, that the received data belongs to the individual from whom the 
+data comes from.
+A negative result of that check should not cause a termination of the process, but instead should 
+warn the recipient about the lack of authenticity, so that she, herself, can decide if and how to 
+proceed. 
+ 
 
 
 ## Authorisation
 
-+   NOTE: does not mean this tool authenticates it's associates data subject against third party 
-    platforms like OpenID does. but it could play the role of the 2n factor in a multi-factor 
-    authentication process (if the mobile-device-architecture was chosen)
-+   refers primarily to the process of a data consumer (third party, which needs the data for 
-    whatever reason) verifies her admission to request
+Controlling it's own data might probably be the most important ability of such a system, because the 
+data owner gets enabled to grant permission to any entity who want to obtain certain information 
+about her in a semi-automated way. She can authorise as precise as desired how long and what data 
+(sets, points or fields) is accessible by a single entity. Thereby, the data owner is able to change 
+the *access permissions* for any entity at any point in time, for example motivated by a noticed 
+incident. 
 
 
 
 ## Supervised Data Access
 
-+   pure/plain data request/resonse 
-+   remote computation/execution (assuming there is no client for the consumer) 
-    like https://webtask.io/
+Rules and constraints might be one way to handle *personal data* accesses by *third parties*.
+But this plain *query and response data* approach could be replaced by a more supervised concept, 
+that prevents data from leaving the system. This, instead, allows to execute a small program within 
+a locally defined environment, computing just a fraction of bigger computation, initiated by the 
+*data consumer*; image a distributed Map-Reduce concept [@paper_2004_distributed-mapreduce].
+
+
+
+
+It is not very likely that *data consumers*, who already got granted certain access, would renounce
+their privileges. Thus it is vital that the *data owner* is in position of canceling the the *access 
+permissions* or applying appropriate changes.
 
 
 
