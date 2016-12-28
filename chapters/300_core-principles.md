@@ -75,32 +75,39 @@ incident.
 
 ## Supervised Data Access
 
-Rules and constraints might be one way to handle *personal data* accesses by *third parties*.
+Rules and constraints might be one way to handle *personal data* demands of *third parties*.
 But this plain *query and response data* approach could be replaced by a more supervised concept, 
-that prevents data from leaving the system. This, instead, allows to execute a small program within 
-a locally defined environment, computing just a fraction of bigger computation, initiated by the 
-*data consumer*; image a distributed Map-Reduce concept [@paper_2004_distributed-mapreduce].
+that prevents data from leaving the system. It allows to execute a small program within a locally 
+defined environment, computing  only a fraction of a larger computation that was initiated by 
+the *data consumer* beforehand; similar to a distributed Map-Reduce concept 
+[@paper_2004_distributed-mapreduce]. The opposite approach, to provide some software to the *data 
+consumer* that is necessary to access the contents of a response or provides a runtime environment
+querying the system by itself, would be conceivable, too.
+In general, it is not very likely that *data consumers*, who already got granted certain access, 
+would renounce their privileges. Thus it is vital that the *data owner* is the one who is able of 
+cancel the *access permissions* or applying appropriate changes. Supervising methods provide an 
+appropriate ways to make data available to those who are eager to consume them. 
 
 
 
+## Containerization
 
-It is not very likely that *data consumers*, who already got granted certain access, would renounce
-their privileges. Thus it is vital that the *data owner* is in position of canceling the the *access 
-permissions* or applying appropriate changes.
-
-
-
-## Encapsulation
-
-+   containerization (coreos, rkt, mirageos aka unikernal)
-
-
-
-## Flexible Application
-
-+   using and fitting into all kinds of scenarios: e.g. storing cara data, providing sensitive 
-profile data, being patient file
-+   without increasing system complexity (!
+Abstracting an operating system by moving the bare minimum of required parts into a virtualization
+results into an environment that can be, depending on the configuration, fully encapsulate it's 
+internals from the host environment. This approach yields to some valuable features. Such as:
+(A) Effortless portability, which reduces the requirements on environment and hardware to a minimum.
+(B) Thereby gaining higher flexibility in placing components, through which advantages can be made
+    out of other devices characteristics.
+    while not necessarily increasing the overall complexity of the system
+(C) Isolation and reduction of shared spaces and scopes, which for example can prevent side effects.  
+All these in conjunction lead also to an overall security improvement or at least it enables new 
+patterns to improve such aspects. Furthermore, it allows to suit more versatile and diverse 
+scenarios, like storing data about a using data, providing sensitive profile data or getting used as 
+a patient file. The convenience of a precise resource assignment might also become relevant for case 
+where device's hardware specification might be somewhat low.
+Building a system upon a container-based philosophy and enclosing components in their own 
+environment brings a variety of design and architectural possibilities without the necessity of 
+increasing the overall system complexity.
 
 
 
