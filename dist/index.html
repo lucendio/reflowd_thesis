@@ -45,33 +45,33 @@
                 <li><a href="#reliable-data"><span class="toc-section-number">4.4</span> Reliable Data</a></li>
                 <li><a href="#authorisation"><span class="toc-section-number">4.5</span> Authorisation</a></li>
                 <li><a href="#supervised-data-access"><span class="toc-section-number">4.6</span> Supervised Data Access</a></li>
-                <li><a href="#encapsulation"><span class="toc-section-number">4.7</span> Encapsulation</a></li>
-                <li><a href="#flexible-application"><span class="toc-section-number">4.8</span> Flexible Application</a></li>
-                <li><a href="#open-development"><span class="toc-section-number">4.9</span> Open Development</a></li>
+                <li><a href="#containerization"><span class="toc-section-number">4.7</span> Containerization</a></li>
+                <li><a href="#open-development"><span class="toc-section-number">4.8</span> Open Development</a></li>
                 </ul></li>
                 <li><a href="#requirements"><span class="toc-section-number">5</span> Requirements</a></li>
                 <li><a href="#design-discussion"><span class="toc-section-number">6</span> Design Discussion</a><ul>
-                <li><a href="#data-exchangeaccess-process-design"><span class="toc-section-number">6.2</span> Data Exchange/Access Process Design</a></li>
-                <li><a href="#verification-authentication"><span class="toc-section-number">6.3</span> Verification / Authentication</a></li>
-                <li><a href="#architecture"><span class="toc-section-number">6.4</span> Architecture</a><ul>
-                <li><a href="#overview"><span class="toc-section-number">6.4.2</span> Overview</a></li>
-                <li><a href="#components"><span class="toc-section-number">6.4.3</span> Components</a></li>
-                <li><a href="#plugins"><span class="toc-section-number">6.4.4</span> Plugins</a></li>
+                <li><a href="#architecture"><span class="toc-section-number">6.2</span> Architecture</a><ul>
+                <li><a href="#data-exchangeaccess-process-design"><span class="toc-section-number">6.2.2</span> Data Exchange/Access Process Design</a></li>
                 </ul></li>
-                <li><a href="#data"><span class="toc-section-number">6.5</span> Data</a><ul>
-                <li><a href="#modelling"><span class="toc-section-number">6.5.2</span> Modelling</a></li>
-                <li><a href="#categories-or-classes"><span class="toc-section-number">6.5.3</span> Categories (or Classes)</a></li>
-                <li><a href="#types"><span class="toc-section-number">6.5.4</span> Types</a></li>
-                <li><a href="#persistence-1"><span class="toc-section-number">6.5.5</span> Persistence</a></li>
-                <li><a href="#access-permission"><span class="toc-section-number">6.5.6</span> Access &amp; Permission</a></li>
-                <li><a href="#consumption-data-inflow"><span class="toc-section-number">6.5.7</span> Consumption (data inflow)</a></li>
-                <li><a href="#emission-data-outflow"><span class="toc-section-number">6.5.8</span> Emission (data outflow)</a></li>
-                <li><a href="#history"><span class="toc-section-number">6.5.9</span> History</a></li>
+                <li><a href="#verification-authentication"><span class="toc-section-number">6.3</span> Verification / Authentication</a><ul>
+                <li><a href="#overview"><span class="toc-section-number">6.3.2</span> Overview</a></li>
+                <li><a href="#components"><span class="toc-section-number">6.3.3</span> Components</a></li>
+                <li><a href="#plugins"><span class="toc-section-number">6.3.4</span> Plugins</a></li>
                 </ul></li>
-                <li><a href="#interfaces-1"><span class="toc-section-number">6.6</span> Interfaces</a><ul>
-                <li><a href="#internal"><span class="toc-section-number">6.6.2</span> Internal</a></li>
-                <li><a href="#external"><span class="toc-section-number">6.6.3</span> External</a></li>
-                <li><a href="#authentication"><span class="toc-section-number">6.6.4</span> Authentication</a></li>
+                <li><a href="#data"><span class="toc-section-number">6.4</span> Data</a><ul>
+                <li><a href="#modelling"><span class="toc-section-number">6.4.2</span> Modelling</a></li>
+                <li><a href="#categories-or-classes"><span class="toc-section-number">6.4.3</span> Categories (or Classes)</a></li>
+                <li><a href="#types"><span class="toc-section-number">6.4.4</span> Types</a></li>
+                <li><a href="#persistence-1"><span class="toc-section-number">6.4.5</span> Persistence</a></li>
+                <li><a href="#access-permission"><span class="toc-section-number">6.4.6</span> Access &amp; Permission</a></li>
+                <li><a href="#consumption-data-inflow"><span class="toc-section-number">6.4.7</span> Consumption (data inflow)</a></li>
+                <li><a href="#emission-data-outflow"><span class="toc-section-number">6.4.8</span> Emission (data outflow)</a></li>
+                <li><a href="#history"><span class="toc-section-number">6.4.9</span> History</a></li>
+                </ul></li>
+                <li><a href="#interfaces-1"><span class="toc-section-number">6.5</span> Interfaces</a><ul>
+                <li><a href="#internal"><span class="toc-section-number">6.5.2</span> Internal</a></li>
+                <li><a href="#external"><span class="toc-section-number">6.5.3</span> External</a></li>
+                <li><a href="#authentication"><span class="toc-section-number">6.5.4</span> Authentication</a></li>
                 </ul></li>
                 </ul></li>
                 <li><a href="#specification"><span class="toc-section-number">7</span> Specification</a><ul>
@@ -402,59 +402,41 @@
 <section id="data-ownership" class="level2">
 <h2><span class="header-section-number">4.2</span> Data Ownership</h2>
 <p>Depending on the standpoint, the question about ownership of certain data might not that trivial to answer. As stated in the <a href="#digital-identity-personal-data-and-ownership">previous section</a>, ownership requires a certain amount of originality to become intellectual property, which is not the case for personal data - at least for all the non-creative content. Thus there is no legal ground for an individual to license those data, that obviously belongs to her. Switching the perspective from the <em>data subject</em> to the data <em>consumer</em>; for them, several laws exist addressing conditions and rules regarding data acquisition, processing and usage. Leaving aside the absence of any legislation regarding data ownership, it can not be denied, that is seems unnatural not being the owner of all the data that reflects her identity and her as an individual. So instead of defining those rules meant to protect data subjects, but demanding data consumers to comply with, the proposal here is to put the entity, to whom the data is related to, in control of defining, who can access her data and what accessor is allowed to do with it. This would make the <em>data subject</em>, <a href="#def-ownership">per definition</a> and effectively, to the owner of those data. Although, it is to be noted, that the legal rulebook for data consumers mentioned before, remains a highly important, since this project is not able to cover every use case, that might occur.</p>
-<p>Promoted from the data subject to the data owner, in the center of the <em>PDaaS</em>, the operator gains abilities to have as much control over all the data related to her as possible, to determine in a very precise ways what data of hers can be accessed by third parties and to literally carry all her personal data with her.</p>
+<p>Promoted from the data subject to the data owner, being the center of the <em>PDaaS</em>, the operator gains abilities to have as much control over all the data related to her as possible, to determine in a very precise ways what data of hers can be accessed by third parties and to literally carry all her personal data with her.</p>
 </section>
 <section id="identity-verification" class="level2">
 <h2><span class="header-section-number">4.3</span> Identity Verification</h2>
-<p>When an instance of this system is going to be the digital counterpart of an individuals identity or it’s <em>personal agent</em> <span class="citation" data-cites="book_2015_ethical-it-innovation">[<a href="#ref-book_2015_ethical-it-innovation">103</a>]</span>, then everyone who relies on the information that agent is providing, must also be able to trust the source from where that data is coming from and vice versa; the <em>operator</em> must be able to verify the authenticity of the requesting source, too; regardless if it’s the initial <em>permission request</em> or further <em>access attempts</em>. Based on these mechanisms, the system can also provide an authentication services to all sorts of generic or restricted platforms for the associated identity, including second factor abilities</p>
+<p>When an instance of this system is going to be the digital counterpart of an individuals identity or it’s <em>personal agent</em> <span class="citation" data-cites="book_2015_ethical-it-innovation">[<a href="#ref-book_2015_ethical-it-innovation">103</a>]</span>, then everyone who relies on the information that agent is providing, must also be able to trust the source from where that data is coming from and vice versa; the <em>operator</em> must be able to verify the authenticity of the requesting source, too; regardless if it’s the initial <em>permission request</em> or further <em>access attempts</em>. Based on these mechanisms, the system can also provide an authentication services to all sorts of generic or restricted platforms for the associated identity, including second factor abilities.</p>
 </section>
 <section id="reliable-data" class="level2">
 <h2><span class="header-section-number">4.4</span> Reliable Data</h2>
-<ul>
-<li>is this data (in this case identity) certified or not (results in higher value)</li>
-</ul>
-<p>So the <em>data consumer</em> must be certain that the received data is correct and authentic, and those really belong to the individual, who is currently involved in that specific process.</p>
+<p>Being able to verify the authenticity of a communication partner means only to be half-way through. Data consumers also need to trust the data itself, which is attributed to the following properties.</p>
+<ol type="A">
+<li><em>integrity</em> - which means the recipient can verify, that the data, sent to her, is still the same, or if someone has tampered with the obtained data. (B) <em>authenticity</em> - it is somehow ensured, or the recipient must be certain, that the received data belongs to the individual from whom the data comes from. A negative result of that check should not cause a termination of the process, but instead should warn the recipient about the lack of authenticity, so that she, herself, can decide if and how to proceed.</li>
+</ol>
 </section>
 <section id="authorisation" class="level2">
 <h2><span class="header-section-number">4.5</span> Authorisation</h2>
-<ul>
-<li>NOTE: does not mean this tool authenticates it’s associates data subject against third party platforms like OpenID does. but it could play the role of the 2n factor in a multi-factor authentication process (if the mobile-device-architecture was chosen)</li>
-<li>refers primarily to the process of a data consumer (third party, which needs the data for whatever reason) verifies her admission to request</li>
-</ul>
+<p>Controlling it’s own data might probably be the most important ability of such a system, because the data owner gets enabled to grant permission to any entity who want to obtain certain information about her in a semi-automated way. She can authorise as precise as desired how long and what data (sets, points or fields) is accessible by a single entity. Thereby, the data owner is able to change the <em>access permissions</em> for any entity at any point in time, for example motivated by a noticed incident.</p>
 </section>
 <section id="supervised-data-access" class="level2">
 <h2><span class="header-section-number">4.6</span> Supervised Data Access</h2>
-<ul>
-<li>pure/plain data request/resonse</li>
-<li>remote computation/execution (assuming there is no client for the consumer) like https://webtask.io/</li>
-</ul>
+<p>Rules and constraints might be one way to handle <em>personal data</em> demands of <em>third parties</em>. But this plain <em>query and response data</em> approach could be replaced by a more supervised concept, that prevents data from leaving the system. It allows to execute a small program within a locally defined environment, computing only a fraction of a larger computation that was initiated by the <em>data consumer</em> beforehand; similar to a distributed Map-Reduce concept <span class="citation" data-cites="paper_2004_distributed-mapreduce">[<a href="#ref-paper_2004_distributed-mapreduce">104</a>]</span>. The opposite approach, to provide some software to the <em>data consumer</em> that is necessary to access the contents of a response or provides a runtime environment querying the system by itself, would be conceivable, too. In general, it is not very likely that <em>data consumers</em>, who already got granted certain access, would renounce their privileges. Thus it is vital that the <em>data owner</em> is the one who is able of cancel the <em>access permissions</em> or applying appropriate changes. Supervising methods provide an appropriate ways to make data available to those who are eager to consume them.</p>
 </section>
-<section id="encapsulation" class="level2">
-<h2><span class="header-section-number">4.7</span> Encapsulation</h2>
-<ul>
-<li>containerization (coreos, rkt, mirageos aka unikernal)</li>
-</ul>
-</section>
-<section id="flexible-application" class="level2">
-<h2><span class="header-section-number">4.8</span> Flexible Application</h2>
-<ul>
-<li>using and fitting into all kinds of scenarios: e.g. storing cara data, providing sensitive profile data, being patient file</li>
-<li>without increasing system complexity (!</li>
-</ul>
+<section id="containerization" class="level2">
+<h2><span class="header-section-number">4.7</span> Containerization</h2>
+<p>Abstracting an operating system by moving the bare minimum of required parts into a virtualization results into an environment that can be, depending on the configuration, fully encapsulate it’s internals from the host environment. This approach yields to some valuable features. Such as:</p>
+<ol type="A">
+<li>Effortless portability, which reduces the requirements on environment and hardware to a minimum.</li>
+<li>Thereby gaining higher flexibility in placing components, through which advantages can be made out of other devices characteristics. while not necessarily increasing the overall complexity of the system</li>
+<li>Isolation and reduction of shared spaces and scopes, which for example can prevent side effects.<br />
+All these in conjunction lead also to an overall security improvement or at least it enables new patterns to improve such aspects. Furthermore, it allows to suit more versatile and diverse scenarios, like storing data about a using data, providing sensitive profile data or getting used as a patient file. The convenience of a precise resource assignment might also become relevant for case where device’s hardware specification might be somewhat low. Building a system upon a container-based philosophy and enclosing components in their own environment brings a variety of design and architectural possibilities without the necessity of increasing the overall system complexity.</li>
+</ol>
 </section>
 <section id="open-development" class="level2">
-<h2><span class="header-section-number">4.9</span> Open Development</h2>
-<ul>
-<li>which and why open standards</li>
-<li>why open source</li>
-<li><p>collaborative transparent development</p></li>
-<li>Hosting &amp; Administration
-<ul>
-<li>DYI</li>
-<li>Usability</li>
-</ul></li>
-</ul>
-<p>When developing an <em>Open Specification</em> it comes naturally to build upon open technologies, which is understood as open standards and open source; <em>open</em> in the sense of <em>unrestricted accessible by everybody</em>; not to be confused with free - as in <em>freedom</em> - software. In this case, advocating such a an openness enables not only to develop implementations of the specification in a collaborative way, but also the specification itself, and makes it possible for anyone who is interested to participate or even to contribute. For everyone who just want to use open technologies, a license defining rules and conditions is typically enclosed somehow. But regardless of the motivation everybody who is interested in getting to know how these hard- or software blackboxes-by-design are actually working, is thus able to look into it.</p>
+<h2><span class="header-section-number">4.8</span> Open Development</h2>
+<p>When developing an <em>Open Specification</em> it only comes natural to build upon open technologies, which are understand as <em>open standards</em> and <em>open source</em>; <em>open</em> in the sense of <em>unrestricted accessible by everybody</em> and not to be confused with free - as in <em>freedom</em> - software. Advocating such a philosophy permits not only to develop implementations in a collaborative way, but enables<br />
+also to work fully transparent on the specification itself. Such an open environment makes it possible for anyone who is interested, to participate or even to contribute to the project. Thus, to lower the barrier, usable and meaningful documentation is vital. Such an openness ensures the possibility of looking into the source code and getting a picture of what the program actually does and how it works. Thus, source code reviews become possible as well. Those might reveal certain security flaws, which then are able to get fixed very quickly. Furthermore, this approach allows data subjects to setup their own infrastructure and host such a system, which gains even more control over the data and increases the level of trust, instead of using a <em>SaaS</em><a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a> solution that is host by another provider. It also encourages any kind of adjustments or customization to the system in order to serve the own’s needs. Enabling an open development allows users and contributors working together and thus improve the outcome in a variety of ways.</p>
 </section>
 </section>
 <section id="requirements" class="level1">
@@ -533,13 +515,24 @@ Real time communication might be essential for time-critical data transaction. H
 <p>The following chapter documents the processes of some design decision makings, examines possible issues emerging alongside and discuses different solutions obtained from several perspectives in order to evaluate their advantages and disadvantages. Probably not every issue will get it’s<br />
 deserved rome , but major aspects will be addressed.</p>
 <p>NOTE: here we discuss a variety of possibilities –&gt; conceptual work</p>
-<section id="data-exchangeaccess-process-design" class="level2">
-<h2><span class="header-section-number">6.2</span> Data Exchange/Access Process Design</h2>
+<section id="architecture" class="level2">
+<h2><span class="header-section-number">6.2</span> Architecture</h2>
+<ul>
+<li>showing possible directions, e.g.:
+<ul>
+<li>cloud or local storage</li>
+<li>which components can go where</li>
+<li>remote execution, to prevent data from leaving the system</li>
+</ul></li>
+</ul>
+<section id="data-exchangeaccess-process-design" class="level3">
+<h3><span class="header-section-number">6.2.2</span> Data Exchange/Access Process Design</h3>
 <ol type="A">
 <li>just requesting and responding with pure data</li>
 <li>provide executable and input schema; run on the PDaaS environment in a sandbox; return result</li>
 <li>DRM for personal data: provide a piece of software to the data consumer, which does the licence checking, key obtaining and encryption of the data, he has requested, in order to work with / compute that data</li>
 </ol>
+</section>
 </section>
 <section id="verification-authentication" class="level2">
 <h2><span class="header-section-number">6.3</span> Verification / Authentication</h2>
@@ -557,25 +550,14 @@ deserved rome , but major aspects will be addressed.</p>
 </ul></li>
 <li>Authentication</li>
 </ul>
-</section>
-<section id="architecture" class="level2">
-<h2><span class="header-section-number">6.4</span> Architecture</h2>
-<ul>
-<li>showing possible directions, e.g.:
-<ul>
-<li>cloud or local storage</li>
-<li>which components can go where</li>
-<li>remote execution, to prevent data from leaving the system</li>
-</ul></li>
-</ul>
 <section id="overview" class="level3">
-<h3><span class="header-section-number">6.4.2</span> Overview</h3>
+<h3><span class="header-section-number">6.3.2</span> Overview</h3>
 <ul>
 <li>distributed architecture (e.g. notification/queue server + mobile device for persistence and administration)</li>
 </ul>
 </section>
 <section id="components" class="level3">
-<h3><span class="header-section-number">6.4.3</span> Components</h3>
+<h3><span class="header-section-number">6.3.3</span> Components</h3>
 <p><strong>Webserver</strong></p>
 <ul>
 <li>to serve UI</li>
@@ -618,7 +600,7 @@ deserved rome , but major aspects will be addressed.</p>
 </ul>
 </section>
 <section id="plugins" class="level3">
-<h3><span class="header-section-number">6.4.4</span> Plugins</h3>
+<h3><span class="header-section-number">6.3.4</span> Plugins</h3>
 <ul>
 <li>but for what? and not harm security at the same time? maybe just for data types and admin UI to display analytical (time based) data in other ways</li>
 <li>what about extensions (see iOS 10) to let other apps consume data; only on a mobile device and only if the data is stored there</li>
@@ -626,28 +608,28 @@ deserved rome , but major aspects will be addressed.</p>
 </section>
 </section>
 <section id="data" class="level2">
-<h2><span class="header-section-number">6.5</span> Data</h2>
+<h2><span class="header-section-number">6.4</span> Data</h2>
 <ul>
 <li><p>keep in mind to make it all somehow extendible, e.g. by using and storing corresponding schemas</p></li>
 <li><p>NOTE: step numbers marked with a <code>*</code> are somehow tasks which are happening in the background and don’t require any user interaction</p></li>
 </ul>
 <section id="modelling" class="level3">
-<h3><span class="header-section-number">6.5.2</span> Modelling</h3>
+<h3><span class="header-section-number">6.4.2</span> Modelling</h3>
 </section>
 <section id="categories-or-classes" class="level3">
-<h3><span class="header-section-number">6.5.3</span> Categories (or Classes)</h3>
+<h3><span class="header-section-number">6.4.3</span> Categories (or Classes)</h3>
 </section>
 <section id="types" class="level3">
-<h3><span class="header-section-number">6.5.4</span> Types</h3>
+<h3><span class="header-section-number">6.4.4</span> Types</h3>
 </section>
 <section id="persistence-1" class="level3">
-<h3><span class="header-section-number">6.5.5</span> Persistence</h3>
+<h3><span class="header-section-number">6.4.5</span> Persistence</h3>
 <ul>
 <li>database requirements</li>
 </ul>
 </section>
 <section id="access-permission" class="level3">
-<h3><span class="header-section-number">6.5.6</span> Access &amp; Permission</h3>
+<h3><span class="header-section-number">6.4.6</span> Access &amp; Permission</h3>
 <ul>
 <li>data needs to have an expiration date</li>
 </ul>
@@ -659,20 +641,20 @@ deserved rome , but major aspects will be addressed.</p>
 </ol>
 </section>
 <section id="consumption-data-inflow" class="level3">
-<h3><span class="header-section-number">6.5.7</span> Consumption (data inflow)</h3>
+<h3><span class="header-section-number">6.4.7</span> Consumption (data inflow)</h3>
 <ul>
 <li>how data will get into the system</li>
 <li>hwo is the user able to do that, and how does it works</li>
 </ul>
 <section id="manually" class="level4">
-<h4><span class="header-section-number">6.5.7.1</span> Manually</h4>
+<h4><span class="header-section-number">6.4.7.1</span> Manually</h4>
 </section>
 <section id="automatically" class="level4">
-<h4><span class="header-section-number">6.5.7.2</span> Automatically</h4>
+<h4><span class="header-section-number">6.4.7.2</span> Automatically</h4>
 </section>
 </section>
 <section id="emission-data-outflow" class="level3">
-<h3><span class="header-section-number">6.5.8</span> Emission (data outflow)</h3>
+<h3><span class="header-section-number">6.4.8</span> Emission (data outflow)</h3>
 <ul>
 <li><p>depending on what category of data, they might need to get anonymized somehow before they leave the system</p></li>
 <li><p>oAuth (1.0a and 2) requires consumers to register upfront. Since the current flow indicates that the initial step is done by the owner, that would cause an overhead in user interactions. Although the owner already <em>authorized</em> the consumer simply by submitting a unique URI (<code>pdaas-server.tld/register?crt=CONSUMER_REGISTER_TOKEN</code>), of which the <code>crt</code> is considered private. Even though the registration provides the consumer with mandatory information such as a consumer identifier (v1: <code>oauth_consumer_key</code>, v2: <code>client_id</code>) and, depending on the client type, a secret (see https://tools.ietf.org/html/rfc6749#section-2), this process it is not part the specification (https://oauth.net/core/1.0a/#rfc.section.4.2, https://tools.ietf.org/html/rfc6749#section-2). This enables the possibility of integrating oAuth into the consumer registration flow by using the <code>CONSUMER_REGISTRATION_TOKEN</code> as oAuth’s <em>client identifier</em>. The lack of credentials (v1: <code>auth_consumer_secret</code>, v2: <code>client_secret</code>) would require transferring the consumer identifier done over a secure channel (e.g. TLS). That would leave <em>oAuth2</em> as the version of choice, since it relies on <em>HTTPS</em> adn therefore makes the <em>secret</em> optional. Where on the other side oAuth 1.0a requires a <em>secret</em> to create a signature in order to support insecure connections..</p></li>
@@ -680,7 +662,7 @@ deserved rome , but major aspects will be addressed.</p>
 </ul>
 </section>
 <section id="history" class="level3">
-<h3><span class="header-section-number">6.5.9</span> History</h3>
+<h3><span class="header-section-number">6.4.9</span> History</h3>
 <ul>
 <li>data versioning</li>
 <li>access logs</li>
@@ -688,15 +670,15 @@ deserved rome , but major aspects will be addressed.</p>
 </section>
 </section>
 <section id="interfaces-1" class="level2">
-<h2><span class="header-section-number">6.6</span> Interfaces</h2>
+<h2><span class="header-section-number">6.5</span> Interfaces</h2>
 <section id="internal" class="level3">
-<h3><span class="header-section-number">6.6.2</span> Internal</h3>
+<h3><span class="header-section-number">6.5.2</span> Internal</h3>
 <ul>
 <li>UI for Management &amp; Administration</li>
 </ul>
 </section>
 <section id="external" class="level3">
-<h3><span class="header-section-number">6.6.3</span> External</h3>
+<h3><span class="header-section-number">6.5.3</span> External</h3>
 <ul>
 <li><p>should there be a way to somehow request information about what data is available/queryable, or would this be result in spam/crawler and security issues (also a question for the topic of permissions/sensibility level of certain data)</p></li>
 <li>certain types of requests, depending on expire date:
@@ -708,9 +690,9 @@ deserved rome , but major aspects will be addressed.</p>
 </ul>
 </section>
 <section id="authentication" class="level3">
-<h3><span class="header-section-number">6.6.4</span> Authentication</h3>
+<h3><span class="header-section-number">6.5.4</span> Authentication</h3>
 <ul>
-<li>regarding oAuth as authentication: Priorly users tented to reuse their password for different account, nowadays they but alsod tent to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">104</a>]</span>.</li>
+<li>regarding oAuth as authentication: Priorly users tented to reuse their password for different account, nowadays they but alsod tent to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">105</a>]</span>.</li>
 </ul>
 <p>Thus the platform owners leave the responsibility of</p>
 <p>Many websites and platforms understand those <em>login-with $platformName</em> mechanisms as an outsourced service that handles all security- and user-related tasks.</p>
@@ -1129,8 +1111,11 @@ deserved rome , but major aspects will be addressed.</p>
 <div id="ref-book_2015_ethical-it-innovation">
 <p>[103] S. Spiekermann, <em>Ethical IT Innovation: A Value-Based System Design Approach</em>. CRC Press; Taylor &amp; Francis Group, LLC, 2015 [Online]. Available: <a href="https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355" class="uri">https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355</a></p>
 </div>
+<div id="ref-paper_2004_distributed-mapreduce">
+<p>[104] E. Dean and S. Ghemawat, “MapRednce: Simplified data processing on large clusters,” 2004 [Online]. Available: <a href="https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf" class="uri">https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf</a>. [Accessed: 27-Dec-2016]</p>
+</div>
 <div id="ref-web_2009-success-of-facebook-connect">
-<p>[104] N. Carlson, “Facebook connect is a huge success – by the numbers,” 01-Jul-2009. [Online]. Available: <a href="http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7" class="uri">http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7</a>. [Accessed: 16-Dec-2016]</p>
+<p>[105] N. Carlson, “Facebook connect is a huge success – by the numbers,” 01-Jul-2009. [Online]. Available: <a href="http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7" class="uri">http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7</a>. [Accessed: 16-Dec-2016]</p>
 </div>
 </div>
 </section>
@@ -1158,6 +1143,7 @@ deserved rome , but major aspects will be addressed.</p>
 <li id="fn17"><p>Web Ontology Language <span class="citation" data-cites="web_w3c-tr_owl">[<a href="#ref-web_w3c-tr_owl">92</a>]</span><a href="#fnref17">↩</a></p></li>
 <li id="fn18"><p>social linked data <span class="citation" data-cites="web_spec_solid">[<a href="#ref-web_spec_solid">95</a>]</span><a href="#fnref18">↩</a></p></li>
 <li id="fn19"><p>control groups <span class="citation" data-cites="web_2015_cgroup-doc">[<a href="#ref-web_2015_cgroup-doc">98</a>]</span><a href="#fnref19">↩</a></p></li>
+<li id="fn20"><p>Software as a Service<a href="#fnref20">↩</a></p></li>
 </ol>
 </section>
             </body>

@@ -116,23 +116,22 @@ increasing the overall system complexity.
 
 
 When developing an *Open Specification* it only comes natural to build upon open technologies, 
-which is understand as open standards and open source; *open* in the sense of *unrestricted 
+which are understand as *open standards* and *open source*; *open* in the sense of *unrestricted 
 accessible by everybody* and not to be confused with free - as in *freedom* - software. Advocating 
 such a philosophy permits not only to develop implementations in a collaborative way, but enables  
 also to work fully transparent on the specification itself. Such an open environment makes it 
-possible for anyone who is interested in doing so, to participate or even to contribute to the 
+possible for anyone who is interested, to participate or even to contribute to the 
 project. Thus, to lower the barrier, usable and meaningful documentation is vital. Such an openness 
-ensures the possibility of looking into the source and getting a picture of what the program 
-actually does and how it works.
+ensures the possibility of looking into the source code and getting a picture of what the program 
+actually does and how it works. Thus, source code reviews become possible as well. Those might 
+reveal certain security flaws, which then are able to get fixed very quickly.
 Furthermore, this approach allows data subjects to setup their own infrastructure and host such a 
-system, which gains even more control over the data and increases the level of trust, instead of a
-*software as a service solution* host by another provider. It also encourages any kind of 
-adjustments or customization to the system in order to serve it's own needs.
-
+system, which gains even more control over the data and increases the level of trust, instead of 
+using a *SaaS* [^app_saas] solution that is host by another provider. It also encourages any kind of 
+adjustments or customization to the system in order to serve the own's needs.
+Enabling an open development allows users and contributors working together and thus improve the 
+outcome in a variety of ways.  
  
  
-Collaborative and transparent development
 
-open development 
-
-improve quality 
+[^app_saas]: Software as a Service
