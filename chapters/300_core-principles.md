@@ -113,20 +113,26 @@ increasing the overall system complexity.
 
 ## Open Development
 
-+   which and why open standards
-+   why open source
-+   collaborative transparent development 
 
-+   Hosting & Administration
-    -   DYI
-    -   Usability
-    
-When developing an *Open Specification* it comes naturally to build upon open technologies, 
-which is understood as open standards and open source; *open* in the sense of *unrestricted 
-accessible by everybody*; not to be confused with free - as in *freedom* - software. In this case, 
-advocating such a an openness enables not only to develop implementations of the specification in 
-a collaborative way, but also the specification itself, and makes it possible for anyone who is 
-interested to participate or even to contribute. For everyone who just want to use open 
-technologies, a license defining rules and conditions is typically enclosed somehow. But regardless 
-of the motivation everybody who is interested in getting to know how these hard- or software 
-blackboxes-by-design are actually working, is thus able to look into it. 
+
+When developing an *Open Specification* it only comes natural to build upon open technologies, 
+which is understand as open standards and open source; *open* in the sense of *unrestricted 
+accessible by everybody* and not to be confused with free - as in *freedom* - software. Advocating 
+such a philosophy permits not only to develop implementations in a collaborative way, but enables  
+also to work fully transparent on the specification itself. Such an open environment makes it 
+possible for anyone who is interested in doing so, to participate or even to contribute to the 
+project. Thus, to lower the barrier, usable and meaningful documentation is vital. Such an openness 
+ensures the possibility of looking into the source and getting a picture of what the program 
+actually does and how it works.
+Furthermore, this approach allows data subjects to setup their own infrastructure and host such a 
+system, which gains even more control over the data and increases the level of trust, instead of a
+*software as a service solution* host by another provider. It also encourages any kind of 
+adjustments or customization to the system in order to serve it's own needs.
+
+ 
+ 
+Collaborative and transparent development
+
+open development 
+
+improve quality 
