@@ -36,3 +36,7 @@ understand those *login-with $platformName* mechanisms as an outsourced service 
 security- and user-related tasks.
 
 what about token stealing when using jwt?
+
+
+
+### *Conclusions*

@@ -89,3 +89,7 @@ __IF01 - Authorizing a data consumer to request certain data__
 
 +   data versioning
 +   access logs
+
+
+
+### *Conclusions*

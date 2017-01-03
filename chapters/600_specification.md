@@ -3,19 +3,52 @@ Specification
 
 
 
-+   what does *open* in Open Specification even mean?
+
+## Overview
+
++   purpose
++   architectural overview
++   short description of the whole process
 
 
 
-## Processes (TODO: find another word; "Protocol flows"?)
+## Components
+
+### Webserver
+
+### User Interface
+    
+### Storage/Persistence
+    
+### Notification Infrastructure
+
+### Data API
 
 
 
-## Application Programming Interfaces
+## Data
+
+### Structure & Types
+
+### Read
+
+### Write
 
 
 
-## Graphical User Interfaces
+## Protocols
+
+### Permission Request / Consumer Registration
+
+### Data Access
+
+### Data Management
+
+
+
+## APIs
+
+How do the APIs involved with the protocols look like?
 
 
 
@@ -37,7 +70,6 @@ Specification
 +   initial consumer registration would be done on a common and valid https:443 CA-certified 
     connection. after transferring their cert to them as a response, all subsequent calls
     need to go to their own endpoint, defined as subdomains like `consumer-name.owners-notification-server.tld`
-    
 
 
 ### Environment
@@ -56,7 +88,6 @@ Specification
 actual storage gets relocated (e.g. from a server to a mobile device)
 
 
-
 ### Authentication
 
 +   how should consumer authenticate?
@@ -65,8 +96,6 @@ actual storage gets relocated (e.g. from a server to a mobile device)
 
 ## Recommendations
 
-
 ### Software Dependencies
 
-
-### Host Environment
+### Host Environment(s)

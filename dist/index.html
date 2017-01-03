@@ -51,42 +51,59 @@
                 <li><a href="#requirements"><span class="toc-section-number">5</span> Requirements</a></li>
                 <li><a href="#design-discussion"><span class="toc-section-number">6</span> Design Discussion</a><ul>
                 <li><a href="#architecture"><span class="toc-section-number">6.2</span> Architecture</a><ul>
-                <li><a href="#data-exchangeaccess-process-design"><span class="toc-section-number">6.2.2</span> Data Exchange/Access Process Design</a></li>
+                <li><a href="#verification-authentication"><span class="toc-section-number">6.2.2</span> Verification / Authentication</a></li>
+                <li><a href="#data-exchangeaccess-process-design"><span class="toc-section-number">6.2.3</span> Data Exchange/Access Process Design</a></li>
+                <li><a href="#components"><span class="toc-section-number">6.2.4</span> Components</a></li>
+                <li><a href="#plugins"><span class="toc-section-number">6.2.5</span> Plugins</a></li>
+                <li><a href="#conclusions"><span class="toc-section-number">6.2.6</span> <em>Conclusions</em></a></li>
                 </ul></li>
-                <li><a href="#verification-authentication"><span class="toc-section-number">6.3</span> Verification / Authentication</a><ul>
-                <li><a href="#overview"><span class="toc-section-number">6.3.2</span> Overview</a></li>
-                <li><a href="#components"><span class="toc-section-number">6.3.3</span> Components</a></li>
-                <li><a href="#plugins"><span class="toc-section-number">6.3.4</span> Plugins</a></li>
+                <li><a href="#data"><span class="toc-section-number">6.3</span> Data</a><ul>
+                <li><a href="#modelling"><span class="toc-section-number">6.3.2</span> Modelling</a></li>
+                <li><a href="#categories-or-classes"><span class="toc-section-number">6.3.3</span> Categories (or Classes)</a></li>
+                <li><a href="#types"><span class="toc-section-number">6.3.4</span> Types</a></li>
+                <li><a href="#persistence-1"><span class="toc-section-number">6.3.5</span> Persistence</a></li>
+                <li><a href="#access-permission"><span class="toc-section-number">6.3.6</span> Access &amp; Permission</a></li>
+                <li><a href="#consumption-data-inflow"><span class="toc-section-number">6.3.7</span> Consumption (data inflow)</a></li>
+                <li><a href="#emission-data-outflow"><span class="toc-section-number">6.3.8</span> Emission (data outflow)</a></li>
+                <li><a href="#history"><span class="toc-section-number">6.3.9</span> History</a></li>
+                <li><a href="#conclusions-1"><span class="toc-section-number">6.3.10</span> <em>Conclusions</em></a></li>
                 </ul></li>
-                <li><a href="#data"><span class="toc-section-number">6.4</span> Data</a><ul>
-                <li><a href="#modelling"><span class="toc-section-number">6.4.2</span> Modelling</a></li>
-                <li><a href="#categories-or-classes"><span class="toc-section-number">6.4.3</span> Categories (or Classes)</a></li>
-                <li><a href="#types"><span class="toc-section-number">6.4.4</span> Types</a></li>
-                <li><a href="#persistence-1"><span class="toc-section-number">6.4.5</span> Persistence</a></li>
-                <li><a href="#access-permission"><span class="toc-section-number">6.4.6</span> Access &amp; Permission</a></li>
-                <li><a href="#consumption-data-inflow"><span class="toc-section-number">6.4.7</span> Consumption (data inflow)</a></li>
-                <li><a href="#emission-data-outflow"><span class="toc-section-number">6.4.8</span> Emission (data outflow)</a></li>
-                <li><a href="#history"><span class="toc-section-number">6.4.9</span> History</a></li>
-                </ul></li>
-                <li><a href="#interfaces-1"><span class="toc-section-number">6.5</span> Interfaces</a><ul>
-                <li><a href="#internal"><span class="toc-section-number">6.5.2</span> Internal</a></li>
-                <li><a href="#external"><span class="toc-section-number">6.5.3</span> External</a></li>
-                <li><a href="#authentication"><span class="toc-section-number">6.5.4</span> Authentication</a></li>
+                <li><a href="#interfaces-1"><span class="toc-section-number">6.4</span> Interfaces</a><ul>
+                <li><a href="#internal"><span class="toc-section-number">6.4.2</span> Internal</a></li>
+                <li><a href="#external"><span class="toc-section-number">6.4.3</span> External</a></li>
+                <li><a href="#authentication"><span class="toc-section-number">6.4.4</span> Authentication</a></li>
+                <li><a href="#conclusions-2"><span class="toc-section-number">6.4.5</span> <em>Conclusions</em></a></li>
                 </ul></li>
                 </ul></li>
                 <li><a href="#specification"><span class="toc-section-number">7</span> Specification</a><ul>
-                <li><a href="#processes-todo-find-another-word-protocol-flows"><span class="toc-section-number">7.2</span> Processes (TODO: find another word; “Protocol flows”?)</a></li>
-                <li><a href="#application-programming-interfaces"><span class="toc-section-number">7.3</span> Application Programming Interfaces</a></li>
-                <li><a href="#graphical-user-interfaces"><span class="toc-section-number">7.4</span> Graphical User Interfaces</a></li>
-                <li><a href="#security"><span class="toc-section-number">7.5</span> Security</a><ul>
-                <li><a href="#environment"><span class="toc-section-number">7.5.2</span> Environment</a></li>
-                <li><a href="#transport"><span class="toc-section-number">7.5.3</span> Transport</a></li>
-                <li><a href="#storage"><span class="toc-section-number">7.5.4</span> Storage</a></li>
-                <li><a href="#authentication-1"><span class="toc-section-number">7.5.5</span> Authentication</a></li>
+                <li><a href="#overview"><span class="toc-section-number">7.2</span> Overview</a></li>
+                <li><a href="#components-1"><span class="toc-section-number">7.3</span> Components</a><ul>
+                <li><a href="#webserver"><span class="toc-section-number">7.3.2</span> Webserver</a></li>
+                <li><a href="#user-interface"><span class="toc-section-number">7.3.3</span> User Interface</a></li>
+                <li><a href="#storagepersistence"><span class="toc-section-number">7.3.4</span> Storage/Persistence</a></li>
+                <li><a href="#notification-infrastructure"><span class="toc-section-number">7.3.5</span> Notification Infrastructure</a></li>
+                <li><a href="#data-api"><span class="toc-section-number">7.3.6</span> Data API</a></li>
                 </ul></li>
-                <li><a href="#recommendations"><span class="toc-section-number">7.6</span> Recommendations</a><ul>
-                <li><a href="#software-dependencies"><span class="toc-section-number">7.6.2</span> Software Dependencies</a></li>
-                <li><a href="#host-environment"><span class="toc-section-number">7.6.3</span> Host Environment</a></li>
+                <li><a href="#data-1"><span class="toc-section-number">7.4</span> Data</a><ul>
+                <li><a href="#structure-types"><span class="toc-section-number">7.4.2</span> Structure &amp; Types</a></li>
+                <li><a href="#read"><span class="toc-section-number">7.4.3</span> Read</a></li>
+                <li><a href="#write"><span class="toc-section-number">7.4.4</span> Write</a></li>
+                </ul></li>
+                <li><a href="#protocols"><span class="toc-section-number">7.5</span> Protocols</a><ul>
+                <li><a href="#permission-request-consumer-registration"><span class="toc-section-number">7.5.2</span> Permission Request / Consumer Registration</a></li>
+                <li><a href="#data-access"><span class="toc-section-number">7.5.3</span> Data Access</a></li>
+                <li><a href="#data-management"><span class="toc-section-number">7.5.4</span> Data Management</a></li>
+                </ul></li>
+                <li><a href="#apis"><span class="toc-section-number">7.6</span> APIs</a></li>
+                <li><a href="#security"><span class="toc-section-number">7.7</span> Security</a><ul>
+                <li><a href="#environment"><span class="toc-section-number">7.7.2</span> Environment</a></li>
+                <li><a href="#transport"><span class="toc-section-number">7.7.3</span> Transport</a></li>
+                <li><a href="#storage"><span class="toc-section-number">7.7.4</span> Storage</a></li>
+                <li><a href="#authentication-1"><span class="toc-section-number">7.7.5</span> Authentication</a></li>
+                </ul></li>
+                <li><a href="#recommendations"><span class="toc-section-number">7.8</span> Recommendations</a><ul>
+                <li><a href="#software-dependencies"><span class="toc-section-number">7.8.2</span> Software Dependencies</a></li>
+                <li><a href="#host-environments"><span class="toc-section-number">7.8.3</span> Host Environment(s)</a></li>
                 </ul></li>
                 </ul></li>
                 <li><a href="#conclusion"><span class="toc-section-number">8</span> Conclusion</a><ul>
@@ -515,6 +532,7 @@ Real time communication might be essential for time-critical data transaction. H
 <p>The following chapter documents the processes of some design decision makings, examines possible issues emerging alongside and discuses different solutions obtained from several perspectives in order to evaluate their advantages and disadvantages. Probably not every issue will get it’s<br />
 deserved rome , but major aspects will be addressed.</p>
 <p>NOTE: here we discuss a variety of possibilities –&gt; conceptual work</p>
+<p>At the end every subchapter includes a section containing a summary of conclusions, which are based on prior discussions about the related topic.</p>
 <section id="architecture" class="level2">
 <h2><span class="header-section-number">6.2</span> Architecture</h2>
 <ul>
@@ -525,17 +543,8 @@ deserved rome , but major aspects will be addressed.</p>
 <li>remote execution, to prevent data from leaving the system</li>
 </ul></li>
 </ul>
-<section id="data-exchangeaccess-process-design" class="level3">
-<h3><span class="header-section-number">6.2.2</span> Data Exchange/Access Process Design</h3>
-<ol type="A">
-<li>just requesting and responding with pure data</li>
-<li>provide executable and input schema; run on the PDaaS environment in a sandbox; return result</li>
-<li>DRM for personal data: provide a piece of software to the data consumer, which does the licence checking, key obtaining and encryption of the data, he has requested, in order to work with / compute that data</li>
-</ol>
-</section>
-</section>
-<section id="verification-authentication" class="level2">
-<h2><span class="header-section-number">6.3</span> Verification / Authentication</h2>
+<section id="verification-authentication" class="level3">
+<h3><span class="header-section-number">6.2.2</span> Verification / Authentication</h3>
 <ul>
 <li>maybe go with a Signing/verifying Authority (aka CA)
 <ul>
@@ -550,14 +559,17 @@ deserved rome , but major aspects will be addressed.</p>
 </ul></li>
 <li>Authentication</li>
 </ul>
-<section id="overview" class="level3">
-<h3><span class="header-section-number">6.3.2</span> Overview</h3>
-<ul>
-<li>distributed architecture (e.g. notification/queue server + mobile device for persistence and administration)</li>
-</ul>
+</section>
+<section id="data-exchangeaccess-process-design" class="level3">
+<h3><span class="header-section-number">6.2.3</span> Data Exchange/Access Process Design</h3>
+<ol type="A">
+<li>just requesting and responding with pure data</li>
+<li>provide executable and input schema; run on the PDaaS environment in a sandbox; return result</li>
+<li>DRM for personal data: provide a piece of software to the data consumer, which does the licence checking, key obtaining and encryption of the data, he has requested, in order to work with / compute that data</li>
+</ol>
 </section>
 <section id="components" class="level3">
-<h3><span class="header-section-number">6.3.3</span> Components</h3>
+<h3><span class="header-section-number">6.2.4</span> Components</h3>
 <p><strong>Webserver</strong></p>
 <ul>
 <li>to serve UI</li>
@@ -600,36 +612,42 @@ deserved rome , but major aspects will be addressed.</p>
 </ul>
 </section>
 <section id="plugins" class="level3">
-<h3><span class="header-section-number">6.3.4</span> Plugins</h3>
+<h3><span class="header-section-number">6.2.5</span> Plugins</h3>
 <ul>
 <li>but for what? and not harm security at the same time? maybe just for data types and admin UI to display analytical (time based) data in other ways</li>
 <li>what about extensions (see iOS 10) to let other apps consume data; only on a mobile device and only if the data is stored there</li>
 </ul>
 </section>
+<section id="conclusions" class="level3">
+<h3><span class="header-section-number">6.2.6</span> <em>Conclusions</em></h3>
+<ul>
+<li>distributed architecture (e.g. notification/queue server + mobile device for persistence and administration)</li>
+</ul>
+</section>
 </section>
 <section id="data" class="level2">
-<h2><span class="header-section-number">6.4</span> Data</h2>
+<h2><span class="header-section-number">6.3</span> Data</h2>
 <ul>
 <li><p>keep in mind to make it all somehow extendible, e.g. by using and storing corresponding schemas</p></li>
 <li><p>NOTE: step numbers marked with a <code>*</code> are somehow tasks which are happening in the background and don’t require any user interaction</p></li>
 </ul>
 <section id="modelling" class="level3">
-<h3><span class="header-section-number">6.4.2</span> Modelling</h3>
+<h3><span class="header-section-number">6.3.2</span> Modelling</h3>
 </section>
 <section id="categories-or-classes" class="level3">
-<h3><span class="header-section-number">6.4.3</span> Categories (or Classes)</h3>
+<h3><span class="header-section-number">6.3.3</span> Categories (or Classes)</h3>
 </section>
 <section id="types" class="level3">
-<h3><span class="header-section-number">6.4.4</span> Types</h3>
+<h3><span class="header-section-number">6.3.4</span> Types</h3>
 </section>
 <section id="persistence-1" class="level3">
-<h3><span class="header-section-number">6.4.5</span> Persistence</h3>
+<h3><span class="header-section-number">6.3.5</span> Persistence</h3>
 <ul>
 <li>database requirements</li>
 </ul>
 </section>
 <section id="access-permission" class="level3">
-<h3><span class="header-section-number">6.4.6</span> Access &amp; Permission</h3>
+<h3><span class="header-section-number">6.3.6</span> Access &amp; Permission</h3>
 <ul>
 <li>data needs to have an expiration date</li>
 </ul>
@@ -641,20 +659,20 @@ deserved rome , but major aspects will be addressed.</p>
 </ol>
 </section>
 <section id="consumption-data-inflow" class="level3">
-<h3><span class="header-section-number">6.4.7</span> Consumption (data inflow)</h3>
+<h3><span class="header-section-number">6.3.7</span> Consumption (data inflow)</h3>
 <ul>
 <li>how data will get into the system</li>
 <li>hwo is the user able to do that, and how does it works</li>
 </ul>
 <section id="manually" class="level4">
-<h4><span class="header-section-number">6.4.7.1</span> Manually</h4>
+<h4><span class="header-section-number">6.3.7.1</span> Manually</h4>
 </section>
 <section id="automatically" class="level4">
-<h4><span class="header-section-number">6.4.7.2</span> Automatically</h4>
+<h4><span class="header-section-number">6.3.7.2</span> Automatically</h4>
 </section>
 </section>
 <section id="emission-data-outflow" class="level3">
-<h3><span class="header-section-number">6.4.8</span> Emission (data outflow)</h3>
+<h3><span class="header-section-number">6.3.8</span> Emission (data outflow)</h3>
 <ul>
 <li><p>depending on what category of data, they might need to get anonymized somehow before they leave the system</p></li>
 <li><p>oAuth (1.0a and 2) requires consumers to register upfront. Since the current flow indicates that the initial step is done by the owner, that would cause an overhead in user interactions. Although the owner already <em>authorized</em> the consumer simply by submitting a unique URI (<code>pdaas-server.tld/register?crt=CONSUMER_REGISTER_TOKEN</code>), of which the <code>crt</code> is considered private. Even though the registration provides the consumer with mandatory information such as a consumer identifier (v1: <code>oauth_consumer_key</code>, v2: <code>client_id</code>) and, depending on the client type, a secret (see https://tools.ietf.org/html/rfc6749#section-2), this process it is not part the specification (https://oauth.net/core/1.0a/#rfc.section.4.2, https://tools.ietf.org/html/rfc6749#section-2). This enables the possibility of integrating oAuth into the consumer registration flow by using the <code>CONSUMER_REGISTRATION_TOKEN</code> as oAuth’s <em>client identifier</em>. The lack of credentials (v1: <code>auth_consumer_secret</code>, v2: <code>client_secret</code>) would require transferring the consumer identifier done over a secure channel (e.g. TLS). That would leave <em>oAuth2</em> as the version of choice, since it relies on <em>HTTPS</em> adn therefore makes the <em>secret</em> optional. Where on the other side oAuth 1.0a requires a <em>secret</em> to create a signature in order to support insecure connections..</p></li>
@@ -662,23 +680,26 @@ deserved rome , but major aspects will be addressed.</p>
 </ul>
 </section>
 <section id="history" class="level3">
-<h3><span class="header-section-number">6.4.9</span> History</h3>
+<h3><span class="header-section-number">6.3.9</span> History</h3>
 <ul>
 <li>data versioning</li>
 <li>access logs</li>
 </ul>
 </section>
+<section id="conclusions-1" class="level3">
+<h3><span class="header-section-number">6.3.10</span> <em>Conclusions</em></h3>
+</section>
 </section>
 <section id="interfaces-1" class="level2">
-<h2><span class="header-section-number">6.5</span> Interfaces</h2>
+<h2><span class="header-section-number">6.4</span> Interfaces</h2>
 <section id="internal" class="level3">
-<h3><span class="header-section-number">6.5.2</span> Internal</h3>
+<h3><span class="header-section-number">6.4.2</span> Internal</h3>
 <ul>
 <li>UI for Management &amp; Administration</li>
 </ul>
 </section>
 <section id="external" class="level3">
-<h3><span class="header-section-number">6.5.3</span> External</h3>
+<h3><span class="header-section-number">6.4.3</span> External</h3>
 <ul>
 <li><p>should there be a way to somehow request information about what data is available/queryable, or would this be result in spam/crawler and security issues (also a question for the topic of permissions/sensibility level of certain data)</p></li>
 <li>certain types of requests, depending on expire date:
@@ -690,7 +711,7 @@ deserved rome , but major aspects will be addressed.</p>
 </ul>
 </section>
 <section id="authentication" class="level3">
-<h3><span class="header-section-number">6.5.4</span> Authentication</h3>
+<h3><span class="header-section-number">6.4.4</span> Authentication</h3>
 <ul>
 <li>regarding oAuth as authentication: Priorly users tented to reuse their password for different account, nowadays they but alsod tent to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">105</a>]</span>.</li>
 </ul>
@@ -698,24 +719,69 @@ deserved rome , but major aspects will be addressed.</p>
 <p>Many websites and platforms understand those <em>login-with $platformName</em> mechanisms as an outsourced service that handles all security- and user-related tasks.</p>
 <p>what about token stealing when using jwt?</p>
 </section>
+<section id="conclusions-2" class="level3">
+<h3><span class="header-section-number">6.4.5</span> <em>Conclusions</em></h3>
+</section>
 </section>
 </section>
 <section id="specification" class="level1">
 <h1><span class="header-section-number">7</span> Specification</h1>
+<section id="overview" class="level2">
+<h2><span class="header-section-number">7.2</span> Overview</h2>
 <ul>
-<li>what does <em>open</em> in Open Specification even mean?</li>
+<li>purpose</li>
+<li>architectural overview</li>
+<li>short description of the whole process</li>
 </ul>
-<section id="processes-todo-find-another-word-protocol-flows" class="level2">
-<h2><span class="header-section-number">7.2</span> Processes (TODO: find another word; “Protocol flows”?)</h2>
 </section>
-<section id="application-programming-interfaces" class="level2">
-<h2><span class="header-section-number">7.3</span> Application Programming Interfaces</h2>
+<section id="components-1" class="level2">
+<h2><span class="header-section-number">7.3</span> Components</h2>
+<section id="webserver" class="level3">
+<h3><span class="header-section-number">7.3.2</span> Webserver</h3>
 </section>
-<section id="graphical-user-interfaces" class="level2">
-<h2><span class="header-section-number">7.4</span> Graphical User Interfaces</h2>
+<section id="user-interface" class="level3">
+<h3><span class="header-section-number">7.3.3</span> User Interface</h3>
+</section>
+<section id="storagepersistence" class="level3">
+<h3><span class="header-section-number">7.3.4</span> Storage/Persistence</h3>
+</section>
+<section id="notification-infrastructure" class="level3">
+<h3><span class="header-section-number">7.3.5</span> Notification Infrastructure</h3>
+</section>
+<section id="data-api" class="level3">
+<h3><span class="header-section-number">7.3.6</span> Data API</h3>
+</section>
+</section>
+<section id="data-1" class="level2">
+<h2><span class="header-section-number">7.4</span> Data</h2>
+<section id="structure-types" class="level3">
+<h3><span class="header-section-number">7.4.2</span> Structure &amp; Types</h3>
+</section>
+<section id="read" class="level3">
+<h3><span class="header-section-number">7.4.3</span> Read</h3>
+</section>
+<section id="write" class="level3">
+<h3><span class="header-section-number">7.4.4</span> Write</h3>
+</section>
+</section>
+<section id="protocols" class="level2">
+<h2><span class="header-section-number">7.5</span> Protocols</h2>
+<section id="permission-request-consumer-registration" class="level3">
+<h3><span class="header-section-number">7.5.2</span> Permission Request / Consumer Registration</h3>
+</section>
+<section id="data-access" class="level3">
+<h3><span class="header-section-number">7.5.3</span> Data Access</h3>
+</section>
+<section id="data-management" class="level3">
+<h3><span class="header-section-number">7.5.4</span> Data Management</h3>
+</section>
+</section>
+<section id="apis" class="level2">
+<h2><span class="header-section-number">7.6</span> APIs</h2>
+<p>How do the APIs involved with the protocols look like?</p>
 </section>
 <section id="security" class="level2">
-<h2><span class="header-section-number">7.5</span> Security</h2>
+<h2><span class="header-section-number">7.7</span> Security</h2>
 <ul>
 <li>the downside of having not just parts of the personal data in different places (which is currently the common way to store), is in case of security breach, it would increase the possible damage by an exponential rate Thereby all data is exposed at once, instead of not just the parts which a single service has stored</li>
 <li><p>does it matter from what origin the data request was made? how to check that? is the requester’s server domain in the http header? eventually there is no way to check that, so me might need to go with request logging and trying to detect abnormal behaviour/occurrence with a learning artificial intelligence</p></li>
@@ -723,35 +789,35 @@ deserved rome , but major aspects will be addressed.</p>
 <li><p>initial consumer registration would be done on a common and valid https:443 CA-certified connection. after transferring their cert to them as a response, all subsequent calls need to go to their own endpoint, defined as subdomains like <code>consumer-name.owners-notification-server.tld</code></p></li>
 </ul>
 <section id="environment" class="level3">
-<h3><span class="header-section-number">7.5.2</span> Environment</h3>
+<h3><span class="header-section-number">7.7.2</span> Environment</h3>
 </section>
 <section id="transport" class="level3">
-<h3><span class="header-section-number">7.5.3</span> Transport</h3>
+<h3><span class="header-section-number">7.7.3</span> Transport</h3>
 <ul>
 <li>communication between internal components <em>must</em> be done in https only, but which ciphers? eventually even http/2?</li>
 </ul>
 </section>
 <section id="storage" class="level3">
-<h3><span class="header-section-number">7.5.4</span> Storage</h3>
+<h3><span class="header-section-number">7.7.4</span> Storage</h3>
 <ul>
 <li>documents based DB instead of Relational DBS, because of structure/model flexibility</li>
 <li>graphql because of it’s nature to abstract a storage engine, which comes in handy when the actual storage gets relocated (e.g. from a server to a mobile device)</li>
 </ul>
 </section>
 <section id="authentication-1" class="level3">
-<h3><span class="header-section-number">7.5.5</span> Authentication</h3>
+<h3><span class="header-section-number">7.7.5</span> Authentication</h3>
 <ul>
 <li>how should consumer authenticate?</li>
 </ul>
 </section>
 </section>
 <section id="recommendations" class="level2">
-<h2><span class="header-section-number">7.6</span> Recommendations</h2>
+<h2><span class="header-section-number">7.8</span> Recommendations</h2>
 <section id="software-dependencies" class="level3">
-<h3><span class="header-section-number">7.6.2</span> Software Dependencies</h3>
+<h3><span class="header-section-number">7.8.2</span> Software Dependencies</h3>
 </section>
-<section id="host-environment" class="level3">
-<h3><span class="header-section-number">7.6.3</span> Host Environment</h3>
+<section id="host-environments" class="level3">
+<h3><span class="header-section-number">7.8.3</span> Host Environment(s)</h3>
 </section>
 </section>
 </section>

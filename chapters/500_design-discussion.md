@@ -9,3 +9,6 @@ in order to evaluate their advantages and disadvantages. Probably not every issu
 deserved rome , but major aspects will be addressed. 
 
 NOTE: here we discuss a variety of possibilities --> conceptual work
+
+At the end every subchapter includes a section containing a summary of conclusions, which are based 
+on prior discussions about the related topic.

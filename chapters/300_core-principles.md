@@ -113,8 +113,6 @@ increasing the overall system complexity.
 
 ## Open Development
 
-
-
 When developing an *Open Specification* it only comes natural to build upon open technologies, 
 which are understand as *open standards* and *open source*; *open* in the sense of *unrestricted 
 accessible by everybody* and not to be confused with free - as in *freedom* - software. Advocating 
@@ -131,7 +129,7 @@ using a *SaaS* [^app_saas] solution that is host by another provider. It also en
 adjustments or customization to the system in order to serve the own's needs.
 Enabling an open development allows users and contributors working together and thus improve the 
 outcome in a variety of ways.  
- 
- 
+
+
 
 [^app_saas]: Software as a Service

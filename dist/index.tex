@@ -2120,6 +2120,10 @@ deserved rome , but major aspects will be addressed.
 NOTE: here we discuss a variety of possibilities --\textgreater{}
 conceptual work
 
+At the end every subchapter includes a section containing a summary of
+conclusions, which are based on prior discussions about the related
+topic.
+
 \section{Architecture}\label{architecture}
 
 \begin{itemize}
@@ -2138,25 +2142,7 @@ conceptual work
   \end{itemize}
 \end{itemize}
 
-\subsection{Data Exchange/Access Process
-Design}\label{data-exchangeaccess-process-design}
-
-\begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
-\tightlist
-\item
-  just requesting and responding with pure data
-\item
-  provide executable and input schema; run on the PDaaS environment in a
-  sandbox; return result
-\item
-  DRM for personal data: provide a piece of software to the data
-  consumer, which does the licence checking, key obtaining and
-  encryption of the data, he has requested, in order to work with /
-  compute that data
-\end{enumerate}
-
-\section{Verification /
+\subsection{Verification /
 Authentication}\label{verification-authentication}
 
 \begin{itemize}
@@ -2191,14 +2177,23 @@ Authentication}\label{verification-authentication}
   Authentication
 \end{itemize}
 
-\subsection{Overview}\label{overview}
+\subsection{Data Exchange/Access Process
+Design}\label{data-exchangeaccess-process-design}
 
-\begin{itemize}
+\begin{enumerate}
+\def\labelenumi{\Alph{enumi})}
 \tightlist
 \item
-  distributed architecture (e.g.~notification/queue server + mobile
-  device for persistence and administration)
-\end{itemize}
+  just requesting and responding with pure data
+\item
+  provide executable and input schema; run on the PDaaS environment in a
+  sandbox; return result
+\item
+  DRM for personal data: provide a piece of software to the data
+  consumer, which does the licence checking, key obtaining and
+  encryption of the data, he has requested, in order to work with /
+  compute that data
+\end{enumerate}
 
 \subsection{Components}\label{components}
 
@@ -2294,6 +2289,15 @@ Authentication}\label{verification-authentication}
 \item
   what about extensions (see iOS 10) to let other apps consume data;
   only on a mobile device and only if the data is stored there
+\end{itemize}
+
+\subsection{\texorpdfstring{\emph{Conclusions}}{Conclusions}}\label{conclusions}
+
+\begin{itemize}
+\tightlist
+\item
+  distributed architecture (e.g.~notification/queue server + mobile
+  device for persistence and administration)
 \end{itemize}
 
 \section{Data}\label{data}
@@ -2411,6 +2415,8 @@ Authentication}\label{verification-authentication}
   access logs
 \end{itemize}
 
+\subsection{\texorpdfstring{\emph{Conclusions}}{Conclusions}}\label{conclusions-1}
+
 \section{Interfaces}\label{interfaces-1}
 
 \subsection{Internal}\label{internal}
@@ -2464,21 +2470,55 @@ security- and user-related tasks.
 
 what about token stealing when using jwt?
 
+\subsection{\texorpdfstring{\emph{Conclusions}}{Conclusions}}\label{conclusions-2}
+
 \chapter{Specification}\label{specification}
+
+\section{Overview}\label{overview}
 
 \begin{itemize}
 \tightlist
 \item
-  what does \emph{open} in Open Specification even mean?
+  purpose
+\item
+  architectural overview
+\item
+  short description of the whole process
 \end{itemize}
 
-\section{\texorpdfstring{Processes (TODO: find another word; ``Protocol
-flows''?)}{Processes (TODO: find another word; Protocol flows?)}}\label{processes-todo-find-another-word-protocol-flows}
+\section{Components}\label{components-1}
 
-\section{Application Programming
-Interfaces}\label{application-programming-interfaces}
+\subsection{Webserver}\label{webserver}
 
-\section{Graphical User Interfaces}\label{graphical-user-interfaces}
+\subsection{User Interface}\label{user-interface}
+
+\subsection{Storage/Persistence}\label{storagepersistence}
+
+\subsection{Notification
+Infrastructure}\label{notification-infrastructure}
+
+\subsection{Data API}\label{data-api}
+
+\section{Data}\label{data-1}
+
+\subsection{Structure \& Types}\label{structure-types}
+
+\subsection{Read}\label{read}
+
+\subsection{Write}\label{write}
+
+\section{Protocols}\label{protocols}
+
+\subsection{Permission Request / Consumer
+Registration}\label{permission-request-consumer-registration}
+
+\subsection{Data Access}\label{data-access}
+
+\subsection{Data Management}\label{data-management}
+
+\section{APIs}\label{apis}
+
+How do the APIs involved with the protocols look like?
 
 \section{Security}\label{security}
 
@@ -2542,7 +2582,7 @@ Interfaces}\label{application-programming-interfaces}
 
 \subsection{Software Dependencies}\label{software-dependencies}
 
-\subsection{Host Environment}\label{host-environment}
+\subsection{Host Environment(s)}\label{host-environments}
 
 \chapter{Conclusion}\label{conclusion}
 
