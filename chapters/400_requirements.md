@@ -29,8 +29,8 @@ certain data about or from the operator.
 
 __*[S.A.03]{#sa03}* - Authenticity__\
 Since they have to rely on the data, both entities - everyone belonging to one of the 
-*[roles](#sa02)* - should be able to ensure the authenticity of it's opponent and the data in 
-question. It should be possible to opt out, if that level of reliability is not necessary. Whereas 
+*[roles](#sa02)* - should be able to ensure it's authenticity and the data in question to it's 
+opponent. It should be possible to opt out, if that level of reliability is not necessary. Whereas 
 if one of the parties demanding the other one of providing such level, but the other doesn't, then
 the access attempt will fail.
 
