@@ -52,3 +52,6 @@ Conclusion
 +   technology stack & standards
 +   resources
 +   the tool might be not a bulletproof vest, but
+
+
+The work will be continued.

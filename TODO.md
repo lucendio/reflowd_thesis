@@ -8,5 +8,5 @@
 []   reduce line height and font size
 []   change block and inline quotation style
 []   change code blocks
-[]   distinguish between new sections (empty line between) and paragraphs (just a new line)
+[]   distinguish between new sections (empty line between) and new paragraphs (just a new line)
 []   adding several *new-pages* and additional pages for e.g. acknowledgement 

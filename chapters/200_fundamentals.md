@@ -277,6 +277,8 @@ technical solution could help to regain some control.
     the results. (E) last but not least, make business decisions based und the analyses 
     ([@paper_2015_big-data-analytics_a-survey] Fig. 3).
     
++   machine learning/data mining --> computers trained to find coronations
+    
 +   since quite a few businesses (in terms of purpose or intention) are based around the concept 
     of customers, which are generally somewhat entities consisting of at least one human being,
     personal data takes a major part in what *Big Data* can be about. 

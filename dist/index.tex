@@ -1043,6 +1043,9 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
   ({[}\protect\hyperlink{ref-paper_2015_big-data-analytics_a-survey}{39}{]}
   Fig. 3).
 \item
+  machine learning/data mining --\textgreater{} computers trained to
+  find coronations
+\item
   since quite a few businesses (in terms of purpose or intention) are
   based around the concept of customers, which are generally somewhat
   entities consisting of at least one human being, personal data takes a
@@ -1916,7 +1919,7 @@ operator. (see \protect\hyperlink{terminologies}{Terminologies})
 \textbf{\emph{\protect\hypertarget{sa03}{}{S.A.03}} - Authenticity}\\
 Since they have to rely on the data, both entities - everyone belonging
 to one of the \emph{\protect\hyperlink{sa02}{roles}} - should be able to
-ensure the authenticity of it's opponent and the data in question. It
+ensure it's authenticity and the data in question to it's opponent. It
 should be possible to opt out, if that level of reliability is not
 necessary. Whereas if one of the parties demanding the other one of
 providing such level, but the other doesn't, then the access attempt
@@ -2115,13 +2118,11 @@ makings, examines possible issues emerging alongside and discuses
 different solutions obtained from several perspectives in order to
 evaluate their advantages and disadvantages. Probably not every issue
 will get it's\\
-deserved rome , but major aspects will be addressed.
+deserved room, but major aspects will be addressed. In short, the
+majority of the project's conceptual work is done below.
 
-NOTE: here we discuss a variety of possibilities --\textgreater{}
-conceptual work
-
-At the end every subchapter includes a section containing a summary of
-conclusions, which are based on prior discussions about the related
+Eevery subchapter includes at the end a section containing a summary of
+conclusions, which are based on the prior discussions about the related
 topic.
 
 \section{Architecture}\label{architecture}
@@ -2160,6 +2161,19 @@ Authentication}\label{verification-authentication}
     individual's digital identity should only be possible with a
     two-factor secret. One part of this secret is owned by the CA and
     the other half has the individual behind the personal API
+  \item
+    Where?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      direct at a Meldestelle
+    \item
+      with the eID-Function (data check: as long as the contents of the
+      relevant fields are equal) of the Personalausweis --\textgreater{}
+      no, because every PDaaS need its own permission cert from the
+      authorities
+    \end{itemize}
   \end{itemize}
 \item
   TODO: look into
@@ -2167,15 +2181,145 @@ Authentication}\label{verification-authentication}
   \begin{itemize}
   \tightlist
   \item
-    PKI
-  \item
-    ePerso
-  \item
-    E-Post/de-mail
+    PKI: concept consists of CAs and stuff used for HTTPS
   \end{itemize}
 \item
   Authentication
 \end{itemize}
+
+\subsubsection{Asymmetric Cryptographic
+Techniques}\label{asymmetric-cryptographic-techniques}
+
+\paragraph[ePerso, E-Post/de-mail as part of a PKI solution?\_\_\\
+In the past years different countries around the world recently started
+to introduced \emph{information technology} to the day-to-day processes,
+interactions and communications between public services and their
+citizens, for example changing residence information or filing tax
+report, which is summarized under the term \emph{E-government}. One of
+those developments is the so called \emph{electronic ID card},
+hereinafter called \emph{eID card}. Equipped with storage, logic and
+interfaces for wireless communication, those \emph{eID cards} can be
+used to store certain information and digital keys or to authenticate
+the owner electronically to a third party without being physically
+present. Such an \emph{eID card} was also introduced in Germany in 2010.
+The so called \emph{nPA} was an important step towards an operational
+\emph{e-government}.]{\texorpdfstring{ePerso, E-Post/de-mail as part of
+a PKI solution?\_\_\\
+In the past years different countries around the world recently started
+to introduced \emph{information technology} to the day-to-day processes,
+interactions and communications between public services and their
+citizens, for example changing residence information or filing tax
+report, which is summarized under the term
+\emph{E-government}.\footnote{Electronic government} One of those
+developments is the so called \emph{electronic ID card}, hereinafter
+called \emph{eID card}. Equipped with storage, logic and interfaces for
+wireless communication, those \emph{eID cards} can be used to store
+certain information and digital keys or to authenticate the owner
+electronically to a third party without being physically present. Such
+an \emph{eID card} was also introduced in Germany in 2010. The so called
+\emph{nPA}\footnote{in german so called \emph{elektronische
+  Personalausweis (nPA)}} was an important step towards an operational
+\emph{e-government}.}{ePerso, E-Post/de-mail as part of a PKI solution?\_\_ In the past years different countries around the world recently started to introduced information technology to the day-to-day processes, interactions and communications between public services and their citizens, for example changing residence information or filing tax report, which is summarized under the term E-government. One of those developments is the so called electronic ID card, hereinafter called eID card. Equipped with storage, logic and interfaces for wireless communication, those eID cards can be used to store certain information and digital keys or to authenticate the owner electronically to a third party without being physically present. Such an eID card was also introduced in Germany in 2010. The so called nPA was an important step towards an operational e-government.}}\label{eperso-e-postde-mail-as-part-of-a-pki-solution__-in-the-past-years-different-countries-around-the-world-recently-started-to-introduced-information-technology-to-the-day-to-day-processes-interactions-and-communications-between-public-services-and-their-citizens-for-example-changing-residence-information-or-filing-tax-report-which-is-summarized-under-the-term-e-government-abbr_egov.-one-of-those-developments-is-the-so-called-electronic-id-card-hereinafter-called-eid-card.-equipped-with-storage-logic-and-interfaces-for-wireless-communication-those-eid-cards-can-be-used-to-store-certain-information-and-digital-keys-or-to-authenticate-the-owner-electronically-to-a-third-party-without-being-physically-present.-such-an-eid-card-was-also-introduced-in-germany-in-2010.-the-so-called-npa-abbr_npa-was-an-important-step-towards-an-operational-e-government.}
+
+Aside from minor flaws
+{[}\protect\hyperlink{ref-web_2013_npa-sicherheitsdefizit}{105}{]} and
+disadvantages
+{[}\protect\hyperlink{ref-web_2014_test-qes-support-in-npa}{106}{]} an
+\emph{eID card} can have, the question here is, how can this technology
+be usefully integrated in this project and does it even makes sense. As
+an official document the card has one major advantage over
+self-configured authentication mechanisms like password, fingerprints or
+second factor tokens. It is \emph{signed} by design, meaning by creating
+this document and handing it over to the related citizen, the third
+party - in this case the government - has verified the authenticity of
+that individual.
+
+As a result, several ideas can be proposed:
+
+\begin{enumerate}
+\def\labelenumi{(\Alph{enumi})}
+\tightlist
+\item
+  authenticate with the \emph{eID card} to the management UI of the
+  \emph{PDaaS}
+\item
+  authorize/approve \emph{access requests} or \emph{data access}
+  attempts
+\item
+  sign the responding data, in order to not only preserve data integrity
+  but also to prove the authenticity of the data.
+\end{enumerate}
+
+With regards to (A), partially depending on the \emph{eID card}'s
+implementation, but in general this use case would make sense. When
+considering the german implementation (nPA), accessing the management UI
+via desktop would require just a card reader - preferable with a
+hardware keypad attached. Accessing the UI via mobile device could be
+achieved with the card's RFID-capabilities, as long as the used device
+is able to communicate with the RFID-chip. Both cases need the
+\emph{nPA} to have enabled the \emph{eID} feature. If a service wants to
+provide \emph{nPA}-based online authentication (\emph{eID-Service}),
+which is defined as a non-sovereign (``nicht hoheitlich'') feature, it
+has to comply with several requirements
+{[}\protect\hyperlink{ref-web_bsi-eid}{107}{]} starting with making an
+application in order to get permission for sending a certificate signing
+request to a BerCA.\footnote{Berechtigungszertifikate-Anbieter} This
+request is originated from an \emph{eID-Server}
+{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{108}{]} to sign a
+public key generated on a dedicated and certified hardware, which is
+also required through the officials. This key pair - re-generated and
+re-signed every three days - is needed to establish a connection with
+the \emph{nPA}, which then is used to authenticated the owner of that
+\emph{ID card}. The described appears to be highly expensive (effort,
+hardware costs), especially because every single operator needs to go
+through the whole process in order to provide this authentication
+method; not mentioning the uncertainty of the official's decision about
+the motion filing. Another approach would be to integrate an external
+authentication provider supporting the \emph{nPA}, which would not only
+add an additional dependency, but could also weaken the system.
+
+\begin{enumerate}
+\def\labelenumi{(\Alph{enumi})}
+\tightlist
+\item
+  and (B) are fairly similar, insofar as they would use the same
+  mechanism to authenticate, but to approve different actions.
+\end{enumerate}
+
+As of (C), as mentioned above the \emph{nPA} is able to store data
+required for creating a \emph{QES}\footnote{Qualified Electronic
+  Signatures
+  {[}\protect\hyperlink{ref-paper_2013-keymanangement-fuer-qes-mit-npa}{109}{]}}
+(e.g.~private keys and certificates). Thus this procedure could be used
+to sign arbitrary data, normally messages within communications like
+emails. But since a signing procedure involves the operators private
+key, every time data get accessed by a consumer, she is forced to
+interact withe the system. Otherwise the operators private key need to
+be stored somewhere within the system. No matter where, this approach
+would potentially expose a highly confidential part of a cryptographic
+procedure, which not only reduces the overall system's security level.
+It also makes every process this procedure is involved with vulnerable
+to certain attacks. Apart from that, it is highly unlikely that a
+\emph{eID card} does allow to extract private keys. Thus increasing
+inconvenience is inevitable for such a use case.
+
+Another technology emerging as part of the \emph{e-government}
+development is the \emph{DE-Mail}
+{[}\protect\hyperlink{ref-web_2017_about-de-mail}{110}{]}. It's an
+eMail-Service that is meant to provides infrastructure and mechanisms to
+exchange legally binding electronic documents. One would expect
+public-key-based cryptography procedures all the way from sender through
+to the recipient (end-to-end)
+{[}\protect\hyperlink{ref-statement_2013_de-mail}{111}{]}, maybe even
+with taking advantage of the \emph{nPA's} capability to create
+\emph{QES}. Instead, the creators of the corresponding law decided that
+it's sufficient prove about the documents author if the provider signs
+the document on the email server and that this implementation results in
+a legally binding document by definition of that law. This technology
+tries to embed a legal foundation into email-based communication, thus
+has no relevance to this project, other then letting a server sign
+outgoing data, which might be the only solution to avoid an overhead in
+user interaction caused by recurring events.
 
 \subsection{Data Exchange/Access Process
 Design}\label{data-exchangeaccess-process-design}
@@ -2459,7 +2603,7 @@ Design}\label{data-exchangeaccess-process-design}
   password for different account, nowadays they but alsod tent to get
   tired of creating new accounts and profiles over and over again
   instead of having just one account for everything
-  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{105}{]}.
+  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{112}{]}.
 \end{itemize}
 
 Thus the platform owners leave the responsibility of
@@ -2658,6 +2802,8 @@ Monetisation}\label{business-models-monetisation}
 \item
   the tool might be not a bulletproof vest, but
 \end{itemize}
+
+The work will be continued.
 
 \hypertarget{refs}{}
 \hypertarget{ref-web_2016_privacy-international-about-big-data}{}
@@ -3242,8 +3388,54 @@ processing on large clusters,'' 2004 {[}Online{]}. Available:
 \url{https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf}.
 {[}Accessed: 27-Dec-2016{]}
 
+\hypertarget{ref-web_2013_npa-sicherheitsdefizit}{}
+{[}105{]} ``Basisleser weiterhin kritische schwachstelle des
+elektronischen / neuen personalausweises. Netzpolitik.org,''
+27-Aug-2013. {[}Online{]}. Available:
+\url{https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/}.
+{[}Accessed: 05-Jan-2017{]}
+
+\hypertarget{ref-web_2014_test-qes-support-in-npa}{}
+{[}106{]} O. Stiemerling, ``Qualifizierte elektronische signatur mit dem
+neuen personalausweis -- oder: QES mit nPA, ein selbstversuch.
+CR-online.de blog,'' 26-Aug-2014. {[}Online{]}. Available:
+\url{http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/}.
+{[}Accessed: 05-Jan-2017{]}
+
+\hypertarget{ref-web_bsi-eid}{}
+{[}107{]} ``BSI - technische richtlinien des BSI - BSI TR-03130
+eID-server.'' {[}Online{]}. Available:
+\url{https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html}.
+{[}Accessed: 06-Jan-2017{]}
+
+\hypertarget{ref-web_2017_npa-eid-server}{}
+{[}108{]} ``Personalausweisportal - eID-server.'' {[}Online{]}.
+Available:
+\url{https://www.personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html;jsessionid=8C7F11821065F2505F22AFEF65F63DFB.2_cid334}.
+{[}Accessed: 06-Jan-2017{]}
+
+\hypertarget{ref-paper_2013-keymanangement-fuer-qes-mit-npa}{}
+{[}109{]} K. Nguyen and C. Schwarz, ``Innovatives key management für die
+qualifizierte elektronische signatur mit dem neuen personalausweis,''
+\emph{Datenschutz und Datensicherheit-DuD}, vol. 37, no. 8, pp.
+502--506, 2013 {[}Online{]}. Available:
+\url{https://www.bundesdruckerei.de/sites/default/files/documents/2013/08/fachartikel_dud_sign-me.pdf}.
+{[}Accessed: 06-Jan-2017{]}
+
+\hypertarget{ref-web_2017_about-de-mail}{}
+{[}110{]} D. B. der Bundesregierung für Informationstechnik,
+``IT-beauftragter der bundesregierung de-mail.'' {[}Online{]}.
+Available:
+\url{http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html}.
+{[}Accessed: 06-Jan-2017{]}
+
+\hypertarget{ref-statement_2013_de-mail}{}
+{[}111{]} L. Neumann, ``Stellungnahme zum elektronischen
+rechtsverkehr.'' 14-Apr-2013 {[}Online{]}. Available:
+\url{https://ccc.de/system/uploads/128/original/demail_april2013.pdf}
+
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}105{]} N. Carlson, ``Facebook connect is a huge success -- by the
+{[}112{]} N. Carlson, ``Facebook connect is a huge success -- by the
 numbers,'' 01-Jul-2009. {[}Online{]}. Available:
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 {[}Accessed: 16-Dec-2016{]}

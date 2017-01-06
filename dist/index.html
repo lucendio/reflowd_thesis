@@ -317,6 +317,7 @@
 <li>big data itself initially can be seen as a <em>huge blob of data</em> containing more or less structured data sets <span class="citation" data-cites="web_2016_oxford_definition_big-data">[<a href="#ref-web_2016_oxford_definition_big-data">37</a>]</span>, whose size might have exceeded the capabilities of retrieving certain information almost only by hand. Such high data haystacks usually come along with new challenges in logistic and resource management, when information retrieval needs to get automated on a large scale <span class="citation" data-cites="web_2016_wikipedia_definition_big-data">[<a href="#ref-web_2016_wikipedia_definition_big-data">38</a>]</span>. Theses practices are commonly referred to <em>Big Data (Analysis)</em> including distributed computing and machine learning.</li>
 <li>Big Data, or to be more precise, collecting and analyzing big data, serves the prior purpose to extract useful information, which on the other hand depends on what was the opening question about, but also what data sets the corpus is containing.</li>
 <li><p>At first, (A) formalizing question(s) that the results have to answer. Secondly, (B) deciding what data is needed and appropriate and then start collecting. Third, (C) designing data models accordingly and correlate with the data (D) next, analyse and interpret the results. (E) last but not least, make business decisions based und the analyses (<span class="citation" data-cites="paper_2015_big-data-analytics_a-survey">[<a href="#ref-paper_2015_big-data-analytics_a-survey">39</a>]</span> Fig. 3).</p></li>
+<li><p>machine learning/data mining –&gt; computers trained to find coronations</p></li>
 <li>since quite a few businesses (in terms of purpose or intention) are based around the concept of customers, which are generally somewhat entities consisting of at least one human being, personal data takes a major part in what <em>Big Data</em> can be about. In the context of this thesis, these entities are individuals with a unique identity. And to understand the behaviour, decision making and needs of her customers a vendor, who owns the business, needs to know as much as possible about them, when she wants to know what changes she needs to address in order to move towards the most lucrative business.</li>
 <li><p>personal data and information are reflecting all this knowledge. It starts with profile (or sensitive) data, such as gender, age, residency or income, goes on with time series events like geo-location changes, or web search history and goes all the way up to health data and self-created content like <em>Tweets</em><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> or videos.</p></li>
 <li>all these classes of personal data hold a major share<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> in the field of data analytics (TODO: find statistics showing shares of data types/classes/categories, <span class="citation" data-cites="book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining">[<a href="#ref-book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining">40</a>]</span> <span class="citation" data-cites="web_2013_big-data-collection-collides-with-privacy-concerns">[<a href="#ref-web_2013_big-data-collection-collides-with-privacy-concerns">41</a>]</span>)</li>
@@ -466,7 +467,7 @@ All major components should be designed and communicate between each other in a 
 <p><strong><em><span id="sa02">S.A.02</span></em> - Roles</strong><br />
 The system has to define two types of roles. The first one is the <a href="#terminologies--operator">operator</a>, who is in control of the system and, depending on the architecture, must be at least on individual but can be more. The operator takes care of all the data that then get’s provided and decides about which third party get’s access to what data. The second type are the <a href="#terminologies--consumer">consumers</a>. These are external third parties that desire certain data about or from the operator. (see <a href="#terminologies">Terminologies</a>)</p>
 <p><strong><em><span id="sa03">S.A.03</span></em> - Authenticity</strong><br />
-Since they have to rely on the data, both entities - everyone belonging to one of the <em><a href="#sa02">roles</a></em> - should be able to ensure the authenticity of it’s opponent and the data in question. It should be possible to opt out, if that level of reliability is not necessary. Whereas if one of the parties demanding the other one of providing such level, but the other doesn’t, then the access attempt will fail.</p>
+Since they have to rely on the data, both entities - everyone belonging to one of the <em><a href="#sa02">roles</a></em> - should be able to ensure it’s authenticity and the data in question to it’s opponent. It should be possible to opt out, if that level of reliability is not necessary. Whereas if one of the parties demanding the other one of providing such level, but the other doesn’t, then the access attempt will fail.</p>
 </section>
 <section id="persistence" class="level4">
 <h4><span class="header-section-number">5.1.1.2</span> Persistence:</h4>
@@ -530,9 +531,8 @@ Real time communication might be essential for time-critical data transaction. H
 <section id="design-discussion" class="level1">
 <h1><span class="header-section-number">6</span> Design Discussion</h1>
 <p>The following chapter documents the processes of some design decision makings, examines possible issues emerging alongside and discuses different solutions obtained from several perspectives in order to evaluate their advantages and disadvantages. Probably not every issue will get it’s<br />
-deserved rome , but major aspects will be addressed.</p>
-<p>NOTE: here we discuss a variety of possibilities –&gt; conceptual work</p>
-<p>At the end every subchapter includes a section containing a summary of conclusions, which are based on prior discussions about the related topic.</p>
+deserved room, but major aspects will be addressed. In short, the majority of the project’s conceptual work is done below.</p>
+<p>Eevery subchapter includes at the end a section containing a summary of conclusions, which are based on the prior discussions about the related topic.</p>
 <section id="architecture" class="level2">
 <h2><span class="header-section-number">6.2</span> Architecture</h2>
 <ul>
@@ -550,15 +550,38 @@ deserved rome , but major aspects will be addressed.</p>
 <ul>
 <li>do I trust the gov or certain companies more? Which interests do these Role/Stakeholder have?</li>
 <li>revoking the cert which provides the authenticity of the individual’s digital identity should only be possible with a two-factor secret. One part of this secret is owned by the CA and the other half has the individual behind the personal API</li>
+<li>Where?
+<ul>
+<li>direct at a Meldestelle</li>
+<li>with the eID-Function (data check: as long as the contents of the relevant fields are equal) of the Personalausweis –&gt; no, because every PDaaS need its own permission cert from the authorities</li>
+</ul></li>
 </ul></li>
 <li>TODO: look into
 <ul>
-<li>PKI</li>
-<li>ePerso</li>
-<li>E-Post/de-mail</li>
+<li>PKI: concept consists of CAs and stuff used for HTTPS</li>
 </ul></li>
 <li>Authentication</li>
 </ul>
+<section id="asymmetric-cryptographic-techniques" class="level4">
+<h4><span class="header-section-number">6.2.2.1</span> Asymmetric Cryptographic Techniques</h4>
+<section id="eperso-e-postde-mail-as-part-of-a-pki-solution__-in-the-past-years-different-countries-around-the-world-recently-started-to-introduced-information-technology-to-the-day-to-day-processes-interactions-and-communications-between-public-services-and-their-citizens-for-example-changing-residence-information-or-filing-tax-report-which-is-summarized-under-the-term-e-government-abbr_egov.-one-of-those-developments-is-the-so-called-electronic-id-card-hereinafter-called-eid-card.-equipped-with-storage-logic-and-interfaces-for-wireless-communication-those-eid-cards-can-be-used-to-store-certain-information-and-digital-keys-or-to-authenticate-the-owner-electronically-to-a-third-party-without-being-physically-present.-such-an-eid-card-was-also-introduced-in-germany-in-2010.-the-so-called-npa-abbr_npa-was-an-important-step-towards-an-operational-e-government." class="level5">
+<h5><span class="header-section-number">6.2.2.1.1</span> ePerso, E-Post/de-mail as part of a PKI solution?__<br />
+In the past years different countries around the world recently started to introduced <em>information technology</em> to the day-to-day processes, interactions and communications between public services and their citizens, for example changing residence information or filing tax report, which is summarized under the term <em>E-government</em>.<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a> One of those developments is the so called <em>electronic ID card</em>, hereinafter called <em>eID card</em>. Equipped with storage, logic and interfaces for wireless communication, those <em>eID cards</em> can be used to store certain information and digital keys or to authenticate the owner electronically to a third party without being physically present. Such an <em>eID card</em> was also introduced in Germany in 2010. The so called <em>nPA</em><a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a> was an important step towards an operational <em>e-government</em>.</h5>
+<p>Aside from minor flaws <span class="citation" data-cites="web_2013_npa-sicherheitsdefizit">[<a href="#ref-web_2013_npa-sicherheitsdefizit">105</a>]</span> and disadvantages <span class="citation" data-cites="web_2014_test-qes-support-in-npa">[<a href="#ref-web_2014_test-qes-support-in-npa">106</a>]</span> an <em>eID card</em> can have, the question here is, how can this technology be usefully integrated in this project and does it even makes sense. As an official document the card has one major advantage over self-configured authentication mechanisms like password, fingerprints or second factor tokens. It is <em>signed</em> by design, meaning by creating this document and handing it over to the related citizen, the third party - in this case the government - has verified the authenticity of that individual.</p>
+<p>As a result, several ideas can be proposed:</p>
+<ol type="A">
+<li>authenticate with the <em>eID card</em> to the management UI of the <em>PDaaS</em></li>
+<li>authorize/approve <em>access requests</em> or <em>data access</em> attempts</li>
+<li>sign the responding data, in order to not only preserve data integrity but also to prove the authenticity of the data.</li>
+</ol>
+<p>With regards to (A), partially depending on the <em>eID card</em>’s implementation, but in general this use case would make sense. When considering the german implementation (nPA), accessing the management UI via desktop would require just a card reader - preferable with a hardware keypad attached. Accessing the UI via mobile device could be achieved with the card’s RFID-capabilities, as long as the used device is able to communicate with the RFID-chip. Both cases need the <em>nPA</em> to have enabled the <em>eID</em> feature. If a service wants to provide <em>nPA</em>-based online authentication (<em>eID-Service</em>), which is defined as a non-sovereign (“nicht hoheitlich”) feature, it has to comply with several requirements <span class="citation" data-cites="web_bsi-eid">[<a href="#ref-web_bsi-eid">107</a>]</span> starting with making an application in order to get permission for sending a certificate signing request to a BerCA.<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a> This request is originated from an <em>eID-Server</em> <span class="citation" data-cites="web_2017_npa-eid-server">[<a href="#ref-web_2017_npa-eid-server">108</a>]</span> to sign a public key generated on a dedicated and certified hardware, which is also required through the officials. This key pair - re-generated and re-signed every three days - is needed to establish a connection with the <em>nPA</em>, which then is used to authenticated the owner of that <em>ID card</em>. The described appears to be highly expensive (effort, hardware costs), especially because every single operator needs to go through the whole process in order to provide this authentication method; not mentioning the uncertainty of the official’s decision about the motion filing. Another approach would be to integrate an external authentication provider supporting the <em>nPA</em>, which would not only add an additional dependency, but could also weaken the system.</p>
+<ol type="A">
+<li>and (B) are fairly similar, insofar as they would use the same mechanism to authenticate, but to approve different actions.</li>
+</ol>
+<p>As of (C), as mentioned above the <em>nPA</em> is able to store data required for creating a <em>QES</em><a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a> (e.g. private keys and certificates). Thus this procedure could be used to sign arbitrary data, normally messages within communications like emails. But since a signing procedure involves the operators private key, every time data get accessed by a consumer, she is forced to interact withe the system. Otherwise the operators private key need to be stored somewhere within the system. No matter where, this approach would potentially expose a highly confidential part of a cryptographic procedure, which not only reduces the overall system’s security level. It also makes every process this procedure is involved with vulnerable to certain attacks. Apart from that, it is highly unlikely that a <em>eID card</em> does allow to extract private keys. Thus increasing inconvenience is inevitable for such a use case.</p>
+<p>Another technology emerging as part of the <em>e-government</em> development is the <em>DE-Mail</em> <span class="citation" data-cites="web_2017_about-de-mail">[<a href="#ref-web_2017_about-de-mail">110</a>]</span>. It’s an eMail-Service that is meant to provides infrastructure and mechanisms to exchange legally binding electronic documents. One would expect public-key-based cryptography procedures all the way from sender through to the recipient (end-to-end) <span class="citation" data-cites="statement_2013_de-mail">[<a href="#ref-statement_2013_de-mail">111</a>]</span>, maybe even with taking advantage of the <em>nPA’s</em> capability to create <em>QES</em>. Instead, the creators of the corresponding law decided that it’s sufficient prove about the documents author if the provider signs the document on the email server and that this implementation results in a legally binding document by definition of that law. This technology tries to embed a legal foundation into email-based communication, thus has no relevance to this project, other then letting a server sign outgoing data, which might be the only solution to avoid an overhead in user interaction caused by recurring events.</p>
+</section>
+</section>
 </section>
 <section id="data-exchangeaccess-process-design" class="level3">
 <h3><span class="header-section-number">6.2.3</span> Data Exchange/Access Process Design</h3>
@@ -713,7 +736,7 @@ deserved rome , but major aspects will be addressed.</p>
 <section id="authentication" class="level3">
 <h3><span class="header-section-number">6.4.4</span> Authentication</h3>
 <ul>
-<li>regarding oAuth as authentication: Priorly users tented to reuse their password for different account, nowadays they but alsod tent to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">105</a>]</span>.</li>
+<li>regarding oAuth as authentication: Priorly users tented to reuse their password for different account, nowadays they but alsod tent to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">112</a>]</span>.</li>
 </ul>
 <p>Thus the platform owners leave the responsibility of</p>
 <p>Many websites and platforms understand those <em>login-with $platformName</em> mechanisms as an outsourced service that handles all security- and user-related tasks.</p>
@@ -867,6 +890,7 @@ deserved rome , but major aspects will be addressed.</p>
 <li>resources</li>
 <li>the tool might be not a bulletproof vest, but</li>
 </ul>
+<p>The work will be continued.</p>
 <div id="refs" class="references">
 <div id="ref-web_2016_privacy-international-about-big-data">
 <p>[1] “Big data privacy international.” [Online]. Available: <a href="https://www.privacyinternational.org/node/8" class="uri">https://www.privacyinternational.org/node/8</a>. [Accessed: 15-Nov-2016]</p>
@@ -1180,8 +1204,29 @@ deserved rome , but major aspects will be addressed.</p>
 <div id="ref-paper_2004_distributed-mapreduce">
 <p>[104] E. Dean and S. Ghemawat, “MapRednce: Simplified data processing on large clusters,” 2004 [Online]. Available: <a href="https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf" class="uri">https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf</a>. [Accessed: 27-Dec-2016]</p>
 </div>
+<div id="ref-web_2013_npa-sicherheitsdefizit">
+<p>[105] “Basisleser weiterhin kritische schwachstelle des elektronischen / neuen personalausweises. Netzpolitik.org,” 27-Aug-2013. [Online]. Available: <a href="https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/" class="uri">https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/</a>. [Accessed: 05-Jan-2017]</p>
+</div>
+<div id="ref-web_2014_test-qes-support-in-npa">
+<p>[106] O. Stiemerling, “Qualifizierte elektronische signatur mit dem neuen personalausweis – oder: QES mit nPA, ein selbstversuch. CR-online.de blog,” 26-Aug-2014. [Online]. Available: <a href="http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/" class="uri">http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/</a>. [Accessed: 05-Jan-2017]</p>
+</div>
+<div id="ref-web_bsi-eid">
+<p>[107] “BSI - technische richtlinien des BSI - BSI TR-03130 eID-server.” [Online]. Available: <a href="https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html" class="uri">https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html</a>. [Accessed: 06-Jan-2017]</p>
+</div>
+<div id="ref-web_2017_npa-eid-server">
+<p>[108] “Personalausweisportal - eID-server.” [Online]. Available: <a href="https://www.personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html;jsessionid=8C7F11821065F2505F22AFEF65F63DFB.2_cid334" class="uri">https://www.personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html;jsessionid=8C7F11821065F2505F22AFEF65F63DFB.2_cid334</a>. [Accessed: 06-Jan-2017]</p>
+</div>
+<div id="ref-paper_2013-keymanangement-fuer-qes-mit-npa">
+<p>[109] K. Nguyen and C. Schwarz, “Innovatives key management für die qualifizierte elektronische signatur mit dem neuen personalausweis,” <em>Datenschutz und Datensicherheit-DuD</em>, vol. 37, no. 8, pp. 502–506, 2013 [Online]. Available: <a href="https://www.bundesdruckerei.de/sites/default/files/documents/2013/08/fachartikel_dud_sign-me.pdf" class="uri">https://www.bundesdruckerei.de/sites/default/files/documents/2013/08/fachartikel_dud_sign-me.pdf</a>. [Accessed: 06-Jan-2017]</p>
+</div>
+<div id="ref-web_2017_about-de-mail">
+<p>[110] D. B. der Bundesregierung für Informationstechnik, “IT-beauftragter der bundesregierung de-mail.” [Online]. Available: <a href="http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html" class="uri">http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html</a>. [Accessed: 06-Jan-2017]</p>
+</div>
+<div id="ref-statement_2013_de-mail">
+<p>[111] L. Neumann, “Stellungnahme zum elektronischen rechtsverkehr.” 14-Apr-2013 [Online]. Available: <a href="https://ccc.de/system/uploads/128/original/demail_april2013.pdf" class="uri">https://ccc.de/system/uploads/128/original/demail_april2013.pdf</a></p>
+</div>
 <div id="ref-web_2009-success-of-facebook-connect">
-<p>[105] N. Carlson, “Facebook connect is a huge success – by the numbers,” 01-Jul-2009. [Online]. Available: <a href="http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7" class="uri">http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7</a>. [Accessed: 16-Dec-2016]</p>
+<p>[112] N. Carlson, “Facebook connect is a huge success – by the numbers,” 01-Jul-2009. [Online]. Available: <a href="http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7" class="uri">http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7</a>. [Accessed: 16-Dec-2016]</p>
 </div>
 </div>
 </section>
@@ -1210,6 +1255,10 @@ deserved rome , but major aspects will be addressed.</p>
 <li id="fn18"><p>social linked data <span class="citation" data-cites="web_spec_solid">[<a href="#ref-web_spec_solid">95</a>]</span><a href="#fnref18">↩</a></p></li>
 <li id="fn19"><p>control groups <span class="citation" data-cites="web_2015_cgroup-doc">[<a href="#ref-web_2015_cgroup-doc">98</a>]</span><a href="#fnref19">↩</a></p></li>
 <li id="fn20"><p>Software as a Service<a href="#fnref20">↩</a></p></li>
+<li id="fn21"><p>Electronic government<a href="#fnref21">↩</a></p></li>
+<li id="fn22"><p>in german so called <em>elektronische Personalausweis (nPA)</em><a href="#fnref22">↩</a></p></li>
+<li id="fn23"><p>Berechtigungszertifikate-Anbieter<a href="#fnref23">↩</a></p></li>
+<li id="fn24"><p>Qualified Electronic Signatures <span class="citation" data-cites="paper_2013-keymanangement-fuer-qes-mit-npa">[<a href="#ref-paper_2013-keymanangement-fuer-qes-mit-npa">109</a>]</span><a href="#fnref24">↩</a></p></li>
 </ol>
 </section>
             </body>
