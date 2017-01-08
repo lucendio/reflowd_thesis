@@ -1898,14 +1898,21 @@ listed below.
 
 \subsubsection{Architecture/Design:}\label{architecturedesign}
 
-\textbf{\emph{\protect\hypertarget{sa01}{}{S.A.01}} - Portability}\\
+\textbf{\emph{\protect\hypertarget{sa01}{}{S.A.01}} - Accessibility}\\
+Since the internet is one of the most widely used infrastructure for
+data transfer and communication, it is assumed that all common platforms
+support the underlying technologies, such as HTTP and TLS. Thus the
+emerging system should implement a web service, who provide controlled
+access to personal data.
+
+\textbf{\emph{\protect\hypertarget{sa02}{}{S.A.02}} - Portability}\\
 All major components should be designed and communicate between each
 other in a way to be able to get relocated while the system has to
 remain fully functional. It has to be possible to build a distributed
 system, that may require to place certain components into different
 environments/devices.
 
-\textbf{\emph{\protect\hypertarget{sa02}{}{S.A.02}} - Roles}\\
+\textbf{\emph{\protect\hypertarget{sa03}{}{S.A.03}} - Roles}\\
 The system has to define two types of roles. The first one is the
 \protect\hyperlink{terminologies--operator}{operator}, who is in control
 of the system and, depending on the architecture, must be at least on
@@ -1916,14 +1923,14 @@ what data. The second type are the
 external third parties that desire certain data about or from the
 operator. (see \protect\hyperlink{terminologies}{Terminologies})
 
-\textbf{\emph{\protect\hypertarget{sa03}{}{S.A.03}} - Authenticity}\\
-Since they have to rely on the data, both entities - everyone belonging
-to one of the \emph{\protect\hyperlink{sa02}{roles}} - should be able to
-ensure it's authenticity and the data in question to it's opponent. It
-should be possible to opt out, if that level of reliability is not
-necessary. Whereas if one of the parties demanding the other one of
-providing such level, but the other doesn't, then the access attempt
-will fail.
+\textbf{\emph{\protect\hypertarget{sa04}{}{S.A.04}} - Authenticity}\\
+Since they have to rely on the data, both entities - everyone who
+belongs to one of the \emph{\protect\hyperlink{sa03}{roles}} - have to
+be able to ensure the authenticity of their identity and the data they
+are sending to the opponent. It should be possible to opt out to that
+level of reliability, if is not necessary. Whereas if one of the parties
+demanding the other one of providing such level, but the other doesn't,
+then the access attempt has to fail.
 
 \subsubsection{Persistence:}\label{persistence}
 
@@ -2127,54 +2134,43 @@ topic.
 
 \section{Architecture}\label{architecture}
 
+Within this sections questions such as
+
 \begin{itemize}
 \tightlist
 \item
-  showing possible directions, e.g.:
+  how can a communication process with a third party be modeled and what
+  technologies can be used to
+\end{itemize}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    cloud or local storage
-  \item
-    which components can go where
-  \item
-    remote execution, to prevent data from leaving the system
-  \end{itemize}
+\begin{enumerate}
+\def\labelenumi{(\Alph{enumi})}
+\tightlist
+\item
+  trust the system and
+\item
+  trust the communication partner
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  how many and what kind of authentication mechanisms are required?
+\item
+  how can data be provided to a a data consumer without the data ever
+  leaving the system?
+\item
+  where are reasonable places to locate the storage that holds the
+  controller's personal data
 \end{itemize}
 
 \subsection{Verification /
 Authentication}\label{verification-authentication}
 
+Only at the beginning the relies
+
 \begin{itemize}
 \tightlist
-\item
-  maybe go with a Signing/verifying Authority (aka CA)
-
-  \begin{itemize}
-  \tightlist
-  \item
-    do I trust the gov or certain companies more? Which interests do
-    these Role/Stakeholder have?
-  \item
-    revoking the cert which provides the authenticity of the
-    individual's digital identity should only be possible with a
-    two-factor secret. One part of this secret is owned by the CA and
-    the other half has the individual behind the personal API
-  \item
-    Where?
-
-    \begin{itemize}
-    \tightlist
-    \item
-      direct at a Meldestelle
-    \item
-      with the eID-Function (data check: as long as the contents of the
-      relevant fields are equal) of the Personalausweis --\textgreater{}
-      no, because every PDaaS need its own permission cert from the
-      authorities
-    \end{itemize}
-  \end{itemize}
 \item
   TODO: look into
 
@@ -2184,7 +2180,10 @@ Authentication}\label{verification-authentication}
     PKI: concept consists of CAs and stuff used for HTTPS
   \end{itemize}
 \item
-  Authentication
+  since there are no time constrains when it comes to communication with
+  a payload that relates to personal data, the encryption procedures can
+  be as costly as the system resources allow them to be, thus the level
+  of security can be increased.
 \end{itemize}
 
 \subsubsection{Asymmetric Cryptographic
@@ -2341,6 +2340,12 @@ Design}\label{data-exchangeaccess-process-design}
 
 \subsection{Components}\label{components}
 
+\begin{itemize}
+\tightlist
+\item
+  which components can go where?
+\end{itemize}
+
 \textbf{Webserver}
 
 \begin{itemize}
@@ -2381,6 +2386,15 @@ Design}\label{data-exchangeaccess-process-design}
   regardless of the platform
 \item
   connector
+\item
+  where to place the storage? local (e.g.~mobile device) or cloud
+  (e.g.~hoster's infrastructure)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    requires 24/7 uptime
+  \end{itemize}
 \end{itemize}
 
 \textbf{Notification Infrastructure}
@@ -2433,6 +2447,8 @@ Design}\label{data-exchangeaccess-process-design}
 \item
   what about extensions (see iOS 10) to let other apps consume data;
   only on a mobile device and only if the data is stored there
+\item
+  currently no other imaginable then data type schemas
 \end{itemize}
 
 \subsection{\texorpdfstring{\emph{Conclusions}}{Conclusions}}\label{conclusions}
@@ -2453,6 +2469,59 @@ Design}\label{data-exchangeaccess-process-design}
 \item
   NOTE: step numbers marked with a \texttt{*} are somehow tasks which
   are happening in the background and don't require any user interaction
+\end{itemize}
+
+\subsection{Authenticity}\label{authenticity}
+
+Within the section \href{TODO}{about architecture} several options were
+discussed on how to preserve data integrity, referring to possible
+man-in-the-middle attacks and alike.
+
+With authenticity here it is referred to the originality of the data,
+meaning
+
+\begin{enumerate}
+\def\labelenumi{(\Alph{enumi})}
+\tightlist
+\item
+  the data really represent the entity associated to the originating
+  system and
+\item
+  the data is true at the time when the response leaves the originating
+  system
+\end{enumerate}
+
+\protect\hyperlink{sa04}{requirement}
+
+\begin{itemize}
+\tightlist
+\item
+  maybe go with a Signing/verifying Authority (aka CA)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    do I trust the gov or certain companies more? Which interests do
+    these Role/Stakeholder have?
+  \item
+    revoking the cert which provides the authenticity of the
+    individual's digital identity should only be possible with a
+    two-factor secret. One part of this secret is owned by the CA and
+    the other half has the individual behind the personal API
+  \item
+    Where?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      direct at a Meldestelle
+    \item
+      with the eID-Function (data check: as long as the contents of the
+      relevant fields are equal) of the Personalausweis --\textgreater{}
+      no, because every PDaaS need its own permission cert from the
+      authorities
+    \end{itemize}
+  \end{itemize}
 \end{itemize}
 
 \subsection{Modelling}\label{modelling}
@@ -2599,8 +2668,8 @@ Design}\label{data-exchangeaccess-process-design}
 \begin{itemize}
 \tightlist
 \item
-  regarding oAuth as authentication: Priorly users tented to reuse their
-  password for different account, nowadays they but alsod tent to get
+  regarding oAuth as authentication: Priorly users tended to reuse their
+  password for different account, nowadays they but also tend to get
   tired of creating new accounts and profiles over and over again
   instead of having just one account for everything
   {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{112}{]}.

@@ -13,12 +13,18 @@ Other chapters may contain specific references to the requirements listed below.
 
 #### Architecture/Design:
 
-__*[S.A.01]{#sa01}* - Portability__\
+__*[S.A.01]{#sa01}* - Accessibility__\
+Since the internet is one of the most widely used infrastructure for data transfer and 
+communication, it is assumed that all common platforms support the underlying technologies, such as 
+HTTP and TLS. Thus the emerging system should implement a web service, who provide controlled access 
+to personal data.
+
+__*[S.A.02]{#sa02}* - Portability__\
 All major components should be designed and communicate between each other in a way to be able to 
 get relocated while the system has to remain fully functional. It has to be possible to build a
 distributed system, that may require to place certain components into different environments/devices. 
 
-__*[S.A.02]{#sa02}* - Roles__\
+__*[S.A.03]{#sa03}* - Roles__\
 The system has to define two types of roles. The first one is the 
 [operator](#terminologies--operator), who is in control of the system and, depending on the 
 architecture, must be at least on individual but can be more. The operator takes care of all the 
@@ -27,12 +33,13 @@ type are the [consumers](#terminologies--consumer). These are external third par
 certain data about or from the operator.
 (see [Terminologies](#terminologies))
 
-__*[S.A.03]{#sa03}* - Authenticity__\
-Since they have to rely on the data, both entities - everyone belonging to one of the 
-*[roles](#sa02)* - should be able to ensure it's authenticity and the data in question to it's 
-opponent. It should be possible to opt out, if that level of reliability is not necessary. Whereas 
+__*[S.A.04]{#sa04}* - Authenticity__\
+Since they have to rely on the data, both entities - everyone who belongs to one of the 
+*[roles](#sa03)* - have to be able to ensure the authenticity of their identity and the data they 
+are sending to the opponent.
+It should be possible to opt out to that level of reliability, if is not necessary. Whereas 
 if one of the parties demanding the other one of providing such level, but the other doesn't, then
-the access attempt will fail.
+the access attempt has to fail.
 
 
 #### Persistence:

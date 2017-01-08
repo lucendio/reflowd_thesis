@@ -11,6 +11,33 @@
 
 
 
+### Authenticity
+
+Within the section [about architecture](TODO) several options were discussed on how to preserve data 
+integrity, referring to possible man-in-the-middle attacks and alike.
+
+With authenticity here it is referred to the originality of the data, meaning 
+(A) the data really represent the entity associated to the originating system and
+(B) the data is true at the time when the response leaves the originating system
+
+[requirement](#sa04)
+ 
+ 
+
++   maybe go with a Signing/verifying Authority (aka CA)
+    -   do I trust the gov or certain companies more? Which interests do these Role/Stakeholder 
+        have?
+    -   revoking the cert which provides the authenticity of the individual's digital identity 
+        should only be possible with a two-factor secret. One part of this secret is owned by 
+        the CA and the other half has the individual behind the personal API
+    -   Where?
+        +   direct at a Meldestelle
+        +   with the eID-Function (data check: as long as the contents of the relevant fields are 
+            equal) of the Personalausweis --> no, because every PDaaS need its own permission cert
+            from the authorities
+
+
+
 ### Modelling
 
 

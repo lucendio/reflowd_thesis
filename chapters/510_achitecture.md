@@ -1,33 +1,31 @@
 ## Architecture
 
 
+Within this sections questions such as 
++   how can a communication process with a third party be modeled and what technologies can be used 
+    to 
+(A) trust the system and
+(B) trust the communication partner
++   how many and what kind of authentication mechanisms are required?
++   how can data be provided to a a data consumer without the data ever leaving the system?
++   where are reasonable places to locate the storage that holds the controller's personal data
 
-+   showing possible directions, e.g.:
-    -   cloud or local storage
-    -   which components can go where
-    -   remote execution, to prevent data from leaving the system
 
 
 
 ### Verification / Authentication
 
-+   maybe go with a Signing/verifying Authority (aka CA)
-    -   do I trust the gov or certain companies more? Which interests do these Role/Stakeholder 
-        have?
-    -   revoking the cert which provides the authenticity of the individual's digital identity 
-        should only be possible with a two-factor secret. One part of this secret is owned by 
-        the CA and the other half has the individual behind the personal API
-    -   Where?
-        +   direct at a Meldestelle
-        +   with the eID-Function (data check: as long as the contents of the relevant fields are 
-            equal) of the Personalausweis --> no, because every PDaaS need its own permission cert
-            from the authorities
+
+
+Only at the beginning the relies 
         
 +   TODO: look into
     -   PKI: concept consists of CAs and stuff used for HTTPS 
 
     
-+   Authentication 
++   since there are no time constrains when it comes to communication with a payload that relates to 
+personal data, the encryption procedures can be as costly as the system resources allow them to be,
+thus the level of security can be increased.
 
 #### Asymmetric Cryptographic Techniques
 
@@ -123,6 +121,8 @@ B)  DRM for personal data: provide a piece of software to the data consumer, whi
 
 ### Components
 
++   which components can go where?
+
 __Webserver__
 +   to serve UI
 +   relay to mobile device
@@ -136,6 +136,8 @@ __UI__
 __Storage/Persistence__
 +   regardless of the platform
 +   connector
+-   where to place the storage? local (e.g. mobile device) or cloud (e.g. hoster's infrastructure)
+    +   requires 24/7 uptime
     
 __Notification Infrastructure__
 +   websockets for web UIs
@@ -158,6 +160,7 @@ __Data API__
     maybe just for data types and admin UI to display analytical (time based) data in other ways
 +   what about extensions (see iOS 10) to let other apps consume data; only on a mobile device and 
     only if the data is stored there
++   currently no other imaginable then data type schemas
 
 
 

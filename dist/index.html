@@ -58,15 +58,16 @@
                 <li><a href="#conclusions"><span class="toc-section-number">6.2.6</span> <em>Conclusions</em></a></li>
                 </ul></li>
                 <li><a href="#data"><span class="toc-section-number">6.3</span> Data</a><ul>
-                <li><a href="#modelling"><span class="toc-section-number">6.3.2</span> Modelling</a></li>
-                <li><a href="#categories-or-classes"><span class="toc-section-number">6.3.3</span> Categories (or Classes)</a></li>
-                <li><a href="#types"><span class="toc-section-number">6.3.4</span> Types</a></li>
-                <li><a href="#persistence-1"><span class="toc-section-number">6.3.5</span> Persistence</a></li>
-                <li><a href="#access-permission"><span class="toc-section-number">6.3.6</span> Access &amp; Permission</a></li>
-                <li><a href="#consumption-data-inflow"><span class="toc-section-number">6.3.7</span> Consumption (data inflow)</a></li>
-                <li><a href="#emission-data-outflow"><span class="toc-section-number">6.3.8</span> Emission (data outflow)</a></li>
-                <li><a href="#history"><span class="toc-section-number">6.3.9</span> History</a></li>
-                <li><a href="#conclusions-1"><span class="toc-section-number">6.3.10</span> <em>Conclusions</em></a></li>
+                <li><a href="#authenticity"><span class="toc-section-number">6.3.2</span> Authenticity</a></li>
+                <li><a href="#modelling"><span class="toc-section-number">6.3.3</span> Modelling</a></li>
+                <li><a href="#categories-or-classes"><span class="toc-section-number">6.3.4</span> Categories (or Classes)</a></li>
+                <li><a href="#types"><span class="toc-section-number">6.3.5</span> Types</a></li>
+                <li><a href="#persistence-1"><span class="toc-section-number">6.3.6</span> Persistence</a></li>
+                <li><a href="#access-permission"><span class="toc-section-number">6.3.7</span> Access &amp; Permission</a></li>
+                <li><a href="#consumption-data-inflow"><span class="toc-section-number">6.3.8</span> Consumption (data inflow)</a></li>
+                <li><a href="#emission-data-outflow"><span class="toc-section-number">6.3.9</span> Emission (data outflow)</a></li>
+                <li><a href="#history"><span class="toc-section-number">6.3.10</span> History</a></li>
+                <li><a href="#conclusions-1"><span class="toc-section-number">6.3.11</span> <em>Conclusions</em></a></li>
                 </ul></li>
                 <li><a href="#interfaces-1"><span class="toc-section-number">6.4</span> Interfaces</a><ul>
                 <li><a href="#internal"><span class="toc-section-number">6.4.2</span> Internal</a></li>
@@ -462,12 +463,14 @@ also to work fully transparent on the specification itself. Such an open environ
 <p>Derived from the <a href="#core-principles">Core Principles</a>, the subsequent requirements shall be served as a list of features on the one hand, to get an idea about how the open specification and thus the resulting software might look like, and to give an overview about priorities (can/could, may/might, should, must/have to) on the other hand. Other chapters may contain specific references to the requirements listed below.</p>
 <section id="architecturedesign" class="level4">
 <h4><span class="header-section-number">5.1.1.1</span> Architecture/Design:</h4>
-<p><strong><em><span id="sa01">S.A.01</span></em> - Portability</strong><br />
+<p><strong><em><span id="sa01">S.A.01</span></em> - Accessibility</strong><br />
+Since the internet is one of the most widely used infrastructure for data transfer and communication, it is assumed that all common platforms support the underlying technologies, such as HTTP and TLS. Thus the emerging system should implement a web service, who provide controlled access to personal data.</p>
+<p><strong><em><span id="sa02">S.A.02</span></em> - Portability</strong><br />
 All major components should be designed and communicate between each other in a way to be able to get relocated while the system has to remain fully functional. It has to be possible to build a distributed system, that may require to place certain components into different environments/devices.</p>
-<p><strong><em><span id="sa02">S.A.02</span></em> - Roles</strong><br />
+<p><strong><em><span id="sa03">S.A.03</span></em> - Roles</strong><br />
 The system has to define two types of roles. The first one is the <a href="#terminologies--operator">operator</a>, who is in control of the system and, depending on the architecture, must be at least on individual but can be more. The operator takes care of all the data that then get’s provided and decides about which third party get’s access to what data. The second type are the <a href="#terminologies--consumer">consumers</a>. These are external third parties that desire certain data about or from the operator. (see <a href="#terminologies">Terminologies</a>)</p>
-<p><strong><em><span id="sa03">S.A.03</span></em> - Authenticity</strong><br />
-Since they have to rely on the data, both entities - everyone belonging to one of the <em><a href="#sa02">roles</a></em> - should be able to ensure it’s authenticity and the data in question to it’s opponent. It should be possible to opt out, if that level of reliability is not necessary. Whereas if one of the parties demanding the other one of providing such level, but the other doesn’t, then the access attempt will fail.</p>
+<p><strong><em><span id="sa04">S.A.04</span></em> - Authenticity</strong><br />
+Since they have to rely on the data, both entities - everyone who belongs to one of the <em><a href="#sa03">roles</a></em> - have to be able to ensure the authenticity of their identity and the data they are sending to the opponent. It should be possible to opt out to that level of reliability, if is not necessary. Whereas if one of the parties demanding the other one of providing such level, but the other doesn’t, then the access attempt has to fail.</p>
 </section>
 <section id="persistence" class="level4">
 <h4><span class="header-section-number">5.1.1.2</span> Persistence:</h4>
@@ -535,32 +538,28 @@ deserved room, but major aspects will be addressed. In short, the majority of th
 <p>Eevery subchapter includes at the end a section containing a summary of conclusions, which are based on the prior discussions about the related topic.</p>
 <section id="architecture" class="level2">
 <h2><span class="header-section-number">6.2</span> Architecture</h2>
+<p>Within this sections questions such as</p>
 <ul>
-<li>showing possible directions, e.g.:
+<li>how can a communication process with a third party be modeled and what technologies can be used to</li>
+</ul>
+<ol type="A">
+<li>trust the system and</li>
+<li>trust the communication partner</li>
+</ol>
 <ul>
-<li>cloud or local storage</li>
-<li>which components can go where</li>
-<li>remote execution, to prevent data from leaving the system</li>
-</ul></li>
+<li>how many and what kind of authentication mechanisms are required?</li>
+<li>how can data be provided to a a data consumer without the data ever leaving the system?</li>
+<li>where are reasonable places to locate the storage that holds the controller’s personal data</li>
 </ul>
 <section id="verification-authentication" class="level3">
 <h3><span class="header-section-number">6.2.2</span> Verification / Authentication</h3>
+<p>Only at the beginning the relies</p>
 <ul>
-<li>maybe go with a Signing/verifying Authority (aka CA)
-<ul>
-<li>do I trust the gov or certain companies more? Which interests do these Role/Stakeholder have?</li>
-<li>revoking the cert which provides the authenticity of the individual’s digital identity should only be possible with a two-factor secret. One part of this secret is owned by the CA and the other half has the individual behind the personal API</li>
-<li>Where?
-<ul>
-<li>direct at a Meldestelle</li>
-<li>with the eID-Function (data check: as long as the contents of the relevant fields are equal) of the Personalausweis –&gt; no, because every PDaaS need its own permission cert from the authorities</li>
-</ul></li>
-</ul></li>
 <li>TODO: look into
 <ul>
 <li>PKI: concept consists of CAs and stuff used for HTTPS</li>
 </ul></li>
-<li>Authentication</li>
+<li>since there are no time constrains when it comes to communication with a payload that relates to personal data, the encryption procedures can be as costly as the system resources allow them to be, thus the level of security can be increased.</li>
 </ul>
 <section id="asymmetric-cryptographic-techniques" class="level4">
 <h4><span class="header-section-number">6.2.2.1</span> Asymmetric Cryptographic Techniques</h4>
@@ -593,6 +592,9 @@ In the past years different countries around the world recently started to intro
 </section>
 <section id="components" class="level3">
 <h3><span class="header-section-number">6.2.4</span> Components</h3>
+<ul>
+<li>which components can go where?</li>
+</ul>
 <p><strong>Webserver</strong></p>
 <ul>
 <li>to serve UI</li>
@@ -613,6 +615,10 @@ In the past years different countries around the world recently started to intro
 <ul>
 <li>regardless of the platform</li>
 <li>connector</li>
+<li>where to place the storage? local (e.g. mobile device) or cloud (e.g. hoster’s infrastructure)
+<ul>
+<li>requires 24/7 uptime</li>
+</ul></li>
 </ul>
 <p><strong>Notification Infrastructure</strong></p>
 <ul>
@@ -639,6 +645,7 @@ In the past years different countries around the world recently started to intro
 <ul>
 <li>but for what? and not harm security at the same time? maybe just for data types and admin UI to display analytical (time based) data in other ways</li>
 <li>what about extensions (see iOS 10) to let other apps consume data; only on a mobile device and only if the data is stored there</li>
+<li>currently no other imaginable then data type schemas</li>
 </ul>
 </section>
 <section id="conclusions" class="level3">
@@ -654,23 +661,45 @@ In the past years different countries around the world recently started to intro
 <li><p>keep in mind to make it all somehow extendible, e.g. by using and storing corresponding schemas</p></li>
 <li><p>NOTE: step numbers marked with a <code>*</code> are somehow tasks which are happening in the background and don’t require any user interaction</p></li>
 </ul>
+<section id="authenticity" class="level3">
+<h3><span class="header-section-number">6.3.2</span> Authenticity</h3>
+<p>Within the section <a href="TODO">about architecture</a> several options were discussed on how to preserve data integrity, referring to possible man-in-the-middle attacks and alike.</p>
+<p>With authenticity here it is referred to the originality of the data, meaning</p>
+<ol type="A">
+<li>the data really represent the entity associated to the originating system and</li>
+<li>the data is true at the time when the response leaves the originating system</li>
+</ol>
+<p><a href="#sa04">requirement</a></p>
+<ul>
+<li>maybe go with a Signing/verifying Authority (aka CA)
+<ul>
+<li>do I trust the gov or certain companies more? Which interests do these Role/Stakeholder have?</li>
+<li>revoking the cert which provides the authenticity of the individual’s digital identity should only be possible with a two-factor secret. One part of this secret is owned by the CA and the other half has the individual behind the personal API</li>
+<li>Where?
+<ul>
+<li>direct at a Meldestelle</li>
+<li>with the eID-Function (data check: as long as the contents of the relevant fields are equal) of the Personalausweis –&gt; no, because every PDaaS need its own permission cert from the authorities</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
 <section id="modelling" class="level3">
-<h3><span class="header-section-number">6.3.2</span> Modelling</h3>
+<h3><span class="header-section-number">6.3.3</span> Modelling</h3>
 </section>
 <section id="categories-or-classes" class="level3">
-<h3><span class="header-section-number">6.3.3</span> Categories (or Classes)</h3>
+<h3><span class="header-section-number">6.3.4</span> Categories (or Classes)</h3>
 </section>
 <section id="types" class="level3">
-<h3><span class="header-section-number">6.3.4</span> Types</h3>
+<h3><span class="header-section-number">6.3.5</span> Types</h3>
 </section>
 <section id="persistence-1" class="level3">
-<h3><span class="header-section-number">6.3.5</span> Persistence</h3>
+<h3><span class="header-section-number">6.3.6</span> Persistence</h3>
 <ul>
 <li>database requirements</li>
 </ul>
 </section>
 <section id="access-permission" class="level3">
-<h3><span class="header-section-number">6.3.6</span> Access &amp; Permission</h3>
+<h3><span class="header-section-number">6.3.7</span> Access &amp; Permission</h3>
 <ul>
 <li>data needs to have an expiration date</li>
 </ul>
@@ -682,20 +711,20 @@ In the past years different countries around the world recently started to intro
 </ol>
 </section>
 <section id="consumption-data-inflow" class="level3">
-<h3><span class="header-section-number">6.3.7</span> Consumption (data inflow)</h3>
+<h3><span class="header-section-number">6.3.8</span> Consumption (data inflow)</h3>
 <ul>
 <li>how data will get into the system</li>
 <li>hwo is the user able to do that, and how does it works</li>
 </ul>
 <section id="manually" class="level4">
-<h4><span class="header-section-number">6.3.7.1</span> Manually</h4>
+<h4><span class="header-section-number">6.3.8.1</span> Manually</h4>
 </section>
 <section id="automatically" class="level4">
-<h4><span class="header-section-number">6.3.7.2</span> Automatically</h4>
+<h4><span class="header-section-number">6.3.8.2</span> Automatically</h4>
 </section>
 </section>
 <section id="emission-data-outflow" class="level3">
-<h3><span class="header-section-number">6.3.8</span> Emission (data outflow)</h3>
+<h3><span class="header-section-number">6.3.9</span> Emission (data outflow)</h3>
 <ul>
 <li><p>depending on what category of data, they might need to get anonymized somehow before they leave the system</p></li>
 <li><p>oAuth (1.0a and 2) requires consumers to register upfront. Since the current flow indicates that the initial step is done by the owner, that would cause an overhead in user interactions. Although the owner already <em>authorized</em> the consumer simply by submitting a unique URI (<code>pdaas-server.tld/register?crt=CONSUMER_REGISTER_TOKEN</code>), of which the <code>crt</code> is considered private. Even though the registration provides the consumer with mandatory information such as a consumer identifier (v1: <code>oauth_consumer_key</code>, v2: <code>client_id</code>) and, depending on the client type, a secret (see https://tools.ietf.org/html/rfc6749#section-2), this process it is not part the specification (https://oauth.net/core/1.0a/#rfc.section.4.2, https://tools.ietf.org/html/rfc6749#section-2). This enables the possibility of integrating oAuth into the consumer registration flow by using the <code>CONSUMER_REGISTRATION_TOKEN</code> as oAuth’s <em>client identifier</em>. The lack of credentials (v1: <code>auth_consumer_secret</code>, v2: <code>client_secret</code>) would require transferring the consumer identifier done over a secure channel (e.g. TLS). That would leave <em>oAuth2</em> as the version of choice, since it relies on <em>HTTPS</em> adn therefore makes the <em>secret</em> optional. Where on the other side oAuth 1.0a requires a <em>secret</em> to create a signature in order to support insecure connections..</p></li>
@@ -703,14 +732,14 @@ In the past years different countries around the world recently started to intro
 </ul>
 </section>
 <section id="history" class="level3">
-<h3><span class="header-section-number">6.3.9</span> History</h3>
+<h3><span class="header-section-number">6.3.10</span> History</h3>
 <ul>
 <li>data versioning</li>
 <li>access logs</li>
 </ul>
 </section>
 <section id="conclusions-1" class="level3">
-<h3><span class="header-section-number">6.3.10</span> <em>Conclusions</em></h3>
+<h3><span class="header-section-number">6.3.11</span> <em>Conclusions</em></h3>
 </section>
 </section>
 <section id="interfaces-1" class="level2">
@@ -736,7 +765,7 @@ In the past years different countries around the world recently started to intro
 <section id="authentication" class="level3">
 <h3><span class="header-section-number">6.4.4</span> Authentication</h3>
 <ul>
-<li>regarding oAuth as authentication: Priorly users tented to reuse their password for different account, nowadays they but alsod tent to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">112</a>]</span>.</li>
+<li>regarding oAuth as authentication: Priorly users tended to reuse their password for different account, nowadays they but also tend to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">112</a>]</span>.</li>
 </ul>
 <p>Thus the platform owners leave the responsibility of</p>
 <p>Many websites and platforms understand those <em>login-with $platformName</em> mechanisms as an outsourced service that handles all security- and user-related tasks.</p>
