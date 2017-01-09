@@ -20,7 +20,7 @@ Personal Data (TODO)
 Personal Data as a Service (PDaaS)
 : a web service controlled, owned and maybe even hosted by an individual, that provides access to 
 the data subject's personal data and offers maintainability as well as permission management. It can
-be seen as her personal agent. 
+be seen as her personal agent; sometimes also referred to as *the system*
 
 Personal Data Store
 : TODO

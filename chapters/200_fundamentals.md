@@ -618,11 +618,13 @@ with third parties or other APIs.
 Hereinafter, some of these possible technologies will be touched on just briefly, why they might 
 be a reasonable choice and what purposes they might going to service.
 
-__HTTP(S)__ [@web_spec_http1], well known as the transport layer for the *World Wide Web* is most 
-likely going to fulfill the same purpose in the context of this work. Whether internal components 
-(local or as part of a distributed system) talk to each other or data consumers request information.
-Features introduces with Version 2 [@web_spec_http2] of the protocol are yet to be known of their 
-relevance and corresponding use cases.
+__[HTTP(S)]{#link_http}__ [@web_spec_http1], well known as the stateless *"transport layer"* for the 
+*World Wide Web*, is most likely going to fulfill the same purpose in the context of this work,
+because it implements a server-client pattern in it very core.
+Whether internal components (local or as part of a distributed system) talk to each other or data 
+consumers interact with the system, this protocol transfers the data hat need to be exchanged.
+Features introduced with Version 2 [@web_spec_http2] of the protocol are yet to be known of their 
+relevance of use cases within this project.
 The *Transport Layer Security* [@web_spec_tls] embedded in the protocol provides encryption during 
 transfer, which reduces the vulnerability to *man-in-the-middle* attacks and thus ensures data 
 integrity. Due to it's asymmetrical cryptographic concepts used to establish a connection, *TLS* 
@@ -672,7 +674,7 @@ If it's necessary for certain components, as part of a distributed software, to 
 apart from changing the architecture so that the state at that point is not needed anymore, the only 
 other option would be to carry the state along (TODO: or "passing the state around"). 
  This is a common use case for a 
-__JSON Web Token__ *(JWT)* [@web_spec_json-web-token]. A *JWT*, as it's name implies, is 
+__[JSON Web Token]{#link_jwt}__ *(JWT)* [@web_spec_json-web-token]. A *JWT*, as it's name implies, is 
 syntactically speaking formatted as *JSON*, but URI-safe into *Base64* encoded, before it gets transferred.
 The token itself holds the state. Here is where the use of *HTTP* comes in handy, because the 
 token can be stored within the HTTP header and therefore can be passed through all communication 

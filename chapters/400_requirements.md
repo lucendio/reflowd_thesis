@@ -13,11 +13,11 @@ Other chapters may contain specific references to the requirements listed below.
 
 #### Architecture/Design:
 
-__*[S.A.01]{#sa01}* - Accessibility__\
+__*[S.A.01]{#sa01}* - Accessibility & Compatibility__\
 Since the internet is one of the most widely used infrastructure for data transfer and 
-communication, it is assumed that all common platforms support the underlying technologies, such as 
-HTTP and TLS. Thus the emerging system should implement a web service, who provide controlled access 
-to personal data.
+communication, it is assumed that all common platforms support underlying technologies, such as 
+HTTP and TLS. Thus the emerging system should implement a web service, who provides supervised 
+access to personal data.
 
 __*[S.A.02]{#sa02}* - Portability__\
 All major components should be designed and communicate between each other in a way to be able to 

@@ -613,7 +613,7 @@ individual
 a web service controlled, owned and maybe even hosted by an individual,
 that provides access to the data subject's personal data and offers
 maintainability as well as permission management. It can be seen as her
-personal agent.
+personal agent; sometimes also referred to as \emph{the system}
 \item[Personal Data Store]
 TODO
 \item[Vendor Relationship Manager]
@@ -1520,14 +1520,17 @@ or other APIs. Hereinafter, some of these possible technologies will be
 touched on just briefly, why they might be a reasonable choice and what
 purposes they might going to service.
 
-\textbf{HTTP(S)} {[}\protect\hyperlink{ref-web_spec_http1}{74}{]}, well
-known as the transport layer for the \emph{World Wide Web} is most
-likely going to fulfill the same purpose in the context of this work.
+\textbf{\protect\hypertarget{link_http}{}{HTTP(S)}}
+{[}\protect\hyperlink{ref-web_spec_http1}{74}{]}, well known as the
+stateless \emph{``transport layer''} for the \emph{World Wide Web}, is
+most likely going to fulfill the same purpose in the context of this
+work, because it implements a server-client pattern in it very core.
 Whether internal components (local or as part of a distributed system)
-talk to each other or data consumers request information. Features
-introduces with Version 2
+talk to each other or data consumers interact with the system, this
+protocol transfers the data hat need to be exchanged. Features
+introduced with Version 2
 {[}\protect\hyperlink{ref-web_spec_http2}{75}{]} of the protocol are yet
-to be known of their relevance and corresponding use cases. The
+to be known of their relevance of use cases within this project. The
 \emph{Transport Layer Security}
 {[}\protect\hyperlink{ref-web_spec_tls}{76}{]} embedded in the protocol
 provides encryption during transfer, which reduces the vulnerability to
@@ -1601,10 +1604,11 @@ If it's necessary for certain components, as part of a distributed
 software, to make them stateless, apart from changing the architecture
 so that the state at that point is not needed anymore, the only other
 option would be to carry the state along (TODO: or ``passing the state
-around''). This is a common use case for a \textbf{JSON Web Token}
-\emph{(JWT)} {[}\protect\hyperlink{ref-web_spec_json-web-token}{85}{]}.
-A \emph{JWT}, as it's name implies, is syntactically speaking formatted
-as \emph{JSON}, but URI-safe into \emph{Base64} encoded, before it gets
+around''). This is a common use case for a
+\textbf{\protect\hypertarget{link_jwt}{}{JSON Web Token}} \emph{(JWT)}
+{[}\protect\hyperlink{ref-web_spec_json-web-token}{85}{]}. A \emph{JWT},
+as it's name implies, is syntactically speaking formatted as
+\emph{JSON}, but URI-safe into \emph{Base64} encoded, before it gets
 transferred. The token itself holds the state. Here is where the use of
 \emph{HTTP} comes in handy, because the token can be stored within the
 HTTP header and therefore can be passed through all communication
@@ -1898,12 +1902,13 @@ listed below.
 
 \subsubsection{Architecture/Design:}\label{architecturedesign}
 
-\textbf{\emph{\protect\hypertarget{sa01}{}{S.A.01}} - Accessibility}\\
+\textbf{\emph{\protect\hypertarget{sa01}{}{S.A.01}} - Accessibility \&
+Compatibility}\\
 Since the internet is one of the most widely used infrastructure for
 data transfer and communication, it is assumed that all common platforms
-support the underlying technologies, such as HTTP and TLS. Thus the
-emerging system should implement a web service, who provide controlled
-access to personal data.
+support underlying technologies, such as HTTP and TLS. Thus the emerging
+system should implement a web service, who provides supervised access to
+personal data.
 
 \textbf{\emph{\protect\hypertarget{sa02}{}{S.A.02}} - Portability}\\
 All major components should be designed and communicate between each
@@ -2161,11 +2166,47 @@ Within this sections questions such as
   leaving the system?
 \item
   where are reasonable places to locate the storage that holds the
-  controller's personal data
+  operators's personal data
 \end{itemize}
 
-\subsection{Verification /
-Authentication}\label{verification-authentication}
+\subsection{Authentication}\label{authentication}
+
+First of all, the system has to support two \href{\%7B\#sa03}{roles}.
+Any entity can be assigned to either one of them, hence entities that
+are trying to authenticate to the system might have different
+intentions. The \emph{operator} for example wants to review
+\emph{permission requests} in real time, so accessing the system from
+different devices is a common scenario. When inheriting the
+\emph{operator role} an entity gains further capabilities to interact
+with the system, such as data manipulation. Whereas a \emph{data
+consumer} always uses just one origin and processes requests
+sequentially. Those very distinct groups of scenarios would make it
+possible to apply different authentication mechanisms that do not
+necessarily have a lot in common.
+
+With respect to the requirements (\protect\hyperlink{sa01}{S.A.01}, the
+post appropriate technology for communicating with the \emph{PDaaS} over
+the internet is \emph{\protect\hyperlink{link_http}{HTTP}}. This
+comprehensive and flexible protocol enables a variety of applications.
+
+First of all, two different types of motivations for authenticating to
+the system have to be distinguished. First of all, two different types
+of motivations have to be distinguished for authenticating to the
+system. One, originated by an external third party (data consumer), is
+to make a permission request or to access data, the other is
+
+In other words, it would make sense to distinguish the authentication
+process of the two different \protect\hyperlink{sa03}{roles}, because
+the way these two are interacting with the system is different,
+otherwise there would be no two roles
+
+In a public-key-based authentication when a receiver is able to decrypt
+the incoming request itself it implies that the requester's identity is
+valid and the integrity of the containing data is given. Whereas on a
+token-based authentication every incoming request has to carry the token
+so that the system can verify and associate the request with an account
+and the data it not automatically encrypted and thus integrity is not
+preserved.
 
 Only at the beginning the relies
 
@@ -2179,12 +2220,14 @@ Only at the beginning the relies
   \item
     PKI: concept consists of CAs and stuff used for HTTPS
   \end{itemize}
-\item
-  since there are no time constrains when it comes to communication with
-  a payload that relates to personal data, the encryption procedures can
-  be as costly as the system resources allow them to be, thus the level
-  of security can be increased.
 \end{itemize}
+
+where the system is a certificate authority
+
+Since there are no time constrains when it comes to communication with a
+payload that contains personal data, parameters of encryption procedures
+can chosen as costly as the system resources allow them to be, thus the
+level of security can be increased.
 
 \subsubsection{Asymmetric Cryptographic
 Techniques}\label{asymmetric-cryptographic-techniques}
@@ -2320,6 +2363,18 @@ has no relevance to this project, other then letting a server sign
 outgoing data, which might be the only solution to avoid an overhead in
 user interaction caused by recurring events.
 
+\subsubsection{Sessions}\label{sessions}
+
+authenticated state related to a user account and hold by the server,
+
+\begin{itemize}
+\tightlist
+\item
+  basic auth, cookies
+\item
+  JSON Web Token
+\end{itemize}
+
 \subsection{Data Exchange/Access Process
 Design}\label{data-exchangeaccess-process-design}
 
@@ -2454,10 +2509,20 @@ Design}\label{data-exchangeaccess-process-design}
 \subsection{\texorpdfstring{\emph{Conclusions}}{Conclusions}}\label{conclusions}
 
 \begin{itemize}
-\tightlist
 \item
   distributed architecture (e.g.~notification/queue server + mobile
   device for persistence and administration)
+\item
+  Based on the several requirements and distinct advantages of the two
+  authentication mechanisms, it would make sense to use asymmetric
+  cryptography in combination with \emph{HTTPS} for the communication
+  between the system and \emph{data consumers}, where the system
+  provides it's own \emph{PKI} and a token-based authentication on top
+  of \emph{HTTPS} and public CAs for communication between the system
+  and the \emph{operator}, preferable based on
+  \emph{\protect\hyperlink{link_jwt}{JSON Web Tokens}}, because the
+  session state is preserved within the token rather then having the
+  system itself keeping track of it.
 \end{itemize}
 
 \section{Data}\label{data}
@@ -2663,7 +2728,7 @@ meaning
   \end{itemize}
 \end{itemize}
 
-\subsection{Authentication}\label{authentication}
+\subsection{Authentication}\label{authentication-1}
 
 \begin{itemize}
 \tightlist
@@ -2783,7 +2848,7 @@ How do the APIs involved with the protocols look like?
   server to a mobile device)
 \end{itemize}
 
-\subsection{Authentication}\label{authentication-1}
+\subsection{Authentication}\label{authentication-2}
 
 \begin{itemize}
 \tightlist

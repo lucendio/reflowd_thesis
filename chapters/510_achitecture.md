@@ -8,24 +8,59 @@ Within this sections questions such as
 (B) trust the communication partner
 +   how many and what kind of authentication mechanisms are required?
 +   how can data be provided to a a data consumer without the data ever leaving the system?
-+   where are reasonable places to locate the storage that holds the controller's personal data
++   where are reasonable places to locate the storage that holds the operators's personal data
 
 
 
 
-### Verification / Authentication
+### Authentication
 
+
+First of all, the system has to support two [roles]({#sa03). Any entity can be assigned to either 
+one of them, hence entities that are trying to authenticate to the system might have different 
+intentions. The *operator* for example wants to review *permission requests* in real time, so 
+accessing the system from different devices is a common scenario. When inheriting the *operator 
+role* an entity gains further capabilities to interact with the system, such as data manipulation.
+Whereas a *data consumer* always uses just one origin and processes requests sequentially. Those 
+very distinct groups of scenarios would make it possible to apply different authentication 
+mechanisms that do not necessarily have a lot in common.
+
+With respect to the requirements ([S.A.01](#sa01), the post appropriate technology for 
+communicating with the *PDaaS* over the internet is *[HTTP](#link_http)*. This comprehensive and 
+flexible protocol enables a variety of applications. 
+
+
+
+First of all, two different types of motivations for authenticating to the system have to be distinguished.
+First of all, two different types of motivations have to be distinguished for authenticating to the system. 
+One, originated by an external third party (data consumer), is to make a permission request or to 
+access data, the other is 
+
+In other words, it would make sense to distinguish the authentication process of the two different 
+[roles](#sa03), because the way these two are interacting with the system is different, otherwise
+there would be no two roles
+ 
+ 
+In a public-key-based authentication when a receiver is able to decrypt the incoming request itself
+it implies that the requester's identity is valid and the integrity of the containing data is given.
+Whereas on a token-based authentication every incoming request has to carry the token so that the
+system can verify and associate the request with an account and the data it not automatically 
+encrypted and thus integrity is not preserved.
 
 
 Only at the beginning the relies 
         
 +   TODO: look into
     -   PKI: concept consists of CAs and stuff used for HTTPS 
+    
+where the system is a certificate authority
 
     
-+   since there are no time constrains when it comes to communication with a payload that relates to 
-personal data, the encryption procedures can be as costly as the system resources allow them to be,
-thus the level of security can be increased.
+Since there are no time constrains when it comes to communication with a payload that contains 
+personal data, parameters of encryption procedures can chosen as costly as the system resources 
+allow them to be, thus the level of security can be increased.
+
+
 
 #### Asymmetric Cryptographic Techniques
 
@@ -109,6 +144,16 @@ solution to avoid an overhead in user interaction caused by recurring events.
 [^abbr_qes]: Qualified Electronic Signatures [@paper_2013-keymanangement-fuer-qes-mit-npa]
 
 
+#### Sessions
+
+authenticated state related to a user account and hold by the server, 
+
++   basic auth, cookies
++   JSON Web Token
+
+
+
+
 ### Data Exchange/Access Process Design
 
 A)  just requesting and responding with pure data
@@ -168,3 +213,10 @@ __Data API__
 
 +   distributed architecture (e.g. notification/queue server + mobile device for persistence
     and administration)
+    
++   Based on the several requirements and distinct advantages of the two authentication mechanisms, 
+it would make sense to use asymmetric cryptography in combination with *HTTPS* for the communication 
+between the system and *data consumers*, where the system provides it's own *PKI*
+and a token-based authentication on top of *HTTPS* and public CAs for communication between the 
+system and the *operator*, preferable based on *[JSON Web Tokens](#link_jwt)*, because the session 
+state is preserved within the token rather then having the system itself keeping track of it.
