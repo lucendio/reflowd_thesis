@@ -2185,9 +2185,34 @@ possible to apply different authentication mechanisms that do not
 necessarily have a lot in common.
 
 With respect to the requirements (\protect\hyperlink{sa01}{S.A.01}, the
-post appropriate technology for communicating with the \emph{PDaaS} over
-the internet is \emph{\protect\hyperlink{link_http}{HTTP}}. This
-comprehensive and flexible protocol enables a variety of applications.
+most appropriate technology to communicate with the \emph{PDaaS} over
+the internet would be \emph{\protect\hyperlink{link_http}{HTTP}}. This
+comprehensive and flexible protocol allows several technologies to use
+for server-client authentication purposes. Within the scope of this
+work, those technologies are categorized in the following types (TODO:
+maybe find other labels): (A) stateful and (B) stateless authentication.
+The first one (A) includes \emph{Basic access Authentication} (or
+\emph{Basic Auth}) and authentication based on \emph{Cookies}. Whereas
+the \emph{two-way authentication}
+{[}\protect\hyperlink{ref-web_2017_wikipedia_mutual-auth}{105}{]} in TLS
+{[}\protect\hyperlink{ref-web_spec_tls-12_client-auth}{106}{]} and
+\protect\hyperlink{link_jwt}{authentication based on web-token} are
+associated with the later category (B). \emph{Basic Auth} is natively
+provided by the \emph{http-agent} and requires, in it's original form
+(\emph{user:password}), some sort of state on the server; at least when
+the system should provide multitenancy. If instead just a general access
+restriction for certain requests would suffice, no state is required.
+One of the most common implementations of server-side states is a
+\emph{session} that contains one or more values representing the state
+and a unique identifier, by which an entity can be associated with. Such
+a session ID is typically provided as part of the HTTP header, whether
+as \emph{Basic Auth} value, a \emph{Cookie}, which is domain-specific,
+or some other custom header.
+
+Using multi-factor authentication is generally valued and will be
+briefly noted as an optional security enhancement for the \emph{operator
+role}. However detailed discussions regarding this topic are left to
+follow-up work on the specification.
 
 First of all, two different types of motivations for authenticating to
 the system have to be distinguished. First of all, two different types
@@ -2199,6 +2224,18 @@ In other words, it would make sense to distinguish the authentication
 process of the two different \protect\hyperlink{sa03}{roles}, because
 the way these two are interacting with the system is different,
 otherwise there would be no two roles
+
+An endpoints is defined as the part of the URI that is unique to every
+\emph{data consumer}, or to be more precise, unique to every
+\emph{access profile}.
+
+While in OAuth the authorisation procedure strictly involves an
+authentication, the previous proposed design separates authentication
+and authorisation from each other so they can run completely
+independent. Additionally this approach would require almost no effort
+to support the case where multiple \emph{data consumers} access the same
+\emph{endpoint}. by just disabling the client authentication for the
+HTTPS connection establishment.
 
 In a public-key-based authentication when a receiver is able to decrypt
 the incoming request itself it implies that the requester's identity is
@@ -2264,9 +2301,9 @@ an \emph{eID card} was also introduced in Germany in 2010. The so called
 \emph{e-government}.}{ePerso, E-Post/de-mail as part of a PKI solution?\_\_ In the past years different countries around the world recently started to introduced information technology to the day-to-day processes, interactions and communications between public services and their citizens, for example changing residence information or filing tax report, which is summarized under the term E-government. One of those developments is the so called electronic ID card, hereinafter called eID card. Equipped with storage, logic and interfaces for wireless communication, those eID cards can be used to store certain information and digital keys or to authenticate the owner electronically to a third party without being physically present. Such an eID card was also introduced in Germany in 2010. The so called nPA was an important step towards an operational e-government.}}\label{eperso-e-postde-mail-as-part-of-a-pki-solution__-in-the-past-years-different-countries-around-the-world-recently-started-to-introduced-information-technology-to-the-day-to-day-processes-interactions-and-communications-between-public-services-and-their-citizens-for-example-changing-residence-information-or-filing-tax-report-which-is-summarized-under-the-term-e-government-abbr_egov.-one-of-those-developments-is-the-so-called-electronic-id-card-hereinafter-called-eid-card.-equipped-with-storage-logic-and-interfaces-for-wireless-communication-those-eid-cards-can-be-used-to-store-certain-information-and-digital-keys-or-to-authenticate-the-owner-electronically-to-a-third-party-without-being-physically-present.-such-an-eid-card-was-also-introduced-in-germany-in-2010.-the-so-called-npa-abbr_npa-was-an-important-step-towards-an-operational-e-government.}
 
 Aside from minor flaws
-{[}\protect\hyperlink{ref-web_2013_npa-sicherheitsdefizit}{105}{]} and
+{[}\protect\hyperlink{ref-web_2013_npa-sicherheitsdefizit}{107}{]} and
 disadvantages
-{[}\protect\hyperlink{ref-web_2014_test-qes-support-in-npa}{106}{]} an
+{[}\protect\hyperlink{ref-web_2014_test-qes-support-in-npa}{108}{]} an
 \emph{eID card} can have, the question here is, how can this technology
 be usefully integrated in this project and does it even makes sense. As
 an official document the card has one major advantage over
@@ -2303,11 +2340,11 @@ is able to communicate with the RFID-chip. Both cases need the
 provide \emph{nPA}-based online authentication (\emph{eID-Service}),
 which is defined as a non-sovereign (``nicht hoheitlich'') feature, it
 has to comply with several requirements
-{[}\protect\hyperlink{ref-web_bsi-eid}{107}{]} starting with making an
-application in order to get permission for sending a certificate signing
-request to a BerCA.\footnote{Berechtigungszertifikate-Anbieter} This
-request is originated from an \emph{eID-Server}
-{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{108}{]} to sign a
+{[}\protect\hyperlink{ref-web_bsi-spec_eid}{109}{]} starting with making
+an application in order to get permission for sending a certificate
+signing request to a BerCA.\footnote{Berechtigungszertifikate-Anbieter}
+This request is originated from an \emph{eID-Server}
+{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{110}{]} to sign a
 public key generated on a dedicated and certified hardware, which is
 also required through the officials. This key pair - re-generated and
 re-signed every three days - is needed to establish a connection with
@@ -2331,7 +2368,7 @@ add an additional dependency, but could also weaken the system.
 As of (C), as mentioned above the \emph{nPA} is able to store data
 required for creating a \emph{QES}\footnote{Qualified Electronic
   Signatures
-  {[}\protect\hyperlink{ref-paper_2013-keymanangement-fuer-qes-mit-npa}{109}{]}}
+  {[}\protect\hyperlink{ref-paper_2013-keymanangement-fuer-qes-mit-npa}{111}{]}}
 (e.g.~private keys and certificates). Thus this procedure could be used
 to sign arbitrary data, normally messages within communications like
 emails. But since a signing procedure involves the operators private
@@ -2347,12 +2384,12 @@ inconvenience is inevitable for such a use case.
 
 Another technology emerging as part of the \emph{e-government}
 development is the \emph{DE-Mail}
-{[}\protect\hyperlink{ref-web_2017_about-de-mail}{110}{]}. It's an
+{[}\protect\hyperlink{ref-web_2017_about-de-mail}{112}{]}. It's an
 eMail-Service that is meant to provides infrastructure and mechanisms to
 exchange legally binding electronic documents. One would expect
 public-key-based cryptography procedures all the way from sender through
 to the recipient (end-to-end)
-{[}\protect\hyperlink{ref-statement_2013_de-mail}{111}{]}, maybe even
+{[}\protect\hyperlink{ref-statement_2013_de-mail}{113}{]}, maybe even
 with taking advantage of the \emph{nPA's} capability to create
 \emph{QES}. Instead, the creators of the corresponding law decided that
 it's sufficient prove about the documents author if the provider signs
@@ -2737,7 +2774,7 @@ meaning
   password for different account, nowadays they but also tend to get
   tired of creating new accounts and profiles over and over again
   instead of having just one account for everything
-  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{112}{]}.
+  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{114}{]}.
 \end{itemize}
 
 Thus the platform owners leave the responsibility of
@@ -3522,34 +3559,46 @@ processing on large clusters,'' 2004 {[}Online{]}. Available:
 \url{https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf}.
 {[}Accessed: 27-Dec-2016{]}
 
+\hypertarget{ref-web_2017_wikipedia_mutual-auth}{}
+{[}105{]} ``Mutual authentication,'' 02-Sep-2016. {[}Online{]}.
+Available:
+\url{https://en.wikipedia.org/w/index.php?title=Mutual_authentication\&oldid=737409981}.
+{[}Accessed: 10-Jan-2017{]}
+
+\hypertarget{ref-web_spec_tls-12_client-auth}{}
+{[}106{]} T. Dierks, ``The transport layer security (TLS) protocol
+version 1.2,'' Aug-2008. {[}Online{]}. Available:
+\url{https://tools.ietf.org/html/rfc5246\#section-7.4.6}. {[}Accessed:
+09-Jan-2017{]}
+
 \hypertarget{ref-web_2013_npa-sicherheitsdefizit}{}
-{[}105{]} ``Basisleser weiterhin kritische schwachstelle des
+{[}107{]} ``Basisleser weiterhin kritische schwachstelle des
 elektronischen / neuen personalausweises. Netzpolitik.org,''
 27-Aug-2013. {[}Online{]}. Available:
 \url{https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/}.
 {[}Accessed: 05-Jan-2017{]}
 
 \hypertarget{ref-web_2014_test-qes-support-in-npa}{}
-{[}106{]} O. Stiemerling, ``Qualifizierte elektronische signatur mit dem
+{[}108{]} O. Stiemerling, ``Qualifizierte elektronische signatur mit dem
 neuen personalausweis -- oder: QES mit nPA, ein selbstversuch.
 CR-online.de blog,'' 26-Aug-2014. {[}Online{]}. Available:
 \url{http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/}.
 {[}Accessed: 05-Jan-2017{]}
 
-\hypertarget{ref-web_bsi-eid}{}
-{[}107{]} ``BSI - technische richtlinien des BSI - BSI TR-03130
+\hypertarget{ref-web_bsi-spec_eid}{}
+{[}109{]} ``BSI - technische richtlinien des BSI - BSI TR-03130
 eID-server.'' {[}Online{]}. Available:
 \url{https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html}.
 {[}Accessed: 06-Jan-2017{]}
 
 \hypertarget{ref-web_2017_npa-eid-server}{}
-{[}108{]} ``Personalausweisportal - eID-server.'' {[}Online{]}.
+{[}110{]} ``Personalausweisportal - eID-server.'' {[}Online{]}.
 Available:
 \url{https://www.personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html;jsessionid=8C7F11821065F2505F22AFEF65F63DFB.2_cid334}.
 {[}Accessed: 06-Jan-2017{]}
 
 \hypertarget{ref-paper_2013-keymanangement-fuer-qes-mit-npa}{}
-{[}109{]} K. Nguyen and C. Schwarz, ``Innovatives key management für die
+{[}111{]} K. Nguyen and C. Schwarz, ``Innovatives key management für die
 qualifizierte elektronische signatur mit dem neuen personalausweis,''
 \emph{Datenschutz und Datensicherheit-DuD}, vol. 37, no. 8, pp.
 502--506, 2013 {[}Online{]}. Available:
@@ -3557,19 +3606,19 @@ qualifizierte elektronische signatur mit dem neuen personalausweis,''
 {[}Accessed: 06-Jan-2017{]}
 
 \hypertarget{ref-web_2017_about-de-mail}{}
-{[}110{]} D. B. der Bundesregierung für Informationstechnik,
+{[}112{]} D. B. der Bundesregierung für Informationstechnik,
 ``IT-beauftragter der bundesregierung de-mail.'' {[}Online{]}.
 Available:
 \url{http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html}.
 {[}Accessed: 06-Jan-2017{]}
 
 \hypertarget{ref-statement_2013_de-mail}{}
-{[}111{]} L. Neumann, ``Stellungnahme zum elektronischen
+{[}113{]} L. Neumann, ``Stellungnahme zum elektronischen
 rechtsverkehr.'' 14-Apr-2013 {[}Online{]}. Available:
 \url{https://ccc.de/system/uploads/128/original/demail_april2013.pdf}
 
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}112{]} N. Carlson, ``Facebook connect is a huge success -- by the
+{[}114{]} N. Carlson, ``Facebook connect is a huge success -- by the
 numbers,'' 01-Jul-2009. {[}Online{]}. Available:
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 {[}Accessed: 16-Dec-2016{]}

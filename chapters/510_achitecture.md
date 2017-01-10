@@ -25,10 +25,29 @@ Whereas a *data consumer* always uses just one origin and processes requests seq
 very distinct groups of scenarios would make it possible to apply different authentication 
 mechanisms that do not necessarily have a lot in common.
 
-With respect to the requirements ([S.A.01](#sa01), the post appropriate technology for 
-communicating with the *PDaaS* over the internet is *[HTTP](#link_http)*. This comprehensive and 
-flexible protocol enables a variety of applications. 
+With respect to the requirements ([S.A.01](#sa01), the most appropriate technology to 
+communicate with the *PDaaS* over the internet would be *[HTTP](#link_http)*. This comprehensive and 
+flexible protocol allows several technologies to use for server-client authentication purposes. 
+Within the scope of this work, those technologies are categorized in the following types 
+(TODO: maybe find other labels): (A) stateful and (B) stateless authentication. The first one (A) includes 
+*Basic access Authentication* (or *Basic Auth*) and authentication based on *Cookies*. Whereas the *two-way 
+authentication* [@web_2017_wikipedia_mutual-auth] in TLS [@web_spec_tls-12_client-auth] and 
+[authentication based on web-token](#link_jwt) are associated with the later category (B). 
+*Basic Auth* is natively provided by the *http-agent* and requires, in it's original form 
+(*user:password*), some sort of state on the server; at least when the system should provide 
+multitenancy. If instead just a general access restriction for certain requests would suffice, no 
+state is required. 
+One of the most common implementations of server-side states is a *session* that contains
+one or more values representing the state and a unique identifier, by which an entity can be 
+associated with. Such a session ID is typically provided as part of the HTTP header, whether as
+*Basic Auth* value, a *Cookie*, which is domain-specific, or some other custom header.
 
+
+
+
+Using multi-factor authentication is generally valued and will be briefly noted as an 
+optional security enhancement for the *operator role*. However detailed discussions regarding this 
+topic are left to follow-up work on the specification.
 
 
 First of all, two different types of motivations for authenticating to the system have to be distinguished.
@@ -39,6 +58,18 @@ access data, the other is
 In other words, it would make sense to distinguish the authentication process of the two different 
 [roles](#sa03), because the way these two are interacting with the system is different, otherwise
 there would be no two roles
+
+
+An endpoints is defined as the part of the URI that is unique to every *data consumer*, or to be more 
+precise, unique to every *access profile*.
+
+While in OAuth the authorisation procedure strictly involves an authentication, the previous 
+proposed design separates authentication and authorisation from each other so they can run 
+completely independent. Additionally this approach would require almost no effort to support
+the case where multiple *data consumers* access the same *endpoint*.
+by just disabling the client authentication for the HTTPS connection establishment.
+
+
  
  
 In a public-key-based authentication when a receiver is able to decrypt the incoming request itself
@@ -95,7 +126,7 @@ would require just a card reader - preferable with a hardware keypad attached. A
 mobile device could be achieved with the card's RFID-capabilities, as long as the used device is 
 able to communicate with the RFID-chip. Both cases need the *nPA* to have enabled the *eID* feature. If a
 service wants to provide *nPA*-based online authentication (*eID-Service*), which is defined as a non-sovereign 
-("nicht hoheitlich") feature, it has to comply with several requirements [@web_bsi-eid]
+("nicht hoheitlich") feature, it has to comply with several requirements [@web_bsi-spec_eid]
 starting with making an application in order to get permission for sending a certificate signing 
 request to a BerCA [^abbr_berca]. This request is originated from an *eID-Server* [@web_2017_npa-eid-server] to sign a public key generated on 
 a dedicated and certified 
