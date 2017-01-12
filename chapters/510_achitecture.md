@@ -25,58 +25,93 @@ Whereas a *data consumer* always uses just one origin and processes requests seq
 very distinct groups of scenarios would make it possible to apply different authentication 
 mechanisms that do not necessarily have a lot in common.
 
-With respect to the requirements ([S.A.01](#sa01), the most appropriate technology to 
-communicate with the *PDaaS* over the internet would be *[HTTP](#link_http)*. This comprehensive and 
-flexible protocol allows several technologies to use for server-client authentication purposes. 
+With respect to the requirements ([S.A.01](#sa01)), the most appropriate way to communicate with the 
+*PDaaS* over the internet would be by using *[HTTP](#link_http)*. Furthermore, to preserve
+confidentiality on every in- and outgoing data ([S.P.01](#sp01)) the most convenient solution is to 
+use *HTTP* on top of *TLS*. The infrastructure that is needed to provide secure HTTP connections for 
+the internet can be seen as a large, if not the largest, public *PKI* [^abbr_pki], which is based  
+mainly on the X.509 standard [@web_spec_x509]. 
+*TLS* relies i.a. on [asymmetric cryptography](#link_asym-crypto). During the connection 
+establishment the initial 
+handshake requires a certificate, issued and signed by a CA [^abbr_ca], which has to be provided by 
+the server. This ensures at the same time a seasonable level of identity authentication, almost 
+effortless. If the certificate is not installed, it can be installed manually on the client. If 
+the certificate is not trusted (e.g. it is self-signed), it can either be ignored or the process 
+fails to establish a connection, depending on the server configurations. The identity 
+verification in TLS works in both directions, which means not only the client has to verify the 
+server's identity by checking the certificate. If the server insists on, the client has to 
+provide a certificate as well, which then the server tries to verify. Only if the outcome is 
+positive, the connection establishing succeeds. According to the specification 
+[@web_spec_tls-12_client-auth] it is still optional though.
+
+*HTTP* as a comprehensive and flexible protocol enables to use several technologies for 
+server-client authentication purposes. 
 Within the scope of this work, those technologies are categorized in the following types 
-(TODO: maybe find other labels): (A) stateful and (B) stateless authentication. The first one (A) includes 
-*Basic access Authentication* (or *Basic Auth*) and authentication based on *Cookies*. Whereas the *two-way 
-authentication* [@web_2017_wikipedia_mutual-auth] in TLS [@web_spec_tls-12_client-auth] and 
-[authentication based on web-token](#link_jwt) are associated with the later category (B). 
-*Basic Auth* is natively provided by the *http-agent* and requires, in it's original form 
-(*user:password*), some sort of state on the server; at least when the system should provide 
-multitenancy. If instead just a general access restriction for certain requests would suffice, no 
-state is required. 
-One of the most common implementations of server-side states is a *session* that contains
-one or more values representing the state and a unique identifier, by which an entity can be 
-associated with. Such a session ID is typically provided as part of the HTTP header, whether as
-*Basic Auth* value, a *Cookie*, which is domain-specific, or some other custom header.
+(TODO: maybe find other labels): (A) stateful and (B) stateless authentication. The first one (A) 
+includes vor example *Basic access Authentication* (or *Basic Auth*) and authentication based on 
+*Cookies*. Whereas the *two-way authentication* in TLS mentioned above and 
+[authentication based on web-token](#link_jwt) are associated with the later (B). 
+*Basic Auth* is natively provided by the *http-agent* and requires in it's original form 
+(*user:password*) some sort of state on the server; at least when the system has to 
+provide multitenancy. If instead just a general access restriction for certain requests would 
+suffice, no state is required. One of the most common implementations of user-specific states is a 
+*session* on the server, that contains one or more values representing the state and a unique 
+identifier, by which an entity can be associated with. Such a session ID is typically provided in a 
+HTTP header, whether as *Basic Auth* value, a *Cookie*, which is domain-specific, or in some other 
+custom header.
+Since the *two-way authentication* (or *mutual authentication* [@web_2017_wikipedia_mutual-auth]) is
+done based on files containing keys and certificates, which are typically not very fluctuant in
+it's contents or state, this procedure is categorized as stateless. Order or origin of incoming 
+requests have no impact on the result of the actual authentication process. The same applies to TLS 
+features such as *Session \[ID, Ticket\] Resumption* 
+[@book_2013_networking-101_tls-session-resumption], thus they are left aside, because they serve the 
+sole purpose of performance optimization.
+Similar to the *Session Ticket Resumption* [@web_spec_tls-session-ticket-resumption] a web token, 
+namely the [JSON Web Token](#link_jwt), also moves the state towards the client, but that's about 
+all they have in common. A *JWT* carries everything with it that's worth knowing, including possible 
+states, and if necessary the token is symmetrical encrypted by the server. This is, only the server 
+is able to obtain data from it and reacting accordingly.
+
+The advantage of token-based authentication instead of using TLS-based *mutual authentication* is
+that the token can be used on multiple clients at the same time or the account a token is associated 
+with can actually have more than one token. Whereas during the asymmetric cryptography-based *mutual 
+authentication* the client's private key is required. Such key should not leave it's current place 
+in order to prevent exposure, which implies any action of duplication. 
+  
 
 
+If a public-key-based connection, performing a *mutual authentication*, establishes successfully, it
+it implies that the requester's identity is valid and the integrity of the containing data is given.
+Whereas on a token-based authentication every incoming request has to carry the token so that the
+system can verify and associate the request with an account and the data it not automatically 
+encrypted and thus integrity is not preserved.
 
 
+To hardening an authentication procedure often one ore more factors are added. This makes the 
+procedure more complex and thus increases the effort that's needed for succeeding attacks.
 Using multi-factor authentication is generally valued and will be briefly noted as an 
 optional security enhancement for the *operator role*. However detailed discussions regarding this 
 topic are left to follow-up work on the specification.
 
 
-First of all, two different types of motivations for authenticating to the system have to be distinguished.
-First of all, two different types of motivations have to be distinguished for authenticating to the system. 
-One, originated by an external third party (data consumer), is to make a permission request or to 
-access data, the other is 
-
-In other words, it would make sense to distinguish the authentication process of the two different 
-[roles](#sa03), because the way these two are interacting with the system is different, otherwise
-there would be no two roles
 
 
-An endpoints is defined as the part of the URI that is unique to every *data consumer*, or to be more 
-precise, unique to every *access profile*.
+An endpoints is defined as the part of the URI that is unique to every *data consumer*, or to be 
+more precise, unique to every *access profile*.
 
-While in OAuth the authorisation procedure strictly involves an authentication, the previous 
-proposed design separates authentication and authorisation from each other so they can run 
-completely independent. Additionally this approach would require almost no effort to support
-the case where multiple *data consumers* access the same *endpoint*.
-by just disabling the client authentication for the HTTPS connection establishment.
+
 
 
  
- 
-In a public-key-based authentication when a receiver is able to decrypt the incoming request itself
-it implies that the requester's identity is valid and the integrity of the containing data is given.
-Whereas on a token-based authentication every incoming request has to carry the token so that the
-system can verify and associate the request with an account and the data it not automatically 
-encrypted and thus integrity is not preserved.
+[^abbr_ca]: Certificate Authorities; issues, signs and revokes certificates; role in a PKI, that 
+    might be part of a chain of trusted CAs; 
+
+[^abbr_pki]: *Public Key Infrastructure*; manages and serves certificates to perform *Asymmetric 
+    cryptography*; it also provides information related to entities those certificates belong to; 
+    underpinned by standards it provides an hierarchical trust model by defining a set of rules and 
+    roles, e.g. *certificate authority*
+
+
 
 
 Only at the beginning the relies 
@@ -184,8 +219,14 @@ authenticated state related to a user account and hold by the server,
 
 
 
-
 ### Data Exchange/Access Process Design
+
+While in OAuth the authorisation procedure strictly involves an authentication, the previous 
+proposed design separates authentication and authorisation from each other so they can run 
+completely independent. Additionally this approach would require almost no effort to support
+the case where multiple *data consumers* access the same *endpoint*.
+by just disabling the client authentication for the HTTPS connection establishment.
+
 
 A)  just requesting and responding with pure data
 B)  provide executable and input schema; run on the PDaaS environment in a sandbox; return result

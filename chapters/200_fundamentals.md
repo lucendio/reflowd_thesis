@@ -683,10 +683,29 @@ consists of three parts: information about itself, a payload, which can be arbit
 user or state information, and a signature; all separated with a period. Additional standards define 
 encryption *(JWE [^abbr_jwe])* to ensure confidentiality and signatures *(JWS [^abbr_jws])* to 
 preserve integrity of it's contents.
-Using a *JWT* for authentication purposes, that is described as *stateless authentication*, because 
-the verifying entity doesn't need to be aware of session IDs or know anything about a certain state. 
+Using a *JWT* for authentication purposes is described as *stateless authentication*, because 
+the verifying entity doesn't need to be aware of session IDs nor any information about a state. 
 So instead of the backend interface being constrained to check a state (`isLoggedIn(sessionId)` or 
 `isAuthorized(sessionId)`) on every incoming request in order to verify permissions, it just needs 
+
+When transferring data over a potential non-private channel several properties might be desired, 
+which eventually provide an overall trust to that data. One important aspect might me, that no one 
+else expect sender and receiver are able to know and see what the actual data is. To achieve this, 
+__Symmetrical Cryptography__ is used for. It states that the sender encrypts the data with the help 
+of a key and the receiver decrypts that data also with that key. This is, sender and receiver, both 
+need to know that one key, but everyone else should not . To agree on a key without compromising the 
+key during that process, both entities either change the medium (e.g meet physically and exchange) 
+or have to use a procedure, in which at any point in time the entire key is not exposed to others 
+then sender and receiver. This procedure is called __Diffie-Hellman-Key-Exchange__ 
+[@paper_1976_d-h-key-exchange] and is based on rules for modulo operations when prime numbers are 
+involved. It is designed with the goal to agree on a *secret* while at the same time using a 
+non-private channel. The data exchanged during the process alone can't be used to deduce the secret.
+Such behaviour is similar to the concepts of __[Asymmetrical Cryptography]{#link_asym-crypto}__ 
+*(or public-key cryptography)* [@book_2014_chapter-9-1-public-key-crypto], which is underpinned by a 
+*key-pair*; one part is *public* and the other part is *private*. It depends on which of the both 
+parts is used to *encrypt* the data, then the other part is used for *decryption*. Combining this 
+approach with the idea of digital signatures (encrypted fingerprints of the data), then provides 
+integrity and authentication.
 
 __REST(ful)__ [^abbr_rest] is a common set of principles to design web resources communication, 
 primarily server-client relations, in a more generic and thereby interoperable way. Aside from 

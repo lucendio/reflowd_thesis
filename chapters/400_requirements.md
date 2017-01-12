@@ -46,7 +46,8 @@ the access attempt has to fail.
 
 __*[S.P.01]{#sp01}* - Data Outflow__\
 Data may only leave the system if it's absolutely necessary and no other option exists to preserve 
-the goal of that process.
+the goal of that process. But if data still has to get transferred, no other than the data consumer
+must be able to access the data. Confidentiality has to be preserved at all cost.
 
 __*[S.P.02]{#sp02}* - Data Relationship__\
 Data structures and data models must show high flexibility and may not consist of strong relations 

@@ -23,15 +23,15 @@ is seems unnatural not being the owner of all the data that reflects her identit
 individual. So instead of defining those rules meant to protect data subjects, but demanding data 
 consumers to comply with, the proposal here is to put the entity, to whom the data is related to, in 
 control of defining, who can access her data and what accessor is allowed to do with it. This would 
-make the *data subject*, [per definition](#def-ownership) and effectively, to the owner of those 
+make the *data subject*, [per definition](#def-ownership) and effectively to the owner of those 
 data. Although, it is to be noted, that the legal rulebook for data consumers mentioned before, 
 remains a highly important, since this project is not able to cover every use case, that might 
 occur.
 
-Promoted from the data subject to the data owner, being the center of the *PDaaS*, the operator gains 
-abilities to have as much control over all the data related to her as possible, to determine in a 
-very precise ways what data of hers can be accessed by third parties and to literally carry all her 
-personal data with her. 
+Promoted from the data subject to the data owner, thus being the center of the *PDaaS*, the operator 
+gains abilities to have as much control as possible over all the data related to her, to determine 
+in a very precise way what data of hers can be accessed by third parties at any point in time and to 
+literally carry all her personal data with her. 
 
 
 
