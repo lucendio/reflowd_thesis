@@ -62,7 +62,7 @@ simple type (string, integer, boolean, etc.) or a structured composition based o
 __*[S.P.04]{#sp04}* - Write__\
 Primarily the operator is the only one who has the permissions to add, change or remove data. This
 is done either by using the appropriate forms provided by visual user interface or import 
-mechanisms. The later could be enabled through (A) support for file upload containing supported 
+mechanisms. The latter could be enabled through (A) support for file upload containing supported 
 formats, (B) data API restricted to the operator or (C) defining an external source reachable via 
 http (e.g. *RESTful URI*) in order to (semi-)automate additional an ongoing data import from 
 multiple data sources (e.g. IoT, browser plugin).

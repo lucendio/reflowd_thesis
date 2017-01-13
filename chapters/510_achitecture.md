@@ -28,11 +28,8 @@ mechanisms that do not necessarily have a lot in common.
 With respect to the requirements ([S.A.01](#sa01)), the most appropriate way to communicate with the 
 *PDaaS* over the internet would be by using *[HTTP](#link_http)*. Furthermore, to preserve
 confidentiality on every in- and outgoing data ([S.P.01](#sp01)) the most convenient solution is to 
-use *HTTP* on top of *TLS*. The infrastructure that is needed to provide secure HTTP connections for 
-the internet can be seen as a large, if not the largest, public *PKI* [^abbr_pki], which is based  
-mainly on the X.509 standard [@web_spec_x509]. 
-*TLS* relies i.a. on [asymmetric cryptography](#link_asym-crypto). During the connection 
-establishment the initial 
+use *HTTP* on top of *TLS*. *TLS* relies i.a. on [asymmetric cryptography](#link_asym-crypto). 
+During the connection establishment the initial 
 handshake requires a certificate, issued and signed by a CA [^abbr_ca], which has to be provided by 
 the server. This ensures at the same time a seasonable level of identity authentication, almost 
 effortless. If the certificate is not installed, it can be installed manually on the client. If 
@@ -50,15 +47,16 @@ Within the scope of this work, those technologies are categorized in the followi
 (TODO: maybe find other labels): (A) stateful and (B) stateless authentication. The first one (A) 
 includes vor example *Basic access Authentication* (or *Basic Auth*) and authentication based on 
 *Cookies*. Whereas the *two-way authentication* in TLS mentioned above and 
-[authentication based on web-token](#link_jwt) are associated with the later (B). 
+[authentication based on web-token](#link_jwt) are associated with the latter (B). 
 *Basic Auth* is natively provided by the *http-agent* and requires in it's original form 
 (*user:password*) some sort of state on the server; at least when the system has to 
 provide multitenancy. If instead just a general access restriction for certain requests would 
 suffice, no state is required. One of the most common implementations of user-specific states is a 
 *session* on the server, that contains one or more values representing the state and a unique 
-identifier, by which an entity can be associated with. Such a session ID is typically provided in a 
-HTTP header, whether as *Basic Auth* value, a *Cookie*, which is domain-specific, or in some other 
-custom header.
+identifier, by which an entity can be associated with. A client has to provide that session ID in 
+order to get provided with all the session-related data hold by the server. This is typically done 
+in a HTTP header, whether as *Basic Auth* value, a *Cookie*, which is domain-specific, or in some 
+other custom header. 
 Since the *two-way authentication* (or *mutual authentication* [@web_2017_wikipedia_mutual-auth]) is
 done based on files containing keys and certificates, which are typically not very fluctuant in
 it's contents or state, this procedure is categorized as stateless. Order or origin of incoming 
@@ -72,19 +70,54 @@ all they have in common. A *JWT* carries everything with it that's worth knowing
 states, and if necessary the token is symmetrical encrypted by the server. This is, only the server 
 is able to obtain data from it and reacting accordingly.
 
-The advantage of token-based authentication instead of using TLS-based *mutual authentication* is
-that the token can be used on multiple clients at the same time or the account a token is associated 
+Keeping track of a state (or multiple states) on the server and keeping data that is involved  
+synchronized between server and client is expensive and by fare trivial. Expensive in the sense of 
+additional resources a server would require to remember all the data for those states, that 
+otherwise won't be needed. And it's not trivial, because this pattern requires the server to be 
+aware of all current states (sessions) and has to have them accessible at all time. This also means, 
+that the contents responses for certain requests might depend on preceding requests and their 
+incoming order. Furthermore those session data has to be safely stored from time to time. Otherwise 
+if the server fails to run at some point, data only existing in the memory would be gone without 
+any possibility to get recovered.
+To stateless authentications non of those aspects apply. Certificates and keys as well as web 
+tokens are both carry the information that might be necessary with them. Thus, considering those
+disadvantages, *public key cryptography* and web tokens are the preferred technologies for all
+authentication processes.
+
+Because of it's simplicity the concept of web tokens are fairly straightforward to implement into 
+the *PDaaS*. And since web tokens ensure integrity and perhaps also the confidentiality only of 
+their own carriage and not the entire HTTP payload, both requirements need to be addressed 
+separately. Serving HTTP over *TLS* solves this issue, but using TLS or *asymmetric cryptography*
+properly - place value on integrity, confidentiality, authenticity - requires additional 
+infrastructure. Such an infrastructure is known as *Public Key Infrastructure* (or *PKI*)
+[@book_2014_chapter-14-5-pki]. It manages and provides public keys in a directory, including related 
+information to the entities those certificates belong to. A Certificate Authority (or *CA*), as part 
+of that infrastructure, issues, maintains and revokes digital certificates.
+The infrastructure that is needed to provide secure HTTP connections for the internet can be seen as 
+a large, if not the largest, public *PKI*. It is based on the widely used IETF [^abbr_ietf] standard 
+*X.509* [@web_spec_x509].
+For connections that use a web token, it is sufficient to rely on the public PKI
+that drives *HTTP* over *TLS*, because unlike the *two-way authentication*, authentication is 
+provided by the token itself. The situation is different, if instead *two-way authentication* is
+used. For this the system has to provide it's own *PKI* including a Certificate Authority that 
+issues certificates for *data consumers*.
+
+
++   maybe place "eperso + de-mail" here
+
+An advantage of token-based authentication over TLS-based *mutual authentication* is that the token 
+can be used on multiple clients at the same time or the account a token is associated 
 with can actually have more than one token. Whereas during the asymmetric cryptography-based *mutual 
 authentication* the client's private key is required. Such key should not leave it's current place 
 in order to prevent exposure, which implies any action of duplication. 
-  
-
 
 If a public-key-based connection, performing a *mutual authentication*, establishes successfully, it
-it implies that the requester's identity is valid and the integrity of the containing data is given.
+implies that the requester's identity is valid and the integrity of the containing data is given.
 Whereas on a token-based authentication every incoming request has to carry the token so that the
-system can verify and associate the request with an account and the data it not automatically 
-encrypted and thus integrity is not preserved.
+system can verify and associate the request with an account. Data it not automatically encrypted and 
+thus integrity is not preserved.
+
++   CA might be part of a chain of trusted CAs
 
 
 To hardening an authentication procedure often one ore more factors are added. This makes the 
@@ -101,36 +134,20 @@ more precise, unique to every *access profile*.
 
 
 
-
- 
-[^abbr_ca]: Certificate Authorities; issues, signs and revokes certificates; role in a PKI, that 
-    might be part of a chain of trusted CAs; 
-
-[^abbr_pki]: *Public Key Infrastructure*; manages and serves certificates to perform *Asymmetric 
-    cryptography*; it also provides information related to entities those certificates belong to; 
-    underpinned by standards it provides an hierarchical trust model by defining a set of rules and 
-    roles, e.g. *certificate authority*
-
-
-
-
-Only at the beginning the relies 
-        
-+   TODO: look into
-    -   PKI: concept consists of CAs and stuff used for HTTPS 
-    
-where the system is a certificate authority
-
-    
-Since there are no time constrains when it comes to communication with a payload that contains 
-personal data, parameters of encryption procedures can chosen as costly as the system resources 
+Since there are no time constrains when it comes to communication with a payload containing 
+personal data, parameters for encryption procedures can chosen as costly as the system resources 
 allow them to be, thus the level of security can be increased.
 
 
+ 
+[^abbr_ietf]: Internet Engineering Task Force; non-profit organisation that develops and releases 
+    standards mainly related to the Internet protocol suite
 
-#### Asymmetric Cryptographic Techniques
 
-##### ePerso, E-Post/de-mail as part of a PKI solution?__\
+
+
+### ePerso, E-Post/de-mail as part of a PKI solution?__\
+
 In the past years different countries around the world recently started to introduced *information 
 technology* to the day-to-day processes, interactions and communications between public services and 
 their citizens, for example changing residence information or filing tax report, which is summarized 
@@ -187,7 +204,7 @@ security level. It also makes every process this procedure is involved with vuln
 attacks. Apart from that, it is highly unlikely that a *eID card* does allow to extract private 
 keys. Thus increasing inconvenience is inevitable for such a use case.
 
-Another technology emerging as part of the *e-government* development is the *DE-Mail* 
+Another technology, emerging as part of the *e-government* development, is the *DE-Mail* 
 [@web_2017_about-de-mail]. It's an
 eMail-Service that is meant to provides infrastructure and mechanisms to exchange legally binding 
 electronic documents. One would expect public-key-based cryptography procedures all the way from 
@@ -201,6 +218,15 @@ relevance to this project, other then letting a server sign outgoing data, which
 solution to avoid an overhead in user interaction caused by recurring events.
 
 
+*Conclusions:* 
+Based on the several requirements and distinct advantages of the two authentication mechanisms, 
+it would make sense to use asymmetric cryptography in combination with *HTTPS* for the communication 
+between the system and *data consumers*, where the system provides it's own *PKI*
+and a token-based authentication on top of *HTTPS* and public CAs for communication between the 
+system and the *operator*, preferable based on *[JSON Web Tokens](#link_jwt)*, because the session 
+state is preserved within the token rather then having the system itself keeping track of it.
+
+
 [^abbr_egov]: Electronic government
 
 [^abbr_npa]: in german so called *elektronische Personalausweis (nPA)*
@@ -208,87 +234,3 @@ solution to avoid an overhead in user interaction caused by recurring events.
 [^abbr_berca]: Berechtigungszertifikate-Anbieter
 
 [^abbr_qes]: Qualified Electronic Signatures [@paper_2013-keymanangement-fuer-qes-mit-npa]
-
-
-#### Sessions
-
-authenticated state related to a user account and hold by the server, 
-
-+   basic auth, cookies
-+   JSON Web Token
-
-
-
-### Data Exchange/Access Process Design
-
-While in OAuth the authorisation procedure strictly involves an authentication, the previous 
-proposed design separates authentication and authorisation from each other so they can run 
-completely independent. Additionally this approach would require almost no effort to support
-the case where multiple *data consumers* access the same *endpoint*.
-by just disabling the client authentication for the HTTPS connection establishment.
-
-
-A)  just requesting and responding with pure data
-B)  provide executable and input schema; run on the PDaaS environment in a sandbox; return result
-B)  DRM for personal data: provide a piece of software to the data consumer, which does the licence 
-    checking, key obtaining and encryption of the data, he has requested, in order to work 
-    with / compute that data
-
-
-
-### Components
-
-+   which components can go where?
-
-__Webserver__
-+   to serve UI
-+   relay to mobile device
-
-__UI__
-+   data editor and importer
-    -   data type editor
-+   permission management
-    -   access history and access profile
-    
-__Storage/Persistence__
-+   regardless of the platform
-+   connector
--   where to place the storage? local (e.g. mobile device) or cloud (e.g. hoster's infrastructure)
-    +   requires 24/7 uptime
-    
-__Notification Infrastructure__
-+   websockets for web UIs
-+   Google/Apple Notification server compatible connection for mobile apps
-
-__Data API__
-+   essentially consists of two parts: 
-    1)  checking permissions of the request
-    2)  persistence layer abstraction (graphql)
-+   for external consumers
-    -   incoming permission requests and data access attempts
-    -   outgoing data ()
-+   for internal clients (web UI, mobile device)
-
-
-
-### Plugins
-
-+   but for what? and not harm security at the same time?
-    maybe just for data types and admin UI to display analytical (time based) data in other ways
-+   what about extensions (see iOS 10) to let other apps consume data; only on a mobile device and 
-    only if the data is stored there
-+   currently no other imaginable then data type schemas
-
-
-
-### *Conclusions*
-
-+   distributed architecture (e.g. notification/queue server + mobile device for persistence
-    and administration)
-    
-+   Based on the several requirements and distinct advantages of the two authentication mechanisms, 
-it would make sense to use asymmetric cryptography in combination with *HTTPS* for the communication 
-between the system and *data consumers*, where the system provides it's own *PKI*
-and a token-based authentication on top of *HTTPS* and public CAs for communication between the 
-system and the *operator*, preferable based on *[JSON Web Tokens](#link_jwt)*, because the session 
-state is preserved within the token rather then having the system itself keeping track of it.
