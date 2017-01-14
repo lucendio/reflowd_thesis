@@ -97,7 +97,7 @@ __IF01 - Authorizing a data consumer to request certain data__
     is considered private.
     Even though the registration provides the consumer with mandatory information such as a 
     consumer identifier (v1: `oauth_consumer_key`, v2: `client_id`) and, depending on the client 
-    type, a secret (see https://tools.ietf.org/html/rfc6749#section-2), this process it is not 
+    type, a secret (see https://tools.ietf.org/html/rfc6749#section-2), this process is not 
     part the specification (https://oauth.net/core/1.0a/#rfc.section.4.2, 
     https://tools.ietf.org/html/rfc6749#section-2). This enables the possibility of integrating 
     oAuth into the consumer registration flow by using the `CONSUMER_REGISTRATION_TOKEN` as

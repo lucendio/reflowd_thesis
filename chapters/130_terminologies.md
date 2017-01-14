@@ -64,3 +64,9 @@ additional information and access rules
 Data Access
 : after a third party's *permission request* got reviewed and saved, that entity is then able to 
 make an attempt to access data.
+
+Endpoint
+: an endpoint is defined as the part of the URI that is unique to every *data consumer*, or to be 
+more precise, unique to every *access profile*. Usually it is the first part of a URI, whereas 
+following parts stand for different resources that might be available within that endpoint
+It can also be seen as group of resources that all can be accessed by under specific circumstances

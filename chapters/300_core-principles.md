@@ -28,7 +28,7 @@ data. Although, it is to be noted, that the legal rulebook for data consumers me
 remains a highly important, since this project is not able to cover every use case, that might 
 occur.
 
-Promoted from the data subject to the data owner, thus being the center of the *PDaaS*, the operator 
+Promoted from the data subject to the data owner, hence being the center of the *PDaaS*, the operator 
 gains abilities to have as much control as possible over all the data related to her, to determine 
 in a very precise way what data of hers can be accessed by third parties at any point in time and to 
 literally carry all her personal data with her. 

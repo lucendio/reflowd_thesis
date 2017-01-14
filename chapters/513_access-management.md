@@ -2,17 +2,25 @@
 
 
 
++   how can a communication process with a third party be modeled and what technologies can be used 
+    to
++   how authorisation will work
+    
+    
+
 In the previous section [Authentication] has been addressed. The Subsequent section discusses how 
 the mentioned technologies has to be assembled in order to meet the requirements (TODO), so that
 personal data can be accessed by external *data consumers*.
 
 
 
++   argument against oAuth:
 While in OAuth the authorisation procedure strictly involves an authentication, the previous 
 proposed design separates authentication and authorisation from each other so they can run 
 completely independent. Additionally this approach would require almost no effort to support
 the case where multiple *data consumers* access the same *endpoint*.
 by just disabling the client authentication for the HTTPS connection establishment.
+
 
 
 A)  just requesting and responding with pure data
