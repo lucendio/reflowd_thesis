@@ -50,3 +50,5 @@ topic, nor elaborate on how this might look integrate with the currently develop
 *Conclusions:*
 +   distributed architecture (e.g. notification/queue server + mobile device for persistence
     and administration)
++   the previously proposed authentication concept for the *operator* role supports multiple  
+    clients and with the suggested technologies it can be implemented with almost no effort

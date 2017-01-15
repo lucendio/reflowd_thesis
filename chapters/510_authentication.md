@@ -2,7 +2,7 @@
 
 
 
-First of all, the system has to support two [roles]({#sa03). Any entity can be assigned to either 
+First of all, the system has to support two [roles](#sa03). Any entity can be assigned to either 
 one of them, hence entities that are trying to authenticate to the system might have different 
 intentions. The *operator* for example wants to review *permission requests* in real time, so 
 accessing the system from different devices is a common scenario. When inheriting the *operator 
@@ -28,7 +28,8 @@ positive, the connection establishing succeeds. According to the specification
 [@web_spec_tls-12_client-auth] it is still optional though.
 
 *HTTP* as a comprehensive and flexible protocol enables to use several technologies for 
-server-client authentication purposes. 
+server-client authentication purposes. Some of them are build-in, others can simply be implemented 
+on top of the protocol.
 Within the scope of this work, those technologies are categorized in the following types 
 (TODO: maybe find other labels): (A) stateful and (B) stateless authentication. The first one (A) 
 includes vor example *Basic access Authentication* (or *Basic Auth*) and authentication based on 
@@ -70,18 +71,53 @@ tokens are both carry the information that might be necessary with them. Thus, c
 disadvantages, *public key cryptography* and web tokens are the preferred technologies for all
 authentication processes.
 
+Except the *two-way authentication* all authentication technologies mentioned above require an 
+initial step to obtain the data that is used to authenticate all subsequent requests. This 
+step is commonly known as *login* or *sign in* and requires the authorizing entity to provide some 
+credentials consisting at least of two parts. One part, that uniquely relates to the entity but 
+doesn't have to be private, and another part only the entity knows or has. Typically that's a
+username or email address and a password or token (e.g. USB stick).
+Another possible token could be a *eID card*. XXX
+
+(A) authenticate with the *eID card* to the management UI of the *PDaaS*
+(B) authorize/approve *access requests* or *data access* attempts 
+
+With regards to (A), partially depending on the *eID card*'s implementation, but in general this use case 
+would make sense. When considering the german implementation (nPA), accessing the management UI via desktop 
+would require just a card reader - preferable with a hardware keypad attached. Accessing the UI via 
+mobile device could be achieved with the card's RFID-capabilities, as long as the used device is 
+able to communicate with the RFID-chip. Both cases need the *nPA* to have enabled the *eID* feature. If a
+service wants to provide *nPA*-based online authentication (*eID-Service*), which is defined as a non-sovereign 
+("nicht hoheitlich") feature, it has to comply with several requirements [@web_bsi-spec_eid]
+starting with making an application in order to get permission for sending a certificate signing 
+request to a BerCA [^abbr_berca]. This request is originated from an *eID-Server* [@web_2017_npa-eid-server] to sign a public key generated on 
+a dedicated and certified 
+hardware, which is also required through the officials. This key pair - re-generated and re-signed
+every three days - is needed to establish a connection with the *nPA*, which then is used to
+authenticated the owner of that *ID card*. 
+The described appears to be highly expensive (effort, hardware costs), especially because every 
+single operator needs to go through the whole process in order to provide this authentication 
+method; not mentioning the uncertainty of the official's decision about the motion filing. Another
+approach would be to integrate an external authentication provider supporting the *nPA*, which
+would not only add an additional dependency, but could also weaken the system.
+(A) and (B) are fairly similar, insofar as they would use the same mechanism to authenticate, but
+to approve different actions.
+
+
+
+To hardening an authentication procedure often one or more factors are added. This makes the 
+procedure more complex and thus increases the effort that's needed for succeeding attacks.
+Using multi-factor authentication is generally valued and will be briefly noted as an 
+optional security enhancement for the *operator role*. However detailed discussions regarding this 
+topic are left to follow-up work on the specification.
+
+
+
+
 Because of it's simplicity the concept of web tokens are fairly straightforward to implement into 
-the *PDaaS*. But since web tokens ensure integrity and perhaps also the confidentiality only of 
-their own carriage and not the entire HTTP payload, both requirements need to be addressed 
-separately. Serving HTTP over *TLS* solves this issue, but using TLS or *asymmetric cryptography*
-properly - place value on integrity, confidentiality, authenticity - requires additional 
-infrastructure. Such an infrastructure is known as *Public Key Infrastructure* (or *PKI*)
-[@book_2014_chapter-14-5-pki]. It manages and provides public keys in a directory, including related 
-information to the entities those certificates belong to. A Certificate Authority (or *CA*), as part 
-of that infrastructure, issues, maintains and revokes digital certificates.
-The infrastructure that is needed to provide secure HTTP connections for the internet can be seen as 
-a large, if not the largest, public *PKI*. It is based on the widely used IETF [^abbr_ietf] standard 
-*X.509* [@web_spec_x509].
+the *PDaaS*. But since web tokens ensure integrity and the optional confidentiality only of 
+their own carriage but not the entire HTTP payload, both requirements need to be addressed 
+separately. Serving HTTP over *TLS* solves this issue
 For connections that use a web token, it should be sufficient to rely on the public PKI
 that drives *HTTP* over *TLS*, because all information required to authenticate is provided by the 
 token itself. Though, the situation is different if instead *two-way authentication* is used. For 
@@ -93,23 +129,6 @@ thus determines (supervised by the *operator*) who is authorized to get access t
 the *PKI* needs to be self-contained without any external role in order to function independently so 
 that only invited parties can get involved.
 
-
-
-
-
-
-
-An advantage of token-based authentication over TLS-based *mutual authentication* is that the token 
-can be used on multiple clients at the same time. Or the account, a token is associated 
-with, can actually have more than one token. Whereas during the asymmetric cryptography-based 
-*mutual authentication* the client's private key is required. So if it's likely that a *operator* 
-has several clients, regardless for what purposes, the private key needs to be on those clients. But 
-a private key typically does not leave it's current system or is at least not used multiple times, 
-in order to prevent exposure, which is implied in any action of duplication. To reduce those risks, 
-it's common practice to generate a private key at that location where it is going to be used.
-
-
-
 If a public-key-based connection, performing a *mutual authentication*, establishes successfully, it
 implies that the identity originating the request is valid and the integrity of the containing data 
 is given.
@@ -117,7 +136,15 @@ Whereas on a token-based authentication every incoming request has to carry the 
 system can verify and associate the request with an account. Furthermore data it not automatically 
 encrypted and thus integrity is not preserved.
 
-
+An advantage of token-based authentication over TLS-based *mutual authentication* is that the token 
+can be used on multiple clients at the same time. Or an account, a token is associated 
+with, can actually have more than one token. Whereas during the asymmetric cryptography-based 
+*mutual authentication* the client's private key is required. So if it's likely that a *operator* 
+has several clients, regardless for what purposes, then the private key has to be on those clients. 
+Though, a private key typically does not leave it's current system or least does not exist in 
+multiple systems at the same time in order to prevent exposure, which any action of duplication 
+implies. To reduce those risks, it's common practice to generate a private key at that location 
+where it is going to be used.
 
 Computations based on asymmetric cryptography usually is slower then the ones based on symmetric
 cryptography [@book_2014_chapter-10-5-asym-random-number-gen], but since there are no timing 
@@ -125,24 +152,12 @@ constrains when interacting with the *PDaaS*, regardless of whether it's externa
 *data consumers* or internal between components, parameters for cryptographic procedures can chosen 
 as costly as the system resources allow them to be, thus the level of security can be increased.
 
-To hardening an authentication procedure often one or more factors are added. This makes the 
-procedure more complex and thus increases the effort that's needed for succeeding attacks.
-Using multi-factor authentication is generally valued and will be briefly noted as an 
-optional security enhancement for the *operator role*. However detailed discussions regarding this 
-topic are left to follow-up work on the specification.
-
-
- 
-[^abbr_ietf]: Internet Engineering Task Force; non-profit organisation that develops and releases 
-    standards mainly related to the Internet protocol suite
-
 
 
 *Conclusions:* 
 Based on the several requirements and distinct advantages of the two authentication mechanisms, 
-it would make sense to use asymmetric cryptography in combination with *HTTPS* for the communication 
-between the system and *data consumers*, where the system provides it's own *PKI*
-and a token-based authentication on top of *HTTPS* and public CAs for communication between the 
-system and the *operator*, preferable based on *[JSON Web Tokens](#link_jwt)*, because the session 
-state is preserved within the token rather then having the system itself keeping track of it.
-
+it is preferred to use asymmetric cryptography in combination with *HTTPS* for the communication 
+between the system and *data consumers*, where the system provides it's own *PKI* and a token-based 
+authentication on top of *HTTPS* and public CAs for communication between the system and the 
+*operator*, preferable based on *[JSON Web Tokens](#link_jwt)*, because the session state is 
+preserved within the token rather then having the system itself keeping track of it.

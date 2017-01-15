@@ -382,21 +382,6 @@ online a product, others might have no current usage, but showing a
 certain potential to become more relevant when new technologies and
 business models emerge, followed by new demands of data.
 
-\begin{itemize}
-\tightlist
-\item
-  order sth online, purchase, and package shipment
-\item
-  social network accessing arbitrary profile data
-\item
-  credibility (applying for a loan) validation by a certain financial
-  institution: accessing arbitrary data
-\item
-  patient/health record
-\item
-  care (movement) data
-\end{itemize}
-
 \subsubsection{Ordering a product
 online}\label{ordering-a-product-online}
 
@@ -1519,8 +1504,8 @@ data}:
   aWise AEGIS {[}http://www.ewise.com/aegis{]}
 \end{itemize}
 
-\section{Standards and
-Specifications}\label{standards-and-specifications}
+\section{Standards, Specifications and related
+Technologies}\label{standards-specifications-and-related-technologies}
 
 The overall attempt is to involve as much standards as possible, because
 it increases the chances of interoperability and thereby it lowers the
@@ -1529,7 +1514,7 @@ or other APIs. Hereinafter, some of these possible technologies will be
 touched on just briefly, why they might be a reasonable choice and what
 purposes they might going to service.
 
-\textbf{\protect\hypertarget{link_http}{}{HTTP(S)}}
+\textbf{\protect\hypertarget{link_http}{}{HTTP}}
 {[}\protect\hyperlink{ref-web_spec_http1}{74}{]}, well known as the
 stateless \emph{``transport layer''} for the \emph{World Wide Web}, is
 most likely going to fulfill the same purpose in the context of this
@@ -1539,27 +1524,19 @@ talk to each other or data consumers interact with the system, this
 protocol transfers the data hat need to be exchanged. Features
 introduced with Version 2
 {[}\protect\hyperlink{ref-web_spec_http2}{75}{]} of the protocol are yet
-to be known of their relevance of use cases within this project. The
-\emph{Transport Layer Security}
-{[}\protect\hyperlink{ref-web_spec_tls}{76}{]} embedded in the protocol
-provides encryption during transfer, which reduces the vulnerability to
-\emph{man-in-the-middle} attacks and thus ensures data integrity. Due to
-it's asymmetrical cryptographic concepts used to establish a connection,
-\emph{TLS} also allows to verify the integrity of the entity on the the
-connection's counterside, and, depending on the integration, it could
-even used for authentication. \emph{Websockes}
-{[}\protect\hyperlink{ref-web_spec_websockets}{77}{]} might also be a
-possibility to communicate between components or even with external
-parties, which has the advantage of high efficient ongoing bidirectional
-connections using for real-time data exchange or remotely pending
-process responses, while at the same time avoiding HTTP's long-polling
-abilities.
+to be known of their relevance of use cases within this project.
+\emph{Websockes} {[}\protect\hyperlink{ref-web_spec_websockets}{76}{]}
+might also be a possibility to communicate between components or even
+with external parties, which has the advantage of high efficient ongoing
+bidirectional connections using for real-time data exchange or remotely
+pending process responses, while at the same time avoiding HTTP's
+long-polling abilities.
 
 \textbf{JSON}\footnote{The JavaScript Object Notation (JSON) Data
   Interchange Format; ECMA Standard\\
-  {[}\protect\hyperlink{ref-web_spec_json}{78}{]} and Internet
+  {[}\protect\hyperlink{ref-web_spec_json}{77}{]} and Internet
   Engineering Task Force RFC 7159
-  {[}\protect\hyperlink{ref-web_rfc_json}{79}{]}} is an alternative data
+  {[}\protect\hyperlink{ref-web_rfc_json}{78}{]}} is an alternative data
 serialization format to XML, heavily used in web contexts to transfer
 data via \emph{HTTP}, whose syntax is inspired by the JavaScript
 object-literal notation.
@@ -1571,20 +1548,20 @@ with the help of a previously generated token. However generating and
 supplying such a token can be initiated in a variety of ways depending
 on the situation, e.g.~with the user entering her credentials
 (\texttt{grant\_type=authorization\_code}). This design mistakenly
-{[}\protect\hyperlink{ref-web_2012_problem-with-oauth-for-authentication}{80}{]}
+{[}\protect\hyperlink{ref-web_2012_problem-with-oauth-for-authentication}{79}{]}
 lead to \emph{OAuth} integrations with the intention to provide an
 authentication service whether as an alternative or as an addition to
 existing in-house solution. Therewith the application authors pass the
 responsibility on to the OAuth-supporting data providers. While
-\emph{version 1.0a} {[}\protect\hyperlink{ref-web_spec_oauth-1a}{81}{]},
+\emph{version 1.0a} {[}\protect\hyperlink{ref-web_spec_oauth-1a}{80}{]},
 seen as a protocol, provides integrity for transferred data by using
 signatures and confidentiality by encrypting data ahead of transfer.
 Whereas \emph{version 2.0}
-{[}\protect\hyperlink{ref-web_spec_oauth-2}{82}{]}, labeled as a
+{[}\protect\hyperlink{ref-web_spec_oauth-2}{81}{]}, labeled as a
 framework, just requires \emph{TLS}. It also includes certain process
 flows for specific platforms, such as \emph{``web applications, desktop
 applications, mobile phones, and living room devices''}
-{[}\protect\hyperlink{ref-web_2016_oauth-2}{83}{]}.
+{[}\protect\hyperlink{ref-web_2016_oauth-2}{82}{]}.
 
 With \textbf{OpenID} on the other side, the authenticity of a requesting
 user gets verified, which is by design. An in-depth description of the
@@ -1601,7 +1578,7 @@ is necessary, instead she can use her \emph{OpenID}, already created by
 another identity provider, to authenticate with the application. The
 extension \emph{OpenID Attribute Exchange} allows to import additional
 profile data. \emph{OpenID Connect}
-{[}\protect\hyperlink{ref-web_spec_openid-connect-1}{84}{]} is the third
+{[}\protect\hyperlink{ref-web_spec_openid-connect-1}{83}{]} is the third
 iteration of the OpenID technology \emph{Connect} is to OpenID what
 \emph{facebook connect} is to \emph{facebook}, except for the additional
 authentication layer, which is build upon \emph{OAuth2.0} and therefore
@@ -1615,7 +1592,7 @@ so that the state at that point is not needed anymore, the only other
 option would be to carry the state along (TODO: or ``passing the state
 around''). This is a common use case for a
 \textbf{\protect\hypertarget{link_jwt}{}{JSON Web Token}} \emph{(JWT)}
-{[}\protect\hyperlink{ref-web_spec_json-web-token}{85}{]}. A \emph{JWT},
+{[}\protect\hyperlink{ref-web_spec_json-web-token}{84}{]}. A \emph{JWT},
 as it's name implies, is syntactically speaking formatted as
 \emph{JSON}, but URI-safe into \emph{Base64} encoded, before it gets
 transferred. The token itself holds the state. Here is where the use of
@@ -1627,10 +1604,10 @@ about itself, a payload, which can be arbitrary data such as user or
 state information, and a signature; all separated with a period.
 Additional standards define encryption \emph{(JWE\footnote{JSON Web
   Encryption, Internet Engineering Task Force RFC 7516
-  {[}\protect\hyperlink{ref-web_spec_json-web-encryption}{86}{]}})} to
+  {[}\protect\hyperlink{ref-web_spec_json-web-encryption}{85}{]}})} to
 ensure confidentiality and signatures \emph{(JWS\footnote{JSON Web
   Signature, Internet Engineering Task Force RFC 7515
-  {[}\protect\hyperlink{ref-web_spec_json-web-signature}{87}{]}})} to
+  {[}\protect\hyperlink{ref-web_spec_json-web-signature}{86}{]}})} to
 preserve integrity of it's contents. Using a \emph{JWT} for
 authentication purposes is described as \emph{stateless authentication},
 because the verifying entity doesn't need to be aware of session IDs nor
@@ -1652,7 +1629,7 @@ entities either change the medium (e.g meet physically and exchange) or
 have to use a procedure, in which at any point in time the entire key is
 not exposed to others then sender and receiver. This procedure is called
 \textbf{Diffie-Hellman-Key-Exchange}
-{[}\protect\hyperlink{ref-paper_1976_d-h-key-exchange}{88}{]} and is
+{[}\protect\hyperlink{ref-paper_1976_d-h-key-exchange}{87}{]} and is
 based on rules for modulo operations when prime numbers are involved. It
 is designed with the goal to agree on a \emph{secret} while at the same
 time using a non-private channel. The data exchanged during the process
@@ -1660,7 +1637,7 @@ alone can't be used to deduce the secret. Such behaviour is similar to
 the concepts of
 \textbf{\protect\hypertarget{link_asym-crypto}{}{Asymmetrical
 Cryptography}} \emph{(or public-key cryptography)}
-{[}\protect\hyperlink{ref-book_2014_chapter-9-1-public-key-crypto}{89}{]},
+{[}\protect\hyperlink{ref-book_2014_chapter-9-1-public-key-crypto}{88}{]},
 which is underpinned by a \emph{key-pair}; one part is \emph{public} and
 the other part is \emph{private}. It depends on which of the both parts
 is used to \emph{encrypt} the data, then the other part is used for
@@ -1668,15 +1645,39 @@ is used to \emph{encrypt} the data, then the other part is used for
 signatures (encrypted fingerprints of the data), then provides integrity
 and authentication.
 
+Wrapping \emph{HTTP} in the \emph{Transport Layer Security}
+{[}\protect\hyperlink{ref-web_spec_tls}{89}{]} (\emph{TLS}) results in
+\textbf{HTTPS}. TLS provides encryption during the data transport, which
+reduces the vulnerability to \emph{man-in-the-middle} attacks and thus
+ensures not only confidentiality but data integrity as well.
+\emph{Asymmetric cryptography} is the foundation for the connection
+establishment, hence \emph{TLS} also allows to verify integrity of the
+entity on the the connection's counterside, and, depending on the
+integration, it could even be used for authentication purposes. But
+relying on those cryptographical concepts requires additional
+infrastructure. Such an infrastructure is known as \emph{Public Key
+Infrastructure} (or \emph{PKI})
+{[}\protect\hyperlink{ref-book_2014_chapter-14-5-pki}{90}{]}. It manages
+and provides public keys in a directory, including related information
+to the owners of these certificates. A Certificate Authority (or
+\emph{CA}), as part of that infrastructure, issues, maintains and
+revokes digital certificates. The infrastructure that is needed to
+provide secure HTTP connections for the internet is one of those
+\emph{PKI}s - a public one and probably the largest. It is based on the
+widely used IETF\footnote{Internet Engineering Task Force; non-profit
+  organisation that develops and releases standards mainly related to
+  the Internet protocol suite} standard \emph{X.509}
+{[}\protect\hyperlink{ref-web_spec_x509}{91}{]}.
+
 \textbf{REST(ful)}\footnote{\emph{Representational State Transfer},
   introduces by Roy Fielding in his doctoral dissertation
-  {[}\protect\hyperlink{ref-web_spec_rest}{90}{]}} is a common set of
+  {[}\protect\hyperlink{ref-web_spec_rest}{92}{]}} is a common set of
 principles to design web resources communication, primarily
 server-client relations, in a more generic and thereby interoperable
 way. Aside from hierarchically structured URIs, which reflect semantic
 meanings, it involves a group of rudimentary vocabulary\footnote{knows
   as HTTP Methods or Verbs
-  {[}\protect\hyperlink{ref-web_spec_http-methods}{91}{]} (e.g.~GET,
+  {[}\protect\hyperlink{ref-web_spec_http-methods}{93}{]} (e.g.~GET,
   OPTIONS, PUT, DELETE)} to provide basic Create-Read-Update-Delete
 operations across distributed systems. The entire request need to
 contain everything that is required to get proceeded, e.g.~state data
@@ -1686,7 +1687,7 @@ certain services) exposes a restful API, with which a third party can
 then interact.
 
 The \emph{QL} in \textbf{GraphQL}
-{[}\protect\hyperlink{ref-web_spec_graphql}{92}{]} stands for
+{[}\protect\hyperlink{ref-web_spec_graphql}{94}{]} stands for
 \emph{query language}. It's goal is to abstract multiple data sources in
 order to unify them under one API and make all containing data
 queryable, including all relating data points. The returned data,
@@ -1702,17 +1703,17 @@ idea of \emph{web of data} to \emph{``allow data being shared and reused
 across''} {[}web\_2016\_w3c\_semantic-web-activity{]} or within several
 scopes and contexts. Alongside several others, the following three
 standards have a certain relevance to that concept. RDF\footnote{Resource
-  Description Framework {[}\protect\hyperlink{ref-web_w3c-tr_rdf}{93}{]}}
+  Description Framework {[}\protect\hyperlink{ref-web_w3c-tr_rdf}{95}{]}}
 basically defines the syntax. OWL\footnote{Web Ontology Language
-  {[}\protect\hyperlink{ref-web_w3c-tr_owl}{94}{]}} provides the
+  {[}\protect\hyperlink{ref-web_w3c-tr_owl}{96}{]}} provides the
 guidelines on how the semantics and schemas should be defined and with
-SPARQL {[}\protect\hyperlink{ref-web_w3c-tr_sparql}{95}{]}, the query
+SPARQL {[}\protect\hyperlink{ref-web_w3c-tr_sparql}{97}{]}, the query
 language for the RDF format, the data can be retrieved. A picture
 emerges in which the web is used as a database, queried by URIs with a
 query language. An example would be a person's email address, which is
 available under a specific domain (preferable owned by that person) - or
 to be more precise, an URI \emph{(WebID)
-{[}\protect\hyperlink{ref-web_w3c-draft_webid}{96}{]}} - and provided in
+{[}\protect\hyperlink{ref-web_w3c-draft_webid}{98}{]}} - and provided in
 a certain syntax \emph{(RDF)} and tagged with the semantic \emph{(OWL)}
 of a email address; all embedded in a valid html page. This information
 can be queried \emph{(SPARQL)}, which requires at least the URI, working
@@ -1720,13 +1721,13 @@ as a unique identifier. While defining the standards, an importancy was
 to define a syntax which is also valid markup, in order to maintain a
 single source of trough and save redundant work. Related to this topic
 is the work on a specification called \textbf{Solid}.\footnote{social
-  linked data {[}\protect\hyperlink{ref-web_spec_solid}{97}{]}} Based on
+  linked data {[}\protect\hyperlink{ref-web_spec_solid}{99}{]}} Based on
 the \emph{Linked Data} principles, that are facilitated through the
 standards just mentioned and the \emph{WebAccessControl}
-{[}\protect\hyperlink{ref-web_2016_wiki_webaccesscontrol}{98}{]} system,
-the project focuses on decentralization and personal data. A reference
-implementation called \emph{databox}
-{[}\protect\hyperlink{ref-web_2016_demo_databox}{99}{]} combines all
+{[}\protect\hyperlink{ref-web_2016_wiki_webaccesscontrol}{100}{]}
+system, the project focuses on decentralization and personal data. A
+reference implementation called \emph{databox}
+{[}\protect\hyperlink{ref-web_2016_demo_databox}{101}{]} combines all
 these technologies and is build on top.
 
 The concept of application (or software) \textbf{container} is about
@@ -1736,10 +1737,10 @@ abstraction. A container bundles just the software dependencies
 program is able to run properly. The actual container separation is
 done, aside from others, with the help of two features provided by the
 Linux kernel. \emph{Cgroups},\footnote{control groups
-  {[}\protect\hyperlink{ref-web_2015_cgroup-doc}{100}{]}} which define
+  {[}\protect\hyperlink{ref-web_2015_cgroup-doc}{102}{]}} which define
 or restrict how much of the existing resources a group of processes
 (e.g.~CPU, memory or network) can use. Whereas \emph{namespaces}
-{[}\protect\hyperlink{ref-web_2016_kernel-namespace}{101}{]} define or
+{[}\protect\hyperlink{ref-web_2016_kernel-namespace}{103}{]} define or
 restrict what parts of the system can be accessed or seen by a process
 (e.g.~filesystem, user, other processes). The idea of encapsulating
 programs from the operating system-level is not new, Technologies, such
@@ -1752,18 +1753,70 @@ backgrounds couldn't and weren't that much interested. Until
 \emph{Docker} and \emph{rkt} emerged. After some years of separated
 work, both authors, and others, recently joined forces in the \emph{Open
 Container Initiative}
-{[}\protect\hyperlink{ref-web_2016_open-container-initiative}{102}{]},
+{[}\protect\hyperlink{ref-web_2016_open-container-initiative}{104}{]},
 which aims to harmonize the diverged landscape and start building common
 ground to ensure a higher interoperability, and that in turn is
 requisite for orchestration. It also marks the initial draft of the
 specifications for runtime
-{[}\protect\hyperlink{ref-web_oci-spec_runtime}{103}{]} and image
-{[}\protect\hyperlink{ref-web_oci-spec_image}{104}{]} definition, on
+{[}\protect\hyperlink{ref-web_oci-spec_runtime}{105}{]} and image
+{[}\protect\hyperlink{ref-web_oci-spec_image}{106}{]} definition, on
 which the work is still ongoing. This concept of \emph{containerization}
 also inherits the a ability known from \emph{emulation}, because it
 allows a certain set of software to run on a system that otherwise is
 not supported, e.g.~mobile devices. It only requires the runtime to be
 working.
+
+In the past years different countries around the world started to
+introduce \emph{information technology} to the day-to-day processes,
+interactions and communications between public services and their
+citizens, for example changing residence information or filing tax
+report, which is summarized under the term
+\emph{E-government}.\footnote{Electronic government} One of those
+developments is the so called \textbf{Electronic ID Card}, hereinafter
+called \emph{eID card}. Equipped with storage, logic and interfaces for
+wireless communication, those \emph{eID cards} can be used to store
+certain information and digital keys or to authenticate the owner
+electronically to a third party without being physically present. Such
+an \emph{eID card} was also introduced in Germany in 2010. The so called
+\emph{nPA}\footnote{in german so called \emph{elektronische
+  Personalausweis (nPA)}} was an important step towards an operational
+\emph{e-government}. Aside from minor flaws
+{[}\protect\hyperlink{ref-web_2013_npa-sicherheitsdefizit}{107}{]} and
+disadvantages
+{[}\protect\hyperlink{ref-web_2014_test-qes-support-in-npa}{108}{]} an
+\emph{eID card} can come with, the question here is, how can such
+technology be usefully integrated in this project and does it even makes
+sense. As an official document the card has one major advantage over
+self-configured or generated authentication mechanisms like passwords,
+fingerprints or TANs.\footnote{Transaction authentication number} It is
+\emph{signed} by design, which means, by creating this document and
+handing it over to the related citizen, the third party (or
+\emph{``authority''}) - in this case the government - has verified the
+authenticity of that individual.
+
+When communication via email it is already common to encrypted the
+transport channel, but using \emph{asymmetric cryptography} for
+encrypting emails end-to-end is rather unusual. The equivalent to a
+\emph{PKI} would be basically a \emph{public key server} that follows a
+concept called \emph{web of trust}. In which all entities (user; senders
+and recipients) are signing each other's public keys. The more users
+have signed a public key, the higher the trust that this key actually
+belongs to the user that it says it does. That public key is then simply
+uploaded by the owner to public servers where another user, who wants to
+write that key owner an email can obtain keys. Related to that topic,
+another technology emerging as part of the \emph{e-government}
+development, is the german \textbf{DE-Mail}
+{[}\protect\hyperlink{ref-web_2017_about-de-mail}{109}{]}. It's an
+eMail-Service that is meant to provide infrastructure and mechanisms to
+exchange legally binding electronic documents. One would expect a
+\emph{public key cryptography}-based implementation all the way from
+sender through to the recipient
+{[}\protect\hyperlink{ref-statement_2013_de-mail}{110}{]}, maybe even
+with taking advantage of the \emph{nPA's} capability to create
+\emph{QES}. Instead, the creators of the corresponding law decided that
+it's enough to prove the author's identity if the provider signs the
+document on the email server and that this implementation results in a
+legally binding document by definition of that law.
 
 \hypertarget{core-principles}{\chapter{Core
 Principles}\label{core-principles}}
@@ -1808,7 +1861,7 @@ any point in time and to literally carry all her personal data with her.
 
 When an instance of this system is going to be the digital counterpart
 of an individuals identity or it's \emph{personal agent}
-{[}\protect\hyperlink{ref-book_2015_ethical-it-innovation}{105}{]}, then
+{[}\protect\hyperlink{ref-book_2015_ethical-it-innovation}{111}{]}, then
 everyone who relies on the information that agent is providing, must
 also be able to trust the source from where that data is coming from and
 vice versa; the \emph{operator} must be able to verify the authenticity
@@ -1858,7 +1911,7 @@ prevents data from leaving the system. It allows to execute a small
 program within a locally defined environment, computing only a fraction
 of a larger computation that was initiated by the \emph{data consumer}
 beforehand; similar to a distributed Map-Reduce concept
-{[}\protect\hyperlink{ref-paper_2004_distributed-mapreduce}{106}{]}. The
+{[}\protect\hyperlink{ref-paper_2004_distributed-mapreduce}{112}{]}. The
 opposite approach, to provide some software to the \emph{data consumer}
 that is necessary to access the contents of a response or provides a
 runtime environment querying the system by itself, would be conceivable,
@@ -2177,17 +2230,17 @@ Eevery subchapter includes at the end a section containing a summary of
 conclusions, which are based on the prior discussions about the related
 topic.
 
-\section{Authentication}\label{authentication}
+\hypertarget{authentication}{\section{Authentication}\label{authentication}}
 
-First of all, the system has to support two \href{\%7B\#sa03}{roles}.
-Any entity can be assigned to either one of them, hence entities that
-are trying to authenticate to the system might have different
-intentions. The \emph{operator} for example wants to review
-\emph{permission requests} in real time, so accessing the system from
-different devices is a common scenario. When inheriting the
-\emph{operator role} an entity gains further capabilities to interact
-with the system, such as data manipulation. Whereas a \emph{data
-consumer} always uses just one origin and processes requests
+First of all, the system has to support two
+\protect\hyperlink{sa03}{roles}. Any entity can be assigned to either
+one of them, hence entities that are trying to authenticate to the
+system might have different intentions. The \emph{operator} for example
+wants to review \emph{permission requests} in real time, so accessing
+the system from different devices is a common scenario. When inheriting
+the \emph{operator role} an entity gains further capabilities to
+interact with the system, such as data manipulation. Whereas a
+\emph{data consumer} always uses just one origin and processes requests
 sequentially. Those very distinct groups of scenarios would make it
 possible to apply different authentication mechanisms that do not
 necessarily have a lot in common.
@@ -2212,16 +2265,17 @@ identity by checking the certificate. If the server insists on, the
 client has to provide a certificate as well, which then the server tries
 to verify. Only if the outcome is positive, the connection establishing
 succeeds. According to the specification
-{[}\protect\hyperlink{ref-web_spec_tls-12_client-auth}{107}{]} it is
+{[}\protect\hyperlink{ref-web_spec_tls-12_client-auth}{113}{]} it is
 still optional though.
 
 \emph{HTTP} as a comprehensive and flexible protocol enables to use
-several technologies for server-client authentication purposes. Within
-the scope of this work, those technologies are categorized in the
-following types (TODO: maybe find other labels): (A) stateful and (B)
-stateless authentication. The first one (A) includes vor example
-\emph{Basic access Authentication} (or \emph{Basic Auth}) and
-authentication based on \emph{Cookies}. Whereas the \emph{two-way
+several technologies for server-client authentication purposes. Some of
+them are build-in, others can simply be implemented on top of the
+protocol. Within the scope of this work, those technologies are
+categorized in the following types (TODO: maybe find other labels): (A)
+stateful and (B) stateless authentication. The first one (A) includes
+vor example \emph{Basic access Authentication} (or \emph{Basic Auth})
+and authentication based on \emph{Cookies}. Whereas the \emph{two-way
 authentication} in TLS mentioned above and
 \protect\hyperlink{link_jwt}{authentication based on web-token} are
 associated with the latter (B). \emph{Basic Auth} is natively provided
@@ -2238,18 +2292,18 @@ is typically done in a HTTP header, whether as \emph{Basic Auth} value,
 a \emph{Cookie}, which is domain-specific, or in some other custom
 header. Since the \emph{two-way authentication} (or \emph{mutual
 authentication}
-{[}\protect\hyperlink{ref-web_2017_wikipedia_mutual-auth}{108}{]}) is
+{[}\protect\hyperlink{ref-web_2017_wikipedia_mutual-auth}{114}{]}) is
 done based on files containing keys and certificates, which are
 typically not very fluctuant in it's contents or state, this procedure
 is categorized as stateless. Order or origin of incoming requests have
 no impact on the result of the actual authentication process. The same
 applies to TLS features such as \emph{Session {[}ID, Ticket{]}
 Resumption}
-{[}\protect\hyperlink{ref-book_2013_networking-101_tls-session-resumption}{109}{]},
+{[}\protect\hyperlink{ref-book_2013_networking-101_tls-session-resumption}{115}{]},
 thus they are left aside, because they serve the sole purpose of
 performance optimization. Similar to the \emph{Session Ticket
 Resumption}
-{[}\protect\hyperlink{ref-web_spec_tls-session-ticket-resumption}{110}{]}
+{[}\protect\hyperlink{ref-web_spec_tls-session-ticket-resumption}{116}{]}
 a web token, namely the \protect\hyperlink{link_jwt}{JSON Web Token},
 also moves the state towards the client, but that's about all they have
 in common. A \emph{JWT} carries everything with it that's worth knowing,
@@ -2275,160 +2329,15 @@ information that might be necessary with them. Thus, considering those
 disadvantages, \emph{public key cryptography} and web tokens are the
 preferred technologies for all authentication processes.
 
-Because of it's simplicity the concept of web tokens are fairly
-straightforward to implement into the \emph{PDaaS}. But since web tokens
-ensure integrity and perhaps also the confidentiality only of their own
-carriage and not the entire HTTP payload, both requirements need to be
-addressed separately. Serving HTTP over \emph{TLS} solves this issue,
-but using TLS or \emph{asymmetric cryptography} properly - place value
-on integrity, confidentiality, authenticity - requires additional
-infrastructure. Such an infrastructure is known as \emph{Public Key
-Infrastructure} (or \emph{PKI})
-{[}\protect\hyperlink{ref-book_2014_chapter-14-5-pki}{111}{]}. It
-manages and provides public keys in a directory, including related
-information to the entities those certificates belong to. A Certificate
-Authority (or \emph{CA}), as part of that infrastructure, issues,
-maintains and revokes digital certificates. The infrastructure that is
-needed to provide secure HTTP connections for the internet can be seen
-as a large, if not the largest, public \emph{PKI}. It is based on the
-widely used IETF\footnote{Internet Engineering Task Force; non-profit
-  organisation that develops and releases standards mainly related to
-  the Internet protocol suite} standard \emph{X.509}
-{[}\protect\hyperlink{ref-web_spec_x509}{112}{]}. For connections that
-use a web token, it should be sufficient to rely on the public PKI that
-drives \emph{HTTP} over \emph{TLS}, because all information required to
-authenticate is provided by the token itself. Though, the situation is
-different if instead \emph{two-way authentication} is used. For this,
-the system has to provide it's own \emph{PKI} including a Certificate
-Authority that issues certificates for \emph{data consumers}, because
-not only the \emph{endpoints} on the \emph{PDaaS} (server) need to be
-certified, all \emph{data consumers} (clients) need to present a
-certificate as well. Only the \emph{PDaaS} verifies and thus determines
-(supervised by the \emph{operator}) who is authorized to get access to
-the system. Hence the \emph{PKI} needs to be self-contained without any
-external role in order to function independently so that only invited
-parties can get involved.
-
-An advantage of token-based authentication over TLS-based \emph{mutual
-authentication} is that the token can be used on multiple clients at the
-same time. Or the account, a token is associated with, can actually have
-more than one token. Whereas during the asymmetric cryptography-based
-\emph{mutual authentication} the client's private key is required. So if
-it's likely that a \emph{operator} has several clients, regardless for
-what purposes, the private key needs to be on those clients. But a
-private key typically does not leave it's current system or is at least
-not used multiple times, in order to prevent exposure, which is implied
-in any action of duplication. To reduce those risks, it's common
-practice to generate a private key at that location where it is going to
-be used.
-
-If a public-key-based connection, performing a \emph{mutual
-authentication}, establishes successfully, it implies that the identity
-originating the request is valid and the integrity of the containing
-data is given. Whereas on a token-based authentication every incoming
-request has to carry the token so that the system can verify and
-associate the request with an account. Furthermore data it not
-automatically encrypted and thus integrity is not preserved.
-
-Computations based on asymmetric cryptography usually is slower then the
-ones based on symmetric cryptography
-{[}\protect\hyperlink{ref-book_2014_chapter-10-5-asym-random-number-gen}{113}{]},
-but since there are no timing constrains when interacting with the
-\emph{PDaaS}, regardless of whether it's external communication with
-\emph{data consumers} or internal between components, parameters for
-cryptographic procedures can chosen as costly as the system resources
-allow them to be, thus the level of security can be increased.
-
-To hardening an authentication procedure often one or more factors are
-added. This makes the procedure more complex and thus increases the
-effort that's needed for succeeding attacks. Using multi-factor
-authentication is generally valued and will be briefly noted as an
-optional security enhancement for the \emph{operator role}. However
-detailed discussions regarding this topic are left to follow-up work on
-the specification.
-
-\emph{Conclusions:} Based on the several requirements and distinct
-advantages of the two authentication mechanisms, it would make sense to
-use asymmetric cryptography in combination with \emph{HTTPS} for the
-communication between the system and \emph{data consumers}, where the
-system provides it's own \emph{PKI} and a token-based authentication on
-top of \emph{HTTPS} and public CAs for communication between the system
-and the \emph{operator}, preferable based on
-\emph{\protect\hyperlink{link_jwt}{JSON Web Tokens}}, because the
-session state is preserved within the token rather then having the
-system itself keeping track of it.
-
-\section{Data Authenticity}\label{data-authenticity}
-
-Whether it's the \emph{operator} or a \emph{data consumer}, not only the
-entity's identity has to be authenticated when communicating with the
-system. The actual personal data being used has to be authentic and
-correct as well (\protect\hyperlink{sa04}{S.A.04}). This results in the
-following required scenario: an trustworthy third party has to look at
-the existing data in the database and then compare them with the actual
-data that's used to create a response to a request made by a \emph{data
-consumer}. If the result is positive, meaning both data sets are equal,
-the entity has to verifies this somehow. The response then indicates to
-the \emph{data consumer} that authenticity state, which is determined by
-that third party.
-
-The described scenario is the direct opposite to the previous
-argumentation.
-
-otherwise every response containing profile data (Stammdaten) has to get
-signed by an official party
-
-The majority of applications for a \emph{PDaaS} as a data resource might
-involve some constraints anyway, e.g.~laws or other rules that imply
-certain consequences if not complying. Regardless of that, providing an
-indication about the data's authenticity state is generally a first and
-sufficient approach towards a fully working feature.
-
-\subsection[ePerso, E-Post/de-mail as part of a PKI solution?\_\_\\
-In the past years different countries around the world recently started
-to introduced \emph{information technology} to the day-to-day processes,
-interactions and communications between public services and their
-citizens, for example changing residence information or filing tax
-report, which is summarized under the term \emph{E-government}. One of
-those developments is the so called \emph{electronic ID card},
-hereinafter called \emph{eID card}. Equipped with storage, logic and
-interfaces for wireless communication, those \emph{eID cards} can be
-used to store certain information and digital keys or to authenticate
-the owner electronically to a third party without being physically
-present. Such an \emph{eID card} was also introduced in Germany in 2010.
-The so called \emph{nPA} was an important step towards an operational
-\emph{e-government}.]{\texorpdfstring{ePerso, E-Post/de-mail as part of
-a PKI solution?\_\_\\
-In the past years different countries around the world recently started
-to introduced \emph{information technology} to the day-to-day processes,
-interactions and communications between public services and their
-citizens, for example changing residence information or filing tax
-report, which is summarized under the term
-\emph{E-government}.\footnote{Electronic government} One of those
-developments is the so called \emph{electronic ID card}, hereinafter
-called \emph{eID card}. Equipped with storage, logic and interfaces for
-wireless communication, those \emph{eID cards} can be used to store
-certain information and digital keys or to authenticate the owner
-electronically to a third party without being physically present. Such
-an \emph{eID card} was also introduced in Germany in 2010. The so called
-\emph{nPA}\footnote{in german so called \emph{elektronische
-  Personalausweis (nPA)}} was an important step towards an operational
-\emph{e-government}.}{ePerso, E-Post/de-mail as part of a PKI solution?\_\_ In the past years different countries around the world recently started to introduced information technology to the day-to-day processes, interactions and communications between public services and their citizens, for example changing residence information or filing tax report, which is summarized under the term E-government. One of those developments is the so called electronic ID card, hereinafter called eID card. Equipped with storage, logic and interfaces for wireless communication, those eID cards can be used to store certain information and digital keys or to authenticate the owner electronically to a third party without being physically present. Such an eID card was also introduced in Germany in 2010. The so called nPA was an important step towards an operational e-government.}}\label{eperso-e-postde-mail-as-part-of-a-pki-solution__-in-the-past-years-different-countries-around-the-world-recently-started-to-introduced-information-technology-to-the-day-to-day-processes-interactions-and-communications-between-public-services-and-their-citizens-for-example-changing-residence-information-or-filing-tax-report-which-is-summarized-under-the-term-e-government-abbr_egov.-one-of-those-developments-is-the-so-called-electronic-id-card-hereinafter-called-eid-card.-equipped-with-storage-logic-and-interfaces-for-wireless-communication-those-eid-cards-can-be-used-to-store-certain-information-and-digital-keys-or-to-authenticate-the-owner-electronically-to-a-third-party-without-being-physically-present.-such-an-eid-card-was-also-introduced-in-germany-in-2010.-the-so-called-npa-abbr_npa-was-an-important-step-towards-an-operational-e-government.}
-
-Aside from minor flaws
-{[}\protect\hyperlink{ref-web_2013_npa-sicherheitsdefizit}{114}{]} and
-disadvantages
-{[}\protect\hyperlink{ref-web_2014_test-qes-support-in-npa}{115}{]} an
-\emph{eID card} can have, the question here is, how can this technology
-be usefully integrated in this project and does it even makes sense. As
-an official document the card has one major advantage over
-self-configured authentication mechanisms like password, fingerprints or
-second factor tokens. It is \emph{signed} by design, meaning by creating
-this document and handing it over to the related citizen, the third
-party - in this case the government - has verified the authenticity of
-that individual.
-
-As a result, several ideas can be proposed:
+Except the \emph{two-way authentication} all authentication technologies
+mentioned above require an initial step to obtain the data that is used
+to authenticate all subsequent requests. This step is commonly known as
+\emph{login} or \emph{sign in} and requires the authorizing entity to
+provide some credentials consisting at least of two parts. One part,
+that uniquely relates to the entity but doesn't have to be private, and
+another part only the entity knows or has. Typically that's a username
+or email address and a password or token (e.g.~USB stick). Another
+possible token could be a \emph{eID card}. XXX
 
 \begin{enumerate}
 \def\labelenumi{(\Alph{enumi})}
@@ -2439,9 +2348,6 @@ As a result, several ideas can be proposed:
 \item
   authorize/approve \emph{access requests} or \emph{data access}
   attempts
-\item
-  sign the responding data, in order to not only preserve data integrity
-  but also to prove the authenticity of the data.
 \end{enumerate}
 
 With regards to (A), partially depending on the \emph{eID card}'s
@@ -2455,11 +2361,12 @@ is able to communicate with the RFID-chip. Both cases need the
 provide \emph{nPA}-based online authentication (\emph{eID-Service}),
 which is defined as a non-sovereign (``nicht hoheitlich'') feature, it
 has to comply with several requirements
-{[}\protect\hyperlink{ref-web_bsi-spec_eid}{116}{]} starting with making
+{[}\protect\hyperlink{ref-web_bsi-spec_eid}{117}{]} starting with making
 an application in order to get permission for sending a certificate
-signing request to a BerCA.\footnote{Berechtigungszertifikate-Anbieter}
-This request is originated from an \emph{eID-Server}
-{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{117}{]} to sign a
+signing request to a BerCA.\footnote{(german)
+  Berechtigungszertifikate-Anbieter} This request is originated from an
+\emph{eID-Server}
+{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{118}{]} to sign a
 public key generated on a dedicated and certified hardware, which is
 also required through the officials. This key pair - re-generated and
 re-signed every three days - is needed to establish a connection with
@@ -2480,10 +2387,167 @@ add an additional dependency, but could also weaken the system.
   mechanism to authenticate, but to approve different actions.
 \end{enumerate}
 
+To hardening an authentication procedure often one or more factors are
+added. This makes the procedure more complex and thus increases the
+effort that's needed for succeeding attacks. Using multi-factor
+authentication is generally valued and will be briefly noted as an
+optional security enhancement for the \emph{operator role}. However
+detailed discussions regarding this topic are left to follow-up work on
+the specification.
+
+Because of it's simplicity the concept of web tokens are fairly
+straightforward to implement into the \emph{PDaaS}. But since web tokens
+ensure integrity and the optional confidentiality only of their own
+carriage but not the entire HTTP payload, both requirements need to be
+addressed separately. Serving HTTP over \emph{TLS} solves this issue For
+connections that use a web token, it should be sufficient to rely on the
+public PKI that drives \emph{HTTP} over \emph{TLS}, because all
+information required to authenticate is provided by the token itself.
+Though, the situation is different if instead \emph{two-way
+authentication} is used. For this, the system has to provide it's own
+\emph{PKI} including a Certificate Authority that issues certificates
+for \emph{data consumers}, because not only the \emph{endpoints} on the
+\emph{PDaaS} (server) need to be certified, all \emph{data consumers}
+(clients) need to present a certificate as well. Only the \emph{PDaaS}
+verifies and thus determines (supervised by the \emph{operator}) who is
+authorized to get access to the system. Hence the \emph{PKI} needs to be
+self-contained without any external role in order to function
+independently so that only invited parties can get involved.
+
+If a public-key-based connection, performing a \emph{mutual
+authentication}, establishes successfully, it implies that the identity
+originating the request is valid and the integrity of the containing
+data is given. Whereas on a token-based authentication every incoming
+request has to carry the token so that the system can verify and
+associate the request with an account. Furthermore data it not
+automatically encrypted and thus integrity is not preserved.
+
+An advantage of token-based authentication over TLS-based \emph{mutual
+authentication} is that the token can be used on multiple clients at the
+same time. Or an account, a token is associated with, can actually have
+more than one token. Whereas during the asymmetric cryptography-based
+\emph{mutual authentication} the client's private key is required. So if
+it's likely that a \emph{operator} has several clients, regardless for
+what purposes, then the private key has to be on those clients. Though,
+a private key typically does not leave it's current system or least does
+not exist in multiple systems at the same time in order to prevent
+exposure, which any action of duplication implies. To reduce those
+risks, it's common practice to generate a private key at that location
+where it is going to be used.
+
+Computations based on asymmetric cryptography usually is slower then the
+ones based on symmetric cryptography
+{[}\protect\hyperlink{ref-book_2014_chapter-10-5-asym-random-number-gen}{119}{]},
+but since there are no timing constrains when interacting with the
+\emph{PDaaS}, regardless of whether it's external communication with
+\emph{data consumers} or internal between components, parameters for
+cryptographic procedures can chosen as costly as the system resources
+allow them to be, thus the level of security can be increased.
+
+\emph{Conclusions:} Based on the several requirements and distinct
+advantages of the two authentication mechanisms, it is preferred to use
+asymmetric cryptography in combination with \emph{HTTPS} for the
+communication between the system and \emph{data consumers}, where the
+system provides it's own \emph{PKI} and a token-based authentication on
+top of \emph{HTTPS} and public CAs for communication between the system
+and the \emph{operator}, preferable based on
+\emph{\protect\hyperlink{link_jwt}{JSON Web Tokens}}, because the
+session state is preserved within the token rather then having the
+system itself keeping track of it.
+
+\section{Data Reliability}\label{data-reliability}
+
+Whether it's the \emph{operator} or a \emph{data consumer}, not only the
+party's identity has to be authenticated when communicating with the
+system, which is handled by the technologies proposed in the
+\protect\hyperlink{authentication}{authentication} section. The actual
+personal data that's being used also has to be authentic and reliable
+(\protect\hyperlink{sa04}{S.A.04}). But since the \emph{operator} can
+change the data at any point in time, this property requires a process
+where a trustworthy third party has to has to somehow verify the
+reliability of the data in question. That process on the other hand, is
+in direct contrast to the discussion about the
+\protect\hyperlink{authentication}{authentication system} and why it
+should be designed so that it is self-contained. If it's instead not
+required to provide information on the data being reliable or not, it
+won't be an issue anymore. The information can be defined as an optional
+property in a response and it carries one of several states. Within the
+request the \emph{data consumer} has to indicate whether the response
+must contain information about it's reliability or not. Depending on
+what data is requested, the \emph{PDaaS} decides whether it's necessary
+to test for reliability or not. Based on the procedures that are
+available, the data reliability gets verified somehow.
+
+But how does this reliability check exactly look like? It comes down to
+two general steps. The first one is to match the actual data involved in
+that request against a reference data set. The second step is optional,
+but is important for the \emph{data consumer} to evaluate the
+sufficiency of the provided level of reliability. It involves the party,
+that also runs the first step, to confirm the result of that
+computation.
+
+All of the implementations to verify data reliability provide a
+different level of reliability.
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  local verification
+\item
+\item
+\end{enumerate}
+
+verify data simply by \ldots{}testing equality between database and
+right before usage \ldots{} using a electronic ID card to match the data
+stored on the card against data stored in the system; on positive
+outcome sign with \emph{QES} \ldots{} having a third party who also has
+those data, to take a look at the data in question and try to match
+against the ones their have; on positive outcome sign (would require to
+sign the whole request or at least replicable data set that contains the
+data in question)
+
+Not all data points are necessary to test for reliability. Profile data
+is more likely to be tested, because, whereas consumption lists or
+location history are mor eor less hard to verify.
+
+look at the existing data stored in the database and then compare those
+with the actual data that's used to create a response as a consequence
+of a request made by a \emph{data consumer}. If the outcome is positive
+- meaning both data sets are equal - the verifying party has to present
+this somehow. The response then indicates to the \emph{data consumer}
+that state of reliability, which is determined by that third party.
+
+otherwise every response containing profile data (Stammdaten) has to get
+signed by an official party
+
+The majority of applications for a \emph{PDaaS} as a data resource might
+involve some constraints anyway, e.g.~laws or other rules that imply
+certain consequences if not complying. Regardless of that, providing an
+indication about the data's authenticity state is generally a first and
+sufficient approach towards a fully working feature.
+
+Extending those verification procedures is reasonable, but to keep it
+simple for now this field won't receive further attention for now, since
+the current requirements are sufficiently met as well.
+
+\subsubsection{Digression: ePerso,
+E-Post/DE-mail}\label{digression-eperso-e-postde-mail}
+
+As a result, several ideas can be proposed:
+
+\begin{enumerate}
+\def\labelenumi{(\Alph{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  sign the responding data, in order to not only preserve data integrity
+  but also to prove the authenticity of the data.
+\end{enumerate}
+
 As of (C), as mentioned above the \emph{nPA} is able to store data
 required for creating a \emph{QES}\footnote{Qualified Electronic
   Signatures
-  {[}\protect\hyperlink{ref-paper_2013-keymanangement-fuer-qes-mit-npa}{118}{]}}
+  {[}\protect\hyperlink{ref-paper_2013-keymanangement-fuer-qes-mit-npa}{120}{]}}
 (e.g.~private keys and certificates). Thus this procedure could be used
 to sign arbitrary data, normally messages within communications like
 emails. But since a signing procedure involves the operators private
@@ -2497,23 +2561,11 @@ to certain attacks. Apart from that, it is highly unlikely that a
 \emph{eID card} does allow to extract private keys. Thus increasing
 inconvenience is inevitable for such a use case.
 
-Another technology, emerging as part of the \emph{e-government}
-development, is the \emph{DE-Mail}
-{[}\protect\hyperlink{ref-web_2017_about-de-mail}{119}{]}. It's an
-eMail-Service that is meant to provides infrastructure and mechanisms to
-exchange legally binding electronic documents. One would expect
-public-key-based cryptography procedures all the way from sender through
-to the recipient (end-to-end)
-{[}\protect\hyperlink{ref-statement_2013_de-mail}{120}{]}, maybe even
-with taking advantage of the \emph{nPA's} capability to create
-\emph{QES}. Instead, the creators of the corresponding law decided that
-it's sufficient prove about the documents author if the provider signs
-the document on the email server and that this implementation results in
-a legally binding document by definition of that law. This technology
-tries to embed a legal foundation into email-based communication, thus
-has no relevance to this project, other then letting a server sign
-outgoing data, which might be the only solution to avoid an overhead in
-user interaction caused by recurring events.
+This technology behind DE-Mail tries to embed a legal foundation into
+email-based communication, thus it has no relevance to this project,
+other then the concept of letting a server sign outgoing data, which
+might be the only solution to avoid an overhead in user interaction
+caused by recurring events.
 
 \emph{Conclusions:} two ways:
 
@@ -2698,6 +2750,11 @@ might look integrate with the currently developed feature-set.
 \item
   distributed architecture (e.g.~notification/queue server + mobile
   device for persistence and administration)
+\item
+  the previously proposed authentication concept for the \emph{operator}
+  role supports multiple\\
+  clients and with the suggested technologies it can be implemented with
+  almost no effort
 \end{itemize}
 
 \section{Data}\label{data}
@@ -3547,255 +3604,255 @@ Jun-1999. {[}Online{]}. Available:
 protocol version 2 (HTTP/2),'' May-2015. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc7540}. {[}Accessed: 17-Dec-2016{]}
 
-\hypertarget{ref-web_spec_tls}{}
-{[}76{]} T. Dierks and E. Rescorla, ``The transport layer security (TLS)
-protocol version 1.2,'' Aug-2008. {[}Online{]}. Available:
-\url{https://tools.ietf.org/html/rfc5246}. {[}Accessed: 17-Dec-2016{]}
-
 \hypertarget{ref-web_spec_websockets}{}
-{[}77{]} I. Fette and A. Melnikov, ``The WebSocket protocol,'' Dec-2011.
+{[}76{]} I. Fette and A. Melnikov, ``The WebSocket protocol,'' Dec-2011.
 {[}Online{]}. Available: \url{https://tools.ietf.org/html/rfc6455}.
 {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_json}{}
-{[}78{]} D. Crockford, ``The JSON data interchange format.'' ECMA
+{[}77{]} D. Crockford, ``The JSON data interchange format.'' ECMA
 International, Oct-2013 {[}Online{]}. Available:
 \url{http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf}
 
 \hypertarget{ref-web_rfc_json}{}
-{[}79{]} T. Bray, ``The JavaScript object notation (JSON) data
+{[}78{]} T. Bray, ``The JavaScript object notation (JSON) data
 interchange format,'' Mar-2014. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc7159}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_2012_problem-with-oauth-for-authentication}{}
-{[}80{]} J. Bradley, ``The problem with OAuth for authentication.''
+{[}79{]} J. Bradley, ``The problem with OAuth for authentication.''
 28-Jan-2012. {[}Online{]}. Available:
 \url{http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html}.
 {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_oauth-1a}{}
-{[}81{]} ``OAuth core 1.0a.'' {[}Online{]}. Available:
+{[}80{]} ``OAuth core 1.0a.'' {[}Online{]}. Available:
 \url{https://oauth.net/core/1.0a/}. {[}Accessed: 18-Dec-2016{]}
 
 \hypertarget{ref-web_spec_oauth-2}{}
-{[}82{]} D. Hardt, ``The OAuth 2.0 authorization framework,'' Oct-2012.
+{[}81{]} D. Hardt, ``The OAuth 2.0 authorization framework,'' Oct-2012.
 {[}Online{]}. Available: \url{https://tools.ietf.org/html/rfc6749}.
 {[}Accessed: 18-Dec-2016{]}
 
 \hypertarget{ref-web_2016_oauth-2}{}
-{[}83{]} I. O. WG, ``OAuth 2.0.'' {[}Online{]}. Available:
+{[}82{]} I. O. WG, ``OAuth 2.0.'' {[}Online{]}. Available:
 \url{https://oauth.net/2/}. {[}Accessed: 16-Dec-2016{]}
 
 \hypertarget{ref-web_spec_openid-connect-1}{}
-{[}84{]} ``OpenID connect core 1.0 incorporating errata set 1,''
+{[}83{]} ``OpenID connect core 1.0 incorporating errata set 1,''
 08-Nov-2014. {[}Online{]}. Available:
 \url{https://openid.net/specs/openid-connect-core-1_0.html}.
 {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_json-web-token}{}
-{[}85{]} J. Bradley, N. Sakimura, and M. Jones, ``JSON web token
+{[}84{]} J. Bradley, N. Sakimura, and M. Jones, ``JSON web token
 (JWT),'' May-2015. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc7519}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_json-web-encryption}{}
-{[}86{]} J. Hildebrand and M. Jones, ``JSON web encryption (JWE),''
+{[}85{]} J. Hildebrand and M. Jones, ``JSON web encryption (JWE),''
 May-2015. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc7516}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_spec_json-web-signature}{}
-{[}87{]} J. Bradley, N. Sakimura, and M. Jones, ``JSON web signature
+{[}86{]} J. Bradley, N. Sakimura, and M. Jones, ``JSON web signature
 (JWS),'' May-2015. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc7515}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-paper_1976_d-h-key-exchange}{}
-{[}88{]} W. Diffie and M. Hellman, ``New directions in cryptography,''
+{[}87{]} W. Diffie and M. Hellman, ``New directions in cryptography,''
 \emph{IEEE transactions on Information Theory}, vol. 22, no. 6, pp.
 644--654, 1976 {[}Online{]}. Available:
 \url{https://ee.stanford.edu/\%7Ehellman/publications/24.pdf}.
 {[}Accessed: 11-Jan-2017{]}
 
 \hypertarget{ref-book_2014_chapter-9-1-public-key-crypto}{}
-{[}89{]} W. Stallings, ``9.1 principles of public-key cryptosystems,''
+{[}88{]} W. Stallings, ``9.1 principles of public-key cryptosystems,''
 in \emph{Cryptography and network security: Principles and practice},
 Seventh edition., Boston: Pearson, 2014, pp. 256--264.
 
+\hypertarget{ref-web_spec_tls}{}
+{[}89{]} T. Dierks and E. Rescorla, ``The transport layer security (TLS)
+protocol version 1.2,'' Aug-2008. {[}Online{]}. Available:
+\url{https://tools.ietf.org/html/rfc5246}. {[}Accessed: 17-Dec-2016{]}
+
+\hypertarget{ref-book_2014_chapter-14-5-pki}{}
+{[}90{]} W. Stallings, ``10.5 pseudorandom number generation based on an
+asymmetric cipher,'' in \emph{Cryptography and network security:
+Principles and practice}, Seventh edition., Boston: Pearson, 2014, pp.
+443--445.
+
+\hypertarget{ref-web_spec_x509}{}
+{[}91{]} D. Cooper, S. Santesson, S. Farrell, S. Boeyen, and W. Housley
+R. andPolk, ``Internet x.509 public key infrastructure certificate and
+certificate revocation list (CRL) profile,'' May-2008. {[}Online{]}.
+Available: \url{https://tools.ietf.org/html/rfc5280}. {[}Accessed:
+11-Jan-2017{]}
+
 \hypertarget{ref-web_spec_rest}{}
-{[}90{]} T. Fielding, ``Representational state transfer (REST),'' in
+{[}92{]} T. Fielding, ``Representational state transfer (REST),'' in
 \emph{Architectural styles and the design of network-based software
 architectures}, University of California, Irvine, 2000, pp. 76--106
 {[}Online{]}. Available:
 \url{https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf}
 
 \hypertarget{ref-web_spec_http-methods}{}
-{[}91{]} P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T.
+{[}93{]} P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T.
 Fielding, and J. Gettys, ``HTTP methods,'' Jun-1999. {[}Online{]}.
 Available: \url{https://tools.ietf.org/html/rfc2616\#section-9}.
 {[}Accessed: 18-Dec-2016{]}
 
 \hypertarget{ref-web_spec_graphql}{}
-{[}92{]} ``GraphQL,'' Oct-2016. {[}Online{]}. Available:
+{[}94{]} ``GraphQL,'' Oct-2016. {[}Online{]}. Available:
 \url{https://facebook.github.io/graphql/}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_w3c-tr_rdf}{}
-{[}93{]} D. Beckett and B. McBride, ``RDF/XML syntax specification
+{[}95{]} D. Beckett and B. McBride, ``RDF/XML syntax specification
 (revised),'' 10-Feb-2004. {[}Online{]}. Available:
 \url{https://www.w3.org/TR/REC-rdf-syntax/}. {[}Accessed: 19-Dec-2016{]}
 
 \hypertarget{ref-web_w3c-tr_owl}{}
-{[}94{]} W. O. W. Group, ``OWL 2 web ontology language document overview
+{[}96{]} W. O. W. Group, ``OWL 2 web ontology language document overview
 (second edition),'' 11-Dec-2012. {[}Online{]}. Available:
 \url{https://www.w3.org/TR/owl2-overview/}. {[}Accessed: 19-Dec-2016{]}
 
 \hypertarget{ref-web_w3c-tr_sparql}{}
-{[}95{]} S. Harris, A. Seaborne, and E. Prud'hommeaux, ``SPARQL 1.1
+{[}97{]} S. Harris, A. Seaborne, and E. Prud'hommeaux, ``SPARQL 1.1
 query language,'' 21-Mar-2013. {[}Online{]}. Available:
 \url{https://www.w3.org/TR/sparql11-query/}. {[}Accessed: 19-Dec-2016{]}
 
 \hypertarget{ref-web_w3c-draft_webid}{}
-{[}96{]} ``WebID specifications.'' {[}Online{]}. Available:
+{[}98{]} ``WebID specifications.'' {[}Online{]}. Available:
 \url{https://www.w3.org/2005/Incubator/webid/spec/}. {[}Accessed:
 19-Dec-2016{]}
 
 \hypertarget{ref-web_spec_solid}{}
-{[}97{]} ``Solid specification,'' 03-Mar-2016. {[}Online{]}. Available:
+{[}99{]} ``Solid specification,'' 03-Mar-2016. {[}Online{]}. Available:
 \url{https://github.com/solid/solid-spec}. {[}Accessed: 17-Dec-2016{]}
 
 \hypertarget{ref-web_2016_wiki_webaccesscontrol}{}
-{[}98{]} ``WebAccessControl - w3c wiki.'' {[}Online{]}. Available:
+{[}100{]} ``WebAccessControl - w3c wiki.'' {[}Online{]}. Available:
 \url{https://www.w3.org/wiki/WebAccessControl}. {[}Accessed:
 19-Dec-2016{]}
 
 \hypertarget{ref-web_2016_demo_databox}{}
-{[}99{]} ``Databox.me.'' {[}Online{]}. Available:
+{[}101{]} ``Databox.me.'' {[}Online{]}. Available:
 \url{https://databox.me/}. {[}Accessed: 19-Dec-2016{]}
 
 \hypertarget{ref-web_2015_cgroup-doc}{}
-{[}100{]} T. Heo, ``Control group (v2) documentation,'' Oct-2015.
+{[}102{]} T. Heo, ``Control group (v2) documentation,'' Oct-2015.
 {[}Online{]}. Available:
 \url{https://www.kernel.org/doc/Documentation/cgroup-v2.txt}.
 {[}Accessed: 20-Dec-2016{]}
 
 \hypertarget{ref-web_2016_kernel-namespace}{}
-{[}101{]} ``Overview of linux namespaces,'' 12-Dec-2016. {[}Online{]}.
+{[}103{]} ``Overview of linux namespaces,'' 12-Dec-2016. {[}Online{]}.
 Available: \url{http://man7.org/linux/man-pages/man7/namespaces.7.html}.
 {[}Accessed: 20-Dec-2016{]}
 
 \hypertarget{ref-web_2016_open-container-initiative}{}
-{[}102{]} ``Open container initiative.'' {[}Online{]}. Available:
+{[}104{]} ``Open container initiative.'' {[}Online{]}. Available:
 \url{https://www.opencontainers.org/}. {[}Accessed: 20-Dec-2016{]}
 
 \hypertarget{ref-web_oci-spec_runtime}{}
-{[}103{]} ``Container runtime specification (v1.0.0-rc3),'' 12-Dec-2016.
+{[}105{]} ``Container runtime specification (v1.0.0-rc3),'' 12-Dec-2016.
 {[}Online{]}. Available:
 \url{https://github.com/opencontainers/runtime-spec/tree/v1.0.0-rc3}.
 {[}Accessed: 20-Dec-2016{]}
 
 \hypertarget{ref-web_oci-spec_image}{}
-{[}104{]} ``Container image specification (v1.0.0-rc3),'' 30-Nov-2016.
+{[}106{]} ``Container image specification (v1.0.0-rc3),'' 30-Nov-2016.
 {[}Online{]}. Available:
 \url{https://github.com/opencontainers/image-spec/tree/v1.0.0-rc3}.
 {[}Accessed: 20-Dec-2016{]}
 
-\hypertarget{ref-book_2015_ethical-it-innovation}{}
-{[}105{]} S. Spiekermann, \emph{Ethical IT Innovation: A Value-Based
-System Design Approach}. CRC Press; Taylor \& Francis Group, LLC, 2015
-{[}Online{]}. Available:
-\url{https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355}
-
-\hypertarget{ref-paper_2004_distributed-mapreduce}{}
-{[}106{]} E. Dean and S. Ghemawat, ``MapRednce: Simplified data
-processing on large clusters,'' 2004 {[}Online{]}. Available:
-\url{https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf}.
-{[}Accessed: 27-Dec-2016{]}
-
-\hypertarget{ref-web_spec_tls-12_client-auth}{}
-{[}107{]} T. Dierks, ``The transport layer security (TLS) protocol
-version 1.2,'' Aug-2008. {[}Online{]}. Available:
-\url{https://tools.ietf.org/html/rfc5246\#section-7.4.6}. {[}Accessed:
-09-Jan-2017{]}
-
-\hypertarget{ref-web_2017_wikipedia_mutual-auth}{}
-{[}108{]} ``Mutual authentication,'' 02-Sep-2016. {[}Online{]}.
-Available:
-\url{https://en.wikipedia.org/w/index.php?title=Mutual_authentication\&oldid=737409981}.
-{[}Accessed: 10-Jan-2017{]}
-
-\hypertarget{ref-book_2013_networking-101_tls-session-resumption}{}
-{[}109{]} ``Networking 101: Transport layer security (TLS) - high
-performance browser networking (o'Reilly). High performance browser
-networking,'' 2013. {[}Online{]}. Available:
-\url{https://hpbn.co/transport-layer-security-tls/\#tls-session-resumption}.
-{[}Accessed: 12-Jan-2017{]}
-
-\hypertarget{ref-web_spec_tls-session-ticket-resumption}{}
-{[}110{]} P. E. Joseph Salowey H. Zhou, ``Transport layer security (TLS)
-session resumption without server-side state,'' Jan-2008. {[}Online{]}.
-Available: \url{https://tools.ietf.org/html/rfc5077}. {[}Accessed:
-12-Jan-2017{]}
-
-\hypertarget{ref-book_2014_chapter-14-5-pki}{}
-{[}111{]} W. Stallings, ``10.5 pseudorandom number generation based on
-an asymmetric cipher,'' in \emph{Cryptography and network security:
-Principles and practice}, Seventh edition., Boston: Pearson, 2014, pp.
-443--445.
-
-\hypertarget{ref-web_spec_x509}{}
-{[}112{]} D. Cooper, S. Santesson, S. Farrell, S. Boeyen, and W. Housley
-R. andPolk, ``Internet x.509 public key infrastructure certificate and
-certificate revocation list (CRL) profile,'' May-2008. {[}Online{]}.
-Available: \url{https://tools.ietf.org/html/rfc5280}. {[}Accessed:
-11-Jan-2017{]}
-
-\hypertarget{ref-book_2014_chapter-10-5-asym-random-number-gen}{}
-{[}113{]} W. Stallings, ``9.1 public-key infrastructure,'' in
-\emph{Cryptography and network security: Principles and practice},
-Seventh edition., Boston: Pearson, 2014, p. 307.
-
 \hypertarget{ref-web_2013_npa-sicherheitsdefizit}{}
-{[}114{]} ``Basisleser weiterhin kritische schwachstelle des
+{[}107{]} ``Basisleser weiterhin kritische schwachstelle des
 elektronischen / neuen personalausweises. Netzpolitik.org,''
 27-Aug-2013. {[}Online{]}. Available:
 \url{https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/}.
 {[}Accessed: 05-Jan-2017{]}
 
 \hypertarget{ref-web_2014_test-qes-support-in-npa}{}
-{[}115{]} O. Stiemerling, ``Qualifizierte elektronische signatur mit dem
+{[}108{]} O. Stiemerling, ``Qualifizierte elektronische signatur mit dem
 neuen personalausweis -- oder: QES mit nPA, ein selbstversuch.
 CR-online.de blog,'' 26-Aug-2014. {[}Online{]}. Available:
 \url{http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/}.
 {[}Accessed: 05-Jan-2017{]}
 
-\hypertarget{ref-web_bsi-spec_eid}{}
-{[}116{]} ``BSI - technische richtlinien des BSI - BSI TR-03130
-eID-server.'' {[}Online{]}. Available:
-\url{https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html}.
-{[}Accessed: 06-Jan-2017{]}
-
-\hypertarget{ref-web_2017_npa-eid-server}{}
-{[}117{]} ``Personalausweisportal - eID-server.'' {[}Online{]}.
-Available:
-\url{https://www.personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html;jsessionid=8C7F11821065F2505F22AFEF65F63DFB.2_cid334}.
-{[}Accessed: 06-Jan-2017{]}
-
-\hypertarget{ref-paper_2013-keymanangement-fuer-qes-mit-npa}{}
-{[}118{]} K. Nguyen and C. Schwarz, ``Innovatives key management für die
-qualifizierte elektronische signatur mit dem neuen personalausweis,''
-\emph{Datenschutz und Datensicherheit-DuD}, vol. 37, no. 8, pp.
-502--506, 2013 {[}Online{]}. Available:
-\url{https://www.bundesdruckerei.de/sites/default/files/documents/2013/08/fachartikel_dud_sign-me.pdf}.
-{[}Accessed: 06-Jan-2017{]}
-
 \hypertarget{ref-web_2017_about-de-mail}{}
-{[}119{]} D. B. der Bundesregierung für Informationstechnik,
+{[}109{]} D. B. der Bundesregierung für Informationstechnik,
 ``IT-beauftragter der bundesregierung de-mail.'' {[}Online{]}.
 Available:
 \url{http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html}.
 {[}Accessed: 06-Jan-2017{]}
 
 \hypertarget{ref-statement_2013_de-mail}{}
-{[}120{]} L. Neumann, ``Stellungnahme zum elektronischen
+{[}110{]} L. Neumann, ``Stellungnahme zum elektronischen
 rechtsverkehr.'' 14-Apr-2013 {[}Online{]}. Available:
 \url{https://ccc.de/system/uploads/128/original/demail_april2013.pdf}
+
+\hypertarget{ref-book_2015_ethical-it-innovation}{}
+{[}111{]} S. Spiekermann, \emph{Ethical IT Innovation: A Value-Based
+System Design Approach}. CRC Press; Taylor \& Francis Group, LLC, 2015
+{[}Online{]}. Available:
+\url{https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355}
+
+\hypertarget{ref-paper_2004_distributed-mapreduce}{}
+{[}112{]} E. Dean and S. Ghemawat, ``MapRednce: Simplified data
+processing on large clusters,'' 2004 {[}Online{]}. Available:
+\url{https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf}.
+{[}Accessed: 27-Dec-2016{]}
+
+\hypertarget{ref-web_spec_tls-12_client-auth}{}
+{[}113{]} T. Dierks, ``The transport layer security (TLS) protocol
+version 1.2,'' Aug-2008. {[}Online{]}. Available:
+\url{https://tools.ietf.org/html/rfc5246\#section-7.4.6}. {[}Accessed:
+09-Jan-2017{]}
+
+\hypertarget{ref-web_2017_wikipedia_mutual-auth}{}
+{[}114{]} ``Mutual authentication,'' 02-Sep-2016. {[}Online{]}.
+Available:
+\url{https://en.wikipedia.org/w/index.php?title=Mutual_authentication\&oldid=737409981}.
+{[}Accessed: 10-Jan-2017{]}
+
+\hypertarget{ref-book_2013_networking-101_tls-session-resumption}{}
+{[}115{]} ``Networking 101: Transport layer security (TLS) - high
+performance browser networking (o'Reilly). High performance browser
+networking,'' 2013. {[}Online{]}. Available:
+\url{https://hpbn.co/transport-layer-security-tls/\#tls-session-resumption}.
+{[}Accessed: 12-Jan-2017{]}
+
+\hypertarget{ref-web_spec_tls-session-ticket-resumption}{}
+{[}116{]} P. E. Joseph Salowey H. Zhou, ``Transport layer security (TLS)
+session resumption without server-side state,'' Jan-2008. {[}Online{]}.
+Available: \url{https://tools.ietf.org/html/rfc5077}. {[}Accessed:
+12-Jan-2017{]}
+
+\hypertarget{ref-web_bsi-spec_eid}{}
+{[}117{]} ``BSI - technische richtlinien des BSI - BSI TR-03130
+eID-server.'' {[}Online{]}. Available:
+\url{https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html}.
+{[}Accessed: 06-Jan-2017{]}
+
+\hypertarget{ref-web_2017_npa-eid-server}{}
+{[}118{]} ``Personalausweisportal - eID-server.'' {[}Online{]}.
+Available:
+\url{https://www.personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html;jsessionid=8C7F11821065F2505F22AFEF65F63DFB.2_cid334}.
+{[}Accessed: 06-Jan-2017{]}
+
+\hypertarget{ref-book_2014_chapter-10-5-asym-random-number-gen}{}
+{[}119{]} W. Stallings, ``9.1 public-key infrastructure,'' in
+\emph{Cryptography and network security: Principles and practice},
+Seventh edition., Boston: Pearson, 2014, p. 307.
+
+\hypertarget{ref-paper_2013-keymanangement-fuer-qes-mit-npa}{}
+{[}120{]} K. Nguyen and C. Schwarz, ``Innovatives key management für die
+qualifizierte elektronische signatur mit dem neuen personalausweis,''
+\emph{Datenschutz und Datensicherheit-DuD}, vol. 37, no. 8, pp.
+502--506, 2013 {[}Online{]}. Available:
+\url{https://www.bundesdruckerei.de/sites/default/files/documents/2013/08/fachartikel_dud_sign-me.pdf}.
+{[}Accessed: 06-Jan-2017{]}
 
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
 {[}121{]} N. Carlson, ``Facebook connect is a huge success -- by the
