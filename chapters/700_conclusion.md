@@ -29,6 +29,12 @@ been refused.
 
 +   adoption rate of such technology
 
++   data reliability from the perspective of a *data consumer*
+Since it is almost impossible to ensure complete reliability of all the data a *PDaaS* has stored or
+might me offering, and because it is operated by exactly that individual, and that individual only, 
+all data in question is relates to and is thereby owned by her, it, of cause, makes it not easy for 
+*data consumers* to trust *PDaaS*s as resources for their business processes, but I am certain, that 
+the demand for all different kinds of data exceeds the partial uncertainty of their reliability.
 
 
 ## Solutions

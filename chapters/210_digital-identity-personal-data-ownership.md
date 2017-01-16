@@ -30,7 +30,7 @@ individual's representation in digital systems, consisting of identity-defining 
 case, refers to inherent (date of birth) and imposed (credit card number) characteristics.
 
 +   From a technical perspective a DI is essentially a collection of characteristics, attributes
-and time series data (e.g. interaction logs or bank account history). A subset of these attributes 
+and time series data (e.g. interaction logs or bank account history). A subset of those attributes 
 combined can form unique fingerprint, like certain single data points (e.g. social security number)
 in their own context might be, too. Thus it might not be necessary to know the values of all 
 attributes in order to identify a person as the rightful owner and physical counterpart. 

@@ -39,9 +39,9 @@ literally carry all her personal data with her.
 
 When an instance of this system is going to be the digital counterpart of an individuals identity or 
 it's *personal agent* [@book_2015_ethical-it-innovation], then everyone who relies on the 
-information that agent is providing, must also be able to trust the source from where that data 
-is coming from and vice versa; the *operator* must be able to verify the authenticity
-of the requesting source, too; regardless if it's the initial *permission request* or further 
+information that agent is providing, must as well be able to trust the source from where that data 
+is coming from and vice versa; the *operator* too must be able to verify the authenticity
+of the requesting source; regardless if it's the initial *permission request* or further 
 *access attempts*.
 Based on these mechanisms, the system can also provide an authentication services to all sorts of 
 generic or restricted platforms for the associated identity, including second factor abilities.
@@ -82,7 +82,7 @@ defined environment, computing  only a fraction of a larger computation that was
 the *data consumer* beforehand; similar to a distributed Map-Reduce concept 
 [@paper_2004_distributed-mapreduce]. The opposite approach, to provide some software to the *data 
 consumer* that is necessary to access the contents of a response or provides a runtime environment
-querying the system by itself, would be conceivable, too.
+querying the system by itself, would be conceivable as well.
 In general, it is not very likely that *data consumers*, who already got granted certain access, 
 would renounce their privileges. Thus it is vital that the *data owner* is the one who is able of 
 cancel the *access permissions* or applying appropriate changes. Supervising methods provide an 

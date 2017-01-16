@@ -5,6 +5,8 @@
 +   how can a communication process with a third party be modeled and what technologies can be used 
     to
 +   how authorisation will work
++   how to solve the situation were an external request is processed at the moment and the operator
+    is changing some personal data?
     
     
 

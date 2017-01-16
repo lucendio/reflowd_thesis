@@ -136,6 +136,13 @@ multiple systems at the same time in order to prevent exposure, which any action
 implies. To reduce those risks, it's common practice to generate a private key at that location 
 where it is going to be used.
 
+The technology *De-Mail* tries to ensure authenticity of an authors identity, by embedding a legal 
+foundation into email-based communication. But instead of providing technically valid authenticity 
+by end-to-end encryption so that a recipient can truly rely on that information, it only goes as far 
+as legal definition and legislation reaches. Thus it has no relevance to this work, other then the 
+concept of letting a server sign outgoing data, which might be the only solution to avoid an 
+overhead in user interaction caused by recurring events.
+
 Computations based on asymmetric cryptography usually is slower then the ones based on symmetric
 cryptography [@book_2014_chapter-10-5-asym-random-number-gen], but since there are no timing 
 constrains when interacting with the *PDaaS*, regardless of whether it's external communication with 

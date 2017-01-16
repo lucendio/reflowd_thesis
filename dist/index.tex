@@ -718,7 +718,7 @@ Ownership}\label{digital-identity-personal-data-and-ownership}}
 \item
   From a technical perspective a DI is essentially a collection of
   characteristics, attributes and time series data (e.g.~interaction
-  logs or bank account history). A subset of these attributes combined
+  logs or bank account history). A subset of those attributes combined
   can form unique fingerprint, like certain single data points
   (e.g.~social security number) in their own context might be, too. Thus
   it might not be necessary to know the values of all attributes in
@@ -1864,10 +1864,10 @@ any point in time and to literally carry all her personal data with her.
 When an instance of this system is going to be the digital counterpart
 of an individuals identity or it's \emph{personal agent}
 {[}\protect\hyperlink{ref-book_2015_ethical-it-innovation}{111}{]}, then
-everyone who relies on the information that agent is providing, must
-also be able to trust the source from where that data is coming from and
-vice versa; the \emph{operator} must be able to verify the authenticity
-of the requesting source, too; regardless if it's the initial
+everyone who relies on the information that agent is providing, must as
+well be able to trust the source from where that data is coming from and
+vice versa; the \emph{operator} too must be able to verify the
+authenticity of the requesting source; regardless if it's the initial
 \emph{permission request} or further \emph{access attempts}. Based on
 these mechanisms, the system can also provide an authentication services
 to all sorts of generic or restricted platforms for the associated
@@ -1916,9 +1916,9 @@ beforehand; similar to a distributed Map-Reduce concept
 {[}\protect\hyperlink{ref-paper_2004_distributed-mapreduce}{112}{]}. The
 opposite approach, to provide some software to the \emph{data consumer}
 that is necessary to access the contents of a response or provides a
-runtime environment querying the system by itself, would be conceivable,
-too. In general, it is not very likely that \emph{data consumers}, who
-already got granted certain access, would renounce their privileges.
+runtime environment querying the system by itself, would be conceivable
+as well. In general, it is not very likely that \emph{data consumers},
+who already got granted certain access, would renounce their privileges.
 Thus it is vital that the \emph{data owner} is the one who is able of
 cancel the \emph{access permissions} or applying appropriate changes.
 Supervising methods provide an appropriate ways to make data available
@@ -2428,6 +2428,15 @@ exposure, which any action of duplication implies. To reduce those
 risks, it's common practice to generate a private key at that location
 where it is going to be used.
 
+The technology \emph{De-Mail} tries to ensure authenticity of an authors
+identity, by embedding a legal foundation into email-based
+communication. But instead of providing technically valid authenticity
+by end-to-end encryption so that a recipient can truly rely on that
+information, it only goes as far as legal definition and legislation
+reaches. Thus it has no relevance to this work, other then the concept
+of letting a server sign outgoing data, which might be the only solution
+to avoid an overhead in user interaction caused by recurring events.
+
 Computations based on asymmetric cryptography usually is slower then the
 ones based on symmetric cryptography
 {[}\protect\hyperlink{ref-book_2014_chapter-10-5-asym-random-number-gen}{119}{]},
@@ -2472,24 +2481,25 @@ contrast to the discussion about the
 should be designed so that it is self-contained. If instead it's not
 required to provide information on the data being reliable or not, it
 won't be an issue anymore. The information can be defined in a response
-as an optional property and it carries one of several states. Within the
-request the \emph{data consumer} has to indicate whether the response
-should contain information about it's reliability or not. Depending on
-what data is requested, the \emph{PDaaS} decides whether it's necessary
-to test for reliability or not. Based on the procedures that are
-available, the data reliability gets verified somehow.
+as an optional property. Within the request the \emph{data consumer} has
+to indicate whether the response should contain information about it's
+reliability or not. Depending on what data is requested, the
+\emph{PDaaS} decides whether it's necessary to test for reliability or
+not. Based on the procedures that are available, the data reliability
+gets verified somehow.
 
-But how does this reliability check exactly look like? It comes down to
-two general steps. The first one is matching the actual data involved in
-that request against a reference data set. The second step is optional,
-although important for the \emph{data consumer} in order to evaluate the
-sufficiency of the provided level of reliability. It involves the party,
-that also runs the first step, to confirm the result of that audit. The
-result of that evaluation then gets included in the response.
+But how does this reliability check exactly should look like? It comes
+down to two general steps. The first one is matching the actual data
+involved in that request against a reference data set. The second step
+is optional, although important for the \emph{data consumer} in order to
+evaluate the sufficiency of the provided level of reliability. It
+involves the party, that also runs the first step, to confirm the result
+of that audit. The result of that evaluation then gets included in the
+response.
 
 The following proposed methods are distinguish in the provided level of
-reliability as well as in the amount of effort to support them and the
-possible impact to its surrounding system. Not all data points are
+reliability as well as in the amount of effort to support them and in
+the possible impact to its surrounding system. Not all data points are
 necessary to test for reliability. Profile data for example are more
 likely to be tested, whereas consumption lists or location histories are
 more or less hard to verify, because currently there is no reliable way
@@ -2526,24 +2536,33 @@ to verify the origin of those data sets.
   replicable data set that contains the data that were initially
   required. The party then hands everything back to the \emph{PDaaS} for
   further processing.
+\item
+  \textbf{Recurring Certification}\\
+  The following method describes a modification of (3). In this method
+  involved no matching procedure. The external third party, verifies if
+  the data in question are correct and if they relate to the \emph{data
+  subject} by either literally looking at the data or by automatically
+  processing a matching against their databases. If that party is
+  satisfied, a certificate will be issued. This certificate contains an
+  expiration date, which implies the consequence of going through this
+  process again in the future, much like an issuing process of a common
+  \emph{Certificate Authority}. This certificate is then served as part
+  of a response, which enabled the \emph{data consumer} to verify the
+  data reliability on its own. This is done by hashing the data in
+  question, decrypting the hash embedded in the certificate and matching
+  one against the other. If they are equal, the data has not changed
+  since the party's review and is therefore reliable. If data has
+  changed in the \emph{PDaaS} and data points are affected, that are
+  also included in this verification process, then a new certificate
+  created, because the containing hash is now invalid.
 \end{enumerate}
 
-The response then indicates to the \emph{data consumer} that state of
-reliability, which is determined by that third party.
-
-The majority of applications for a \emph{PDaaS} as a data resource might
-involve some constraints anyway, e.g.~laws or other rules that imply
-certain consequences if not complying. Regardless of that, providing an
-indication about the data's authenticity state is generally a first and
-sufficient approach towards a fully working feature.
-
-The technology behind \emph{De-Mail} tries to embed a legal foundation
-into email-based communication. But instead of providing real data
-authenticity so that a recipient can truly rely on that data, it only
-goes as far as legal definition and legislation reaches. Thus it has no
-relevance to this work, other then the concept of letting a server sign
-outgoing data, which might be the only solution to avoid an overhead in
-user interaction caused by recurring events.
+Only one method per request should be used to verify data reliability,
+because every method can imply a different level of confidence. As
+described above the response send back to the \emph{data consumer} has
+to indicate the method that has been used. Based on that the \emph{data
+consumer} is then able evaluate that level und can act accordingly
+(e.g.~verify a signature).
 
 Expanding those verification procedures is reasonable, but to keep it
 simple for now this aspect won't receive further attention, since the
@@ -2552,42 +2571,73 @@ though.
 
 \emph{Conclusions:}
 
-The signing procedure as part of \emph{Local Verification and signing}
-method involves private key and certificate stored on the operator's
-\emph{eID card}. Every time when the \emph{PDaaS} verifies data
-reliability that method has to runs. Thus the \emph{operator} is forced
-to interact wit the \emph{PDaaS}. Otherwise the operators private key
-need to be stored somewhere within the \emph{PDaaS}. No matter where or
-when, that would potentially expose a highly confidential part of a
-cryptographic procedure. Not only would this reduces the overall
-security level of the system, it also makes every task this method is
-involved vulnerable to certain attacks. Aside from that, it's highly
-unlikely that an \emph{eID card} would allow to extract it's containing
-private keys. This is, increasing inconvenience is inevitable for this
-proposed method. The \emph{Local Verification and signing} method also
-has the same dependencies mentioned in the discussion about the
-requirements for using the (german) \emph{eID card} as an authentication
-token. And since it was rejected because of those dependencies and
-because of the inconvenience mentioned before, this verification method
-eventually will no being supported in the specification.
+The signing procedure as part of local verification method involve
+private key and certificate stored on the operator's \emph{eID card}.
+Every time when the \emph{PDaaS} verifies data reliability that method
+has to runs. Thus the \emph{operator} is forced to interact wit the
+\emph{PDaaS}. Otherwise the operators private key need to be stored
+somewhere within the \emph{PDaaS}. No matter where or when, that would
+potentially expose a highly confidential part of a cryptographic
+procedure. Not only would this reduces the overall security level of the
+system, it also makes every task this method is involved vulnerable to
+certain attacks. Aside from that, it's highly unlikely that an \emph{eID
+card} would allow to extract it's containing private keys. This is,
+increasing inconvenience is inevitable for this proposed method. The
+\emph{Local Verification and signing} method also has the same
+dependencies mentioned in the discussion about the requirements for
+using the (german) \emph{eID card} as an authentication token. And since
+it was rejected because of those dependencies and because of the
+inconvenience mentioned before, this verification method eventually will
+not being supported in the specification.
 
 The \emph{Remote Verification and signing} method would require the
 external party to be an official authority, because no other entity has
 a) the data in question (primarily profile data), which makes them b)
-legally binding.
+legally binding. They are commonly trusted. The same goes for The
+\emph{Recurring Certification}, but while the \emph{Remote Verification
+and signing} method introduces a very strong dependency to that external
+party, the \emph{Recurring Certification}\\
+offers a simple loosely linking dependency. Whose design would make it
+even possible to obtain such a certificate manually but automate it on
+the other side. Nevertheless, both provide a trustworthy certification.
 
-Non of the proposed verification procedures are very sufficient in terms
-of providing real proof for the reliability of the data that's being
-used.
+Finally the first method, which does just a matching of two data sets
+against each other. Those data sets are obtained from the same
+\emph{PDaaS} storage, but at a different time; right before the request
+finally gets proceeded, though. The method is not very useful - in
+general and specifically to this issue, because not much happens within
+the system during that time (case were data in the storage changes
+during request processing are discussed in the section on
+\emph{\protect\hyperlink{access-management}{Access Management}}). Even
+if the whole system would be compromised, this method has no use in that
+case, because a) if that's the situation, other issues might need more
+urgent addressing then ensuring data reliability for \emph{data
+consumers} and b) even then, the chances are insignificant that this
+method result is negative. Hence it provides the lowest level of
+reliability.
+
+Certain fields of application of a \emph{PDaaS} as a data resource might
+already impose some constraints about the level of reliability and maybe
+even how that can be provide. Determined by legislation or other rules,
+violation might prevent the \emph{PDaaS} from being used. Others instead
+- depending on their guidelines and business model - don't rely on any
+kind of confidence. In general, \emph{data consumers} are expected to
+already have a basic confidence in a \emph{PDaaS} and the data coming
+from there. Regardless of that, providing an indication about the data's
+authenticity is valued as a first and important step towards a fully
+working feature. All of the proposed verification methods have some
+downsides, Though, the \emph{Recurring Certification} method would be
+the least invasive and therewith an adequate choice.
 
 For the \emph{PDaaS} a primary goal is to preserve all data owned by the
 \emph{data subject} and giving her control over where the data might go;
 not providing sufficient proof for the data authenticity.\\
-It is still important, though, to provide \emph{data consumers} with an
+Though, it is still important, to provide \emph{data consumers} with an
 information about the level of reliability, but it is up to them how to
-value that information and how to proceed with the obtained data.
+rate that information and how to proceed with the obtained data.
 
-\section{Access Management}\label{access-management}
+\hypertarget{access-management}{\section{Access
+Management}\label{access-management}}
 
 \begin{itemize}
 \tightlist
@@ -2596,6 +2646,9 @@ value that information and how to proceed with the obtained data.
   technologies can be used to
 \item
   how authorisation will work
+\item
+  how to solve the situation were an external request is processed at
+  the moment and the operator is changing some personal data?
 \end{itemize}
 
 In the previous section {[}Authentication{]} has been addressed. The
@@ -3135,9 +3188,18 @@ Monetisation}\label{business-models-monetisation}
 \section{Challenges}\label{challenges}
 
 \begin{itemize}
-\tightlist
 \item
   adoption rate of such technology
+\item
+  data reliability from the perspective of a \emph{data consumer} Since
+  it is almost impossible to ensure complete reliability of all the data
+  a \emph{PDaaS} has stored or might me offering, and because it is
+  operated by exactly that individual, and that individual only, all
+  data in question is relates to and is thereby owned by her, it, of
+  cause, makes it not easy for \emph{data consumers} to trust
+  \emph{PDaaS}s as resources for their business processes, but I am
+  certain, that the demand for all different kinds of data exceeds the
+  partial uncertainty of their reliability.
 \end{itemize}
 
 \section{Solutions}\label{solutions}
