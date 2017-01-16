@@ -5,6 +5,15 @@ Conclusion
 
 ## Ethical & Social Impact (TODO: or "Relevance")
 
++   Regarding involving an official party to verify data reliability:
+The actual question would be, is the *data subject* certain, that she really wants to hand over 
+those capabilities to official authorities? Depending on which *data consumers*, what task their
+are entrusted with and what motivation the *data subject* has has in mind to do so, the *PDaaS* 
+might become a powerful *"digital reflection"* and starts to get seen as a real and reliable 
+representation of herself. Then the decisions made by *data consumers* might have a big impact for
+the *data subject's* life. For example a housing loan won't be granted or a medical treatment has 
+been refused.
+
 
 
 ## Business Models & Monetisation

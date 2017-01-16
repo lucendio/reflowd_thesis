@@ -37,9 +37,9 @@ __*[S.A.04]{#sa04}* - Authenticity__\
 Since they have to rely on the data, both entities - everyone who belongs to one of the 
 *[roles](#sa03)* - have to be able to ensure the authenticity of their identity and the data they 
 are sending to the opponent.
-It should be possible to opt out to that level of reliability, if is not necessary. Whereas 
-if one of the parties demanding the other one of providing such level, but the other doesn't, then
-the access attempt has to fail.
+It should be possible to opt out to that level of reliability, if is not necessary, or to opt-in for
+certain aspects. However, if one of the parties demanding the other one of providing such level, but 
+the other doesn't, then the access attempt has to fail.
 
 
 #### Persistence:

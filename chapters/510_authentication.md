@@ -15,14 +15,13 @@ With respect to the requirements ([S.A.01](#sa01)), the most appropriate way to 
 *PDaaS* over the internet would be by using *[HTTP](#link_http)*. Furthermore, to preserve
 confidentiality on every in- and outgoing data ([S.P.01](#sp01)) the most convenient solution is to 
 use *HTTP* on top of *TLS*. *TLS* relies i.a. on [asymmetric cryptography](#link_asym-crypto). 
-During the connection establishment the initial 
-handshake requires a certificate, issued and signed by a CA [^abbr_ca], which has to be provided by 
-the server. This ensures at the same time a seasonable level of identity authentication, almost 
-effortless. If the certificate is not installed, it can be installed manually on the client. If 
-the certificate is not trusted (e.g. it is self-signed), it can either be ignored or the process 
-fails to establish a connection, depending on the server configurations. The identity 
-verification in TLS works in both directions, which means not only the client has to verify the 
-server's identity by checking the certificate. If the server insists on, the client has to 
+During the connection establishment the initial handshake requires a certificate, issued and signed 
+by a CA, which has to be provided by the server. This ensures at the same time a seasonable level of 
+identity authentication, almost effortless. If the certificate is not installed, it can be installed 
+manually on the client. If the certificate is not trusted (e.g. it is self-signed), it can either be 
+ignored or the process fails to establish a connection, depending on the server configurations. The 
+identity verification in TLS works in both directions, which means not only the client has to verify
+the server's identity by checking the certificate. If the server insists on, the client has to 
 provide a certificate as well, which then the server tries to verify. Only if the outcome is 
 positive, the connection establishing succeeds. According to the specification 
 [@web_spec_tls-12_client-auth] it is still optional though.
@@ -71,48 +70,39 @@ tokens are both carry the information that might be necessary with them. Thus, c
 disadvantages, *public key cryptography* and web tokens are the preferred technologies for all
 authentication processes.
 
-Except the *two-way authentication* all authentication technologies mentioned above require an 
-initial step to obtain the data that is used to authenticate all subsequent requests. This 
+Except for the *two-way authentication* all authentication technologies mentioned above require an 
+initial step to obtain some sort of token that is used to authenticate all subsequent requests. This 
 step is commonly known as *login* or *sign in* and requires the authorizing entity to provide some 
 credentials consisting at least of two parts. One part, that uniquely relates to the entity but 
 doesn't have to be private, and another part only the entity knows or has. Typically that's a
-username or email address and a password or token (e.g. USB stick).
-Another possible token could be a *eID card*. XXX
-
-(A) authenticate with the *eID card* to the management UI of the *PDaaS*
-(B) authorize/approve *access requests* or *data access* attempts 
-
-With regards to (A), partially depending on the *eID card*'s implementation, but in general this use case 
-would make sense. When considering the german implementation (nPA), accessing the management UI via desktop 
-would require just a card reader - preferable with a hardware keypad attached. Accessing the UI via 
-mobile device could be achieved with the card's RFID-capabilities, as long as the used device is 
-able to communicate with the RFID-chip. Both cases need the *nPA* to have enabled the *eID* feature. If a
-service wants to provide *nPA*-based online authentication (*eID-Service*), which is defined as a non-sovereign 
-("nicht hoheitlich") feature, it has to comply with several requirements [@web_bsi-spec_eid]
-starting with making an application in order to get permission for sending a certificate signing 
-request to a BerCA [^abbr_berca]. This request is originated from an *eID-Server* [@web_2017_npa-eid-server] to sign a public key generated on 
-a dedicated and certified 
-hardware, which is also required through the officials. This key pair - re-generated and re-signed
-every three days - is needed to establish a connection with the *nPA*, which then is used to
-authenticated the owner of that *ID card*. 
-The described appears to be highly expensive (effort, hardware costs), especially because every 
-single operator needs to go through the whole process in order to provide this authentication 
-method; not mentioning the uncertainty of the official's decision about the motion filing. Another
-approach would be to integrate an external authentication provider supporting the *nPA*, which
-would not only add an additional dependency, but could also weaken the system.
-(A) and (B) are fairly similar, insofar as they would use the same mechanism to authenticate, but
-to approve different actions.
-
-
-
-To hardening an authentication procedure often one or more factors are added. This makes the 
-procedure more complex and thus increases the effort that's needed for succeeding attacks.
-Using multi-factor authentication is generally valued and will be briefly noted as an 
-optional security enhancement for the *operator role*. However detailed discussions regarding this 
-topic are left to follow-up work on the specification.
-
-
-
+username or email address and a password or some other secret bit sequence (e.g. stored and provided
+by a USB stick).
+As another possible secret (or unique object) an *[eID card](#link_eid-card)* could be used. 
+Conceivable applications would be (1) to let the *operator* login to the *PDaaS* Management Tool or 
+(2) to approve or authorize *access requests* or *data access* attempts.
+How the actual login process (1) would look like partially depends on the *eID card*'s 
+implementation, but in general this use case would make sense. When considering the german 
+implementation *(nPA)*, accessing the management tool via desktop requires also a card reader, 
+preferably with an integrated hardware keypad. Instead accessing the tool on a mobile device could 
+be achieved with the card's RFID-capabilities, as long as the used device is able to communicate 
+with the RFID-chip. 
+Both scenarios (1+2) need the *nPA* to have the *eID* feature enabled. If a service wants to provide 
+*nPA*-based online authentication *(eID-Service)*, which is defined as a non-sovereign *("nicht 
+hoheitlich")* feature, it has to comply with several requirements [@web_bsi-spec_eid] starting with 
+applying for a permission to send a certificate signing request to a BerCA [^abbr_berca]. This 
+request is send from an *eID-Server* [@web_2017_npa-eid-server] in order to get signed a public key,  
+which previously has been generated on a dedicated and certified hardware. This hardware is required 
+by the officials as part of a *eID-Server*. The key pair - re-generated and re-signed every three 
+days - is needed to establish a connection to the *nPA*, which is then used to authenticate the 
+owner of that *eID card*. 
+The described procedure appears to be highly expensive (regarding effort, hardware costs etc.), 
+especially because every single *operator* would needs to go through the whole process in order to 
+support this authentication method; not mentioning the uncertainty of the official's decision on 
+the permission application. Another approach could be to integrate an external authentication 
+provider supporting the *nPA*, which would not only add an additional dependency, but would also 
+weaken the system.
+All two scenarios are fairly similar, insofar as they would use the same mechanism to initially 
+authenticate to the system, but with different intentions.
 
 Because of it's simplicity the concept of web tokens are fairly straightforward to implement into 
 the *PDaaS*. But since web tokens ensure integrity and the optional confidentiality only of 
@@ -153,7 +143,6 @@ constrains when interacting with the *PDaaS*, regardless of whether it's externa
 as costly as the system resources allow them to be, thus the level of security can be increased.
 
 
-
 *Conclusions:* 
 Based on the several requirements and distinct advantages of the two authentication mechanisms, 
 it is preferred to use asymmetric cryptography in combination with *HTTPS* for the communication 
@@ -161,3 +150,14 @@ between the system and *data consumers*, where the system provides it's own *PKI
 authentication on top of *HTTPS* and public CAs for communication between the system and the 
 *operator*, preferable based on *[JSON Web Tokens](#link_jwt)*, because the session state is 
 preserved within the token rather then having the system itself keeping track of it.
+To hardening an authentication procedure often one or more factors are added, for example an *eID 
+card* or one-time password. This adds complexity to the procedure and thus increases the effort 
+that is needed to make an attack successful. But equally it also increases the effort to support 
+those factors in the first place. 
+Using multi-factor authentication is generally valued and will be briefly noted as an optional 
+security enhancement for the *operator role*. However detailed discussions regarding this 
+topic are left to follow-up work on the specification.
+
+
+
+[^abbr_berca]: (german) Berechtigungszertifikate-Anbieter

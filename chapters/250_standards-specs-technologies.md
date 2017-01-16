@@ -168,11 +168,11 @@ In the past years different countries around the world started to introduce *inf
 to the day-to-day processes, interactions and communications between public services and their 
 citizens, for example changing residence information or filing tax report, which is summarized 
 under the term *E-government* [^abbr_egov]. One of those developments is the so called __Electronic 
-ID Card__, hereinafter called *eID card*. Equipped with storage, logic and interfaces for wireless 
-communication, those *eID cards* can be used to store certain information and digital keys or to 
-authenticate the owner electronically to a third party without being physically present.
-Such an *eID card* was also introduced in Germany in 2010. The so called *nPA* [^abbr_npa] was an 
-important step towards an operational *e-government*.
+ID Card__{#link_eid-card}, hereinafter called *eID card*. Equipped with storage, logic and 
+interfaces for wireless communication, those *eID cards* can be used to store certain information 
+and digital keys or to authenticate the owner electronically to a third party without being 
+physically present. Such an *eID card* was also introduced in Germany in 2010. The so called *nPA* 
+[^abbr_npa] was an important step towards an operational *e-government*.
 Aside from minor flaws [@web_2013_npa-sicherheitsdefizit] and disadvantages [@web_2014_test-qes-support-in-npa] 
 an *eID card* can come with, the question here is, how can such technology be usefully integrated in 
 this project and does it even makes sense. As an official document the card has one major advantage 
@@ -189,13 +189,14 @@ users have signed a public key, the higher the trust that this key actually belo
 it says it does. That public key is then simply uploaded by the owner to public servers where
 another user, who wants to write that key owner an email can obtain keys.
 Related to that topic, another technology emerging as part of the *e-government* development, 
-is the german __DE-Mail__ [@web_2017_about-de-mail]. It's an eMail-Service that is meant to provide 
+is the german __De-Mail__ [@web_2017_about-de-mail]. It's an eMail-Service that is meant to provide 
 infrastructure and mechanisms to exchange legally binding electronic documents. One would expect 
 a *public key cryptography*-based implementation all the way from sender through to the recipient 
 [@statement_2013_de-mail], maybe even with taking advantage of the *nPA's* capability to create 
-*QES*. Instead, the creators of the corresponding law decided that it's enough to prove the author's
-identity if the provider signs the document on the email server and that this implementation results 
-in a legally binding document by definition of that law. 
+*QES*, which refers to the ability of using the *nPA* to sign arbitrary data. Instead, the creators 
+of the corresponding law decided that it's enough to prove the author's identity if the provider 
+signs the document on the email server and that this implementation results in a legally binding 
+document by definition of that law. 
 
 
 
@@ -230,3 +231,5 @@ in a legally binding document by definition of that law.
 [^abbr_npa]: in german so called *elektronische Personalausweis (nPA)*
 
 [^abbr_tan]: Transaction authentication number
+
+[^abbr_qes]: Qualified Electronic Signatures [@paper_2013-keymanangement-fuer-qes-mit-npa]
