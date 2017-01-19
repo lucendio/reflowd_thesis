@@ -22,19 +22,22 @@ __JSON__ [^abbr_json] is an alternative data serialization format to XML, heavil
 contexts to transfer data via *HTTP*, whose syntax is inspired by the JavaScript object-literal 
 notation.
 
-The open standard __OAuth__ defines a process flow for authorizing third parties to access
-externally hosted resources, such as the user's profile image from *facebook*. The authorisation
-validation is done with the help of a previously generated token. However generating and supplying
-such a token can be initiated in a variety of ways depending on the situation, e.g. with the user
-entering her credentials (`grant_type=authorization_code`). This design mistakenly 
-[@web_2012_problem-with-oauth-for-authentication] lead to *OAuth* integrations with the intention to 
-provide an authentication service whether as an alternative or as an addition to existing in-house 
-solution. Therewith the application authors pass the responsibility on to the OAuth-supporting data 
-providers. While *version 1.0a* [@web_spec_oauth-1a], seen as a protocol, provides integrity for 
+The open standard __[OAuth]{#link_oauth}__ defines a process flow for authorizing third parties to 
+access externally hosted resources, such as the user's profile image from a social media platform. 
+The authorisation validation is done by the help of a previously generated token. However, 
+generating and supplying such token can be initiated in a variety of ways depending on the already 
+existing architecture and design, e.g. with the user entering her credentials 
+(`grant_type=authorization_code`). This design tends 
+[@web_2012_problem-with-oauth-for-authentication] to integrate *OAuth* mistakenly but intentionally  
+as an authentication service rather then a authorization service; regardless if as an alternative or 
+as an addition to existing in-house solutions. Therewith the application authors pass the 
+responsibility on to the OAuth-supporting data providers. 
+While *version 1.0a* [@web_spec_oauth-1a], commonly seen as a protocol, provides integrity for 
 transferred data by using signatures and confidentiality by encrypting data ahead of transfer. 
-Whereas *version 2.0* [@web_spec_oauth-2], labeled as a framework, just requires *TLS*. It also 
-includes certain process flows for specific platforms, such as *"web applications, desktop 
-applications, mobile phones, and living room devices"* [@web_2016_oauth-2].
+*Version 2.0* [@web_spec_oauth-2], labeled as a framework, on the other side requires *TLS* and thus
+hands off the the responsibility to confidentiality to the transport layer below. It also includes 
+certain process flows for specific platforms, such as *"web applications, desktop applications, 
+mobile phones, and living room devices"* [@web_2016_oauth-2].
 
 With __OpenID__ on the other side, the authenticity of a requesting user gets verified, which
 is by design. An in-depth description of the whole process can be found in the protocol's 
@@ -85,10 +88,10 @@ involved. It is designed with the goal to agree on a *secret* while at the same 
 non-private channel. The data exchanged during the process alone can't be used to deduce the secret.
 Such behaviour is similar to the concepts of __[Asymmetrical Cryptography]{#link_asym-crypto}__ 
 *(or public-key cryptography)* [@book_2014_chapter-9-1-public-key-crypto], which is underpinned by a 
-*key-pair*; one part is *public* and the other part is *private*. It depends on which of the both 
-parts is used to *encrypt* the data, then the other part is used for *decryption*. Combining this 
-approach with the idea of digital signatures (encrypted fingerprints of the data), then provides 
-integrity and authentication.
+*key-pair*; one key is *public* and the other one is *private*. Depending on which of keys is used 
+to *encrypt* the data, only the other one can be used for *decrypting* the cipher. If then this 
+technology gets combined with the concept of digital signatures (encrypted fingerprints from data), 
+together it would provide integrity and authentication.
 
 Wrapping *HTTP* in the *Transport Layer Security* [@web_spec_tls] (*TLS*) results in __HTTPS__. TLS 
 provides encryption during the data transport, which reduces the vulnerability to 

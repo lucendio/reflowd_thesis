@@ -109,7 +109,7 @@ To enable additional features and behavior, at least for mobile devices it is re
 a user interface upon native supported technologies, such as *Swift* and *Java*. The operator would 
 benefit from capabilities such as *push notifications* and storing data on that device.
 
-__*[P.VIU.03]{#pviu03}* - Access Profiles__\
+__*[P.VIU.03]{#pviu03}* - Permission Profiles__\
 The operator should be capable of filtering, sorting and searching through the list of *access 
 profiles*; for a better administration experience and to easily find certain entries while the 
 overall amount increases over time.
@@ -127,7 +127,7 @@ __*[P.I.01]{#pi01}* - Effort__\
 Common interactions processes, like changing *profile data*, importing data sets or manage 
 *permission request* have to require as little effort as possible. This means short UI response 
 time on the one hand and as less single input and interaction steps as possible to complete a task.
-Given these circumstances, the *permission request review* and *access profile creation* might 
+Given these circumstances, the *permission request review* and *permission profile creation* might 
 become a special challenge. 
 
 __*[P.I.02]{#pi02}* - Design__\
@@ -141,7 +141,7 @@ __*[P.I.03]{#pi03}* - Notifications__\
 The user should be notified about every interaction with the *PDaaS* originated by a third party 
 immediately after it's occurrence, but she must get notified at least about every *permission 
 request*. This behaviour should be configurable; depending on the *permission type* and on every 
-*access profile*. Regardless of the configuration the notifications themselves must show up and
+*permission profile*. Regardless of the configuration the notifications themselves must show up and
 pending user interactions must be indicated in the user interface. 
 
 __*[P.I.04]{#pi04}* - Permission Request & Review__\
@@ -152,7 +152,7 @@ needs to be unique among all *data consumers* interacting with the same instance
 When a *data consumer* makes the first attempt to connect to the system, it must be a well formed
 *permission request*, which has to include information about the *consumer*, what data he wants to
 get access to, for what purpose and how log or how often the data need to be requested. The operator
-then reviews these information and creates an access profile based on that information. A key
+then reviews these information and creates an *permission profile* based on that information. A key
 configuration in such a profile has to be what defines when this permission expires. The operator
 should be able to decide between three *permission types*:
 +   *one-time-only*
@@ -162,7 +162,7 @@ After creating the profile, a response must be send to the *data consumer*, whic
 the review result and permission type set by the operator. 
 
 __*[P.I.05]{#pi05}* - Templating__\
-The operator should be able to create templates for *access profiles* nad *permission rules* in 
+The operator should be able to create templates for *permission profiles* nad *permission rules* in 
 order to (A) apply a set of configuration in advance before the *permission request* arrives and 
 (B) reduce recurring redundant configurations.
 

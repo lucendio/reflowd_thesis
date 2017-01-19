@@ -55,10 +55,15 @@ kind - in this case about human beings - from different sources in order to enri
 finally license the resulting corpora to other organisations. [@report_2014_data-brokers]
 
 Permission Request
-: fist attempt to request access to certain data in the *PDaaS*
+: initial attempt to request permissions for accessing certain data from the *PDaaS*; third party
+registers as *data consumer*
 
-Access Profile
-: a data set about a third party that already made an permission request. The set contains 
+Access Request
+: obtain/request actual data from the system (requires a third party to be registered as a 
+*data consumer*)
+
+Permission Profile
+: a data set about a third party that already made a permission request. The set contains 
 additional information and access rules
     
 Data Access
@@ -67,6 +72,6 @@ make an attempt to access data.
 
 Endpoint
 : an endpoint is defined as the part of the URI that is unique to every *data consumer*, or to be 
-more precise, unique to every *access profile*. Usually it is the first part of a URI, whereas 
+more precise, unique to every *permission profile*. Usually it is the first part of a URI, whereas 
 following parts stand for different resources that might be available within that endpoint
 It can also be seen as group of resources that all can be accessed by under specific circumstances

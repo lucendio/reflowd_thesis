@@ -413,36 +413,36 @@ thereby completes her order. After a moment, a push notification pops up
 on her mobile device, which is a permission request from her
 \emph{PDaaS}, asking for granting the shop-system, she just places the
 order, access to her full name, address and email. Additionally she can
-decide between three states of how log the permission wil be valid:
-\emph{one-time-only}, \emph{expires-on-date} and
-\emph{until-further-notice}. Since she never ordered at this shop before
-and might never again, she decided to grant access only for this
-specific occasion. After the shop-system receives the data, it sends an
-email to the data subject, containing some information about her order,
-including the shop's bank details. which then enables her to actually
-pay the amount due. After the system recognizes the payment has coming
-in, it triggers the shipment of the toaster. In order to get a full
-impression of how the whole process might have look like when the data
-subject had chosen one of the other payment methods, the differences
-will be describes in the following. If the data subject would have
-wanted to pay with her credit card, the only difference would have been,
-that the shop-system had requested also to access the credit card number
-and it's belonging secret, and when sending the email the system would
-have omitted the information about the shop's bank details. Being able
-to choose paying with invoice where possible only because the
-\emph{PDaaS} response has indicated, that it's containing \emph{profile
-data} is certified and therefore trustworthy. Which reduces the shop
-owner's risk and would have enabled him in case of fraud or misuse to
-take action. Choosing to involve paypal as a \emph{middleman} to process
-the payment, requires the data subject to had already granted paypal
-certain access to her \emph{PDaaS}. If that's the case, then the
-shop-system would have ask also for her paypal-ID, which then the system
-will use to request the payment directly from paypal. This on the other
-side will cause paypal to consult the \emph{PDaaS}, which results in a
-second notification, asking the data subject for permission to proceed.
-After the payment transfer was successful, the shipment will gets
-initiated. And with the package arriving at the data subject's doorstep
-the whole transaction has finished.
+decide between three states of how long the permission wil be valid:
+\emph{only one time}, \emph{expires on date} and \emph{granted, until
+further notice}. Since she never ordered at this shop before and might
+never again, she decided to grant access only for this specific
+occasion. After the shop-system receives the data, it sends an email to
+the data subject, containing some information about her order, including
+the shop's bank details. which then enables her to actually pay the
+amount due. After the system recognizes the payment has coming in, it
+triggers the shipment of the toaster. In order to get a full impression
+of how the whole process might have look like when the data subject had
+chosen one of the other payment methods, the differences will be
+describes in the following. If the data subject would have wanted to pay
+with her credit card, the only difference would have been, that the
+shop-system had requested also to access the credit card number and it's
+belonging secret, and when sending the email the system would have
+omitted the information about the shop's bank details. Being able to
+choose paying with invoice where possible only because the \emph{PDaaS}
+response has indicated, that it's containing \emph{profile data} is
+certified and therefore trustworthy. Which reduces the shop owner's risk
+and would have enabled him in case of fraud or misuse to take action.
+Choosing to involve paypal as a \emph{middleman} to process the payment,
+requires the data subject to had already granted paypal certain access
+to her \emph{PDaaS}. If that's the case, then the shop-system would have
+ask also for her paypal-ID, which then the system will use to request
+the payment directly from paypal. This on the other side will cause
+paypal to consult the \emph{PDaaS}, which results in a second
+notification, asking the data subject for permission to proceed. After
+the payment transfer was successful, the shipment will gets initiated.
+And with the package arriving at the data subject's doorstep the whole
+transaction has finished.
 
 \subsubsection{Interacting with a social
 network}\label{interacting-with-a-social-network}
@@ -629,9 +629,13 @@ different sources in order to enrich the data sets, to finally license
 the resulting corpora to other organisations.
 {[}\protect\hyperlink{ref-report_2014_data-brokers}{15}{]}
 \item[Permission Request]
-fist attempt to request access to certain data in the \emph{PDaaS}
-\item[Access Profile]
-a data set about a third party that already made an permission request.
+initial attempt to request permissions for accessing certain data from
+the \emph{PDaaS}; third party registers as \emph{data consumer}
+\item[Access Request]
+obtain/request actual data from the system (requires a third party to be
+registered as a \emph{data consumer})
+\item[Permission Profile]
+a data set about a third party that already made a permission request.
 The set contains additional information and access rules
 \item[Data Access]
 after a third party's \emph{permission request} got reviewed and saved,
@@ -639,10 +643,10 @@ that entity is then able to make an attempt to access data.
 \item[Endpoint]
 an endpoint is defined as the part of the URI that is unique to every
 \emph{data consumer}, or to be more precise, unique to every
-\emph{access profile}. Usually it is the first part of a URI, whereas
-following parts stand for different resources that might be available
-within that endpoint It can also be seen as group of resources that all
-can be accessed by under specific circumstances
+\emph{permission profile}. Usually it is the first part of a URI,
+whereas following parts stand for different resources that might be
+available within that endpoint It can also be seen as group of resources
+that all can be accessed by under specific circumstances
 \end{description}
 
 \chapter{Fundamentals}\label{fundamentals}
@@ -1504,8 +1508,9 @@ data}:
   aWise AEGIS {[}http://www.ewise.com/aegis{]}
 \end{itemize}
 
-\section{Standards, Specifications and related
-Technologies}\label{standards-specifications-and-related-technologies}
+\hypertarget{standards-specifications-and-related-technologies}{\section{Standards,
+Specifications and related
+Technologies}\label{standards-specifications-and-related-technologies}}
 
 The overall attempt is to involve as much standards as possible, because
 it increases the chances of interoperability and thereby it lowers the
@@ -1541,26 +1546,30 @@ serialization format to XML, heavily used in web contexts to transfer
 data via \emph{HTTP}, whose syntax is inspired by the JavaScript
 object-literal notation.
 
-The open standard \textbf{OAuth} defines a process flow for authorizing
-third parties to access externally hosted resources, such as the user's
-profile image from \emph{facebook}. The authorisation validation is done
-with the help of a previously generated token. However generating and
-supplying such a token can be initiated in a variety of ways depending
-on the situation, e.g.~with the user entering her credentials
-(\texttt{grant\_type=authorization\_code}). This design mistakenly
+The open standard \textbf{\protect\hypertarget{link_oauth}{}{OAuth}}
+defines a process flow for authorizing third parties to access
+externally hosted resources, such as the user's profile image from a
+social media platform. The authorisation validation is done by the help
+of a previously generated token. However, generating and supplying such
+token can be initiated in a variety of ways depending on the already
+existing architecture and design, e.g.~with the user entering her
+credentials (\texttt{grant\_type=authorization\_code}). This design
+tends
 {[}\protect\hyperlink{ref-web_2012_problem-with-oauth-for-authentication}{79}{]}
-lead to \emph{OAuth} integrations with the intention to provide an
-authentication service whether as an alternative or as an addition to
-existing in-house solution. Therewith the application authors pass the
-responsibility on to the OAuth-supporting data providers. While
-\emph{version 1.0a} {[}\protect\hyperlink{ref-web_spec_oauth-1a}{80}{]},
-seen as a protocol, provides integrity for transferred data by using
-signatures and confidentiality by encrypting data ahead of transfer.
-Whereas \emph{version 2.0}
-{[}\protect\hyperlink{ref-web_spec_oauth-2}{81}{]}, labeled as a
-framework, just requires \emph{TLS}. It also includes certain process
-flows for specific platforms, such as \emph{``web applications, desktop
-applications, mobile phones, and living room devices''}
+to integrate \emph{OAuth} mistakenly but intentionally\\
+as an authentication service rather then a authorization service;
+regardless if as an alternative or as an addition to existing in-house
+solutions. Therewith the application authors pass the responsibility on
+to the OAuth-supporting data providers. While \emph{version 1.0a}
+{[}\protect\hyperlink{ref-web_spec_oauth-1a}{80}{]}, commonly seen as a
+protocol, provides integrity for transferred data by using signatures
+and confidentiality by encrypting data ahead of transfer. \emph{Version
+2.0} {[}\protect\hyperlink{ref-web_spec_oauth-2}{81}{]}, labeled as a
+framework, on the other side requires \emph{TLS} and thus hands off the
+the responsibility to confidentiality to the transport layer below. It
+also includes certain process flows for specific platforms, such as
+\emph{``web applications, desktop applications, mobile phones, and
+living room devices''}
 {[}\protect\hyperlink{ref-web_2016_oauth-2}{82}{]}.
 
 With \textbf{OpenID} on the other side, the authenticity of a requesting
@@ -1638,12 +1647,12 @@ the concepts of
 \textbf{\protect\hypertarget{link_asym-crypto}{}{Asymmetrical
 Cryptography}} \emph{(or public-key cryptography)}
 {[}\protect\hyperlink{ref-book_2014_chapter-9-1-public-key-crypto}{88}{]},
-which is underpinned by a \emph{key-pair}; one part is \emph{public} and
-the other part is \emph{private}. It depends on which of the both parts
-is used to \emph{encrypt} the data, then the other part is used for
-\emph{decryption}. Combining this approach with the idea of digital
-signatures (encrypted fingerprints of the data), then provides integrity
-and authentication.
+which is underpinned by a \emph{key-pair}; one key is \emph{public} and
+the other one is \emph{private}. Depending on which of keys is used to
+\emph{encrypt} the data, only the other one can be used for
+\emph{decrypting} the cipher. If then this technology gets combined with
+the concept of digital signatures (encrypted fingerprints from data),
+together it would provide integrity and authentication.
 
 Wrapping \emph{HTTP} in the \emph{Transport Layer Security}
 {[}\protect\hyperlink{ref-web_spec_tls}{89}{]} (\emph{TLS}) results in
@@ -1840,7 +1849,7 @@ for an individual to license those data, that obviously belongs to her.
 Switching the perspective from the \emph{data subject} to the data
 \emph{consumer}; for them, several laws exist addressing conditions and
 rules regarding data acquisition, processing and usage. Leaving aside
-the absence of any legislation regarding data ownership, it can not be
+the absence of any legislation regarding data ownership, it cannot be
 denied, that is seems unnatural not being the owner of all the data that
 reflects her identity and her as an individual. So instead of defining
 those rules meant to protect data subjects, but demanding data consumers
@@ -1983,7 +1992,7 @@ customization to the system in order to serve the own's needs. Enabling
 an open development allows users and contributors working together and
 thus improve the outcome in a variety of ways.
 
-\chapter{Requirements}\label{requirements}
+\hypertarget{requirements}{\chapter{Requirements}\label{requirements}}
 
 Derived from the \protect\hyperlink{core-principles}{Core Principles},
 the subsequent requirements shall be served as a list of features on the
@@ -2114,7 +2123,7 @@ user interface upon native supported technologies, such as \emph{Swift}
 and \emph{Java}. The operator would benefit from capabilities such as
 \emph{push notifications} and storing data on that device.
 
-\textbf{\emph{\protect\hypertarget{pviu03}{}{P.VIU.03}} - Access
+\textbf{\emph{\protect\hypertarget{pviu03}{}{P.VIU.03}} - Permission
 Profiles}\\
 The operator should be capable of filtering, sorting and searching
 through the list of \emph{access profiles}; for a better administration
@@ -2137,7 +2146,7 @@ importing data sets or manage \emph{permission request} have to require
 as little effort as possible. This means short UI response time on the
 one hand and as less single input and interaction steps as possible to
 complete a task. Given these circumstances, the \emph{permission request
-review} and \emph{access profile creation} might become a special
+review} and \emph{permission profile creation} might become a special
 challenge.
 
 \textbf{\emph{\protect\hypertarget{pi02}{}{P.I.02}} - Design}\\
@@ -2153,7 +2162,7 @@ The user should be notified about every interaction with the
 \emph{PDaaS} originated by a third party immediately after it's
 occurrence, but she must get notified at least about every
 \emph{permission request}. This behaviour should be configurable;
-depending on the \emph{permission type} and on every \emph{access
+depending on the \emph{permission type} and on every \emph{permission
 profile}. Regardless of the configuration the notifications themselves
 must show up and pending user interactions must be indicated in the user
 interface.
@@ -2170,10 +2179,10 @@ consumer} makes the first attempt to connect to the system, it must be a
 well formed \emph{permission request}, which has to include information
 about the \emph{consumer}, what data he wants to get access to, for what
 purpose and how log or how often the data need to be requested. The
-operator then reviews these information and creates an access profile
-based on that information. A key configuration in such a profile has to
-be what defines when this permission expires. The operator should be
-able to decide between three \emph{permission types}:
+operator then reviews these information and creates an \emph{permission
+profile} based on that information. A key configuration in such a
+profile has to be what defines when this permission expires. The
+operator should be able to decide between three \emph{permission types}:
 
 \begin{itemize}
 \tightlist
@@ -2188,7 +2197,7 @@ able to decide between three \emph{permission types}:
 \end{itemize}
 
 \textbf{\emph{\protect\hypertarget{pi05}{}{P.I.05}} - Templating}\\
-The operator should be able to create templates for \emph{access
+The operator should be able to create templates for \emph{permission
 profiles} nad \emph{permission rules} in order to (A) apply a set of
 configuration in advance before the \emph{permission request} arrives
 and
@@ -2467,16 +2476,21 @@ are left to follow-up work on the specification.
 
 \section{Data Reliability}\label{data-reliability}
 
-Whether it's the \emph{operator} or a \emph{data consumer}, not only the
-party's identity has to be authenticated when communicating with the
-system, which is handled by the technologies proposed in the
-\protect\hyperlink{authentication}{authentication} section. The actual
-personal data that's being used also has to be authentic and reliable
-(\protect\hyperlink{sa04}{S.A.04}). But since the \emph{operator} can
-change the data at any point in time, this property requires a process
-where a trustworthy third party has to somehow verify the reliability of
-the data in question. That process on the other hand, is in direct
-contrast to the discussion about the
+Within the section \protect\hyperlink{authentication}{about
+authentication} it was discussed how to preserve data integrity -
+referring to possible man-in-the-middle attacks and alike. Furthermore
+it was described how to authenticate the different user roles so that
+their identities are ensured, though, authenticity of the actual data a
+\emph{PDaaS} provides has yet to be ensured. In this case, authenticity
+refers to authentic and reliable (\protect\hyperlink{sa04}{S.A.04})
+data, which means a) the data really represent the entity that is
+associated to the originating \emph{PDaaS} and is thus owned by that
+entity, and b) the data is true at that moment when the related
+responses leaves the system. Since the \emph{operator} can change the
+data at any point in time, this property requires a process where a
+trustworthy third party has to somehow verify the reliability of the
+data in question. That process on the other hand, is in direct contrast
+to the discussion about the
 \protect\hyperlink{authentication}{authentication system} and why it
 should be designed so that it is self-contained. If instead it's not
 required to provide information on the data being reliable or not, it
@@ -2639,49 +2653,265 @@ rate that information and how to proceed with the obtained data.
 \hypertarget{access-management}{\section{Access
 Management}\label{access-management}}
 
-\begin{itemize}
-\tightlist
-\item
-  how can a communication process with a third party be modeled and what
-  technologies can be used to
-\item
-  how authorisation will work
-\item
-  how to solve the situation were an external request is processed at
-  the moment and the operator is changing some personal data?
-\end{itemize}
+In the subsequent section it will be discussed, how several processes
+around the topic of \emph{data consumers obtaining data from the PDaaS}
+can be modeled, what consequences certain variations might have and what
+issues need to be addressed.
 
-In the previous section {[}Authentication{]} has been addressed. The
-Subsequent section discusses how the mentioned technologies has to be
-assembled in order to meet the requirements (TODO), so that personal
-data can be accessed by external \emph{data consumers}.
+Below it is proposed what a general design might look like for the
+process of how \emph{data consumers} get authorized and thereby access
+the \emph{data subject's} personal data and how
+\protect\hyperlink{standards-specifications-and-related-technologies}{previous
+mentioned technologies} can be assembled in order to meet the specified
+\protect\hyperlink{requirements}{requirements}. OR Based on the
+\protect\hyperlink{standards-specifications-and-related-technologies}{outlined
+technologies} and specified
+\protect\hyperlink{requirements}{requirements} the general design for a
+process in which a \emph{data consumer} gets authorized and thereby
+access the \emph{operator's} personal data is proposed as followed.
 
-\begin{itemize}
-\tightlist
-\item
-  argument against oAuth: While in OAuth the authorisation procedure
-  strictly involves an authentication, the previous proposed design
-  separates authentication and authorisation from each other so they can
-  run completely independent. Additionally this approach would require
-  almost no effort to support the case where multiple \emph{data
-  consumers} access the same \emph{endpoint}. by just disabling the
-  client authentication for the HTTPS connection establishment.
-\end{itemize}
+\textbf{Part One: consumer registration}\\
+0) The \emph{operator} creates a new unique URI in the system
 
 \begin{enumerate}
-\def\labelenumi{\Alph{enumi})}
+\def\labelenumi{\arabic{enumi})}
 \tightlist
 \item
-  just requesting and responding with pure data
-\item
-  provide executable and input schema; run on the PDaaS environment in a
-  sandbox; return result
-\item
-  DRM for personal data: provide a piece of software to the data
-  consumer, which does the licence checking, key obtaining and
-  encryption of the data, he has requested, in order to work with /
-  compute that data
+  \textbf{Prepare registration}; the \emph{operator} has to tell third
+  party were and how to register as a \emph{data consumer} by handing
+  over a URI that is unique to the current registration process.
+  \emph{Several things need to be noted here. First, the operator
+  ``pulls'' consumers into the system. This is the only way for a
+  consumer to establish a relation. If consumers were able initiate this
+  process on their own without the operator's involvement, it would be
+  much harder for the system to detect spam or fraudulent requests.
+  Second, handing over that URI must be done over a secure channel.}
 \end{enumerate}
+
+\emph{NOTICE:} the two initial steps could also be made from the
+opposite direction. Third parties put all information and data required
+for a registration together and present them to the \emph{operator} in
+form of a QR-Code, so that the \emph{operator} can obtain it and whereby
+is able to proceed. This approach would short cut and hence simplify the
+process.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\item
+  \textbf{Send permission request}; The third party then makes the
+  actual attempt to register as a \emph{data consumer} by providing
+  required information. Those information have to be include some kind
+  of feedback channel (e.g.~URI) so that the system can get back to that
+  third party.
+\item
+  \textbf{Review permission request}; the operator gets notified about
+  new registration attempts, which she then has to review and decide
+  whether to grant or refuse the requested data access.
+\item
+  \textbf{Create permission profile}; if access has been granted a new
+  \emph{permission profile} is going to be created. Optionally, a new
+  \emph{permission profile} could also be created if the access has been
+  refused. It's just meant for the \emph{operator} to keep track of her
+  decisions.
+\item
+  \textbf{Respond to third party}; regardless of the decision, the third
+  party get's then informed via feedback channel about that decision and
+  is also provided with further details required to obtain actual data.
+\end{enumerate}
+
+\textbf{Part Two: obtain data}\\
+0) A successful registration as a \emph{data consumer} is required
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  \textbf{Send request}; \emph{data consumer} sends \emph{access
+  request} to the system, containing a all information about what data
+  is needed, how to process the data and what the response should
+  contain.
+\item
+  \textbf{Parse and check request}; after the system has received an
+  \emph{access request}, first it\\
+  authenticates the \emph{data consumer} and checks the related
+  \emph{permission profile}. According to the defined \emph{access
+  rules}, the system decides how to proceed. Either it pauses, because
+  it needs further attention from the \emph{operator}, or it can start
+  to process and create the response.
+\item
+  \textbf{Compute response}; How that would look like mainly depends on
+  what the \emph{access request} contains and also what the
+  \emph{permission profile} determines (see \emph{access request types}
+  below).
+\item
+  \textbf{Respond to consumer}; handover the computed response back to
+  the requester. There are two ways of responding to an \emph{access
+  request}. Either the system respond with a state of the process and
+  where the \emph{consumer} will/can find the demanded data, or the
+  \emph{consumer} includes a callback URI, which the system has to
+  invoke with data in demand.
+\end{enumerate}
+
+With respect to the requirements (\protect\hyperlink{sp01}{S.P.01}),
+personal data should not leak into the outside. To tackle this issue,
+the following three types of \emph{access requests} are defined,
+starting with the most sufficient solution:
+
+\begin{enumerate}
+\def\labelenumi{(\Alph{enumi})}
+\tightlist
+\item
+  \textbf{Supervised Code Execution}; \emph{access requests}
+  additionally come with an executable program - binary or source code -
+  potentially including information about provisioning. After the
+  required data is retrieved from the storage, the program gets invoked
+  with the data locally on the system but within a completely separated
+  environment (\emph{sandbox}). The result of that invocation gets
+  returned to the system.
+\item
+  \textbf{Data DRM\footnote{\emph{Digital Rights Management} - set of
+    technologies, that are used to control access to data or content
+    that is restricted in certain ways (e.g.~content provided by video
+    streaming)}}; after data is retrieved from the storage it gets
+  encrypted. The cipher is included in the response. Upfront, \emph{data
+  consumers} are equipped with a small program, that can connect to the
+  \emph{PDaaS} and has to wrap the \emph{consumer's} own software that
+  is planned to proceed the requested data. Now when \emph{consumers}
+  receive the response, the program needs to get invoked with the
+  cipher, so that, by priorly fetching the key from the \emph{PDaaS},
+  the cipher gets decrypted from within the invocation. Thus the data is
+  made available to the wrapped software and only during runtime. After
+  the invocation has finished the program needs to propagate the results
+  returned by the software back to the outer environment.
+\item
+  \textbf{Plain Forwarding (default)}; retrieve data from the storage,
+  quick-checking the result and forwarding it directly into response.
+\end{enumerate}
+
+So the data won't leave, unless the \emph{PDaaS} doesn't support any of
+the proposed request types or the \emph{data consumer} provides no
+alternative, so that the fallback type has to be applied. If that's the
+case, the confidentiality of all personal data is already preserved,
+because all communications from and to the \emph{PDaaS} are generally
+happening over HTTPS anyway, so that the data is encrypted during the
+transport.
+
+The concept of authorizing a \emph{data consumer} to get the ability of
+accessing personal data is fairly simple. During the \emph{registration}
+consumers have to provide detailed information about their intentions,
+so that the \emph{operator} is confident about their permissions when
+reviewing them. The created \emph{permission profile} reflects the
+result of that review. Such a \emph{permission profile} defines what
+data points are requested to access and how long those permissions last.
+The later is defined as \emph{permission type} and can be one of the
+following:
+
+\begin{description}
+\tightlist
+\item[\emph{one-time-only}]
+access permissions are hereby granted for just a single \emph{access
+request} (with respect to certain errors regarding the communication
+layer)
+\item[\emph{expires-on-date}]
+access permissions are hereby granted until the defined point in time
+has arrived
+\item[\emph{until-further-notice}]
+access permissions are hereby granted until the \emph{permission type}
+has changed or the \emph{permission profile} has been deleted
+\end{description}
+
+\emph{NOTICE:} The default \emph{permission type} should be
+configurable. The \emph{operator} can change all \emph{permission
+profiles} at any point in time.
+
+Among other information, an \emph{access request} contains the
+\emph{data query} that shows very precisely what data points are
+affected by that request. So if an \emph{access request} arrives at the
+\emph{PDaaS}, assuming the \emph{data consumer} has been authenticated
+sufficiently, the systems (0) searches for the appropriate
+\emph{permission profile} that correspond to the \emph{data consumer}.
+If it fails to find one, the access request gets refused. But if it
+does, then it checks (1) if the permission type suffices at that moment
+and (2) if the query only contains data points that are also enabled in
+the \emph{profile}. Here the order does matter, because it is imaginable
+that the operation behind (1) is less complex then operation (2). So, at
+the end running (1) before (2) can result in a lower response-time, if
+operation (1) already results negative. If all operations have a
+positive result, access is granted.
+
+TODO: argument against oAuth: While in OAuth the authorisation procedure
+strictly involves an authentication, the previous proposed design
+separates authentication and authorisation from each other so that they
+can run completely independent. Additionally this approach would require
+almost no effort to support the case where multiple \emph{data
+consumers} share the same \emph{endpoint}. by just disabling the client
+authentication for the HTTPS connection establishment.
+
+As mentioned before, this result is a complete separation of
+authenticating a \emph{consumers} and authorizing their access
+
+oAuth (1.0a and 2) requires consumers to register upfront. But since the
+proposed flow-design indicates that the initial step has to be done by
+the \emph{operator}, it would cause an overhead in user interactions.
+Although the \emph{operator} has already authorized the \emph{consumer}
+simply by submitting a unique URI
+(\texttt{pdaas-server.tld/register?crt=CONSUMER\_REGISTER\_TOKEN}, of
+which the \texttt{crt} is considered private). Even though the
+registration provides the consumer with mandatory information such as a
+consumer identifier (v1: \texttt{oauth\_consumer\_key}, v2:
+\texttt{client\_id}) and, depending on the client type, a secret (see
+https://tools.ietf.org/html/rfc6749\#section-2), this process is not
+part the specification (https://oauth.net/core/1.0a/\#rfc.section.4.2,
+https://tools.ietf.org/html/rfc6749\#section-2). This enables the
+possibility of integrating oAuth into the consumer registration flow by
+using the \texttt{CONSUMER\_REGISTRATION\_TOKEN} as oAuth's \emph{client
+identifier}. The lack of credentials (v1:
+\texttt{auth\_consumer\_secret}, v2: \texttt{client\_secret}) would
+require transferring the consumer identifier done over a secure channel
+(e.g.~TLS). That would leave \emph{oAuth2} as the version of choice,
+since it relies on \emph{HTTPS} adn therefore makes the \emph{secret}
+optional. Where on the other side oAuth 1.0a requires a \emph{secret} to
+create a signature in order to support insecure connections..
+
+Both OAuth versions (1.0a and 2) seem Even though it might be possible
+to integrate \emph{OAuth} without needing to change much in the proposed
+process design, it seems to make not much sense to introduce an
+additional authentication procedure while not gaining any benefit from
+that or from the whole authorization flow.
+
+OAuth requires authentication in order to authorize, it has a dependency
+to that authentication process by design. However
+
+TODO: how to solve the situation were an external request is processed
+and during that moment the operator is changing some personal data?
+
+TODO: expose information about what personal data is available? should
+there be a way to somehow request information about what data is
+available/queryable, or would this be result in spam/crawler and
+security issues (also a question for the topic of
+permissions/sensibility level of certain data)
+
+\emph{Conclusions:}
+
+, because they wont require additional infrastructure and interfaces to
+the \emph{PDaaS}
+
+It might also be conceivable, that certain categories of personal data
+with a higher sensitivity level also require a least sufficient
+\emph{request type}. If the \emph{data consumer} does not comply, access
+wont be permitted.
+
+Q: need the \emph{consumer} provide the program with or without all
+dependencies?
+
+Also, depending on which category the personal data relates to, the
+\emph{PDaaS} might be able to anonymize certain types of data somehow,
+if it's capable of doing so all, because the \emph{consumer} at least
+supposedly knows what individual is behind that \emph{PDaaS} it
+currently interacts with. The field for \emph{data anonymization} is a
+large research area on its own, which recently started to gains a lot of
+traction due to emerging privacy concerns about \emph{big data}. Thus it
+will be left for future work.
 
 \section{Architecture}\label{architecture}
 
@@ -2725,7 +2955,7 @@ data can be accessed by external \emph{data consumers}.
   \begin{itemize}
   \tightlist
   \item
-    access history and access profile
+    access history and permission profile
   \end{itemize}
 \end{itemize}
 
@@ -2737,6 +2967,9 @@ data can be accessed by external \emph{data consumers}.
   regardless of the platform
 \item
   connector
+\item
+  al least two storage: one for the actual data, the other for
+  permission profiles, history and all the other application data
 \item
   where to place the storage? local (e.g.~mobile device) or cloud
   (e.g.~hoster's infrastructure)
@@ -2801,6 +3034,22 @@ technology. However, it is beyond the scope of this work to either do
 further investigations regarding that topic, nor elaborate on how this
 might look integrate with the currently developed feature-set.
 
+\begin{itemize}
+\tightlist
+\item
+  regarding oAuth as authentication: Priorly users tended to reuse their
+  password for different account, nowadays they but also tend to get
+  tired of creating new accounts and profiles over and over again
+  instead of having just one account for everything
+  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{120}{]}.
+\end{itemize}
+
+Thus the platform owners leave the responsibility of
+
+Many websites and platforms understand those \emph{login-with
+\$platformName} mechanisms as an outsourced service that handles all
+security- and user-related tasks.
+
 \emph{Conclusions:}
 
 \begin{itemize}
@@ -2824,220 +3073,80 @@ might look integrate with the currently developed feature-set.
 \item
   NOTE: step numbers marked with a \texttt{*} are somehow tasks which
   are happening in the background and don't require any user interaction
-\end{itemize}
-
-\subsection{Authenticity}\label{authenticity}
-
-Within the section \href{TODO}{about architecture} several options were
-discussed on how to preserve data integrity, referring to possible
-man-in-the-middle attacks and alike.
-
-With authenticity here it is referred to the originality of the data,
-meaning
-
-\begin{enumerate}
-\def\labelenumi{(\Alph{enumi})}
-\tightlist
 \item
-  the data really represent the entity associated to the originating
-  system and
+  Modelling
 \item
-  the data is true at the time when the response leaves the originating
-  system
-\end{enumerate}
-
-\protect\hyperlink{sa04}{requirement}
-
-\begin{itemize}
-\tightlist
+  Categories (or Classes)
 \item
-  maybe go with a Signing/verifying Authority (aka CA)
+  Types
+\item
+  database requirements
+\item
+  data Consumption (data inflow)
 
   \begin{itemize}
   \tightlist
   \item
-    do I trust the gov or certain companies more? Which interests do
-    these Role/Stakeholder have?
+    how data will get into the system
   \item
-    revoking the cert which provides the authenticity of the
-    individual's digital identity should only be possible with a
-    two-factor secret. One part of this secret is owned by the CA and
-    the other half has the individual behind the personal API
+    hwo is the user able to do that, and how does it works
   \item
-    Where?
-
-    \begin{itemize}
-    \tightlist
-    \item
-      direct at a Meldestelle
-    \item
-      with the eID-Function (data check: as long as the contents of the
-      relevant fields are equal) of the Personalausweis --\textgreater{}
-      no, because every PDaaS need its own permission cert from the
-      authorities
-    \end{itemize}
+    manually and automated
   \end{itemize}
-\end{itemize}
-
-\subsection{Modelling}\label{modelling}
-
-\subsection{Categories (or Classes)}\label{categories-or-classes}
-
-\subsection{Types}\label{types}
-
-\subsection{Persistence}\label{persistence-1}
-
-\begin{itemize}
-\tightlist
 \item
-  database requirements
-\end{itemize}
+  history
 
-\subsection{Access \& Permission}\label{access-permission}
-
-\begin{itemize}
-\tightlist
-\item
-  data needs to have an expiration date
-\end{itemize}
-
-\textbf{IF01 - Authorizing a data consumer to request certain data}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi})}
-\tightlist
-\item
-  operator creates a new endpoint URI (like
-  \emph{pdaas.datasubjectsdomain.tld/e/consumer-name}) within the
-  \emph{management user interface}
-\item
-  operator passes this URI on to the \emph{consumer}, e.g.~through
-  submitting a form or using any arbitrary, eventually insecure channel
-  3*) consumer need to call this URI for the fist time to verify it's
-  authenticity
-\item
-  operator then get's a notification which asks her for permissions to
-  access certain data under the listed conditions 5*) consumer will be
-  informed about the outcome of the operator's decision (NOTE: alongside
-  with some details? how do they look like? XXX need to be in the spec)
-\end{enumerate}
-
-\subsection{Consumption (data inflow)}\label{consumption-data-inflow}
-
-\begin{itemize}
-\tightlist
-\item
-  how data will get into the system
-\item
-  hwo is the user able to do that, and how does it works
-\end{itemize}
-
-\subsubsection{Manually}\label{manually}
-
-\subsubsection{Automatically}\label{automatically}
-
-\subsection{Emission (data outflow)}\label{emission-data-outflow}
-
-\begin{itemize}
-\item
-  depending on what category of data, they might need to get anonymized
-  somehow before they leave the system
-\item
-  oAuth (1.0a and 2) requires consumers to register upfront. Since the
-  current flow indicates that the initial step is done by the owner,
-  that would cause an overhead in user interactions. Although the owner
-  already \emph{authorized} the consumer simply by submitting a unique
-  URI
-  (\texttt{pdaas-server.tld/register?crt=CONSUMER\_REGISTER\_TOKEN}), of
-  which the \texttt{crt} is considered private. Even though the
-  registration provides the consumer with mandatory information such as
-  a consumer identifier (v1: \texttt{oauth\_consumer\_key}, v2:
-  \texttt{client\_id}) and, depending on the client type, a secret (see
-  https://tools.ietf.org/html/rfc6749\#section-2), this process is not
-  part the specification (https://oauth.net/core/1.0a/\#rfc.section.4.2,
-  https://tools.ietf.org/html/rfc6749\#section-2). This enables the
-  possibility of integrating oAuth into the consumer registration flow
-  by using the \texttt{CONSUMER\_REGISTRATION\_TOKEN} as oAuth's
-  \emph{client identifier}. The lack of credentials (v1:
-  \texttt{auth\_consumer\_secret}, v2: \texttt{client\_secret}) would
-  require transferring the consumer identifier done over a secure
-  channel (e.g.~TLS). That would leave \emph{oAuth2} as the version of
-  choice, since it relies on \emph{HTTPS} adn therefore makes the
-  \emph{secret} optional. Where on the other side oAuth 1.0a requires a
-  \emph{secret} to create a signature in order to support insecure
-  connections..
-\item
-  A general and URI for 3rd parties to register (aka requesting
-  authentication) would raise the issue of dealing with spam request and
-  how to distinct these from the actual ones.
-\end{itemize}
-
-\subsection{History}\label{history}
-
-\begin{itemize}
-\tightlist
-\item
-  data versioning
-\item
-  access logs
+  \begin{itemize}
+  \tightlist
+  \item
+    data versioning
+  \item
+    access logs
+  \end{itemize}
 \end{itemize}
 
 \subsection{\texorpdfstring{\emph{Conclusions}}{Conclusions}}\label{conclusions}
 
-\section{Interfaces}\label{interfaces-1}
+\section{Environment and Hosting}\label{environment-and-hosting}
 
-\subsection{Internal}\label{internal}
+\begin{itemize}
+\item
+  container
+\item
+  deployment (howto?)
+\item
+  ext. dependencies
+\item
+  container would make it easy for the \emph{remote/supervised code
+  execution} approach to simply spin up a full fletched
+  environment/sandbox, that can be restricted at will in any way
+  (disable outgoing connections)
+\end{itemize}
+
+\emph{Conclusions:}
+
+\section{User Interfaces}\label{user-interfaces}
 
 \begin{itemize}
 \tightlist
 \item
-  UI for Management \& Administration
-\end{itemize}
-
-\subsection{External}\label{external}
-
-\begin{itemize}
+  has to be visual?
 \item
-  should there be a way to somehow request information about what data
-  is available/queryable, or would this be result in spam/crawler and
-  security issues (also a question for the topic of
-  permissions/sensibility level of certain data)
+  what about an api? e.g.~for third party apps (for operator) - maybe
+  self fulfilling because open source
 \item
-  certain types of requests, depending on expire date:
+  Internal:
 
   \begin{itemize}
   \tightlist
   \item
-    ``ask me any time''
+    UI for Management \& Administration
   \item
-    ``allowed until further notice''
-  \item
-    one-time permission (but respecting certain http error codes and
-    possible timeout - that might not count)
+    Authentication/login
   \end{itemize}
 \end{itemize}
 
-\subsection{Authentication}\label{authentication-1}
-
-\begin{itemize}
-\tightlist
-\item
-  regarding oAuth as authentication: Priorly users tended to reuse their
-  password for different account, nowadays they but also tend to get
-  tired of creating new accounts and profiles over and over again
-  instead of having just one account for everything
-  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{120}{]}.
-\end{itemize}
-
-Thus the platform owners leave the responsibility of
-
-Many websites and platforms understand those \emph{login-with
-\$platformName} mechanisms as an outsourced service that handles all
-security- and user-related tasks.
-
-what about token stealing when using jwt?
-
-\subsection{\texorpdfstring{\emph{Conclusions}}{Conclusions}}\label{conclusions-1}
+\emph{Conclusions:}
 
 \chapter{Specification}\label{specification}
 
@@ -3078,6 +3187,22 @@ Infrastructure}\label{notification-infrastructure}
 
 \subsection{Permission Request / Consumer
 Registration}\label{permission-request-consumer-registration}
+
+\begin{itemize}
+\tightlist
+\item
+  data to provide in a registration request:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    CSR\footnote{Certificate signing request}
+  \item
+    callback URI as feedback channel
+  \item
+    permissions: what data for what purpose and how long
+  \end{itemize}
+\end{itemize}
 
 \subsection{Data Access}\label{data-access}
 
@@ -3137,7 +3262,7 @@ How do the APIs involved with the protocols look like?
   server to a mobile device)
 \end{itemize}
 
-\subsection{Authentication}\label{authentication-2}
+\subsection{Authentication}\label{authentication-1}
 
 \begin{itemize}
 \tightlist
@@ -3200,9 +3325,27 @@ Monetisation}\label{business-models-monetisation}
   \emph{PDaaS}s as resources for their business processes, but I am
   certain, that the demand for all different kinds of data exceeds the
   partial uncertainty of their reliability.
+\item
+  personal data leaking Preventing personal data from being leaked to
+  the outside, is, especially because of the system's purpose, extremely
+  hard to prevent, if not possible at all. Just by querying data from
+  the storage or by physically transferring them from one location to
+  another, it's already copied. It's the very nature of digital
+  information technology/systems. So this cannot be defeated. It only
+  can be impeded. Interestingly though, is the same approach the media
+  industry for centuries is trying to make copyright infringements more
+  difficult.
 \end{itemize}
 
 \section{Solutions}\label{solutions}
+
+\begin{itemize}
+\tightlist
+\item
+  even though \emph{OAuth} don't find it's way into this project,
+  working through the standard inspired here and there a solution, for
+  example using a URI as a feedback channel or TODO.
+\end{itemize}
 
 \section{Attack Scenarios}\label{attack-scenarios}
 
@@ -3221,6 +3364,8 @@ Monetisation}\label{business-models-monetisation}
     worse (stolen). The aspect of data decentralisation achieved by
     individual data stores can be valued as positive.
   \end{itemize}
+\item
+  what about token stealing when using jwt?
 \end{itemize}
 
 \section{Future Work}\label{future-work}

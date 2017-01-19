@@ -40,6 +40,15 @@ Specification
 
 ### Permission Request / Consumer Registration
 
++   data to provide in a registration request:
+    -   CSR [^abbr_csr]
+    -   callback URI as feedback channel
+    -   permissions: what data for what purpose and how long
+    
+    
+    
+[^abbr_csr]: Certificate signing request
+
 ### Data Access
 
 ### Data Management

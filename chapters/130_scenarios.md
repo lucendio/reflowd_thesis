@@ -29,9 +29,9 @@ The choices are: credit card, invoice, online payment provider of choice or bank
 chooses the last one, submits her selection and thereby completes her order.
 After a moment, a push notification pops up on her mobile device, which is a permission request 
 from her *PDaaS*, asking for granting the shop-system, she just places the order, access to her 
-full name, address and email. Additionally she can decide between three states of how log the 
-permission wil be valid: *one-time-only*, *expires-on-date* and *until-further-notice*. Since
-she never ordered at this shop before and might never again, she decided to grant access only
+full name, address and email. Additionally she can decide between three states of how long the 
+permission wil be valid: *only one time*, *expires on date* and *granted, until further notice*. 
+Since she never ordered at this shop before and might never again, she decided to grant access only
 for this specific occasion.
 After the shop-system receives the data, it sends an email to the data subject, containing some 
 information about her order, including the shop's bank details. which then enables her to

@@ -12,11 +12,13 @@ __UI__
 +   data editor and importer
     -   data type editor
 +   permission management
-    -   access history and access profile
+    -   access history and permission profile
     
 __Storage/Persistence__
 +   regardless of the platform
 +   connector
++   al least two storage: one for the actual data, the other for permission profiles, history and
+    all the other application data
 -   where to place the storage? local (e.g. mobile device) or cloud (e.g. hoster's infrastructure)
     +   requires 24/7 uptime
     
@@ -43,7 +45,23 @@ those OpenID capabilities isn't something the *PDaaS* depends on, instead extern
 depend on the *PDaaS* supporting that feature. It is imaginable, that an OpenID instance mapping on 
 a single individual would simplify the authentication procedure provided by that technology.
 However, it is beyond the scope of this work to either do further investigations regarding that 
-topic, nor elaborate on how this might look integrate with the currently developed feature-set.  
+topic, nor elaborate on how this might look integrate with the currently developed feature-set.
+
+
++   regarding oAuth as authentication:
+Priorly users tended to reuse their password for
+different account, nowadays they but also
+tend to get tired of creating new accounts and profiles over and over again instead of having
+just one account for everything [@web_2009-success-of-facebook-connect].
+
+Thus the platform owners leave the responsibility of 
+
+Many websites and platforms
+understand those *login-with $platformName* mechanisms as an outsourced service that handles all
+security- and user-related tasks.
+
+
+
 
 
 

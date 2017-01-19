@@ -18,7 +18,7 @@ case for personal data - at least for all the non-creative content. Thus there i
 for an individual to license those data, that obviously belongs to her. Switching the perspective 
 from the *data subject* to the data *consumer*; for them, several laws exist addressing conditions 
 and rules regarding data acquisition, processing and usage.
-Leaving aside the absence of any legislation regarding data ownership, it can not be denied, that
+Leaving aside the absence of any legislation regarding data ownership, it cannot be denied, that
 is seems unnatural not being the owner of all the data that reflects her identity and her as an 
 individual. So instead of defining those rules meant to protect data subjects, but demanding data 
 consumers to comply with, the proposal here is to put the entity, to whom the data is related to, in 

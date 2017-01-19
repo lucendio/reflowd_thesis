@@ -36,8 +36,20 @@ all data in question is relates to and is thereby owned by her, it, of cause, ma
 *data consumers* to trust *PDaaS*s as resources for their business processes, but I am certain, that 
 the demand for all different kinds of data exceeds the partial uncertainty of their reliability.
 
++   personal data leaking
+Preventing personal data from being leaked to the outside, is, especially because of the system's 
+purpose, extremely hard to prevent, if not possible at all. Just by querying data from the storage
+or by physically transferring them from one location to another, it's already copied. It's the
+very nature of digital information technology/systems.
+So this cannot be defeated. It only can be impeded. Interestingly though, is the same approach 
+the media industry for centuries is trying to make copyright infringements more difficult.
+
+
 
 ## Solutions
+
++   even though *OAuth* don't find it's way into this project, working through the standard inspired
+here and there a solution, for example using a URI as a feedback channel or TODO. 
 
 
 
@@ -49,6 +61,8 @@ the demand for all different kinds of data exceeds the partial uncertainty of th
         thus a single point of failure. If that service breaks or get down, the data from all users might be
         lost or worse (stolen). The aspect of data decentralisation achieved by individual data stores can 
         be valued as positive.
+
++   what about token stealing when using jwt?
 
 
 

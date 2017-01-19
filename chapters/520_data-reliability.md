@@ -2,15 +2,19 @@
 
 
 
-Whether it's the *operator* or a *data consumer*, not only the party's identity has to be 
-authenticated when communicating with the system, which is handled by the technologies proposed 
-in the [authentication](#authentication) section. The actual personal data that's being used 
-also has to be authentic and reliable ([S.A.04](#sa04)). But since the *operator* can change the
-data at any point in time, this property requires a process where a trustworthy third party has to 
-somehow verify the reliability of the data in question. That process on the other hand, is 
-in direct contrast to the discussion about the [authentication system](#authentication) and why 
-it should be designed so that it is self-contained. If instead it's not required to provide 
-information on the data being reliable or not, it won't be an issue anymore. 
+Within the section [about authentication](#authentication) it was discussed how to preserve data 
+integrity - referring to possible man-in-the-middle attacks and alike. Furthermore it was described
+how to authenticate the different user roles so that their identities are ensured, though,
+authenticity of the actual data a *PDaaS* provides has yet to be ensured. In this case, authenticity
+refers to authentic and reliable ([S.A.04](#sa04)) data, which means a) the data really represent 
+the entity that is associated to the originating *PDaaS* and is thus owned by that entity,  and b) 
+the data is true at that moment when the related responses leaves the system.
+Since the *operator* can change the data at any point in time, this property requires a process 
+where a trustworthy third party has to somehow verify the reliability of the data in question. That 
+process on the other hand, is in direct contrast to the discussion about the 
+[authentication system](#authentication) and why it should be designed so that it is self-contained. 
+If instead it's not required to provide information on the data being reliable or not, it won't be 
+an issue anymore. 
 The information can be defined in a response as an optional property. Within the request the *data 
 consumer* has to indicate whether the response should contain information about it's reliability or 
 not. Depending on what data is requested, the *PDaaS* decides whether it's necessary to test for 
