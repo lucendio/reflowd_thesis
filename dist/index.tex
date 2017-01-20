@@ -2828,59 +2828,16 @@ Among other information, an \emph{access request} contains the
 \emph{data query} that shows very precisely what data points are
 affected by that request. So if an \emph{access request} arrives at the
 \emph{PDaaS}, assuming the \emph{data consumer} has been authenticated
-sufficiently, the systems (0) searches for the appropriate
-\emph{permission profile} that correspond to the \emph{data consumer}.
-If it fails to find one, the access request gets refused. But if it
-does, then it checks (1) if the permission type suffices at that moment
-and (2) if the query only contains data points that are also enabled in
-the \emph{profile}. Here the order does matter, because it is imaginable
-that the operation behind (1) is less complex then operation (2). So, at
-the end running (1) before (2) can result in a lower response-time, if
-operation (1) already results negative. If all operations have a
-positive result, access is granted.
-
-TODO: argument against oAuth: While in OAuth the authorisation procedure
-strictly involves an authentication, the previous proposed design
-separates authentication and authorisation from each other so that they
-can run completely independent. Additionally this approach would require
-almost no effort to support the case where multiple \emph{data
-consumers} share the same \emph{endpoint}. by just disabling the client
-authentication for the HTTPS connection establishment.
-
-As mentioned before, this result is a complete separation of
-authenticating a \emph{consumers} and authorizing their access
-
-oAuth (1.0a and 2) requires consumers to register upfront. But since the
-proposed flow-design indicates that the initial step has to be done by
-the \emph{operator}, it would cause an overhead in user interactions.
-Although the \emph{operator} has already authorized the \emph{consumer}
-simply by submitting a unique URI
-(\texttt{pdaas-server.tld/register?crt=CONSUMER\_REGISTER\_TOKEN}, of
-which the \texttt{crt} is considered private). Even though the
-registration provides the consumer with mandatory information such as a
-consumer identifier (v1: \texttt{oauth\_consumer\_key}, v2:
-\texttt{client\_id}) and, depending on the client type, a secret (see
-https://tools.ietf.org/html/rfc6749\#section-2), this process is not
-part the specification (https://oauth.net/core/1.0a/\#rfc.section.4.2,
-https://tools.ietf.org/html/rfc6749\#section-2). This enables the
-possibility of integrating oAuth into the consumer registration flow by
-using the \texttt{CONSUMER\_REGISTRATION\_TOKEN} as oAuth's \emph{client
-identifier}. The lack of credentials (v1:
-\texttt{auth\_consumer\_secret}, v2: \texttt{client\_secret}) would
-require transferring the consumer identifier done over a secure channel
-(e.g.~TLS). That would leave \emph{oAuth2} as the version of choice,
-since it relies on \emph{HTTPS} adn therefore makes the \emph{secret}
-optional. Where on the other side oAuth 1.0a requires a \emph{secret} to
-create a signature in order to support insecure connections..
-
-Both OAuth versions (1.0a and 2) seem Even though it might be possible
-to integrate \emph{OAuth} without needing to change much in the proposed
-process design, it seems to make not much sense to introduce an
-additional authentication procedure while not gaining any benefit from
-that or from the whole authorization flow.
-
-OAuth requires authentication in order to authorize, it has a dependency
-to that authentication process by design. However
+sufficiently, the systems (0) searches for a \emph{permission profile}
+that correspond to the \emph{data consumer} and the requested data
+points. If it fails to find one, the access request gets refused. But if
+it does, then it checks (1) if the permission type suffices at that
+moment and (2) if the query only contains data points that are also
+enabled in the \emph{profile}. Here the order does matter, because it is
+imaginable that the operation behind (1) is less complex then operation
+(2). So, at the end running (1) before (2) can result in a lower
+response-time, if operation (1) already results negative. If all
+operations have a positive result, access is granted.
 
 TODO: how to solve the situation were an external request is processed
 and during that moment the operator is changing some personal data?
@@ -2891,10 +2848,58 @@ available/queryable, or would this be result in spam/crawler and
 security issues (also a question for the topic of
 permissions/sensibility level of certain data)
 
+An already standardized way to implement authorization would be
+\protect\hyperlink{link_oauth}{OAuth} Specification, and since the TLS
+layer is already in place to handle authentication, the choice would be
+to use version 2 of the standard, because it relies on HTTPS. Only two
+of the four \emph{grant types} provided by OAuth would match with
+process design introduced above. The types are \texttt{password} and
+\texttt{client\_credentials}, which basically require identifier(s) and
+secret or credentials to directly request the \texttt{token}. The other
+two types define additional steps and interactions involving client
+\emph{(consumer)} and user \emph{(operator)} before getting
+the\texttt{token}. This would make the proposed process undesirably more
+complicated. Although the proposal includes user interactions like
+selecting and confirming requested permissions as well. According to the
+documentations
+{[}\protect\hyperlink{ref-web_spec_oauth-1a_client-reg}{120}{]}
+{[}\protect\hyperlink{ref-web_spec_oauth-2_client-reg}{121}{]}, both
+OAuth versions (1.0a and 2) require the client \emph{(data consumer)} to
+register to the authorization server upfront (to obtain a
+\texttt{client\_id}), before initializing the authorization process.
+However, as stated before, the concept of the \emph{data subject}
+``pulling'' a \emph{data consumer} towards the \emph{PDaaS} is preferred
+over letting \emph{data consumers} try to ``push'' themselves towards
+the system. The reason is to prevent unwanted applications for data
+access, because they all have to get reviewed by the \emph{data
+subject}. Furthermore, it is not within the scope of the OAuth
+Specification to define how this should be accomplished. Thus, such step
+needs to be added in addition to an entire OAuth-Flow, which might cause
+otherwise avoidable overhead in user interactions. Moreover, the
+proposed design does not include that step either. Instead, it is not
+needed process at all, because according to the former proposed process,
+identifying the client happens implicitly as a result of how the
+resource owner \emph{(operator)} obtains the registration request from
+the client (Part One: consumer registration, step 0 and 1). Further
+investigations show that the \texttt{access\_token} semantic as from the
+perspective of a resource server, which are a) authentication (does this
+token exist?) and b) authorization (is this token valid and what does it
+permit?), have in part already been provided by the proposed way of
+using the TLS layer. Because every \emph{data consumer} has it's own
+endpoint to connect with the \emph{PDaaS} and the certificate used by
+the \emph{consumer} is singed by a signature that is only used for that
+endpoint. This means, the \emph{consumer} is already authenticated, when
+the TLS connection has successfully established. And since the endpoints
+relates to the \emph{permission profiles} it would make providing an
+\texttt{access\_token} to become obsolete. To summarize, implementing
+OAuth would introduce several mechanisms that otherwise can be provided
+by the combination of \emph{mutual authentication} in TLS, dedicated
+endpoints and certification.
+
 \emph{Conclusions:}
 
-, because they wont require additional infrastructure and interfaces to
-the \emph{PDaaS}
+TODO: no DRM way , because they wont require additional infrastructure
+and interfaces to the \emph{PDaaS}
 
 It might also be conceivable, that certain categories of personal data
 with a higher sensitivity level also require a least sufficient
@@ -2913,7 +2918,56 @@ large research area on its own, which recently started to gains a lot of
 traction due to emerging privacy concerns about \emph{big data}. Thus it
 will be left for future work.
 
+Either OAuth is a suitable fit for this project or not. Either it
+implements the specification to it's last or doesn't implement it att
+all. It makes no sense to make use out of certain steps, but
+implementing them with different semantics underneath just to make it
+fit into the system It it not the goal of a specification
+
+At the end, the only suitable use case from the specification would
+consists of just a request that obtains a token after authenticating
+with the provided credentials. In the context of this project OAuth
+doesn't really match with the rest of the design aspects.
+
+The following three solutions are possible:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  OAuth 1.0a and HTTP
+\item
+  OAuth 2 and HTTPS (public Certification and PKI)
+\item
+  HTTP over TLS with \emph{mutual Authentication}, private PKI,
+  sub-domains as dedicated endpoints
+\end{enumerate}
+
+The solutions a) and b) require an extra step were \emph{data consumers}
+would register themselves at the \emph{PDaaS}. This already needs a
+secure channel to prevent man-in-the-middle attacks. Furthermore does
+option a) obtain a symmetrical key for creating signatures which have to
+ensure confidentiality and integrity in the subsequent steps. Thereby
+HTTPS is mandatory, which makes b) more suitable over a), because it's
+more flexible and easier to implement.
+
+Whereas solution c) moves the complete authentication procedure to a
+different layer. It hence results in separating authentication and
+authorization from each other, leaving no remains of relation. This
+opens the authorization design up for example to other implementations
+that might be more suitable for certain \emph{data types}. In addition,
+it would only require little effort to support the case where multiple
+\emph{data consumers} share the same \emph{endpoint} and thereby the
+same \emph{permission profiles}.
+
+And combining b) and c) would result in significant redundancy, since
+both solutions have much overlap in the features they are providing.
+Even though b) aims to be a framework for authorization.
+
 \section{Architecture}\label{architecture}
+
+Taking all discussions in previous sections into account, the following
+components might be feasible and would cover most use cases.
 
 \begin{itemize}
 \tightlist
@@ -3041,7 +3095,7 @@ might look integrate with the currently developed feature-set.
   password for different account, nowadays they but also tend to get
   tired of creating new accounts and profiles over and over again
   instead of having just one account for everything
-  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{120}{]}.
+  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{122}{]}.
 \end{itemize}
 
 Thus the platform owners leave the responsibility of
@@ -3205,6 +3259,10 @@ Registration}\label{permission-request-consumer-registration}
 \end{itemize}
 
 \subsection{Data Access}\label{data-access}
+
+TODO: detailed description of the algorithm that checks \emph{permission
+profiles} according to an \emph{access request}; including all different
+possible cases (multiple profiles for one consumer etc)
 
 \subsection{Data Management}\label{data-management}
 
@@ -3371,13 +3429,24 @@ Monetisation}\label{business-models-monetisation}
 \section{Future Work}\label{future-work}
 
 \begin{itemize}
-\tightlist
 \item
   maybe enable the tool to play the role of an own OpenID provider?
 \item
   going one step further and train machine (predictor) by our self with
   our own data
   (https://www.technologyreview.com/s/514356/stephen-wolfram-on-personal-analytics/)
+\item
+  finalize first draft of the spec with all core aspect included and
+  outlined
+\item
+  developing based on that a first prototype to find flaws in the spec.
+  iterate/repeat
+\item
+  release 1.0 (spec and example implementation)
+\item
+  touch on parts that were left blank
+\item
+  first supporting platforms
 \end{itemize}
 
 \section{Summary}\label{summary}
@@ -4074,8 +4143,19 @@ Available:
 \emph{Cryptography and network security: Principles and practice},
 Seventh edition., Boston: Pearson, 2014, p. 307.
 
+\hypertarget{ref-web_spec_oauth-1a_client-reg}{}
+{[}120{]} ``OAuth core 1.0a.'' {[}Online{]}. Available:
+\url{https://oauth.net/core/1.0a/\#rfc.section.4.2}. {[}Accessed:
+01-Nov-2016{]}
+
+\hypertarget{ref-web_spec_oauth-2_client-reg}{}
+{[}121{]} D. Hardt, ``The OAuth 2.0 authorization framework,'' Oct-2012.
+{[}Online{]}. Available:
+\url{https://tools.ietf.org/html/rfc6749\#section-2}. {[}Accessed:
+01-Nov-2016{]}
+
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}120{]} N. Carlson, ``Facebook connect is a huge success -- by the
+{[}122{]} N. Carlson, ``Facebook connect is a huge success -- by the
 numbers,'' 01-Jul-2009. {[}Online{]}. Available:
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 {[}Accessed: 16-Dec-2016{]}

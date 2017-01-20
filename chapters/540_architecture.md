@@ -1,5 +1,11 @@
 ## Architecture
 
+
+
+Taking all discussions in previous sections into account, the following components might be 
+feasible and would cover most use cases.
+
+
 +   which components can go where?
 +   how can data be provided to a a data consumer without the data ever leaving the system?
 +   where are reasonable places to locate the storage that holds the operators's personal data

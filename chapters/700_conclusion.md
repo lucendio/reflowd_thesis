@@ -70,7 +70,13 @@ here and there a solution, for example using a URI as a feedback channel or TODO
 ## Future Work
 
 +   maybe enable the tool to play the role of an own OpenID provider?
-+   going one step further and train machine (predictor) by our self with our own data (https://www.technologyreview.com/s/514356/stephen-wolfram-on-personal-analytics/) 
++   going one step further and train machine (predictor) by our self with our own data (https://www.technologyreview.com/s/514356/stephen-wolfram-on-personal-analytics/)
+
++   finalize first draft of the spec with all core aspect included and outlined
++   developing based on that a first prototype to find flaws in the spec. iterate/repeat
++   release 1.0 (spec and example implementation)
++   touch on parts that were left blank
++   first supporting platforms
 
 
 

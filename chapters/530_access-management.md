@@ -116,60 +116,14 @@ profile* has been deleted
 
 Among other information, an *access request* contains the *data query* that shows very precisely 
 what data points are affected by that request. So if an *access request* arrives at the *PDaaS*,
-assuming the *data consumer* has been authenticated sufficiently, the systems (0) searches for the
-appropriate *permission profile* that correspond to the *data consumer*. If it fails to find one, 
-the access request gets refused. But if it does, then it checks (1) if the permission type suffices 
-at that moment and (2) if the query only contains data points that are also enabled in the 
-*profile*. Here the order does matter, because it is imaginable that the operation behind (1) is 
-less complex then operation (2). So, at the end running (1) before (2) can result in a lower 
-response-time, if operation (1) already results negative. If all operations have a positive result,
-access is granted.
-
-
-
-TODO: argument against oAuth:
-While in OAuth the authorisation procedure strictly involves an authentication, the previous 
-proposed design separates authentication and authorisation from each other so that they can run 
-completely independent. Additionally this approach would require almost no effort to support
-the case where multiple *data consumers* share the same *endpoint*.
-by just disabling the client authentication for the HTTPS connection establishment.
-
-
-
-As mentioned before, this result is a complete separation of authenticating a *consumers* and
-authorizing their access
-
-
-    
-oAuth (1.0a and 2) requires consumers to register upfront. But since the proposed flow-design 
-indicates that the initial step has to be done by the *operator*, it would cause an overhead in user 
-interactions. Although the *operator* has already authorized the *consumer* simply by submitting a 
-unique URI (`pdaas-server.tld/register?crt=CONSUMER_REGISTER_TOKEN`, of which the `crt` 
-is considered private).
-Even though the registration provides the consumer with mandatory information such as a 
-consumer identifier (v1: `oauth_consumer_key`, v2: `client_id`) and, depending on the client 
-type, a secret (see https://tools.ietf.org/html/rfc6749#section-2), this process is not 
-part the specification (https://oauth.net/core/1.0a/#rfc.section.4.2, 
-https://tools.ietf.org/html/rfc6749#section-2). This enables the possibility of integrating 
-oAuth into the consumer registration flow by using the `CONSUMER_REGISTRATION_TOKEN` as
-oAuth's *client identifier*. The lack of credentials (v1: `auth_consumer_secret`, 
-v2: `client_secret`) would require transferring the consumer identifier done over
-a secure channel (e.g. TLS). That would leave *oAuth2* as the version of choice, since it
-relies on *HTTPS* adn therefore makes the *secret* optional. Where on the other side
-oAuth 1.0a requires a *secret* to create a signature in order to support insecure connections..
-
-Both OAuth versions (1.0a and 2) seem 
-Even though it might be possible to integrate *OAuth* without needing to change much in the proposed 
-process design, it seems to make not much sense to introduce an additional authentication procedure 
-while not gaining any benefit from that or from the whole authorization flow.
-
-OAuth requires authentication in order to authorize, it has a dependency to that authentication 
-process by design. However
-
-
-
-
-
+assuming the *data consumer* has been authenticated sufficiently, the systems (0) searches for a
+*permission profile* that correspond to the *data consumer* and the requested data points. If it 
+fails to find one, the access request gets refused. But if it does, then it checks (1) if the 
+permission type suffices at that moment and (2) if the query only contains data points that are also 
+enabled in the *profile*. Here the order does matter, because it is imaginable that the operation 
+behind (1) is less complex then operation (2). So, at the end running (1) before (2) can result in a 
+lower response-time, if operation (1) already results negative. If all operations have a positive 
+result, access is granted.
 
 TODO: how to solve the situation were an external request is processed and during that moment 
 the operator is changing some personal data?
@@ -180,11 +134,46 @@ or would this be result in spam/crawler and security issues (also a question for
 permissions/sensibility level of certain data)
 
 
+An already standardized way to implement authorization would be [OAuth](#link_oauth) Specification, 
+and since the TLS layer is already in place to handle authentication, the choice would be to use 
+version 2 of the standard, because it relies on HTTPS.
+Only two of the four *grant types* provided by OAuth would match with process design introduced 
+above. The types are `password` and `client_credentials`, which basically require identifier(s) and 
+secret or credentials to directly request the `token`. The other two types define additional steps 
+and interactions involving client *(consumer)* and user *(operator)* before getting the`token`. This 
+would make the proposed process undesirably more complicated. Although the proposal includes user 
+interactions like selecting and confirming requested permissions as well.
+According to the documentations [@web_spec_oauth-1a_client-reg] [@web_spec_oauth-2_client-reg], 
+both OAuth versions (1.0a and 2) require the client *(data consumer)* to register to the 
+authorization server upfront (to obtain a `client_id`), before initializing the authorization 
+process. However, as stated before, the concept of the *data subject* "pulling" a *data consumer* 
+towards the *PDaaS* is preferred over letting *data consumers* try to "push" themselves towards the 
+system. The reason is to prevent unwanted applications for data access, because they all have to get
+reviewed by the *data subject*. Furthermore, it is not within the scope of the OAuth Specification 
+to define how this should be accomplished. Thus, such step needs to be added in addition to an 
+entire OAuth-Flow, which might cause otherwise avoidable overhead in user interactions. Moreover,
+the proposed design does not include that step either. Instead, it is not needed process at all,
+because according to the former proposed process, identifying the client happens implicitly as a
+result of how the resource owner *(operator)* obtains the registration request from the client
+(Part One: consumer registration, step 0 and 1).
+Further investigations show that the `access_token` semantic as from the perspective of a resource 
+server, which are a) authentication (does this token exist?) and b) authorization (is this token 
+valid and what does it permit?), have in part already been provided by the proposed way of using the 
+TLS layer. Because every *data consumer* has it's own endpoint to connect with the *PDaaS* and the 
+certificate used by the *consumer* is singed by a signature that is only used for that endpoint. 
+This means, the *consumer* is already authenticated, when the TLS connection has successfully 
+established. And since the endpoints relates to the *permission profiles* it would make providing 
+an `access_token` to become obsolete.
+To summarize, implementing OAuth would introduce several mechanisms that otherwise can be provided
+by the combination of *mutual authentication* in TLS, dedicated endpoints and certification.
+
 
 
 *Conclusions:* 
 
+TODO: no DRM way
 , because they wont require additional infrastructure and interfaces to the *PDaaS*
+
 
 It might also be conceivable, that certain categories of personal data with a higher sensitivity 
 level also require a least sufficient *request type*. If the *data consumer* does not comply, access
@@ -204,6 +193,39 @@ of traction due to emerging privacy concerns about *big data*. Thus it will be l
 
 
 
+Either OAuth is a suitable fit for this project or not. Either it implements the specification to 
+it's last or doesn't implement it att all. It makes no sense to make use out of certain steps, but 
+implementing them with different semantics underneath just to make it fit into the system
+It it not the goal of a specification
+
+
+
+At the end, the only suitable use case from the specification would consists of just a request that 
+obtains a token after authenticating with the provided credentials.
+In the context of this project OAuth doesn't really match with the rest of the design aspects. 
+
+
+
+The following three solutions are possible:
+a)  OAuth 1.0a and HTTP
+b)  OAuth 2 and HTTPS (public Certification and PKI)
+c)  HTTP over TLS with *mutual Authentication*, private PKI, sub-domains as dedicated endpoints
+
+The solutions a) and b) require an extra step were *data consumers* would register themselves at the 
+*PDaaS*. This already needs a secure channel to prevent man-in-the-middle attacks. Furthermore does 
+option a) obtain a symmetrical key for creating signatures which have to ensure confidentiality and 
+integrity in the subsequent steps. Thereby HTTPS is mandatory, which makes b) more suitable over a),
+because it's more flexible and easier to implement.   
+
+Whereas solution c) moves the complete authentication procedure to a different layer. It hence 
+results in separating authentication and authorization from each other, leaving no remains of 
+relation. This opens the authorization design up for example to other implementations that might be 
+more suitable for certain *data types*. In addition, it would only require little effort to support
+the case where multiple *data consumers* share the same *endpoint* and thereby the same *permission
+profiles*.
+
+And combining b) and c) would result in significant redundancy, since both solutions have much 
+overlap in the features they are providing. Even though b) aims to be a framework for authorization.
 
 
 

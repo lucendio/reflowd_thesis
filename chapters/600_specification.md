@@ -51,6 +51,10 @@ Specification
 
 ### Data Access
 
+TODO: detailed description of the algorithm that checks *permission profiles* according to an 
+*access request*; including all different possible cases (multiple profiles for one consumer etc)
+
+
 ### Data Management
 
 
