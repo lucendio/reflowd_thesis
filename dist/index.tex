@@ -2474,7 +2474,8 @@ will be briefly noted as an optional security enhancement for the
 \emph{operator role}. However detailed discussions regarding this topic
 are left to follow-up work on the specification.
 
-\section{Data Reliability}\label{data-reliability}
+\hypertarget{data-reliability}{\section{Data
+Reliability}\label{data-reliability}}
 
 Within the section \protect\hyperlink{authentication}{about
 authentication} it was discussed how to preserve data integrity -
@@ -2839,14 +2840,51 @@ imaginable that the operation behind (1) is less complex then operation
 response-time, if operation (1) already results negative. If all
 operations have a positive result, access is granted.
 
-TODO: how to solve the situation were an external request is processed
-and during that moment the operator is changing some personal data?
+As stated in the section about \protect\hyperlink{data-reliability}{data
+reliability}, the \emph{data subject} is able to add, change or remove
+all her data or even the \emph{permission profiles} at any point in
+time. This raises the question of how to solve the situation were
+\emph{data requests} are being processed, while those changes are
+happening and might affect the result of those requests. The first and
+simplest approach would be to not address this issue at all, but that
+would be unreasonable, because providing data to the \emph{consumer}
+normally means for the \emph{data subject} get something in return or to
+somehow benefit from that. So that approach is no option. Using a
+failure of reliability verifications as a mechanism to re-request data
+won't work either in that case, because it would be based on a wrong
+assumption, since that failure can have multiple causes, not only the
+issue here in question. A stateless solution seems to be not fitting due
+to the time-related dependency. So the only currently perceivable way is
+to keep track of all momentarily processing or pending \emph{access
+requests}, to detect those who are affected by that changes so that each
+of them can be aborted and processed again. Here it is important to
+determine the right moment, when all changes are done, otherwise the
+system might end up restarting those computations repeatedly within a
+short amount of time. The described issue relates to both,
+\emph{personal data} and \emph{permission profiles}, because either can
+impact the response send to t \emph{data consumer}. Furthermore, it
+needs to be ensured that only after the \emph{permission requests} are
+being reviewed and the \emph{permission profiles} are being created, the
+\emph{data consumers} receive their credentials or a notification to get
+started.
 
-TODO: expose information about what personal data is available? should
-there be a way to somehow request information about what data is
-available/queryable, or would this be result in spam/crawler and
-security issues (also a question for the topic of
-permissions/sensibility level of certain data)
+It is up to the \emph{data consumers} to decide which data they are
+requesting to access, but how do they know what data can be requested?
+The only option is to expose information about data availability, which
+can be done in a variety of ways. First, those information can be made
+publicly available via URI, providing a Machine-readable format, so that
+it can be processed automatically by \emph{data consumers}. It is also
+feasible to restrict that access to only registered \emph{consumers}, in
+order to prevent those information from being crawled. They might be
+valued as meta data and therefore used in unwanted computations that
+could raise privacy concerns. It is imaginable to let the
+\emph{operator} restrict the access to these availability information on
+the level of individual \emph{data consumers} or system-wide, and to set
+a default configuration for that behaviour. Depending on that
+configurations request might fail, thus requester need to be provided
+with meaningful errors. Http error codes
+{[}\protect\hyperlink{ref-web_spec_http-error-codes}{120}{]} might be a
+a sufficient fit for that purpose.
 
 An already standardized way to implement authorization would be
 \protect\hyperlink{link_oauth}{OAuth} Specification, and since the TLS
@@ -2862,8 +2900,8 @@ the\texttt{token}. This would make the proposed process undesirably more
 complicated. Although the proposal includes user interactions like
 selecting and confirming requested permissions as well. According to the
 documentations
-{[}\protect\hyperlink{ref-web_spec_oauth-1a_client-reg}{120}{]}
-{[}\protect\hyperlink{ref-web_spec_oauth-2_client-reg}{121}{]}, both
+{[}\protect\hyperlink{ref-web_spec_oauth-1a_client-reg}{121}{]}
+{[}\protect\hyperlink{ref-web_spec_oauth-2_client-reg}{122}{]}, both
 OAuth versions (1.0a and 2) require the client \emph{(data consumer)} to
 register to the authorization server upfront (to obtain a
 \texttt{client\_id}), before initializing the authorization process.
@@ -2896,40 +2934,8 @@ OAuth would introduce several mechanisms that otherwise can be provided
 by the combination of \emph{mutual authentication} in TLS, dedicated
 endpoints and certification.
 
-\emph{Conclusions:}
-
-TODO: no DRM way , because they wont require additional infrastructure
-and interfaces to the \emph{PDaaS}
-
-It might also be conceivable, that certain categories of personal data
-with a higher sensitivity level also require a least sufficient
-\emph{request type}. If the \emph{data consumer} does not comply, access
-wont be permitted.
-
-Q: need the \emph{consumer} provide the program with or without all
-dependencies?
-
-Also, depending on which category the personal data relates to, the
-\emph{PDaaS} might be able to anonymize certain types of data somehow,
-if it's capable of doing so all, because the \emph{consumer} at least
-supposedly knows what individual is behind that \emph{PDaaS} it
-currently interacts with. The field for \emph{data anonymization} is a
-large research area on its own, which recently started to gains a lot of
-traction due to emerging privacy concerns about \emph{big data}. Thus it
-will be left for future work.
-
-Either OAuth is a suitable fit for this project or not. Either it
-implements the specification to it's last or doesn't implement it att
-all. It makes no sense to make use out of certain steps, but
-implementing them with different semantics underneath just to make it
-fit into the system It it not the goal of a specification
-
-At the end, the only suitable use case from the specification would
-consists of just a request that obtains a token after authenticating
-with the provided credentials. In the context of this project OAuth
-doesn't really match with the rest of the design aspects.
-
-The following three solutions are possible:
+\emph{Conclusions:} In the preceding text, various solutions were
+developed, based on which the following three solutions are at disposal:
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -2946,23 +2952,69 @@ The following three solutions are possible:
 The solutions a) and b) require an extra step were \emph{data consumers}
 would register themselves at the \emph{PDaaS}. This already needs a
 secure channel to prevent man-in-the-middle attacks. Furthermore does
-option a) obtain a symmetrical key for creating signatures which have to
+option a) obtain a symmetric key for creating signatures which have to
 ensure confidentiality and integrity in the subsequent steps. Thereby
 HTTPS is mandatory, which makes b) more suitable over a), because it's
-more flexible and easier to implement.
+also more flexible and easier to implement. Whereas solution c) moves
+the complete authentication procedure to a different layer. It hence
+results in separating authentication and authorization from each other,
+leaving no remains of relation. This opens the authorization design up
+to for example other implementations that might be more suitable for
+certain \emph{data types}. In addition, it would only require little
+effort to support the case where multiple \emph{data consumers} share
+the same \emph{endpoint} and thereby the same \emph{permission
+profiles}. And combining b) and c) would result in significant
+redundancy, since both solutions have much overlap in the features they
+are providing. Even though b) aims to be a framework for authorization.
+The process description at the beginning of this section will be used as
+the foundation of \emph{access management} in the \emph{PDaaS}.
+Implementing OAuth based on this design would leave nothing from the
+framework, but a simple request returning an identifier for it's
+permissions. So there is not much benefit in using OAuth, other then
+developers might be somewhat familiar with the API. This can be
+addressed by a detailed specification for this project, hence c) is
+preferred over b). At the end, the only suitable use case from the
+specification would consists of just a request that obtains a token
+after authenticating with the provided credentials. In the context of
+this project OAuth doesn't really match with the rest of the design
+aspects.
 
-Whereas solution c) moves the complete authentication procedure to a
-different layer. It hence results in separating authentication and
-authorization from each other, leaving no remains of relation. This
-opens the authorization design up for example to other implementations
-that might be more suitable for certain \emph{data types}. In addition,
-it would only require little effort to support the case where multiple
-\emph{data consumers} share the same \emph{endpoint} and thereby the
-same \emph{permission profiles}.
+How the first steps of a \emph{consumer registration} are look like, is
+up to the \emph{consumer}, even though the version involving a QR-Code
+might result in a nicer user experience from the \emph{data subject's}
+perspective. In any case, the secure channel is vital.
 
-And combining b) and c) would result in significant redundancy, since
-both solutions have much overlap in the features they are providing.
-Even though b) aims to be a framework for authorization.
+When obtaining personal data, at the same time preventing those data
+from leakage is almost impossible, because of the nature of digital data
+being able to get effortlessly copied. Nevertheless it is possible to
+make it much more difficult, so that it becomes inefficient to bypass
+those mechanism. At the same time it requires also some effort to
+establish, run and maintain the infrastructure needed for those
+mechanisms. In case of the \emph{Data DRM} proposal that effort is not
+proportionate, because it requires additional infrastructure, interfaces
+and cryptographic procedures, thus introduces new attack scenarios. For
+now the only approach being considered, is the \emph{Supervised Code
+Execution}, aside from the default forwarding. When implementing this
+approach, two directions might need to be considered. Alongside the
+executable program \emph{data consumers} either provide all dependencies
+so that everything is bundled up, or don't provide any dependency at
+all. The latter is preferred, because it reduces the amount of
+potentially malicious, flawed or needless components, so that the
+\emph{data subject}, supported by her \emph{PDaaS}, gains more
+supervising capabilities and thus more control over her personal data.
+Since the overall goal here is to prevent the \emph{data subject} from
+loosing control over her data, it might also be conceivable, that
+certain categories of personal data with a higher level of sensitivity
+also require a least sufficient \emph{request type}. If the \emph{data
+consumer} does not comply, access will be refused. Also, depending on
+which category the personal data relates to, the \emph{PDaaS} might be
+able to anonymize certain types of data somehow, if it's capable of
+doing so all, because the \emph{consumer} at least supposedly knows what
+individual is behind that \emph{PDaaS} it currently interacts with. The
+field for \emph{data anonymization} is a large research area on its own,
+which recently started to gains a lot of traction due to emerging
+privacy concerns about \emph{big data}. Thus it will be left for future
+work.
 
 \section{Architecture}\label{architecture}
 
@@ -3095,7 +3147,7 @@ might look integrate with the currently developed feature-set.
   password for different account, nowadays they but also tend to get
   tired of creating new accounts and profiles over and over again
   instead of having just one account for everything
-  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{122}{]}.
+  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{123}{]}.
 \end{itemize}
 
 Thus the platform owners leave the responsibility of
@@ -3127,6 +3179,16 @@ security- and user-related tasks.
 \item
   NOTE: step numbers marked with a \texttt{*} are somehow tasks which
   are happening in the background and don't require any user interaction
+\end{itemize}
+
+TODO: data types
+
+\begin{itemize}
+\item
+  missing data types as candidate for a ``plugin''/``addon'' concept,
+  because not every user might have the ability to model data types
+  according to her needs. to have a community for this, were the best
+  solutions might ``win''
 \item
   Modelling
 \item
@@ -4143,19 +4205,26 @@ Available:
 \emph{Cryptography and network security: Principles and practice},
 Seventh edition., Boston: Pearson, 2014, p. 307.
 
+\hypertarget{ref-web_spec_http-error-codes}{}
+{[}120{]} P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T.
+Fielding, and J. Gettys, ``Hypertext transfer protocol -- HTTP/1.1,''
+Jun-1999. {[}Online{]}. Available:
+\url{https://tools.ietf.org/html/rfc2616\#section-10}. {[}Accessed:
+20-Jan-2017{]}
+
 \hypertarget{ref-web_spec_oauth-1a_client-reg}{}
-{[}120{]} ``OAuth core 1.0a.'' {[}Online{]}. Available:
+{[}121{]} ``OAuth core 1.0a.'' {[}Online{]}. Available:
 \url{https://oauth.net/core/1.0a/\#rfc.section.4.2}. {[}Accessed:
 01-Nov-2016{]}
 
 \hypertarget{ref-web_spec_oauth-2_client-reg}{}
-{[}121{]} D. Hardt, ``The OAuth 2.0 authorization framework,'' Oct-2012.
+{[}122{]} D. Hardt, ``The OAuth 2.0 authorization framework,'' Oct-2012.
 {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc6749\#section-2}. {[}Accessed:
 01-Nov-2016{]}
 
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}122{]} N. Carlson, ``Facebook connect is a huge success -- by the
+{[}123{]} N. Carlson, ``Facebook connect is a huge success -- by the
 numbers,'' 01-Jul-2009. {[}Online{]}. Available:
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 {[}Accessed: 16-Dec-2016{]}

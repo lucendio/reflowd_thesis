@@ -125,14 +125,38 @@ behind (1) is less complex then operation (2). So, at the end running (1) before
 lower response-time, if operation (1) already results negative. If all operations have a positive 
 result, access is granted.
 
-TODO: how to solve the situation were an external request is processed and during that moment 
-the operator is changing some personal data?
+As stated in the section about [data reliability](#data-reliability), the *data subject* is able to
+add, change or remove all her data or even the *permission profiles* at any point in time. This 
+raises the question of how to solve the situation were *data requests* are being processed, while 
+those changes are happening and might affect the result of those requests. The first and simplest 
+approach would be to not address this issue at all, but that would be unreasonable, because 
+providing data to the *consumer* normally means for the *data subject* get something in return or to 
+somehow benefit from that. So that approach is no option. Using a failure of reliability 
+verifications as a mechanism to re-request data won't work either in that case, because it would be 
+based on a wrong assumption, since that failure can have multiple causes, not only the issue here in 
+question.
+A stateless solution seems to be not fitting due to the time-related dependency. So the only 
+currently perceivable way is to keep track of all momentarily processing or pending *access 
+requests*, to detect those who are affected by that changes so that each of them can be aborted and
+processed again. Here it is important to determine the right moment, when all changes are done, 
+otherwise the system might end up restarting those computations repeatedly within a short amount of 
+time. The described issue relates to both, *personal data* and *permission profiles*, because either
+can impact the response send to t *data consumer*.
+Furthermore, it needs to be ensured that only after the *permission requests* are being reviewed and 
+the *permission profiles* are being created, the *data consumers* receive their credentials or a 
+notification to get started.
 
-TODO: expose information about what personal data is available?
-should there be a way to somehow request information about what data is available/queryable,
-or would this be result in spam/crawler and security issues (also a question for the topic of
-permissions/sensibility level of certain data)
-
+It is up to the *data consumers* to decide which data they are requesting to access, but how do they 
+know what data can be requested? The only option is to expose information about data availability, 
+which can be done in a variety of ways. First, those information can be made publicly available via 
+URI, providing a Machine-readable format, so that it can be processed automatically by *data 
+consumers*. It is also feasible to restrict that access to only registered *consumers*, in order to 
+prevent those information from being crawled. They might be valued as meta data and therefore used 
+in unwanted computations that could raise privacy concerns. It is imaginable to let the *operator* 
+restrict the access to these availability information on the level of individual *data consumers* or 
+system-wide, and to set a default configuration for that behaviour. Depending on that configurations
+request might fail, thus requester need to be provided with meaningful errors. Http error codes 
+[@web_spec_http-error-codes] might be a a sufficient fit for that purpose.
 
 An already standardized way to implement authorization would be [OAuth](#link_oauth) Specification, 
 and since the TLS layer is already in place to handle authentication, the choice would be to use 
@@ -170,62 +194,60 @@ by the combination of *mutual authentication* in TLS, dedicated endpoints and ce
 
 
 *Conclusions:* 
-
-TODO: no DRM way
-, because they wont require additional infrastructure and interfaces to the *PDaaS*
-
-
-It might also be conceivable, that certain categories of personal data with a higher sensitivity 
-level also require a least sufficient *request type*. If the *data consumer* does not comply, access
-wont be permitted.
-
-Q: need the *consumer* provide the program with or without all dependencies?
-
-
-
-Also, depending on which category the personal data relates to, the *PDaaS* might be able to 
-anonymize certain types of data somehow, if it's capable of doing so all, because the *consumer* at 
-least supposedly knows what individual is behind that *PDaaS* it currently interacts with. The field
-for *data anonymization* is a large research area on its own, which recently started to gains a lot 
-of traction due to emerging privacy concerns about *big data*. Thus it will be left for future work.
-
-
-
-
-
-Either OAuth is a suitable fit for this project or not. Either it implements the specification to 
-it's last or doesn't implement it att all. It makes no sense to make use out of certain steps, but 
-implementing them with different semantics underneath just to make it fit into the system
-It it not the goal of a specification
-
-
-
-At the end, the only suitable use case from the specification would consists of just a request that 
-obtains a token after authenticating with the provided credentials.
-In the context of this project OAuth doesn't really match with the rest of the design aspects. 
-
-
-
-The following three solutions are possible:
+In the preceding text, various solutions were developed, based on which the following three 
+solutions are at disposal:
 a)  OAuth 1.0a and HTTP
 b)  OAuth 2 and HTTPS (public Certification and PKI)
 c)  HTTP over TLS with *mutual Authentication*, private PKI, sub-domains as dedicated endpoints
 
 The solutions a) and b) require an extra step were *data consumers* would register themselves at the 
 *PDaaS*. This already needs a secure channel to prevent man-in-the-middle attacks. Furthermore does 
-option a) obtain a symmetrical key for creating signatures which have to ensure confidentiality and 
+option a) obtain a symmetric key for creating signatures which have to ensure confidentiality and 
 integrity in the subsequent steps. Thereby HTTPS is mandatory, which makes b) more suitable over a),
-because it's more flexible and easier to implement.   
-
+because it's also more flexible and easier to implement.
 Whereas solution c) moves the complete authentication procedure to a different layer. It hence 
 results in separating authentication and authorization from each other, leaving no remains of 
-relation. This opens the authorization design up for example to other implementations that might be 
+relation. This opens the authorization design up to for example other implementations that might be 
 more suitable for certain *data types*. In addition, it would only require little effort to support
 the case where multiple *data consumers* share the same *endpoint* and thereby the same *permission
 profiles*.
-
 And combining b) and c) would result in significant redundancy, since both solutions have much 
 overlap in the features they are providing. Even though b) aims to be a framework for authorization.
+The process description at the beginning of this section will be used as the foundation of *access
+management* in the *PDaaS*. Implementing OAuth based on this design would leave nothing from the 
+framework, but a simple request returning an identifier for it's permissions. So there is not much
+benefit in using OAuth, other then developers might be somewhat familiar with the API. This can
+be addressed by a detailed specification for this project, hence c) is preferred over b).
+At the end, the only suitable use case from the specification would consists of just a request that 
+obtains a token after authenticating with the provided credentials.
+In the context of this project OAuth doesn't really match with the rest of the design aspects.
+
+How the first steps of a *consumer registration* are look like, is up to the *consumer*, even though
+the version involving a QR-Code might result in a nicer user experience from the *data subject's*
+perspective. In any case, the secure channel is vital.
+
+When obtaining personal data, at the same time preventing those data from leakage is almost 
+impossible, because of the nature of digital data being able to get effortlessly copied. 
+Nevertheless it is possible to make it much more difficult, so that it becomes inefficient to bypass 
+those mechanism. At the same time it requires also some effort to establish, run and maintain the 
+infrastructure needed for those mechanisms. In case of the *Data DRM* proposal that effort is not 
+proportionate, because it requires additional infrastructure, interfaces and cryptographic 
+procedures, thus introduces new attack scenarios. For now the only approach being considered, is 
+the *Supervised Code Execution*, aside from the default forwarding. When implementing this approach,
+two directions might need to be considered. Alongside the executable program *data consumers* either
+provide all dependencies so that everything is bundled up, or don't provide any dependency at all.
+The latter is preferred, because it reduces the amount of potentially malicious, flawed or needless 
+components, so that the *data subject*, supported by her *PDaaS*, gains more supervising 
+capabilities and thus more control over her personal data.
+Since the overall goal here is to prevent the *data subject* from loosing control over her data, it 
+might also be conceivable, that certain categories of personal data with a higher level of 
+sensitivity also require a least sufficient *request type*. If the *data consumer* does not comply, 
+access will be refused.
+Also, depending on which category the personal data relates to, the *PDaaS* might be able to 
+anonymize certain types of data somehow, if it's capable of doing so all, because the *consumer* at 
+least supposedly knows what individual is behind that *PDaaS* it currently interacts with. The field
+for *data anonymization* is a large research area on its own, which recently started to gains a lot 
+of traction due to emerging privacy concerns about *big data*. Thus it will be left for future work.
 
 
 
