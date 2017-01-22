@@ -728,7 +728,7 @@ Ownership}\label{digital-identity-personal-data-and-ownership}}
   it might not be necessary to know the values of all attributes in
   order to identify a person as the rightful owner and physical
   counterpart. It can also be seen as an avatar in the digital world or
-  as the digital part of a human's identity. Therefore its important to
+  as the digital part of a human's identity. Therefore it's important to
   not view the \emph{DI} as a reduction of a living individual to some
   bits and bytes, but rather as a appropriate representation for certain
   purposes and contexts.
@@ -1530,7 +1530,7 @@ protocol transfers the data hat need to be exchanged. Features
 introduced with Version 2
 {[}\protect\hyperlink{ref-web_spec_http2}{75}{]} of the protocol are yet
 to be known of their relevance of use cases within this project.
-\emph{Websockes} {[}\protect\hyperlink{ref-web_spec_websockets}{76}{]}
+\emph{WebSockes} {[}\protect\hyperlink{ref-web_spec_websockets}{76}{]}
 might also be a possibility to communicate between components or even
 with external parties, which has the advantage of high efficient ongoing
 bidirectional connections using for real-time data exchange or remotely
@@ -3018,127 +3018,103 @@ work.
 
 \section{Architecture}\label{architecture}
 
-Taking all discussions in previous sections into account, the following
-components might be feasible and would cover most use cases.
+By taking all previous sections, their discussions and the requirements
+as well into account, this section serves the sole purpose of figuring
+out how all the different concepts and conclusions discussed before can
+fit together in an overall system architecture that is organized in
+either a distributed or a monolithic manner. This type of changes should
+not impact how the system's interfaces behave from a user perspective.
+
+The conglomeration below highlights all major components, that are
+required in order to cover most of the defined use cases. It includes
+further details about their purpose(s) and relation(s) to each other.
+
+\subparagraph{Web server}\label{web-server}
+
+\emph{Purpose:} + serve web-based user interface(s) + handle all in- \&
+outgoing traffic (outmost layer) + revers proxying certain traffic to
+different components + en- \& decrypt HTTPS traffic, thus client
+authentication + load balancing (if necessary)\\
+\emph{Platform:} + server \emph{Technologies:} + HTTP + TLS + WebSockets
+\emph{Explanation/argumentation:}
+
+\subparagraph{PKI}\label{pki}
+
+\emph{Purpose:} + CA + manage keys and certificates per \emph{data
+consumer} \emph{Platform:} + server \emph{Technologies:} + X.509
+
+\subparagraph{User interface}\label{user-interface}
+
+\emph{Purpose:} + access \& permission management + data management
+(editor, types \& import) + history log \emph{Platform:} + desktop +
+mobile \emph{Technologies:} + HTML, CSS, Javascript + Java + Swift,
+Objective-C
+
+\subparagraph{Personal Data Storage}\label{personal-data-storage}
+
+\emph{Purpose:} \emph{Platform:}\\
+\emph{Technologies:} + regardless of the platform + connector + al least
+two storage: one for the actual data, the other for permission profiles,
+history and all the other application data - where to place the storage?
+local (e.g.~mobile device) or cloud (e.g.~hoster's infrastructure) +
+requires 24/7 uptime
+
+\subparagraph{Persistence}\label{persistence-1}
+
+\emph{Purpose:} + stores Permission Profiles, History, Tokens,
+Configurations and other meta data \emph{Platform:}\\
+\emph{Technologies:}
+
+\subparagraph{Domain Logic}\label{domain-logic}
+
+\emph{Purpose:} + permission verification \emph{Platform:}\\
+\emph{Technologies:}
+
+\subparagraph{Notification
+Infrastructure}\label{notification-infrastructure}
+
+\emph{Purpose:} \emph{Platform:}\\
+\emph{Technologies:} + websockets for web UIs + Google/Apple
+Notification server compatible connection for mobile apps
+
+\subparagraph{Data API}\label{data-api}
+
+\emph{Purpose:} \emph{Platform:}\\
+\emph{Technologies:} + essentially consists of two parts: 1) checking
+permissions of the request 2) persistence layer abstraction (graphql) +
+for external consumers - incoming permission requests and data access
+attempts - outgoing data () + for internal clients (web UI, mobile
+device)
+
+After defining all different components portability
+(\protect\hyperlink{sa02}{S.A.02})
 
 \begin{itemize}
 \tightlist
 \item
   which components can go where?
 \item
-  how can data be provided to a a data consumer without the data ever
-  leaving the system?
-\item
   where are reasonable places to locate the storage that holds the
   operators's personal data
 \end{itemize}
 
-\textbf{Webserver}
+TODO: does every component need to provide HTTP as their components? how
+does auth/security work then?
 
-\begin{itemize}
-\tightlist
-\item
-  to serve UI
-\item
-  relay to mobile device
-\end{itemize}
-
-\textbf{UI}
-
-\begin{itemize}
-\tightlist
-\item
-  data editor and importer
-
-  \begin{itemize}
-  \tightlist
-  \item
-    data type editor
-  \end{itemize}
-\item
-  permission management
-
-  \begin{itemize}
-  \tightlist
-  \item
-    access history and permission profile
-  \end{itemize}
-\end{itemize}
-
-\textbf{Storage/Persistence}
-
-\begin{itemize}
-\tightlist
-\item
-  regardless of the platform
-\item
-  connector
-\item
-  al least two storage: one for the actual data, the other for
-  permission profiles, history and all the other application data
-\item
-  where to place the storage? local (e.g.~mobile device) or cloud
-  (e.g.~hoster's infrastructure)
-
-  \begin{itemize}
-  \tightlist
-  \item
-    requires 24/7 uptime
-  \end{itemize}
-\end{itemize}
-
-\textbf{Notification Infrastructure}
-
-\begin{itemize}
-\tightlist
-\item
-  websockets for web UIs
-\item
-  Google/Apple Notification server compatible connection for mobile apps
-\end{itemize}
-
-\textbf{Data API}
-
-\begin{itemize}
-\tightlist
-\item
-  essentially consists of two parts:
-
-  \begin{enumerate}
-  \def\labelenumi{\arabic{enumi})}
-  \tightlist
-  \item
-    checking permissions of the request
-  \item
-    persistence layer abstraction (graphql)
-  \end{enumerate}
-\item
-  for external consumers
-
-  \begin{itemize}
-  \tightlist
-  \item
-    incoming permission requests and data access attempts
-  \item
-    outgoing data ()
-  \end{itemize}
-\item
-  for internal clients (web UI, mobile device)
-\end{itemize}
-
-\textbf{OpenID} As discussed in previous sections the \emph{PDaaS} has
-it's qualities to be seen and valued as a digital representation of the
-individual that operates that system. Hence it could also be used to
-authenticate the individual against an external platform. Although it is
-priorly argued, that for authentication and security reasons the system
-is designed to be self-contained. But providing those OpenID
-capabilities isn't something the \emph{PDaaS} depends on, instead
-external platforms would depend on the \emph{PDaaS} supporting that
-feature. It is imaginable, that an OpenID instance mapping on a single
-individual would simplify the authentication procedure provided by that
-technology. However, it is beyond the scope of this work to either do
-further investigations regarding that topic, nor elaborate on how this
-might look integrate with the currently developed feature-set.
+TODO: OpenID as auth services (like fb for other platforms) As discussed
+in previous sections the \emph{PDaaS} has it's qualities to be seen and
+valued as a digital representation of the individual that operates that
+system. Hence it could also be used to authenticate the individual
+against an external platform. Although it is priorly argued, that for
+authentication and security reasons the system is designed to be
+self-contained. But providing those OpenID capabilities isn't something
+the \emph{PDaaS} depends on, instead external platforms would depend on
+the \emph{PDaaS} supporting that feature. It is imaginable, that an
+OpenID instance mapping on a single individual would simplify the
+authentication procedure provided by that technology. However, it is
+beyond the scope of this work to either do further investigations
+regarding that topic, nor elaborate on how this might look integrate
+with the currently developed feature-set.
 
 \begin{itemize}
 \tightlist
@@ -3282,14 +3258,14 @@ TODO: data types
 
 \subsection{Webserver}\label{webserver}
 
-\subsection{User Interface}\label{user-interface}
+\subsection{User Interface}\label{user-interface-1}
 
 \subsection{Storage/Persistence}\label{storagepersistence}
 
 \subsection{Notification
-Infrastructure}\label{notification-infrastructure}
+Infrastructure}\label{notification-infrastructure-1}
 
-\subsection{Data API}\label{data-api}
+\subsection{Data API}\label{data-api-1}
 
 \section{Data}\label{data-1}
 
@@ -3426,7 +3402,7 @@ Monetisation}\label{business-models-monetisation}
   possible resulting direct or indirect business models
 \item
   data subject might want to sell her data, only under her conditions.
-  therefore some kind of infrastructure and process is required (such as
+  therefor some kind of infrastructure and process is required (such as
   payment transfer, data anonymization, market place to offer data)
 \end{itemize}
 

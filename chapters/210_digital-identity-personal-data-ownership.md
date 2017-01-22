@@ -35,7 +35,7 @@ combined can form unique fingerprint, like certain single data points (e.g. soci
 in their own context might be, too. Thus it might not be necessary to know the values of all 
 attributes in order to identify a person as the rightful owner and physical counterpart. 
 It can also be seen as an avatar in the digital world or as the digital part of a human's identity. 
-Therefore its important to not view the *DI* as a reduction of a living individual to some bits 
+Therefore it's important to not view the *DI* as a reduction of a living individual to some bits 
 and bytes, but rather as a appropriate representation for certain purposes and contexts.
  
 +   It is also possible to provide an additional level of authenticity insurance for data 

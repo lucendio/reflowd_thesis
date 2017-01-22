@@ -64,10 +64,10 @@
                 <li><a href="#overview"><span class="toc-section-number">7.2</span> Overview</a></li>
                 <li><a href="#components"><span class="toc-section-number">7.3</span> Components</a><ul>
                 <li><a href="#webserver"><span class="toc-section-number">7.3.2</span> Webserver</a></li>
-                <li><a href="#user-interface"><span class="toc-section-number">7.3.3</span> User Interface</a></li>
+                <li><a href="#user-interface-1"><span class="toc-section-number">7.3.3</span> User Interface</a></li>
                 <li><a href="#storagepersistence"><span class="toc-section-number">7.3.4</span> Storage/Persistence</a></li>
-                <li><a href="#notification-infrastructure"><span class="toc-section-number">7.3.5</span> Notification Infrastructure</a></li>
-                <li><a href="#data-api"><span class="toc-section-number">7.3.6</span> Data API</a></li>
+                <li><a href="#notification-infrastructure-1"><span class="toc-section-number">7.3.5</span> Notification Infrastructure</a></li>
+                <li><a href="#data-api-1"><span class="toc-section-number">7.3.6</span> Data API</a></li>
                 </ul></li>
                 <li><a href="#data-1"><span class="toc-section-number">7.4</span> Data</a><ul>
                 <li><a href="#structure-types"><span class="toc-section-number">7.4.2</span> Structure &amp; Types</a></li>
@@ -244,7 +244,7 @@
 <p><span class="header-section-number">3.2.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1</span> </p>
 <ul>
 <li><p>A <strong>Digital Identity</strong> is a non-physical abstraction of an entity, such as an organisation, an individual, a device or even software, which allows bidirectional association. In the context of this document, it only refers to human beings. Therefore a <em>digital identity</em> is the individual’s representation in digital systems, consisting of identity-defining data, such as <em>personal information</em> and it’s history and preferences <span class="citation" data-cites="whitepaper_2012_the-value-of-our-digital-identity_definition">[<a href="#ref-whitepaper_2012_the-value-of-our-digital-identity_definition">16</a>]</span>. <em>Personal information</em>, in this case, refers to inherent (date of birth) and imposed (credit card number) characteristics.</p></li>
-<li><p>From a technical perspective a DI is essentially a collection of characteristics, attributes and time series data (e.g. interaction logs or bank account history). A subset of those attributes combined can form unique fingerprint, like certain single data points (e.g. social security number) in their own context might be, too. Thus it might not be necessary to know the values of all attributes in order to identify a person as the rightful owner and physical counterpart. It can also be seen as an avatar in the digital world or as the digital part of a human’s identity. Therefore its important to not view the <em>DI</em> as a reduction of a living individual to some bits and bytes, but rather as a appropriate representation for certain purposes and contexts.</p></li>
+<li><p>From a technical perspective a DI is essentially a collection of characteristics, attributes and time series data (e.g. interaction logs or bank account history). A subset of those attributes combined can form unique fingerprint, like certain single data points (e.g. social security number) in their own context might be, too. Thus it might not be necessary to know the values of all attributes in order to identify a person as the rightful owner and physical counterpart. It can also be seen as an avatar in the digital world or as the digital part of a human’s identity. Therefore it’s important to not view the <em>DI</em> as a reduction of a living individual to some bits and bytes, but rather as a appropriate representation for certain purposes and contexts.</p></li>
 <li>It is also possible to provide an additional level of authenticity insurance for data related to an entity. Therefor an unrelated third party, which needs to be approved not only by the related individual, but also by all entities participating in a context, which might be relevant e.g. for some administration purposes.</li>
 <li><p>But the concept would also impose a new level of attacking vectors to the identity owner, such as identity theft. The attacker is no longer required to be physically present to be able to steal certain unique identifiers from a person. It is sufficient to gain access to area where the sensitive data is stored.</p></li>
 <li><p>In the context of this document and all related work, <strong>Personal Data</strong> is specified as a combination of an individual’s <em>Digital Identity</em> and all of it’s ever created intellectual property <span class="citation" data-cites="web_2016_wikipedia_intellectual-property">[<a href="#ref-web_2016_wikipedia_intellectual-property">17</a>]</span> (e.g. posts, images, tweets or comments). This includes all sorts of tracking data and interaction monitoring, as well as metadata manually or automated enriching content (e.g.geo-location attached to a tweet as meta information). Data, captured by someone ore something on or about the individual’s private living space and property. Simply every data point reflecting the individual’s personality - partly or as a whole - is seen as <em>personal data</em>.</p></li>
@@ -379,7 +379,7 @@
 <section id="standards-specifications-and-related-technologies" class="level2">
 <h2><span class="header-section-number">3.6</span> Standards, Specifications and related Technologies</h2>
 <p>The overall attempt is to involve as much standards as possible, because it increases the chances of interoperability and thereby it lowers the effort, that might be needed, in order to integrate with third parties or other APIs. Hereinafter, some of these possible technologies will be touched on just briefly, why they might be a reasonable choice and what purposes they might going to service.</p>
-<p><strong><span id="link_http">HTTP</span></strong> <span class="citation" data-cites="web_spec_http1">[<a href="#ref-web_spec_http1">74</a>]</span>, well known as the stateless <em>“transport layer”</em> for the <em>World Wide Web</em>, is most likely going to fulfill the same purpose in the context of this work, because it implements a server-client pattern in it very core. Whether internal components (local or as part of a distributed system) talk to each other or data consumers interact with the system, this protocol transfers the data hat need to be exchanged. Features introduced with Version 2 <span class="citation" data-cites="web_spec_http2">[<a href="#ref-web_spec_http2">75</a>]</span> of the protocol are yet to be known of their relevance of use cases within this project. <em>Websockes</em> <span class="citation" data-cites="web_spec_websockets">[<a href="#ref-web_spec_websockets">76</a>]</span> might also be a possibility to communicate between components or even with external parties, which has the advantage of high efficient ongoing bidirectional connections using for real-time data exchange or remotely pending process responses, while at the same time avoiding HTTP’s long-polling abilities.</p>
+<p><strong><span id="link_http">HTTP</span></strong> <span class="citation" data-cites="web_spec_http1">[<a href="#ref-web_spec_http1">74</a>]</span>, well known as the stateless <em>“transport layer”</em> for the <em>World Wide Web</em>, is most likely going to fulfill the same purpose in the context of this work, because it implements a server-client pattern in it very core. Whether internal components (local or as part of a distributed system) talk to each other or data consumers interact with the system, this protocol transfers the data hat need to be exchanged. Features introduced with Version 2 <span class="citation" data-cites="web_spec_http2">[<a href="#ref-web_spec_http2">75</a>]</span> of the protocol are yet to be known of their relevance of use cases within this project. <em>WebSockes</em> <span class="citation" data-cites="web_spec_websockets">[<a href="#ref-web_spec_websockets">76</a>]</span> might also be a possibility to communicate between components or even with external parties, which has the advantage of high efficient ongoing bidirectional connections using for real-time data exchange or remotely pending process responses, while at the same time avoiding HTTP’s long-polling abilities.</p>
 <p><strong>JSON</strong><a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a> is an alternative data serialization format to XML, heavily used in web contexts to transfer data via <em>HTTP</em>, whose syntax is inspired by the JavaScript object-literal notation.</p>
 <p>The open standard <strong><span id="link_oauth">OAuth</span></strong> defines a process flow for authorizing third parties to access externally hosted resources, such as the user’s profile image from a social media platform. The authorisation validation is done by the help of a previously generated token. However, generating and supplying such token can be initiated in a variety of ways depending on the already existing architecture and design, e.g. with the user entering her credentials (<code>grant_type=authorization_code</code>). This design tends <span class="citation" data-cites="web_2012_problem-with-oauth-for-authentication">[<a href="#ref-web_2012_problem-with-oauth-for-authentication">79</a>]</span> to integrate <em>OAuth</em> mistakenly but intentionally<br />
 as an authentication service rather then a authorization service; regardless if as an alternative or as an addition to existing in-house solutions. Therewith the application authors pass the responsibility on to the OAuth-supporting data providers. While <em>version 1.0a</em> <span class="citation" data-cites="web_spec_oauth-1a">[<a href="#ref-web_spec_oauth-1a">80</a>]</span>, commonly seen as a protocol, provides integrity for transferred data by using signatures and confidentiality by encrypting data ahead of transfer. <em>Version 2.0</em> <span class="citation" data-cites="web_spec_oauth-2">[<a href="#ref-web_spec_oauth-2">81</a>]</span>, labeled as a framework, on the other side requires <em>TLS</em> and thus hands off the the responsibility to confidentiality to the transport layer below. It also includes certain process flows for specific platforms, such as <em>“web applications, desktop applications, mobile phones, and living room devices”</em> <span class="citation" data-cites="web_2016_oauth-2">[<a href="#ref-web_2016_oauth-2">82</a>]</span>.</p>
@@ -622,58 +622,52 @@ authenticates the <em>data consumer</em> and checks the related <em>permission p
 </section>
 <section id="architecture" class="level2">
 <h2><span class="header-section-number">6.5</span> Architecture</h2>
-<p>Taking all discussions in previous sections into account, the following components might be feasible and would cover most use cases.</p>
+<p>By taking all previous sections, their discussions and the requirements as well into account, this section serves the sole purpose of figuring out how all the different concepts and conclusions discussed before can fit together in an overall system architecture that is organized in either a distributed or a monolithic manner. This type of changes should not impact how the system’s interfaces behave from a user perspective.</p>
+<p>The conglomeration below highlights all major components, that are required in order to cover most of the defined use cases. It includes further details about their purpose(s) and relation(s) to each other.</p>
+<section id="web-server" class="level6">
+<h6><span class="header-section-number">6.5.1.0.0.1</span> Web server</h6>
+<p><em>Purpose:</em> + serve web-based user interface(s) + handle all in- &amp; outgoing traffic (outmost layer) + revers proxying certain traffic to different components + en- &amp; decrypt HTTPS traffic, thus client authentication + load balancing (if necessary)<br />
+<em>Platform:</em> + server <em>Technologies:</em> + HTTP + TLS + WebSockets <em>Explanation/argumentation:</em></p>
+</section>
+<section id="pki" class="level6">
+<h6><span class="header-section-number">6.5.1.0.0.2</span> PKI</h6>
+<p><em>Purpose:</em> + CA + manage keys and certificates per <em>data consumer</em> <em>Platform:</em> + server <em>Technologies:</em> + X.509</p>
+</section>
+<section id="user-interface" class="level6">
+<h6><span class="header-section-number">6.5.1.0.0.3</span> User interface</h6>
+<p><em>Purpose:</em> + access &amp; permission management + data management (editor, types &amp; import) + history log <em>Platform:</em> + desktop + mobile <em>Technologies:</em> + HTML, CSS, Javascript + Java + Swift, Objective-C</p>
+</section>
+<section id="personal-data-storage" class="level6">
+<h6><span class="header-section-number">6.5.1.0.0.4</span> Personal Data Storage</h6>
+<p><em>Purpose:</em> <em>Platform:</em><br />
+<em>Technologies:</em> + regardless of the platform + connector + al least two storage: one for the actual data, the other for permission profiles, history and all the other application data - where to place the storage? local (e.g. mobile device) or cloud (e.g. hoster’s infrastructure) + requires 24/7 uptime</p>
+</section>
+<section id="persistence-1" class="level6">
+<h6><span class="header-section-number">6.5.1.0.0.5</span> Persistence</h6>
+<p><em>Purpose:</em> + stores Permission Profiles, History, Tokens, Configurations and other meta data <em>Platform:</em><br />
+<em>Technologies:</em></p>
+</section>
+<section id="domain-logic" class="level6">
+<h6><span class="header-section-number">6.5.1.0.0.6</span> Domain Logic</h6>
+<p><em>Purpose:</em> + permission verification <em>Platform:</em><br />
+<em>Technologies:</em></p>
+</section>
+<section id="notification-infrastructure" class="level6">
+<h6><span class="header-section-number">6.5.1.0.0.7</span> Notification Infrastructure</h6>
+<p><em>Purpose:</em> <em>Platform:</em><br />
+<em>Technologies:</em> + websockets for web UIs + Google/Apple Notification server compatible connection for mobile apps</p>
+</section>
+<section id="data-api" class="level6">
+<h6><span class="header-section-number">6.5.1.0.0.8</span> Data API</h6>
+<p><em>Purpose:</em> <em>Platform:</em><br />
+<em>Technologies:</em> + essentially consists of two parts: 1) checking permissions of the request 2) persistence layer abstraction (graphql) + for external consumers - incoming permission requests and data access attempts - outgoing data () + for internal clients (web UI, mobile device)</p>
+<p>After defining all different components portability (<a href="#sa02">S.A.02</a>)</p>
 <ul>
 <li>which components can go where?</li>
-<li>how can data be provided to a a data consumer without the data ever leaving the system?</li>
 <li>where are reasonable places to locate the storage that holds the operators’s personal data</li>
 </ul>
-<p><strong>Webserver</strong></p>
-<ul>
-<li>to serve UI</li>
-<li>relay to mobile device</li>
-</ul>
-<p><strong>UI</strong></p>
-<ul>
-<li>data editor and importer
-<ul>
-<li>data type editor</li>
-</ul></li>
-<li>permission management
-<ul>
-<li>access history and permission profile</li>
-</ul></li>
-</ul>
-<p><strong>Storage/Persistence</strong></p>
-<ul>
-<li>regardless of the platform</li>
-<li>connector</li>
-<li>al least two storage: one for the actual data, the other for permission profiles, history and all the other application data</li>
-<li>where to place the storage? local (e.g. mobile device) or cloud (e.g. hoster’s infrastructure)
-<ul>
-<li>requires 24/7 uptime</li>
-</ul></li>
-</ul>
-<p><strong>Notification Infrastructure</strong></p>
-<ul>
-<li>websockets for web UIs</li>
-<li>Google/Apple Notification server compatible connection for mobile apps</li>
-</ul>
-<p><strong>Data API</strong></p>
-<ul>
-<li>essentially consists of two parts:
-<ol type="1">
-<li>checking permissions of the request</li>
-<li>persistence layer abstraction (graphql)</li>
-</ol></li>
-<li>for external consumers
-<ul>
-<li>incoming permission requests and data access attempts</li>
-<li>outgoing data ()</li>
-</ul></li>
-<li>for internal clients (web UI, mobile device)</li>
-</ul>
-<p><strong>OpenID</strong> As discussed in previous sections the <em>PDaaS</em> has it’s qualities to be seen and valued as a digital representation of the individual that operates that system. Hence it could also be used to authenticate the individual against an external platform. Although it is priorly argued, that for authentication and security reasons the system is designed to be self-contained. But providing those OpenID capabilities isn’t something the <em>PDaaS</em> depends on, instead external platforms would depend on the <em>PDaaS</em> supporting that feature. It is imaginable, that an OpenID instance mapping on a single individual would simplify the authentication procedure provided by that technology. However, it is beyond the scope of this work to either do further investigations regarding that topic, nor elaborate on how this might look integrate with the currently developed feature-set.</p>
+<p>TODO: does every component need to provide HTTP as their components? how does auth/security work then?</p>
+<p>TODO: OpenID as auth services (like fb for other platforms) As discussed in previous sections the <em>PDaaS</em> has it’s qualities to be seen and valued as a digital representation of the individual that operates that system. Hence it could also be used to authenticate the individual against an external platform. Although it is priorly argued, that for authentication and security reasons the system is designed to be self-contained. But providing those OpenID capabilities isn’t something the <em>PDaaS</em> depends on, instead external platforms would depend on the <em>PDaaS</em> supporting that feature. It is imaginable, that an OpenID instance mapping on a single individual would simplify the authentication procedure provided by that technology. However, it is beyond the scope of this work to either do further investigations regarding that topic, nor elaborate on how this might look integrate with the currently developed feature-set.</p>
 <ul>
 <li>regarding oAuth as authentication: Priorly users tended to reuse their password for different account, nowadays they but also tend to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">123</a>]</span>.</li>
 </ul>
@@ -685,6 +679,7 @@ authenticates the <em>data consumer</em> and checks the related <em>permission p
 <li>the previously proposed authentication concept for the <em>operator</em> role supports multiple<br />
 clients and with the suggested technologies it can be implemented with almost no effort</li>
 </ul>
+</section>
 </section>
 <section id="data" class="level2">
 <h2><span class="header-section-number">6.6</span> Data</h2>
@@ -754,16 +749,16 @@ clients and with the suggested technologies it can be implemented with almost no
 <section id="webserver" class="level3">
 <h3><span class="header-section-number">7.3.2</span> Webserver</h3>
 </section>
-<section id="user-interface" class="level3">
+<section id="user-interface-1" class="level3">
 <h3><span class="header-section-number">7.3.3</span> User Interface</h3>
 </section>
 <section id="storagepersistence" class="level3">
 <h3><span class="header-section-number">7.3.4</span> Storage/Persistence</h3>
 </section>
-<section id="notification-infrastructure" class="level3">
+<section id="notification-infrastructure-1" class="level3">
 <h3><span class="header-section-number">7.3.5</span> Notification Infrastructure</h3>
 </section>
-<section id="data-api" class="level3">
+<section id="data-api-1" class="level3">
 <h3><span class="header-section-number">7.3.6</span> Data API</h3>
 </section>
 </section>
@@ -857,7 +852,7 @@ clients and with the suggested technologies it can be implemented with almost no
 <h2><span class="header-section-number">8.3</span> Business Models &amp; Monetisation</h2>
 <ul>
 <li>possible resulting direct or indirect business models</li>
-<li>data subject might want to sell her data, only under her conditions. therefore some kind of infrastructure and process is required (such as payment transfer, data anonymization, market place to offer data)</li>
+<li>data subject might want to sell her data, only under her conditions. therefor some kind of infrastructure and process is required (such as payment transfer, data anonymization, market place to offer data)</li>
 </ul>
 </section>
 <section id="challenges" class="level2">

@@ -13,7 +13,7 @@ Whether internal components (local or as part of a distributed system) talk to e
 consumers interact with the system, this protocol transfers the data hat need to be exchanged.
 Features introduced with Version 2 [@web_spec_http2] of the protocol are yet to be known of their 
 relevance of use cases within this project.
-*Websockes* [@web_spec_websockets] might also be a possibility to communicate between components or 
+*WebSockes* [@web_spec_websockets] might also be a possibility to communicate between components or 
 even with external parties, which has the advantage of high efficient ongoing bidirectional 
 connections using for real-time data exchange or remotely pending process responses, while at the 
 same time avoiding HTTP's long-polling abilities.
