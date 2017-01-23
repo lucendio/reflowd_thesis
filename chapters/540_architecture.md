@@ -17,79 +17,119 @@ other.
     +   serve web-based user interface(s)
     +   handle all in- & outgoing traffic (outmost layer)
     +   revers proxying certain traffic to different components
-    +   en- & decrypt HTTPS traffic, thus client authentication
-    +   load balancing (if necessary)  
-*Platform:*
-    +   server
+    +   en- & decrypt HTTPS traffic, thus authenticate *consumers*
+    +   load balancing (if necessary)
+    +   web client notification
+*Platform:* server
 *Technologies:*
     +   HTTP
     +   TLS
     +   WebSockets
 *Explanation/argumentation:*
+
+
+###### Permission Manager
+*Purpose:*
+    *   creating *permission profiles*
+    +   permission validation
+    +   examine data queries 
+    +   queue *consumer* requests
+*Platform:* server
+*Technologies:*
     
 ###### PKI
 *Purpose:*
     +   CA
-    +   manage keys and certificates per *data consumer*
-*Platform:*
-    +   server
+    +   manage keys and certificates per *endpoint*
+*Platform:* server
 *Technologies:*
     +   X.509
 
+###### Storage Connector
+*Purpose:*
+    +   abstracts to system agnostic Query Language
+    +   queries personal data, regardless of where it's located
+*Platform:* server
+*Technologies:*
+    +   driver for used database 
+
+###### Operator API
+*Purpose:*
+    +   authenticates *operator*
+    +   writes personal data through Storage Connector 
+    +   provides relevant data, such as history
+    +   system configuration
+*Platform:* server
+*Technologies:*
+    +   JWT
+
+
+###### Code Execution Environment
+*Purpose:*
+    +   isolated runtime (sandbox) for computations/programs provided by *consumers*
+    +   restrict interaction with outer environment to absolute minimum (e.g. no shared filesystem 
+        or network)
+    +   one-time use
+    +   monitor sandbox during computation 
+    +   examine and test the provided software
+*Platform:*    
+*Technologies:*
+    +   Virtualization
+    +   Container (OCI)
+
+
+###### Tracker
+*Purpose:*
+    +   log all changes made with *Storage Connector*
+    +   tracks states for ongoing consumer requests
+    +   log all *access requests*
+*Platform:* server
+*Technologies:*
+
+
+###### Personal Data Storage
+*Purpose:*
+    +   stores the *operator's* personal data
+*Platform:* server, mobile
+*Technologies:*
+    +   non relational database
+    +   depending on host environment
+
+###### Persistence Layer
+*Purpose:*
+    +   stores Permission Profiles, History, Tokens, Configurations and other application data
+    +   cache runtime data and information
+*Platform:* server 
+*Technologies:*
+    +   non relational database
+    +   Filesystem
+
+
+###### Notification Infrastructure
+*Purpose:*
+    +   notify about everything that needs *operator's* approval (e.g. new registrations, new 
+        *permission requests*)
+*Platform:* server
+*Technologies:*
+    +   WebSockets for web UIs via local web server
+    +   mobile device manufacturer's Push Notification server for mobile apps 
+
+
 ###### User interface
 *Purpose:*
+    +   access restricted to *operator* only
     +   access & permission management
     +   data management (editor, types & import)
-    +   history log
-*Platform:*
-    +   desktop
-    +   mobile
+    +   history and log viewer
+    +   system monitoring
+*Platform:* desktop, mobile
 *Technologies:*
     +   HTML, CSS, Javascript
     +   Java
     +   Swift, Objective-C
-    
-###### Personal Data Storage
-*Purpose:*
-*Platform:*    
-*Technologies:*
-    +   regardless of the platform
-    +   connector
-    +   al least two storage: one for the actual data, the other for permission profiles, history and
-        all the other application data
-    -   where to place the storage? local (e.g. mobile device) or cloud (e.g. hoster's infrastructure)
-        +   requires 24/7 uptime
-        
-###### Persistence
-*Purpose:*
-    +   stores Permission Profiles, History, Tokens, Configurations and other meta data
-*Platform:*    
-*Technologies:*
-    
-###### Domain Logic
-*Purpose:*
-    +   permission verification
-*Platform:*    
-*Technologies:*
-    
-###### Notification Infrastructure
-*Purpose:*
-*Platform:*    
-*Technologies:*
-    +   websockets for web UIs
-    +   Google/Apple Notification server compatible connection for mobile apps
 
-###### Data API
-*Purpose:*
-*Platform:*    
-*Technologies:*
-    +   essentially consists of two parts: 
-        1)  checking permissions of the request
-        2)  persistence layer abstraction (graphql)
-    +   for external consumers
-        -   incoming permission requests and data access attempts
-        -   outgoing data ()
-    +   for internal clients (web UI, mobile device)
+
+
 
 
 
@@ -100,6 +140,11 @@ portability ([S.A.02](#sa02))
 
 TODO: does every component need to provide HTTP as their components? how does auth/security work 
 then? 
+
+
+TODO: it is debatable whether to place the *permission profiles* in the *persistence layer* among 
+all other domain-related information, put it into the *personal data storage* or define it as an
+own storage component, in order to be flexible regarding it's location.
 
 
 TODO: OpenID as auth services (like fb for other platforms)

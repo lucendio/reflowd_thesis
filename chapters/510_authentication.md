@@ -153,10 +153,14 @@ as costly as the system resources allow them to be, thus the level of security c
 *Conclusions:* 
 Based on the several requirements and distinct advantages of the two authentication mechanisms, 
 it is preferred to use asymmetric cryptography in combination with *HTTPS* for the communication 
-between the system and *data consumers*, where the system provides it's own *PKI* and a token-based 
-authentication on top of *HTTPS* and public CAs for communication between the system and the 
-*operator*, preferable based on *[JSON Web Tokens](#link_jwt)*, because the session state is 
-preserved within the token rather then having the system itself keeping track of it.
+between the system and *data consumers*, where the system provides it's own *PKI*. Whereas a 
+token-based authentication on top of *HTTPS* and public CAs should be suitable for communication 
+between the system and the *operator*, preferable based on *[JSON Web Tokens](#link_jwt)*, because 
+the session state is preserved within the token rather then having the system itself keeping track 
+of it. Though, it is also worth mentioning, that a a JSON Web Token implementation is feasible as 
+well to fully replace the approach consisting of *mutual authentication* on TLS level and a private 
+*PKI*. The disadvantage here would be, that whether *data consumers* are able to authenticate 
+themselves or not, a HTTPS connection will establish in any case. 
 To hardening an authentication procedure often one or more factors are added, for example an *eID 
 card* or one-time password. This adds complexity to the procedure and thus increases the effort 
 that is needed to make an attack successful. But equally it also increases the effort to support 
@@ -166,5 +170,8 @@ security enhancement for the *operator role*. However detailed discussions regar
 topic are left to follow-up work on the specification.
 
 
+
+
+it is also conceivable, to ... instead of
 
 [^abbr_berca]: (german) Berechtigungszertifikate-Anbieter

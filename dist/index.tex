@@ -60,6 +60,44 @@
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
 \fi
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
 % Make links footnotes instead of hotlinks:
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 \IfFileExists{parskip.sty}{%
@@ -2459,20 +2497,27 @@ allow them to be, thus the level of security can be increased.
 advantages of the two authentication mechanisms, it is preferred to use
 asymmetric cryptography in combination with \emph{HTTPS} for the
 communication between the system and \emph{data consumers}, where the
-system provides it's own \emph{PKI} and a token-based authentication on
-top of \emph{HTTPS} and public CAs for communication between the system
-and the \emph{operator}, preferable based on
-\emph{\protect\hyperlink{link_jwt}{JSON Web Tokens}}, because the
-session state is preserved within the token rather then having the
-system itself keeping track of it. To hardening an authentication
-procedure often one or more factors are added, for example an \emph{eID
-card} or one-time password. This adds complexity to the procedure and
-thus increases the effort that is needed to make an attack successful.
-But equally it also increases the effort to support those factors in the
-first place. Using multi-factor authentication is generally valued and
-will be briefly noted as an optional security enhancement for the
-\emph{operator role}. However detailed discussions regarding this topic
-are left to follow-up work on the specification.
+system provides it's own \emph{PKI}. Whereas a token-based
+authentication on top of \emph{HTTPS} and public CAs should be suitable
+for communication between the system and the \emph{operator}, preferable
+based on \emph{\protect\hyperlink{link_jwt}{JSON Web Tokens}}, because
+the session state is preserved within the token rather then having the
+system itself keeping track of it. Though, it is also worth mentioning,
+that a a JSON Web Token implementation is feasible as well to fully
+replace the approach consisting of \emph{mutual authentication} on TLS
+level and a private \emph{PKI}. The disadvantage here would be, that
+whether \emph{data consumers} are able to authenticate themselves or
+not, a HTTPS connection will establish in any case. To hardening an
+authentication procedure often one or more factors are added, for
+example an \emph{eID card} or one-time password. This adds complexity to
+the procedure and thus increases the effort that is needed to make an
+attack successful. But equally it also increases the effort to support
+those factors in the first place. Using multi-factor authentication is
+generally valued and will be briefly noted as an optional security
+enhancement for the \emph{operator role}. However detailed discussions
+regarding this topic are left to follow-up work on the specification.
+
+it is also conceivable, to \ldots{} instead of
 
 \hypertarget{data-reliability}{\section{Data
 Reliability}\label{data-reliability}}
@@ -3033,58 +3078,79 @@ further details about their purpose(s) and relation(s) to each other.
 
 \emph{Purpose:} + serve web-based user interface(s) + handle all in- \&
 outgoing traffic (outmost layer) + revers proxying certain traffic to
-different components + en- \& decrypt HTTPS traffic, thus client
-authentication + load balancing (if necessary)\\
-\emph{Platform:} + server \emph{Technologies:} + HTTP + TLS + WebSockets
-\emph{Explanation/argumentation:}
+different components + en- \& decrypt HTTPS traffic, thus authenticate
+\emph{consumers} + load balancing (if necessary) + web client
+notification \emph{Platform:} server \emph{Technologies:} + HTTP + TLS +
+WebSockets \emph{Explanation/argumentation:}
+
+\subparagraph{Permission Manager}\label{permission-manager}
+
+\emph{Purpose:} * creating \emph{permission profiles} + permission
+validation + examine data queries + queue \emph{consumer} requests
+\emph{Platform:} server \emph{Technologies:}
 
 \subparagraph{PKI}\label{pki}
 
-\emph{Purpose:} + CA + manage keys and certificates per \emph{data
-consumer} \emph{Platform:} + server \emph{Technologies:} + X.509
+\emph{Purpose:} + CA + manage keys and certificates per \emph{endpoint}
+\emph{Platform:} server \emph{Technologies:} + X.509
 
-\subparagraph{User interface}\label{user-interface}
+\subparagraph{Storage Connector}\label{storage-connector}
 
-\emph{Purpose:} + access \& permission management + data management
-(editor, types \& import) + history log \emph{Platform:} + desktop +
-mobile \emph{Technologies:} + HTML, CSS, Javascript + Java + Swift,
-Objective-C
+\emph{Purpose:} + abstracts to system agnostic Query Language + queries
+personal data, regardless of where it's located \emph{Platform:} server
+\emph{Technologies:} + driver for used database
+
+\subparagraph{Operator API}\label{operator-api}
+
+\emph{Purpose:} + authenticates \emph{operator} + writes personal data
+through Storage Connector + provides relevant data, such as history +
+system configuration \emph{Platform:} server \emph{Technologies:} + JWT
+
+\subparagraph{Code Execution
+Environment}\label{code-execution-environment}
+
+\emph{Purpose:} + isolated runtime (sandbox) for computations/programs
+provided by \emph{consumers} + restrict interaction with outer
+environment to absolute minimum (e.g.~no shared filesystem or network) +
+one-time use + monitor sandbox during computation + examine and test the
+provided software \emph{Platform:}\\
+\emph{Technologies:} + Virtualization + Container (OCI)
+
+\subparagraph{Tracker}\label{tracker}
+
+\emph{Purpose:} + log all changes made with \emph{Storage Connector} +
+tracks states for ongoing consumer requests + log all \emph{access
+requests} \emph{Platform:} server \emph{Technologies:}
 
 \subparagraph{Personal Data Storage}\label{personal-data-storage}
 
-\emph{Purpose:} \emph{Platform:}\\
-\emph{Technologies:} + regardless of the platform + connector + al least
-two storage: one for the actual data, the other for permission profiles,
-history and all the other application data - where to place the storage?
-local (e.g.~mobile device) or cloud (e.g.~hoster's infrastructure) +
-requires 24/7 uptime
+\emph{Purpose:} + stores the \emph{operator's} personal data
+\emph{Platform:} server, mobile \emph{Technologies:} + non relational
+database + depending on host environment
 
-\subparagraph{Persistence}\label{persistence-1}
+\subparagraph{Persistence Layer}\label{persistence-layer}
 
 \emph{Purpose:} + stores Permission Profiles, History, Tokens,
-Configurations and other meta data \emph{Platform:}\\
-\emph{Technologies:}
-
-\subparagraph{Domain Logic}\label{domain-logic}
-
-\emph{Purpose:} + permission verification \emph{Platform:}\\
-\emph{Technologies:}
+Configurations and other application data + cache runtime data and
+information \emph{Platform:} server \emph{Technologies:} + non
+relational database + Filesystem
 
 \subparagraph{Notification
 Infrastructure}\label{notification-infrastructure}
 
-\emph{Purpose:} \emph{Platform:}\\
-\emph{Technologies:} + websockets for web UIs + Google/Apple
-Notification server compatible connection for mobile apps
+\emph{Purpose:} + notify about everything that needs \emph{operator's}
+approval (e.g.~new registrations, new \emph{permission requests})
+\emph{Platform:} server \emph{Technologies:} + WebSockets for web UIs
+via local web server + mobile device manufacturer's Push Notification
+server for mobile apps
 
-\subparagraph{Data API}\label{data-api}
+\subparagraph{User interface}\label{user-interface}
 
-\emph{Purpose:} \emph{Platform:}\\
-\emph{Technologies:} + essentially consists of two parts: 1) checking
-permissions of the request 2) persistence layer abstraction (graphql) +
-for external consumers - incoming permission requests and data access
-attempts - outgoing data () + for internal clients (web UI, mobile
-device)
+\emph{Purpose:} + access restricted to \emph{operator} only + access \&
+permission management + data management (editor, types \& import) +
+history and log viewer + system monitoring \emph{Platform:} desktop,
+mobile \emph{Technologies:} + HTML, CSS, Javascript + Java + Swift,
+Objective-C
 
 After defining all different components portability
 (\protect\hyperlink{sa02}{S.A.02})
@@ -3100,6 +3166,11 @@ After defining all different components portability
 
 TODO: does every component need to provide HTTP as their components? how
 does auth/security work then?
+
+TODO: it is debatable whether to place the \emph{permission profiles} in
+the \emph{persistence layer} among all other domain-related information,
+put it into the \emph{personal data storage} or define it as an own
+storage component, in order to be flexible regarding it's location.
 
 TODO: OpenID as auth services (like fb for other platforms) As discussed
 in previous sections the \emph{PDaaS} has it's qualities to be seen and
@@ -3199,13 +3270,13 @@ TODO: data types
 
 \subsection{\texorpdfstring{\emph{Conclusions}}{Conclusions}}\label{conclusions}
 
-\section{Environment and Hosting}\label{environment-and-hosting}
+\section{Environment and Setup}\label{environment-and-setup}
 
 \begin{itemize}
 \item
   container
 \item
-  deployment (howto?)
+  deployment (howto?) / hosting
 \item
   ext. dependencies
 \item
@@ -3240,7 +3311,12 @@ TODO: data types
 
 \emph{Conclusions:}
 
-\chapter{Specification}\label{specification}
+\chapter{\texorpdfstring{Specification
+\emph{(Draft)}}{Specification (Draft)}}\label{specification-draft}
+
+This chapter hold the first draft of what might become a specification.
+As for now it has therefore no claim of completeness, continuity or
+accuracy.
 
 \section{Overview}\label{overview}
 
@@ -3265,7 +3341,7 @@ TODO: data types
 \subsection{Notification
 Infrastructure}\label{notification-infrastructure-1}
 
-\subsection{Data API}\label{data-api-1}
+\subsection{Data API}\label{data-api}
 
 \section{Data}\label{data-1}
 
@@ -3277,34 +3353,235 @@ Infrastructure}\label{notification-infrastructure-1}
 
 \section{Protocols}\label{protocols}
 
-\subsection{Permission Request / Consumer
-Registration}\label{permission-request-consumer-registration}
+\subparagraph{Consumer registration}\label{consumer-registration}
 
-\begin{itemize}
-\tightlist
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{-1}
 \item
-  data to provide in a registration request:
+  {[}OPTIONAL{]} \emph{data subject} provides URI to \emph{data
+  consumers}
+\item
+  \emph{data consumers} create \emph{permission request} that includes
 
   \begin{itemize}
   \tightlist
   \item
-    CSR\footnote{Certificate signing request}
+    X.509 based CSR\footnote{Certificate signing request}
   \item
-    callback URI as feedback channel
+    callback URI via HTTPS as feedback channel
   \item
-    permissions: what data for what purpose and how long
+    {[}OPTIONAL{]} information about what data points wanted to be
+    accessed
   \end{itemize}
-\end{itemize}
+\item
+  depending on 0), \emph{data consumer} provides \emph{operator} with
+  priorly created \emph{permission request} either as QR-Code or via
+  HTTPS by given URI
+\item
+  \emph{operator} reviews request and decides to either refuse or grant
+  assess; the latter results in:
 
-\subsection{Data Access}\label{data-access}
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \tightlist
+  \item
+    creating new \emph{endpoint}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      create new unique subdomain and a related asymmetric key pair
+      signed by the system's root CA
+    \item
+      issue \emph{consumer} certificate based on it's CRS and sign it
+      with the key pair related to this \emph{endpoint}
+    \end{itemize}
+  \item
+    if information is provided, creating new \emph{permission profile}
+    by either applying existing draft/template or configuring
+    \emph{permission type} (incl. expiration date if required) and
+    permitted data endpoints; associate to specific \emph{endpoint}
+  \end{enumerate}
+\item
+  \emph{data consumers} gets informed about the decision via callback
+  channel
+
+  \begin{itemize}
+  \tightlist
+  \item
+    on grant, response includes certificate and information on what data
+    points are allowed to be accessed
+  \item
+    on refusal: error code/message
+  \end{itemize}
+\end{enumerate}
+
+\subparagraph{Data Access}\label{data-access}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{-1}
+\item
+  after successfully authenticated, \emph{consumer} sends \emph{access
+  request}
+\item
+  request contains at least the \emph{data query}; based on that query
+  and the \emph{permission profiles}, access is tried to get verified
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \tightlist
+  \item
+    on success, response gets computed
+  \item
+    on failure, error code/message is responded; process aborts
+
+    \begin{itemize}
+    \tightlist
+    \item
+      if the error was raised because no appropriate \emph{permission
+      profile} was found, then the \emph{consumer} first needs to
+      request permission for the \emph{data points} that were part of
+      the query
+    \end{itemize}
+  \end{enumerate}
+\item
+  {[}OPTIONAL{]} depending on whether the \texttt{keepalive} flag was
+  set \texttt{true}, the connection of this requests lasts until
+  response computation has finished or timeout has reached, otherwise
+  the response contains a URI unique to this current request including
+  an estimation when response will be available under that URI;
+  connection can still timeout, which is defined by the system
+\item
+  depending on the type of that \emph{access request},
+
+  \begin{enumerate}
+  \def\labelenumii{(\Alph{enumii})}
+  \tightlist
+  \item
+    the data get queried and the result is added to the response
+  \item
+    based in further information provided by the request, the
+    environment for the \emph{supervised code execution} is getting
+    provisioned, the program from the \emph{consumer} will be ran
+    against various tests
+
+    \begin{enumerate}
+    \def\labelenumiii{\alph{enumiii})}
+    \tightlist
+    \item
+      in fail, error code/message get added to the response
+    \item
+      on pass, computed result gets added to the response
+    \end{enumerate}
+  \end{enumerate}
+\item
+  response is finalized and gets returned back to the \emph{consumer},
+  either as a response to this request or provided under the unique URI
+  as of 2)
+\end{enumerate}
+
+\subparagraph{Permission Validation}\label{permission-validation}
 
 TODO: detailed description of the algorithm that checks \emph{permission
 profiles} according to an \emph{access request}; including all different
 possible cases (multiple profiles for one consumer etc)
 
+\subparagraph{Add or Change Personal
+Data}\label{add-or-change-personal-data}
+
 \subsection{Data Management}\label{data-management}
 
+\begin{itemize}
+\tightlist
+\item
+  one third party access (consumer) relates to one access
+  \emph{endpoint}, that also authenticates that third party by TLS based
+  \emph{mutual auth}
+\item
+  zero or more \emph{permission profiles} are associated to one
+  \emph{endpoint}
+\end{itemize}
+
 \section{APIs}\label{apis}
+
+\textbf{Registration Request}
+
+\begin{itemize}
+\tightlist
+\item
+  contains certificate signing request
+\item
+  {[}OPTIONAL{]} contains \emph{permission request}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"callbackUri"}\FunctionTok{:} \StringTok{"TODO"}\FunctionTok{,}
+    \DataTypeTok{"csr"}\FunctionTok{:} \StringTok{"TODO"}\FunctionTok{,}
+    \DataTypeTok{"dataPoints"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"profile.lastname"}
+    \OtherTok{]}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Permission Request}
+
+\begin{itemize}
+\tightlist
+\item
+  creates new \emph{permission profile}
+\item
+  \texttt{https://example-consumer.pdaas.tld/pr}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"callbackUri"}\FunctionTok{:} \StringTok{""}\FunctionTok{,}
+    \DataTypeTok{"dataPoints"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"profile.lastname"}
+    \OtherTok{]}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Access Request}
+
+\begin{itemize}
+\tightlist
+\item
+  obtains actual data
+\item
+  if \texttt{keepalive} is set \texttt{true}, the connections lasts
+  until response computation has finished, otherwise the response
+  contains a URI unique to this current request including an estimation
+  when response will be available under that URI; connection can still
+  timeout, which is defined by the system
+\item
+  \texttt{https://example-consumer.pdaas.tld/ar}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"query"}\FunctionTok{:} \StringTok{"TODO"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\emph{Requirements:}
+
+\begin{itemize}
+\tightlist
+\item
+  query has to match exactly one corresponding \emph{permission profile}
+\end{itemize}
+
+TODO: basic structure of a \emph{permission profile}
 
 How do the APIs involved with the protocols look like?
 

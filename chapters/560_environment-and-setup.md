@@ -1,9 +1,9 @@
-## Environment and Hosting
+## Environment and Setup
 
 
 
 +   container
-+   deployment (howto?)
++   deployment (howto?) / hosting
 +   ext. dependencies
 
 +   container would make it easy for the *remote/supervised code execution* approach to simply spin up a full 
