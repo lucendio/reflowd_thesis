@@ -64,6 +64,8 @@ here and there a solution, for example using a URI as a feedback channel or TODO
 
 +   what about token stealing when using jwt?
 
++   future work: add/activate an intrusion detection system
+
 
 
 

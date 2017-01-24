@@ -90,10 +90,10 @@
                 <li><a href="#authentication"><span class="toc-section-number">6.2</span> Authentication</a></li>
                 <li><a href="#data-reliability"><span class="toc-section-number">6.3</span> Data Reliability</a></li>
                 <li><a href="#access-management"><span class="toc-section-number">6.4</span> Access Management</a></li>
-                <li><a href="#architecture"><span class="toc-section-number">6.5</span> Architecture</a></li>
-                <li><a href="#data"><span class="toc-section-number">6.6</span> Data</a><ul>
-                <li><a href="#conclusions"><span class="toc-section-number">6.6.2</span> <em>Conclusions</em></a></li>
+                <li><a href="#data"><span class="toc-section-number">6.5</span> Data</a><ul>
+                <li><a href="#conclusions"><span class="toc-section-number">6.5.2</span> <em>Conclusions</em></a></li>
                 </ul></li>
+                <li><a href="#architecture"><span class="toc-section-number">6.6</span> Architecture</a></li>
                 <li><a href="#environment-and-setup"><span class="toc-section-number">6.7</span> Environment and Setup</a></li>
                 <li><a href="#user-interfaces"><span class="toc-section-number">6.8</span> User Interfaces</a></li>
                 </ul></li>
@@ -418,7 +418,7 @@
 <p><strong>JSON</strong><a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a> is an alternative data serialization format to XML, heavily used in web contexts to transfer data via <em>HTTP</em>, whose syntax is inspired by the JavaScript object-literal notation.</p>
 <p>The open standard <strong><span id="link_oauth">OAuth</span></strong> defines a process flow for authorizing third parties to access externally hosted resources, such as the user’s profile image from a social media platform. The authorisation validation is done by the help of a previously generated token. However, generating and supplying such token can be initiated in a variety of ways depending on the already existing architecture and design, e.g. with the user entering her credentials (<code>grant_type=authorization_code</code>). This design tends <span class="citation" data-cites="web_2012_problem-with-oauth-for-authentication">[<a href="#ref-web_2012_problem-with-oauth-for-authentication">79</a>]</span> to integrate <em>OAuth</em> mistakenly but intentionally<br />
 as an authentication service rather then a authorization service; regardless if as an alternative or as an addition to existing in-house solutions. Therewith the application authors pass the responsibility on to the OAuth-supporting data providers. While <em>version 1.0a</em> <span class="citation" data-cites="web_spec_oauth-1a">[<a href="#ref-web_spec_oauth-1a">80</a>]</span>, commonly seen as a protocol, provides integrity for transferred data by using signatures and confidentiality by encrypting data ahead of transfer. <em>Version 2.0</em> <span class="citation" data-cites="web_spec_oauth-2">[<a href="#ref-web_spec_oauth-2">81</a>]</span>, labeled as a framework, on the other side requires <em>TLS</em> and thus hands off the the responsibility to confidentiality to the transport layer below. It also includes certain process flows for specific platforms, such as <em>“web applications, desktop applications, mobile phones, and living room devices”</em> <span class="citation" data-cites="web_2016_oauth-2">[<a href="#ref-web_2016_oauth-2">82</a>]</span>.</p>
-<p>With <strong>OpenID</strong> on the other side, the authenticity of a requesting user gets verified, which is by design. An in-depth description of the whole process can be found in the protocol’s same-titled open standard. With decentralisation kept in mind, the protocols’s nature encourages to design a distributed application architecture, similar to the idea behind <em>microservices</em>, but without owning all services involved, <em>decentralized authentication as a service</em> so to speak. An application owner doesn’t have to write or implement it’s own user management system, instead it is sufficient to just integrate these parts from the standard need to support signing in with <em>OpenID</em>. Equally the user is not required to register a new account whenever it is necessary, instead she can use her <em>OpenID</em>, already created by another identity provider, to authenticate with the application. The extension <em>OpenID Attribute Exchange</em> allows to import additional profile data. <em>OpenID Connect</em> <span class="citation" data-cites="web_spec_openid-connect-1">[<a href="#ref-web_spec_openid-connect-1">83</a>]</span> is the third iteration of the OpenID technology <em>Connect</em> is to OpenID what <em>facebook connect</em> is to <em>facebook</em>, except for the additional authentication layer, which is build upon <em>OAuth2.0</em> and therefore enables, aside from authorisation mechanisms, third parties to authenticate an OpenID-user and makes certain data available about that account via REST interface.</p>
+<p>With <strong>OpenID</strong> on the other side, the authenticity of a requesting user gets verified, which is by design. An in-depth description of the whole process can be found in the protocol’s same-titled open standard. With decentralisation kept in mind, the protocols’s nature encourages to design a distributed application architecture, similar to the idea behind <em>microservices</em>, but without owning all services involved, <em>decentralized authentication as a service</em> so to speak. An application owner doesn’t have to write or implement it’s own user management system, instead it is sufficient to just integrate these parts from the standard need to support signing in with <em>OpenID</em>. Equally the user is not required to register a new account whenever it is necessary, instead she can use her <em>OpenID</em>, already created by another identity provider, to authenticate with the application. The extension <em>OpenID Attribute Exchange</em> allows to import additional profile data. <em>OpenID Connect</em> <span class="citation" data-cites="web_spec_openid-connect-1">[<a href="#ref-web_spec_openid-connect-1">83</a>]</span> is the third iteration of the OpenID technology. <em>Connect</em> is to OpenID what <em>facebook connect</em> is to <em>facebook</em>, except for the additional authentication layer, which is build upon <em>OAuth2.0</em> and JWT. It therefore enables, aside from authorisation mechanisms, third parties to authenticate an OpenID-user and makes certain data available about that account via REST interface.</p>
 <p>If it’s necessary for certain components, as part of a distributed software, to make them stateless, apart from changing the architecture so that the state at that point is not needed anymore, the only other option would be to carry the state along (TODO: or “passing the state around”). This is a common use case for a <strong><span id="link_jwt">JSON Web Token</span></strong> <em>(JWT)</em> <span class="citation" data-cites="web_spec_json-web-token">[<a href="#ref-web_spec_json-web-token">84</a>]</span>. A <em>JWT</em>, as it’s name implies, is syntactically speaking formatted as <em>JSON</em>, but URI-safe into <em>Base64</em> encoded, before it gets transferred. The token itself holds the state. Here is where the use of <em>HTTP</em> comes in handy, because the token can be stored within the HTTP header and therefore can be passed through all communication points, where then certain data could be readout and therewith get verified. Such a token typically consists of three parts: information about itself, a payload, which can be arbitrary data such as user or state information, and a signature; all separated with a period. Additional standards define encryption <em>(JWE<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>)</em> to ensure confidentiality and signatures <em>(JWS<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>)</em> to preserve integrity of it’s contents. Using a <em>JWT</em> for authentication purposes is described as <em>stateless authentication</em>, because the verifying entity doesn’t need to be aware of session IDs nor any information about a state. So instead of the backend interface being constrained to check a state (<code>isLoggedIn(sessionId)</code> or <code>isAuthorized(sessionId)</code>) on every incoming request in order to verify permissions, it just needs</p>
 <p>When transferring data over a potential non-private channel several properties might be desired, which eventually provide an overall trust to that data. One important aspect might me, that no one else expect sender and receiver are able to know and see what the actual data is. To achieve this, <strong>Symmetrical Cryptography</strong> is used for. It states that the sender encrypts the data with the help of a key and the receiver decrypts that data also with that key. This is, sender and receiver, both need to know that one key, but everyone else should not . To agree on a key without compromising the key during that process, both entities either change the medium (e.g meet physically and exchange) or have to use a procedure, in which at any point in time the entire key is not exposed to others then sender and receiver. This procedure is called <strong>Diffie-Hellman-Key-Exchange</strong> <span class="citation" data-cites="paper_1976_d-h-key-exchange">[<a href="#ref-paper_1976_d-h-key-exchange">87</a>]</span> and is based on rules for modulo operations when prime numbers are involved. It is designed with the goal to agree on a <em>secret</em> while at the same time using a non-private channel. The data exchanged during the process alone can’t be used to deduce the secret. Such behaviour is similar to the concepts of <strong><span id="link_asym-crypto">Asymmetrical Cryptography</span></strong> <em>(or public-key cryptography)</em> <span class="citation" data-cites="book_2014_chapter-9-1-public-key-crypto">[<a href="#ref-book_2014_chapter-9-1-public-key-crypto">88</a>]</span>, which is underpinned by a <em>key-pair</em>; one key is <em>public</em> and the other one is <em>private</em>. Depending on which of keys is used to <em>encrypt</em> the data, only the other one can be used for <em>decrypting</em> the cipher. If then this technology gets combined with the concept of digital signatures (encrypted fingerprints from data), together it would provide integrity and authentication.</p>
 <p>Wrapping <em>HTTP</em> in the <em>Transport Layer Security</em> <span class="citation" data-cites="web_spec_tls">[<a href="#ref-web_spec_tls">89</a>]</span> (<em>TLS</em>) results in <strong>HTTPS</strong>. TLS provides encryption during the data transport, which reduces the vulnerability to <em>man-in-the-middle</em> attacks and thus ensures not only confidentiality but data integrity as well. <em>Asymmetric cryptography</em> is the foundation for the connection establishment, hence <em>TLS</em> also allows to verify integrity of the entity on the the connection’s counterside, and, depending on the integration, it could even be used for authentication purposes. But relying on those cryptographical concepts requires additional infrastructure. Such an infrastructure is known as <em>Public Key Infrastructure</em> (or <em>PKI</em>) <span class="citation" data-cites="book_2014_chapter-14-5-pki">[<a href="#ref-book_2014_chapter-14-5-pki">90</a>]</span>. It manages and provides public keys in a directory, including related information to the owners of these certificates. A Certificate Authority (or <em>CA</em>), as part of that infrastructure, issues, maintains and revokes digital certificates. The infrastructure that is needed to provide secure HTTP connections for the internet is one of those <em>PKI</em>s - a public one and probably the largest. It is based on the widely used IETF<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a> standard <em>X.509</em> <span class="citation" data-cites="web_spec_x509">[<a href="#ref-web_spec_x509">91</a>]</span>.</p>
@@ -476,8 +476,8 @@ also to work fully transparent on the specification itself. Such an open environ
 <section id="requirements" class="level1">
 <h1><span class="header-section-number">5</span> Requirements</h1>
 <p>Derived from the <a href="#core-principles">Core Principles</a>, the subsequent requirements shall be served as a list of features on the one hand, to get an idea about how the open specification and thus the resulting software might look like, and to give an overview about priorities (can/could, may/might, should, must/have to) on the other hand. Other chapters may contain specific references to the requirements listed below.</p>
-<section id="architecturedesign" class="level4">
-<h4><span class="header-section-number">5.1.1.1</span> Architecture/Design:</h4>
+<section id="architecture-design" class="level4">
+<h4><span class="header-section-number">5.1.1.1</span> Architecture &amp; Design:</h4>
 <p><strong><em><span id="sa01">S.A.01</span></em> - Accessibility &amp; Compatibility</strong><br />
 Since the internet is one of the most widely used infrastructure for data transfer and communication, it is assumed that all common platforms support underlying technologies, such as HTTP and TLS. Thus the emerging system should implement a web service, who provides supervised access to personal data.</p>
 <p><strong><em><span id="sa02">S.A.02</span></em> - Portability</strong><br />
@@ -486,6 +486,8 @@ All major components should be designed and communicate between each other in a 
 The system has to define two types of roles. The first one is the <a href="#terminologies--operator">operator</a>, who is in control of the system and, depending on the architecture, must be at least on individual but can be more. The operator takes care of all the data that then get’s provided and decides about which third party get’s access to what data. The second type are the <a href="#terminologies--consumer">consumers</a>. These are external third parties that desire certain data about or from the operator. (see <a href="#terminologies">Terminologies</a>)</p>
 <p><strong><em><span id="sa04">S.A.04</span></em> - Authenticity</strong><br />
 Since they have to rely on the data, both entities - everyone who belongs to one of the <em><a href="#sa03">roles</a></em> - have to be able to ensure the authenticity of their identity and the data they are sending to the opponent. It should be possible to opt out to that level of reliability, if is not necessary, or to opt-in for certain aspects. However, if one of the parties demanding the other one of providing such level, but the other doesn’t, then the access attempt has to fail.</p>
+<p><strong><em><span id="sa05">S.A.05</span></em> - Availability</strong><br />
+When third parties are requesting data, it is very likely that those procedures are triggered automatically or at least machine-supported, hence those requests can arrive at the <em>PDaaS</em> at any point in time. Therefore the <em>PDaaS</em>, or at least parts of it, should to be available all the time. Even if the request won’t get proceeded completely, the <em>data subject</em> can still be informed about that event; a bit like an answering machine. This also enhances the <em>PDaaS</em> as a serious and reliable data source. It also relates to the topic of <em>failure safety and redundancy</em>.</p>
 </section>
 <section id="persistence" class="level4">
 <h4><span class="header-section-number">5.1.1.2</span> Persistence:</h4>
@@ -656,77 +658,9 @@ authenticates the <em>data consumer</em> and checks the related <em>permission p
 <p>How the first steps of a <em>consumer registration</em> are look like, is up to the <em>consumer</em>, even though the version involving a QR-Code might result in a nicer user experience from the <em>data subject’s</em> perspective. In any case, the secure channel is vital.</p>
 <p>When obtaining personal data, at the same time preventing those data from leakage is almost impossible, because of the nature of digital data being able to get effortlessly copied. Nevertheless it is possible to make it much more difficult, so that it becomes inefficient to bypass those mechanism. At the same time it requires also some effort to establish, run and maintain the infrastructure needed for those mechanisms. In case of the <em>Data DRM</em> proposal that effort is not proportionate, because it requires additional infrastructure, interfaces and cryptographic procedures, thus introduces new attack scenarios. For now the only approach being considered, is the <em>Supervised Code Execution</em>, aside from the default forwarding. When implementing this approach, two directions might need to be considered. Alongside the executable program <em>data consumers</em> either provide all dependencies so that everything is bundled up, or don’t provide any dependency at all. The latter is preferred, because it reduces the amount of potentially malicious, flawed or needless components, so that the <em>data subject</em>, supported by her <em>PDaaS</em>, gains more supervising capabilities and thus more control over her personal data. Since the overall goal here is to prevent the <em>data subject</em> from loosing control over her data, it might also be conceivable, that certain categories of personal data with a higher level of sensitivity also require a least sufficient <em>request type</em>. If the <em>data consumer</em> does not comply, access will be refused. Also, depending on which category the personal data relates to, the <em>PDaaS</em> might be able to anonymize certain types of data somehow, if it’s capable of doing so all, because the <em>consumer</em> at least supposedly knows what individual is behind that <em>PDaaS</em> it currently interacts with. The field for <em>data anonymization</em> is a large research area on its own, which recently started to gains a lot of traction due to emerging privacy concerns about <em>big data</em>. Thus it will be left for future work.</p>
 </section>
-<section id="architecture" class="level2">
-<h2><span class="header-section-number">6.5</span> Architecture</h2>
-<p>By taking all previous sections, their discussions and the requirements as well into account, this section serves the sole purpose of figuring out how all the different concepts and conclusions discussed before can fit together in an overall system architecture that is organized in either a distributed or a monolithic manner. This type of changes should not impact how the system’s interfaces behave from a user perspective.</p>
-<p>The conglomeration below highlights all major components, that are required in order to cover most of the defined use cases. It includes further details about their purpose(s) and relation(s) to each other.</p>
-<section id="web-server" class="level6">
-<h6><span class="header-section-number">6.5.1.0.0.1</span> Web server</h6>
-<p><em>Purpose:</em> + serve web-based user interface(s) + handle all in- &amp; outgoing traffic (outmost layer) + revers proxying certain traffic to different components + en- &amp; decrypt HTTPS traffic, thus authenticate <em>consumers</em> + load balancing (if necessary) + web client notification <em>Platform:</em> server <em>Technologies:</em> + HTTP + TLS + WebSockets <em>Explanation/argumentation:</em></p>
-</section>
-<section id="permission-manager" class="level6">
-<h6><span class="header-section-number">6.5.1.0.0.2</span> Permission Manager</h6>
-<p><em>Purpose:</em> * creating <em>permission profiles</em> + permission validation + examine data queries + queue <em>consumer</em> requests <em>Platform:</em> server <em>Technologies:</em></p>
-</section>
-<section id="pki" class="level6">
-<h6><span class="header-section-number">6.5.1.0.0.3</span> PKI</h6>
-<p><em>Purpose:</em> + CA + manage keys and certificates per <em>endpoint</em> <em>Platform:</em> server <em>Technologies:</em> + X.509</p>
-</section>
-<section id="storage-connector" class="level6">
-<h6><span class="header-section-number">6.5.1.0.0.4</span> Storage Connector</h6>
-<p><em>Purpose:</em> + abstracts to system agnostic Query Language + queries personal data, regardless of where it’s located <em>Platform:</em> server <em>Technologies:</em> + driver for used database</p>
-</section>
-<section id="operator-api" class="level6">
-<h6><span class="header-section-number">6.5.1.0.0.5</span> Operator API</h6>
-<p><em>Purpose:</em> + authenticates <em>operator</em> + writes personal data through Storage Connector + provides relevant data, such as history + system configuration <em>Platform:</em> server <em>Technologies:</em> + JWT</p>
-</section>
-<section id="code-execution-environment" class="level6">
-<h6><span class="header-section-number">6.5.1.0.0.6</span> Code Execution Environment</h6>
-<p><em>Purpose:</em> + isolated runtime (sandbox) for computations/programs provided by <em>consumers</em> + restrict interaction with outer environment to absolute minimum (e.g. no shared filesystem or network) + one-time use + monitor sandbox during computation + examine and test the provided software <em>Platform:</em><br />
-<em>Technologies:</em> + Virtualization + Container (OCI)</p>
-</section>
-<section id="tracker" class="level6">
-<h6><span class="header-section-number">6.5.1.0.0.7</span> Tracker</h6>
-<p><em>Purpose:</em> + log all changes made with <em>Storage Connector</em> + tracks states for ongoing consumer requests + log all <em>access requests</em> <em>Platform:</em> server <em>Technologies:</em></p>
-</section>
-<section id="personal-data-storage" class="level6">
-<h6><span class="header-section-number">6.5.1.0.0.8</span> Personal Data Storage</h6>
-<p><em>Purpose:</em> + stores the <em>operator’s</em> personal data <em>Platform:</em> server, mobile <em>Technologies:</em> + non relational database + depending on host environment</p>
-</section>
-<section id="persistence-layer" class="level6">
-<h6><span class="header-section-number">6.5.1.0.0.9</span> Persistence Layer</h6>
-<p><em>Purpose:</em> + stores Permission Profiles, History, Tokens, Configurations and other application data + cache runtime data and information <em>Platform:</em> server <em>Technologies:</em> + non relational database + Filesystem</p>
-</section>
-<section id="notification-infrastructure" class="level6">
-<h6><span class="header-section-number">6.5.1.0.0.10</span> Notification Infrastructure</h6>
-<p><em>Purpose:</em> + notify about everything that needs <em>operator’s</em> approval (e.g. new registrations, new <em>permission requests</em>) <em>Platform:</em> server <em>Technologies:</em> + WebSockets for web UIs via local web server + mobile device manufacturer’s Push Notification server for mobile apps</p>
-</section>
-<section id="user-interface" class="level6">
-<h6><span class="header-section-number">6.5.1.0.0.11</span> User interface</h6>
-<p><em>Purpose:</em> + access restricted to <em>operator</em> only + access &amp; permission management + data management (editor, types &amp; import) + history and log viewer + system monitoring <em>Platform:</em> desktop, mobile <em>Technologies:</em> + HTML, CSS, Javascript + Java + Swift, Objective-C</p>
-<p>After defining all different components portability (<a href="#sa02">S.A.02</a>)</p>
-<ul>
-<li>which components can go where?</li>
-<li>where are reasonable places to locate the storage that holds the operators’s personal data</li>
-</ul>
-<p>TODO: does every component need to provide HTTP as their components? how does auth/security work then?</p>
-<p>TODO: it is debatable whether to place the <em>permission profiles</em> in the <em>persistence layer</em> among all other domain-related information, put it into the <em>personal data storage</em> or define it as an own storage component, in order to be flexible regarding it’s location.</p>
-<p>TODO: OpenID as auth services (like fb for other platforms) As discussed in previous sections the <em>PDaaS</em> has it’s qualities to be seen and valued as a digital representation of the individual that operates that system. Hence it could also be used to authenticate the individual against an external platform. Although it is priorly argued, that for authentication and security reasons the system is designed to be self-contained. But providing those OpenID capabilities isn’t something the <em>PDaaS</em> depends on, instead external platforms would depend on the <em>PDaaS</em> supporting that feature. It is imaginable, that an OpenID instance mapping on a single individual would simplify the authentication procedure provided by that technology. However, it is beyond the scope of this work to either do further investigations regarding that topic, nor elaborate on how this might look integrate with the currently developed feature-set.</p>
-<ul>
-<li>regarding oAuth as authentication: Priorly users tended to reuse their password for different account, nowadays they but also tend to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">123</a>]</span>.</li>
-</ul>
-<p>Thus the platform owners leave the responsibility of</p>
-<p>Many websites and platforms understand those <em>login-with $platformName</em> mechanisms as an outsourced service that handles all security- and user-related tasks.</p>
-<p><em>Conclusions:</em></p>
-<ul>
-<li>distributed architecture (e.g. notification/queue server + mobile device for persistence and administration)</li>
-<li>the previously proposed authentication concept for the <em>operator</em> role supports multiple<br />
-clients and with the suggested technologies it can be implemented with almost no effort</li>
-</ul>
-</section>
-</section>
 <section id="data" class="level2">
-<h2><span class="header-section-number">6.6</span> Data</h2>
+<h2><span class="header-section-number">6.5</span> Data</h2>
+<p>TODO: Technology: <em>GraphGL</em> or the <em>Semantic Web Suite</em> ???</p>
 <ul>
 <li><p>keep in mind to make it all somehow extendible, e.g. by using and storing corresponding schemas</p></li>
 <li><p>NOTE: step numbers marked with a <code>*</code> are somehow tasks which are happening in the background and don’t require any user interaction</p></li>
@@ -751,7 +685,255 @@ clients and with the suggested technologies it can be implemented with almost no
 </ul></li>
 </ul>
 <section id="conclusions" class="level3">
-<h3><span class="header-section-number">6.6.2</span> <em>Conclusions</em></h3>
+<h3><span class="header-section-number">6.5.2</span> <em>Conclusions</em></h3>
+</section>
+</section>
+<section id="architecture" class="level2">
+<h2><span class="header-section-number">6.6</span> Architecture</h2>
+<p>By taking all previous sections, their discussions and the requirements as well into account, this section serves the sole purpose of figuring out how all the different concepts and conclusions discussed before can fit together in an overall system architecture that is organized in either a distributed or a monolithic manner. This type of changes should not impact how the system’s interfaces behave from a user perspective.</p>
+<p>The foundation of this project is a server-client Architecture, which is chosen for a) providing availability (<a href="#sa05">S.A.05</a>) and b) separating some concerns <span class="citation" data-cites="web_2016_wikipedia_separation-of-concerns">[<a href="#ref-web_2016_wikipedia_separation-of-concerns">123</a>]</span>. Such a distributed system provides various locations to place these concerns, which are in fact different environments with different properties. Those combinations of locations and environments are herein after called <em>platforms</em>. To further describe these <em>platforms</em> characteristics such as architectural layer and access possibilities to it’s internals are taken into account. This results in the following three types of <em>platforms</em>:</p>
+<table>
+<caption>All platform types where components of the <em>PDaaS</em> architecture can be placed</caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 12%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type</th>
+<th style="text-align: center;">trusted</th>
+<th style="text-align: center;">private</th>
+<th style="text-align: center;">controlled by</th>
+<th style="text-align: center;">Layer</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><p>Server</p></td>
+<td style="text-align: center;"><p>yes</p></td>
+<td style="text-align: center;"><p>yes</p></td>
+<td style="text-align: center;"><p>data subject</p></td>
+<td style="text-align: center;"><p>back end</p></td>
+<td style="text-align: left;"><ul>
+<li>business logic</li>
+<li>third-party interfaces</li>
+<li>data storage</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><p>Desktop</p></td>
+<td style="text-align: center;"><p>no</p></td>
+<td style="text-align: center;"><p>no</p></td>
+<td style="text-align: center;"><p>data subject</p></td>
+<td style="text-align: center;"><p>front end</p></td>
+<td style="text-align: left;"><ul>
+<li>based on web technologies</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><p>Mobile</p></td>
+<td style="text-align: center;"><p>no</p></td>
+<td style="text-align: center;"><p>conditionally</p></td>
+<td style="text-align: center;"><p>data subject</p></td>
+<td style="text-align: center;"><p>front end</p></td>
+<td style="text-align: left;"><ul>
+<li>typically mobiles devices</li>
+<li>based on host-specific native technologies</li>
+<li>data storage</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<p>The next step is to determine those components, that are required in order to cover most of the defined use cases. The conglomeration below highlights all major components, including the platforms in which they could be positioned, in addition to further details about their purpose(s) and relation(s) to each other.</p>
+<section id="web-server" class="level5">
+<h5><span class="header-section-number">6.6.1.0.1</span> Web server</h5>
+<p><em>Platform:</em> Server</p>
+<p><em>Purpose:</em></p>
+<ul>
+<li>serve web-based user interface(s)</li>
+<li>handle all in- &amp; outgoing traffic (outmost layer)</li>
+<li>revers proxying certain traffic to different components</li>
+<li>en- &amp; decrypt HTTPS traffic, thus authenticate <em>consumers</em></li>
+<li>load balancing (if necessary)</li>
+<li>web client notification</li>
+</ul>
+<p><em>Technologies:</em></p>
+<ul>
+<li>HTTP</li>
+<li>TLS</li>
+<li>WebSockets</li>
+</ul>
+</section>
+<section id="permission-manager" class="level5">
+<h5><span class="header-section-number">6.6.1.0.2</span> Permission Manager</h5>
+<p><em>Platform:</em> Server</p>
+<p><em>Purpose:</em></p>
+<ul>
+<li>creating <em>permission profiles</em></li>
+<li>permission validation</li>
+<li>examine data queries</li>
+<li>queue <em>consumer</em> requests</li>
+</ul>
+<p><em>Technologies:</em></p>
+</section>
+<section id="pki" class="level5">
+<h5><span class="header-section-number">6.6.1.0.3</span> PKI</h5>
+<p><em>Platform:</em> Server</p>
+<p><em>Purpose:</em></p>
+<ul>
+<li>CA</li>
+<li>manage keys and certificates per <em>endpoint</em></li>
+</ul>
+<p><em>Technologies:</em></p>
+<ul>
+<li>X.509</li>
+</ul>
+</section>
+<section id="storage-connector" class="level5">
+<h5><span class="header-section-number">6.6.1.0.4</span> Storage Connector</h5>
+<p><em>Platform:</em> Server</p>
+<p><em>Purpose:</em></p>
+<ul>
+<li>abstracts to system agnostic Query Language</li>
+<li>queries personal data, regardless of where it’s located</li>
+</ul>
+<p><em>Technologies:</em></p>
+<ul>
+<li>driver for used database</li>
+</ul>
+</section>
+<section id="operator-api" class="level5">
+<h5><span class="header-section-number">6.6.1.0.5</span> Operator API</h5>
+<p><em>Platform:</em> Server</p>
+<p><em>Purpose:</em></p>
+<ul>
+<li>authenticates <em>operator</em></li>
+<li>writes personal data through Storage Connector</li>
+<li>provides relevant data, such as history</li>
+<li>system configuration</li>
+</ul>
+<p><em>Technologies:</em></p>
+<ul>
+<li>JWT</li>
+</ul>
+</section>
+<section id="code-execution-environment" class="level5">
+<h5><span class="header-section-number">6.6.1.0.6</span> Code Execution Environment</h5>
+<p><em>Platform:</em> Server</p>
+<p><em>Purpose:</em></p>
+<ul>
+<li>isolated runtime (sandbox) for computations/programs provided by <em>consumers</em></li>
+<li>restrict interaction with outer environment to absolute minimum (e.g. no shared filesystem or network)</li>
+<li>one-time use</li>
+<li>monitor sandbox during computation</li>
+<li>examine and test the provided software</li>
+</ul>
+<p><em>Technologies:</em></p>
+<ul>
+<li>Virtualization</li>
+<li>Container (OCI)</li>
+</ul>
+</section>
+<section id="tracker" class="level5">
+<h5><span class="header-section-number">6.6.1.0.7</span> Tracker</h5>
+<p><em>Platform:</em> Server</p>
+<p><em>Purpose:</em></p>
+<ul>
+<li>log all changes made with <em>Storage Connector</em></li>
+<li>tracks states for ongoing consumer requests</li>
+<li>log all <em>access requests</em></li>
+</ul>
+<p><em>Technologies:</em></p>
+</section>
+<section id="personal-data-storage" class="level5">
+<h5><span class="header-section-number">6.6.1.0.8</span> Personal Data Storage</h5>
+<p><em>Platform:</em> Server, Mobile</p>
+<p><em>Purpose:</em></p>
+<ul>
+<li>stores the <em>operator’s</em> personal data</li>
+</ul>
+<p><em>Technologies:</em></p>
+<ul>
+<li>non relational database</li>
+<li>depending on host environment</li>
+</ul>
+</section>
+<section id="persistence-layer" class="level5">
+<h5><span class="header-section-number">6.6.1.0.9</span> Persistence Layer</h5>
+<p><em>Platform:</em> Server</p>
+<p><em>Purpose:</em></p>
+<ul>
+<li>stores Permission Profiles, History, Tokens, Configurations and other application data</li>
+<li>cache runtime data and information</li>
+<li>holds keys</li>
+</ul>
+<p><em>Technologies:</em></p>
+<ul>
+<li>non relational database</li>
+<li>Filesystem</li>
+</ul>
+</section>
+<section id="notification-infrastructure" class="level5">
+<h5><span class="header-section-number">6.6.1.0.10</span> Notification Infrastructure</h5>
+<p><em>Platform:</em> Server</p>
+<p><em>Purpose:</em></p>
+<ul>
+<li>notify about everything that needs <em>operator’s</em> approval (e.g. new registrations, new <em>permission requests</em>)</li>
+</ul>
+<p><em>Technologies:</em></p>
+<ul>
+<li>WebSockets for web UIs via local web server</li>
+<li>mobile device manufacturer’s Push Notification server for mobile apps</li>
+</ul>
+</section>
+<section id="user-interface" class="level5">
+<h5><span class="header-section-number">6.6.1.0.11</span> User interface</h5>
+<p><em>Platform:</em> Desktop, Mobile</p>
+<p><em>Purpose:</em></p>
+<ul>
+<li>access restricted to <em>operator</em> only</li>
+<li>access &amp; permission management</li>
+<li>data management (editor, types &amp; import)</li>
+<li>history and log viewer</li>
+<li>system monitoring</li>
+</ul>
+<p><em>Technologies:</em></p>
+<ul>
+<li>HTML, CSS, Javascript</li>
+<li>Java</li>
+<li>Swift, Objective-C</li>
+</ul>
+<p>After outlining all different components while keeping the aspect of portability (<a href="#sa02">S.A.02</a>) in mind, it needs to be figured out which arrangements make sense and what variations might be possible. The result are two, more or less, distinct designs that are proposed. As stated above, one is a more monolithic approach and the other enables the <em>data subject</em> to carry all her personal data along.</p>
+<figure>
+<img src="./assets/figures/TODO_pdaas_component-composition_monolithic.jpg" alt="Figure 1: PDaaS Architecture, monolithic composition" id="fig:composition-monolithic" /><figcaption>Figure 1: PDaaS Architecture, monolithic composition</figcaption>
+</figure>
+<figure>
+<img src="./assets/figures/TODO_pdaas_component-composition_distributed.jpg" alt="Figure 2: PDaaS Architecture, distributed composition" id="fig:composition-distributed" /><figcaption>Figure 2: PDaaS Architecture, distributed composition</figcaption>
+</figure>
+<p>The main difference between the two compositions is the lack of the mobile platform in the more monolithic approach (Figure <a href="#fig:composition-monolithic">1</a>). Although <em>monolithic</em> only refers to the platform type <em>server</em>. It is imaginable as well that all server components are not necessarily have to be placed into one server environment, but being distribute over several virtual machines or containers, so that they can scale and run more independently. This can improve <em>redundancy</em> as well.</p>
+<p>TODO: where are reasonable places to locate the storage that holds the operators’s personal data</p>
+<ul>
+<li>It is debatable whether to place the <em>permission profiles</em> in the <em>persistence layer</em> among all other domain-related information, put it into the <em>personal data storage</em> or define it as an own storage component, in order to be flexible regarding it’s location.</li>
+</ul>
+<p>If components that are only placed on the server, have to communicate between each other but are separated into independent processes, then some inter-process communication need to be established (e.g. sockets). It is also conceivable that other interactions might only be unidirectional, therefor approaches like changing configuration files by writing to the filesystem can be feasible in some cases. These components that are vary in terms of the platform where can be placed, has to communicate to the other components via <em>HTTPS</em>.</p>
+<p>Authenticating <em>consumers</em> is done by the web server based on TLS, the assigned subdomains and the keys and certificates provided by the PKI. The <em>operator</em> authentication is either done by the <em>Operator API</em> or by the <em>web server</em>, depending on the <em>web server’s</em> capabilities. Although, it makes more sense to entrust the <em>web server</em> with that task, because it is the outmost component and it would prevent unauthorized and potential malicious requests from getting further into the system.</p>
+<p>TODO: OpenID as auth services (like fb for other platforms) As discussed in previous sections the <em>PDaaS</em> has it’s qualities to be seen and valued as a digital representation of the individual that operates that system. Hence it could also be used to authenticate the individual against an external platform. Although it is priorly argued, that for authentication and security reasons the system is designed to be self-contained. But providing those OpenID capabilities isn’t something the <em>PDaaS</em> depends on, instead external platforms would depend on the <em>PDaaS</em> supporting that feature. It is imaginable, that an OpenID instance mapping on a single individual would simplify the authentication procedure provided by that technology. However, it is beyond the scope of this work to either do further investigations regarding that topic, nor elaborate on how this might look integrate with the currently developed feature-set.</p>
+<ul>
+<li>regarding oAuth as authentication: Priorly users tended to reuse their password for different account, nowadays they but also tend to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">124</a>]</span>.</li>
+</ul>
+<p>Thus the platform owners leave the responsibility of</p>
+<p>Many websites and platforms understand those <em>login-with $platformName</em> mechanisms as an outsourced service that handles all security- and user-related tasks.</p>
+<p><em>Conclusions:</em></p>
+<ul>
+<li>distributed architecture (e.g. notification/queue server + mobile device for persistence and administration)</li>
+<li>the previously proposed authentication concept for the <em>operator</em> role supports multiple<br />
+clients and with the suggested technologies it can be implemented with almost no effort</li>
+</ul>
 </section>
 </section>
 <section id="environment-and-setup" class="level2">
@@ -1006,7 +1188,8 @@ clients and with the suggested technologies it can be implemented with almost no
 <ul>
 <li>but considering what data users already put into their social networks (or: thE social network: fb), they/it has already become a de facto data silo and is thus a single point of failure. If that service breaks or get down, the data from all users might be lost or worse (stolen). The aspect of data decentralisation achieved by individual data stores can be valued as positive.</li>
 </ul></li>
-<li>what about token stealing when using jwt?</li>
+<li><p>what about token stealing when using jwt?</p></li>
+<li><p>future work: add/activate an intrusion detection system</p></li>
 </ul>
 </section>
 <section id="future-work" class="level2">
@@ -1398,8 +1581,11 @@ clients and with the suggested technologies it can be implemented with almost no
 <div id="ref-web_spec_oauth-2_client-reg">
 <p>[122] D. Hardt, “The OAuth 2.0 authorization framework,” Oct-2012. [Online]. Available: <a href="https://tools.ietf.org/html/rfc6749#section-2" class="uri">https://tools.ietf.org/html/rfc6749#section-2</a>. [Accessed: 01-Nov-2016]</p>
 </div>
+<div id="ref-web_2016_wikipedia_separation-of-concerns">
+<p>[123] “Separation of concerns,” 01-Nov-2016. [Online]. Available: <a href="https://en.wikipedia.org/w/index.php?title=Separation_of_concerns&amp;oldid=747272729" class="uri">https://en.wikipedia.org/w/index.php?title=Separation_of_concerns&amp;oldid=747272729</a>. [Accessed: 24-Jan-2017]</p>
+</div>
 <div id="ref-web_2009-success-of-facebook-connect">
-<p>[123] N. Carlson, “Facebook connect is a huge success – by the numbers,” 01-Jul-2009. [Online]. Available: <a href="http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7" class="uri">http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7</a>. [Accessed: 16-Dec-2016]</p>
+<p>[124] N. Carlson, “Facebook connect is a huge success – by the numbers,” 01-Jul-2009. [Online]. Available: <a href="http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7" class="uri">http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7</a>. [Accessed: 16-Dec-2016]</p>
 </div>
 </div>
 </section>

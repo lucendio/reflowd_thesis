@@ -1,5 +1,6 @@
 CWD = $(CURDIR)
 PANDOC_DATA_DIR = $(CWD)/.pandoc
+PYTHON_MODULES_DIR = $(CWD)/.python_modules
 ASSETS_DIR = $(CWD)/assets
 TEMPLATES_DIR = $(ASSETS_DIR)/templates
 STYLES_DIR = $(ASSETS_DIR)/styles
@@ -102,6 +103,8 @@ else ifeq ($(env),macos)
 	brew install pandoc-crossref pandoc-citeproc
 	brew cask install basictex
 
+	pip install --target $(PYTHON_MODULES_DIR) pandoc-fignos
+
 	tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
 	tlmgr update --self
 	tlmgr update --all
@@ -129,6 +132,7 @@ pdf:
 	--from=markdown$(MARKDOWN_EXTENSIONS) \
 	--default-image-extension=png \
 	\
+	--filter=$(PYTHON_MODULES_DIR)/pandoc_fignos.py \
 	--filter=pandoc-citeproc \
 	\
 	--template="$(TEMPLATES_DIR)/tompollard.latex" \
@@ -139,6 +143,8 @@ pdf:
 	--toc \
 	--number-sections \
 	--number-offset=1,1,1 \
+	\
+	--columns=10 \
 	\
 	--highlight-style=pygments \
 	\
@@ -163,6 +169,7 @@ html:
 	--from=markdown$(MARKDOWN_EXTENSIONS) \
 	--default-image-extension=png \
 	\
+	--filter=$(PYTHON_MODULES_DIR)/pandoc_fignos.py \
 	--filter=pandoc-citeproc \
 	\
 	--template="$(TEMPLATES_DIR)/tompollard.html5" \
@@ -202,6 +209,7 @@ tex:
 	--from=markdown$(MARKDOWN_EXTENSIONS) \
 	--default-image-extension=png \
 	\
+	--filter=$(PYTHON_MODULES_DIR)/pandoc_fignos.py \
 	--filter=pandoc-citeproc \
 	\
 	--template="$(TEMPLATES_DIR)/tompollard.latex" \

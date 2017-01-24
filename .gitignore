@@ -2,4 +2,5 @@
 
 .idea
 .build
+.python_modules
 _*

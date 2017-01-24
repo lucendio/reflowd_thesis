@@ -11,7 +11,7 @@ Other chapters may contain specific references to the requirements listed below.
 
 
 
-#### Architecture/Design:
+#### Architecture & Design:
 
 __*[S.A.01]{#sa01}* - Accessibility & Compatibility__\
 Since the internet is one of the most widely used infrastructure for data transfer and 
@@ -40,6 +40,14 @@ are sending to the opponent.
 It should be possible to opt out to that level of reliability, if is not necessary, or to opt-in for
 certain aspects. However, if one of the parties demanding the other one of providing such level, but 
 the other doesn't, then the access attempt has to fail.
+
+__*[S.A.05]{#sa05}* - Availability__\
+When third parties are requesting data, it is very likely that those procedures are triggered 
+automatically or at least machine-supported, hence those requests can arrive at the *PDaaS* at any 
+point in time. Therefore the *PDaaS*, or at least parts of it, should to be available all the time. 
+Even if the request won't get proceeded completely, the *data subject* can still be informed about 
+that event; a bit like an answering machine. This also enhances the *PDaaS* as a serious and 
+reliable data source. It also relates to the topic of *failure safety and redundancy*.
 
 
 #### Persistence:

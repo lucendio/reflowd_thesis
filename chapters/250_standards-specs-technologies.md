@@ -50,11 +50,11 @@ it is sufficient to just integrate these parts from the standard need to support
 instead she can use her *OpenID*, already created by another identity provider, to authenticate 
 with the application. The extension *OpenID Attribute Exchange* allows to import additional profile 
 data.
-*OpenID Connect* [@web_spec_openid-connect-1] is the third iteration of the OpenID technology
+*OpenID Connect* [@web_spec_openid-connect-1] is the third iteration of the OpenID technology.
 *Connect* is to OpenID what *facebook connect* is to *facebook*, except for the additional
-authentication layer, which is build upon *OAuth2.0* and therefore enables, aside from authorisation 
-mechanisms, third parties to authenticate an OpenID-user and makes certain data available about 
-that account via REST interface.
+authentication layer, which is build upon *OAuth2.0* and JWT. It therefore enables, aside from 
+authorisation mechanisms, third parties to authenticate an OpenID-user and makes certain data 
+available about that account via REST interface.
 
 If it's necessary for certain components, as part of a distributed software, to make them stateless, 
 apart from changing the architecture so that the state at that point is not needed anymore, the only 

@@ -2,6 +2,8 @@
 
 
 
+TODO: Technology: *GraphGL* or the *Semantic Web Suite* ???
+
 +   keep in mind to make it all somehow extendible, e.g. by using and storing 
     corresponding schemas
 

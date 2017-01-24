@@ -25,6 +25,8 @@
 
 
 \usepackage{lmodern}
+\usepackage{setspace}
+\setstretch{1.0}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -98,6 +100,18 @@
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
 \newcommand{\NormalTok}[1]{{#1}}
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 % Make links footnotes instead of hotlinks:
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 \IfFileExists{parskip.sty}{%
@@ -109,16 +123,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
+\setcounter{secnumdepth}{3}
 
 % set default figure placement to htbp
 \makeatletter
@@ -1626,10 +1631,10 @@ another identity provider, to authenticate with the application. The
 extension \emph{OpenID Attribute Exchange} allows to import additional
 profile data. \emph{OpenID Connect}
 {[}\protect\hyperlink{ref-web_spec_openid-connect-1}{83}{]} is the third
-iteration of the OpenID technology \emph{Connect} is to OpenID what
+iteration of the OpenID technology. \emph{Connect} is to OpenID what
 \emph{facebook connect} is to \emph{facebook}, except for the additional
-authentication layer, which is build upon \emph{OAuth2.0} and therefore
-enables, aside from authorisation mechanisms, third parties to
+authentication layer, which is build upon \emph{OAuth2.0} and JWT. It
+therefore enables, aside from authorisation mechanisms, third parties to
 authenticate an OpenID-user and makes certain data available about that
 account via REST interface.
 
@@ -2040,7 +2045,7 @@ priorities (can/could, may/might, should, must/have to) on the other
 hand. Other chapters may contain specific references to the requirements
 listed below.
 
-\subsubsection{Architecture/Design:}\label{architecturedesign}
+\subsubsection{Architecture \& Design:}\label{architecture-design}
 
 \textbf{\emph{\protect\hypertarget{sa01}{}{S.A.01}} - Accessibility \&
 Compatibility}\\
@@ -2077,6 +2082,17 @@ level of reliability, if is not necessary, or to opt-in for certain
 aspects. However, if one of the parties demanding the other one of
 providing such level, but the other doesn't, then the access attempt has
 to fail.
+
+\textbf{\emph{\protect\hypertarget{sa05}{}{S.A.05}} - Availability}\\
+When third parties are requesting data, it is very likely that those
+procedures are triggered automatically or at least machine-supported,
+hence those requests can arrive at the \emph{PDaaS} at any point in
+time. Therefore the \emph{PDaaS}, or at least parts of it, should to be
+available all the time. Even if the request won't get proceeded
+completely, the \emph{data subject} can still be informed about that
+event; a bit like an answering machine. This also enhances the
+\emph{PDaaS} as a serious and reliable data source. It also relates to
+the topic of \emph{failure safety and redundancy}.
 
 \subsubsection{Persistence:}\label{persistence}
 
@@ -3061,163 +3077,9 @@ which recently started to gains a lot of traction due to emerging
 privacy concerns about \emph{big data}. Thus it will be left for future
 work.
 
-\section{Architecture}\label{architecture}
-
-By taking all previous sections, their discussions and the requirements
-as well into account, this section serves the sole purpose of figuring
-out how all the different concepts and conclusions discussed before can
-fit together in an overall system architecture that is organized in
-either a distributed or a monolithic manner. This type of changes should
-not impact how the system's interfaces behave from a user perspective.
-
-The conglomeration below highlights all major components, that are
-required in order to cover most of the defined use cases. It includes
-further details about their purpose(s) and relation(s) to each other.
-
-\subparagraph{Web server}\label{web-server}
-
-\emph{Purpose:} + serve web-based user interface(s) + handle all in- \&
-outgoing traffic (outmost layer) + revers proxying certain traffic to
-different components + en- \& decrypt HTTPS traffic, thus authenticate
-\emph{consumers} + load balancing (if necessary) + web client
-notification \emph{Platform:} server \emph{Technologies:} + HTTP + TLS +
-WebSockets \emph{Explanation/argumentation:}
-
-\subparagraph{Permission Manager}\label{permission-manager}
-
-\emph{Purpose:} * creating \emph{permission profiles} + permission
-validation + examine data queries + queue \emph{consumer} requests
-\emph{Platform:} server \emph{Technologies:}
-
-\subparagraph{PKI}\label{pki}
-
-\emph{Purpose:} + CA + manage keys and certificates per \emph{endpoint}
-\emph{Platform:} server \emph{Technologies:} + X.509
-
-\subparagraph{Storage Connector}\label{storage-connector}
-
-\emph{Purpose:} + abstracts to system agnostic Query Language + queries
-personal data, regardless of where it's located \emph{Platform:} server
-\emph{Technologies:} + driver for used database
-
-\subparagraph{Operator API}\label{operator-api}
-
-\emph{Purpose:} + authenticates \emph{operator} + writes personal data
-through Storage Connector + provides relevant data, such as history +
-system configuration \emph{Platform:} server \emph{Technologies:} + JWT
-
-\subparagraph{Code Execution
-Environment}\label{code-execution-environment}
-
-\emph{Purpose:} + isolated runtime (sandbox) for computations/programs
-provided by \emph{consumers} + restrict interaction with outer
-environment to absolute minimum (e.g.~no shared filesystem or network) +
-one-time use + monitor sandbox during computation + examine and test the
-provided software \emph{Platform:}\\
-\emph{Technologies:} + Virtualization + Container (OCI)
-
-\subparagraph{Tracker}\label{tracker}
-
-\emph{Purpose:} + log all changes made with \emph{Storage Connector} +
-tracks states for ongoing consumer requests + log all \emph{access
-requests} \emph{Platform:} server \emph{Technologies:}
-
-\subparagraph{Personal Data Storage}\label{personal-data-storage}
-
-\emph{Purpose:} + stores the \emph{operator's} personal data
-\emph{Platform:} server, mobile \emph{Technologies:} + non relational
-database + depending on host environment
-
-\subparagraph{Persistence Layer}\label{persistence-layer}
-
-\emph{Purpose:} + stores Permission Profiles, History, Tokens,
-Configurations and other application data + cache runtime data and
-information \emph{Platform:} server \emph{Technologies:} + non
-relational database + Filesystem
-
-\subparagraph{Notification
-Infrastructure}\label{notification-infrastructure}
-
-\emph{Purpose:} + notify about everything that needs \emph{operator's}
-approval (e.g.~new registrations, new \emph{permission requests})
-\emph{Platform:} server \emph{Technologies:} + WebSockets for web UIs
-via local web server + mobile device manufacturer's Push Notification
-server for mobile apps
-
-\subparagraph{User interface}\label{user-interface}
-
-\emph{Purpose:} + access restricted to \emph{operator} only + access \&
-permission management + data management (editor, types \& import) +
-history and log viewer + system monitoring \emph{Platform:} desktop,
-mobile \emph{Technologies:} + HTML, CSS, Javascript + Java + Swift,
-Objective-C
-
-After defining all different components portability
-(\protect\hyperlink{sa02}{S.A.02})
-
-\begin{itemize}
-\tightlist
-\item
-  which components can go where?
-\item
-  where are reasonable places to locate the storage that holds the
-  operators's personal data
-\end{itemize}
-
-TODO: does every component need to provide HTTP as their components? how
-does auth/security work then?
-
-TODO: it is debatable whether to place the \emph{permission profiles} in
-the \emph{persistence layer} among all other domain-related information,
-put it into the \emph{personal data storage} or define it as an own
-storage component, in order to be flexible regarding it's location.
-
-TODO: OpenID as auth services (like fb for other platforms) As discussed
-in previous sections the \emph{PDaaS} has it's qualities to be seen and
-valued as a digital representation of the individual that operates that
-system. Hence it could also be used to authenticate the individual
-against an external platform. Although it is priorly argued, that for
-authentication and security reasons the system is designed to be
-self-contained. But providing those OpenID capabilities isn't something
-the \emph{PDaaS} depends on, instead external platforms would depend on
-the \emph{PDaaS} supporting that feature. It is imaginable, that an
-OpenID instance mapping on a single individual would simplify the
-authentication procedure provided by that technology. However, it is
-beyond the scope of this work to either do further investigations
-regarding that topic, nor elaborate on how this might look integrate
-with the currently developed feature-set.
-
-\begin{itemize}
-\tightlist
-\item
-  regarding oAuth as authentication: Priorly users tended to reuse their
-  password for different account, nowadays they but also tend to get
-  tired of creating new accounts and profiles over and over again
-  instead of having just one account for everything
-  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{123}{]}.
-\end{itemize}
-
-Thus the platform owners leave the responsibility of
-
-Many websites and platforms understand those \emph{login-with
-\$platformName} mechanisms as an outsourced service that handles all
-security- and user-related tasks.
-
-\emph{Conclusions:}
-
-\begin{itemize}
-\tightlist
-\item
-  distributed architecture (e.g.~notification/queue server + mobile
-  device for persistence and administration)
-\item
-  the previously proposed authentication concept for the \emph{operator}
-  role supports multiple\\
-  clients and with the suggested technologies it can be implemented with
-  almost no effort
-\end{itemize}
-
 \section{Data}\label{data}
+
+TODO: Technology: \emph{GraphGL} or the \emph{Semantic Web Suite} ???
 
 \begin{itemize}
 \item
@@ -3269,6 +3131,515 @@ TODO: data types
 \end{itemize}
 
 \subsection{\texorpdfstring{\emph{Conclusions}}{Conclusions}}\label{conclusions}
+
+\section{Architecture}\label{architecture}
+
+By taking all previous sections, their discussions and the requirements
+as well into account, this section serves the sole purpose of figuring
+out how all the different concepts and conclusions discussed before can
+fit together in an overall system architecture that is organized in
+either a distributed or a monolithic manner. This type of changes should
+not impact how the system's interfaces behave from a user perspective.
+
+The foundation of this project is a server-client Architecture, which is
+chosen for a) providing availability (\protect\hyperlink{sa05}{S.A.05})
+and b) separating some concerns
+{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{123}{]}.
+Such a distributed system provides various locations to place these
+concerns, which are in fact different environments with different
+properties. Those combinations of locations and environments are herein
+after called \emph{platforms}. To further describe these
+\emph{platforms} characteristics such as architectural layer and access
+possibilities to it's internals are taken into account. This results in
+the following three types of \emph{platforms}:
+
+\begin{longtable}[]{@{}lccccl@{}}
+\caption{All platform types where components of the \emph{PDaaS}
+architecture can be placed}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.08\columnwidth}\raggedright\strut
+Type\strut
+\end{minipage} & \begin{minipage}[b]{0.08\columnwidth}\centering\strut
+trusted\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering\strut
+private\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering\strut
+controlled by\strut
+\end{minipage} & \begin{minipage}[b]{0.10\columnwidth}\centering\strut
+Layer\strut
+\end{minipage} & \begin{minipage}[b]{0.29\columnwidth}\raggedright\strut
+Purpose\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.08\columnwidth}\raggedright\strut
+Type\strut
+\end{minipage} & \begin{minipage}[b]{0.08\columnwidth}\centering\strut
+trusted\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering\strut
+private\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering\strut
+controlled by\strut
+\end{minipage} & \begin{minipage}[b]{0.10\columnwidth}\centering\strut
+Layer\strut
+\end{minipage} & \begin{minipage}[b]{0.29\columnwidth}\raggedright\strut
+Purpose\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+Server\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+yes\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+yes\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+data subject\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+back end\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+\begin{itemize}
+\tightlist
+\item
+  business logic
+\item
+  third-party interfaces
+\item
+  data storage
+\end{itemize}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+Desktop\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+no\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+no\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+data subject\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+front end\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+\begin{itemize}
+\tightlist
+\item
+  based on web technologies
+\end{itemize}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+Mobile\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+no\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+conditionally\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+data subject\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
+front end\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+\begin{itemize}
+\tightlist
+\item
+  typically mobiles devices
+\item
+  based on host-specific native technologies
+\item
+  data storage
+\end{itemize}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+The next step is to determine those components, that are required in
+order to cover most of the defined use cases. The conglomeration below
+highlights all major components, including the platforms in which they
+could be positioned, in addition to further details about their
+purpose(s) and relation(s) to each other.
+
+\paragraph{Web server}\label{web-server}
+
+\emph{Platform:} Server
+
+\emph{Purpose:}
+
+\begin{itemize}
+\tightlist
+\item
+  serve web-based user interface(s)
+\item
+  handle all in- \& outgoing traffic (outmost layer)
+\item
+  revers proxying certain traffic to different components
+\item
+  en- \& decrypt HTTPS traffic, thus authenticate \emph{consumers}
+\item
+  load balancing (if necessary)
+\item
+  web client notification
+\end{itemize}
+
+\emph{Technologies:}
+
+\begin{itemize}
+\tightlist
+\item
+  HTTP
+\item
+  TLS
+\item
+  WebSockets
+\end{itemize}
+
+\paragraph{Permission Manager}\label{permission-manager}
+
+\emph{Platform:} Server
+
+\emph{Purpose:}
+
+\begin{itemize}
+\tightlist
+\item
+  creating \emph{permission profiles}
+\item
+  permission validation
+\item
+  examine data queries
+\item
+  queue \emph{consumer} requests
+\end{itemize}
+
+\emph{Technologies:}
+
+\paragraph{PKI}\label{pki}
+
+\emph{Platform:} Server
+
+\emph{Purpose:}
+
+\begin{itemize}
+\tightlist
+\item
+  CA
+\item
+  manage keys and certificates per \emph{endpoint}
+\end{itemize}
+
+\emph{Technologies:}
+
+\begin{itemize}
+\tightlist
+\item
+  X.509
+\end{itemize}
+
+\paragraph{Storage Connector}\label{storage-connector}
+
+\emph{Platform:} Server
+
+\emph{Purpose:}
+
+\begin{itemize}
+\tightlist
+\item
+  abstracts to system agnostic Query Language
+\item
+  queries personal data, regardless of where it's located
+\end{itemize}
+
+\emph{Technologies:}
+
+\begin{itemize}
+\tightlist
+\item
+  driver for used database
+\end{itemize}
+
+\paragraph{Operator API}\label{operator-api}
+
+\emph{Platform:} Server
+
+\emph{Purpose:}
+
+\begin{itemize}
+\tightlist
+\item
+  authenticates \emph{operator}
+\item
+  writes personal data through Storage Connector
+\item
+  provides relevant data, such as history
+\item
+  system configuration
+\end{itemize}
+
+\emph{Technologies:}
+
+\begin{itemize}
+\tightlist
+\item
+  JWT
+\end{itemize}
+
+\paragraph{Code Execution Environment}\label{code-execution-environment}
+
+\emph{Platform:} Server
+
+\emph{Purpose:}
+
+\begin{itemize}
+\tightlist
+\item
+  isolated runtime (sandbox) for computations/programs provided by
+  \emph{consumers}
+\item
+  restrict interaction with outer environment to absolute minimum
+  (e.g.~no shared filesystem or network)
+\item
+  one-time use
+\item
+  monitor sandbox during computation
+\item
+  examine and test the provided software
+\end{itemize}
+
+\emph{Technologies:}
+
+\begin{itemize}
+\tightlist
+\item
+  Virtualization
+\item
+  Container (OCI)
+\end{itemize}
+
+\paragraph{Tracker}\label{tracker}
+
+\emph{Platform:} Server
+
+\emph{Purpose:}
+
+\begin{itemize}
+\tightlist
+\item
+  log all changes made with \emph{Storage Connector}
+\item
+  tracks states for ongoing consumer requests
+\item
+  log all \emph{access requests}
+\end{itemize}
+
+\emph{Technologies:}
+
+\paragraph{Personal Data Storage}\label{personal-data-storage}
+
+\emph{Platform:} Server, Mobile
+
+\emph{Purpose:}
+
+\begin{itemize}
+\tightlist
+\item
+  stores the \emph{operator's} personal data
+\end{itemize}
+
+\emph{Technologies:}
+
+\begin{itemize}
+\tightlist
+\item
+  non relational database
+\item
+  depending on host environment
+\end{itemize}
+
+\paragraph{Persistence Layer}\label{persistence-layer}
+
+\emph{Platform:} Server
+
+\emph{Purpose:}
+
+\begin{itemize}
+\tightlist
+\item
+  stores Permission Profiles, History, Tokens, Configurations and other
+  application data
+\item
+  cache runtime data and information
+\item
+  holds keys
+\end{itemize}
+
+\emph{Technologies:}
+
+\begin{itemize}
+\tightlist
+\item
+  non relational database
+\item
+  Filesystem
+\end{itemize}
+
+\paragraph{Notification
+Infrastructure}\label{notification-infrastructure}
+
+\emph{Platform:} Server
+
+\emph{Purpose:}
+
+\begin{itemize}
+\tightlist
+\item
+  notify about everything that needs \emph{operator's} approval
+  (e.g.~new registrations, new \emph{permission requests})
+\end{itemize}
+
+\emph{Technologies:}
+
+\begin{itemize}
+\tightlist
+\item
+  WebSockets for web UIs via local web server
+\item
+  mobile device manufacturer's Push Notification server for mobile apps
+\end{itemize}
+
+\paragraph{User interface}\label{user-interface}
+
+\emph{Platform:} Desktop, Mobile
+
+\emph{Purpose:}
+
+\begin{itemize}
+\tightlist
+\item
+  access restricted to \emph{operator} only
+\item
+  access \& permission management
+\item
+  data management (editor, types \& import)
+\item
+  history and log viewer
+\item
+  system monitoring
+\end{itemize}
+
+\emph{Technologies:}
+
+\begin{itemize}
+\tightlist
+\item
+  HTML, CSS, Javascript
+\item
+  Java
+\item
+  Swift, Objective-C
+\end{itemize}
+
+After outlining all different components while keeping the aspect of
+portability (\protect\hyperlink{sa02}{S.A.02}) in mind, it needs to be
+figured out which arrangements make sense and what variations might be
+possible. The result are two, more or less, distinct designs that are
+proposed. As stated above, one is a more monolithic approach and the
+other enables the \emph{data subject} to carry all her personal data
+along.
+
+\begin{figure}
+\centering
+\includegraphics{./assets/figures/TODO_pdaas_component-composition_monolithic.jpg}
+\caption{PDaaS Architecture, monolithic
+composition\label{fig:composition-monolithic}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{./assets/figures/TODO_pdaas_component-composition_distributed.jpg}
+\caption{PDaaS Architecture, distributed
+composition\label{fig:composition-distributed}}
+\end{figure}
+
+The main difference between the two compositions is the lack of the
+mobile platform in the more monolithic approach (Figure
+\ref{fig:composition-monolithic}). Although \emph{monolithic} only
+refers to the platform type \emph{server}. It is imaginable as well that
+all server components are not necessarily have to be placed into one
+server environment, but being distribute over several virtual machines
+or containers, so that they can scale and run more independently. This
+can improve \emph{redundancy} as well.
+
+TODO: where are reasonable places to locate the storage that holds the
+operators's personal data
+
+\begin{itemize}
+\tightlist
+\item
+  It is debatable whether to place the \emph{permission profiles} in the
+  \emph{persistence layer} among all other domain-related information,
+  put it into the \emph{personal data storage} or define it as an own
+  storage component, in order to be flexible regarding it's location.
+\end{itemize}
+
+If components that are only placed on the server, have to communicate
+between each other but are separated into independent processes, then
+some inter-process communication need to be established (e.g.~sockets).
+It is also conceivable that other interactions might only be
+unidirectional, therefor approaches like changing configuration files by
+writing to the filesystem can be feasible in some cases. These
+components that are vary in terms of the platform where can be placed,
+has to communicate to the other components via \emph{HTTPS}.
+
+Authenticating \emph{consumers} is done by the web server based on TLS,
+the assigned subdomains and the keys and certificates provided by the
+PKI. The \emph{operator} authentication is either done by the
+\emph{Operator API} or by the \emph{web server}, depending on the
+\emph{web server's} capabilities. Although, it makes more sense to
+entrust the \emph{web server} with that task, because it is the outmost
+component and it would prevent unauthorized and potential malicious
+requests from getting further into the system.
+
+TODO: OpenID as auth services (like fb for other platforms) As discussed
+in previous sections the \emph{PDaaS} has it's qualities to be seen and
+valued as a digital representation of the individual that operates that
+system. Hence it could also be used to authenticate the individual
+against an external platform. Although it is priorly argued, that for
+authentication and security reasons the system is designed to be
+self-contained. But providing those OpenID capabilities isn't something
+the \emph{PDaaS} depends on, instead external platforms would depend on
+the \emph{PDaaS} supporting that feature. It is imaginable, that an
+OpenID instance mapping on a single individual would simplify the
+authentication procedure provided by that technology. However, it is
+beyond the scope of this work to either do further investigations
+regarding that topic, nor elaborate on how this might look integrate
+with the currently developed feature-set.
+
+\begin{itemize}
+\tightlist
+\item
+  regarding oAuth as authentication: Priorly users tended to reuse their
+  password for different account, nowadays they but also tend to get
+  tired of creating new accounts and profiles over and over again
+  instead of having just one account for everything
+  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{124}{]}.
+\end{itemize}
+
+Thus the platform owners leave the responsibility of
+
+Many websites and platforms understand those \emph{login-with
+\$platformName} mechanisms as an outsourced service that handles all
+security- and user-related tasks.
+
+\emph{Conclusions:}
+
+\begin{itemize}
+\tightlist
+\item
+  distributed architecture (e.g.~notification/queue server + mobile
+  device for persistence and administration)
+\item
+  the previously proposed authentication concept for the \emph{operator}
+  role supports multiple\\
+  clients and with the suggested technologies it can be implemented with
+  almost no effort
+\end{itemize}
 
 \section{Environment and Setup}\label{environment-and-setup}
 
@@ -3723,7 +4094,6 @@ Monetisation}\label{business-models-monetisation}
 \section{Attack Scenarios}\label{attack-scenarios}
 
 \begin{itemize}
-\tightlist
 \item
   single point of failure (data-wise),
 
@@ -3739,6 +4109,8 @@ Monetisation}\label{business-models-monetisation}
   \end{itemize}
 \item
   what about token stealing when using jwt?
+\item
+  future work: add/activate an intrusion detection system
 \end{itemize}
 
 \section{Future Work}\label{future-work}
@@ -4476,8 +4848,14 @@ Jun-1999. {[}Online{]}. Available:
 \url{https://tools.ietf.org/html/rfc6749\#section-2}. {[}Accessed:
 01-Nov-2016{]}
 
+\hypertarget{ref-web_2016_wikipedia_separation-of-concerns}{}
+{[}123{]} ``Separation of concerns,'' 01-Nov-2016. {[}Online{]}.
+Available:
+\url{https://en.wikipedia.org/w/index.php?title=Separation_of_concerns\&oldid=747272729}.
+{[}Accessed: 24-Jan-2017{]}
+
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}123{]} N. Carlson, ``Facebook connect is a huge success -- by the
+{[}124{]} N. Carlson, ``Facebook connect is a huge success -- by the
 numbers,'' 01-Jul-2009. {[}Online{]}. Available:
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 {[}Accessed: 16-Dec-2016{]}

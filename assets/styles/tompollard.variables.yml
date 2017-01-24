@@ -4,8 +4,11 @@
 documentclass: 'report'
 papersize: 'a4'
 fontsize: '12pt'
-#linestretch: '1.25'     # line space
+linestretch: '1.0'     # line space
 #fontfamily
+
+secnumdepth: 3
+subparagraph: true
 
 classoption:
 #    -   'openright'
