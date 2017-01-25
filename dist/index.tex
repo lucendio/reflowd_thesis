@@ -26,7 +26,7 @@
 
 \usepackage{lmodern}
 \usepackage{setspace}
-\setstretch{1.0}
+\setstretch{1.2}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -123,7 +123,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{2}
 
 % set default figure placement to htbp
 \makeatletter
@@ -195,7 +195,7 @@
 % Adjust spacing between lines to 1.5
 \usepackage{setspace}
 % \onehalfspacing
-\doublespacing
+%\doublespacing
 \raggedbottom
 
 % Set margins
@@ -2455,22 +2455,36 @@ Because of it's simplicity the concept of web tokens are fairly
 straightforward to implement into the \emph{PDaaS}. But since web tokens
 ensure integrity and the optional confidentiality only of their own
 carriage but not the entire HTTP payload, both requirements need to be
-addressed separately. Serving HTTP over \emph{TLS} solves this issue For
-connections that use a web token, it should be sufficient to rely on the
-public PKI that drives \emph{HTTP} over \emph{TLS}, because all
-information required to authenticate is provided by the token itself.
-Though, the situation is different if instead \emph{two-way
-authentication} is used. For this, the system has to provide it's own
-\emph{PKI} including a Certificate Authority that issues certificates
-for \emph{data consumers}, because not only the \emph{endpoints} on the
-\emph{PDaaS} (server) need to be certified, all \emph{data consumers}
-(clients) need to present a certificate as well. Only the \emph{PDaaS}
-verifies and thus determines (supervised by the \emph{operator}) who is
-authorized to get access to the system. Hence the \emph{PKI} needs to be
-self-contained without any external role in order to function
-independently so that only invited parties can get involved.
+addressed separately. Serving HTTP over \emph{TLS} solves this issue.
+For connections that use a web token, it should be sufficient to rely on
+the public PKI that drives the internet with \emph{HTTP} over
+\emph{TLS}, because all information required to authenticate is provided
+by the token itself. Though, the situation is different if instead
+\emph{two-way authentication} is used. For this, the system has to
+provide it's own \emph{PKI} including a Certificate Authority that
+issues certificates for \emph{data consumers}, because not only the
+\emph{endpoints} on the \emph{PDaaS} (server) need to be certified, all
+\emph{data consumers} (clients) need to present a certificate as well.
+Only the \emph{PDaaS} verifies and thus determines (supervised by the
+\emph{operator}) who is authorized to get access to the system. Hence
+the \emph{PKI} needs to be self-contained without any external role in
+order to function independently so that only invited parties can get
+involved. With referring to the statement mentioned above, \emph{data
+consumer} have to be able as well to verify the identity of the
+\emph{PDaaS}, in order to prevent man-in-the-middle attacks. Address
+this issue basically means, \emph{data consumers} have to verify the
+certificate presented by the \emph{PDaaS}. This can be done in two ways.
+One is, a certificate has been installed on the \emph{PDaaS} that is
+certified and therefore trusted by a trustworthy public CA, as mentioned
+above. Then \emph{consumer} uses CA's certificate to verify the
+\emph{PDaaS} certificate. The other way is, to let the \emph{PDaaS}
+create and sign a public key by itself. Before \emph{consumers} then get
+presented with the self-signed certificate of the \emph{PDaaS} during
+the initiation of the TLS connection, they already have to be aware of
+that certificate. This is, \emph{consumers} need to be provided with
+that certificate on a private channel upfront.
 
-If a public-key-based connection, performing a \emph{mutual
+If a public-key-based connection, performing a \emph{two-way
 authentication}, establishes successfully, it implies that the identity
 originating the request is valid and the integrity of the containing
 data is given. Whereas on a token-based authentication every incoming
@@ -2478,18 +2492,18 @@ request has to carry the token so that the system can verify and
 associate the request with an account. Furthermore data it not
 automatically encrypted and thus integrity is not preserved.
 
-An advantage of token-based authentication over TLS-based \emph{mutual
+An advantage of token-based authentication over TLS-based \emph{two-way
 authentication} is that the token can be used on multiple clients at the
 same time. Or an account, a token is associated with, can actually have
 more than one token. Whereas during the asymmetric cryptography-based
-\emph{mutual authentication} the client's private key is required. So if
-it's likely that a \emph{operator} has several clients, regardless for
-what purposes, then the private key has to be on those clients. Though,
-a private key typically does not leave it's current system or least does
-not exist in multiple systems at the same time in order to prevent
-exposure, which any action of duplication implies. To reduce those
-risks, it's common practice to generate a private key at that location
-where it is going to be used.
+\emph{two-way authentication} the client's private key is required. So
+if it's likely that a \emph{operator} has several clients, regardless
+for what purposes, then the private key has to be on those clients.
+Though, a private key typically does not leave it's current system or
+least does not exist in multiple systems at the same time in order to
+prevent exposure, which any action of duplication implies. To reduce
+those risks, it's common practice to generate a private key at that
+location where it is going to be used.
 
 The technology \emph{De-Mail} tries to ensure authenticity of an authors
 identity, by embedding a legal foundation into email-based
@@ -2520,10 +2534,21 @@ based on \emph{\protect\hyperlink{link_jwt}{JSON Web Tokens}}, because
 the session state is preserved within the token rather then having the
 system itself keeping track of it. Though, it is also worth mentioning,
 that a a JSON Web Token implementation is feasible as well to fully
-replace the approach consisting of \emph{mutual authentication} on TLS
+replace the approach consisting of \emph{two-way authentication} on TLS
 level and a private \emph{PKI}. The disadvantage here would be, that
 whether \emph{data consumers} are able to authenticate themselves or
-not, a HTTPS connection will establish in any case. To hardening an
+not, a HTTPS connection will establish in any case. At the same point,
+authenticating the \emph{operator} is doable on the TLS-level as well;
+by restricting this possibility to only trusted environments like native
+mobile applications, because browser-based applications are not
+considered trusted and they lack of certain capabilities. Addressing the
+need of \emph{consumers} verifying whether the \emph{PDaaS} provided
+certificate can be trusted or not, both solutions, providing self-signed
+certificate on a secure channel upfront or using certificates certified
+by publicly trusted entities are legitimate. Even though the latter
+requires a service or an automatism that provides a new signed
+certificate whenever a new \emph{data consumer} registers, such
+dependencies should be kept to an absolute minimum. To hardening an
 authentication procedure often one or more factors are added, for
 example an \emph{eID card} or one-time password. This adds complexity to
 the procedure and thus increases the effort that is needed to make an
@@ -2532,8 +2557,6 @@ those factors in the first place. Using multi-factor authentication is
 generally valued and will be briefly noted as an optional security
 enhancement for the \emph{operator role}. However detailed discussions
 regarding this topic are left to follow-up work on the specification.
-
-it is also conceivable, to \ldots{} instead of
 
 \hypertarget{data-reliability}{\section{Data
 Reliability}\label{data-reliability}}
@@ -2992,7 +3015,7 @@ the TLS connection has successfully established. And since the endpoints
 relates to the \emph{permission profiles} it would make providing an
 \texttt{access\_token} to become obsolete. To summarize, implementing
 OAuth would introduce several mechanisms that otherwise can be provided
-by the combination of \emph{mutual authentication} in TLS, dedicated
+by the combination of \emph{two-way authentication} in TLS, dedicated
 endpoints and certification.
 
 \emph{Conclusions:} In the preceding text, various solutions were
@@ -3006,39 +3029,59 @@ developed, based on which the following three solutions are at disposal:
 \item
   OAuth 2 and HTTPS (public Certification and PKI)
 \item
-  HTTP over TLS with \emph{mutual Authentication}, private PKI,
+  HTTP over TLS with \emph{two-way authentication}, private PKI,
   sub-domains as dedicated endpoints
 \end{enumerate}
 
 The solutions a) and b) require an extra step were \emph{data consumers}
 would register themselves at the \emph{PDaaS}. This already needs a
 secure channel to prevent man-in-the-middle attacks. Furthermore does
-option a) obtain a symmetric key for creating signatures which have to
-ensure confidentiality and integrity in the subsequent steps. Thereby
-HTTPS is mandatory, which makes b) more suitable over a), because it's
-also more flexible and easier to implement. Whereas solution c) moves
-the complete authentication procedure to a different layer. It hence
-results in separating authentication and authorization from each other,
-leaving no remains of relation. This opens the authorization design up
-to for example other implementations that might be more suitable for
-certain \emph{data types}. In addition, it would only require little
-effort to support the case where multiple \emph{data consumers} share
-the same \emph{endpoint} and thereby the same \emph{permission
-profiles}. And combining b) and c) would result in significant
-redundancy, since both solutions have much overlap in the features they
-are providing. Even though b) aims to be a framework for authorization.
-The process description at the beginning of this section will be used as
-the foundation of \emph{access management} in the \emph{PDaaS}.
-Implementing OAuth based on this design would leave nothing from the
-framework, but a simple request returning an identifier for it's
-permissions. So there is not much benefit in using OAuth, other then
-developers might be somewhat familiar with the API. This can be
-addressed by a detailed specification for this project, hence c) is
-preferred over b). At the end, the only suitable use case from the
-specification would consists of just a request that obtains a token
-after authenticating with the provided credentials. In the context of
-this project OAuth doesn't really match with the rest of the design
-aspects.
+option a) obtain a symmetric key for creating signatures used to ensue
+confidentiality and integrity in the subsequent steps. All those
+cryptographic procedures need to be adopted when implementing the
+specification emerging from this work and when interacting with those
+implementations. While this can cause much more harm, is is proposed to
+leave as much of these sensitive parts as possible to existing
+implementations that already have proven themselves. Thus HTTPS is
+mandatory, which makes
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  more suitable over a), because it's also more flexible and easier to
+  implement. Whereas solution c) moves the complete authentication
+  procedure to a different layer. It hence results in separating
+  authentication and authorization from each other, leaving no remains
+  of relation. This opens the authorization design up to for example
+  other implementations that might be more suitable for certain
+  \emph{data types}. In addition, it would only require little effort to
+  support the case where multiple \emph{data consumers} share the same
+  \emph{endpoint} and thereby the same \emph{permission profiles}. And
+  combining b) and c) would result in significant redundancy, since both
+  solutions have much overlap in the features they are providing, even
+  though b) aims to be a framework for authorization. The process
+  description from the beginning of this section will be used as the
+  foundation of \emph{access management} in the \emph{PDaaS}.
+  Implementing OAuth based on this design would leave nothing from the
+  framework, but a simple request returning an identifier for it's
+  permissions. And even these identifiers are obsolete when combining
+  TLS with dedicated \emph{consumer}-specific endpoint, as c) states. So
+  there is not much benefit in using OAuth, other then developers might
+  be somewhat familiar with the API. This can be addressed by a detailed
+  specification for this project, hence c) is preferred over b). At the
+  end, the only suitable use case from the specification would consists
+  of just a request that obtains a token after authenticating with the
+  provided credentials. And since OAuth only provides a framework for
+  how to authorize third parties to access external resources, but
+  leaves the procedure of how to actually verify those access attempts
+  up to it's implementers
+  {[}\protect\hyperlink{ref-web_spec_oauth-1a_access-verification}{123}{]}
+  {[}\protect\hyperlink{ref-web_spec_oauth-2_access-verification}{124}{]}.
+  In the context of this project OAuth doesn't really match with the
+  rest of the design aspects.
+\end{enumerate}
 
 How the first steps of a \emph{consumer registration} are look like, is
 up to the \emph{consumer}, even though the version involving a QR-Code
@@ -3144,7 +3187,7 @@ not impact how the system's interfaces behave from a user perspective.
 The foundation of this project is a server-client Architecture, which is
 chosen for a) providing availability (\protect\hyperlink{sa05}{S.A.05})
 and b) separating some concerns
-{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{123}{]}.
+{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{125}{]}.
 Such a distributed system provides various locations to place these
 concerns, which are in fact different environments with different
 properties. Those combinations of locations and environments are herein
@@ -3330,6 +3373,8 @@ purpose(s) and relation(s) to each other.
 \tightlist
 \item
   X.509
+\item
+  ACME {[}\protect\hyperlink{ref-web_spec_acme}{126}{]} (Let's Encrypt)
 \end{itemize}
 
 \paragraph{Storage Connector}\label{storage-connector}
@@ -3591,10 +3636,14 @@ Authenticating \emph{consumers} is done by the web server based on TLS,
 the assigned subdomains and the keys and certificates provided by the
 PKI. The \emph{operator} authentication is either done by the
 \emph{Operator API} or by the \emph{web server}, depending on the
-\emph{web server's} capabilities. Although, it makes more sense to
+\emph{web server's} capabilities. Though, it makes more sense, to
 entrust the \emph{web server} with that task, because it is the outmost
 component and it would prevent unauthorized and potential malicious
-requests from getting further into the system.
+requests from getting further into the system. And since a native client
+on a mobile platform is considered \emph{private}, it is reasonable to
+change the authentication from JWT-based to TLS-based \emph{two-way
+authentication}, which would otherwise be inconvenient when using
+web-based clients.
 
 TODO: OpenID as auth services (like fb for other platforms) As discussed
 in previous sections the \emph{PDaaS} has it's qualities to be seen and
@@ -3618,7 +3667,7 @@ with the currently developed feature-set.
   password for different account, nowadays they but also tend to get
   tired of creating new accounts and profiles over and over again
   instead of having just one account for everything
-  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{124}{]}.
+  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{127}{]}.
 \end{itemize}
 
 Thus the platform owners leave the responsibility of
@@ -3640,6 +3689,9 @@ security- and user-related tasks.
   clients and with the suggested technologies it can be implemented with
   almost no effort
 \end{itemize}
+
+monolithic approach as a starting point and as mobile apps occur moving
+towards a more distributed and more trusted architecture.
 
 \section{Environment and Setup}\label{environment-and-setup}
 
@@ -3688,6 +3740,8 @@ security- and user-related tasks.
 This chapter hold the first draft of what might become a specification.
 As for now it has therefore no claim of completeness, continuity or
 accuracy.
+
+TODO: should might must n stuff in table (see dark mail spec)
 
 \section{Overview}\label{overview}
 
@@ -3763,7 +3817,7 @@ Infrastructure}\label{notification-infrastructure-1}
     \tightlist
     \item
       create new unique subdomain and a related asymmetric key pair
-      signed by the system's root CA
+      signed by the system's root CA (self-signed)
     \item
       issue \emph{consumer} certificate based on it's CRS and sign it
       with the key pair related to this \emph{endpoint}
@@ -3781,10 +3835,27 @@ Infrastructure}\label{notification-infrastructure-1}
   \begin{itemize}
   \tightlist
   \item
-    on grant, response includes certificate and information on what data
-    points are allowed to be accessed
+    on grant, response includes
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{consumer's} certified certificate
+    \item
+      certificate that's associated with the created endpoint
+    \item
+      information on what data points are allowed to be accessed;
+    \end{itemize}
   \item
     on refusal: error code/message
+  \end{itemize}
+\item
+  \emph{data consumer} handles the response appropriately
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {[}OPTIONAL{]} pin the provided \emph{PDaaS} certificate
   \end{itemize}
 \end{enumerate}
 
@@ -3869,7 +3940,7 @@ Data}\label{add-or-change-personal-data}
 \item
   one third party access (consumer) relates to one access
   \emph{endpoint}, that also authenticates that third party by TLS based
-  \emph{mutual auth}
+  \emph{two-way auth}
 \item
   zero or more \emph{permission profiles} are associated to one
   \emph{endpoint}
@@ -4084,11 +4155,13 @@ Monetisation}\label{business-models-monetisation}
 \section{Solutions}\label{solutions}
 
 \begin{itemize}
-\tightlist
 \item
   even though \emph{OAuth} don't find it's way into this project,
   working through the standard inspired here and there a solution, for
   example using a URI as a feedback channel or TODO.
+\item
+  refer to the scenarios at the beginning by saying that with the
+  \emph{PDaaS} one is able to implement all of them
 \end{itemize}
 
 \section{Attack Scenarios}\label{attack-scenarios}
@@ -4156,708 +4229,670 @@ The work will be continued.
 
 \hypertarget{refs}{}
 \hypertarget{ref-web_2016_privacy-international-about-big-data}{}
-{[}1{]} ``Big data privacy international.'' {[}Online{]}. Available:
-\url{https://www.privacyinternational.org/node/8}. {[}Accessed:
-15-Nov-2016{]}
+{[}1{]} \emph{Big data privacy international}. URL
+\url{https://www.privacyinternational.org/node/8}. - retrieved
+2016-11-15
 
 \hypertarget{ref-paper_2008_discrimination-aware-data-mining}{}
-{[}2{]} D. Pedreshi, S. Ruggieri, and F. Turini, ``Discrimination-aware
-data mining,'' in \emph{Proceedings of the 14th ACM SIGKDD international
-conference on Knowledge discovery and data mining}, 2008, pp. 560--568
-{[}Online{]}. Available:
-\url{http://dl.acm.org/citation.cfm?id=1401959}. {[}Accessed:
-03-Nov-2016{]}
+{[}2{]} \textsc{Pedreshi, Dino}\,; \textsc{Ruggieri, Salvatore}\,;
+\textsc{Turini, Franco}: Discrimination-aware data mining. In:
+\emph{Proceedings of the 14th ACM SIGKDD international conference on
+Knowledge discovery and data mining}~: ACM, 2008, pp.~560--568
 
 \hypertarget{ref-book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge}{}
-{[}3{]} S. Spiekermann, \emph{Ethical IT Innovation: A Value-Based
-System Design Approach}. CRC Press; Taylor \& Francis Group, LLC, 2015,
-pp. 66--72 {[}Online{]}. Available:
-\url{https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355}
+{[}3{]} \textsc{Spiekermann, Sarah}: \emph{Ethical IT Innovation: A
+Value-Based System Design Approach}~: CRC Press; Taylor \& Francis
+Group, LLC, 2015 --~scale ---~ISBN~978-1-4822-2635-5
 
 \hypertarget{ref-paper_1996_bias-in-computer-systems}{}
-{[}4{]} B. Friedman and H. Nissenbaum, ``Bias in computer systems,''
-\emph{ACM Transactions on Information Systems (TOIS)}, vol. 14, no. 3,
-pp. 330--347, 1996 {[}Online{]}. Available:
-\url{http://dl.acm.org/citation.cfm?id=230561}. {[}Accessed:
-07-Nov-2016{]}
+{[}4{]} \textsc{Friedman, Batya}\,; \textsc{Nissenbaum, Helen}: Bias in
+computer systems. In: \emph{ACM Transactions on Information Systems
+(TOIS)} vol. 14 (1996), Nr.~3, pp.~330--347
 
 \hypertarget{ref-wikipedia_2016_cognitive-bias}{}
-{[}5{]} ``Cognitive bias,'' \emph{Wikipedia}, Oct-2016. {[}Online{]}.
-Available:
+{[}5{]} \emph{Cognitive bias}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Cognitive_bias\&oldid=742803386}.
-{[}Accessed: 08-Nov-2016{]}
+- retrieved 2016-11-08. ---~Wikipedia. ---~Page Version ID: 742803386
 
 \hypertarget{ref-web_2016_big-data-is-people}{}
-{[}6{]} R. Lemov, ``Why big data is actually small, personal and very
-human. Aeon essays,'' 16-Jun-2016. {[}Online{]}. Available:
+{[}6{]} \textsc{Lemov, Rebecca}: \emph{Why big data is actually small,
+personal and very human. Aeon essays}. URL
 \url{https://aeon.co/essays/why-big-data-is-actually-small-personal-and-very-human}.
-{[}Accessed: 17-Nov-2016{]}
+- retrieved 2016-11-17
 
 \hypertarget{ref-video_2015_big-data-and-deep-learning_discrimination}{}
-{[}7{]} A. Dewes, ``C3TV - Say hi to your new boss: How algorithms might
-soon control our lives.'' 29-Dec-2015. {[}Online{]}. Available:
+{[}7{]} \textsc{Dewes, Andreas}: \emph{C3TV - Say hi to your new boss:
+How algorithms might soon control our lives.} URL
 \url{https://media.ccc.de/v/32c3-7482-say_hi_to_your_new_boss_how_algorithms_might_soon_control_our_lives\#video\&t=1538}.
-{[}Accessed: 03-Nov-2016{]}
+- retrieved 2016-11-03
 
 \hypertarget{ref-web_2010_projectvrm_about}{}
-{[}8{]} ``ProjectVRM - about. ProjectVRM,'' 25-Feb-2010. {[}Online{]}.
-Available: \url{https://blogs.harvard.edu/vrm/about/}. {[}Accessed:
-09-Nov-2016{]}
+{[}8{]} \emph{ProjectVRM - about. ProjectVRM}. URL
+\url{https://blogs.harvard.edu/vrm/about/}. - retrieved 2016-11-09
 
 \hypertarget{ref-paper_2013_the-personal-data-store-approach-to-personal-data-security_2013}{}
-{[}9{]} Tom Kirkham, Sandra Winfield, Serge Ravet, and S. Kellomaki,
-``The personal data store approach to personal data security,''
-\emph{IEEE Security \& Privacy}, vol. 11, no. 5, pp. 12--19, 2013.
+{[}9{]} \textsc{Tom Kirkham}\,; \textsc{Sandra Winfield}\,;
+\textsc{Serge Ravet}\,; \textsc{Kellomaki, Sampo}: The personal data
+store approach to personal data security. In: \emph{IEEE Security \&
+Privacy} vol. 11. Los Alamitos, CA, USA, IEEE Computer Society (2013),
+Nr.~5, pp.~12--19
 
 \hypertarget{ref-whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing}{}
-{[}10{]} A. Poikola, K. Kuikkaniemi, and H. Honko, ``MyData -- a nordic
-model for human-centered personal data management and processing,'' pp.
-1--12, Jun. 2015 {[}Online{]}. Available:
-\url{https://www.lvm.fi/documents/20181/859937/MyData-nordic-model/2e9b4eb0-68d7-463b-9460-821493449a63}.
-{[}Accessed: 10-Nov-2016{]}
+{[}10{]} \textsc{Poikola, Antti}\,; \textsc{Kuikkaniemi, Kai}\,;
+\textsc{Honko, Harri}: MyData -- a nordic model for human-centered
+personal data management and processing, Ministry of Transport;
+Communications (2015), pp.~1--12 ---~ISBN~978-952-243-455-5
 
 \hypertarget{ref-web_2016_meeco-how-it-works}{}
-{[}11{]} ``Meeco how it works.'' {[}Online{]}. Available:
-\url{https://meeco.me/how-it-works.html}. {[}Accessed: 09-Nov-2016{]}
+{[}11{]} \emph{Meeco how it works}. URL
+\url{https://meeco.me/how-it-works.html}. - retrieved 2016-11-09
 
 \hypertarget{ref-repo_2016_pdaas-spec}{}
-{[}12{]} ``Open specification of the concept called personal data as a
-service (pdaas). GitHub.'' {[}Online{]}. Available:
-\url{https://github.com/lucendio/pdaas_spec}. {[}Accessed:
-11-Nov-2016{]}
+{[}12{]} \emph{Open specification of the concept called personal data as
+a service (pdaas). GitHub}. URL
+\url{https://github.com/lucendio/pdaas_spec}. - retrieved 2016-11-11
 
 \hypertarget{ref-web_2010_projectvrm-wiki_about-vrm}{}
-{[}13{]} ``ProjectVRM wiki - about VRM.'' {[}Online{]}. Available:
-\url{https://cyber.harvard.edu/projectvrm/Main_Page\#About_VRM}.
-{[}Accessed: 11-Nov-2016{]}
+{[}13{]} \emph{ProjectVRM wiki - about VRM}. URL
+\url{https://cyber.harvard.edu/projectvrm/Main_Page\#About_VRM}. -
+retrieved 2016-11-11
 
 \hypertarget{ref-web_2010_projectvrm-wiki_pims-example-list}{}
-{[}14{]} ``ProjectVRM wiki - list of personal information management
-systems.'' {[}Online{]}. Available:
+{[}14{]} \emph{ProjectVRM wiki - list of personal information management
+systems}. URL
 \url{https://cyber.harvard.edu/projectvrm/VRM_Development_Work\#Personal_Information_Management_Systems_.28PIMS.29}.
-{[}Accessed: 11-Nov-2016{]}
+- retrieved 2016-11-11
 
 \hypertarget{ref-report_2014_data-brokers}{}
-{[}15{]} F. T. C. USA, ``Data brokers,'' May 2014 {[}Online{]}.
-Available:
-\url{https://www.ftc.gov/system/files/documents/reports/data-brokers-call-transparency-accountability-report-federal-trade-commission-may-2014/140527databrokerreport.pdf}.
-{[}Accessed: 17-Nov-2016{]}
+{[}15{]} \textsc{USA, Federal Trade Commission}: \emph{Data brokers},
+2014 --~scale
 
 \hypertarget{ref-whitepaper_2012_the-value-of-our-digital-identity_definition}{}
-{[}16{]} J. Rose, O. Rehse, and B. Röber, ``The value of our digital
-identity,'' \emph{Boston Cons. Gr}, 2012 {[}Online{]}. Available:
-\url{https://www.libertyglobal.com/PDF/public-policy/The-Value-of-Our-Digital-Identity.pdf}
+{[}16{]} \textsc{Rose, John}\,; \textsc{Rehse, Olaf}\,; \textsc{Röber,
+Björn}: The value of our digital identity. In: \emph{Boston Cons. Gr}
+(2012)
 
 \hypertarget{ref-web_2016_wikipedia_intellectual-property}{}
-{[}17{]} ``Outline of intellectual property,'' 11-Oct-2016.
-{[}Online{]}. Available:
+{[}17{]} \emph{Outline of intellectual property}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Outline_of_intellectual_property\&oldid=743830160}.
-{[}Accessed: 25-Dec-2016{]}
+- retrieved 2016-12-25. ---~Page Version ID: 743830160
 
 \hypertarget{ref-regulation_2016_eu_general-data-protection-regulation_definition}{}
-{[}18{]} \emph{General data protection regulation}. 2016, p. L 119/33
-{[}Online{]}. Available:
-\url{http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679}
+{[}18{]} Regulation (EU) 2016/679 --- General data protection
+regulation, 2016 --~scale
 
 \hypertarget{ref-web_2016_wikipedia_information-privacy-law_us}{}
-{[}19{]} Wikipedia, ``Information privacy law,'' 13-Nov-2016.
-{[}Online{]}. Available:
+{[}19{]} \textsc{Wikipedia}: \emph{Information privacy law}. URL
 \url{https://en.wikipedia.org/wiki/Information_privacy_law\#United_States}.
-{[}Accessed: 20-Nov-2016{]}
+- retrieved 2016-11-20. ---~Page Version ID: 749338152
 
 \hypertarget{ref-web_2016_data-protection-laws-in-the-us}{}
-{[}20{]} I. J. (Loeb \& Loeb), ``PLC - data protection in the united
-states: Overview,'' 01-Jul-2013. {[}Online{]}. Available:
-\url{http://us.practicallaw.com/6-502-0467}. {[}Accessed: 20-Nov-2016{]}
+{[}20{]} \textsc{Loeb), Ieuan Jolly (Loeb \&}: \emph{PLC - data
+protection in the united states: Overview}. URL
+\url{http://us.practicallaw.com/6-502-0467}. - retrieved 2016-11-20
 
 \hypertarget{ref-web_2015_white-house-releases-consumer-privacy-bill-draft}{}
-{[}21{]} A. Wilhelm, ``White house drops `consumer privacy bill of
-rights act' draft. TechCrunch,'' 27-Feb-2015. {[}Online{]}. Available:
+{[}21{]} \textsc{Wilhelm, Alex}: \emph{White house drops ``consumer
+privacy bill of rights act'' draft. TechCrunch}. URL
 \url{http://social.techcrunch.com/2015/02/27/white-house-drops-consumer-privacy-bill-of-rights-act-draft/}.
-{[}Accessed: 20-Nov-2016{]}
+- retrieved 2016-11-20
 
 \hypertarget{ref-bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition}{}
-{[}22{]} \emph{Administration discussion draft: Consumer privacy bill of
-rights act of 2015}. 2015 {[}Online{]}. Available:
-\url{https://www.whitehouse.gov/sites/default/files/omb/legislative/letters/cpbr-act-of-2015-discussion-draft.pdf}
+{[}22{]} Consumer privacy bill of rights act (cpbora) --- Administration
+discussion draft: Consumer privacy bill of rights act of 2015, 2015
+--~scale
 
 \hypertarget{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_sensitive-types-of-data}{}
-{[}23{]} \emph{Report and order}. 2016 {[}Online{]}. Available:
-\url{https://transition.fcc.gov/Daily_Releases/Daily_Business/2016/db1103/FCC-16-148A1.pdf}.
-{[}Accessed: 20-Nov-2016{]}
+{[}23{]} FCC 16-148 --- Report and order, 2016 --~scale. ---~In the
+Matter of Protecting the Privacy of Customers of Broadband and Other
+Telecommunications Services
 
 \hypertarget{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information}{}
-{[}24{]} \emph{Notice of proposed rulemaking}. 2016 {[}Online{]}.
-Available:
-\url{https://apps.fcc.gov/edocs_public/attachmatch/FCC-16-39A1.pdf}.
-{[}Accessed: 20-Nov-2016{]}
+{[}24{]} FCC 16-39 --- Notice of proposed rulemaking, 2016 --~scale.
+---~In the Matter of Protecting the Privacy of Customers of Broadband
+and Other Telecommunications Services
 
 \hypertarget{ref-web_2016_privacy-policies-are-mandatory-by-law}{}
-{[}25{]} ``Privacy policies are mandatory by law,'' 23-Oct-2016.
-{[}Online{]}. Available:
-\url{https://termsfeed.com/blog/privacy-policy-mandatory-law/}.
-{[}Accessed: 20-Nov-2016{]}
+{[}25{]} \emph{Privacy policies are mandatory by law}. URL
+\url{https://termsfeed.com/blog/privacy-policy-mandatory-law/}. -
+retrieved 2016-11-20. ---~Disclaimer: Legal information is not legal
+advice
 
 \hypertarget{ref-web_2016_international-privacy-standards}{}
-{[}26{]} ``International privacy standards,'' 29-Sep-2016. {[}Online{]}.
-Available:
-\url{https://www.eff.org/issues/international-privacy-standards}.
-{[}Accessed: 20-Nov-2016{]}
+{[}26{]} \emph{International privacy standards}. URL
+\url{https://www.eff.org/issues/international-privacy-standards}. -
+retrieved 2016-11-20
 
 \hypertarget{ref-paper_2014_who-owns-yours-data}{}
-{[}27{]} G. Rosner, ``Who owns your data?'' presented at the UbiComp
-'14, september 13 - 17 2014, seattle, wa, usa, 2014, pp. 623--628
-{[}Online{]}. Available:
-\url{http://dl.acm.org/citation.cfm?doid=2638728.2641679}. {[}Accessed:
-01-Dec-2016{]}
+{[}27{]} \textsc{Rosner, Gilad}: Who owns your data? In: ~: ACM Press,
+2014 ---~ISBN~978-1-4503-3047-3, pp.~623--628
 
 \hypertarget{ref-book_1987_private-ownership_definition}{}
-{[}28{]} J. Grunebaum, \emph{Private ownership}. Routledge \& Kegan
-Paul, 1987, p. 213.
+{[}28{]} \textsc{Grunebaum, J.O.}: \emph{Private ownership},
+\emph{Problems of philosophy}~: Routledge \& Kegan Paul, 1987 --~scale
+---~ISBN~9780710207067
 
 \hypertarget{ref-regulation_2016_eu_general-data-protection-regulation_ownership}{}
-{[}29{]} \emph{General data protection regulation}. 2016, p. L 119/12
-{[}Online{]}. Available:
-\url{http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679}
+{[}29{]} Regulation (EU) 2016/679 --- General data protection
+regulation, 2016 --~scale
 
 \hypertarget{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership}{}
-{[}30{]} \emph{Report and order}. 2016 {[}Online{]}. Available:
-\url{https://transition.fcc.gov/Daily_Releases/Daily_Business/2016/db1103/FCC-16-148A1.pdf}.
-{[}Accessed: 20-Nov-2016{]}
+{[}30{]} FCC 16-148 --- Report and order, 2016 --~scale. ---~In the
+Matter of Protecting the Privacy of Customers of Broadband and Other
+Telecommunications Services
 
 \hypertarget{ref-web_2016_facebook_terms-of-service}{}
-{[}31{]} Facebook, ``Facebooks's terms of service. Statement of rights
-and responsibilities,'' 30-Jan-2015. {[}Online{]}. Available:
-\url{https://www.facebook.com/legal/terms}. {[}Accessed: 01-Dec-2016{]}
+{[}31{]} \textsc{Facebook}: \emph{Facebooks's terms of service.
+Statement of rights and responsibilities}. URL
+\url{https://www.facebook.com/legal/terms}. - retrieved 2016-12-01
 
 \hypertarget{ref-web_2016_twitter_terms-of-service}{}
-{[}32{]} Twitter, ``Twitters's terms of service. Twitter terms of
-service,'' 30-Sep-2016. {[}Online{]}. Available:
-\url{https://twitter.com/tos\#intlTerms}. {[}Accessed: 01-Dec-2016{]}
+{[}32{]} \textsc{Twitter}: \emph{Twitters's terms of service. Twitter
+terms of service}. URL \url{https://twitter.com/tos\#intlTerms}. -
+retrieved 2016-12-01
 
 \hypertarget{ref-web_2016_google_terms-of-service}{}
-{[}33{]} Google, ``Google's terms of service. Google terms of service,''
-30-Apr-2014. {[}Online{]}. Available:
-\url{https://www.google.com/intl/en/policies/terms/regional.html}.
-{[}Accessed: 01-Dec-2016{]}
+{[}33{]} \textsc{Google}: \emph{Google's terms of service. Google terms
+of service}. URL
+\url{https://www.google.com/intl/en/policies/terms/regional.html}. -
+retrieved 2016-12-01
 
 \hypertarget{ref-web_2016_apple-icloud_terms-of-service}{}
-{[}34{]} Apple, ``Apple's iClound terms and conditions. V. content and
-your conduct,'' 25-Sep-2016. {[}Online{]}. Available:
+{[}34{]} \textsc{Apple}: \emph{Apple's iClound terms and conditions. V.
+content and your conduct}. URL
 \url{https://www.apple.com/legal/internet-services/icloud/en/terms.html}.
-{[}Accessed: 01-Dec-2016{]}
+- retrieved 2016-12-01
 
 \hypertarget{ref-web_2013_why-metadata-matters}{}
-{[}35{]} ``Why metadata matters,'' 07-Jun-2013. {[}Online{]}. Available:
-\url{https://www.eff.org/deeplinks/2013/06/why-metadata-matters}.
-{[}Accessed: 24-Nov-2016{]}
+{[}35{]} \emph{Why metadata matters}. URL
+\url{https://www.eff.org/deeplinks/2013/06/why-metadata-matters}. -
+retrieved 2016-11-24
 
 \hypertarget{ref-web_2016_why-you-need-metadata-for-big-data-to-success}{}
-{[}36{]} J. P. Stevens, ``Why you need metadata for big data success,''
-06-Apr-2016. {[}Online{]}. Available:
+{[}36{]} \textsc{Stevens, John P.}: \emph{Why you need metadata for big
+data success}. URL
 \url{http://www.datasciencecentral.com/profiles/blogs/why-you-need-metadata-for-big-data-success}.
-{[}Accessed: 24-Nov-2016{]}
+- retrieved 2016-11-24
 
 \hypertarget{ref-web_2016_oxford_definition_big-data}{}
-{[}37{]} ``Big data n.'' {[}Online{]}. Available:
-\url{http://www.oed.com/view/Entry/18833\#eid301162177}. {[}Accessed:
-11-Nov-2016{]}
+{[}37{]} \emph{Big data n.} URL
+\url{http://www.oed.com/view/Entry/18833\#eid301162177}. - retrieved
+2016-11-11
 
 \hypertarget{ref-web_2016_wikipedia_definition_big-data}{}
-{[}38{]} Wikipedia, ``Big data,'' 11-Nov-2016. {[}Online{]}. Available:
+{[}38{]} \textsc{Wikipedia}: \emph{Big data}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Big_data\&oldid=748964100}.
-{[}Accessed: 11-Nov-2016{]}
+- retrieved 2016-11-11. ---~Page Version ID: 748964100
 
 \hypertarget{ref-paper_2015_big-data-analytics_a-survey}{}
-{[}39{]} C.-W. Tsai, C.-F. Lai, H.-C. Chao, and A. V. Vasilakos, ``Big
-data analytics: A survey,'' \emph{Journal of Big Data}, vol. 2, no. 1,
-p. 21, Oct. 2015 {[}Online{]}. Available:
-\url{http://journalofbigdata.springeropen.com/articles/10.1186/s40537-015-0030-3}.
-{[}Accessed: 13-Nov-2016{]}
+{[}39{]} \textsc{Tsai, Chun-Wei}\,; \textsc{Lai, Chin-Feng}\,;
+\textsc{Chao, Han-Chieh}\,; \textsc{Vasilakos, Athanasios V.}: Big data
+analytics: A survey. In: \emph{Journal of Big Data} vol. 2 (2015),
+Nr.~1, p.~21
 
 \hypertarget{ref-book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining}{}
-{[}40{]} O. R. Zaïane, \emph{Principles of knowledge discovery in
-databases}. 1999, pp. 1--2 {[}Online{]}. Available:
-\url{https://webdocs.cs.ualberta.ca/~zaiane/courses/cmput690/notes/Chapter1/}.
-{[}Accessed: 13-Nov-2016{]}
+{[}40{]} \textsc{Zaïane, Osmar R}: \emph{Principles of knowledge
+discovery in databases}, 1999 --~scale
 
 \hypertarget{ref-web_2013_big-data-collection-collides-with-privacy-concerns}{}
-{[}41{]} ``Big data collection collides with privacy concerns, analysts
-say. PCWorld,'' 10-Feb-2013. {[}Online{]}. Available:
+{[}41{]} \emph{Big data collection collides with privacy concerns,
+analysts say. PCWorld}. URL
 \url{http://www.pcworld.com/article/2027789/big-data-collection-collides-with-privacy-concerns-analysts-say.html}.
-{[}Accessed: 15-Nov-2016{]}
+- retrieved 2016-11-15
 
 \hypertarget{ref-web_2016_answers-io}{}
-{[}42{]} ``Answers.io. Answers.'' {[}Online{]}. Available:
-\url{https://answers.io/answers}. {[}Accessed: 14-Nov-2016{]}
+{[}42{]} \emph{Answers.io. Answers}. URL
+\url{https://answers.io/answers}. - retrieved 2016-11-14
 
 \hypertarget{ref-web_2016_big-data-enthusiasts-should-not-ignore}{}
-{[}43{]} A. L. Burgelman, N. L. Burgelman, and NGDATA, ``Attention, big
-data enthusiasts: Here's what you shouldn't ignore. WIRED.''
-{[}Online{]}. Available:
+{[}43{]} \textsc{Burgelman, Author: Luc}\,; \textsc{Burgelman, NGDATA
+Luc}\,; \textsc{NGDATA}: \emph{Attention, big data enthusiasts: Here's
+what you shouldn't ignore. WIRED}. URL
 \url{https://www.wired.com/insights/2013/02/attention-big-data-enthusiasts-heres-what-you-shouldnt-ignore/}.
-{[}Accessed: 15-Nov-2016{]}
+- retrieved 2016-11-15. ---~Partner Content
 
 \hypertarget{ref-report_2001_3d-data-management-controlling-data-volume-velocity-and-variety}{}
-{[}44{]} D. Laney, ``3D data management: Controlling data volume,
-velocity, and variety,'' META Group, February 2001 {[}Online{]}.
-Available:
-\url{http://blogs.gartner.com/doug-laney/files/2012/01/ad949-3D-Data-Management-Controlling-Data-Volume-Velocity-and-Variety.pdf}
+{[}44{]} \textsc{Laney, Douglas}: \emph{3D data management: Controlling
+data volume, velocity, and variety}~: META Group, 2001 --~scale
 
 \hypertarget{ref-paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data}{}
-{[}45{]} M. Hilbert, ``Big data for development: A review of promises
-and challenges,'' \emph{Development Policy Review}, vol. 34, no. 1, pp.
-135--174, December 2015 {[}Online{]}. Available:
-\url{http://dx.doi.org/10.1111/dpr.12142}
+{[}45{]} \textsc{Hilbert, Martin}: Big data for development: A review of
+promises and challenges. In: \emph{Development Policy Review} vol. 34
+(2015), Nr.~1, pp.~135--174
 
 \hypertarget{ref-web_2016_the-state-of-big-data}{}
-{[}46{]} N. Davis Kho, ``The state of big data,'' 24-Feb-2016.
-{[}Online{]}. Available:
+{[}46{]} \textsc{Davis Kho, Nancy}: \emph{The state of big data}. URL
 \url{http://www.econtentmag.com/Articles/Editorial/Feature/The-State-of-Big-Data-108666.htm}.
-{[}Accessed: 18-Nov-2016{]}
+- retrieved 2016-11-18
 
 \hypertarget{ref-web_2016_apple_customer-letter}{}
-{[}47{]} T. C. (Apple's CEO), ``A message to our customers. Customer
-letter,'' 16-Feb-2016. {[}Online{]}. Available:
-\url{http://www.apple.com/customer-letter/}. {[}Accessed: 18-Nov-2016{]}
+{[}47{]} \textsc{CEO), Tim Cook (Apple's}: \emph{A message to our
+customers. Customer letter}. URL
+\url{http://www.apple.com/customer-letter/}. - retrieved 2016-11-18
 
 \hypertarget{ref-web_2016_what-is-differential-privacy}{}
-{[}48{]} M. Green, ``What is differential privacy? A few thoughts on
-cryptographic engineering,'' 15-Jun-2016. {[}Online{]}. Available:
+{[}48{]} \textsc{Green, Matthew}: \emph{What is differential privacy? A
+few thoughts on cryptographic engineering}. URL
 \url{https://blog.cryptographyengineering.com/2016/06/15/what-is-differential-privacy/}.
-{[}Accessed: 18-Nov-2016{]}
+- retrieved 2016-11-18
 
 \hypertarget{ref-web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption}{}
-{[}49{]} B. Budington, ``WhatsApp rolls out end-to-end encryption to its
-over one billion users,'' 07-Apr-2016. {[}Online{]}. Available:
+{[}49{]} \textsc{Budington, Bill}: \emph{WhatsApp rolls out end-to-end
+encryption to its over one billion users}. URL
 \url{https://www.eff.org/deeplinks/2016/04/whatsapp-rolls-out-end-end-encryption-its-1bn-users}.
-{[}Accessed: 18-Nov-2016{]}
+- retrieved 2016-11-18
 
 \hypertarget{ref-web_2007_introducing-google-traffic}{}
-{[}50{]} ``Stuck in traffic? Insights from googlers into our products,
-technology, and the google culture,'' 28-Feb-2007. {[}Online{]}.
-Available:
-\url{https://googleblog.blogspot.com/2007/02/stuck-in-traffic.html}.
-{[}Accessed: 18-Nov-2016{]}
+{[}50{]} \emph{Stuck in traffic? Insights from googlers into our
+products, technology, and the google culture}. URL
+\url{https://googleblog.blogspot.com/2007/02/stuck-in-traffic.html}. -
+retrieved 2016-11-18
 
 \hypertarget{ref-web_2016_wikipedia_google-traffic}{}
-{[}51{]} Wikipedia, ``Google traffic,'' 25-Oct-2016. {[}Online{]}.
-Available:
+{[}51{]} \textsc{Wikipedia}: \emph{Google traffic}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Google_Traffic\&oldid=746200591}.
-{[}Accessed: 18-Nov-2016{]}
+- retrieved 2016-11-18. ---~Page Version ID: 746200591
 
 \hypertarget{ref-graphic_2016_global-mobile-os-market-share}{}
-{[}52{]} ``Global mobile OS market share.'' {[}Online{]}. Available:
+{[}52{]} \emph{Global mobile OS market share}. URL
 \url{https://www.statista.com/statistics/266136/global-market-share-held-by-smartphone-operating-systems/}.
-{[}Accessed: 18-Nov-2016{]}
+- retrieved 2016-11-18
 
 \hypertarget{ref-estimating-the-locations-of-emergency-events-from-twitter-streams_2014}{}
-{[}53{]} J. Ao, P. Zhang, and Y. Cao, ``Estimating the Locations of
-Emergency Events from Twitter Streams,'' \emph{Procedia Computer
-Science}, vol. 31, pp. 731--739, 2014 {[}Online{]}. Available:
-\url{http://linkinghub.elsevier.com/retrieve/pii/S1877050914004980}.
-{[}Accessed: 05-Nov-2016{]}
+{[}53{]} \textsc{Ao, Ji}\,; \textsc{Zhang, Peng}\,; \textsc{Cao, Yanan}:
+Estimating the Locations of Emergency Events from Twitter Streams. In:
+\emph{Procedia Computer Science} vol. 31 (2014), pp.~731--739
 
 \hypertarget{ref-the-practice-of-predictive-analytics-in-healthcare_2013}{}
-{[}54{]} G. Palem, ``The Practice of Predictive Analytics in
-Healthcare,'' \emph{ResearchGate}, Apr. 2013 {[}Online{]}. Available:
-\url{https://www.researchgate.net/publication/236336250_The_Practice_of_Predictive_Analytics_in_Healthcare}.
-{[}Accessed: 05-Nov-2016{]}
+{[}54{]} \textsc{Palem, Gopalakrishna}: The Practice of Predictive
+Analytics in Healthcare. In: \emph{ResearchGate} (2013)
 
 \hypertarget{ref-data-collection-for-climate-changes_2014}{}
-{[}55{]} N. Burger, B. Ghosh-Dastidar, A. Grant, G. Joseph, T. Ruder, O.
-Tchakeva, and Q. Wodon, ``Data Collection for the Study on Climate
-Change and Migration in the MENA Region,'' 2014 {[}Online{]}. Available:
-\url{https://mpra.ub.uni-muenchen.de/56929/}. {[}Accessed:
-04-Nov-2016{]}
+{[}55{]} \textsc{Burger, Nicholas}\,; \textsc{Ghosh-Dastidar, Bonnie}\,;
+\textsc{Grant, Audra}\,; \textsc{Joseph, George}\,; \textsc{Ruder,
+Teague}\,; \textsc{Tchakeva, Olesya}\,; \textsc{Wodon, Quentin}: Data
+Collection for the Study on Climate Change and Migration in the MENA
+Region (2014)
 
 \hypertarget{ref-graphic_2015_applications-of-big-data-in-10-industry-verticals}{}
-{[}56{]} M. Gaitho, ``Applications of big data in 10 industry
-verticals,'' 20-Oct-2015. {[}Online{]}. Available:
+{[}56{]} \textsc{Gaitho, Maryanne}: \emph{Applications of big data in 10
+industry verticals}. URL
 \url{https://www.simplilearn.com/big-data-applications-in-industries-article}.
-{[}Accessed: 19-Nov-2016{]}
+- retrieved 2016-11-19
 
 \hypertarget{ref-graphic_2012_personal-data-ecosystem}{}
-{[}57{]} F. T. C. USA, ``Personal data ecosystem,'' \emph{Protecting
-Consumer Privacy in an Era of Rapid Change - Recommendations for
-Business and Policymakers - FTC Report}, March-2012. {[}Online{]}.
-Available:
+{[}57{]} \textsc{USA, Federal Trade Commission}: \emph{Personal data
+ecosystem}. URL
 \url{https://www.ftc.gov/sites/default/files/documents/public_events/exploring-privacy-roundtable-series/personaldataecosystem.pdf}.
-{[}Accessed: 17-Nov-2016{]}
+- retrieved 2016-11-17. ---~Protecting Consumer Privacy in an Era of
+Rapid Change - Recommendations for Business and Policymakers - FTC
+Report
 
 \hypertarget{ref-paper_1965_moors-law}{}
-{[}58{]} G. E. Moore, ``Cramming more components onto integrated
-circuits,'' \emph{Electronics}, vol. 38, p. 4, Apr. 1965 {[}Online{]}.
-Available:
-\url{https://drive.google.com/file/d/0By83v5TWkGjvQkpBcXJKT1I1TTA/}.
-{[}Accessed: 07-Dec-2016{]}
+{[}58{]} \textsc{Moore, Gordon E.}: Cramming more components onto
+integrated circuits. In: \emph{Electronics} vol. 38 (1965), p.~4
 
 \hypertarget{ref-podcast_2015_cre-neuronale-netze}{}
-{[}59{]} T. Pritlove and U. Schöneberg, \emph{Neuronale netze}. 2015
-{[}Online{]}. Available: \url{https://cre.fm/cre208-neuronale-netze}.
-{[}Accessed: 06-Dec-2016{]}
+{[}59{]} \textsc{Pritlove, Tim}\,; \textsc{Schöneberg, Ulf}:
+\emph{Neuronale netze}, 2015 --~scale
 
 \hypertarget{ref-web_2016_industries-intention-to-invest-in-big-data}{}
-{[}60{]} L. Columbus, ``51\% of enterprises intend to invest more in big
-data,'' 22-May-2016. {[}Online{]}. Available:
+{[}60{]} \textsc{Columbus, Louis}: \emph{51\% of enterprises intend to
+invest more in big data}. URL
 \url{http://www.forbes.com/sites/louiscolumbus/2016/05/22/51-of-enterprises-intend-to-invest-more-in-big-data/}.
-{[}Accessed: 07-Dec-2016{]}
+- retrieved 2016-12-07
 
 \hypertarget{ref-web_2016_projectvrm_development-work}{}
-{[}61{]} ``ProjectVRM - cDevelopment work. ProjectVRM,'' 28-Nov-2016.
-{[}Online{]}. Available:
-\url{https://cyber.harvard.edu/projectvrm/VRM_Development_Work}.
-{[}Accessed: 09-Dec-2016{]}
+{[}61{]} \emph{ProjectVRM - cDevelopment work. ProjectVRM}. URL
+\url{https://cyber.harvard.edu/projectvrm/VRM_Development_Work}. -
+retrieved 2016-12-09
 
 \hypertarget{ref-web_2016_projectvrm_principles}{}
-{[}62{]} ``ProjectVRM - principles. ProjectVRM,'' 28-Nov-2016.
-{[}Online{]}. Available:
-\url{https://cyber.harvard.edu/projectvrm/Main_Page\#VRM_Principles}.
-{[}Accessed: 09-Dec-2016{]}
+{[}62{]} \emph{ProjectVRM - principles. ProjectVRM}. URL
+\url{https://cyber.harvard.edu/projectvrm/Main_Page\#VRM_Principles}. -
+retrieved 2016-12-09
 
 \hypertarget{ref-graphic_2011_architecture_components-of-organization-domain}{}
-{[}63{]} The TAS3 Consortium, ``TAS3 architecture - figure 2.2: Major
-components of organization domain.'' Jul. 2011 {[}Online{]}. Available:
-\url{http://homes.esat.kuleuven.ac.be/~decockd/tas3/final.deliverables/pm42/TAS3_D02p1_TAS3.Architecture_final.pdf}
+{[}63{]} \textsc{The TAS3 Consortium}: \emph{TAS3 architecture - figure
+2.2: Major components of organization domain.}, 2011 --~scale. ---~v
+2.24
 
 \hypertarget{ref-web_kantara-initiative}{}
-{[}64{]} ``Kantara initiative -- join. innovate. trust.'' {[}Online{]}.
-Available: \url{https://kantarainitiative.org/}. {[}Accessed:
-14-Dec-2016{]}
+{[}64{]} \emph{Kantara initiative -- join. innovate. trust.} URL
+\url{https://kantarainitiative.org/}. - retrieved 2016-12-14
 
 \hypertarget{ref-paper_2014_personal-data-store-approach}{}
-{[}65{]} T. Kirkham, S. Winfield, S. Ravet, and S. Kellomaki, ``The
-personal data store approach to personal data security,'' \emph{IEEE
-Security \& Privacy}, vol. 11, no. 5, pp. 12--19, 2013.
+{[}65{]} \textsc{Kirkham, Tom}\,; \textsc{Winfield, Sandra}\,;
+\textsc{Ravet, Serge}\,; \textsc{Kellomaki, Sampo}: The personal data
+store approach to personal data security. In: \emph{IEEE Security \&
+Privacy} vol. 11 (2013), Nr.~5, pp.~12--19
 
 \hypertarget{ref-paper_2012_openpds_on-trusted-use-of-large-scale-personal-data}{}
-{[}66{]} Y.-A. de Montjoye, S. S. Wang, A. Pentland, D. T. T. Anh, A.
-Datta, and others, ``On the trusted use of large-scale personal data.''
-\emph{IEEE Data Eng. Bull.}, vol. 35, no. 4, pp. 5--8, 2012
-{[}Online{]}. Available:
-\url{http://sites.computer.org/debull/a12dec/a12dec-cd.pdf\#page=7}.
-{[}Accessed: 30-Oct-2016{]}
+{[}66{]} \textsc{Montjoye, Yves-Alexandre de}\,; \textsc{Wang, Samuel
+S.}\,; \textsc{Pentland, Alex}\,; \textsc{Anh, Dinh Tien Tuan}\,;
+\textsc{Datta, Anwitaman}\,; \textsc{others}: On the trusted use of
+large-scale personal data. In: \emph{IEEE Data Eng. Bull.} vol. 35
+(2012), Nr.~4, pp.~5--8
 
 \hypertarget{ref-web_mit_openpds-safeanswers-project-page}{}
-{[}67{]} ``openPDS/SafeAnswers - the privacy-preserving personal data
-store.'' {[}Online{]}. Available: \url{http://openpds.media.mit.edu/}.
-{[}Accessed: 14-Dec-2016{]}
+{[}67{]} \emph{openPDS/SafeAnswers - the privacy-preserving personal
+data store}. URL \url{http://openpds.media.mit.edu/}. - retrieved
+2016-12-14
 
 \hypertarget{ref-paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers}{}
-{[}68{]} Y.-A. de Montjoye, E. Shmueli, S. S. Wang, and A. S. Pentland,
-``openPDS: Protecting the privacy of metadata through SafeAnswers,''
-\emph{PLoS ONE}, vol. 9, no. 7, p. e98790, Jul. 2014 {[}Online{]}.
-Available: \url{http://dx.plos.org/10.1371/journal.pone.0098790}.
-{[}Accessed: 30-Oct-2016{]}
+{[}68{]} \textsc{Montjoye, Yves-Alexandre de}\,; \textsc{Shmueli,
+Erez}\,; \textsc{Wang, Samuel S.}\,; \textsc{Pentland, Alex Sandy}:
+openPDS: Protecting the privacy of metadata through SafeAnswers. In:
+\textsc{Preis, T.} (ed.) \emph{PLoS ONE} vol. 9 (2014), Nr.~7, p.~e98790
 
 \hypertarget{ref-web_microsoft_healthvault}{}
-{[}69{]} ``Microsoft HealthVault. Overview.'' {[}Online{]}. Available:
-\url{https://www.healthvault.com/de/en/overview}. {[}Accessed:
-14-Dec-2016{]}
+{[}69{]} \emph{Microsoft HealthVault. Overview}. URL
+\url{https://www.healthvault.com/de/en/overview}. - retrieved 2016-12-14
 
 \hypertarget{ref-web_meeco_how-it-works}{}
-{[}70{]} ``How it works meeco.'' {[}Online{]}. Available:
-\url{https://meeco.me/how-it-works.html}. {[}Accessed: 14-Dec-2016{]}
+{[}70{]} \emph{How it works meeco}. URL
+\url{https://meeco.me/how-it-works.html}. - retrieved 2016-12-14
 
 \hypertarget{ref-slides_2015_meeco-case-study}{}
-{[}71{]} M. Page, ``Online adver\textgreater{}sing -- booming or
-broken?'' Sep-2015 {[}Online{]}. Available:
-\url{https://meeco.me/assets/pdf/Meeco_Case_Study_Online_Advertising-Booming_or_Broken_Sept_2015.pdf}
+{[}71{]} \textsc{Page, Mike}: Online adver\textgreater{}sing -- booming
+or broken?, 2015 --~scale
 
 \hypertarget{ref-web_industrial-data-space}{}
-{[}72{]} ``The principles. Industrial data space e.V.'' {[}Online{]}.
-Available: \url{http://www.industrialdataspace.org/en/the-principles/}.
-{[}Accessed: 14-Dec-2016{]}
+{[}72{]} \emph{The principles. Industrial data space e.V.} URL
+\url{http://www.industrialdataspace.org/en/the-principles/}. - retrieved
+2016-12-14
 
 \hypertarget{ref-whitepaper_2016_industrial-data-space}{}
-{[}73{]} B. Prof. Dr.-Ing. Otto, S. Prof. Dr. Auer, J. Cirullies, J.
-Prof. Dr. Jürjens, N. Menz, J. Schon, and S. Dr. Wenzel, ``Industrial
-data space - digital sovereignity over data.'' Fraunhofer-Gesellschaft
-zur Förderung der angewandten Forschung e.V., 17-Aug-2016 {[}Online{]}.
-Available:
-\url{http://www.industrialdataspace.org/wp-content/uploads/2016/09/whitepaper-industrial-data-space-eng.pdf}
+{[}73{]} \textsc{Prof. Dr.-Ing. Otto, Boris}\,; \textsc{Prof. Dr. Auer,
+Sören}\,; \textsc{Cirullies, Jan}\,; \textsc{Prof. Dr. Jürjens, Jan}\,;
+\textsc{Menz, Nadja}\,; \textsc{Schon, Jochen}\,; \textsc{Dr. Wenzel,
+Sven}: Industrial data space - digital sovereignity over data.
 
 \hypertarget{ref-web_spec_http1}{}
-{[}74{]} P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T.
-Fielding, and J. Gettys, ``Hypertext transfer protocol -- HTTP/1.1,''
-Jun-1999. {[}Online{]}. Available:
-\url{https://tools.ietf.org/html/rfc2616}. {[}Accessed: 17-Dec-2016{]}
+{[}74{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
+\textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
+\textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{Hypertext
+transfer protocol -- HTTP/1.1}. URL
+\url{https://tools.ietf.org/html/rfc2616}. - retrieved 2016-12-17
 
 \hypertarget{ref-web_spec_http2}{}
-{[}75{]} M. Belshe, M. Thomson, and R. Peon, ``Hypertext transfer
-protocol version 2 (HTTP/2),'' May-2015. {[}Online{]}. Available:
-\url{https://tools.ietf.org/html/rfc7540}. {[}Accessed: 17-Dec-2016{]}
+{[}75{]} \textsc{Belshe, Mike}\,; \textsc{Thomson, Martin}\,;
+\textsc{Peon, Roberto}: \emph{Hypertext transfer protocol version 2
+(HTTP/2)}. URL \url{https://tools.ietf.org/html/rfc7540}. - retrieved
+2016-12-17
 
 \hypertarget{ref-web_spec_websockets}{}
-{[}76{]} I. Fette and A. Melnikov, ``The WebSocket protocol,'' Dec-2011.
-{[}Online{]}. Available: \url{https://tools.ietf.org/html/rfc6455}.
-{[}Accessed: 17-Dec-2016{]}
+{[}76{]} \textsc{Fette, Ian}\,; \textsc{Melnikov, A.}: \emph{The
+WebSocket protocol}. URL \url{https://tools.ietf.org/html/rfc6455}. -
+retrieved 2016-12-17
 
 \hypertarget{ref-web_spec_json}{}
-{[}77{]} D. Crockford, ``The JSON data interchange format.'' ECMA
-International, Oct-2013 {[}Online{]}. Available:
-\url{http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf}
+{[}77{]} \textsc{Crockford, Douglas}: The JSON data interchange format.
 
 \hypertarget{ref-web_rfc_json}{}
-{[}78{]} T. Bray, ``The JavaScript object notation (JSON) data
-interchange format,'' Mar-2014. {[}Online{]}. Available:
-\url{https://tools.ietf.org/html/rfc7159}. {[}Accessed: 17-Dec-2016{]}
+{[}78{]} \textsc{Bray, T.}: \emph{The JavaScript object notation (JSON)
+data interchange format}. URL \url{https://tools.ietf.org/html/rfc7159}.
+- retrieved 2016-12-17
 
 \hypertarget{ref-web_2012_problem-with-oauth-for-authentication}{}
-{[}79{]} J. Bradley, ``The problem with OAuth for authentication.''
-28-Jan-2012. {[}Online{]}. Available:
+{[}79{]} \textsc{Bradley, John}: \emph{The problem with OAuth for
+authentication.} URL
 \url{http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html}.
-{[}Accessed: 17-Dec-2016{]}
+- retrieved 2016-12-17
 
 \hypertarget{ref-web_spec_oauth-1a}{}
-{[}80{]} ``OAuth core 1.0a.'' {[}Online{]}. Available:
-\url{https://oauth.net/core/1.0a/}. {[}Accessed: 18-Dec-2016{]}
+{[}80{]} \emph{OAuth core 1.0a}. URL \url{https://oauth.net/core/1.0a/}.
+- retrieved 2016-12-18
 
 \hypertarget{ref-web_spec_oauth-2}{}
-{[}81{]} D. Hardt, ``The OAuth 2.0 authorization framework,'' Oct-2012.
-{[}Online{]}. Available: \url{https://tools.ietf.org/html/rfc6749}.
-{[}Accessed: 18-Dec-2016{]}
+{[}81{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+framework}. URL \url{https://tools.ietf.org/html/rfc6749}. - retrieved
+2016-12-18
 
 \hypertarget{ref-web_2016_oauth-2}{}
-{[}82{]} I. O. WG, ``OAuth 2.0.'' {[}Online{]}. Available:
-\url{https://oauth.net/2/}. {[}Accessed: 16-Dec-2016{]}
+{[}82{]} \textsc{WG, IETF OAuth}: \emph{OAuth 2.0}. URL
+\url{https://oauth.net/2/}. - retrieved 2016-12-16
 
 \hypertarget{ref-web_spec_openid-connect-1}{}
-{[}83{]} ``OpenID connect core 1.0 incorporating errata set 1,''
-08-Nov-2014. {[}Online{]}. Available:
-\url{https://openid.net/specs/openid-connect-core-1_0.html}.
-{[}Accessed: 17-Dec-2016{]}
+{[}83{]} \emph{OpenID connect core 1.0 incorporating errata set 1}. URL
+\url{https://openid.net/specs/openid-connect-core-1_0.html}. - retrieved
+2016-12-17
 
 \hypertarget{ref-web_spec_json-web-token}{}
-{[}84{]} J. Bradley, N. Sakimura, and M. Jones, ``JSON web token
-(JWT),'' May-2015. {[}Online{]}. Available:
-\url{https://tools.ietf.org/html/rfc7519}. {[}Accessed: 17-Dec-2016{]}
+{[}84{]} \textsc{Bradley, John}\,; \textsc{Sakimura, Nat}\,;
+\textsc{Jones, Michael}: \emph{JSON web token (JWT)}. URL
+\url{https://tools.ietf.org/html/rfc7519}. - retrieved 2016-12-17
 
 \hypertarget{ref-web_spec_json-web-encryption}{}
-{[}85{]} J. Hildebrand and M. Jones, ``JSON web encryption (JWE),''
-May-2015. {[}Online{]}. Available:
-\url{https://tools.ietf.org/html/rfc7516}. {[}Accessed: 17-Dec-2016{]}
+{[}85{]} \textsc{Hildebrand, Joe}\,; \textsc{Jones, Michael}: \emph{JSON
+web encryption (JWE)}. URL \url{https://tools.ietf.org/html/rfc7516}. -
+retrieved 2016-12-17
 
 \hypertarget{ref-web_spec_json-web-signature}{}
-{[}86{]} J. Bradley, N. Sakimura, and M. Jones, ``JSON web signature
-(JWS),'' May-2015. {[}Online{]}. Available:
-\url{https://tools.ietf.org/html/rfc7515}. {[}Accessed: 17-Dec-2016{]}
+{[}86{]} \textsc{Bradley, John}\,; \textsc{Sakimura, Nat}\,;
+\textsc{Jones, Michael}: \emph{JSON web signature (JWS)}. URL
+\url{https://tools.ietf.org/html/rfc7515}. - retrieved 2016-12-17
 
 \hypertarget{ref-paper_1976_d-h-key-exchange}{}
-{[}87{]} W. Diffie and M. Hellman, ``New directions in cryptography,''
-\emph{IEEE transactions on Information Theory}, vol. 22, no. 6, pp.
-644--654, 1976 {[}Online{]}. Available:
-\url{https://ee.stanford.edu/\%7Ehellman/publications/24.pdf}.
-{[}Accessed: 11-Jan-2017{]}
+{[}87{]} \textsc{Diffie, Whitfield}\,; \textsc{Hellman, Martin}: New
+directions in cryptography. In: \emph{IEEE transactions on Information
+Theory} vol. 22 (1976), Nr.~6, pp.~644--654
 
 \hypertarget{ref-book_2014_chapter-9-1-public-key-crypto}{}
-{[}88{]} W. Stallings, ``9.1 principles of public-key cryptosystems,''
-in \emph{Cryptography and network security: Principles and practice},
-Seventh edition., Boston: Pearson, 2014, pp. 256--264.
+{[}88{]} \textsc{Stallings, William}: 9.1 principles of public-key
+cryptosystems. In: \emph{Cryptography and network security: Principles
+and practice}. Seventh edition. ed. Boston~: Pearson, 2014
+---~ISBN~978-0-13-335469-0, pp.~256--264
 
 \hypertarget{ref-web_spec_tls}{}
-{[}89{]} T. Dierks and E. Rescorla, ``The transport layer security (TLS)
-protocol version 1.2,'' Aug-2008. {[}Online{]}. Available:
-\url{https://tools.ietf.org/html/rfc5246}. {[}Accessed: 17-Dec-2016{]}
+{[}89{]} \textsc{Dierks, Tim}\,; \textsc{Rescorla, E.}: \emph{The
+transport layer security (TLS) protocol version 1.2}. URL
+\url{https://tools.ietf.org/html/rfc5246}. - retrieved 2016-12-17
 
 \hypertarget{ref-book_2014_chapter-14-5-pki}{}
-{[}90{]} W. Stallings, ``10.5 pseudorandom number generation based on an
-asymmetric cipher,'' in \emph{Cryptography and network security:
-Principles and practice}, Seventh edition., Boston: Pearson, 2014, pp.
-443--445.
+{[}90{]} \textsc{Stallings, William}: 10.5 pseudorandom number
+generation based on an asymmetric cipher. In: \emph{Cryptography and
+network security: Principles and practice}. Seventh edition. ed.
+Boston~: Pearson, 2014 ---~ISBN~978-0-13-335469-0, pp.~443--445
 
 \hypertarget{ref-web_spec_x509}{}
-{[}91{]} D. Cooper, S. Santesson, S. Farrell, S. Boeyen, and W. Housley
-R. andPolk, ``Internet x.509 public key infrastructure certificate and
-certificate revocation list (CRL) profile,'' May-2008. {[}Online{]}.
-Available: \url{https://tools.ietf.org/html/rfc5280}. {[}Accessed:
-11-Jan-2017{]}
+{[}91{]} \textsc{Cooper, Dave}\,; \textsc{Santesson, S.}\,;
+\textsc{Farrell, S.}\,; \textsc{Boeyen, S.}\,; \textsc{Housley, W.,
+\textnormal{R. andPolk}}: \emph{Internet x.509 public key infrastructure
+certificate and certificate revocation list (CRL) profile}. URL
+\url{https://tools.ietf.org/html/rfc5280}. - retrieved 2017-01-11
 
 \hypertarget{ref-web_spec_rest}{}
-{[}92{]} T. Fielding, ``Representational state transfer (REST),'' in
-\emph{Architectural styles and the design of network-based software
-architectures}, University of California, Irvine, 2000, pp. 76--106
-{[}Online{]}. Available:
-\url{https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf}
+{[}92{]} \textsc{Fielding, Thomas}: Representational state transfer
+(REST). In: \emph{Architectural styles and the design of network-based
+software architectures}~: University of California, Irvine, 2000,
+pp.~76--106
 
 \hypertarget{ref-web_spec_http-methods}{}
-{[}93{]} P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T.
-Fielding, and J. Gettys, ``HTTP methods,'' Jun-1999. {[}Online{]}.
-Available: \url{https://tools.ietf.org/html/rfc2616\#section-9}.
-{[}Accessed: 18-Dec-2016{]}
+{[}93{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
+\textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
+\textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{HTTP
+methods}. URL \url{https://tools.ietf.org/html/rfc2616\#section-9}. -
+retrieved 2016-12-18
 
 \hypertarget{ref-web_spec_graphql}{}
-{[}94{]} ``GraphQL,'' Oct-2016. {[}Online{]}. Available:
-\url{https://facebook.github.io/graphql/}. {[}Accessed: 17-Dec-2016{]}
+{[}94{]} \emph{GraphQL}. URL \url{https://facebook.github.io/graphql/}.
+- retrieved 2016-12-17
 
 \hypertarget{ref-web_w3c-tr_rdf}{}
-{[}95{]} D. Beckett and B. McBride, ``RDF/XML syntax specification
-(revised),'' 10-Feb-2004. {[}Online{]}. Available:
-\url{https://www.w3.org/TR/REC-rdf-syntax/}. {[}Accessed: 19-Dec-2016{]}
+{[}95{]} \textsc{Beckett, Dave}\,; \textsc{McBride, Brian}:
+\emph{RDF/XML syntax specification (revised)}. URL
+\url{https://www.w3.org/TR/REC-rdf-syntax/}. - retrieved 2016-12-19
 
 \hypertarget{ref-web_w3c-tr_owl}{}
-{[}96{]} W. O. W. Group, ``OWL 2 web ontology language document overview
-(second edition),'' 11-Dec-2012. {[}Online{]}. Available:
-\url{https://www.w3.org/TR/owl2-overview/}. {[}Accessed: 19-Dec-2016{]}
+{[}96{]} \textsc{W3C OWL Working Group}: \emph{OWL 2 web ontology
+language document overview (second edition)}. URL
+\url{https://www.w3.org/TR/owl2-overview/}. - retrieved 2016-12-19
 
 \hypertarget{ref-web_w3c-tr_sparql}{}
-{[}97{]} S. Harris, A. Seaborne, and E. Prud'hommeaux, ``SPARQL 1.1
-query language,'' 21-Mar-2013. {[}Online{]}. Available:
-\url{https://www.w3.org/TR/sparql11-query/}. {[}Accessed: 19-Dec-2016{]}
+{[}97{]} \textsc{Harris, Steve}\,; \textsc{Seaborne, Andy}\,;
+\textsc{Prud'hommeaux, Eric}: \emph{SPARQL 1.1 query language}. URL
+\url{https://www.w3.org/TR/sparql11-query/}. - retrieved 2016-12-19
 
 \hypertarget{ref-web_w3c-draft_webid}{}
-{[}98{]} ``WebID specifications.'' {[}Online{]}. Available:
-\url{https://www.w3.org/2005/Incubator/webid/spec/}. {[}Accessed:
-19-Dec-2016{]}
+{[}98{]} \emph{WebID specifications}. URL
+\url{https://www.w3.org/2005/Incubator/webid/spec/}. - retrieved
+2016-12-19
 
 \hypertarget{ref-web_spec_solid}{}
-{[}99{]} ``Solid specification,'' 03-Mar-2016. {[}Online{]}. Available:
-\url{https://github.com/solid/solid-spec}. {[}Accessed: 17-Dec-2016{]}
+{[}99{]} \emph{Solid specification}. URL
+\url{https://github.com/solid/solid-spec}. - retrieved 2016-12-17
 
 \hypertarget{ref-web_2016_wiki_webaccesscontrol}{}
-{[}100{]} ``WebAccessControl - w3c wiki.'' {[}Online{]}. Available:
-\url{https://www.w3.org/wiki/WebAccessControl}. {[}Accessed:
-19-Dec-2016{]}
+{[}100{]} \emph{WebAccessControl - w3c wiki}. URL
+\url{https://www.w3.org/wiki/WebAccessControl}. - retrieved 2016-12-19
 
 \hypertarget{ref-web_2016_demo_databox}{}
-{[}101{]} ``Databox.me.'' {[}Online{]}. Available:
-\url{https://databox.me/}. {[}Accessed: 19-Dec-2016{]}
+{[}101{]} \emph{Databox.me}. URL \url{https://databox.me/}. - retrieved
+2016-12-19
 
 \hypertarget{ref-web_2015_cgroup-doc}{}
-{[}102{]} T. Heo, ``Control group (v2) documentation,'' Oct-2015.
-{[}Online{]}. Available:
-\url{https://www.kernel.org/doc/Documentation/cgroup-v2.txt}.
-{[}Accessed: 20-Dec-2016{]}
+{[}102{]} \textsc{Heo, Tejun}: \emph{Control group (v2) documentation}.
+URL \url{https://www.kernel.org/doc/Documentation/cgroup-v2.txt}. -
+retrieved 2016-12-20
 
 \hypertarget{ref-web_2016_kernel-namespace}{}
-{[}103{]} ``Overview of linux namespaces,'' 12-Dec-2016. {[}Online{]}.
-Available: \url{http://man7.org/linux/man-pages/man7/namespaces.7.html}.
-{[}Accessed: 20-Dec-2016{]}
+{[}103{]} \emph{Overview of linux namespaces}. URL
+\url{http://man7.org/linux/man-pages/man7/namespaces.7.html}. -
+retrieved 2016-12-20
 
 \hypertarget{ref-web_2016_open-container-initiative}{}
-{[}104{]} ``Open container initiative.'' {[}Online{]}. Available:
-\url{https://www.opencontainers.org/}. {[}Accessed: 20-Dec-2016{]}
+{[}104{]} \emph{Open container initiative}. URL
+\url{https://www.opencontainers.org/}. - retrieved 2016-12-20
 
 \hypertarget{ref-web_oci-spec_runtime}{}
-{[}105{]} ``Container runtime specification (v1.0.0-rc3),'' 12-Dec-2016.
-{[}Online{]}. Available:
-\url{https://github.com/opencontainers/runtime-spec/tree/v1.0.0-rc3}.
-{[}Accessed: 20-Dec-2016{]}
+{[}105{]} \emph{Container runtime specification (v1.0.0-rc3)}. URL
+\url{https://github.com/opencontainers/runtime-spec/tree/v1.0.0-rc3}. -
+retrieved 2016-12-20
 
 \hypertarget{ref-web_oci-spec_image}{}
-{[}106{]} ``Container image specification (v1.0.0-rc3),'' 30-Nov-2016.
-{[}Online{]}. Available:
-\url{https://github.com/opencontainers/image-spec/tree/v1.0.0-rc3}.
-{[}Accessed: 20-Dec-2016{]}
+{[}106{]} \emph{Container image specification (v1.0.0-rc3)}. URL
+\url{https://github.com/opencontainers/image-spec/tree/v1.0.0-rc3}. -
+retrieved 2016-12-20
 
 \hypertarget{ref-web_2013_npa-sicherheitsdefizit}{}
-{[}107{]} ``Basisleser weiterhin kritische schwachstelle des
-elektronischen / neuen personalausweises. Netzpolitik.org,''
-27-Aug-2013. {[}Online{]}. Available:
+{[}107{]} \emph{Basisleser weiterhin kritische schwachstelle des
+elektronischen / neuen personalausweises. Netzpolitik.org}. URL
 \url{https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/}.
-{[}Accessed: 05-Jan-2017{]}
+- retrieved 2017-01-05
 
 \hypertarget{ref-web_2014_test-qes-support-in-npa}{}
-{[}108{]} O. Stiemerling, ``Qualifizierte elektronische signatur mit dem
-neuen personalausweis -- oder: QES mit nPA, ein selbstversuch.
-CR-online.de blog,'' 26-Aug-2014. {[}Online{]}. Available:
+{[}108{]} \textsc{Stiemerling, Oliver}: \emph{Qualifizierte
+elektronische signatur mit dem neuen personalausweis -- oder: QES mit
+nPA, ein selbstversuch. CR-online.de blog}. URL
 \url{http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/}.
-{[}Accessed: 05-Jan-2017{]}
+- retrieved 2017-01-05
 
 \hypertarget{ref-web_2017_about-de-mail}{}
-{[}109{]} D. B. der Bundesregierung für Informationstechnik,
-``IT-beauftragter der bundesregierung de-mail.'' {[}Online{]}.
-Available:
+{[}109{]} \textsc{Bundesregierung für Informationstechnik, Der
+Bundesbeauftragte der}: \emph{IT-beauftragter der bundesregierung
+de-mail}. URL
 \url{http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html}.
-{[}Accessed: 06-Jan-2017{]}
+- retrieved 2017-01-06
 
 \hypertarget{ref-statement_2013_de-mail}{}
-{[}110{]} L. Neumann, ``Stellungnahme zum elektronischen
-rechtsverkehr.'' 14-Apr-2013 {[}Online{]}. Available:
-\url{https://ccc.de/system/uploads/128/original/demail_april2013.pdf}
+{[}110{]} \textsc{Neumann, Linus}: Stellungnahme zum elektronischen
+rechtsverkehr.
 
 \hypertarget{ref-book_2015_ethical-it-innovation}{}
-{[}111{]} S. Spiekermann, \emph{Ethical IT Innovation: A Value-Based
-System Design Approach}. CRC Press; Taylor \& Francis Group, LLC, 2015
-{[}Online{]}. Available:
-\url{https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355}
+{[}111{]} \textsc{Spiekermann, Sarah}: \emph{Ethical IT Innovation: A
+Value-Based System Design Approach}~: CRC Press; Taylor \& Francis
+Group, LLC, 2015 --~scale ---~ISBN~978-1-4822-2635-5
 
 \hypertarget{ref-paper_2004_distributed-mapreduce}{}
-{[}112{]} E. Dean and S. Ghemawat, ``MapRednce: Simplified data
-processing on large clusters,'' 2004 {[}Online{]}. Available:
-\url{https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf}.
-{[}Accessed: 27-Dec-2016{]}
+{[}112{]} \textsc{Dean, Eeffrey}\,; \textsc{Ghemawat, Sanjay}:
+MapRednce: Simplified data processing on large clusters (2004)
 
 \hypertarget{ref-web_spec_tls-12_client-auth}{}
-{[}113{]} T. Dierks, ``The transport layer security (TLS) protocol
-version 1.2,'' Aug-2008. {[}Online{]}. Available:
-\url{https://tools.ietf.org/html/rfc5246\#section-7.4.6}. {[}Accessed:
-09-Jan-2017{]}
+{[}113{]} \textsc{Dierks, Tim}: \emph{The transport layer security (TLS)
+protocol version 1.2}. URL
+\url{https://tools.ietf.org/html/rfc5246\#section-7.4.6}. - retrieved
+2017-01-09
 
 \hypertarget{ref-web_2017_wikipedia_mutual-auth}{}
-{[}114{]} ``Mutual authentication,'' 02-Sep-2016. {[}Online{]}.
-Available:
+{[}114{]} \emph{Mutual authentication}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Mutual_authentication\&oldid=737409981}.
-{[}Accessed: 10-Jan-2017{]}
+- retrieved 2017-01-10. ---~Page Version ID: 737409981
 
 \hypertarget{ref-book_2013_networking-101_tls-session-resumption}{}
-{[}115{]} ``Networking 101: Transport layer security (TLS) - high
+{[}115{]} \emph{Networking 101: Transport layer security (TLS) - high
 performance browser networking (o'Reilly). High performance browser
-networking,'' 2013. {[}Online{]}. Available:
+networking}. URL
 \url{https://hpbn.co/transport-layer-security-tls/\#tls-session-resumption}.
-{[}Accessed: 12-Jan-2017{]}
+- retrieved 2017-01-12
 
 \hypertarget{ref-web_spec_tls-session-ticket-resumption}{}
-{[}116{]} P. E. Joseph Salowey H. Zhou, ``Transport layer security (TLS)
-session resumption without server-side state,'' Jan-2008. {[}Online{]}.
-Available: \url{https://tools.ietf.org/html/rfc5077}. {[}Accessed:
-12-Jan-2017{]}
+{[}116{]} \textsc{Joseph Salowey, P. Eronen, \textnormal{H. Zhou}}:
+\emph{Transport layer security (TLS) session resumption without
+server-side state}. URL \url{https://tools.ietf.org/html/rfc5077}. -
+retrieved 2017-01-12
 
 \hypertarget{ref-web_bsi-spec_eid}{}
-{[}117{]} ``BSI - technische richtlinien des BSI - BSI TR-03130
-eID-server.'' {[}Online{]}. Available:
+{[}117{]} \emph{BSI - technische richtlinien des BSI - BSI TR-03130
+eID-server}. URL
 \url{https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html}.
-{[}Accessed: 06-Jan-2017{]}
+- retrieved 2017-01-06
 
 \hypertarget{ref-web_2017_npa-eid-server}{}
-{[}118{]} ``Personalausweisportal - eID-server.'' {[}Online{]}.
-Available:
+{[}118{]} \emph{Personalausweisportal - eID-server}. URL
 \url{https://www.personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html;jsessionid=8C7F11821065F2505F22AFEF65F63DFB.2_cid334}.
-{[}Accessed: 06-Jan-2017{]}
+- retrieved 2017-01-06
 
 \hypertarget{ref-book_2014_chapter-10-5-asym-random-number-gen}{}
-{[}119{]} W. Stallings, ``9.1 public-key infrastructure,'' in
-\emph{Cryptography and network security: Principles and practice},
-Seventh edition., Boston: Pearson, 2014, p. 307.
+{[}119{]} \textsc{Stallings, William}: 9.1 public-key infrastructure.
+In: \emph{Cryptography and network security: Principles and practice}.
+Seventh edition. ed. Boston~: Pearson, 2014 ---~ISBN~978-0-13-335469-0,
+p.~307
 
 \hypertarget{ref-web_spec_http-error-codes}{}
-{[}120{]} P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T.
-Fielding, and J. Gettys, ``Hypertext transfer protocol -- HTTP/1.1,''
-Jun-1999. {[}Online{]}. Available:
-\url{https://tools.ietf.org/html/rfc2616\#section-10}. {[}Accessed:
-20-Jan-2017{]}
+{[}120{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
+\textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
+\textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{Hypertext
+transfer protocol -- HTTP/1.1}. URL
+\url{https://tools.ietf.org/html/rfc2616\#section-10}. - retrieved
+2017-01-20
 
 \hypertarget{ref-web_spec_oauth-1a_client-reg}{}
-{[}121{]} ``OAuth core 1.0a.'' {[}Online{]}. Available:
-\url{https://oauth.net/core/1.0a/\#rfc.section.4.2}. {[}Accessed:
-01-Nov-2016{]}
+{[}121{]} \emph{OAuth core 1.0a}. URL
+\url{https://oauth.net/core/1.0a/\#rfc.section.4.2}. - retrieved
+2016-11-01
 
 \hypertarget{ref-web_spec_oauth-2_client-reg}{}
-{[}122{]} D. Hardt, ``The OAuth 2.0 authorization framework,'' Oct-2012.
-{[}Online{]}. Available:
-\url{https://tools.ietf.org/html/rfc6749\#section-2}. {[}Accessed:
-01-Nov-2016{]}
+{[}122{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+framework}. URL \url{https://tools.ietf.org/html/rfc6749\#section-2}. -
+retrieved 2016-11-01
+
+\hypertarget{ref-web_spec_oauth-1a_access-verification}{}
+{[}123{]} \emph{OAuth core 1.0a}. URL
+\url{https://oauth.net/core/1.0a/\#rfc.section.7}. - retrieved
+2016-11-01
+
+\hypertarget{ref-web_spec_oauth-2_access-verification}{}
+{[}124{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+framework}. URL \url{https://tools.ietf.org/html/rfc6749\#section-7}. -
+retrieved 2016-11-01
 
 \hypertarget{ref-web_2016_wikipedia_separation-of-concerns}{}
-{[}123{]} ``Separation of concerns,'' 01-Nov-2016. {[}Online{]}.
-Available:
+{[}125{]} \emph{Separation of concerns}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Separation_of_concerns\&oldid=747272729}.
-{[}Accessed: 24-Jan-2017{]}
+- retrieved 2017-01-24. ---~Page Version ID: 747272729
+
+\hypertarget{ref-web_spec_acme}{}
+{[}126{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
+\textsc{Hoffman-Andrews, Jacob}: \emph{Automatic certificate management
+environment (ACME)}. URL
+\url{https://tools.ietf.org/html/draft-ietf-acme-acme-04}. - retrieved
+2017-01-11
 
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}124{]} N. Carlson, ``Facebook connect is a huge success -- by the
-numbers,'' 01-Jul-2009. {[}Online{]}. Available:
+{[}127{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
+success -- by the numbers}. URL
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
-{[}Accessed: 16-Dec-2016{]}
+- retrieved 2016-12-16
 
 \end{document}

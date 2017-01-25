@@ -565,13 +565,12 @@ synchronized between server and client is expensive and by fare trivial. Expensi
 <li>to approve or authorize <em>access requests</em> or <em>data access</em> attempts. How the actual login process (1) would look like partially depends on the <em>eID card</em>’s implementation, but in general this use case would make sense. When considering the german implementation <em>(nPA)</em>, accessing the management tool via desktop requires also a card reader, preferably with an integrated hardware keypad. Instead accessing the tool on a mobile device could be achieved with the card’s RFID-capabilities, as long as the used device is able to communicate with the RFID-chip. Both scenarios (1+2) need the <em>nPA</em> to have the <em>eID</em> feature enabled. If a service wants to provide <em>nPA</em>-based online authentication <em>(eID-Service)</em>, which is defined as a non-sovereign <em>(“nicht hoheitlich”)</em> feature, it has to comply with several requirements <span class="citation" data-cites="web_bsi-spec_eid">[<a href="#ref-web_bsi-spec_eid">117</a>]</span> starting with applying for a permission to send a certificate signing request to a BerCA.<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> This request is send from an <em>eID-Server</em> <span class="citation" data-cites="web_2017_npa-eid-server">[<a href="#ref-web_2017_npa-eid-server">118</a>]</span> in order to get signed a public key,<br />
 which previously has been generated on a dedicated and certified hardware. This hardware is required by the officials as part of a <em>eID-Server</em>. The key pair - re-generated and re-signed every three days - is needed to establish a connection to the <em>nPA</em>, which is then used to authenticate the owner of that <em>eID card</em>. The described procedure appears to be highly expensive (regarding effort, hardware costs etc.), especially because every single <em>operator</em> would needs to go through the whole process in order to support this authentication method; not mentioning the uncertainty of the official’s decision on the permission application. Another approach could be to integrate an external authentication provider supporting the <em>nPA</em>, which would not only add an additional dependency, but would also weaken the system. All two scenarios are fairly similar, insofar as they would use the same mechanism to initially authenticate to the system, but with different intentions.</li>
 </ol>
-<p>Because of it’s simplicity the concept of web tokens are fairly straightforward to implement into the <em>PDaaS</em>. But since web tokens ensure integrity and the optional confidentiality only of their own carriage but not the entire HTTP payload, both requirements need to be addressed separately. Serving HTTP over <em>TLS</em> solves this issue For connections that use a web token, it should be sufficient to rely on the public PKI that drives <em>HTTP</em> over <em>TLS</em>, because all information required to authenticate is provided by the token itself. Though, the situation is different if instead <em>two-way authentication</em> is used. For this, the system has to provide it’s own <em>PKI</em> including a Certificate Authority that issues certificates for <em>data consumers</em>, because not only the <em>endpoints</em> on the <em>PDaaS</em> (server) need to be certified, all <em>data consumers</em> (clients) need to present a certificate as well. Only the <em>PDaaS</em> verifies and thus determines (supervised by the <em>operator</em>) who is authorized to get access to the system. Hence the <em>PKI</em> needs to be self-contained without any external role in order to function independently so that only invited parties can get involved.</p>
-<p>If a public-key-based connection, performing a <em>mutual authentication</em>, establishes successfully, it implies that the identity originating the request is valid and the integrity of the containing data is given. Whereas on a token-based authentication every incoming request has to carry the token so that the system can verify and associate the request with an account. Furthermore data it not automatically encrypted and thus integrity is not preserved.</p>
-<p>An advantage of token-based authentication over TLS-based <em>mutual authentication</em> is that the token can be used on multiple clients at the same time. Or an account, a token is associated with, can actually have more than one token. Whereas during the asymmetric cryptography-based <em>mutual authentication</em> the client’s private key is required. So if it’s likely that a <em>operator</em> has several clients, regardless for what purposes, then the private key has to be on those clients. Though, a private key typically does not leave it’s current system or least does not exist in multiple systems at the same time in order to prevent exposure, which any action of duplication implies. To reduce those risks, it’s common practice to generate a private key at that location where it is going to be used.</p>
+<p>Because of it’s simplicity the concept of web tokens are fairly straightforward to implement into the <em>PDaaS</em>. But since web tokens ensure integrity and the optional confidentiality only of their own carriage but not the entire HTTP payload, both requirements need to be addressed separately. Serving HTTP over <em>TLS</em> solves this issue. For connections that use a web token, it should be sufficient to rely on the public PKI that drives the internet with <em>HTTP</em> over <em>TLS</em>, because all information required to authenticate is provided by the token itself. Though, the situation is different if instead <em>two-way authentication</em> is used. For this, the system has to provide it’s own <em>PKI</em> including a Certificate Authority that issues certificates for <em>data consumers</em>, because not only the <em>endpoints</em> on the <em>PDaaS</em> (server) need to be certified, all <em>data consumers</em> (clients) need to present a certificate as well. Only the <em>PDaaS</em> verifies and thus determines (supervised by the <em>operator</em>) who is authorized to get access to the system. Hence the <em>PKI</em> needs to be self-contained without any external role in order to function independently so that only invited parties can get involved. With referring to the statement mentioned above, <em>data consumer</em> have to be able as well to verify the identity of the <em>PDaaS</em>, in order to prevent man-in-the-middle attacks. Address this issue basically means, <em>data consumers</em> have to verify the certificate presented by the <em>PDaaS</em>. This can be done in two ways. One is, a certificate has been installed on the <em>PDaaS</em> that is certified and therefore trusted by a trustworthy public CA, as mentioned above. Then <em>consumer</em> uses CA’s certificate to verify the <em>PDaaS</em> certificate. The other way is, to let the <em>PDaaS</em> create and sign a public key by itself. Before <em>consumers</em> then get presented with the self-signed certificate of the <em>PDaaS</em> during the initiation of the TLS connection, they already have to be aware of that certificate. This is, <em>consumers</em> need to be provided with that certificate on a private channel upfront.</p>
+<p>If a public-key-based connection, performing a <em>two-way authentication</em>, establishes successfully, it implies that the identity originating the request is valid and the integrity of the containing data is given. Whereas on a token-based authentication every incoming request has to carry the token so that the system can verify and associate the request with an account. Furthermore data it not automatically encrypted and thus integrity is not preserved.</p>
+<p>An advantage of token-based authentication over TLS-based <em>two-way authentication</em> is that the token can be used on multiple clients at the same time. Or an account, a token is associated with, can actually have more than one token. Whereas during the asymmetric cryptography-based <em>two-way authentication</em> the client’s private key is required. So if it’s likely that a <em>operator</em> has several clients, regardless for what purposes, then the private key has to be on those clients. Though, a private key typically does not leave it’s current system or least does not exist in multiple systems at the same time in order to prevent exposure, which any action of duplication implies. To reduce those risks, it’s common practice to generate a private key at that location where it is going to be used.</p>
 <p>The technology <em>De-Mail</em> tries to ensure authenticity of an authors identity, by embedding a legal foundation into email-based communication. But instead of providing technically valid authenticity by end-to-end encryption so that a recipient can truly rely on that information, it only goes as far as legal definition and legislation reaches. Thus it has no relevance to this work, other then the concept of letting a server sign outgoing data, which might be the only solution to avoid an overhead in user interaction caused by recurring events.</p>
 <p>Computations based on asymmetric cryptography usually is slower then the ones based on symmetric cryptography <span class="citation" data-cites="book_2014_chapter-10-5-asym-random-number-gen">[<a href="#ref-book_2014_chapter-10-5-asym-random-number-gen">119</a>]</span>, but since there are no timing constrains when interacting with the <em>PDaaS</em>, regardless of whether it’s external communication with <em>data consumers</em> or internal between components, parameters for cryptographic procedures can chosen as costly as the system resources allow them to be, thus the level of security can be increased.</p>
-<p><em>Conclusions:</em> Based on the several requirements and distinct advantages of the two authentication mechanisms, it is preferred to use asymmetric cryptography in combination with <em>HTTPS</em> for the communication between the system and <em>data consumers</em>, where the system provides it’s own <em>PKI</em>. Whereas a token-based authentication on top of <em>HTTPS</em> and public CAs should be suitable for communication between the system and the <em>operator</em>, preferable based on <em><a href="#link_jwt">JSON Web Tokens</a></em>, because the session state is preserved within the token rather then having the system itself keeping track of it. Though, it is also worth mentioning, that a a JSON Web Token implementation is feasible as well to fully replace the approach consisting of <em>mutual authentication</em> on TLS level and a private <em>PKI</em>. The disadvantage here would be, that whether <em>data consumers</em> are able to authenticate themselves or not, a HTTPS connection will establish in any case. To hardening an authentication procedure often one or more factors are added, for example an <em>eID card</em> or one-time password. This adds complexity to the procedure and thus increases the effort that is needed to make an attack successful. But equally it also increases the effort to support those factors in the first place. Using multi-factor authentication is generally valued and will be briefly noted as an optional security enhancement for the <em>operator role</em>. However detailed discussions regarding this topic are left to follow-up work on the specification.</p>
-<p>it is also conceivable, to … instead of</p>
+<p><em>Conclusions:</em> Based on the several requirements and distinct advantages of the two authentication mechanisms, it is preferred to use asymmetric cryptography in combination with <em>HTTPS</em> for the communication between the system and <em>data consumers</em>, where the system provides it’s own <em>PKI</em>. Whereas a token-based authentication on top of <em>HTTPS</em> and public CAs should be suitable for communication between the system and the <em>operator</em>, preferable based on <em><a href="#link_jwt">JSON Web Tokens</a></em>, because the session state is preserved within the token rather then having the system itself keeping track of it. Though, it is also worth mentioning, that a a JSON Web Token implementation is feasible as well to fully replace the approach consisting of <em>two-way authentication</em> on TLS level and a private <em>PKI</em>. The disadvantage here would be, that whether <em>data consumers</em> are able to authenticate themselves or not, a HTTPS connection will establish in any case. At the same point, authenticating the <em>operator</em> is doable on the TLS-level as well; by restricting this possibility to only trusted environments like native mobile applications, because browser-based applications are not considered trusted and they lack of certain capabilities. Addressing the need of <em>consumers</em> verifying whether the <em>PDaaS</em> provided certificate can be trusted or not, both solutions, providing self-signed certificate on a secure channel upfront or using certificates certified by publicly trusted entities are legitimate. Even though the latter requires a service or an automatism that provides a new signed certificate whenever a new <em>data consumer</em> registers, such dependencies should be kept to an absolute minimum. To hardening an authentication procedure often one or more factors are added, for example an <em>eID card</em> or one-time password. This adds complexity to the procedure and thus increases the effort that is needed to make an attack successful. But equally it also increases the effort to support those factors in the first place. Using multi-factor authentication is generally valued and will be briefly noted as an optional security enhancement for the <em>operator role</em>. However detailed discussions regarding this topic are left to follow-up work on the specification.</p>
 </section>
 <section id="data-reliability" class="level2">
 <h2><span class="header-section-number">6.3</span> Data Reliability</h2>
@@ -647,14 +646,17 @@ authenticates the <em>data consumer</em> and checks the related <em>permission p
 <p>Among other information, an <em>access request</em> contains the <em>data query</em> that shows very precisely what data points are affected by that request. So if an <em>access request</em> arrives at the <em>PDaaS</em>, assuming the <em>data consumer</em> has been authenticated sufficiently, the systems (0) searches for a <em>permission profile</em> that correspond to the <em>data consumer</em> and the requested data points. If it fails to find one, the access request gets refused. But if it does, then it checks (1) if the permission type suffices at that moment and (2) if the query only contains data points that are also enabled in the <em>profile</em>. Here the order does matter, because it is imaginable that the operation behind (1) is less complex then operation (2). So, at the end running (1) before (2) can result in a lower response-time, if operation (1) already results negative. If all operations have a positive result, access is granted.</p>
 <p>As stated in the section about <a href="#data-reliability">data reliability</a>, the <em>data subject</em> is able to add, change or remove all her data or even the <em>permission profiles</em> at any point in time. This raises the question of how to solve the situation were <em>data requests</em> are being processed, while those changes are happening and might affect the result of those requests. The first and simplest approach would be to not address this issue at all, but that would be unreasonable, because providing data to the <em>consumer</em> normally means for the <em>data subject</em> get something in return or to somehow benefit from that. So that approach is no option. Using a failure of reliability verifications as a mechanism to re-request data won’t work either in that case, because it would be based on a wrong assumption, since that failure can have multiple causes, not only the issue here in question. A stateless solution seems to be not fitting due to the time-related dependency. So the only currently perceivable way is to keep track of all momentarily processing or pending <em>access requests</em>, to detect those who are affected by that changes so that each of them can be aborted and processed again. Here it is important to determine the right moment, when all changes are done, otherwise the system might end up restarting those computations repeatedly within a short amount of time. The described issue relates to both, <em>personal data</em> and <em>permission profiles</em>, because either can impact the response send to t <em>data consumer</em>. Furthermore, it needs to be ensured that only after the <em>permission requests</em> are being reviewed and the <em>permission profiles</em> are being created, the <em>data consumers</em> receive their credentials or a notification to get started.</p>
 <p>It is up to the <em>data consumers</em> to decide which data they are requesting to access, but how do they know what data can be requested? The only option is to expose information about data availability, which can be done in a variety of ways. First, those information can be made publicly available via URI, providing a Machine-readable format, so that it can be processed automatically by <em>data consumers</em>. It is also feasible to restrict that access to only registered <em>consumers</em>, in order to prevent those information from being crawled. They might be valued as meta data and therefore used in unwanted computations that could raise privacy concerns. It is imaginable to let the <em>operator</em> restrict the access to these availability information on the level of individual <em>data consumers</em> or system-wide, and to set a default configuration for that behaviour. Depending on that configurations request might fail, thus requester need to be provided with meaningful errors. Http error codes <span class="citation" data-cites="web_spec_http-error-codes">[<a href="#ref-web_spec_http-error-codes">120</a>]</span> might be a a sufficient fit for that purpose.</p>
-<p>An already standardized way to implement authorization would be <a href="#link_oauth">OAuth</a> Specification, and since the TLS layer is already in place to handle authentication, the choice would be to use version 2 of the standard, because it relies on HTTPS. Only two of the four <em>grant types</em> provided by OAuth would match with process design introduced above. The types are <code>password</code> and <code>client_credentials</code>, which basically require identifier(s) and secret or credentials to directly request the <code>token</code>. The other two types define additional steps and interactions involving client <em>(consumer)</em> and user <em>(operator)</em> before getting the<code>token</code>. This would make the proposed process undesirably more complicated. Although the proposal includes user interactions like selecting and confirming requested permissions as well. According to the documentations <span class="citation" data-cites="web_spec_oauth-1a_client-reg">[<a href="#ref-web_spec_oauth-1a_client-reg">121</a>]</span> <span class="citation" data-cites="web_spec_oauth-2_client-reg">[<a href="#ref-web_spec_oauth-2_client-reg">122</a>]</span>, both OAuth versions (1.0a and 2) require the client <em>(data consumer)</em> to register to the authorization server upfront (to obtain a <code>client_id</code>), before initializing the authorization process. However, as stated before, the concept of the <em>data subject</em> “pulling” a <em>data consumer</em> towards the <em>PDaaS</em> is preferred over letting <em>data consumers</em> try to “push” themselves towards the system. The reason is to prevent unwanted applications for data access, because they all have to get reviewed by the <em>data subject</em>. Furthermore, it is not within the scope of the OAuth Specification to define how this should be accomplished. Thus, such step needs to be added in addition to an entire OAuth-Flow, which might cause otherwise avoidable overhead in user interactions. Moreover, the proposed design does not include that step either. Instead, it is not needed process at all, because according to the former proposed process, identifying the client happens implicitly as a result of how the resource owner <em>(operator)</em> obtains the registration request from the client (Part One: consumer registration, step 0 and 1). Further investigations show that the <code>access_token</code> semantic as from the perspective of a resource server, which are a) authentication (does this token exist?) and b) authorization (is this token valid and what does it permit?), have in part already been provided by the proposed way of using the TLS layer. Because every <em>data consumer</em> has it’s own endpoint to connect with the <em>PDaaS</em> and the certificate used by the <em>consumer</em> is singed by a signature that is only used for that endpoint. This means, the <em>consumer</em> is already authenticated, when the TLS connection has successfully established. And since the endpoints relates to the <em>permission profiles</em> it would make providing an <code>access_token</code> to become obsolete. To summarize, implementing OAuth would introduce several mechanisms that otherwise can be provided by the combination of <em>mutual authentication</em> in TLS, dedicated endpoints and certification.</p>
+<p>An already standardized way to implement authorization would be <a href="#link_oauth">OAuth</a> Specification, and since the TLS layer is already in place to handle authentication, the choice would be to use version 2 of the standard, because it relies on HTTPS. Only two of the four <em>grant types</em> provided by OAuth would match with process design introduced above. The types are <code>password</code> and <code>client_credentials</code>, which basically require identifier(s) and secret or credentials to directly request the <code>token</code>. The other two types define additional steps and interactions involving client <em>(consumer)</em> and user <em>(operator)</em> before getting the<code>token</code>. This would make the proposed process undesirably more complicated. Although the proposal includes user interactions like selecting and confirming requested permissions as well. According to the documentations <span class="citation" data-cites="web_spec_oauth-1a_client-reg">[<a href="#ref-web_spec_oauth-1a_client-reg">121</a>]</span> <span class="citation" data-cites="web_spec_oauth-2_client-reg">[<a href="#ref-web_spec_oauth-2_client-reg">122</a>]</span>, both OAuth versions (1.0a and 2) require the client <em>(data consumer)</em> to register to the authorization server upfront (to obtain a <code>client_id</code>), before initializing the authorization process. However, as stated before, the concept of the <em>data subject</em> “pulling” a <em>data consumer</em> towards the <em>PDaaS</em> is preferred over letting <em>data consumers</em> try to “push” themselves towards the system. The reason is to prevent unwanted applications for data access, because they all have to get reviewed by the <em>data subject</em>. Furthermore, it is not within the scope of the OAuth Specification to define how this should be accomplished. Thus, such step needs to be added in addition to an entire OAuth-Flow, which might cause otherwise avoidable overhead in user interactions. Moreover, the proposed design does not include that step either. Instead, it is not needed process at all, because according to the former proposed process, identifying the client happens implicitly as a result of how the resource owner <em>(operator)</em> obtains the registration request from the client (Part One: consumer registration, step 0 and 1). Further investigations show that the <code>access_token</code> semantic as from the perspective of a resource server, which are a) authentication (does this token exist?) and b) authorization (is this token valid and what does it permit?), have in part already been provided by the proposed way of using the TLS layer. Because every <em>data consumer</em> has it’s own endpoint to connect with the <em>PDaaS</em> and the certificate used by the <em>consumer</em> is singed by a signature that is only used for that endpoint. This means, the <em>consumer</em> is already authenticated, when the TLS connection has successfully established. And since the endpoints relates to the <em>permission profiles</em> it would make providing an <code>access_token</code> to become obsolete. To summarize, implementing OAuth would introduce several mechanisms that otherwise can be provided by the combination of <em>two-way authentication</em> in TLS, dedicated endpoints and certification.</p>
 <p><em>Conclusions:</em> In the preceding text, various solutions were developed, based on which the following three solutions are at disposal:</p>
 <ol type="a">
 <li>OAuth 1.0a and HTTP</li>
 <li>OAuth 2 and HTTPS (public Certification and PKI)</li>
-<li>HTTP over TLS with <em>mutual Authentication</em>, private PKI, sub-domains as dedicated endpoints</li>
+<li>HTTP over TLS with <em>two-way authentication</em>, private PKI, sub-domains as dedicated endpoints</li>
 </ol>
-<p>The solutions a) and b) require an extra step were <em>data consumers</em> would register themselves at the <em>PDaaS</em>. This already needs a secure channel to prevent man-in-the-middle attacks. Furthermore does option a) obtain a symmetric key for creating signatures which have to ensure confidentiality and integrity in the subsequent steps. Thereby HTTPS is mandatory, which makes b) more suitable over a), because it’s also more flexible and easier to implement. Whereas solution c) moves the complete authentication procedure to a different layer. It hence results in separating authentication and authorization from each other, leaving no remains of relation. This opens the authorization design up to for example other implementations that might be more suitable for certain <em>data types</em>. In addition, it would only require little effort to support the case where multiple <em>data consumers</em> share the same <em>endpoint</em> and thereby the same <em>permission profiles</em>. And combining b) and c) would result in significant redundancy, since both solutions have much overlap in the features they are providing. Even though b) aims to be a framework for authorization. The process description at the beginning of this section will be used as the foundation of <em>access management</em> in the <em>PDaaS</em>. Implementing OAuth based on this design would leave nothing from the framework, but a simple request returning an identifier for it’s permissions. So there is not much benefit in using OAuth, other then developers might be somewhat familiar with the API. This can be addressed by a detailed specification for this project, hence c) is preferred over b). At the end, the only suitable use case from the specification would consists of just a request that obtains a token after authenticating with the provided credentials. In the context of this project OAuth doesn’t really match with the rest of the design aspects.</p>
+<p>The solutions a) and b) require an extra step were <em>data consumers</em> would register themselves at the <em>PDaaS</em>. This already needs a secure channel to prevent man-in-the-middle attacks. Furthermore does option a) obtain a symmetric key for creating signatures used to ensue confidentiality and integrity in the subsequent steps. All those cryptographic procedures need to be adopted when implementing the specification emerging from this work and when interacting with those implementations. While this can cause much more harm, is is proposed to leave as much of these sensitive parts as possible to existing implementations that already have proven themselves. Thus HTTPS is mandatory, which makes</p>
+<ol start="2" type="a">
+<li>more suitable over a), because it’s also more flexible and easier to implement. Whereas solution c) moves the complete authentication procedure to a different layer. It hence results in separating authentication and authorization from each other, leaving no remains of relation. This opens the authorization design up to for example other implementations that might be more suitable for certain <em>data types</em>. In addition, it would only require little effort to support the case where multiple <em>data consumers</em> share the same <em>endpoint</em> and thereby the same <em>permission profiles</em>. And combining b) and c) would result in significant redundancy, since both solutions have much overlap in the features they are providing, even though b) aims to be a framework for authorization. The process description from the beginning of this section will be used as the foundation of <em>access management</em> in the <em>PDaaS</em>. Implementing OAuth based on this design would leave nothing from the framework, but a simple request returning an identifier for it’s permissions. And even these identifiers are obsolete when combining TLS with dedicated <em>consumer</em>-specific endpoint, as c) states. So there is not much benefit in using OAuth, other then developers might be somewhat familiar with the API. This can be addressed by a detailed specification for this project, hence c) is preferred over b). At the end, the only suitable use case from the specification would consists of just a request that obtains a token after authenticating with the provided credentials. And since OAuth only provides a framework for how to authorize third parties to access external resources, but leaves the procedure of how to actually verify those access attempts up to it’s implementers <span class="citation" data-cites="web_spec_oauth-1a_access-verification">[<a href="#ref-web_spec_oauth-1a_access-verification">123</a>]</span> <span class="citation" data-cites="web_spec_oauth-2_access-verification">[<a href="#ref-web_spec_oauth-2_access-verification">124</a>]</span>. In the context of this project OAuth doesn’t really match with the rest of the design aspects.</li>
+</ol>
 <p>How the first steps of a <em>consumer registration</em> are look like, is up to the <em>consumer</em>, even though the version involving a QR-Code might result in a nicer user experience from the <em>data subject’s</em> perspective. In any case, the secure channel is vital.</p>
 <p>When obtaining personal data, at the same time preventing those data from leakage is almost impossible, because of the nature of digital data being able to get effortlessly copied. Nevertheless it is possible to make it much more difficult, so that it becomes inefficient to bypass those mechanism. At the same time it requires also some effort to establish, run and maintain the infrastructure needed for those mechanisms. In case of the <em>Data DRM</em> proposal that effort is not proportionate, because it requires additional infrastructure, interfaces and cryptographic procedures, thus introduces new attack scenarios. For now the only approach being considered, is the <em>Supervised Code Execution</em>, aside from the default forwarding. When implementing this approach, two directions might need to be considered. Alongside the executable program <em>data consumers</em> either provide all dependencies so that everything is bundled up, or don’t provide any dependency at all. The latter is preferred, because it reduces the amount of potentially malicious, flawed or needless components, so that the <em>data subject</em>, supported by her <em>PDaaS</em>, gains more supervising capabilities and thus more control over her personal data. Since the overall goal here is to prevent the <em>data subject</em> from loosing control over her data, it might also be conceivable, that certain categories of personal data with a higher level of sensitivity also require a least sufficient <em>request type</em>. If the <em>data consumer</em> does not comply, access will be refused. Also, depending on which category the personal data relates to, the <em>PDaaS</em> might be able to anonymize certain types of data somehow, if it’s capable of doing so all, because the <em>consumer</em> at least supposedly knows what individual is behind that <em>PDaaS</em> it currently interacts with. The field for <em>data anonymization</em> is a large research area on its own, which recently started to gains a lot of traction due to emerging privacy concerns about <em>big data</em>. Thus it will be left for future work.</p>
 </section>
@@ -691,7 +693,7 @@ authenticates the <em>data consumer</em> and checks the related <em>permission p
 <section id="architecture" class="level2">
 <h2><span class="header-section-number">6.6</span> Architecture</h2>
 <p>By taking all previous sections, their discussions and the requirements as well into account, this section serves the sole purpose of figuring out how all the different concepts and conclusions discussed before can fit together in an overall system architecture that is organized in either a distributed or a monolithic manner. This type of changes should not impact how the system’s interfaces behave from a user perspective.</p>
-<p>The foundation of this project is a server-client Architecture, which is chosen for a) providing availability (<a href="#sa05">S.A.05</a>) and b) separating some concerns <span class="citation" data-cites="web_2016_wikipedia_separation-of-concerns">[<a href="#ref-web_2016_wikipedia_separation-of-concerns">123</a>]</span>. Such a distributed system provides various locations to place these concerns, which are in fact different environments with different properties. Those combinations of locations and environments are herein after called <em>platforms</em>. To further describe these <em>platforms</em> characteristics such as architectural layer and access possibilities to it’s internals are taken into account. This results in the following three types of <em>platforms</em>:</p>
+<p>The foundation of this project is a server-client Architecture, which is chosen for a) providing availability (<a href="#sa05">S.A.05</a>) and b) separating some concerns <span class="citation" data-cites="web_2016_wikipedia_separation-of-concerns">[<a href="#ref-web_2016_wikipedia_separation-of-concerns">125</a>]</span>. Such a distributed system provides various locations to place these concerns, which are in fact different environments with different properties. Those combinations of locations and environments are herein after called <em>platforms</em>. To further describe these <em>platforms</em> characteristics such as architectural layer and access possibilities to it’s internals are taken into account. This results in the following three types of <em>platforms</em>:</p>
 <table>
 <caption>All platform types where components of the <em>PDaaS</em> architecture can be placed</caption>
 <colgroup>
@@ -792,6 +794,7 @@ authenticates the <em>data consumer</em> and checks the related <em>permission p
 <p><em>Technologies:</em></p>
 <ul>
 <li>X.509</li>
+<li>ACME <span class="citation" data-cites="web_spec_acme">[<a href="#ref-web_spec_acme">126</a>]</span> (Let’s Encrypt)</li>
 </ul>
 </section>
 <section id="storage-connector" class="level5">
@@ -921,10 +924,10 @@ authenticates the <em>data consumer</em> and checks the related <em>permission p
 <li>It is debatable whether to place the <em>permission profiles</em> in the <em>persistence layer</em> among all other domain-related information, put it into the <em>personal data storage</em> or define it as an own storage component, in order to be flexible regarding it’s location.</li>
 </ul>
 <p>If components that are only placed on the server, have to communicate between each other but are separated into independent processes, then some inter-process communication need to be established (e.g. sockets). It is also conceivable that other interactions might only be unidirectional, therefor approaches like changing configuration files by writing to the filesystem can be feasible in some cases. These components that are vary in terms of the platform where can be placed, has to communicate to the other components via <em>HTTPS</em>.</p>
-<p>Authenticating <em>consumers</em> is done by the web server based on TLS, the assigned subdomains and the keys and certificates provided by the PKI. The <em>operator</em> authentication is either done by the <em>Operator API</em> or by the <em>web server</em>, depending on the <em>web server’s</em> capabilities. Although, it makes more sense to entrust the <em>web server</em> with that task, because it is the outmost component and it would prevent unauthorized and potential malicious requests from getting further into the system.</p>
+<p>Authenticating <em>consumers</em> is done by the web server based on TLS, the assigned subdomains and the keys and certificates provided by the PKI. The <em>operator</em> authentication is either done by the <em>Operator API</em> or by the <em>web server</em>, depending on the <em>web server’s</em> capabilities. Though, it makes more sense, to entrust the <em>web server</em> with that task, because it is the outmost component and it would prevent unauthorized and potential malicious requests from getting further into the system. And since a native client on a mobile platform is considered <em>private</em>, it is reasonable to change the authentication from JWT-based to TLS-based <em>two-way authentication</em>, which would otherwise be inconvenient when using web-based clients.</p>
 <p>TODO: OpenID as auth services (like fb for other platforms) As discussed in previous sections the <em>PDaaS</em> has it’s qualities to be seen and valued as a digital representation of the individual that operates that system. Hence it could also be used to authenticate the individual against an external platform. Although it is priorly argued, that for authentication and security reasons the system is designed to be self-contained. But providing those OpenID capabilities isn’t something the <em>PDaaS</em> depends on, instead external platforms would depend on the <em>PDaaS</em> supporting that feature. It is imaginable, that an OpenID instance mapping on a single individual would simplify the authentication procedure provided by that technology. However, it is beyond the scope of this work to either do further investigations regarding that topic, nor elaborate on how this might look integrate with the currently developed feature-set.</p>
 <ul>
-<li>regarding oAuth as authentication: Priorly users tended to reuse their password for different account, nowadays they but also tend to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">124</a>]</span>.</li>
+<li>regarding oAuth as authentication: Priorly users tended to reuse their password for different account, nowadays they but also tend to get tired of creating new accounts and profiles over and over again instead of having just one account for everything <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">127</a>]</span>.</li>
 </ul>
 <p>Thus the platform owners leave the responsibility of</p>
 <p>Many websites and platforms understand those <em>login-with $platformName</em> mechanisms as an outsourced service that handles all security- and user-related tasks.</p>
@@ -934,6 +937,7 @@ authenticates the <em>data consumer</em> and checks the related <em>permission p
 <li>the previously proposed authentication concept for the <em>operator</em> role supports multiple<br />
 clients and with the suggested technologies it can be implemented with almost no effort</li>
 </ul>
+<p>monolithic approach as a starting point and as mobile apps occur moving towards a more distributed and more trusted architecture.</p>
 </section>
 </section>
 <section id="environment-and-setup" class="level2">
@@ -963,6 +967,7 @@ clients and with the suggested technologies it can be implemented with almost no
 <section id="specification-draft" class="level1">
 <h1><span class="header-section-number">7</span> Specification <em>(Draft)</em></h1>
 <p>This chapter hold the first draft of what might become a specification. As for now it has therefore no claim of completeness, continuity or accuracy.</p>
+<p>TODO: should might must n stuff in table (see dark mail spec)</p>
 <section id="overview" class="level2">
 <h2><span class="header-section-number">7.2</span> Overview</h2>
 <ul>
@@ -1018,15 +1023,24 @@ clients and with the suggested technologies it can be implemented with almost no
 <ol type="a">
 <li>creating new <em>endpoint</em>
 <ul>
-<li>create new unique subdomain and a related asymmetric key pair signed by the system’s root CA</li>
+<li>create new unique subdomain and a related asymmetric key pair signed by the system’s root CA (self-signed)</li>
 <li>issue <em>consumer</em> certificate based on it’s CRS and sign it with the key pair related to this <em>endpoint</em></li>
 </ul></li>
 <li>if information is provided, creating new <em>permission profile</em> by either applying existing draft/template or configuring <em>permission type</em> (incl. expiration date if required) and permitted data endpoints; associate to specific <em>endpoint</em></li>
 </ol></li>
 <li><em>data consumers</em> gets informed about the decision via callback channel
 <ul>
-<li>on grant, response includes certificate and information on what data points are allowed to be accessed</li>
+<li>on grant, response includes
+<ul>
+<li><em>consumer’s</em> certified certificate</li>
+<li>certificate that’s associated with the created endpoint</li>
+<li>information on what data points are allowed to be accessed;</li>
+</ul></li>
 <li>on refusal: error code/message</li>
+</ul></li>
+<li><em>data consumer</em> handles the response appropriately
+<ul>
+<li>[OPTIONAL] pin the provided <em>PDaaS</em> certificate</li>
 </ul></li>
 </ol>
 </section>
@@ -1065,7 +1079,7 @@ clients and with the suggested technologies it can be implemented with almost no
 <section id="data-management" class="level3">
 <h3><span class="header-section-number">7.5.2</span> Data Management</h3>
 <ul>
-<li>one third party access (consumer) relates to one access <em>endpoint</em>, that also authenticates that third party by TLS based <em>mutual auth</em></li>
+<li>one third party access (consumer) relates to one access <em>endpoint</em>, that also authenticates that third party by TLS based <em>two-way auth</em></li>
 <li>zero or more <em>permission profiles</em> are associated to one <em>endpoint</em></li>
 </ul>
 </section>
@@ -1178,7 +1192,8 @@ clients and with the suggested technologies it can be implemented with almost no
 <section id="solutions" class="level2">
 <h2><span class="header-section-number">8.5</span> Solutions</h2>
 <ul>
-<li>even though <em>OAuth</em> don’t find it’s way into this project, working through the standard inspired here and there a solution, for example using a URI as a feedback channel or TODO.</li>
+<li><p>even though <em>OAuth</em> don’t find it’s way into this project, working through the standard inspired here and there a solution, for example using a URI as a feedback channel or TODO.</p></li>
+<li><p>refer to the scenarios at the beginning by saying that with the <em>PDaaS</em> one is able to implement all of them</p></li>
 </ul>
 </section>
 <section id="attack-scenarios" class="level2">
@@ -1216,376 +1231,385 @@ clients and with the suggested technologies it can be implemented with almost no
 <p>The work will be continued.</p>
 <div id="refs" class="references">
 <div id="ref-web_2016_privacy-international-about-big-data">
-<p>[1] “Big data privacy international.” [Online]. Available: <a href="https://www.privacyinternational.org/node/8" class="uri">https://www.privacyinternational.org/node/8</a>. [Accessed: 15-Nov-2016]</p>
+<p>[1] <em>Big data privacy international</em>. URL <a href="https://www.privacyinternational.org/node/8" class="uri">https://www.privacyinternational.org/node/8</a>. - retrieved 2016-11-15</p>
 </div>
 <div id="ref-paper_2008_discrimination-aware-data-mining">
-<p>[2] D. Pedreshi, S. Ruggieri, and F. Turini, “Discrimination-aware data mining,” in <em>Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining</em>, 2008, pp. 560–568 [Online]. Available: <a href="http://dl.acm.org/citation.cfm?id=1401959" class="uri">http://dl.acm.org/citation.cfm?id=1401959</a>. [Accessed: 03-Nov-2016]</p>
+<p>[2] <span style="font-variant: small-caps;">Pedreshi, Dino</span> ; <span style="font-variant: small-caps;">Ruggieri, Salvatore</span> ; <span style="font-variant: small-caps;">Turini, Franco</span>: Discrimination-aware data mining. In: <em>Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining</em> : ACM, 2008, pp. 560–568</p>
 </div>
 <div id="ref-book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge">
-<p>[3] S. Spiekermann, <em>Ethical IT Innovation: A Value-Based System Design Approach</em>. CRC Press; Taylor &amp; Francis Group, LLC, 2015, pp. 66–72 [Online]. Available: <a href="https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355" class="uri">https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355</a></p>
+<p>[3] <span style="font-variant: small-caps;">Spiekermann, Sarah</span>: <em>Ethical IT Innovation: A Value-Based System Design Approach</em> : CRC Press; Taylor &amp; Francis Group, LLC, 2015 – scale — ISBN 978-1-4822-2635-5</p>
 </div>
 <div id="ref-paper_1996_bias-in-computer-systems">
-<p>[4] B. Friedman and H. Nissenbaum, “Bias in computer systems,” <em>ACM Transactions on Information Systems (TOIS)</em>, vol. 14, no. 3, pp. 330–347, 1996 [Online]. Available: <a href="http://dl.acm.org/citation.cfm?id=230561" class="uri">http://dl.acm.org/citation.cfm?id=230561</a>. [Accessed: 07-Nov-2016]</p>
+<p>[4] <span style="font-variant: small-caps;">Friedman, Batya</span> ; <span style="font-variant: small-caps;">Nissenbaum, Helen</span>: Bias in computer systems. In: <em>ACM Transactions on Information Systems (TOIS)</em> vol. 14 (1996), Nr. 3, pp. 330–347</p>
 </div>
 <div id="ref-wikipedia_2016_cognitive-bias">
-<p>[5] “Cognitive bias,” <em>Wikipedia</em>, Oct-2016. [Online]. Available: <a href="https://en.wikipedia.org/w/index.php?title=Cognitive_bias&amp;oldid=742803386" class="uri">https://en.wikipedia.org/w/index.php?title=Cognitive_bias&amp;oldid=742803386</a>. [Accessed: 08-Nov-2016]</p>
+<p>[5] <em>Cognitive bias</em>. URL <a href="https://en.wikipedia.org/w/index.php?title=Cognitive_bias&amp;oldid=742803386" class="uri">https://en.wikipedia.org/w/index.php?title=Cognitive_bias&amp;oldid=742803386</a>. - retrieved 2016-11-08. — Wikipedia. — Page Version ID: 742803386</p>
 </div>
 <div id="ref-web_2016_big-data-is-people">
-<p>[6] R. Lemov, “Why big data is actually small, personal and very human. Aeon essays,” 16-Jun-2016. [Online]. Available: <a href="https://aeon.co/essays/why-big-data-is-actually-small-personal-and-very-human" class="uri">https://aeon.co/essays/why-big-data-is-actually-small-personal-and-very-human</a>. [Accessed: 17-Nov-2016]</p>
+<p>[6] <span style="font-variant: small-caps;">Lemov, Rebecca</span>: <em>Why big data is actually small, personal and very human. Aeon essays</em>. URL <a href="https://aeon.co/essays/why-big-data-is-actually-small-personal-and-very-human" class="uri">https://aeon.co/essays/why-big-data-is-actually-small-personal-and-very-human</a>. - retrieved 2016-11-17</p>
 </div>
 <div id="ref-video_2015_big-data-and-deep-learning_discrimination">
-<p>[7] A. Dewes, “C3TV - Say hi to your new boss: How algorithms might soon control our lives.” 29-Dec-2015. [Online]. Available: <a href="https://media.ccc.de/v/32c3-7482-say_hi_to_your_new_boss_how_algorithms_might_soon_control_our_lives#video&amp;t=1538" class="uri">https://media.ccc.de/v/32c3-7482-say_hi_to_your_new_boss_how_algorithms_might_soon_control_our_lives#video&amp;t=1538</a>. [Accessed: 03-Nov-2016]</p>
+<p>[7] <span style="font-variant: small-caps;">Dewes, Andreas</span>: <em>C3TV - Say hi to your new boss: How algorithms might soon control our lives.</em> URL <a href="https://media.ccc.de/v/32c3-7482-say_hi_to_your_new_boss_how_algorithms_might_soon_control_our_lives#video&amp;t=1538" class="uri">https://media.ccc.de/v/32c3-7482-say_hi_to_your_new_boss_how_algorithms_might_soon_control_our_lives#video&amp;t=1538</a>. - retrieved 2016-11-03</p>
 </div>
 <div id="ref-web_2010_projectvrm_about">
-<p>[8] “ProjectVRM - about. ProjectVRM,” 25-Feb-2010. [Online]. Available: <a href="https://blogs.harvard.edu/vrm/about/" class="uri">https://blogs.harvard.edu/vrm/about/</a>. [Accessed: 09-Nov-2016]</p>
+<p>[8] <em>ProjectVRM - about. ProjectVRM</em>. URL <a href="https://blogs.harvard.edu/vrm/about/" class="uri">https://blogs.harvard.edu/vrm/about/</a>. - retrieved 2016-11-09</p>
 </div>
 <div id="ref-paper_2013_the-personal-data-store-approach-to-personal-data-security_2013">
-<p>[9] Tom Kirkham, Sandra Winfield, Serge Ravet, and S. Kellomaki, “The personal data store approach to personal data security,” <em>IEEE Security &amp; Privacy</em>, vol. 11, no. 5, pp. 12–19, 2013. </p>
+<p>[9] <span style="font-variant: small-caps;">Tom Kirkham</span> ; <span style="font-variant: small-caps;">Sandra Winfield</span> ; <span style="font-variant: small-caps;">Serge Ravet</span> ; <span style="font-variant: small-caps;">Kellomaki, Sampo</span>: The personal data store approach to personal data security. In: <em>IEEE Security &amp; Privacy</em> vol. 11. Los Alamitos, CA, USA, IEEE Computer Society (2013), Nr. 5, pp. 12–19</p>
 </div>
 <div id="ref-whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing">
-<p>[10] A. Poikola, K. Kuikkaniemi, and H. Honko, “MyData – a nordic model for human-centered personal data management and processing,” pp. 1–12, Jun. 2015 [Online]. Available: <a href="https://www.lvm.fi/documents/20181/859937/MyData-nordic-model/2e9b4eb0-68d7-463b-9460-821493449a63" class="uri">https://www.lvm.fi/documents/20181/859937/MyData-nordic-model/2e9b4eb0-68d7-463b-9460-821493449a63</a>. [Accessed: 10-Nov-2016]</p>
+<p>[10] <span style="font-variant: small-caps;">Poikola, Antti</span> ; <span style="font-variant: small-caps;">Kuikkaniemi, Kai</span> ; <span style="font-variant: small-caps;">Honko, Harri</span>: MyData – a nordic model for human-centered personal data management and processing, Ministry of Transport; Communications (2015), pp. 1–12 — ISBN 978-952-243-455-5</p>
 </div>
 <div id="ref-web_2016_meeco-how-it-works">
-<p>[11] “Meeco how it works.” [Online]. Available: <a href="https://meeco.me/how-it-works.html" class="uri">https://meeco.me/how-it-works.html</a>. [Accessed: 09-Nov-2016]</p>
+<p>[11] <em>Meeco how it works</em>. URL <a href="https://meeco.me/how-it-works.html" class="uri">https://meeco.me/how-it-works.html</a>. - retrieved 2016-11-09</p>
 </div>
 <div id="ref-repo_2016_pdaas-spec">
-<p>[12] “Open specification of the concept called personal data as a service (pdaas). GitHub.” [Online]. Available: <a href="https://github.com/lucendio/pdaas_spec" class="uri">https://github.com/lucendio/pdaas_spec</a>. [Accessed: 11-Nov-2016]</p>
+<p>[12] <em>Open specification of the concept called personal data as a service (pdaas). GitHub</em>. URL <a href="https://github.com/lucendio/pdaas_spec" class="uri">https://github.com/lucendio/pdaas_spec</a>. - retrieved 2016-11-11</p>
 </div>
 <div id="ref-web_2010_projectvrm-wiki_about-vrm">
-<p>[13] “ProjectVRM wiki - about VRM.” [Online]. Available: <a href="https://cyber.harvard.edu/projectvrm/Main_Page#About_VRM" class="uri">https://cyber.harvard.edu/projectvrm/Main_Page#About_VRM</a>. [Accessed: 11-Nov-2016]</p>
+<p>[13] <em>ProjectVRM wiki - about VRM</em>. URL <a href="https://cyber.harvard.edu/projectvrm/Main_Page#About_VRM" class="uri">https://cyber.harvard.edu/projectvrm/Main_Page#About_VRM</a>. - retrieved 2016-11-11</p>
 </div>
 <div id="ref-web_2010_projectvrm-wiki_pims-example-list">
-<p>[14] “ProjectVRM wiki - list of personal information management systems.” [Online]. Available: <a href="https://cyber.harvard.edu/projectvrm/VRM_Development_Work#Personal_Information_Management_Systems_.28PIMS.29" class="uri">https://cyber.harvard.edu/projectvrm/VRM_Development_Work#Personal_Information_Management_Systems_.28PIMS.29</a>. [Accessed: 11-Nov-2016]</p>
+<p>[14] <em>ProjectVRM wiki - list of personal information management systems</em>. URL <a href="https://cyber.harvard.edu/projectvrm/VRM_Development_Work#Personal_Information_Management_Systems_.28PIMS.29" class="uri">https://cyber.harvard.edu/projectvrm/VRM_Development_Work#Personal_Information_Management_Systems_.28PIMS.29</a>. - retrieved 2016-11-11</p>
 </div>
 <div id="ref-report_2014_data-brokers">
-<p>[15] F. T. C. USA, “Data brokers,” May 2014 [Online]. Available: <a href="https://www.ftc.gov/system/files/documents/reports/data-brokers-call-transparency-accountability-report-federal-trade-commission-may-2014/140527databrokerreport.pdf" class="uri">https://www.ftc.gov/system/files/documents/reports/data-brokers-call-transparency-accountability-report-federal-trade-commission-may-2014/140527databrokerreport.pdf</a>. [Accessed: 17-Nov-2016]</p>
+<p>[15] <span style="font-variant: small-caps;">USA, Federal Trade Commission</span>: <em>Data brokers</em>, 2014 – scale</p>
 </div>
 <div id="ref-whitepaper_2012_the-value-of-our-digital-identity_definition">
-<p>[16] J. Rose, O. Rehse, and B. Röber, “The value of our digital identity,” <em>Boston Cons. Gr</em>, 2012 [Online]. Available: <a href="https://www.libertyglobal.com/PDF/public-policy/The-Value-of-Our-Digital-Identity.pdf" class="uri">https://www.libertyglobal.com/PDF/public-policy/The-Value-of-Our-Digital-Identity.pdf</a></p>
+<p>[16] <span style="font-variant: small-caps;">Rose, John</span> ; <span style="font-variant: small-caps;">Rehse, Olaf</span> ; <span style="font-variant: small-caps;">Röber, Björn</span>: The value of our digital identity. In: <em>Boston Cons. Gr</em> (2012)</p>
 </div>
 <div id="ref-web_2016_wikipedia_intellectual-property">
-<p>[17] “Outline of intellectual property,” 11-Oct-2016. [Online]. Available: <a href="https://en.wikipedia.org/w/index.php?title=Outline_of_intellectual_property&amp;oldid=743830160" class="uri">https://en.wikipedia.org/w/index.php?title=Outline_of_intellectual_property&amp;oldid=743830160</a>. [Accessed: 25-Dec-2016]</p>
+<p>[17] <em>Outline of intellectual property</em>. URL <a href="https://en.wikipedia.org/w/index.php?title=Outline_of_intellectual_property&amp;oldid=743830160" class="uri">https://en.wikipedia.org/w/index.php?title=Outline_of_intellectual_property&amp;oldid=743830160</a>. - retrieved 2016-12-25. — Page Version ID: 743830160</p>
 </div>
 <div id="ref-regulation_2016_eu_general-data-protection-regulation_definition">
-<p>[18] <em>General data protection regulation</em>. 2016, p. L 119/33 [Online]. Available: <a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679" class="uri">http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679</a></p>
+<p>[18] Regulation (EU) 2016/679 — General data protection regulation, 2016 – scale</p>
 </div>
 <div id="ref-web_2016_wikipedia_information-privacy-law_us">
-<p>[19] Wikipedia, “Information privacy law,” 13-Nov-2016. [Online]. Available: <a href="https://en.wikipedia.org/wiki/Information_privacy_law#United_States" class="uri">https://en.wikipedia.org/wiki/Information_privacy_law#United_States</a>. [Accessed: 20-Nov-2016]</p>
+<p>[19] <span style="font-variant: small-caps;">Wikipedia</span>: <em>Information privacy law</em>. URL <a href="https://en.wikipedia.org/wiki/Information_privacy_law#United_States" class="uri">https://en.wikipedia.org/wiki/Information_privacy_law#United_States</a>. - retrieved 2016-11-20. — Page Version ID: 749338152</p>
 </div>
 <div id="ref-web_2016_data-protection-laws-in-the-us">
-<p>[20] I. J. (Loeb &amp; Loeb), “PLC - data protection in the united states: Overview,” 01-Jul-2013. [Online]. Available: <a href="http://us.practicallaw.com/6-502-0467" class="uri">http://us.practicallaw.com/6-502-0467</a>. [Accessed: 20-Nov-2016]</p>
+<p>[20] <span style="font-variant: small-caps;">Loeb), Ieuan Jolly (Loeb &amp;</span>: <em>PLC - data protection in the united states: Overview</em>. URL <a href="http://us.practicallaw.com/6-502-0467" class="uri">http://us.practicallaw.com/6-502-0467</a>. - retrieved 2016-11-20</p>
 </div>
 <div id="ref-web_2015_white-house-releases-consumer-privacy-bill-draft">
-<p>[21] A. Wilhelm, “White house drops ‘consumer privacy bill of rights act’ draft. TechCrunch,” 27-Feb-2015. [Online]. Available: <a href="http://social.techcrunch.com/2015/02/27/white-house-drops-consumer-privacy-bill-of-rights-act-draft/" class="uri">http://social.techcrunch.com/2015/02/27/white-house-drops-consumer-privacy-bill-of-rights-act-draft/</a>. [Accessed: 20-Nov-2016]</p>
+<p>[21] <span style="font-variant: small-caps;">Wilhelm, Alex</span>: <em>White house drops “consumer privacy bill of rights act” draft. TechCrunch</em>. URL <a href="http://social.techcrunch.com/2015/02/27/white-house-drops-consumer-privacy-bill-of-rights-act-draft/" class="uri">http://social.techcrunch.com/2015/02/27/white-house-drops-consumer-privacy-bill-of-rights-act-draft/</a>. - retrieved 2016-11-20</p>
 </div>
 <div id="ref-bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition">
-<p>[22] <em>Administration discussion draft: Consumer privacy bill of rights act of 2015</em>. 2015 [Online]. Available: <a href="https://www.whitehouse.gov/sites/default/files/omb/legislative/letters/cpbr-act-of-2015-discussion-draft.pdf" class="uri">https://www.whitehouse.gov/sites/default/files/omb/legislative/letters/cpbr-act-of-2015-discussion-draft.pdf</a></p>
+<p>[22] Consumer privacy bill of rights act (cpbora) — Administration discussion draft: Consumer privacy bill of rights act of 2015, 2015 – scale</p>
 </div>
 <div id="ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_sensitive-types-of-data">
-<p>[23] <em>Report and order</em>. 2016 [Online]. Available: <a href="https://transition.fcc.gov/Daily_Releases/Daily_Business/2016/db1103/FCC-16-148A1.pdf" class="uri">https://transition.fcc.gov/Daily_Releases/Daily_Business/2016/db1103/FCC-16-148A1.pdf</a>. [Accessed: 20-Nov-2016]</p>
+<p>[23] FCC 16-148 — Report and order, 2016 – scale. — In the Matter of Protecting the Privacy of Customers of Broadband and Other Telecommunications Services</p>
 </div>
 <div id="ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information">
-<p>[24] <em>Notice of proposed rulemaking</em>. 2016 [Online]. Available: <a href="https://apps.fcc.gov/edocs_public/attachmatch/FCC-16-39A1.pdf" class="uri">https://apps.fcc.gov/edocs_public/attachmatch/FCC-16-39A1.pdf</a>. [Accessed: 20-Nov-2016]</p>
+<p>[24] FCC 16-39 — Notice of proposed rulemaking, 2016 – scale. — In the Matter of Protecting the Privacy of Customers of Broadband and Other Telecommunications Services</p>
 </div>
 <div id="ref-web_2016_privacy-policies-are-mandatory-by-law">
-<p>[25] “Privacy policies are mandatory by law,” 23-Oct-2016. [Online]. Available: <a href="https://termsfeed.com/blog/privacy-policy-mandatory-law/" class="uri">https://termsfeed.com/blog/privacy-policy-mandatory-law/</a>. [Accessed: 20-Nov-2016]</p>
+<p>[25] <em>Privacy policies are mandatory by law</em>. URL <a href="https://termsfeed.com/blog/privacy-policy-mandatory-law/" class="uri">https://termsfeed.com/blog/privacy-policy-mandatory-law/</a>. - retrieved 2016-11-20. — Disclaimer: Legal information is not legal advice</p>
 </div>
 <div id="ref-web_2016_international-privacy-standards">
-<p>[26] “International privacy standards,” 29-Sep-2016. [Online]. Available: <a href="https://www.eff.org/issues/international-privacy-standards" class="uri">https://www.eff.org/issues/international-privacy-standards</a>. [Accessed: 20-Nov-2016]</p>
+<p>[26] <em>International privacy standards</em>. URL <a href="https://www.eff.org/issues/international-privacy-standards" class="uri">https://www.eff.org/issues/international-privacy-standards</a>. - retrieved 2016-11-20</p>
 </div>
 <div id="ref-paper_2014_who-owns-yours-data">
-<p>[27] G. Rosner, “Who owns your data?” presented at the UbiComp ’14, september 13 - 17 2014, seattle, wa, usa, 2014, pp. 623–628 [Online]. Available: <a href="http://dl.acm.org/citation.cfm?doid=2638728.2641679" class="uri">http://dl.acm.org/citation.cfm?doid=2638728.2641679</a>. [Accessed: 01-Dec-2016]</p>
+<p>[27] <span style="font-variant: small-caps;">Rosner, Gilad</span>: Who owns your data? In:  : ACM Press, 2014 — ISBN 978-1-4503-3047-3, pp. 623–628</p>
 </div>
 <div id="ref-book_1987_private-ownership_definition">
-<p>[28] J. Grunebaum, <em>Private ownership</em>. Routledge &amp; Kegan Paul, 1987, p. 213. </p>
+<p>[28] <span style="font-variant: small-caps;">Grunebaum, J.O.</span>: <em>Private ownership</em>, <em>Problems of philosophy</em> : Routledge &amp; Kegan Paul, 1987 – scale — ISBN 9780710207067</p>
 </div>
 <div id="ref-regulation_2016_eu_general-data-protection-regulation_ownership">
-<p>[29] <em>General data protection regulation</em>. 2016, p. L 119/12 [Online]. Available: <a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679" class="uri">http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679</a></p>
+<p>[29] Regulation (EU) 2016/679 — General data protection regulation, 2016 – scale</p>
 </div>
 <div id="ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership">
-<p>[30] <em>Report and order</em>. 2016 [Online]. Available: <a href="https://transition.fcc.gov/Daily_Releases/Daily_Business/2016/db1103/FCC-16-148A1.pdf" class="uri">https://transition.fcc.gov/Daily_Releases/Daily_Business/2016/db1103/FCC-16-148A1.pdf</a>. [Accessed: 20-Nov-2016]</p>
+<p>[30] FCC 16-148 — Report and order, 2016 – scale. — In the Matter of Protecting the Privacy of Customers of Broadband and Other Telecommunications Services</p>
 </div>
 <div id="ref-web_2016_facebook_terms-of-service">
-<p>[31] Facebook, “Facebooks’s terms of service. Statement of rights and responsibilities,” 30-Jan-2015. [Online]. Available: <a href="https://www.facebook.com/legal/terms" class="uri">https://www.facebook.com/legal/terms</a>. [Accessed: 01-Dec-2016]</p>
+<p>[31] <span style="font-variant: small-caps;">Facebook</span>: <em>Facebooks’s terms of service. Statement of rights and responsibilities</em>. URL <a href="https://www.facebook.com/legal/terms" class="uri">https://www.facebook.com/legal/terms</a>. - retrieved 2016-12-01</p>
 </div>
 <div id="ref-web_2016_twitter_terms-of-service">
-<p>[32] Twitter, “Twitters’s terms of service. Twitter terms of service,” 30-Sep-2016. [Online]. Available: <a href="https://twitter.com/tos#intlTerms" class="uri">https://twitter.com/tos#intlTerms</a>. [Accessed: 01-Dec-2016]</p>
+<p>[32] <span style="font-variant: small-caps;">Twitter</span>: <em>Twitters’s terms of service. Twitter terms of service</em>. URL <a href="https://twitter.com/tos#intlTerms" class="uri">https://twitter.com/tos#intlTerms</a>. - retrieved 2016-12-01</p>
 </div>
 <div id="ref-web_2016_google_terms-of-service">
-<p>[33] Google, “Google’s terms of service. Google terms of service,” 30-Apr-2014. [Online]. Available: <a href="https://www.google.com/intl/en/policies/terms/regional.html" class="uri">https://www.google.com/intl/en/policies/terms/regional.html</a>. [Accessed: 01-Dec-2016]</p>
+<p>[33] <span style="font-variant: small-caps;">Google</span>: <em>Google’s terms of service. Google terms of service</em>. URL <a href="https://www.google.com/intl/en/policies/terms/regional.html" class="uri">https://www.google.com/intl/en/policies/terms/regional.html</a>. - retrieved 2016-12-01</p>
 </div>
 <div id="ref-web_2016_apple-icloud_terms-of-service">
-<p>[34] Apple, “Apple’s iClound terms and conditions. V. content and your conduct,” 25-Sep-2016. [Online]. Available: <a href="https://www.apple.com/legal/internet-services/icloud/en/terms.html" class="uri">https://www.apple.com/legal/internet-services/icloud/en/terms.html</a>. [Accessed: 01-Dec-2016]</p>
+<p>[34] <span style="font-variant: small-caps;">Apple</span>: <em>Apple’s iClound terms and conditions. V. content and your conduct</em>. URL <a href="https://www.apple.com/legal/internet-services/icloud/en/terms.html" class="uri">https://www.apple.com/legal/internet-services/icloud/en/terms.html</a>. - retrieved 2016-12-01</p>
 </div>
 <div id="ref-web_2013_why-metadata-matters">
-<p>[35] “Why metadata matters,” 07-Jun-2013. [Online]. Available: <a href="https://www.eff.org/deeplinks/2013/06/why-metadata-matters" class="uri">https://www.eff.org/deeplinks/2013/06/why-metadata-matters</a>. [Accessed: 24-Nov-2016]</p>
+<p>[35] <em>Why metadata matters</em>. URL <a href="https://www.eff.org/deeplinks/2013/06/why-metadata-matters" class="uri">https://www.eff.org/deeplinks/2013/06/why-metadata-matters</a>. - retrieved 2016-11-24</p>
 </div>
 <div id="ref-web_2016_why-you-need-metadata-for-big-data-to-success">
-<p>[36] J. P. Stevens, “Why you need metadata for big data success,” 06-Apr-2016. [Online]. Available: <a href="http://www.datasciencecentral.com/profiles/blogs/why-you-need-metadata-for-big-data-success" class="uri">http://www.datasciencecentral.com/profiles/blogs/why-you-need-metadata-for-big-data-success</a>. [Accessed: 24-Nov-2016]</p>
+<p>[36] <span style="font-variant: small-caps;">Stevens, John P.</span>: <em>Why you need metadata for big data success</em>. URL <a href="http://www.datasciencecentral.com/profiles/blogs/why-you-need-metadata-for-big-data-success" class="uri">http://www.datasciencecentral.com/profiles/blogs/why-you-need-metadata-for-big-data-success</a>. - retrieved 2016-11-24</p>
 </div>
 <div id="ref-web_2016_oxford_definition_big-data">
-<p>[37] “Big data n.” [Online]. Available: <a href="http://www.oed.com/view/Entry/18833#eid301162177" class="uri">http://www.oed.com/view/Entry/18833#eid301162177</a>. [Accessed: 11-Nov-2016]</p>
+<p>[37] <em>Big data n.</em> URL <a href="http://www.oed.com/view/Entry/18833#eid301162177" class="uri">http://www.oed.com/view/Entry/18833#eid301162177</a>. - retrieved 2016-11-11</p>
 </div>
 <div id="ref-web_2016_wikipedia_definition_big-data">
-<p>[38] Wikipedia, “Big data,” 11-Nov-2016. [Online]. Available: <a href="https://en.wikipedia.org/w/index.php?title=Big_data&amp;oldid=748964100" class="uri">https://en.wikipedia.org/w/index.php?title=Big_data&amp;oldid=748964100</a>. [Accessed: 11-Nov-2016]</p>
+<p>[38] <span style="font-variant: small-caps;">Wikipedia</span>: <em>Big data</em>. URL <a href="https://en.wikipedia.org/w/index.php?title=Big_data&amp;oldid=748964100" class="uri">https://en.wikipedia.org/w/index.php?title=Big_data&amp;oldid=748964100</a>. - retrieved 2016-11-11. — Page Version ID: 748964100</p>
 </div>
 <div id="ref-paper_2015_big-data-analytics_a-survey">
-<p>[39] C.-W. Tsai, C.-F. Lai, H.-C. Chao, and A. V. Vasilakos, “Big data analytics: A survey,” <em>Journal of Big Data</em>, vol. 2, no. 1, p. 21, Oct. 2015 [Online]. Available: <a href="http://journalofbigdata.springeropen.com/articles/10.1186/s40537-015-0030-3" class="uri">http://journalofbigdata.springeropen.com/articles/10.1186/s40537-015-0030-3</a>. [Accessed: 13-Nov-2016]</p>
+<p>[39] <span style="font-variant: small-caps;">Tsai, Chun-Wei</span> ; <span style="font-variant: small-caps;">Lai, Chin-Feng</span> ; <span style="font-variant: small-caps;">Chao, Han-Chieh</span> ; <span style="font-variant: small-caps;">Vasilakos, Athanasios V.</span>: Big data analytics: A survey. In: <em>Journal of Big Data</em> vol. 2 (2015), Nr. 1, p. 21</p>
 </div>
 <div id="ref-book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining">
-<p>[40] O. R. Zaïane, <em>Principles of knowledge discovery in databases</em>. 1999, pp. 1–2 [Online]. Available: <a href="https://webdocs.cs.ualberta.ca/~zaiane/courses/cmput690/notes/Chapter1/" class="uri">https://webdocs.cs.ualberta.ca/~zaiane/courses/cmput690/notes/Chapter1/</a>. [Accessed: 13-Nov-2016]</p>
+<p>[40] <span style="font-variant: small-caps;">Zaïane, Osmar R</span>: <em>Principles of knowledge discovery in databases</em>, 1999 – scale</p>
 </div>
 <div id="ref-web_2013_big-data-collection-collides-with-privacy-concerns">
-<p>[41] “Big data collection collides with privacy concerns, analysts say. PCWorld,” 10-Feb-2013. [Online]. Available: <a href="http://www.pcworld.com/article/2027789/big-data-collection-collides-with-privacy-concerns-analysts-say.html" class="uri">http://www.pcworld.com/article/2027789/big-data-collection-collides-with-privacy-concerns-analysts-say.html</a>. [Accessed: 15-Nov-2016]</p>
+<p>[41] <em>Big data collection collides with privacy concerns, analysts say. PCWorld</em>. URL <a href="http://www.pcworld.com/article/2027789/big-data-collection-collides-with-privacy-concerns-analysts-say.html" class="uri">http://www.pcworld.com/article/2027789/big-data-collection-collides-with-privacy-concerns-analysts-say.html</a>. - retrieved 2016-11-15</p>
 </div>
 <div id="ref-web_2016_answers-io">
-<p>[42] “Answers.io. Answers.” [Online]. Available: <a href="https://answers.io/answers" class="uri">https://answers.io/answers</a>. [Accessed: 14-Nov-2016]</p>
+<p>[42] <em>Answers.io. Answers</em>. URL <a href="https://answers.io/answers" class="uri">https://answers.io/answers</a>. - retrieved 2016-11-14</p>
 </div>
 <div id="ref-web_2016_big-data-enthusiasts-should-not-ignore">
-<p>[43] A. L. Burgelman, N. L. Burgelman, and NGDATA, “Attention, big data enthusiasts: Here’s what you shouldn’t ignore. WIRED.” [Online]. Available: <a href="https://www.wired.com/insights/2013/02/attention-big-data-enthusiasts-heres-what-you-shouldnt-ignore/" class="uri">https://www.wired.com/insights/2013/02/attention-big-data-enthusiasts-heres-what-you-shouldnt-ignore/</a>. [Accessed: 15-Nov-2016]</p>
+<p>[43] <span style="font-variant: small-caps;">Burgelman, Author: Luc</span> ; <span style="font-variant: small-caps;">Burgelman, NGDATA Luc</span> ; <span style="font-variant: small-caps;">NGDATA</span>: <em>Attention, big data enthusiasts: Here’s what you shouldn’t ignore. WIRED</em>. URL <a href="https://www.wired.com/insights/2013/02/attention-big-data-enthusiasts-heres-what-you-shouldnt-ignore/" class="uri">https://www.wired.com/insights/2013/02/attention-big-data-enthusiasts-heres-what-you-shouldnt-ignore/</a>. - retrieved 2016-11-15. — Partner Content</p>
 </div>
 <div id="ref-report_2001_3d-data-management-controlling-data-volume-velocity-and-variety">
-<p>[44] D. Laney, “3D data management: Controlling data volume, velocity, and variety,” META Group, February 2001 [Online]. Available: <a href="http://blogs.gartner.com/doug-laney/files/2012/01/ad949-3D-Data-Management-Controlling-Data-Volume-Velocity-and-Variety.pdf" class="uri">http://blogs.gartner.com/doug-laney/files/2012/01/ad949-3D-Data-Management-Controlling-Data-Volume-Velocity-and-Variety.pdf</a></p>
+<p>[44] <span style="font-variant: small-caps;">Laney, Douglas</span>: <em>3D data management: Controlling data volume, velocity, and variety</em> : META Group, 2001 – scale</p>
 </div>
 <div id="ref-paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data">
-<p>[45] M. Hilbert, “Big data for development: A review of promises and challenges,” <em>Development Policy Review</em>, vol. 34, no. 1, pp. 135–174, December 2015 [Online]. Available: <a href="http://dx.doi.org/10.1111/dpr.12142" class="uri">http://dx.doi.org/10.1111/dpr.12142</a></p>
+<p>[45] <span style="font-variant: small-caps;">Hilbert, Martin</span>: Big data for development: A review of promises and challenges. In: <em>Development Policy Review</em> vol. 34 (2015), Nr. 1, pp. 135–174</p>
 </div>
 <div id="ref-web_2016_the-state-of-big-data">
-<p>[46] N. Davis Kho, “The state of big data,” 24-Feb-2016. [Online]. Available: <a href="http://www.econtentmag.com/Articles/Editorial/Feature/The-State-of-Big-Data-108666.htm" class="uri">http://www.econtentmag.com/Articles/Editorial/Feature/The-State-of-Big-Data-108666.htm</a>. [Accessed: 18-Nov-2016]</p>
+<p>[46] <span style="font-variant: small-caps;">Davis Kho, Nancy</span>: <em>The state of big data</em>. URL <a href="http://www.econtentmag.com/Articles/Editorial/Feature/The-State-of-Big-Data-108666.htm" class="uri">http://www.econtentmag.com/Articles/Editorial/Feature/The-State-of-Big-Data-108666.htm</a>. - retrieved 2016-11-18</p>
 </div>
 <div id="ref-web_2016_apple_customer-letter">
-<p>[47] T. C. (Apple’s CEO), “A message to our customers. Customer letter,” 16-Feb-2016. [Online]. Available: <a href="http://www.apple.com/customer-letter/" class="uri">http://www.apple.com/customer-letter/</a>. [Accessed: 18-Nov-2016]</p>
+<p>[47] <span style="font-variant: small-caps;">CEO), Tim Cook (Apple’s</span>: <em>A message to our customers. Customer letter</em>. URL <a href="http://www.apple.com/customer-letter/" class="uri">http://www.apple.com/customer-letter/</a>. - retrieved 2016-11-18</p>
 </div>
 <div id="ref-web_2016_what-is-differential-privacy">
-<p>[48] M. Green, “What is differential privacy? A few thoughts on cryptographic engineering,” 15-Jun-2016. [Online]. Available: <a href="https://blog.cryptographyengineering.com/2016/06/15/what-is-differential-privacy/" class="uri">https://blog.cryptographyengineering.com/2016/06/15/what-is-differential-privacy/</a>. [Accessed: 18-Nov-2016]</p>
+<p>[48] <span style="font-variant: small-caps;">Green, Matthew</span>: <em>What is differential privacy? A few thoughts on cryptographic engineering</em>. URL <a href="https://blog.cryptographyengineering.com/2016/06/15/what-is-differential-privacy/" class="uri">https://blog.cryptographyengineering.com/2016/06/15/what-is-differential-privacy/</a>. - retrieved 2016-11-18</p>
 </div>
 <div id="ref-web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption">
-<p>[49] B. Budington, “WhatsApp rolls out end-to-end encryption to its over one billion users,” 07-Apr-2016. [Online]. Available: <a href="https://www.eff.org/deeplinks/2016/04/whatsapp-rolls-out-end-end-encryption-its-1bn-users" class="uri">https://www.eff.org/deeplinks/2016/04/whatsapp-rolls-out-end-end-encryption-its-1bn-users</a>. [Accessed: 18-Nov-2016]</p>
+<p>[49] <span style="font-variant: small-caps;">Budington, Bill</span>: <em>WhatsApp rolls out end-to-end encryption to its over one billion users</em>. URL <a href="https://www.eff.org/deeplinks/2016/04/whatsapp-rolls-out-end-end-encryption-its-1bn-users" class="uri">https://www.eff.org/deeplinks/2016/04/whatsapp-rolls-out-end-end-encryption-its-1bn-users</a>. - retrieved 2016-11-18</p>
 </div>
 <div id="ref-web_2007_introducing-google-traffic">
-<p>[50] “Stuck in traffic? Insights from googlers into our products, technology, and the google culture,” 28-Feb-2007. [Online]. Available: <a href="https://googleblog.blogspot.com/2007/02/stuck-in-traffic.html" class="uri">https://googleblog.blogspot.com/2007/02/stuck-in-traffic.html</a>. [Accessed: 18-Nov-2016]</p>
+<p>[50] <em>Stuck in traffic? Insights from googlers into our products, technology, and the google culture</em>. URL <a href="https://googleblog.blogspot.com/2007/02/stuck-in-traffic.html" class="uri">https://googleblog.blogspot.com/2007/02/stuck-in-traffic.html</a>. - retrieved 2016-11-18</p>
 </div>
 <div id="ref-web_2016_wikipedia_google-traffic">
-<p>[51] Wikipedia, “Google traffic,” 25-Oct-2016. [Online]. Available: <a href="https://en.wikipedia.org/w/index.php?title=Google_Traffic&amp;oldid=746200591" class="uri">https://en.wikipedia.org/w/index.php?title=Google_Traffic&amp;oldid=746200591</a>. [Accessed: 18-Nov-2016]</p>
+<p>[51] <span style="font-variant: small-caps;">Wikipedia</span>: <em>Google traffic</em>. URL <a href="https://en.wikipedia.org/w/index.php?title=Google_Traffic&amp;oldid=746200591" class="uri">https://en.wikipedia.org/w/index.php?title=Google_Traffic&amp;oldid=746200591</a>. - retrieved 2016-11-18. — Page Version ID: 746200591</p>
 </div>
 <div id="ref-graphic_2016_global-mobile-os-market-share">
-<p>[52] “Global mobile OS market share.” [Online]. Available: <a href="https://www.statista.com/statistics/266136/global-market-share-held-by-smartphone-operating-systems/" class="uri">https://www.statista.com/statistics/266136/global-market-share-held-by-smartphone-operating-systems/</a>. [Accessed: 18-Nov-2016]</p>
+<p>[52] <em>Global mobile OS market share</em>. URL <a href="https://www.statista.com/statistics/266136/global-market-share-held-by-smartphone-operating-systems/" class="uri">https://www.statista.com/statistics/266136/global-market-share-held-by-smartphone-operating-systems/</a>. - retrieved 2016-11-18</p>
 </div>
 <div id="ref-estimating-the-locations-of-emergency-events-from-twitter-streams_2014">
-<p>[53] J. Ao, P. Zhang, and Y. Cao, “Estimating the Locations of Emergency Events from Twitter Streams,” <em>Procedia Computer Science</em>, vol. 31, pp. 731–739, 2014 [Online]. Available: <a href="http://linkinghub.elsevier.com/retrieve/pii/S1877050914004980" class="uri">http://linkinghub.elsevier.com/retrieve/pii/S1877050914004980</a>. [Accessed: 05-Nov-2016]</p>
+<p>[53] <span style="font-variant: small-caps;">Ao, Ji</span> ; <span style="font-variant: small-caps;">Zhang, Peng</span> ; <span style="font-variant: small-caps;">Cao, Yanan</span>: Estimating the Locations of Emergency Events from Twitter Streams. In: <em>Procedia Computer Science</em> vol. 31 (2014), pp. 731–739</p>
 </div>
 <div id="ref-the-practice-of-predictive-analytics-in-healthcare_2013">
-<p>[54] G. Palem, “The Practice of Predictive Analytics in Healthcare,” <em>ResearchGate</em>, Apr. 2013 [Online]. Available: <a href="https://www.researchgate.net/publication/236336250_The_Practice_of_Predictive_Analytics_in_Healthcare" class="uri">https://www.researchgate.net/publication/236336250_The_Practice_of_Predictive_Analytics_in_Healthcare</a>. [Accessed: 05-Nov-2016]</p>
+<p>[54] <span style="font-variant: small-caps;">Palem, Gopalakrishna</span>: The Practice of Predictive Analytics in Healthcare. In: <em>ResearchGate</em> (2013)</p>
 </div>
 <div id="ref-data-collection-for-climate-changes_2014">
-<p>[55] N. Burger, B. Ghosh-Dastidar, A. Grant, G. Joseph, T. Ruder, O. Tchakeva, and Q. Wodon, “Data Collection for the Study on Climate Change and Migration in the MENA Region,” 2014 [Online]. Available: <a href="https://mpra.ub.uni-muenchen.de/56929/" class="uri">https://mpra.ub.uni-muenchen.de/56929/</a>. [Accessed: 04-Nov-2016]</p>
+<p>[55] <span style="font-variant: small-caps;">Burger, Nicholas</span> ; <span style="font-variant: small-caps;">Ghosh-Dastidar, Bonnie</span> ; <span style="font-variant: small-caps;">Grant, Audra</span> ; <span style="font-variant: small-caps;">Joseph, George</span> ; <span style="font-variant: small-caps;">Ruder, Teague</span> ; <span style="font-variant: small-caps;">Tchakeva, Olesya</span> ; <span style="font-variant: small-caps;">Wodon, Quentin</span>: Data Collection for the Study on Climate Change and Migration in the MENA Region (2014)</p>
 </div>
 <div id="ref-graphic_2015_applications-of-big-data-in-10-industry-verticals">
-<p>[56] M. Gaitho, “Applications of big data in 10 industry verticals,” 20-Oct-2015. [Online]. Available: <a href="https://www.simplilearn.com/big-data-applications-in-industries-article" class="uri">https://www.simplilearn.com/big-data-applications-in-industries-article</a>. [Accessed: 19-Nov-2016]</p>
+<p>[56] <span style="font-variant: small-caps;">Gaitho, Maryanne</span>: <em>Applications of big data in 10 industry verticals</em>. URL <a href="https://www.simplilearn.com/big-data-applications-in-industries-article" class="uri">https://www.simplilearn.com/big-data-applications-in-industries-article</a>. - retrieved 2016-11-19</p>
 </div>
 <div id="ref-graphic_2012_personal-data-ecosystem">
-<p>[57] F. T. C. USA, “Personal data ecosystem,” <em>Protecting Consumer Privacy in an Era of Rapid Change - Recommendations for Business and Policymakers - FTC Report</em>, March-2012. [Online]. Available: <a href="https://www.ftc.gov/sites/default/files/documents/public_events/exploring-privacy-roundtable-series/personaldataecosystem.pdf" class="uri">https://www.ftc.gov/sites/default/files/documents/public_events/exploring-privacy-roundtable-series/personaldataecosystem.pdf</a>. [Accessed: 17-Nov-2016]</p>
+<p>[57] <span style="font-variant: small-caps;">USA, Federal Trade Commission</span>: <em>Personal data ecosystem</em>. URL <a href="https://www.ftc.gov/sites/default/files/documents/public_events/exploring-privacy-roundtable-series/personaldataecosystem.pdf" class="uri">https://www.ftc.gov/sites/default/files/documents/public_events/exploring-privacy-roundtable-series/personaldataecosystem.pdf</a>. - retrieved 2016-11-17. — Protecting Consumer Privacy in an Era of Rapid Change - Recommendations for Business and Policymakers - FTC Report</p>
 </div>
 <div id="ref-paper_1965_moors-law">
-<p>[58] G. E. Moore, “Cramming more components onto integrated circuits,” <em>Electronics</em>, vol. 38, p. 4, Apr. 1965 [Online]. Available: <a href="https://drive.google.com/file/d/0By83v5TWkGjvQkpBcXJKT1I1TTA/" class="uri">https://drive.google.com/file/d/0By83v5TWkGjvQkpBcXJKT1I1TTA/</a>. [Accessed: 07-Dec-2016]</p>
+<p>[58] <span style="font-variant: small-caps;">Moore, Gordon E.</span>: Cramming more components onto integrated circuits. In: <em>Electronics</em> vol. 38 (1965), p. 4</p>
 </div>
 <div id="ref-podcast_2015_cre-neuronale-netze">
-<p>[59] T. Pritlove and U. Schöneberg, <em>Neuronale netze</em>. 2015 [Online]. Available: <a href="https://cre.fm/cre208-neuronale-netze" class="uri">https://cre.fm/cre208-neuronale-netze</a>. [Accessed: 06-Dec-2016]</p>
+<p>[59] <span style="font-variant: small-caps;">Pritlove, Tim</span> ; <span style="font-variant: small-caps;">Schöneberg, Ulf</span>: <em>Neuronale netze</em>, 2015 – scale</p>
 </div>
 <div id="ref-web_2016_industries-intention-to-invest-in-big-data">
-<p>[60] L. Columbus, “51% of enterprises intend to invest more in big data,” 22-May-2016. [Online]. Available: <a href="http://www.forbes.com/sites/louiscolumbus/2016/05/22/51-of-enterprises-intend-to-invest-more-in-big-data/" class="uri">http://www.forbes.com/sites/louiscolumbus/2016/05/22/51-of-enterprises-intend-to-invest-more-in-big-data/</a>. [Accessed: 07-Dec-2016]</p>
+<p>[60] <span style="font-variant: small-caps;">Columbus, Louis</span>: <em>51% of enterprises intend to invest more in big data</em>. URL <a href="http://www.forbes.com/sites/louiscolumbus/2016/05/22/51-of-enterprises-intend-to-invest-more-in-big-data/" class="uri">http://www.forbes.com/sites/louiscolumbus/2016/05/22/51-of-enterprises-intend-to-invest-more-in-big-data/</a>. - retrieved 2016-12-07</p>
 </div>
 <div id="ref-web_2016_projectvrm_development-work">
-<p>[61] “ProjectVRM - cDevelopment work. ProjectVRM,” 28-Nov-2016. [Online]. Available: <a href="https://cyber.harvard.edu/projectvrm/VRM_Development_Work" class="uri">https://cyber.harvard.edu/projectvrm/VRM_Development_Work</a>. [Accessed: 09-Dec-2016]</p>
+<p>[61] <em>ProjectVRM - cDevelopment work. ProjectVRM</em>. URL <a href="https://cyber.harvard.edu/projectvrm/VRM_Development_Work" class="uri">https://cyber.harvard.edu/projectvrm/VRM_Development_Work</a>. - retrieved 2016-12-09</p>
 </div>
 <div id="ref-web_2016_projectvrm_principles">
-<p>[62] “ProjectVRM - principles. ProjectVRM,” 28-Nov-2016. [Online]. Available: <a href="https://cyber.harvard.edu/projectvrm/Main_Page#VRM_Principles" class="uri">https://cyber.harvard.edu/projectvrm/Main_Page#VRM_Principles</a>. [Accessed: 09-Dec-2016]</p>
+<p>[62] <em>ProjectVRM - principles. ProjectVRM</em>. URL <a href="https://cyber.harvard.edu/projectvrm/Main_Page#VRM_Principles" class="uri">https://cyber.harvard.edu/projectvrm/Main_Page#VRM_Principles</a>. - retrieved 2016-12-09</p>
 </div>
 <div id="ref-graphic_2011_architecture_components-of-organization-domain">
-<p>[63] The TAS3 Consortium, “TAS3 architecture - figure 2.2: Major components of organization domain.” Jul. 2011 [Online]. Available: <a href="http://homes.esat.kuleuven.ac.be/~decockd/tas3/final.deliverables/pm42/TAS3_D02p1_TAS3.Architecture_final.pdf" class="uri">http://homes.esat.kuleuven.ac.be/~decockd/tas3/final.deliverables/pm42/TAS3_D02p1_TAS3.Architecture_final.pdf</a></p>
+<p>[63] <span style="font-variant: small-caps;">The TAS3 Consortium</span>: <em>TAS3 architecture - figure 2.2: Major components of organization domain.</em>, 2011 – scale. — v 2.24</p>
 </div>
 <div id="ref-web_kantara-initiative">
-<p>[64] “Kantara initiative – join. innovate. trust.” [Online]. Available: <a href="https://kantarainitiative.org/" class="uri">https://kantarainitiative.org/</a>. [Accessed: 14-Dec-2016]</p>
+<p>[64] <em>Kantara initiative – join. innovate. trust.</em> URL <a href="https://kantarainitiative.org/" class="uri">https://kantarainitiative.org/</a>. - retrieved 2016-12-14</p>
 </div>
 <div id="ref-paper_2014_personal-data-store-approach">
-<p>[65] T. Kirkham, S. Winfield, S. Ravet, and S. Kellomaki, “The personal data store approach to personal data security,” <em>IEEE Security &amp; Privacy</em>, vol. 11, no. 5, pp. 12–19, 2013. </p>
+<p>[65] <span style="font-variant: small-caps;">Kirkham, Tom</span> ; <span style="font-variant: small-caps;">Winfield, Sandra</span> ; <span style="font-variant: small-caps;">Ravet, Serge</span> ; <span style="font-variant: small-caps;">Kellomaki, Sampo</span>: The personal data store approach to personal data security. In: <em>IEEE Security &amp; Privacy</em> vol. 11 (2013), Nr. 5, pp. 12–19</p>
 </div>
 <div id="ref-paper_2012_openpds_on-trusted-use-of-large-scale-personal-data">
-<p>[66] Y.-A. de Montjoye, S. S. Wang, A. Pentland, D. T. T. Anh, A. Datta, and others, “On the trusted use of large-scale personal data.” <em>IEEE Data Eng. Bull.</em>, vol. 35, no. 4, pp. 5–8, 2012 [Online]. Available: <a href="http://sites.computer.org/debull/a12dec/a12dec-cd.pdf#page=7" class="uri">http://sites.computer.org/debull/a12dec/a12dec-cd.pdf#page=7</a>. [Accessed: 30-Oct-2016]</p>
+<p>[66] <span style="font-variant: small-caps;">Montjoye, Yves-Alexandre de</span> ; <span style="font-variant: small-caps;">Wang, Samuel S.</span> ; <span style="font-variant: small-caps;">Pentland, Alex</span> ; <span style="font-variant: small-caps;">Anh, Dinh Tien Tuan</span> ; <span style="font-variant: small-caps;">Datta, Anwitaman</span> ; <span style="font-variant: small-caps;">others</span>: On the trusted use of large-scale personal data. In: <em>IEEE Data Eng. Bull.</em> vol. 35 (2012), Nr. 4, pp. 5–8</p>
 </div>
 <div id="ref-web_mit_openpds-safeanswers-project-page">
-<p>[67] “openPDS/SafeAnswers - the privacy-preserving personal data store.” [Online]. Available: <a href="http://openpds.media.mit.edu/" class="uri">http://openpds.media.mit.edu/</a>. [Accessed: 14-Dec-2016]</p>
+<p>[67] <em>openPDS/SafeAnswers - the privacy-preserving personal data store</em>. URL <a href="http://openpds.media.mit.edu/" class="uri">http://openpds.media.mit.edu/</a>. - retrieved 2016-12-14</p>
 </div>
 <div id="ref-paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers">
-<p>[68] Y.-A. de Montjoye, E. Shmueli, S. S. Wang, and A. S. Pentland, “openPDS: Protecting the privacy of metadata through SafeAnswers,” <em>PLoS ONE</em>, vol. 9, no. 7, p. e98790, Jul. 2014 [Online]. Available: <a href="http://dx.plos.org/10.1371/journal.pone.0098790" class="uri">http://dx.plos.org/10.1371/journal.pone.0098790</a>. [Accessed: 30-Oct-2016]</p>
+<p>[68] <span style="font-variant: small-caps;">Montjoye, Yves-Alexandre de</span> ; <span style="font-variant: small-caps;">Shmueli, Erez</span> ; <span style="font-variant: small-caps;">Wang, Samuel S.</span> ; <span style="font-variant: small-caps;">Pentland, Alex Sandy</span>: openPDS: Protecting the privacy of metadata through SafeAnswers. In: <span style="font-variant: small-caps;">Preis, T.</span> (ed.) <em>PLoS ONE</em> vol. 9 (2014), Nr. 7, p. e98790</p>
 </div>
 <div id="ref-web_microsoft_healthvault">
-<p>[69] “Microsoft HealthVault. Overview.” [Online]. Available: <a href="https://www.healthvault.com/de/en/overview" class="uri">https://www.healthvault.com/de/en/overview</a>. [Accessed: 14-Dec-2016]</p>
+<p>[69] <em>Microsoft HealthVault. Overview</em>. URL <a href="https://www.healthvault.com/de/en/overview" class="uri">https://www.healthvault.com/de/en/overview</a>. - retrieved 2016-12-14</p>
 </div>
 <div id="ref-web_meeco_how-it-works">
-<p>[70] “How it works meeco.” [Online]. Available: <a href="https://meeco.me/how-it-works.html" class="uri">https://meeco.me/how-it-works.html</a>. [Accessed: 14-Dec-2016]</p>
+<p>[70] <em>How it works meeco</em>. URL <a href="https://meeco.me/how-it-works.html" class="uri">https://meeco.me/how-it-works.html</a>. - retrieved 2016-12-14</p>
 </div>
 <div id="ref-slides_2015_meeco-case-study">
-<p>[71] M. Page, “Online adver&gt;sing – booming or broken?” Sep-2015 [Online]. Available: <a href="https://meeco.me/assets/pdf/Meeco_Case_Study_Online_Advertising-Booming_or_Broken_Sept_2015.pdf" class="uri">https://meeco.me/assets/pdf/Meeco_Case_Study_Online_Advertising-Booming_or_Broken_Sept_2015.pdf</a></p>
+<p>[71] <span style="font-variant: small-caps;">Page, Mike</span>: Online adver&gt;sing – booming or broken?, 2015 – scale</p>
 </div>
 <div id="ref-web_industrial-data-space">
-<p>[72] “The principles. Industrial data space e.V.” [Online]. Available: <a href="http://www.industrialdataspace.org/en/the-principles/" class="uri">http://www.industrialdataspace.org/en/the-principles/</a>. [Accessed: 14-Dec-2016]</p>
+<p>[72] <em>The principles. Industrial data space e.V.</em> URL <a href="http://www.industrialdataspace.org/en/the-principles/" class="uri">http://www.industrialdataspace.org/en/the-principles/</a>. - retrieved 2016-12-14</p>
 </div>
 <div id="ref-whitepaper_2016_industrial-data-space">
-<p>[73] B. Prof. Dr.-Ing. Otto, S. Prof. Dr. Auer, J. Cirullies, J. Prof. Dr. Jürjens, N. Menz, J. Schon, and S. Dr. Wenzel, “Industrial data space - digital sovereignity over data.” Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V., 17-Aug-2016 [Online]. Available: <a href="http://www.industrialdataspace.org/wp-content/uploads/2016/09/whitepaper-industrial-data-space-eng.pdf" class="uri">http://www.industrialdataspace.org/wp-content/uploads/2016/09/whitepaper-industrial-data-space-eng.pdf</a></p>
+<p>[73] <span style="font-variant: small-caps;">Prof. Dr.-Ing. Otto, Boris</span> ; <span style="font-variant: small-caps;">Prof. Dr. Auer, Sören</span> ; <span style="font-variant: small-caps;">Cirullies, Jan</span> ; <span style="font-variant: small-caps;">Prof. Dr. Jürjens, Jan</span> ; <span style="font-variant: small-caps;">Menz, Nadja</span> ; <span style="font-variant: small-caps;">Schon, Jochen</span> ; <span style="font-variant: small-caps;">Dr. Wenzel, Sven</span>: Industrial data space - digital sovereignity over data.</p>
 </div>
 <div id="ref-web_spec_http1">
-<p>[74] P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T. Fielding, and J. Gettys, “Hypertext transfer protocol – HTTP/1.1,” Jun-1999. [Online]. Available: <a href="https://tools.ietf.org/html/rfc2616" class="uri">https://tools.ietf.org/html/rfc2616</a>. [Accessed: 17-Dec-2016]</p>
+<p>[74] <span style="font-variant: small-caps;">Leach, Paul J.</span> ; <span style="font-variant: small-caps;">Berners-Lee, Tim</span> ; <span style="font-variant: small-caps;">Mogul, Jeffrey C.</span> ; <span style="font-variant: small-caps;">Masinter, Larry</span> ; <span style="font-variant: small-caps;">Fielding, Roy T.</span> ; <span style="font-variant: small-caps;">Gettys, James</span>: <em>Hypertext transfer protocol – HTTP/1.1</em>. URL <a href="https://tools.ietf.org/html/rfc2616" class="uri">https://tools.ietf.org/html/rfc2616</a>. - retrieved 2016-12-17</p>
 </div>
 <div id="ref-web_spec_http2">
-<p>[75] M. Belshe, M. Thomson, and R. Peon, “Hypertext transfer protocol version 2 (HTTP/2),” May-2015. [Online]. Available: <a href="https://tools.ietf.org/html/rfc7540" class="uri">https://tools.ietf.org/html/rfc7540</a>. [Accessed: 17-Dec-2016]</p>
+<p>[75] <span style="font-variant: small-caps;">Belshe, Mike</span> ; <span style="font-variant: small-caps;">Thomson, Martin</span> ; <span style="font-variant: small-caps;">Peon, Roberto</span>: <em>Hypertext transfer protocol version 2 (HTTP/2)</em>. URL <a href="https://tools.ietf.org/html/rfc7540" class="uri">https://tools.ietf.org/html/rfc7540</a>. - retrieved 2016-12-17</p>
 </div>
 <div id="ref-web_spec_websockets">
-<p>[76] I. Fette and A. Melnikov, “The WebSocket protocol,” Dec-2011. [Online]. Available: <a href="https://tools.ietf.org/html/rfc6455" class="uri">https://tools.ietf.org/html/rfc6455</a>. [Accessed: 17-Dec-2016]</p>
+<p>[76] <span style="font-variant: small-caps;">Fette, Ian</span> ; <span style="font-variant: small-caps;">Melnikov, A.</span>: <em>The WebSocket protocol</em>. URL <a href="https://tools.ietf.org/html/rfc6455" class="uri">https://tools.ietf.org/html/rfc6455</a>. - retrieved 2016-12-17</p>
 </div>
 <div id="ref-web_spec_json">
-<p>[77] D. Crockford, “The JSON data interchange format.” ECMA International, Oct-2013 [Online]. Available: <a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf" class="uri">http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf</a></p>
+<p>[77] <span style="font-variant: small-caps;">Crockford, Douglas</span>: The JSON data interchange format.</p>
 </div>
 <div id="ref-web_rfc_json">
-<p>[78] T. Bray, “The JavaScript object notation (JSON) data interchange format,” Mar-2014. [Online]. Available: <a href="https://tools.ietf.org/html/rfc7159" class="uri">https://tools.ietf.org/html/rfc7159</a>. [Accessed: 17-Dec-2016]</p>
+<p>[78] <span style="font-variant: small-caps;">Bray, T.</span>: <em>The JavaScript object notation (JSON) data interchange format</em>. URL <a href="https://tools.ietf.org/html/rfc7159" class="uri">https://tools.ietf.org/html/rfc7159</a>. - retrieved 2016-12-17</p>
 </div>
 <div id="ref-web_2012_problem-with-oauth-for-authentication">
-<p>[79] J. Bradley, “The problem with OAuth for authentication.” 28-Jan-2012. [Online]. Available: <a href="http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html" class="uri">http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html</a>. [Accessed: 17-Dec-2016]</p>
+<p>[79] <span style="font-variant: small-caps;">Bradley, John</span>: <em>The problem with OAuth for authentication.</em> URL <a href="http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html" class="uri">http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html</a>. - retrieved 2016-12-17</p>
 </div>
 <div id="ref-web_spec_oauth-1a">
-<p>[80] “OAuth core 1.0a.” [Online]. Available: <a href="https://oauth.net/core/1.0a/" class="uri">https://oauth.net/core/1.0a/</a>. [Accessed: 18-Dec-2016]</p>
+<p>[80] <em>OAuth core 1.0a</em>. URL <a href="https://oauth.net/core/1.0a/" class="uri">https://oauth.net/core/1.0a/</a>. - retrieved 2016-12-18</p>
 </div>
 <div id="ref-web_spec_oauth-2">
-<p>[81] D. Hardt, “The OAuth 2.0 authorization framework,” Oct-2012. [Online]. Available: <a href="https://tools.ietf.org/html/rfc6749" class="uri">https://tools.ietf.org/html/rfc6749</a>. [Accessed: 18-Dec-2016]</p>
+<p>[81] <span style="font-variant: small-caps;">Hardt, Dick</span>: <em>The OAuth 2.0 authorization framework</em>. URL <a href="https://tools.ietf.org/html/rfc6749" class="uri">https://tools.ietf.org/html/rfc6749</a>. - retrieved 2016-12-18</p>
 </div>
 <div id="ref-web_2016_oauth-2">
-<p>[82] I. O. WG, “OAuth 2.0.” [Online]. Available: <a href="https://oauth.net/2/" class="uri">https://oauth.net/2/</a>. [Accessed: 16-Dec-2016]</p>
+<p>[82] <span style="font-variant: small-caps;">WG, IETF OAuth</span>: <em>OAuth 2.0</em>. URL <a href="https://oauth.net/2/" class="uri">https://oauth.net/2/</a>. - retrieved 2016-12-16</p>
 </div>
 <div id="ref-web_spec_openid-connect-1">
-<p>[83] “OpenID connect core 1.0 incorporating errata set 1,” 08-Nov-2014. [Online]. Available: <a href="https://openid.net/specs/openid-connect-core-1_0.html" class="uri">https://openid.net/specs/openid-connect-core-1_0.html</a>. [Accessed: 17-Dec-2016]</p>
+<p>[83] <em>OpenID connect core 1.0 incorporating errata set 1</em>. URL <a href="https://openid.net/specs/openid-connect-core-1_0.html" class="uri">https://openid.net/specs/openid-connect-core-1_0.html</a>. - retrieved 2016-12-17</p>
 </div>
 <div id="ref-web_spec_json-web-token">
-<p>[84] J. Bradley, N. Sakimura, and M. Jones, “JSON web token (JWT),” May-2015. [Online]. Available: <a href="https://tools.ietf.org/html/rfc7519" class="uri">https://tools.ietf.org/html/rfc7519</a>. [Accessed: 17-Dec-2016]</p>
+<p>[84] <span style="font-variant: small-caps;">Bradley, John</span> ; <span style="font-variant: small-caps;">Sakimura, Nat</span> ; <span style="font-variant: small-caps;">Jones, Michael</span>: <em>JSON web token (JWT)</em>. URL <a href="https://tools.ietf.org/html/rfc7519" class="uri">https://tools.ietf.org/html/rfc7519</a>. - retrieved 2016-12-17</p>
 </div>
 <div id="ref-web_spec_json-web-encryption">
-<p>[85] J. Hildebrand and M. Jones, “JSON web encryption (JWE),” May-2015. [Online]. Available: <a href="https://tools.ietf.org/html/rfc7516" class="uri">https://tools.ietf.org/html/rfc7516</a>. [Accessed: 17-Dec-2016]</p>
+<p>[85] <span style="font-variant: small-caps;">Hildebrand, Joe</span> ; <span style="font-variant: small-caps;">Jones, Michael</span>: <em>JSON web encryption (JWE)</em>. URL <a href="https://tools.ietf.org/html/rfc7516" class="uri">https://tools.ietf.org/html/rfc7516</a>. - retrieved 2016-12-17</p>
 </div>
 <div id="ref-web_spec_json-web-signature">
-<p>[86] J. Bradley, N. Sakimura, and M. Jones, “JSON web signature (JWS),” May-2015. [Online]. Available: <a href="https://tools.ietf.org/html/rfc7515" class="uri">https://tools.ietf.org/html/rfc7515</a>. [Accessed: 17-Dec-2016]</p>
+<p>[86] <span style="font-variant: small-caps;">Bradley, John</span> ; <span style="font-variant: small-caps;">Sakimura, Nat</span> ; <span style="font-variant: small-caps;">Jones, Michael</span>: <em>JSON web signature (JWS)</em>. URL <a href="https://tools.ietf.org/html/rfc7515" class="uri">https://tools.ietf.org/html/rfc7515</a>. - retrieved 2016-12-17</p>
 </div>
 <div id="ref-paper_1976_d-h-key-exchange">
-<p>[87] W. Diffie and M. Hellman, “New directions in cryptography,” <em>IEEE transactions on Information Theory</em>, vol. 22, no. 6, pp. 644–654, 1976 [Online]. Available: <a href="https://ee.stanford.edu/%7Ehellman/publications/24.pdf">https://ee.stanford.edu/%7Ehellman/publications/24.pdf</a>. [Accessed: 11-Jan-2017]</p>
+<p>[87] <span style="font-variant: small-caps;">Diffie, Whitfield</span> ; <span style="font-variant: small-caps;">Hellman, Martin</span>: New directions in cryptography. In: <em>IEEE transactions on Information Theory</em> vol. 22 (1976), Nr. 6, pp. 644–654</p>
 </div>
 <div id="ref-book_2014_chapter-9-1-public-key-crypto">
-<p>[88] W. Stallings, “9.1 principles of public-key cryptosystems,” in <em>Cryptography and network security: Principles and practice</em>, Seventh edition., Boston: Pearson, 2014, pp. 256–264. </p>
+<p>[88] <span style="font-variant: small-caps;">Stallings, William</span>: 9.1 principles of public-key cryptosystems. In: <em>Cryptography and network security: Principles and practice</em>. Seventh edition. ed. Boston : Pearson, 2014 — ISBN 978-0-13-335469-0, pp. 256–264</p>
 </div>
 <div id="ref-web_spec_tls">
-<p>[89] T. Dierks and E. Rescorla, “The transport layer security (TLS) protocol version 1.2,” Aug-2008. [Online]. Available: <a href="https://tools.ietf.org/html/rfc5246" class="uri">https://tools.ietf.org/html/rfc5246</a>. [Accessed: 17-Dec-2016]</p>
+<p>[89] <span style="font-variant: small-caps;">Dierks, Tim</span> ; <span style="font-variant: small-caps;">Rescorla, E.</span>: <em>The transport layer security (TLS) protocol version 1.2</em>. URL <a href="https://tools.ietf.org/html/rfc5246" class="uri">https://tools.ietf.org/html/rfc5246</a>. - retrieved 2016-12-17</p>
 </div>
 <div id="ref-book_2014_chapter-14-5-pki">
-<p>[90] W. Stallings, “10.5 pseudorandom number generation based on an asymmetric cipher,” in <em>Cryptography and network security: Principles and practice</em>, Seventh edition., Boston: Pearson, 2014, pp. 443–445. </p>
+<p>[90] <span style="font-variant: small-caps;">Stallings, William</span>: 10.5 pseudorandom number generation based on an asymmetric cipher. In: <em>Cryptography and network security: Principles and practice</em>. Seventh edition. ed. Boston : Pearson, 2014 — ISBN 978-0-13-335469-0, pp. 443–445</p>
 </div>
 <div id="ref-web_spec_x509">
-<p>[91] D. Cooper, S. Santesson, S. Farrell, S. Boeyen, and W. Housley R. andPolk, “Internet x.509 public key infrastructure certificate and certificate revocation list (CRL) profile,” May-2008. [Online]. Available: <a href="https://tools.ietf.org/html/rfc5280" class="uri">https://tools.ietf.org/html/rfc5280</a>. [Accessed: 11-Jan-2017]</p>
+<p>[91] <span style="font-variant: small-caps;">Cooper, Dave</span> ; <span style="font-variant: small-caps;">Santesson, S.</span> ; <span style="font-variant: small-caps;">Farrell, S.</span> ; <span style="font-variant: small-caps;">Boeyen, S.</span> ; <span style="font-variant: small-caps;">Housley, W., <span style="font-variant:normal;">R. andPolk</span></span>: <em>Internet x.509 public key infrastructure certificate and certificate revocation list (CRL) profile</em>. URL <a href="https://tools.ietf.org/html/rfc5280" class="uri">https://tools.ietf.org/html/rfc5280</a>. - retrieved 2017-01-11</p>
 </div>
 <div id="ref-web_spec_rest">
-<p>[92] T. Fielding, “Representational state transfer (REST),” in <em>Architectural styles and the design of network-based software architectures</em>, University of California, Irvine, 2000, pp. 76–106 [Online]. Available: <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf" class="uri">https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf</a></p>
+<p>[92] <span style="font-variant: small-caps;">Fielding, Thomas</span>: Representational state transfer (REST). In: <em>Architectural styles and the design of network-based software architectures</em> : University of California, Irvine, 2000, pp. 76–106</p>
 </div>
 <div id="ref-web_spec_http-methods">
-<p>[93] P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T. Fielding, and J. Gettys, “HTTP methods,” Jun-1999. [Online]. Available: <a href="https://tools.ietf.org/html/rfc2616#section-9" class="uri">https://tools.ietf.org/html/rfc2616#section-9</a>. [Accessed: 18-Dec-2016]</p>
+<p>[93] <span style="font-variant: small-caps;">Leach, Paul J.</span> ; <span style="font-variant: small-caps;">Berners-Lee, Tim</span> ; <span style="font-variant: small-caps;">Mogul, Jeffrey C.</span> ; <span style="font-variant: small-caps;">Masinter, Larry</span> ; <span style="font-variant: small-caps;">Fielding, Roy T.</span> ; <span style="font-variant: small-caps;">Gettys, James</span>: <em>HTTP methods</em>. URL <a href="https://tools.ietf.org/html/rfc2616#section-9" class="uri">https://tools.ietf.org/html/rfc2616#section-9</a>. - retrieved 2016-12-18</p>
 </div>
 <div id="ref-web_spec_graphql">
-<p>[94] “GraphQL,” Oct-2016. [Online]. Available: <a href="https://facebook.github.io/graphql/" class="uri">https://facebook.github.io/graphql/</a>. [Accessed: 17-Dec-2016]</p>
+<p>[94] <em>GraphQL</em>. URL <a href="https://facebook.github.io/graphql/" class="uri">https://facebook.github.io/graphql/</a>. - retrieved 2016-12-17</p>
 </div>
 <div id="ref-web_w3c-tr_rdf">
-<p>[95] D. Beckett and B. McBride, “RDF/XML syntax specification (revised),” 10-Feb-2004. [Online]. Available: <a href="https://www.w3.org/TR/REC-rdf-syntax/" class="uri">https://www.w3.org/TR/REC-rdf-syntax/</a>. [Accessed: 19-Dec-2016]</p>
+<p>[95] <span style="font-variant: small-caps;">Beckett, Dave</span> ; <span style="font-variant: small-caps;">McBride, Brian</span>: <em>RDF/XML syntax specification (revised)</em>. URL <a href="https://www.w3.org/TR/REC-rdf-syntax/" class="uri">https://www.w3.org/TR/REC-rdf-syntax/</a>. - retrieved 2016-12-19</p>
 </div>
 <div id="ref-web_w3c-tr_owl">
-<p>[96] W. O. W. Group, “OWL 2 web ontology language document overview (second edition),” 11-Dec-2012. [Online]. Available: <a href="https://www.w3.org/TR/owl2-overview/" class="uri">https://www.w3.org/TR/owl2-overview/</a>. [Accessed: 19-Dec-2016]</p>
+<p>[96] <span style="font-variant: small-caps;">W3C OWL Working Group</span>: <em>OWL 2 web ontology language document overview (second edition)</em>. URL <a href="https://www.w3.org/TR/owl2-overview/" class="uri">https://www.w3.org/TR/owl2-overview/</a>. - retrieved 2016-12-19</p>
 </div>
 <div id="ref-web_w3c-tr_sparql">
-<p>[97] S. Harris, A. Seaborne, and E. Prud’hommeaux, “SPARQL 1.1 query language,” 21-Mar-2013. [Online]. Available: <a href="https://www.w3.org/TR/sparql11-query/" class="uri">https://www.w3.org/TR/sparql11-query/</a>. [Accessed: 19-Dec-2016]</p>
+<p>[97] <span style="font-variant: small-caps;">Harris, Steve</span> ; <span style="font-variant: small-caps;">Seaborne, Andy</span> ; <span style="font-variant: small-caps;">Prud’hommeaux, Eric</span>: <em>SPARQL 1.1 query language</em>. URL <a href="https://www.w3.org/TR/sparql11-query/" class="uri">https://www.w3.org/TR/sparql11-query/</a>. - retrieved 2016-12-19</p>
 </div>
 <div id="ref-web_w3c-draft_webid">
-<p>[98] “WebID specifications.” [Online]. Available: <a href="https://www.w3.org/2005/Incubator/webid/spec/" class="uri">https://www.w3.org/2005/Incubator/webid/spec/</a>. [Accessed: 19-Dec-2016]</p>
+<p>[98] <em>WebID specifications</em>. URL <a href="https://www.w3.org/2005/Incubator/webid/spec/" class="uri">https://www.w3.org/2005/Incubator/webid/spec/</a>. - retrieved 2016-12-19</p>
 </div>
 <div id="ref-web_spec_solid">
-<p>[99] “Solid specification,” 03-Mar-2016. [Online]. Available: <a href="https://github.com/solid/solid-spec" class="uri">https://github.com/solid/solid-spec</a>. [Accessed: 17-Dec-2016]</p>
+<p>[99] <em>Solid specification</em>. URL <a href="https://github.com/solid/solid-spec" class="uri">https://github.com/solid/solid-spec</a>. - retrieved 2016-12-17</p>
 </div>
 <div id="ref-web_2016_wiki_webaccesscontrol">
-<p>[100] “WebAccessControl - w3c wiki.” [Online]. Available: <a href="https://www.w3.org/wiki/WebAccessControl" class="uri">https://www.w3.org/wiki/WebAccessControl</a>. [Accessed: 19-Dec-2016]</p>
+<p>[100] <em>WebAccessControl - w3c wiki</em>. URL <a href="https://www.w3.org/wiki/WebAccessControl" class="uri">https://www.w3.org/wiki/WebAccessControl</a>. - retrieved 2016-12-19</p>
 </div>
 <div id="ref-web_2016_demo_databox">
-<p>[101] “Databox.me.” [Online]. Available: <a href="https://databox.me/" class="uri">https://databox.me/</a>. [Accessed: 19-Dec-2016]</p>
+<p>[101] <em>Databox.me</em>. URL <a href="https://databox.me/" class="uri">https://databox.me/</a>. - retrieved 2016-12-19</p>
 </div>
 <div id="ref-web_2015_cgroup-doc">
-<p>[102] T. Heo, “Control group (v2) documentation,” Oct-2015. [Online]. Available: <a href="https://www.kernel.org/doc/Documentation/cgroup-v2.txt" class="uri">https://www.kernel.org/doc/Documentation/cgroup-v2.txt</a>. [Accessed: 20-Dec-2016]</p>
+<p>[102] <span style="font-variant: small-caps;">Heo, Tejun</span>: <em>Control group (v2) documentation</em>. URL <a href="https://www.kernel.org/doc/Documentation/cgroup-v2.txt" class="uri">https://www.kernel.org/doc/Documentation/cgroup-v2.txt</a>. - retrieved 2016-12-20</p>
 </div>
 <div id="ref-web_2016_kernel-namespace">
-<p>[103] “Overview of linux namespaces,” 12-Dec-2016. [Online]. Available: <a href="http://man7.org/linux/man-pages/man7/namespaces.7.html" class="uri">http://man7.org/linux/man-pages/man7/namespaces.7.html</a>. [Accessed: 20-Dec-2016]</p>
+<p>[103] <em>Overview of linux namespaces</em>. URL <a href="http://man7.org/linux/man-pages/man7/namespaces.7.html" class="uri">http://man7.org/linux/man-pages/man7/namespaces.7.html</a>. - retrieved 2016-12-20</p>
 </div>
 <div id="ref-web_2016_open-container-initiative">
-<p>[104] “Open container initiative.” [Online]. Available: <a href="https://www.opencontainers.org/" class="uri">https://www.opencontainers.org/</a>. [Accessed: 20-Dec-2016]</p>
+<p>[104] <em>Open container initiative</em>. URL <a href="https://www.opencontainers.org/" class="uri">https://www.opencontainers.org/</a>. - retrieved 2016-12-20</p>
 </div>
 <div id="ref-web_oci-spec_runtime">
-<p>[105] “Container runtime specification (v1.0.0-rc3),” 12-Dec-2016. [Online]. Available: <a href="https://github.com/opencontainers/runtime-spec/tree/v1.0.0-rc3" class="uri">https://github.com/opencontainers/runtime-spec/tree/v1.0.0-rc3</a>. [Accessed: 20-Dec-2016]</p>
+<p>[105] <em>Container runtime specification (v1.0.0-rc3)</em>. URL <a href="https://github.com/opencontainers/runtime-spec/tree/v1.0.0-rc3" class="uri">https://github.com/opencontainers/runtime-spec/tree/v1.0.0-rc3</a>. - retrieved 2016-12-20</p>
 </div>
 <div id="ref-web_oci-spec_image">
-<p>[106] “Container image specification (v1.0.0-rc3),” 30-Nov-2016. [Online]. Available: <a href="https://github.com/opencontainers/image-spec/tree/v1.0.0-rc3" class="uri">https://github.com/opencontainers/image-spec/tree/v1.0.0-rc3</a>. [Accessed: 20-Dec-2016]</p>
+<p>[106] <em>Container image specification (v1.0.0-rc3)</em>. URL <a href="https://github.com/opencontainers/image-spec/tree/v1.0.0-rc3" class="uri">https://github.com/opencontainers/image-spec/tree/v1.0.0-rc3</a>. - retrieved 2016-12-20</p>
 </div>
 <div id="ref-web_2013_npa-sicherheitsdefizit">
-<p>[107] “Basisleser weiterhin kritische schwachstelle des elektronischen / neuen personalausweises. Netzpolitik.org,” 27-Aug-2013. [Online]. Available: <a href="https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/" class="uri">https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/</a>. [Accessed: 05-Jan-2017]</p>
+<p>[107] <em>Basisleser weiterhin kritische schwachstelle des elektronischen / neuen personalausweises. Netzpolitik.org</em>. URL <a href="https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/" class="uri">https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/</a>. - retrieved 2017-01-05</p>
 </div>
 <div id="ref-web_2014_test-qes-support-in-npa">
-<p>[108] O. Stiemerling, “Qualifizierte elektronische signatur mit dem neuen personalausweis – oder: QES mit nPA, ein selbstversuch. CR-online.de blog,” 26-Aug-2014. [Online]. Available: <a href="http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/" class="uri">http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/</a>. [Accessed: 05-Jan-2017]</p>
+<p>[108] <span style="font-variant: small-caps;">Stiemerling, Oliver</span>: <em>Qualifizierte elektronische signatur mit dem neuen personalausweis – oder: QES mit nPA, ein selbstversuch. CR-online.de blog</em>. URL <a href="http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/" class="uri">http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/</a>. - retrieved 2017-01-05</p>
 </div>
 <div id="ref-web_2017_about-de-mail">
-<p>[109] D. B. der Bundesregierung für Informationstechnik, “IT-beauftragter der bundesregierung de-mail.” [Online]. Available: <a href="http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html" class="uri">http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html</a>. [Accessed: 06-Jan-2017]</p>
+<p>[109] <span style="font-variant: small-caps;">Bundesregierung für Informationstechnik, Der Bundesbeauftragte der</span>: <em>IT-beauftragter der bundesregierung de-mail</em>. URL <a href="http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html" class="uri">http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html</a>. - retrieved 2017-01-06</p>
 </div>
 <div id="ref-statement_2013_de-mail">
-<p>[110] L. Neumann, “Stellungnahme zum elektronischen rechtsverkehr.” 14-Apr-2013 [Online]. Available: <a href="https://ccc.de/system/uploads/128/original/demail_april2013.pdf" class="uri">https://ccc.de/system/uploads/128/original/demail_april2013.pdf</a></p>
+<p>[110] <span style="font-variant: small-caps;">Neumann, Linus</span>: Stellungnahme zum elektronischen rechtsverkehr.</p>
 </div>
 <div id="ref-book_2015_ethical-it-innovation">
-<p>[111] S. Spiekermann, <em>Ethical IT Innovation: A Value-Based System Design Approach</em>. CRC Press; Taylor &amp; Francis Group, LLC, 2015 [Online]. Available: <a href="https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355" class="uri">https://www.crcpress.com/Ethical-IT-Innovation-A-Value-Based-System-Design-Approach/Spiekermann/p/book/9781482226355</a></p>
+<p>[111] <span style="font-variant: small-caps;">Spiekermann, Sarah</span>: <em>Ethical IT Innovation: A Value-Based System Design Approach</em> : CRC Press; Taylor &amp; Francis Group, LLC, 2015 – scale — ISBN 978-1-4822-2635-5</p>
 </div>
 <div id="ref-paper_2004_distributed-mapreduce">
-<p>[112] E. Dean and S. Ghemawat, “MapRednce: Simplified data processing on large clusters,” 2004 [Online]. Available: <a href="https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf" class="uri">https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf</a>. [Accessed: 27-Dec-2016]</p>
+<p>[112] <span style="font-variant: small-caps;">Dean, Eeffrey</span> ; <span style="font-variant: small-caps;">Ghemawat, Sanjay</span>: MapRednce: Simplified data processing on large clusters (2004)</p>
 </div>
 <div id="ref-web_spec_tls-12_client-auth">
-<p>[113] T. Dierks, “The transport layer security (TLS) protocol version 1.2,” Aug-2008. [Online]. Available: <a href="https://tools.ietf.org/html/rfc5246#section-7.4.6" class="uri">https://tools.ietf.org/html/rfc5246#section-7.4.6</a>. [Accessed: 09-Jan-2017]</p>
+<p>[113] <span style="font-variant: small-caps;">Dierks, Tim</span>: <em>The transport layer security (TLS) protocol version 1.2</em>. URL <a href="https://tools.ietf.org/html/rfc5246#section-7.4.6" class="uri">https://tools.ietf.org/html/rfc5246#section-7.4.6</a>. - retrieved 2017-01-09</p>
 </div>
 <div id="ref-web_2017_wikipedia_mutual-auth">
-<p>[114] “Mutual authentication,” 02-Sep-2016. [Online]. Available: <a href="https://en.wikipedia.org/w/index.php?title=Mutual_authentication&amp;oldid=737409981" class="uri">https://en.wikipedia.org/w/index.php?title=Mutual_authentication&amp;oldid=737409981</a>. [Accessed: 10-Jan-2017]</p>
+<p>[114] <em>Mutual authentication</em>. URL <a href="https://en.wikipedia.org/w/index.php?title=Mutual_authentication&amp;oldid=737409981" class="uri">https://en.wikipedia.org/w/index.php?title=Mutual_authentication&amp;oldid=737409981</a>. - retrieved 2017-01-10. — Page Version ID: 737409981</p>
 </div>
 <div id="ref-book_2013_networking-101_tls-session-resumption">
-<p>[115] “Networking 101: Transport layer security (TLS) - high performance browser networking (o’Reilly). High performance browser networking,” 2013. [Online]. Available: <a href="https://hpbn.co/transport-layer-security-tls/#tls-session-resumption" class="uri">https://hpbn.co/transport-layer-security-tls/#tls-session-resumption</a>. [Accessed: 12-Jan-2017]</p>
+<p>[115] <em>Networking 101: Transport layer security (TLS) - high performance browser networking (o’Reilly). High performance browser networking</em>. URL <a href="https://hpbn.co/transport-layer-security-tls/#tls-session-resumption" class="uri">https://hpbn.co/transport-layer-security-tls/#tls-session-resumption</a>. - retrieved 2017-01-12</p>
 </div>
 <div id="ref-web_spec_tls-session-ticket-resumption">
-<p>[116] P. E. Joseph Salowey H. Zhou, “Transport layer security (TLS) session resumption without server-side state,” Jan-2008. [Online]. Available: <a href="https://tools.ietf.org/html/rfc5077" class="uri">https://tools.ietf.org/html/rfc5077</a>. [Accessed: 12-Jan-2017]</p>
+<p>[116] <span style="font-variant: small-caps;">Joseph Salowey, P. Eronen, <span style="font-variant:normal;">H. Zhou</span></span>: <em>Transport layer security (TLS) session resumption without server-side state</em>. URL <a href="https://tools.ietf.org/html/rfc5077" class="uri">https://tools.ietf.org/html/rfc5077</a>. - retrieved 2017-01-12</p>
 </div>
 <div id="ref-web_bsi-spec_eid">
-<p>[117] “BSI - technische richtlinien des BSI - BSI TR-03130 eID-server.” [Online]. Available: <a href="https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html" class="uri">https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html</a>. [Accessed: 06-Jan-2017]</p>
+<p>[117] <em>BSI - technische richtlinien des BSI - BSI TR-03130 eID-server</em>. URL <a href="https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html" class="uri">https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html</a>. - retrieved 2017-01-06</p>
 </div>
 <div id="ref-web_2017_npa-eid-server">
-<p>[118] “Personalausweisportal - eID-server.” [Online]. Available: <a href="https://www.personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html;jsessionid=8C7F11821065F2505F22AFEF65F63DFB.2_cid334" class="uri">https://www.personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html;jsessionid=8C7F11821065F2505F22AFEF65F63DFB.2_cid334</a>. [Accessed: 06-Jan-2017]</p>
+<p>[118] <em>Personalausweisportal - eID-server</em>. URL <a href="https://www.personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html;jsessionid=8C7F11821065F2505F22AFEF65F63DFB.2_cid334" class="uri">https://www.personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html;jsessionid=8C7F11821065F2505F22AFEF65F63DFB.2_cid334</a>. - retrieved 2017-01-06</p>
 </div>
 <div id="ref-book_2014_chapter-10-5-asym-random-number-gen">
-<p>[119] W. Stallings, “9.1 public-key infrastructure,” in <em>Cryptography and network security: Principles and practice</em>, Seventh edition., Boston: Pearson, 2014, p. 307. </p>
+<p>[119] <span style="font-variant: small-caps;">Stallings, William</span>: 9.1 public-key infrastructure. In: <em>Cryptography and network security: Principles and practice</em>. Seventh edition. ed. Boston : Pearson, 2014 — ISBN 978-0-13-335469-0, p. 307</p>
 </div>
 <div id="ref-web_spec_http-error-codes">
-<p>[120] P. J. Leach, T. Berners-Lee, J. C. Mogul, L. Masinter, R. T. Fielding, and J. Gettys, “Hypertext transfer protocol – HTTP/1.1,” Jun-1999. [Online]. Available: <a href="https://tools.ietf.org/html/rfc2616#section-10" class="uri">https://tools.ietf.org/html/rfc2616#section-10</a>. [Accessed: 20-Jan-2017]</p>
+<p>[120] <span style="font-variant: small-caps;">Leach, Paul J.</span> ; <span style="font-variant: small-caps;">Berners-Lee, Tim</span> ; <span style="font-variant: small-caps;">Mogul, Jeffrey C.</span> ; <span style="font-variant: small-caps;">Masinter, Larry</span> ; <span style="font-variant: small-caps;">Fielding, Roy T.</span> ; <span style="font-variant: small-caps;">Gettys, James</span>: <em>Hypertext transfer protocol – HTTP/1.1</em>. URL <a href="https://tools.ietf.org/html/rfc2616#section-10" class="uri">https://tools.ietf.org/html/rfc2616#section-10</a>. - retrieved 2017-01-20</p>
 </div>
 <div id="ref-web_spec_oauth-1a_client-reg">
-<p>[121] “OAuth core 1.0a.” [Online]. Available: <a href="https://oauth.net/core/1.0a/#rfc.section.4.2" class="uri">https://oauth.net/core/1.0a/#rfc.section.4.2</a>. [Accessed: 01-Nov-2016]</p>
+<p>[121] <em>OAuth core 1.0a</em>. URL <a href="https://oauth.net/core/1.0a/#rfc.section.4.2" class="uri">https://oauth.net/core/1.0a/#rfc.section.4.2</a>. - retrieved 2016-11-01</p>
 </div>
 <div id="ref-web_spec_oauth-2_client-reg">
-<p>[122] D. Hardt, “The OAuth 2.0 authorization framework,” Oct-2012. [Online]. Available: <a href="https://tools.ietf.org/html/rfc6749#section-2" class="uri">https://tools.ietf.org/html/rfc6749#section-2</a>. [Accessed: 01-Nov-2016]</p>
+<p>[122] <span style="font-variant: small-caps;">Hardt, Dick</span>: <em>The OAuth 2.0 authorization framework</em>. URL <a href="https://tools.ietf.org/html/rfc6749#section-2" class="uri">https://tools.ietf.org/html/rfc6749#section-2</a>. - retrieved 2016-11-01</p>
+</div>
+<div id="ref-web_spec_oauth-1a_access-verification">
+<p>[123] <em>OAuth core 1.0a</em>. URL <a href="https://oauth.net/core/1.0a/#rfc.section.7" class="uri">https://oauth.net/core/1.0a/#rfc.section.7</a>. - retrieved 2016-11-01</p>
+</div>
+<div id="ref-web_spec_oauth-2_access-verification">
+<p>[124] <span style="font-variant: small-caps;">Hardt, Dick</span>: <em>The OAuth 2.0 authorization framework</em>. URL <a href="https://tools.ietf.org/html/rfc6749#section-7" class="uri">https://tools.ietf.org/html/rfc6749#section-7</a>. - retrieved 2016-11-01</p>
 </div>
 <div id="ref-web_2016_wikipedia_separation-of-concerns">
-<p>[123] “Separation of concerns,” 01-Nov-2016. [Online]. Available: <a href="https://en.wikipedia.org/w/index.php?title=Separation_of_concerns&amp;oldid=747272729" class="uri">https://en.wikipedia.org/w/index.php?title=Separation_of_concerns&amp;oldid=747272729</a>. [Accessed: 24-Jan-2017]</p>
+<p>[125] <em>Separation of concerns</em>. URL <a href="https://en.wikipedia.org/w/index.php?title=Separation_of_concerns&amp;oldid=747272729" class="uri">https://en.wikipedia.org/w/index.php?title=Separation_of_concerns&amp;oldid=747272729</a>. - retrieved 2017-01-24. — Page Version ID: 747272729</p>
+</div>
+<div id="ref-web_spec_acme">
+<p>[126] <span style="font-variant: small-caps;">Kasten, James</span> ; <span style="font-variant: small-caps;">Barnes, Richard</span> ; <span style="font-variant: small-caps;">Hoffman-Andrews, Jacob</span>: <em>Automatic certificate management environment (ACME)</em>. URL <a href="https://tools.ietf.org/html/draft-ietf-acme-acme-04" class="uri">https://tools.ietf.org/html/draft-ietf-acme-acme-04</a>. - retrieved 2017-01-11</p>
 </div>
 <div id="ref-web_2009-success-of-facebook-connect">
-<p>[124] N. Carlson, “Facebook connect is a huge success – by the numbers,” 01-Jul-2009. [Online]. Available: <a href="http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7" class="uri">http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7</a>. [Accessed: 16-Dec-2016]</p>
+<p>[127] <span style="font-variant: small-caps;">Carlson, Nicholas</span>: <em>Facebook connect is a huge success – by the numbers</em>. URL <a href="http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7" class="uri">http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7</a>. - retrieved 2016-12-16</p>
 </div>
 </div>
 </section>

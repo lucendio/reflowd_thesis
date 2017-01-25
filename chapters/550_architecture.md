@@ -81,6 +81,7 @@ relation(s) to each other.
 
 *Technologies:*
 +   X.509
++   ACME [@web_spec_acme] (Let's Encrypt)
 
 
 ##### Storage Connector
@@ -148,6 +149,7 @@ relation(s) to each other.
 *Technologies:*
 +   non relational database
 +   depending on host environment
+
 
 ##### Persistence Layer
 
@@ -227,10 +229,12 @@ the other components via *HTTPS*.
 
 Authenticating *consumers* is done by the web server based on TLS, the assigned subdomains and
 the keys and certificates provided by the PKI. The *operator* authentication is either done by
-the *Operator API* or by the *web server*, depending on the *web server's* capabilities. Although,
-it makes more sense to entrust the *web server* with that task, because it is the outmost 
+the *Operator API* or by the *web server*, depending on the *web server's* capabilities. Though, it 
+makes more sense, to entrust the *web server* with that task, because it is the outmost 
 component and it would prevent unauthorized and potential malicious requests from getting further
-into the system.
+into the system. And since a native client on a mobile platform is considered *private*, it is 
+reasonable to change the authentication from JWT-based to TLS-based *two-way authentication*, which
+would otherwise be inconvenient when using web-based clients. 
 
 
 
@@ -274,3 +278,6 @@ security- and user-related tasks.
     and administration)
 +   the previously proposed authentication concept for the *operator* role supports multiple  
     clients and with the suggested technologies it can be implemented with almost no effort
+    
+monolithic approach as a starting point and as mobile apps occur moving towards a more distributed
+and more trusted architecture.

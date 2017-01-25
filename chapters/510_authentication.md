@@ -107,29 +107,38 @@ authenticate to the system, but with different intentions.
 Because of it's simplicity the concept of web tokens are fairly straightforward to implement into 
 the *PDaaS*. But since web tokens ensure integrity and the optional confidentiality only of 
 their own carriage but not the entire HTTP payload, both requirements need to be addressed 
-separately. Serving HTTP over *TLS* solves this issue
-For connections that use a web token, it should be sufficient to rely on the public PKI
-that drives *HTTP* over *TLS*, because all information required to authenticate is provided by the 
-token itself. Though, the situation is different if instead *two-way authentication* is used. For 
-this, the 
-system has to provide it's own *PKI* including a Certificate Authority that issues certificates for 
-*data consumers*, because not only the *endpoints* on the *PDaaS* (server) need to be certified, 
-all *data consumers* (clients) need to present a certificate as well. Only the *PDaaS* verifies and
-thus determines (supervised by the *operator*) who is authorized to get access to the system. Hence 
-the *PKI* needs to be self-contained without any external role in order to function independently so 
-that only invited parties can get involved.
+separately. Serving HTTP over *TLS* solves this issue.
+For connections that use a web token, it should be sufficient to rely on the public PKI that drives 
+the internet with *HTTP* over *TLS*, because all information required to authenticate is provided by 
+the token itself. Though, the situation is different if instead *two-way authentication* is used. 
+For this, the system has to provide it's own *PKI* including a Certificate Authority that issues 
+certificates for *data consumers*, because not only the *endpoints* on the *PDaaS* (server) need to 
+be certified, all *data consumers* (clients) need to present a certificate as well. Only the *PDaaS* 
+verifies and thus determines (supervised by the *operator*) who is authorized to get access to the 
+system. Hence the *PKI* needs to be self-contained without any external role in order to function 
+independently so that only invited parties can get involved.
+With referring to the statement mentioned above, *data consumer* have to be able as well to verify
+the identity of the *PDaaS*, in order to prevent man-in-the-middle attacks. Address this issue 
+basically means, *data consumers* have to verify the certificate presented by the *PDaaS*. This can
+be done in two ways. One is, a certificate has been installed on the *PDaaS* that is certified and 
+therefore trusted by a trustworthy public CA, as mentioned above. Then *consumer* uses CA's 
+certificate to verify the *PDaaS* certificate. The other way is, to let the *PDaaS* create and sign 
+a public key by itself. Before *consumers* then get presented with the self-signed certificate of 
+the *PDaaS* during the initiation of the TLS connection, they already have to be aware of that 
+certificate. This is, *consumers* need to be provided with that certificate on a private channel
+upfront.
 
-If a public-key-based connection, performing a *mutual authentication*, establishes successfully, it
+If a public-key-based connection, performing a *two-way authentication*, establishes successfully, it
 implies that the identity originating the request is valid and the integrity of the containing data 
 is given.
 Whereas on a token-based authentication every incoming request has to carry the token so that the
 system can verify and associate the request with an account. Furthermore data it not automatically 
 encrypted and thus integrity is not preserved.
 
-An advantage of token-based authentication over TLS-based *mutual authentication* is that the token 
+An advantage of token-based authentication over TLS-based *two-way authentication* is that the token 
 can be used on multiple clients at the same time. Or an account, a token is associated 
 with, can actually have more than one token. Whereas during the asymmetric cryptography-based 
-*mutual authentication* the client's private key is required. So if it's likely that a *operator* 
+*two-way authentication* the client's private key is required. So if it's likely that a *operator* 
 has several clients, regardless for what purposes, then the private key has to be on those clients. 
 Though, a private key typically does not leave it's current system or least does not exist in 
 multiple systems at the same time in order to prevent exposure, which any action of duplication 
@@ -158,9 +167,17 @@ token-based authentication on top of *HTTPS* and public CAs should be suitable f
 between the system and the *operator*, preferable based on *[JSON Web Tokens](#link_jwt)*, because 
 the session state is preserved within the token rather then having the system itself keeping track 
 of it. Though, it is also worth mentioning, that a a JSON Web Token implementation is feasible as 
-well to fully replace the approach consisting of *mutual authentication* on TLS level and a private 
+well to fully replace the approach consisting of *two-way authentication* on TLS level and a private 
 *PKI*. The disadvantage here would be, that whether *data consumers* are able to authenticate 
-themselves or not, a HTTPS connection will establish in any case. 
+themselves or not, a HTTPS connection will establish in any case. At the same point, authenticating
+the *operator* is doable on the TLS-level as well; by restricting this possibility to only trusted 
+environments like native mobile applications, because browser-based applications are not considered 
+trusted and they lack of certain capabilities. Addressing the need of *consumers* verifying whether 
+the *PDaaS* provided certificate can be trusted or not, both solutions, providing self-signed 
+certificate on a secure channel upfront or using certificates certified by publicly trusted entities
+are legitimate. Even though the latter requires a service or an automatism that provides a new 
+signed certificate whenever a new *data consumer* registers, such dependencies should be kept to an
+absolute minimum.
 To hardening an authentication procedure often one or more factors are added, for example an *eID 
 card* or one-time password. This adds complexity to the procedure and thus increases the effort 
 that is needed to make an attack successful. But equally it also increases the effort to support 
@@ -170,8 +187,5 @@ security enhancement for the *operator role*. However detailed discussions regar
 topic are left to follow-up work on the specification.
 
 
-
-
-it is also conceivable, to ... instead of
 
 [^abbr_berca]: (german) Berechtigungszertifikate-Anbieter

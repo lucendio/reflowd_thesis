@@ -7,6 +7,9 @@ This chapter hold the first draft of what might become a specification. As for n
 no claim of completeness, continuity or accuracy. 
 
 
+TODO: should might must n stuff in table (see dark mail spec)
+
+
 
 ## Overview
 
@@ -57,7 +60,7 @@ no claim of completeness, continuity or accuracy.
 3)  *operator* reviews request and decides to either refuse or grant assess; the latter results in:
     a)  creating new *endpoint* 
         +   create new unique subdomain and a related asymmetric key pair signed by the system's 
-            root CA
+            root CA (self-signed)
         +   issue *consumer* certificate based on it's CRS and sign it with the key pair related 
             to this *endpoint*
     b)  if information is provided, creating new *permission profile* by either applying existing 
@@ -65,9 +68,14 @@ no claim of completeness, continuity or accuracy.
         permitted data endpoints; associate to specific *endpoint*
 
 4)  *data consumers* gets informed about the decision via callback channel
-    +   on grant, response includes certificate and information on what data points are allowed to 
-        be accessed
+    +   on grant, response includes 
+        +   *consumer's* certified certificate
+        +   certificate that's associated with the created endpoint
+        +   information on what data points are allowed to be accessed;
     -   on refusal: error code/message
+    
+5)  *data consumer* handles the response appropriately
+    +   \[OPTIONAL\] pin the provided *PDaaS* certificate
     
 
 ###### Data Access
@@ -121,7 +129,7 @@ TODO: detailed description of the algorithm that checks *permission profiles* ac
 
 
 +   one third party access (consumer) relates to one access *endpoint*, that also authenticates that
-    third party by TLS based *mutual auth* 
+    third party by TLS based *two-way auth* 
 +   zero or more *permission profiles* are associated to one *endpoint*
 
 

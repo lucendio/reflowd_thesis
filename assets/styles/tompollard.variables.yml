@@ -4,10 +4,10 @@
 documentclass: 'report'
 papersize: 'a4'
 fontsize: '12pt'
-linestretch: '1.0'     # line space
+linestretch: '1.2'     # line space
 #fontfamily
 
-secnumdepth: 3
+secnumdepth: 2
 subparagraph: true
 
 classoption:

@@ -51,6 +51,9 @@ the media industry for centuries is trying to make copyright infringements more 
 +   even though *OAuth* don't find it's way into this project, working through the standard inspired
 here and there a solution, for example using a URI as a feedback channel or TODO. 
 
++   refer to the scenarios at the beginning by saying that with the *PDaaS* one is able to implement
+all of them
+
 
 
 ## Attack Scenarios

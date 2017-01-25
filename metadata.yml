@@ -61,5 +61,5 @@ bibliography: [
     './assets/bibliographie/specs.bib'
 ]
 
-csl: './assets/citation/ieee-with-url.csl'
+csl: './assets/citation/din-1505-2-numeric.csl'
 ...

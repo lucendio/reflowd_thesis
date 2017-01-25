@@ -189,7 +189,7 @@ This means, the *consumer* is already authenticated, when the TLS connection has
 established. And since the endpoints relates to the *permission profiles* it would make providing 
 an `access_token` to become obsolete.
 To summarize, implementing OAuth would introduce several mechanisms that otherwise can be provided
-by the combination of *mutual authentication* in TLS, dedicated endpoints and certification.
+by the combination of *two-way authentication* in TLS, dedicated endpoints and certification.
 
 
 
@@ -198,13 +198,16 @@ In the preceding text, various solutions were developed, based on which the foll
 solutions are at disposal:
 a)  OAuth 1.0a and HTTP
 b)  OAuth 2 and HTTPS (public Certification and PKI)
-c)  HTTP over TLS with *mutual Authentication*, private PKI, sub-domains as dedicated endpoints
+c)  HTTP over TLS with *two-way authentication*, private PKI, sub-domains as dedicated endpoints
 
 The solutions a) and b) require an extra step were *data consumers* would register themselves at the 
 *PDaaS*. This already needs a secure channel to prevent man-in-the-middle attacks. Furthermore does 
-option a) obtain a symmetric key for creating signatures which have to ensure confidentiality and 
-integrity in the subsequent steps. Thereby HTTPS is mandatory, which makes b) more suitable over a),
-because it's also more flexible and easier to implement.
+option a) obtain a symmetric key for creating signatures used to ensue confidentiality and integrity 
+in the subsequent steps. All those cryptographic procedures need to be adopted when implementing the
+specification emerging from this work and when interacting with those implementations. While this
+can cause much more harm, is is proposed to leave as much of these sensitive parts as possible to 
+existing implementations that already have proven themselves. Thus HTTPS is mandatory, which makes 
+b) more suitable over a), because it's also more flexible and easier to implement.
 Whereas solution c) moves the complete authentication procedure to a different layer. It hence 
 results in separating authentication and authorization from each other, leaving no remains of 
 relation. This opens the authorization design up to for example other implementations that might be 
@@ -212,14 +215,18 @@ more suitable for certain *data types*. In addition, it would only require littl
 the case where multiple *data consumers* share the same *endpoint* and thereby the same *permission
 profiles*.
 And combining b) and c) would result in significant redundancy, since both solutions have much 
-overlap in the features they are providing. Even though b) aims to be a framework for authorization.
-The process description at the beginning of this section will be used as the foundation of *access
+overlap in the features they are providing, even though b) aims to be a framework for authorization.
+The process description from the beginning of this section will be used as the foundation of *access
 management* in the *PDaaS*. Implementing OAuth based on this design would leave nothing from the 
-framework, but a simple request returning an identifier for it's permissions. So there is not much
-benefit in using OAuth, other then developers might be somewhat familiar with the API. This can
-be addressed by a detailed specification for this project, hence c) is preferred over b).
-At the end, the only suitable use case from the specification would consists of just a request that 
-obtains a token after authenticating with the provided credentials.
+framework, but a simple request returning an identifier for it's permissions. 
+And even these identifiers are obsolete when combining TLS with dedicated *consumer*-specific 
+endpoint, as c) states. So there is not much benefit in using OAuth, other then developers might be 
+somewhat familiar with the API. This can be addressed by a detailed specification for this project, 
+hence c) is preferred over b). At the end, the only suitable use case from the specification would 
+consists of just a request that obtains a token after authenticating with the provided credentials. 
+And since OAuth only provides a framework for how to authorize third parties to access external 
+resources, but leaves the procedure of how to actually verify those access attempts up to it's 
+implementers [@web_spec_oauth-1a_access-verification] [@web_spec_oauth-2_access-verification].
 In the context of this project OAuth doesn't really match with the rest of the design aspects.
 
 How the first steps of a *consumer registration* are look like, is up to the *consumer*, even though
