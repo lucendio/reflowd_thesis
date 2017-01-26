@@ -9,5 +9,5 @@ in order to evaluate their advantages and disadvantages. Probably not every issu
 deserved room, but major aspects will be addressed. 
 In short, the majority of the project's conceptual work is done below.
 
-Eevery subchapter includes at the end a section containing a summary of conclusions, which are based 
-on the prior discussions about the related topic.
+The end of every subchapter includes a section containing a summary of conclusions, which is based 
+on the prior discussions related to that topic.

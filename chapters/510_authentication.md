@@ -115,7 +115,7 @@ For this, the system has to provide it's own *PKI* including a Certificate Autho
 certificates for *data consumers*, because not only the *endpoints* on the *PDaaS* (server) need to 
 be certified, all *data consumers* (clients) need to present a certificate as well. Only the *PDaaS* 
 verifies and thus determines (supervised by the *operator*) who is authorized to get access to the 
-system. Hence the *PKI* needs to be self-contained without any external role in order to function 
+system. Hence the *PKI* needs to be selfcontained without any external role in order to function 
 independently so that only invited parties can get involved.
 With referring to the statement mentioned above, *data consumer* have to be able as well to verify
 the identity of the *PDaaS*, in order to prevent man-in-the-middle attacks. Address this issue 
@@ -144,6 +144,12 @@ Though, a private key typically does not leave it's current system or least does
 multiple systems at the same time in order to prevent exposure, which any action of duplication 
 implies. To reduce those risks, it's common practice to generate a private key at that location 
 where it is going to be used.
+
+OpenID, a open standard for decentralized user authentication, also uses subdomains as unique 
+identifiers for associating with entities that need to authenticated, similar to approach proposed 
+in this work. But since it underpinned by a very distinct scenario it is also very related and 
+therefore restricted to that. Trying to adopt the standard might result in various changes leading
+to an implementation that shares not much compliance, which is not the intention of a standard.
 
 The technology *De-Mail* tries to ensure authenticity of an authors identity, by embedding a legal 
 foundation into email-based communication. But instead of providing technically valid authenticity 

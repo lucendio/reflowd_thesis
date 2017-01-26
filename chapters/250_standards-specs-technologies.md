@@ -179,7 +179,7 @@ physically present. Such an *eID card* was also introduced in Germany in 2010. T
 Aside from minor flaws [@web_2013_npa-sicherheitsdefizit] and disadvantages [@web_2014_test-qes-support-in-npa] 
 an *eID card* can come with, the question here is, how can such technology be usefully integrated in 
 this project and does it even makes sense. As an official document the card has one major advantage 
-over self-configured or generated authentication mechanisms like passwords, fingerprints or TANs 
+over selfconfigured or generated authentication mechanisms like passwords, fingerprints or TANs 
 [^abbr_tan]. It is *signed* by design, which means, by creating this document and handing it over 
 to the related citizen, the third party (or *"authority"*) - in this case the government - has 
 verified the authenticity of that individual.

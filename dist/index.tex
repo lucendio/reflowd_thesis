@@ -1840,7 +1840,7 @@ disadvantages
 \emph{eID card} can come with, the question here is, how can such
 technology be usefully integrated in this project and does it even makes
 sense. As an official document the card has one major advantage over
-self-configured or generated authentication mechanisms like passwords,
+selfconfigured or generated authentication mechanisms like passwords,
 fingerprints or TANs.\footnote{Transaction authentication number} It is
 \emph{signed} by design, which means, by creating this document and
 handing it over to the related citizen, the third party (or
@@ -2292,8 +2292,8 @@ will get it's\\
 deserved room, but major aspects will be addressed. In short, the
 majority of the project's conceptual work is done below.
 
-Eevery subchapter includes at the end a section containing a summary of
-conclusions, which are based on the prior discussions about the related
+The end of every subchapter includes a section containing a summary of
+conclusions, which is based on the prior discussions related to that
 topic.
 
 \hypertarget{authentication}{\section{Authentication}\label{authentication}}
@@ -2467,7 +2467,7 @@ issues certificates for \emph{data consumers}, because not only the
 \emph{data consumers} (clients) need to present a certificate as well.
 Only the \emph{PDaaS} verifies and thus determines (supervised by the
 \emph{operator}) who is authorized to get access to the system. Hence
-the \emph{PKI} needs to be self-contained without any external role in
+the \emph{PKI} needs to be selfcontained without any external role in
 order to function independently so that only invited parties can get
 involved. With referring to the statement mentioned above, \emph{data
 consumer} have to be able as well to verify the identity of the
@@ -2504,6 +2504,14 @@ least does not exist in multiple systems at the same time in order to
 prevent exposure, which any action of duplication implies. To reduce
 those risks, it's common practice to generate a private key at that
 location where it is going to be used.
+
+OpenID, a open standard for decentralized user authentication, also uses
+subdomains as unique identifiers for associating with entities that need
+to authenticated, similar to approach proposed in this work. But since
+it underpinned by a very distinct scenario it is also very related and
+therefore restricted to that. Trying to adopt the standard might result
+in various changes leading to an implementation that shares not much
+compliance, which is not the intention of a standard.
 
 The technology \emph{De-Mail} tries to ensure authenticity of an authors
 identity, by embedding a legal foundation into email-based
@@ -2577,7 +2585,7 @@ trustworthy third party has to somehow verify the reliability of the
 data in question. That process on the other hand, is in direct contrast
 to the discussion about the
 \protect\hyperlink{authentication}{authentication system} and why it
-should be designed so that it is self-contained. If instead it's not
+should be designed so that it is selfcontained. If instead it's not
 required to provide information on the data being reliable or not, it
 won't be an issue anymore. The information can be defined in a response
 as an optional property. Within the request the \emph{data consumer} has
@@ -3365,6 +3373,8 @@ purpose(s) and relation(s) to each other.
   CA
 \item
   manage keys and certificates per \emph{endpoint}
+\item
+  obtain trusted certificates from public CAs
 \end{itemize}
 
 \emph{Technologies:}
@@ -3534,7 +3544,7 @@ Infrastructure}\label{notification-infrastructure}
 \begin{itemize}
 \tightlist
 \item
-  notify about everything that needs \emph{operator's} approval
+  notifies about everything that needs \emph{operator's} approval
   (e.g.~new registrations, new \emph{permission requests})
 \end{itemize}
 
@@ -3548,7 +3558,7 @@ Infrastructure}\label{notification-infrastructure}
   mobile device manufacturer's Push Notification server for mobile apps
 \end{itemize}
 
-\paragraph{User interface}\label{user-interface}
+\paragraph{User Interface}\label{user-interface}
 
 \emph{Platform:} Desktop, Mobile
 
@@ -3585,8 +3595,7 @@ portability (\protect\hyperlink{sa02}{S.A.02}) in mind, it needs to be
 figured out which arrangements make sense and what variations might be
 possible. The result are two, more or less, distinct designs that are
 proposed. As stated above, one is a more monolithic approach and the
-other enables the \emph{data subject} to carry all her personal data
-along.
+other involve more platform types and demonstrates the flexibility.
 
 \begin{figure}
 \centering
@@ -3604,96 +3613,139 @@ composition\label{fig:composition-distributed}}
 
 The main difference between the two compositions is the lack of the
 mobile platform in the more monolithic approach (Figure
-\ref{fig:composition-monolithic}). Although \emph{monolithic} only
-refers to the platform type \emph{server}. It is imaginable as well that
-all server components are not necessarily have to be placed into one
-server environment, but being distribute over several virtual machines
-or containers, so that they can scale and run more independently. This
-can improve \emph{redundancy} as well.
+\ref{fig:composition-monolithic}). Although \emph{monolithic} refers
+only to the components arrangement on the \emph{server} platform. It is
+also imaginable that all server components not necessarily have to be
+placed into one server environment, but being distribute over several
+virtual machines or containers, so that they can scale and run more
+independently. This can improve \emph{redundancy} as well.
 
-TODO: where are reasonable places to locate the storage that holds the
-operators's personal data
+In theory, a possible version of the arrangement would be to move all
+components to either the client or the mobile platform. This comes along
+with some downsides and major issues that are anything but trivial to
+solve. Aside from ensuring a nearly 100\% uptime and localization in a
+landscape where NAT\footnote{Network Address Translation; practice of
+  routing traffic between and through distinct networks address spaces
+  by remapping IPs from those different networks onto each other} and
+dynamic IPs are still common practice, not only on the mobile platform
+but on the client platform as well, all component, but the user
+interface, needs to be implemented with native technologies.
+Nevertheless, from a \emph{operator's} perspective it would mean having
+all components at hand and therefore full control over the \emph{PDaaS},
+it still would lack of major requirements, though.
 
-\begin{itemize}
-\tightlist
-\item
-  It is debatable whether to place the \emph{permission profiles} in the
-  \emph{persistence layer} among all other domain-related information,
-  put it into the \emph{personal data storage} or define it as an own
-  storage component, in order to be flexible regarding it's location.
-\end{itemize}
+Aside from providing the \emph{operator} with a non-stationary and
+instantly accessible interface to her \emph{PDaaS}, involving a
+\emph{mobile platform} has the purpose of enabling the \emph{data
+subject} to carry all her sensitive data along. This is considered a
+major advantage over the monolithic approach, were all the personal data
+is located in the \emph{``cloud''}. Depending on the perspective, it can
+either be seen as a \emph{singe source of truth} or a \emph{single point
+of failure}. Regardless of that, it introduces the demand of a backup or
+some redundancy concept. A first solution would be regular device
+backups. Other solutions are possible but not in the scope of this work.
+A mobile platform being part of the system makes it more easier for the
+\emph{data subject} to establish a security concept, in which the
+relation the between personal data storage and the rest of the system is
+much more liberated, so that all access attempts only happen under full
+supervision. It is debatable whether to place the \emph{permission
+profiles} in the \emph{persistence layer} among all other domain-related
+information, or put it into the \emph{personal data storage} as well or
+define it as an own storage component, in order to be flexible regarding
+it's location.
 
-If components that are only placed on the server, have to communicate
-between each other but are separated into independent processes, then
-some inter-process communication need to be established (e.g.~sockets).
-It is also conceivable that other interactions might only be
-unidirectional, therefor approaches like changing configuration files by
-writing to the filesystem can be feasible in some cases. These
-components that are vary in terms of the platform where can be placed,
-has to communicate to the other components via \emph{HTTPS}.
-
-Authenticating \emph{consumers} is done by the web server based on TLS,
-the assigned subdomains and the keys and certificates provided by the
-PKI. The \emph{operator} authentication is either done by the
-\emph{Operator API} or by the \emph{web server}, depending on the
-\emph{web server's} capabilities. Though, it makes more sense, to
-entrust the \emph{web server} with that task, because it is the outmost
-component and it would prevent unauthorized and potential malicious
-requests from getting further into the system. And since a native client
-on a mobile platform is considered \emph{private}, it is reasonable to
-change the authentication from JWT-based to TLS-based \emph{two-way
+Authenticating \emph{consumers} is performed based on TLS by the web
+server and it's configured subdomains including their individual keys
+and certificates provided by the \emph{PKI}. The \emph{operator}
+authentication is either done by the \emph{Operator API} or by the
+\emph{web server}, depending on the \emph{web server's} capabilities.
+Though, it makes more sense, to entrust the \emph{web server} with that
+task, because it's the outmost component and it would prevent
+unauthorized and potential malicious requests from getting further into
+the system. And since a native client on a mobile platform is considered
+\emph{private}, it is reasonable to change the \emph{operator}
+authentication from JWT-based to TLS-based \emph{two-way
 authentication}, which would otherwise be inconvenient when using
 web-based clients.
 
-TODO: OpenID as auth services (like fb for other platforms) As discussed
-in previous sections the \emph{PDaaS} has it's qualities to be seen and
-valued as a digital representation of the individual that operates that
-system. Hence it could also be used to authenticate the individual
-against an external platform. Although it is priorly argued, that for
-authentication and security reasons the system is designed to be
-self-contained. But providing those OpenID capabilities isn't something
-the \emph{PDaaS} depends on, instead external platforms would depend on
-the \emph{PDaaS} supporting that feature. It is imaginable, that an
-OpenID instance mapping on a single individual would simplify the
-authentication procedure provided by that technology. However, it is
-beyond the scope of this work to either do further investigations
-regarding that topic, nor elaborate on how this might look integrate
-with the currently developed feature-set.
+If there are components that are only placed on the server and that have
+to communicate between each other, but are separated into independent
+processes, then some inter-process communication need to be established
+(e.g.~sockets). It is also conceivable that inter-communication between
+server components could be unidirectional only. Approaches like changing
+configuration files by writing to the filesystem can therefor be
+feasible in some cases. Components that can vary in terms of their
+platform, have to communicate to the other components via \emph{HTTPS}.
 
-\begin{itemize}
-\tightlist
-\item
-  regarding oAuth as authentication: Priorly users tended to reuse their
-  password for different account, nowadays they but also tend to get
-  tired of creating new accounts and profiles over and over again
-  instead of having just one account for everything
-  {[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{127}{]}.
-\end{itemize}
+The architecture implicitly distinguishes between two different groups
+of endpoints. These endpoints are made available by the \emph{web
+server}, which reverse-proxys incoming connections to role-related
+(\emph{operator} or \emph{data consumer}) components. Starting from
+that, this separation can be further brought simply by encapsulating
+those components into services, that either are related to one of the
+roles or used by both. This basically results in the \emph{web server}
+communicating with the two role services in a bidirectional manner. The
+group of endpoints for \emph{data consumers} mainly consists of those
+were \emph{access requests} and \emph{permission requests} are coming in
+and the public one, that is used for \emph{consumer} registrations. The
+other one is a small group of endpoints required for all the tools the
+\emph{operator} might need; from data API or notification through to
+authentication and web-based user interface.
 
-Thus the platform owners leave the responsibility of
+Considering the rapid growth of emerging website and applications, which
+all require user registration, users are getting tired of creating new
+accounts. Hence they tend to reuse their password(s). Providers started
+outsource that sensitive topic of user management by integrating third
+party authentication services, which not only makes is almost effortless
+to implement, but also leaves the responsibility as well as the
+accessibility to those service owners. Whereas users get the benefit of
+just using one account for all her apps - a universal key so to say, but
+only one exemplar. So the downside here is, only a handful of third
+parties
+{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{127}{]}
+provide those authentication services.\\
+OpenID is designed with a very specific type of scenarios in mind,
+namely the one just described - bringing decentralisation to the market
+of authentication services - which differs from those addressed by the
+\emph{PDaaS}; at least, when it comes to \emph{data consumer}
+interactions. Although, the \emph{PDaaS} has the ability to become the
+digital representation of it's \emph{operator}. Hence it can and also
+should be used to authenticate that individual against an external
+parties.
 
-Many websites and platforms understand those \emph{login-with
-\$platformName} mechanisms as an outsourced service that handles all
-security- and user-related tasks.
-
-\emph{Conclusions:}
-
-\begin{itemize}
-\tightlist
-\item
-  distributed architecture (e.g.~notification/queue server + mobile
-  device for persistence and administration)
-\item
-  the previously proposed authentication concept for the \emph{operator}
-  role supports multiple\\
-  clients and with the suggested technologies it can be implemented with
-  almost no effort
-\end{itemize}
-
-monolithic approach as a starting point and as mobile apps occur moving
-towards a more distributed and more trusted architecture.
+\emph{Conclusions:} Considering amount of effort a single-platform
+version, namely client or mobile, would take to get fully operational
+with respect to the specification, it is not only reasonable but also
+more secure to involve a server environment with proper security
+measures, static IP and high availability. Even if that server is a
+local machine connected to the \emph{data subject's} private network.
+That said, it is sufficient to start with the \emph{monolithic} approach
+and as suitable mobile applications emerge that are supporting major
+administration features, notifications and \emph{personal data storage},
+it should be possible to migrate effortlessly towards the
+\emph{distributed} approach that comes with a higher level , because all
+the sensitive personal data somewhere on a computer machine. As of the
+proposed architecture all components (or group of components) are
+portable and therefore relocatable among the suggested platforms; and
+with the introduced authentication method for \emph{operators} using
+multiple clients the for the same \emph{PDaaS} are thereby supports and
+can be implemented with almost no effort, which covers more use cases.
+As a supplement, an \emph{identity provider} based on the OpenID
+standard would fit nicely into the existing arrangement and not
+interfering with the other components. However, it is beyond the scope
+of this work to make elaborate on this topic. For now it is stated as a
+feasible and logical addition to the \emph{PDaaS}.
 
 \section{Environment and Setup}\label{environment-and-setup}
+
+as stated in the project's core principles Open Development is vital.
+Interestingling this has a significant effect in how a \emph{PDaaS}
+might be deployed or installed. All components can just be taken and
+used as it fits everyone's needs of cause, with respect to their
+licenses.
+
+the portability enables independent development of the components, as
+well as what technologies are being used for them.
 
 \begin{itemize}
 \item
@@ -3707,6 +3759,12 @@ towards a more distributed and more trusted architecture.
   execution} approach to simply spin up a full fletched
   environment/sandbox, that can be restricted at will in any way
   (disable outgoing connections)
+\item
+  domain, new one preferred or with no subdomains used; ability to
+  change the domain's DNS configuration
+\item
+  migrating from server-located \emph{personal data storage} to the
+  mobile based version. how?
 \end{itemize}
 
 \emph{Conclusions:}
@@ -3739,7 +3797,8 @@ towards a more distributed and more trusted architecture.
 
 This chapter hold the first draft of what might become a specification.
 As for now it has therefore no claim of completeness, continuity or
-accuracy.
+accuracy. The contents is based on and a result of all previous
+discussions and developed solutions.
 
 TODO: should might must n stuff in table (see dark mail spec)
 
@@ -4125,6 +4184,29 @@ Monetisation}\label{business-models-monetisation}
   payment transfer, data anonymization, market place to offer data)
 \end{itemize}
 
+\section{Target group perspectives}\label{target-group-perspectives}
+
+\begin{itemize}
+\tightlist
+\item
+  User: would I use this stuff? The underpinning technical details and
+  how it works is not my concern and non of my interests. I want this
+  stuff work and being reliable. it its simple to use. and maybe even
+  easy to setup (server n stuff), then the hell, I would!
+\item
+  Dev:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    spec implementer
+  \item
+    integrater in consumer:
+  \end{itemize}
+\item
+  Consumer:
+\end{itemize}
+
 \section{Challenges}\label{challenges}
 
 \begin{itemize}
@@ -4150,6 +4232,12 @@ Monetisation}\label{business-models-monetisation}
   can be impeded. Interestingly though, is the same approach the media
   industry for centuries is trying to make copyright infringements more
   difficult.
+\item
+  scenario where the mobile device, or in general the data storage get
+  lost. first of all, not much of a problem, because either device
+  backup or since the liberal relation, the system would continue to
+  function, but limited, until a data storage gets part of the system
+  again
 \end{itemize}
 
 \section{Solutions}\label{solutions}
@@ -4207,6 +4295,8 @@ Monetisation}\label{business-models-monetisation}
   touch on parts that were left blank
 \item
   first supporting platforms
+\item
+  full encryption of the \emph{data storage}
 \end{itemize}
 
 \section{Summary}\label{summary}

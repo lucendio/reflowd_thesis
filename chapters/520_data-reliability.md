@@ -12,7 +12,7 @@ the data is true at that moment when the related responses leaves the system.
 Since the *operator* can change the data at any point in time, this property requires a process 
 where a trustworthy third party has to somehow verify the reliability of the data in question. That 
 process on the other hand, is in direct contrast to the discussion about the 
-[authentication system](#authentication) and why it should be designed so that it is self-contained. 
+[authentication system](#authentication) and why it should be designed so that it is selfcontained. 
 If instead it's not required to provide information on the data being reliable or not, it won't be 
 an issue anymore. 
 The information can be defined in a response as an optional property. Within the request the *data 

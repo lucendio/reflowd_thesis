@@ -22,6 +22,20 @@ been refused.
 +   data subject might want to sell her data, only under her conditions. therefor some kind of 
     infrastructure and process is required (such as payment transfer, data anonymization, market
     place to offer data)
+    
+    
+    
+## Target group perspectives
+ 
++   User: would I use this stuff? The underpinning technical details and how it works is not my 
+    concern and non of my interests. I want this stuff work and being reliable. it its simple to 
+    use. and maybe even easy to setup (server n stuff), then the hell, I would!
++   Dev:    
+    -   spec implementer
+    -   integrater in consumer:
++   Consumer:
+    
+
 
 
 
@@ -43,6 +57,10 @@ or by physically transferring them from one location to another, it's already co
 very nature of digital information technology/systems.
 So this cannot be defeated. It only can be impeded. Interestingly though, is the same approach 
 the media industry for centuries is trying to make copyright infringements more difficult.
+
++   scenario where the mobile device, or in general the data storage get lost.
+first of all, not much of a problem, because either device backup or since the liberal relation, the 
+system would continue to function, but limited, until a data storage gets part of the system again 
 
 
 
@@ -82,6 +100,8 @@ all of them
 +   release 1.0 (spec and example implementation)
 +   touch on parts that were left blank
 +   first supporting platforms
+
++   full encryption of the *data storage*
 
 
 

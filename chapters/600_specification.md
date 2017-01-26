@@ -4,7 +4,8 @@ Specification *(Draft)*
 
 
 This chapter hold the first draft of what might become a specification. As for now it has therefore
-no claim of completeness, continuity or accuracy. 
+no claim of completeness, continuity or accuracy. The contents is based on and a result of all 
+previous discussions and developed solutions.  
 
 
 TODO: should might must n stuff in table (see dark mail spec)
