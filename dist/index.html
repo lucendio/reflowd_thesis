@@ -664,9 +664,126 @@ authenticates the <em>data consumer</em> and checks the related <em>permission p
 </section>
 <section id="data" class="level2">
 <h2><span class="header-section-number">6.5</span> Data</h2>
+<p>The core task of a <em>PDaaS</em> is providing data, <em>personal data</em>, which in conjunction is the digital manifestation of an individual, a person. One party creates the data, another one obtains and processes it. Thus, both need to agree, or at least need to know, how that data looks like, how is it structured and what are their semantics. The following section is intended to discuss different technologies, used to create queries that obtain those data points that are desired. Further on, it describes some basic data types and structs, that might be useful in the context of <em>personal data</em> as well as for previously introduces <a href="#scenarios">scenarios</a>.</p>
+<p>First of all, to address the need of portability related to those components, storing and providing <em>personal data</em>, it is essential to abstract the actual storage from how it gets accessed. This makes it possible to relocate those storage into other platforms and environments. Thereby the <em>personal data storage</em> itself become platform-agnostic, in other words portable. In order to reduce possible issues related to unsupported communication protocols it might be reasonable to enforce HTTP - over TLS, if they don’t share the same environment - even if the storage therefor requires an additional driver or proxy layer, like for example a mobile app.</p>
+<p>TODO: persisting the other stuff</p>
 <p>TODO: Technology: <em>GraphGL</em> or the <em>Semantic Web Suite</em> ???</p>
+<p>responsible for persisting any kind of data</p>
+<p>to elaborate on the different mechanisms to save and store certain groups of system-relevant data</p>
+<p>Both languages know the concept of a graph, which means relations between data points are embedded in the data structure itself. This is, in terms of a graph, relations are <em>edges</em> and data points are <em>nodes</em>. In consequence the structure of a query shows the same as the result does, which means the originator of that query knows exactly how the response will look like.</p>
+<p><strong>Query:</strong></p>
+<pre class="sparql"><code># query 1: obtain the data subject&#39;s first and last name
+PREFIX person: &lt;http://pdaas.tld/schemas/person&gt;
+
+SELECT $firstname $lastname
+FROM &lt;https://unique-consumer-endpoint.pdaas.tld/sparql/profile&gt;
+WHERE {
+    $person person:firstname $firstname .
+    $person person:lastname $lastname .
+}
+
+
+# query 2: obtain all bank accounts that are available for online payment
+PREFIX bank-account: &lt;http://pdaas.tld/schemas/bank-account&gt;
+
+SELECT $accountId $bankName $paymentMethod
+FROM &lt;https://unique-consumer-endpoint.pdaas.tld/sparql/finance&gt;
+WHERE {
+    $bank-account bank-account:payment-method &quot;online-service&quot; .
+    $bank-account bank-account:payment-method $paymentMethod .
+    $bank-account bank-account:account-id $accountId . 
+    $bank-account bank-account:bank-name $bankName .
+}</code></pre>
+<p><strong>Result:</strong></p>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="er">//</span> <span class="er">result</span> <span class="er">1:</span>
+<span class="fu">{</span>
+    <span class="dt">&quot;head&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;vars&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+            <span class="st">&quot;firstname&quot;</span><span class="ot">,</span>
+            <span class="st">&quot;lastname&quot;</span>
+        <span class="ot">]</span>
+    <span class="fu">},</span>
+    <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;bindings&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+            <span class="fu">{</span>
+                <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
+                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;Doe&quot;</span>
+                <span class="fu">},</span>
+                <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
+                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;Jane&quot;</span>
+                <span class="fu">}</span>
+            <span class="fu">}</span>
+        <span class="ot">]</span>
+    <span class="fu">}</span>
+<span class="fu">}</span>
+
+
+<span class="er">//</span> <span class="er">result</span> <span class="er">2:</span>
+<span class="fu">{</span>
+    <span class="dt">&quot;head&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;vars&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+            <span class="st">&quot;accountId&quot;</span><span class="ot">,</span>
+            <span class="st">&quot;bankName&quot;</span><span class="ot">,</span>
+            <span class="st">&quot;paymentMethod&quot;</span>
+        <span class="ot">]</span>
+    <span class="fu">},</span>
+    <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;bindings&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+            <span class="fu">{</span>
+                <span class="dt">&quot;accountId&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
+                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;janeod23&quot;</span>
+                <span class="fu">},</span>
+                <span class="dt">&quot;bankName&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
+                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;A. W. Fritter Institute&quot;</span>
+                <span class="fu">},</span>
+                <span class="dt">&quot;paymentMethod&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
+                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;online-service&quot;</span>
+                <span class="fu">}</span>
+            <span class="fu">}</span>
+        <span class="ot">]</span>
+    <span class="fu">}</span>
+<span class="fu">}</span></code></pre></div>
+<p>Without going into much details here,<br />
+The syntax itself already shows its nature of decentralization, which at the same time introduces additional external dependencies. Because the query language itself has no concept of schemas, structs or any kind of semantic, it needs to be made aware of them.</p>
+<p>SPARQL queries typically return XML which then can be rendered into (HTML) tables, but JSON and RDF are supported as well.</p>
+<p><strong>Query:</strong></p>
+<pre class="graphql"><code># URL: https://unique-consumer-endpoint.pdaas.tld/graphql
+
+query {
+    profile {
+        firstname
+        lastname
+    }
+    bankAccounts(paymentMethod: &#39;online-service&#39;) {
+        accountId
+        bankName
+        paymentMethod(&#39;online-service&#39;)
+    }
+}</code></pre>
+<p><strong>Result:</strong></p>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+    <span class="dt">&quot;profile&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;Jane&quot;</span><span class="fu">,</span> 
+        <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="st">&quot;Doe&quot;</span>
+    <span class="fu">},</span>
+    <span class="dt">&quot;bankAccounts&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+        <span class="fu">{</span>
+            <span class="dt">&quot;accountId&quot;</span><span class="fu">:</span> <span class="st">&quot;janeod23&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;bankName&quot;</span><span class="fu">:</span> <span class="st">&quot;A. W. Fritter Institute&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;paymentMethod&quot;</span><span class="fu">:</span> <span class="st">&quot;online-service&quot;</span>
+        <span class="fu">}</span>
+    <span class="ot">]</span>
+<span class="fu">}</span></code></pre></div>
+<p>Whereas comparing the GraphQL query syntax with it’s result shows of a remarkable resemblance.</p>
+<p>While SPARQL has a full-featured query language syntax including all sorts of logic (e.g. aggregation, operators, nested queries etc.), GraphQL’s syntax on the other hand is more rudimental. All it’s functions and logic is separated from the language itself into a backend-like part, that is responsible for resolving queries. Those resolvers then implement features like sorting, searching, grouping or aggregating. With this concept of separation it is straightforward to validate queries, because it is essentially matching against types.</p>
+<p>Both share a comprehensive understanding of a type-system, that encourages to create all kinds of data types.</p>
 <ul>
-<li><p>keep in mind to make it all somehow extendible, e.g. by using and storing corresponding schemas</p></li>
+<li><p>keep in mind to make it all somehow extensible, e.g. by using and storing corresponding schemas</p></li>
 <li><p>NOTE: step numbers marked with a <code>*</code> are somehow tasks which are happening in the background and don’t require any user interaction</p></li>
 </ul>
 <p>TODO: data types</p>
@@ -690,6 +807,7 @@ authenticates the <em>data consumer</em> and checks the related <em>permission p
 </ul>
 <section id="conclusions" class="level3">
 <h3><span class="header-section-number">6.5.2</span> <em>Conclusions</em></h3>
+<p>TODO: why Graphql over Sparql ?</p>
 </section>
 </section>
 <section id="architecture" class="level2">
@@ -957,6 +1075,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li>Authentication/login</li>
 </ul></li>
 </ul>
+<p>list all different features (w/ respect to the requirements) and give a suggestion on how a solution would look like; e.g. graph data structure with accordion menus/dropdowns</p>
 <p><em>Conclusions:</em></p>
 </section>
 </section>
