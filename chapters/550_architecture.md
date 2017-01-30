@@ -228,8 +228,8 @@ Aside from providing the *operator* with a non-stationary and instantly accessib
 her sensitive data along. This is considered a major advantage over the monolithic approach, were
 all the personal data is located in the *"cloud"*. Depending on the perspective, it can either be 
 seen as a *singe source of truth* or a *single point of failure*. Regardless of that, it introduces 
-the demand of a backup or some redundancy concept. A first solution would be regular device backups. 
-Other solutions are possible but not in the scope of this work.
+the demand of a backup or some redundancy concept, which has briefly been touched on in the 
+discussion about database system requirements within the [*data* section](#data). 
 A mobile platform being part of the system makes it more easier for the *data subject* to establish 
 a security concept, in which the relation the between personal data storage and the rest of the 
 system is much more liberated, so that all access attempts only happen under full supervision.

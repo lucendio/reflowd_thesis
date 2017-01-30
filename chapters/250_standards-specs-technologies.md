@@ -116,33 +116,40 @@ data and possibly authentication. These operation normally wont get applied dire
 responsible component. Instead the whole system (or certain services) exposes a restful API, with
 which a third party can then interact. 
 
-The *QL* in __GraphQL__ [@web_spec_graphql] stands for *query language*. It's goal is to abstract
-multiple data sources in order to unify them under one API and make all containing data queryable,
-including all relating data points. The returned data, emitted in JSON syntax, can exhibit 
-graph-like structures, meaning multiple data points, that might be somehow related to each other, or 
-in other words: indirectly "linked" through each other. These, naturally deep-leveled structures,
-can be described by the syntax of the query language.
+The *QL* in __[GraphQL]{#link-graphql}__ [@web_spec_graphql] stands for *query language*. Developed
+by Facebook Inc., it's goal is to abstract multiple data sources into a unified API or resource, so 
+that different storage technologies are seamlessly queryable without using it's native *QL*. The 
+result is provided in a JSON format, which naturally supports graph-like data structures. This is 
+utilized in GraphQL and implicitly embraced through it's purpose of abstraction. Data points that
+might be somehow related but stored in different locations, can be obtained so that both end up in 
+the same object through which they are related, or indirectly linked, to each other. The shape of a 
+query is later mirrored by the result. GraphQL not only is an abstraction layer by itself, it also 
+moved almost any operations and flow controls into an additional layer. This so called *GraphQL* 
+server is then responsible for resolving and executing queries.
 
-The term __Semantic Web__ bundles a conglomerate of standards addressing syntax, schemas, assess
-control and integration around the idea of *web of data* to *"allow data being shared and reused 
-across"* [web_2016_w3c_semantic-web-activity] or within several scopes and contexts.
-Alongside several others, the following three standards have a certain relevance to that  concept.
+The term __[Semantic Web]{#link-semantic-web}__ bundles a conglomerate of standards released by the 
+W3C [^abbr_w3c], that is based around an idea called *web of data*, which aims to *"allow data being 
+shared and reused across"* [web_2016_w3c_semantic-web-activity]. Those standards address syntax, 
+schemas, formats, access control and integrations for several scopes and contexts. Among others, the 
+following three technologies are essential for the *Semantic Web*.
 RDF [^abbr_rdf] basically defines the syntax. OWL [^abbr_owl] provides the guidelines on how the 
-semantics and schemas should be defined and with SPARQL [@web_w3c-tr_sparql], the query language for 
-the RDF format, the data can be retrieved.
-A picture emerges in which the web is used as a database, queried by URIs with a query language.
-An example would be a person's email address, which is available under a specific domain (preferable 
-owned by that person) - or to be more precise, an URI *(WebID) [@web_w3c-draft_webid]* - and 
-provided in a certain syntax *(RDF)* and tagged with the semantic *(OWL)* of a email address; all 
-embedded in a valid html page. This information can be queried *(SPARQL)*, which requires at least 
-the URI, working as a unique identifier. 
-While defining the standards, an importancy was to define a syntax which is also valid markup, in 
-order to maintain a single source of trough and save redundant work.
-Related to this topic is the work on a specification called __Solid__ [^abbr_solid]. Based on the 
-*Linked Data* principles, that are facilitated through the standards just mentioned and the 
-*WebAccessControl* [@web_2016_wiki_webaccesscontrol] system, the project focuses on decentralization 
-and personal data. A reference implementation called *databox* [@web_2016_demo_databox] combines all 
-these technologies and is build on top. 
+semantics and schemas should be defined and with [SPARQL]{#link-sparql} [@web_w3c-tr_sparql], the 
+query language, data can be retrieved.
+One could not help but picture the web as a database, queryable data with URIs that is embedded in
+arbitrary websites. For example, a person's email address, which is available under a specific 
+domain (preferably owned by that person) - or to be more precise, a URI *(WebID) 
+[@web_w3c-draft_webid]* - provided in a certain syntax *(RDF)* and tagged with the semantic *(OWL)* 
+of a email address, all together embedded in an imprint of a website. This information can then be 
+queried *(SPARQL)*, if the URI that works as a unique identifier, is known. 
+While defining the standards, a main focus was to design a syntax, that is at the same time valid 
+markup. The vision behind this: embracing the concept of a single source of truth and embedding or
+linking data points rather then creating instances, which might only be valid at that point in time,
+in short preventing redundant work.
+Related to the *Semantic Web* is the a project called __Solid__ [^abbr_solid]. Based on the *Linked 
+Data* principles and backed the *WebAccessControl* [@web_2016_wiki_webaccesscontrol] system and the 
+standards just mentioned, that project focuses on decentralization and personal data. A reference 
+implementation called *databox* [@web_2016_demo_databox] combines all these technologies and is 
+build on top of the. 
 
 The concept of application (or software) __container__ is about encapsulating runtime environments 
 by introducing an additional layer of abstraction. A container bundles just the software 
@@ -220,6 +227,8 @@ document by definition of that law.
 
 [^http_methods]: knows as HTTP Methods or Verbs [@web_spec_http-methods] (e.g. GET, OPTIONS, PUT, 
     DELETE)
+    
+[^abbr_w3c]: World Wide Web Consortium; international community that develops standards for the web  
     
 [^abbr_rdf]: Resource Description Framework [@web_w3c-tr_rdf]
 

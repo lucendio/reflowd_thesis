@@ -88,7 +88,7 @@ necessary data as arguments. The resulting output is answer and response all in 
 Aside from all the research projects done within the scientific context, applications with a 
 commercial interest were starting to occur in a variety of sectors, too. Microsoft's HealthVault
 [@web_microsoft_healthvault], 
-for example, which aims to replace all the paper-based patient file and combine them in one digital 
+for example, which aims to replace all the paper-based patient medical record and combine them in one digital 
 version. This results in a patient-centered medical data and documents archive, helping doctors to
 make the most accurate decisions on medical treatment.
 

@@ -10,3 +10,18 @@
 []   change code blocks
 []   distinguish between new sections (empty line between) and new paragraphs (just a new line)
 []   adding several *new-pages* and additional pages for e.g. acknowledgement 
+[]   verbatim/code LOC
+[]   everything (tables of..., bib, attachments) should be listed in TOC, but in other hirach level
+     or numbering (e.g. roman)
+[]   move included images more towards its original place of inclusion 
+     
+     
+### Structur
+
+[]   move Code and Lists into attachment
+
+
+### Content
+
+[]   create arch diagrams (mono, distri)
+[]   remove file filed from all bibs

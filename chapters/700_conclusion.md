@@ -37,6 +37,8 @@ been refused.
     
 
 
+TODO: make a reference or involve the research mentioned at the beginning
+
 
 
 ## Challenges
@@ -61,6 +63,7 @@ the media industry for centuries is trying to make copyright infringements more 
 +   scenario where the mobile device, or in general the data storage get lost.
 first of all, not much of a problem, because either device backup or since the liberal relation, the 
 system would continue to function, but limited, until a data storage gets part of the system again 
+(TODO: touched on in the data section at the end)
 
 
 

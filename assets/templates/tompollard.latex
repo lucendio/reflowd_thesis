@@ -267,9 +267,15 @@ $endif$
 }
 $endif$
 $if(lot)$
+% added 20170129 -->
+\newpage
+% added 20170129 <--
 \listoftables
 $endif$
 $if(lof)$
+% added 20170129 -->
+\newpage
+% added 20170129 <--
 \listoffigures
 $endif$
 $body$

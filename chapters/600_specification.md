@@ -38,6 +38,9 @@ TODO: should might must n stuff in table (see dark mail spec)
 
 ### Structure & Types
 
++   henceforth only two things: primitive and struct
++   supported date types
+
 ### Read
 
 ### Write

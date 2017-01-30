@@ -103,7 +103,7 @@ internals from the host environment. This approach yields to some valuable featu
 All these in conjunction lead also to an overall security improvement or at least it enables new 
 patterns to improve such aspects. Furthermore, it allows to suit more versatile and diverse 
 scenarios, like storing data about a using data, providing sensitive profile data or getting used as 
-a patient file. The convenience of a precise resource assignment might also become relevant for case 
+a medical record. The convenience of a precise resource assignment might also become relevant for case 
 where device's hardware specification might be somewhat low.
 Building a system upon a container-based philosophy and enclosing components in their own 
 environment brings a variety of design and architectural possibilities without the necessity of 

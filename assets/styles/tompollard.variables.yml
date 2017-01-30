@@ -9,6 +9,8 @@ linestretch: '1.2'     # line space
 
 secnumdepth: 2
 subparagraph: true
+lof: true
+lot: true
 
 classoption:
 #    -   'openright'

@@ -77,6 +77,13 @@ multiple data sources (e.g. IoT, browser plugin).
 Additionally, it might be possible in the future to allow *data consumers* letting some data to flow
 back into the operator's system, after she is certain about it's validity and usefulness.
 
+__*[S.P.05]{#sp05}* - Data Redundancy__\
+Providing and managing data is the core task here. Hence the system needs to make backups or at 
+least provide mechanisms and tool for the *operator* to do that. Different strategies are 
+conceivable, but have to respect related requirements ([S.P.01](#sp01), [S.A.03](#sa03)) and 
+specific environment conditions though. The least feasible solution would be a manual backup only
+allowed by the *operator*.
+
 
 #### Interfaces:
 

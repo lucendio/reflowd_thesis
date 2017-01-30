@@ -110,7 +110,7 @@ the software then gets executed. After the process has finished, the result will
 the credit institute's infrastructure.
 
 
-#### Maintain and provide it's own health/patient record
+#### Maintain and provide it's own medical record
 
 Some time ago on a hiking trip in a moment of carelessness the data subject has accidently broke 
 her leg. She came into a hospital and went straight into surgery, where the physicians could fix 
