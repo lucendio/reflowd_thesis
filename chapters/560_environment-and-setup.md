@@ -39,12 +39,53 @@ This concept can be utilized for the *[supervised code execution](#supervised-da
 Migrating from a server-located *personal data storage* to the *mobile* based version introduces 
 another challenge. The subsequent approach is a first and more general solution to that problem.
 
-1.  TODO
+*NOTICE: it is assumed that a running instance of a *PDaaS* is in place, the *operator* owns a 
+modern mobile device and on this device a *PDaaS* client application is installed.*
 
+1.  After starting the app, the *operator* needs to establish a connection between the server and
+    mobile application. Therefor the *operator* either has to scans a QR-Code with the help of that
+    app. THe QR-Code is presented to the *operator* within her personal management interface of the 
+    *PDaaS* running in a browser. Or the *operator* inserts her credentials in to a form presented
+    by the mobile application.
+
+2.  After the connection has established, the *operator* can trigger a progress that duplicated
+    all her *personal data* to the device that just has been associated with the *PDaaS*.
+    
+3.  At this point one of two ways can be proceeded, depending on whether a complete write log
+    for the *personal data* ([see discussion about backup strategies](#data) does 
+    exist or not.
+    a)  *[LOG-EXISTS]* query by query the whole log is obtained from the existing storage and is
+        then again executed in chronologically order by the query language abstraction. The only 
+        difference here is that the target storage,on which that query is actually performed on, is 
+        located on that newly introduced platform
+    b)  If the *[LOG-NOT-EXISTS]*, the situation is more complicated, if the database systems are 
+        not based on exactly the same technology. Hence, additional migration software is required. 
+        If both database systems provide import and export mechanisms that support at least one 
+        interoperable data format, the migration software can leverage this features simply by 
+        exporting all the data and saving it to the filesystem. The software then transfers dump
+        to the target environment and triggers the import process.
+        Otherwise, the software not only needs to be aware of both database systems and their native 
+        query, it also has to have a comprehensive understanding of how their data structuring 
+        concepts work, in order to reliably transform one into the other. So to be more specific, at 
+        first the software has to analyse the structure of source database. Based on this result it 
+        might need to perform some configuration on the target database, before actually obtaining 
+        the data from the source database. The received data then need to be transformed into 
+        queries that are supported by the target system. Those transformed queries are transferred
+        to the target environment, where those incoming queries get executed until all data is
+        migrated.
+
+5.  After thr duplication process has finished, the *operator* can decide which *PDS* the *PDaaS*
+    should use to serve *access requests* and what should happen with the other storage(s).
+
+So to conclude, a migration process of moving *personal data* from one platform instance to another
+can be much more simplified and robust, if a complete query log would exist. It is also worth 
+mentioning, that the migration process described above is not restricted to exactly this source or 
+migration direction. As long as target and source are either a *server* or a *mobile* platform, 
+any variant is imaginable.
+ 
 
 
 *__Conclusions:__*
-
 Installing a *PDaaS* should be straightforward with the least possible effort being used for 
 preparations. Package manager of all popular operating systems should offer (semi-)automated 
 installations. Additionally, components themselves and the project as whole have to provide detailed 

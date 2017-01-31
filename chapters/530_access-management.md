@@ -26,10 +26,10 @@ process on their own without the operator's involvement, it would be much harder
 detect spam or fraudulent requests. Second, handing over that URI must be done over a secure 
 channel.*
 
-*NOTICE:* the two initial steps could also be made from the opposite direction. Third parties
+*NOTICE: the two initial steps could also be made from the opposite direction. Third parties
 put all information and data required for a registration together and present them to the *operator*
 in form of a QR-Code, so that the *operator* can obtain it and whereby is able to proceed. This 
-approach would short cut and hence simplify the process.
+approach would short cut and hence simplify the process.*
 
 2)  __Send permission request__; The third party then makes the actual attempt to register as a 
 *data consumer* by providing required information. Those information have to be include some kind of 
@@ -111,8 +111,8 @@ errors regarding the communication layer)
 : access permissions are hereby granted until the *permission type* has changed or the *permission
 profile* has been deleted
 
-*NOTICE:* The default *permission type* should be configurable. The *operator* can change all 
-*permission profiles* at any point in time.
+*NOTICE: The default *permission type* should be configurable. The *operator* can change all 
+*permission profiles* at any point in time.*
 
 Among other information, an *access request* contains the *data query* that shows very precisely 
 what data points are affected by that request. So if an *access request* arrives at the *PDaaS*,

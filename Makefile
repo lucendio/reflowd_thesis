@@ -158,6 +158,7 @@ pdf:
 	\
 	"$(CWD)/metadata.yml" \
 	"$(STYLES_DIR)/tompollard.variables.yml" \
+	"$(CONTENTS_DIR)/000_preamble.yml" \
 	"$(CONTENTS_DIR)/"*.md
 
 
@@ -194,6 +195,7 @@ html:
 	\
 	"$(CWD)/metadata.yml" \
 	"$(STYLES_DIR)/tompollard.variables.yml" \
+	"$(CONTENTS_DIR)/000_preamble.yml" \
 	"$(CONTENTS_DIR)/"*.md
 
 	@rm -rf $(OUTPUT_DIR)/assets/*
@@ -236,6 +238,7 @@ tex:
 	\
 	"$(CWD)/metadata.yml" \
 	"$(STYLES_DIR)/tompollard.variables.yml" \
+	"$(CONTENTS_DIR)/000_preamble.yml" \
 	"$(CONTENTS_DIR)/"*.md
 
 

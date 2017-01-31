@@ -50,7 +50,7 @@
 }{}
 \usepackage[unicode=true]{hyperref}
 \hypersetup{
-            pdftitle={Master Thesis: Open Specification of a user-controlled Web Service for Personal Data},
+            pdftitle={Open Specification of a user-controlled Web Service for Personal Data},
             pdfauthor={G. Jahn},
             pdfkeywords={personal data store; personal data as a service; web service architecture; open specification; masters thesis},
             pdfborder={0 0 0},
@@ -246,8 +246,9 @@
 }
 \makeatother
 
-\title{Master Thesis: Open Specification of a user-controlled Web Service for
-Personal Data}
+\title{Open Specification of a user-controlled Web Service for Personal Data}
+\providecommand{\subtitle}[1]{}
+\subtitle{Master Thesis}
 \author{G. Jahn}
 \date{\today}
 
@@ -2824,12 +2825,11 @@ access the \emph{operator's} personal data is proposed as followed.
   Second, handing over that URI must be done over a secure channel.}
 \end{enumerate}
 
-\emph{NOTICE:} the two initial steps could also be made from the
-opposite direction. Third parties put all information and data required
-for a registration together and present them to the \emph{operator} in
-form of a QR-Code, so that the \emph{operator} can obtain it and whereby
-is able to proceed. This approach would short cut and hence simplify the
-process.
+\emph{NOTICE: the two initial steps could also be made from the opposite
+direction. Third parties put all information and data required for a
+registration together and present them to the }operator\emph{ in form of
+a QR-Code, so that the }operator* can obtain it and whereby is able to
+proceed. This approach would short cut and hence simplify the process.*
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -2956,9 +2956,9 @@ access permissions are hereby granted until the \emph{permission type}
 has changed or the \emph{permission profile} has been deleted
 \end{description}
 
-\emph{NOTICE:} The default \emph{permission type} should be
-configurable. The \emph{operator} can change all \emph{permission
-profiles} at any point in time.
+\emph{NOTICE: The default }permission type* should be configurable. The
+\emph{operator} can change all \emph{permission profiles} at any point
+in time.*
 
 Among other information, an \emph{access request} contains the
 \emph{data query} that shows very precisely what data points are
@@ -3481,7 +3481,7 @@ Suggestions for useful structs}}
 
 \emph{NOTICE: schema notation is based on the rules underpinning the
 schema definition provided by the SimpleSchema project
-{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{128}{]}}.
+{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{128}{]}.}
 
 \textbf{\protect\hypertarget{code-05_struct_profile}{}{Code 05: Struct -
 Profile (example)}}
@@ -3812,13 +3812,14 @@ platform-agnostic. Whereas the database system storing that data can be
 implemented with respect to the requirements while considering the
 environment constraints at the same time. Basic permission management
 should suffice the \emph{PDS}, since it's not differently accessed in
-multiple ways. It's only relates to the query language abstraction. Date
+multiple ways. It's only relates to the query language abstraction. Data
 and especially it's structure is expected to be highly fluctuant
 (\protect\hyperlink{sp02}{S.P.02}), thus advantages of relational
 databases (e.g.~schema-oriented and -optimized) would instead harm the
-performance and flexibility. Database systems, whose storage engine
-build upon a document-oriented approach, would be a better choice.
-Replication can be used for horizontal scaling, federation and backups
+performance and flexibility, because they are not primarily designed to
+handle schema changes. Database systems, whose storage engine is build
+upon a document-oriented approach, would be a better choice. Replication
+can be used for horizontal scaling, federation and backups
 (\protect\hyperlink{sp05}{S.P.05}). Here it is focused on the latter,
 because without \emph{PL} the \emph{PDaaS} wont be able to function. In
 case of irreversible data loss, the whole system state is gone, which
@@ -3826,12 +3827,18 @@ then has to be reconfigured and reproduced from the ground up. Such
 effort can be spared by introducing a reliable backup strategy. With the
 \emph{PDS} on the other hand replication is not necessary, but ensuring
 no data loss still needs to be addressed. Therefor every database system
-that is used for the \emph{PDS} must provide a mechanism to backup or at
-least to export the data, which can be triggered and obtained through
-the \emph{operator's} management tool. If a mobile device is part of the
+that might be used for the \emph{PDS} must provide a mechanism to backup
+or at least to export the data, which can be triggered and obtained
+through the \emph{operator's} management tool. Another approach could be
+to not only store the actual data written to the \emph{PDS} but also to
+save all queries used to write that data in a chronological order.
+Therefore the current state can be restored just by running those
+writing queries against the \emph{PDS}. It is reasonable to store the
+the queries from the abstracted query language not the ones the query
+language is transformed into. If a mobile device is part of the
 \emph{PDaaS}, another approach would be for the \emph{operator} could be
-to perform regular device backups. These are all just initial approaches
-that might be sufficient as a starting point. Other solutions are
+to perform regular device backups. These are all just initial thoughts
+which might be sufficient only as a starting point. Other solutions are
 imaginable, but elaborating on those is beyond the scope of this work.
 Depending on what technologies are being used, it might be necessary
 from a conceptional perspective to split the \emph{PL} into two parts.
@@ -4529,36 +4536,95 @@ Migrating from a server-located \emph{personal data storage} to the
 \emph{mobile} based version introduces another challenge. The subsequent
 approach is a first and more general solution to that problem.
 
+\emph{NOTICE: it is assumed that a running instance of a }PDaaS* is in
+place, the \emph{operator} owns a modern mobile device and on this
+device a \emph{PDaaS} client application is installed.*
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
-  TODO
+  After starting the app, the \emph{operator} needs to establish a
+  connection between the server and mobile application. Therefor the
+  \emph{operator} either has to scans a QR-Code with the help of that
+  app. THe QR-Code is presented to the \emph{operator} within her
+  personal management interface of the \emph{PDaaS} running in a
+  browser. Or the \emph{operator} inserts her credentials in to a form
+  presented by the mobile application.
+\item
+  After the connection has established, the \emph{operator} can trigger
+  a progress that duplicated all her \emph{personal data} to the device
+  that just has been associated with the \emph{PDaaS}.
+\item
+  At this point one of two ways can be proceeded, depending on whether a
+  complete write log for the \emph{personal data}
+  (\protect\hyperlink{data}{see discussion about backup strategies} does
+  exist or not.
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \tightlist
+  \item
+    \emph{{[}LOG-EXISTS{]}} query by query the whole log is obtained
+    from the existing storage and is then again executed in
+    chronologically order by the query language abstraction. The only
+    difference here is that the target storage,on which that query is
+    actually performed on, is located on that newly introduced platform
+  \item
+    If the \emph{{[}LOG-NOT-EXISTS{]}}, the situation is more
+    complicated, if the database systems are not based on exactly the
+    same technology. Hence, additional migration software is required.
+    If both database systems provide import and export mechanisms that
+    support at least one interoperable data format, the migration
+    software can leverage this features simply by exporting all the data
+    and saving it to the filesystem. The software then transfers dump to
+    the target environment and triggers the import process. Otherwise,
+    the software not only needs to be aware of both database systems and
+    their native query, it also has to have a comprehensive
+    understanding of how their data structuring concepts work, in order
+    to reliably transform one into the other. So to be more specific, at
+    first the software has to analyse the structure of source database.
+    Based on this result it might need to perform some configuration on
+    the target database, before actually obtaining the data from the
+    source database. The received data then need to be transformed into
+    queries that are supported by the target system. Those transformed
+    queries are transferred to the target environment, where those
+    incoming queries get executed until all data is migrated.
+  \end{enumerate}
+\item
+  After thr duplication process has finished, the \emph{operator} can
+  decide which \emph{PDS} the \emph{PDaaS} should use to serve
+  \emph{access requests} and what should happen with the other
+  storage(s).
 \end{enumerate}
 
-\emph{\textbf{Conclusions:}}
+So to conclude, a migration process of moving \emph{personal data} from
+one platform instance to another can be much more simplified and robust,
+if a complete query log would exist. It is also worth mentioning, that
+the migration process described above is not restricted to exactly this
+source or migration direction. As long as target and source are either a
+\emph{server} or a \emph{mobile} platform, any variant is imaginable.
 
-Installing a \emph{PDaaS} should be straightforward with the least
-possible effort being used for preparations. Package manager of all
-popular operating systems should offer (semi-)automated installations.
-Additionally, components themselves and the project as whole have to
-provide detailed documentations for various ways of how those parts or
-the entire system need to be installed. Alternatively, \emph{data
-subjects} might be are willing to entrust external third parties with
-hosting a \emph{PDaaS} instance for them. In that case the distributed
-approach involving a \emph{mobile} platform might come in handy, so that
-the actual data is not stored somewhere beyond their reach. THe
-\emph{PDaaS} as an open source development encourages anybody who is
-interested or even wants to contribute to checkout the source code of
-the various implementations, get it to run and play around with it. But
-for that at least the components of the \emph{server} platform are
-required to have documented on what other software they depend on, so
-that the target environment can be prepared accordingly. Aside from
-hardware on which the \emph{PDaaS} needs to run, the only other
-requirement is owning a internet domain that is registered on a public
-DNS\footnote{Domain Name System; decentralized open directory that
-  associates readable names with IP addresses} server and has no
-subdomains configured yet.
+\emph{\textbf{Conclusions:}} Installing a \emph{PDaaS} should be
+straightforward with the least possible effort being used for
+preparations. Package manager of all popular operating systems should
+offer (semi-)automated installations. Additionally, components
+themselves and the project as whole have to provide detailed
+documentations for various ways of how those parts or the entire system
+need to be installed. Alternatively, \emph{data subjects} might be are
+willing to entrust external third parties with hosting a \emph{PDaaS}
+instance for them. In that case the distributed approach involving a
+\emph{mobile} platform might come in handy, so that the actual data is
+not stored somewhere beyond their reach. THe \emph{PDaaS} as an open
+source development encourages anybody who is interested or even wants to
+contribute to checkout the source code of the various implementations,
+get it to run and play around with it. But for that at least the
+components of the \emph{server} platform are required to have documented
+on what other software they depend on, so that the target environment
+can be prepared accordingly. Aside from hardware on which the
+\emph{PDaaS} needs to run, the only other requirement is owning a
+internet domain that is registered on a public DNS\footnote{Domain Name
+  System; decentralized open directory that associates readable names
+  with IP addresses} server and has no subdomains configured yet.
 
 If a component needs to get segregated from its host environment,
 \emph{containerization} is the recommended technique, since it causes

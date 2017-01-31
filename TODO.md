@@ -25,3 +25,4 @@
 
 []   create arch diagrams (mono, distri)
 []   remove file filed from all bibs
+[]   display subtitle

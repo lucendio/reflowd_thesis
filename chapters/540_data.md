@@ -227,7 +227,7 @@ __[List 01: Suggestions for useful structs]{#list-01_suggested-structs}__
 +   Diseases
 
 *NOTICE: schema notation is based on the rules underpinning the schema definition provided by the 
-SimpleSchema project [@web_2017_repo_node-simple-schema]*.
+SimpleSchema project [@web_2017_repo_node-simple-schema].*
 
 __[Code 05: Struct - Profile (example)]{#code-05_struct_profile}__
 ```js
@@ -382,20 +382,27 @@ implemented with respect to the requirements while considering the environment c
 same time. 
 Basic permission management should suffice the *PDS*, since it's not differently accessed in 
 multiple ways. It's only relates to the query language abstraction.
-Date and especially it's structure is expected to be highly fluctuant ([S.P.02](#sp02)), thus 
+Data and especially it's structure is expected to be highly fluctuant ([S.P.02](#sp02)), thus 
 advantages of relational databases (e.g. schema-oriented and -optimized) would instead harm the 
-performance and flexibility. Database systems, whose storage engine build upon a document-oriented
-approach, would be a better choice. Replication can be used for horizontal scaling, federation and
+performance and flexibility, because they are not primarily designed to handle schema changes. 
+Database systems, whose storage engine is build upon a document-oriented approach, would be a better 
+choice. 
+Replication can be used for horizontal scaling, federation and
 backups ([S.P.05](#sp05)). Here it is focused on the latter, because without *PL* the *PDaaS* wont be 
 able to function. In case of irreversible data loss, the whole system state is gone, which then has 
 to be reconfigured and reproduced from the ground up. Such effort can be spared by introducing a 
 reliable backup strategy. With the *PDS* on the other hand replication is not necessary, but 
-ensuring no data loss still needs to be addressed. Therefor every database system that is used for 
-the *PDS* must provide a mechanism to backup or at least to export the data, which can be triggered
-and obtained through the *operator's* management tool. If a mobile device is part of the *PDaaS*, 
-another approach would be for the *operator* could be to perform regular device backups. These
-are all just initial approaches that might be sufficient as a starting point. Other solutions are 
-imaginable, but elaborating on those is beyond the scope of this work.
+ensuring no data loss still needs to be addressed. Therefor every database system that might be used 
+for the *PDS* must provide a mechanism to backup or at least to export the data, which can be 
+triggered and obtained through the *operator's* management tool. Another approach could be to not 
+only store the actual data written to the *PDS* but also to save all queries used to write that data 
+in a chronological order. Therefore the current state can be restored just by running those writing 
+queries against the *PDS*. It is reasonable to store the the queries from the abstracted query 
+language not the ones the query language is transformed into.
+If a mobile device is part of the *PDaaS*, another approach would be for the *operator* could be to 
+perform regular device backups. These are all just initial thoughts which might be sufficient only 
+as a starting point. Other solutions are imaginable, but elaborating on those is beyond the scope of 
+this work.
 Depending on what technologies are being used, it might be necessary from a conceptional 
 perspective to split the *PL* into two parts. One part is a database system and the other is 
 represented by the environment's filesystem. This might be no alternative, when it comes to
