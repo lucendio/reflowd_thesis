@@ -53,7 +53,7 @@ sole purpose of performance optimization.
 Similar to the *Session Ticket Resumption* [@web_spec_tls-session-ticket-resumption] a web token, 
 namely the [JSON Web Token](#link_jwt), also moves the state towards the client, but that's about 
 all they have in common. A *JWT* carries everything with it that's worth knowing, including possible 
-states, and if necessary the token is symmetrical encrypted by the server. This is, only the server 
+states, and if necessary the token is symmetrical encrypted by the server. That is, only the server 
 is able to obtain data from it and reacting accordingly.
 
 Keeping track of a state (or multiple states) on the server and keeping data that is involved  
@@ -125,7 +125,7 @@ therefore trusted by a trustworthy public CA, as mentioned above. Then *consumer
 certificate to verify the *PDaaS* certificate. The other way is, to let the *PDaaS* create and sign 
 a public key by itself. Before *consumers* then get presented with the self-signed certificate of 
 the *PDaaS* during the initiation of the TLS connection, they already have to be aware of that 
-certificate. This is, *consumers* need to be provided with that certificate on a private channel
+certificate. That is, *consumers* need to be provided with that certificate on a private channel
 upfront.
 
 If a public-key-based connection, performing a *two-way authentication*, establishes successfully, it
@@ -165,7 +165,7 @@ constrains when interacting with the *PDaaS*, regardless of whether it's externa
 as costly as the system resources allow them to be, thus the level of security can be increased.
 
 
-*Conclusions:* 
+*__Conclusions:__*
 Based on the several requirements and distinct advantages of the two authentication mechanisms, 
 it is preferred to use asymmetric cryptography in combination with *HTTPS* for the communication 
 between the system and *data consumers*, where the system provides it's own *PKI*. Whereas a 

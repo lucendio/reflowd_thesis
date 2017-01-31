@@ -80,8 +80,7 @@ to future work, though.
 
 
 
-*Conclusions:* 
-
+*__Conclusions:__*
 The signing procedure as part of local verification method involve private key and 
 certificate stored on the operator's *eID card*. Every time when the *PDaaS* verifies data
 reliability that method has to runs. Thus the *operator* is forced to interact wit the *PDaaS*. 
@@ -89,7 +88,7 @@ Otherwise the operators private key need to be stored somewhere within the *PDaa
 or when, that would potentially expose a highly confidential part of a cryptographic procedure. 
 Not only would this reduces the overall security level of the system, it also makes every task 
 this method is involved vulnerable to certain attacks. Aside from that, it's highly unlikely that 
-an *eID card* would allow to extract it's containing private keys. This is, increasing inconvenience 
+an *eID card* would allow to extract it's containing private keys. That is, increasing inconvenience 
 is inevitable for this proposed method. The *Local Verification and signing* method also has the 
 same dependencies mentioned in the discussion about the requirements for using the (german) *eID 
 card* as an authentication token. And since it was rejected because of those dependencies and

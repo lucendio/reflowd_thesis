@@ -7,10 +7,6 @@ fontsize: '12pt'
 linestretch: '1.2'     # line space
 #fontfamily
 
-secnumdepth: 2
-subparagraph: true
-lof: true
-lot: true
 
 classoption:
 #    -   'openright'

@@ -22,7 +22,7 @@ for example a mobile app.
 Possible technologies are for example *[GraphQL](#link-graphql)* or the 
 *[SPARQL](#link-sparql)*, which is part of the *[Semantic Web Suite](#link-semantic-web)*. Both are
 query languages underpinned by the concept of a graph. This means, relations between data points are 
-embedded within the data structure itself. This is, in terms of a graph, relations are *edges* and 
+embedded within the data structure itself. That meant, in terms of a graph, relations are *edges* and 
 data points are *nodes*. In consequence the structure of a query itself reappears in it's result, 
 which means the originator of that query knows exactly what to expect for the response. Therefore
 it's not necessary to provide any additional information about how to handle and interpret the
@@ -369,24 +369,24 @@ background optimization                          __X__
 version control
 ----------------------------------------------------------
 
-Table: selection of characteristics that a database system 
-    has to feature in order to be suitable for either of 
-    the defined purposes 
+Table: selection of characteristics that a database system has to feature in order to be suitable 
+    for either of the defined purposes {#tbl:dbs-features} 
 
 
-Although, most of the characteristics are self explanatory, certain aspects need to be commented on.
-Fist, portability, an important requirement ([S.A.02](#sa02)), which is oddly not marked in the 
-table. That's because of the priorly introduced concept of abstracting the *personal data storage*
-with a additional query language. This makes the access to the *PDS* platform-agnostic. Whereas the 
-database system storing that data can be implemented with respect to the requirements while 
-considering the environment constraints at the same time. 
+Although, most of the characteristics (in Table @tbl:dbs-features) are self explanatory, certain 
+aspects need to be commented on. Fist, portability, an important requirement ([S.A.02](#sa02)), 
+which is oddly not marked in the Table @tbl:dbs-features. That's because of the priorly introduced 
+concept of abstracting the *personal data storage* with a additional query language. This makes the 
+access to the *PDS* platform-agnostic. Whereas the database system storing that data can be 
+implemented with respect to the requirements while considering the environment constraints at the 
+same time. 
 Basic permission management should suffice the *PDS*, since it's not differently accessed in 
 multiple ways. It's only relates to the query language abstraction.
 Date and especially it's structure is expected to be highly fluctuant ([S.P.02](#sp02)), thus 
 advantages of relational databases (e.g. schema-oriented and -optimized) would instead harm the 
 performance and flexibility. Database systems, whose storage engine build upon a document-oriented
 approach, would be a better choice. Replication can be used for horizontal scaling, federation and
-backups ([S.P.05](#sp05)). Here the latter is focused on, because without *PL* the *PDaaS* wont be 
+backups ([S.P.05](#sp05)). Here it is focused on the latter, because without *PL* the *PDaaS* wont be 
 able to function. In case of irreversible data loss, the whole system state is gone, which then has 
 to be reconfigured and reproduced from the ground up. Such effort can be spared by introducing a 
 reliable backup strategy. With the *PDS* on the other hand replication is not necessary, but 
@@ -436,18 +436,21 @@ authentication and permission mechanisms must be in place. That software is clas
 
 
 
-*Conclusions:*
+*__Conclusions:__*
+In order to gain flexibility in choosing technology and location for the *personal data storage*, 
+the logical consequence is to abstract the interface to to the database system. Introducing a
+separate query language is proposed as a reasonable approach. It can be chosen between two suggested 
+query languages, *GraphQL* or *SPARQL*. Both provide the necessary features required to integrate 
+them in a distributed system; *SPARQL* with it concepts of URIs as identifiers and resources, and 
+*GraphQL* with it's separation of query definition and execution. This also has an effect on the
+process of query validation, which is much harder to do for *SPARQL*, because its syntax is more
+flexible and allows some shorthands. In general *SPARQL's* syntax is harder to reason about 
+compared to *GraphQL*. And even though the result of both languages is formatted in JSON, only 
+*GraphQL* preserves all the relations which are embedded in the query syntax, in the output as well. 
+Therefore *GraphQL* (and its implementations) is the query language of choice for this project.
 
-TODO: why Graphql over Sparql ?
-+ similar features but *SPARQL* syntax is harder to reason about and the output
-+ both provide the necessary features required to integrate them in a distributed system. *SPARQL*
-  with it concepts of URIs as identifiers and resources, and *GraphQL* with it's abstraction of
-  query definition and execution.
-+ this effects the query validation as well, which sparql's is harder to test, because it syntax is 
-more flexible and allows some shorthands
-
-TODO:  result needs to be json because its nature to present and preserve graph structures
-
-Data Modelling is a large research field for it's own. This aspect of the *PDaaS* needs much more 
-work which is beyond the scope of this document. The basic approaches in this section should be 
-viewed only  as an introduction that gives an outlook of how it's imagined. 
+Engaging a user community when it comes to creating new structs can compensate the lack of certain
+types. Examples for a potential start point of *PDaaS* supported data types were showed before.
+Data Modelling in general is a large research field for it's own. With regards to the *PDaaS* it 
+needs much more work, though tt's beyond the scope of this document. The basic approaches within 
+this section should only be viewed as an introduction that gives an outlook of how it's imagined. 

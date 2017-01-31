@@ -78,7 +78,7 @@ When transferring data over a potential non-private channel several properties m
 which eventually provide an overall trust to that data. One important aspect might me, that no one 
 else expect sender and receiver are able to know and see what the actual data is. To achieve this, 
 __Symmetrical Cryptography__ is used for. It states that the sender encrypts the data with the help 
-of a key and the receiver decrypts that data also with that key. This is, sender and receiver, both 
+of a key and the receiver decrypts that data also with that key. That is, sender and receiver, both 
 need to know that one key, but everyone else should not . To agree on a key without compromising the 
 key during that process, both entities either change the medium (e.g meet physically and exchange) 
 or have to use a procedure, in which at any point in time the entire key is not exposed to others 
@@ -151,7 +151,8 @@ standards just mentioned, that project focuses on decentralization and personal 
 implementation called *databox* [@web_2016_demo_databox] combines all these technologies and is 
 build on top of the. 
 
-The concept of application (or software) __container__ is about encapsulating runtime environments 
+The concept of application (or software) __[container]{#link-container}__ is about encapsulating 
+runtime environments 
 by introducing an additional layer of abstraction. A container bundles just the software 
 dependencies (e.g. binaries) that are absolutely necessary so that the enclosed program is able to 
 run properly. The actual container separation is done, aside from others, with the help of two 

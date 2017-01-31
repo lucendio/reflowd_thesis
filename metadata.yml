@@ -47,7 +47,11 @@ include-after: |
 links-as-notes: true
 toc-title: 'Table of Contents'
 toc-depth: 1
+lof: true
+lot: true
 link-citations: true
+secnumdepth: 2
+subparagraph: true
 
 
 bibliography: [

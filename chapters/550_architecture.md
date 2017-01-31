@@ -33,6 +33,7 @@ it's internals are taken into account. This results in the following three types
 +---------+---------+---------------+---------------+-----------+----------------------------------+
 
 Table: All platform types where components of the *PDaaS* architecture can be placed 
+    {#tbl:platforms-characteristics}
 
 
 The next step is to determine those components, that are required in order to cover most of the 
@@ -106,6 +107,7 @@ relation(s) to each other.
 +   writes personal data through Storage Connector 
 +   provides relevant data, such as history
 +   system configuration
++   automated data inflow
 
 *Technologies:*
 +   JWT
@@ -256,10 +258,10 @@ platform, have to communicate to the other components via *HTTPS*.
 
 The architecture implicitly distinguishes between two different groups of endpoints. These endpoints
 are made available by the *web server*, which reverse-proxys incoming connections to role-related 
-(*operator* or *data consumer*) components. Starting from that, this separation can be further 
-brought simply by encapsulating those components into services, that either are related to one of
+(*operator* or *data consumer*) components. Starting from that, this separation can be driven
+further by simply encapsulating those components into services, that either are related to one of
 the roles or used by both. This basically results in the *web server* communicating with the two 
-role services in a bidirectional manner.
+role-services in a bidirectional manner.
 The group of endpoints for *data consumers* mainly consists of those were *access requests* and 
 *permission requests* are coming in and the public one, that is used for *consumer* registrations.
 The other one is a small group of endpoints required for all the tools the *operator* might need;
@@ -282,7 +284,7 @@ also should be used to authenticate that individual against an external parties.
 
 
 
-*Conclusions:*
+*__Conclusions:__*
 Considering amount of effort a single-platform version, namely client or mobile, would take to get 
 fully operational with respect to the specification, it is not only reasonable but also more secure 
 to involve a server environment with proper security measures, static IP and high availability. Even

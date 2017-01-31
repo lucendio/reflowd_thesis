@@ -103,7 +103,7 @@ else ifeq ($(env),macos)
 	brew install pandoc-crossref pandoc-citeproc
 	brew cask install basictex
 
-	pip install --target $(PYTHON_MODULES_DIR) pandoc-fignos
+	pip install --target $(PYTHON_MODULES_DIR) pandoc-fignos pandoc-tablenos
 
 	tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
 	tlmgr update --self
@@ -133,6 +133,7 @@ pdf:
 	--default-image-extension=png \
 	\
 	--filter=$(PYTHON_MODULES_DIR)/pandoc_fignos.py \
+	--filter=$(PYTHON_MODULES_DIR)/pandoc_tablenos.py \
 	--filter=pandoc-citeproc \
 	\
 	--template="$(TEMPLATES_DIR)/tompollard.latex" \
@@ -170,6 +171,7 @@ html:
 	--default-image-extension=png \
 	\
 	--filter=$(PYTHON_MODULES_DIR)/pandoc_fignos.py \
+	--filter=$(PYTHON_MODULES_DIR)/pandoc_tablenos.py \
 	--filter=pandoc-citeproc \
 	\
 	--template="$(TEMPLATES_DIR)/tompollard.html5" \
@@ -210,6 +212,7 @@ tex:
 	--default-image-extension=png \
 	\
 	--filter=$(PYTHON_MODULES_DIR)/pandoc_fignos.py \
+	--filter=$(PYTHON_MODULES_DIR)/pandoc_tablenos.py \
 	--filter=pandoc-citeproc \
 	\
 	--template="$(TEMPLATES_DIR)/tompollard.latex" \

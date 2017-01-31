@@ -80,6 +80,16 @@
 \usepackage{hyperref}
 \hypersetup{colorlinks=false, linkcolor=black}
 
+% added 20170130 -->
+% to fix URLs not willing to break in bibs
+% src https://tex.stackexchange.com/questions/3033/forcing-linebreaks-in-url
+\usepackage{url}
+\def\UrlOrds{\do\*\do\-\do\~\do\'\do\"\do\-}%
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+% added 20170130 <--
+
 % Tables
 \usepackage{booktabs}
 \usepackage{threeparttable}

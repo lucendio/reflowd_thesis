@@ -193,7 +193,7 @@ by the combination of *two-way authentication* in TLS, dedicated endpoints and c
 
 
 
-*Conclusions:* 
+*__Conclusions:__* 
 In the preceding text, various solutions were developed, based on which the following three 
 solutions are at disposal:
 a)  OAuth 1.0a and HTTP
