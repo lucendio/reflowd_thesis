@@ -177,7 +177,7 @@ reviewed by the *data subject*. Furthermore, it is not within the scope of the O
 to define how this should be accomplished. Thus, such step needs to be added in addition to an 
 entire OAuth-Flow, which might cause otherwise avoidable overhead in user interactions. Moreover,
 the proposed design does not include that step either. Instead, it is not needed process at all,
-because according to the former proposed process, identifying the client happens implicitly as a
+because according to the former proposed process, client identification happens implicitly as a
 result of how the resource owner *(operator)* obtains the registration request from the client
 (Part One: consumer registration, step 0 and 1).
 Further investigations show that the `access_token` semantic as from the perspective of a resource 

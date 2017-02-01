@@ -14,6 +14,7 @@ representation of herself. Then the decisions made by *data consumers* might hav
 the *data subject's* life. For example a housing loan won't be granted or a medical treatment has 
 been refused.
 
++   give back the data subject to control the level of privacy she is willing to share
 
 
 ## Business Models & Monetisation
@@ -34,6 +35,9 @@ been refused.
     -   spec implementer
     -   integrater in consumer:
 +   Consumer:
+    -   what can she do with it:
+        adjsut precision of datasets and values to increase privacy
+    -   control and get an overview on where her data might flow (and for what purpose)
     
 
 
@@ -64,6 +68,10 @@ the media industry for centuries is trying to make copyright infringements more 
 first of all, not much of a problem, because either device backup or since the liberal relation, the 
 system would continue to function, but limited, until a data storage gets part of the system again 
 (TODO: touched on in the data section at the end)
+
++   during concept development, it appears to become necessary to define another role, for *data 
+contributors* (plugins/clients that are authorized by the *operator* but only allowed to push data 
+to the *PDaaS*).
 
 
 

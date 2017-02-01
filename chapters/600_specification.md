@@ -48,6 +48,10 @@ TODO: should might must n stuff in table (see dark mail spec)
 (!) every data or configuration change has to be reversible
 
 
+precision of data: demanding lower precision than the *data subject* has approved is always possible. The
+other ways around not.
+
+
 
 ## Protocols
 

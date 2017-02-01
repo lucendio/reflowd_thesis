@@ -1238,7 +1238,8 @@ Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
   --\textgreater{} next topic (law)
 \end{itemize}
 
-\section{Personal Data as a Product}\label{personal-data-as-a-product}
+\hypertarget{personal-data-as-a-product}{\section{Personal Data as a
+Product}\label{personal-data-as-a-product}}
 
 \begin{itemize}
 \item
@@ -1589,7 +1590,7 @@ purposes they might going to service.
 {[}\protect\hyperlink{ref-web_spec_http1}{74}{]}, well known as the
 stateless \emph{``transport layer''} for the \emph{World Wide Web}, is
 most likely going to fulfill the same purpose in the context of this
-work, because it implements a server-client pattern in it very core.
+work, because it implements a server-client pattern in its very core.
 Whether internal components (local or as part of a distributed system)
 talk to each other or data consumers interact with the system, this
 protocol transfers the data hat need to be exchanged. Features
@@ -2174,6 +2175,17 @@ have to respect related requirements (\protect\hyperlink{sp01}{S.P.01},
 though. The least feasible solution would be a manual backup only
 allowed by the \emph{operator}.
 
+\textbf{\emph{\protect\hypertarget{sp06}{}{S.P.06}} - Data Precision}\\
+As stated in the previous chapter about
+\emph{\protect\hyperlink{personal-data-as-a-product}{Data as a
+Product}}, the level of precision of data has a significant impact on
+the \emph{data subject's} privacy. Therefore the \emph{data subjects}
+must be provided with the ability to configure how precise certain data
+should be when it is provided to \emph{data consumers} somehow. Those
+adjustments should have no impact on the actual stored data. That is,
+adjustments have to be made after the data is fetched but before further
+processing.
+
 \subsubsection{Interfaces:}\label{interfaces}
 
 \textbf{\emph{\protect\hypertarget{si01}{}{S.I.01}} - Documentation}\\
@@ -2217,7 +2229,7 @@ space, because of the diversity of screen sizes nowadays.
 support}\\
 The user interface must be at least implemented based on web
 technologies, that is provided by a server and is thus available on any
-platform that comes with a modern browser. To enable additional features
+system that comes with a modern browser. To enable additional features
 and behavior, at least for mobile devices it is recommended to build a
 user interface upon native supported technologies, such as \emph{Swift}
 and \emph{Java}. The operator would benefit from capabilities such as
@@ -2320,13 +2332,15 @@ and look up past accesses.
 
 \textbf{\emph{\protect\hypertarget{pb02}{}{P.B.02}} - Real time}\\
 Real time communication might be essential for time-critical data
-transaction. Hence at least one user interfaces should be connected to
-the server through an ongoing connection to enable real time support
-(example scenario: permission request got reviewed on mobile device, but
-notification indicator reflects ``still pending''). But if just one
-client is associated to the system, real time (in the sense of keeping
-UI state up to date) would not be necessary. (see
-\protect\hyperlink{pviu02ux5cux257D}{P.VIU.02})
+transaction. Hence graphical user interfaces should be communicating
+with the server through an ongoing connection to enable real time
+support. (Assuming the following example scenario: permission request
+got reviewed on mobile device, but notification indicator still reflects
+``pending''). If just one of the user interfaces has no real-time
+capabilities but all the other do, the user interface might get into an
+undefined state presenting the user with wrong information, which will
+decrease the user experience dramatically. This mean, either all user
+interfaces provide real-time feedback or non.
 
 \chapter{Design Discussion}\label{design-discussion}
 
@@ -3052,16 +3066,16 @@ needs to be added in addition to an entire OAuth-Flow, which might cause
 otherwise avoidable overhead in user interactions. Moreover, the
 proposed design does not include that step either. Instead, it is not
 needed process at all, because according to the former proposed process,
-identifying the client happens implicitly as a result of how the
-resource owner \emph{(operator)} obtains the registration request from
-the client (Part One: consumer registration, step 0 and 1). Further
-investigations show that the \texttt{access\_token} semantic as from the
-perspective of a resource server, which are a) authentication (does this
-token exist?) and b) authorization (is this token valid and what does it
-permit?), have in part already been provided by the proposed way of
-using the TLS layer. Because every \emph{data consumer} has it's own
-endpoint to connect with the \emph{PDaaS} and the certificate used by
-the \emph{consumer} is singed by a signature that is only used for that
+client identification happens implicitly as a result of how the resource
+owner \emph{(operator)} obtains the registration request from the client
+(Part One: consumer registration, step 0 and 1). Further investigations
+show that the \texttt{access\_token} semantic as from the perspective of
+a resource server, which are a) authentication (does this token exist?)
+and b) authorization (is this token valid and what does it permit?),
+have in part already been provided by the proposed way of using the TLS
+layer. Because every \emph{data consumer} has it's own endpoint to
+connect with the \emph{PDaaS} and the certificate used by the
+\emph{consumer} is singed by a signature that is only used for that
 endpoint. This means, the \emph{consumer} is already authenticated, when
 the TLS connection has successfully established. And since the endpoints
 relates to the \emph{permission profiles} it would make providing an
@@ -3896,7 +3910,7 @@ stored. In the second version the \emph{data subject} need to be ask to
 review the imported data to make sure everything is as expected. When
 enabling third party software to submit data, appropriate authentication
 and permission mechanisms must be in place. That software is classed
-like all other \emph{operator} clients, but without permissions to
+like all other \emph{operator} front ends, but without permissions to
 obtain data.
 
 \emph{\textbf{Conclusions:}} In order to gain flexibility in choosing
@@ -3944,8 +3958,9 @@ concerns, which are in fact different environments with different
 properties. Those combinations of locations and environments are herein
 after called \emph{platforms}. To further describe these
 \emph{platforms} characteristics such as architectural layer and access
-possibilities to it's internals are taken into account. This results in
-the following three types of \emph{platforms}:
+possibilities to it's internals are taken into account. This resulting
+three types of \emph{platforms} are shown in Table
+\ref{tbl:platforms-characteristics}.
 
 \begin{longtable}[]{@{}lccccl@{}}
 \caption{All platform types where components of the \emph{PDaaS}
@@ -4070,7 +4085,7 @@ purpose(s) and relation(s) to each other.
 \item
   load balancing (if necessary)
 \item
-  web client notification
+  desktop notification
 \end{itemize}
 
 \emph{Technologies:}
@@ -4367,14 +4382,14 @@ virtual machines or containers, so that they can scale and run more
 independently. This can improve \emph{redundancy} as well.
 
 In theory, a possible version of the arrangement would be to move all
-components to either the client or the mobile platform. This comes along
-with some downsides and major issues that are anything but trivial to
-solve. Aside from ensuring a nearly 100\% uptime and localization in a
-landscape where NAT\footnote{Network Address Translation; practice of
+components to either the desktop or the mobile platform. This comes
+along with some downsides and major issues that are anything but trivial
+to solve. Aside from ensuring a nearly 100\% uptime and localization in
+a landscape where NAT\footnote{Network Address Translation; practice of
   routing traffic between and through distinct networks address spaces
   by remapping IPs from those different networks onto each other} and
 dynamic IPs are still common practice, not only on the mobile platform
-but on the client platform as well, all component, but the user
+but on the desktop platform as well, all component, but the user
 interface, needs to be implemented with native technologies.
 Nevertheless, from a \emph{operator's} perspective it would mean having
 all components at hand and therefore full control over the \emph{PDaaS},
@@ -4408,11 +4423,11 @@ authentication is either done by the \emph{Operator API} or by the
 Though, it makes more sense, to entrust the \emph{web server} with that
 task, because it's the outmost component and it would prevent
 unauthorized and potential malicious requests from getting further into
-the system. And since a native client on a mobile platform is considered
-\emph{private}, it is reasonable to change the \emph{operator}
-authentication from JWT-based to TLS-based \emph{two-way
+the system. And since a native front end on a mobile platform is
+considered \emph{private}, it is reasonable to change the
+\emph{operator} authentication from JWT-based to TLS-based \emph{two-way
 authentication}, which would otherwise be inconvenient when using
-web-based clients.
+web-based front ends.
 
 If there are components that are only placed on the server and that have
 to communicate between each other, but are separated into independent
@@ -4460,7 +4475,7 @@ should be used to authenticate that individual against an external
 parties.
 
 \emph{\textbf{Conclusions:}} Considering amount of effort a
-single-platform version, namely client or mobile, would take to get
+single-platform version, namely desktop or mobile, would take to get
 fully operational with respect to the specification, it is not only
 reasonable but also more secure to involve a server environment with
 proper security measures, static IP and high availability. Even if that
@@ -4474,7 +4489,7 @@ the sensitive personal data somewhere on a computer machine. As of the
 proposed architecture all components (or group of components) are
 portable and therefore relocatable among the suggested platforms; and
 with the introduced authentication method for \emph{operators} using
-multiple clients the for the same \emph{PDaaS} are thereby supports and
+multiple front ends for the same \emph{PDaaS} are thereby supports and
 can be implemented with almost no effort, which covers more use cases.
 As a supplement, an \emph{identity provider} based on the OpenID
 standard would fit nicely into the existing arrangement and not
@@ -4501,9 +4516,10 @@ even though almost every platform is POSIX-compliant.\footnote{Portable
   systems.} When it comes to \emph{mobile} platforms the market is fare
 less divers. Native applications are either developed in \emph{Java}
 (for Google's Android) or in Swift (for Apple's iOS). Whereas the
-environment systems has nearly no relevance for the \emph{client}, other
-then the screen size and maybe which browser and version the environment
-system runs. But that's probably something the user can change.
+environment systems has nearly no relevance for the \emph{desktop},
+other then the screen size and maybe which browser and version the
+environment system runs. But that's probably something the user can
+change.
 
 As a result, being able to use certain components on a \emph{server}
 platform depends on what \emph{server} environment is provided. And vice
@@ -4539,7 +4555,7 @@ approach is a first and more general solution to that problem.
 
 \emph{NOTICE: it is assumed that a running instance of a }PDaaS* is in
 place, the \emph{operator} owns a modern mobile device and on this
-device a \emph{PDaaS} client application is installed.*
+device a \emph{PDaaS} mobile application is installed.*
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4669,13 +4685,14 @@ typically headless. Whereas \emph{APIs}, documented by its provider,
 used to enable software developers program automated requests against
 those interfaces.
 
-Table \ref{tbl:ui-features} provides a list of features with the
-associated user interfaces that should support them. It is notable that
-the \emph{GUI} provides the \emph{operator} with a powerful tool, which
-therefore needs reliable protection mechanisms (see
+Table \ref{tbl:ui-features} provides a list of features and associates
+the different user interfaces mentioned before to those features if they
+should be supported by the interface types. It is notable that the
+\emph{GUI} provides the \emph{operator} with a powerful tool Hence it
+requires reliable protection mechanisms (see
 \protect\hyperlink{authentication}{Authentication}). Whereas \emph{API}
-capabilities are very limited, because it's the one interface exposed to
-third parties.
+capabilities are very limited, because it's the one interface that the
+\emph{PDaaS} exposes to third parties.
 
 \begin{longtable}[]{@{}lccc@{}}
 \caption{Features that should be supported by the given user interfaces
@@ -4733,7 +4750,7 @@ register \emph{consumer}\strut
 \strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-add new \emph{client}\strut
+add new \emph{front end}\strut
 \end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
 \textbf{X}\strut
 \end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
@@ -4777,6 +4794,15 @@ create \& maintain templates (\protect\hyperlink{pi05}{P.I.05})\strut
 \strut
 \end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
 \strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+adjust precision of data (\protect\hyperlink{pi06}{P.I.06})\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
 introduce new data \emph{structs}\strut
@@ -4835,41 +4861,65 @@ run supervised code execution\strut
 \bottomrule
 \end{longtable}
 
-The architectural design includes \emph{client} and \emph{mobile}
+The architectural design includes \emph{desktop} and \emph{mobile}
 platforms. While prioritizing a web-based \emph{GUI}, the management
 tool for the \emph{operator} also need to be implemented natively for
 common mobile systems (\protect\hyperlink{pviu02}{P.VIU.02}); in this
 case Android and iOS. This again enables to provide real-time
 notifications (\protect\hyperlink{pi03}{P.I.03},
 \protect\hyperlink{pb02}{P.B.02}) on mobile platforms, whereas
-WebSocket-based connections add the same feature to \emph{client}
+WebSocket-based connections add this feature to \emph{desktop}
 platforms. Since screen sizes can vary, in particular on \emph{mobile}
 platforms, the \emph{GUI} is required to be highly responsive and has to
 adapt (\protect\hyperlink{pviu01}{P.VIU.01}). Given the capabilities of,
 a inaccurate or error-prone rendered \emph{GUI} can quickly cause
 unintended incidents. The main focus though has to
 
-Known challenges for the \emph{GUI} design is primarily to make very
-efficient but also fun ro review review \emph{consumer registrations}
-and \emph{permission requests}. Especially the latter
+Known challenges for the \emph{GUI} design are primarily developing very
+efficient but also fun to use interfaces for reviewing \emph{consumer
+registrations} and \emph{permission requests}. Especially the latter can
+become hard to solve, because how can graph-based and nested data
+structures be displayed in such a way that makes reviewing and also
+manipulating an easy task to do - even on a screen of a mobile phone.
+One approach could be to utilize the \emph{accordion} pattern
+{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{134}{]} for
+edges and start nesting them in order to represent subsequent data
+structure. The interaction then might look like tree-structured
+navigation moving along relations just by expanding and folding in data
+points.
 
-\begin{itemize}
-\item
-  when a data point is a Date or location, some kind of accuracy should
-  be able to defined (in user interface)
-\item
-  list all different features (w/ respect to the requirements) and give
-  a suggestion on how a solution would look like; e.g.~graph data
-  structure with accordion menus/dropdowns
-\end{itemize}
+Since other parts of the system have to provide the mechanisms to
+increase or reduce the precision of data due to privacy protection, the
+challenge here is to find the right design concepts for \emph{data
+subject} to facilitate those adjustments. Precision adjustments can be
+achieved by either changing the sampling rate in a dataset containing a
+series of data points, or by rounding values to a certain extend. An
+example is cutting fractional digits of the latitude and longitude
+values in a position information, or removing all position information
+obtained between every quarter from a full day tracking period. Whether
+\emph{data subjects} can choose from an abstracted precision grading
+(e.g. \emph{high}, \emph{mid}, and \emph{low}) or they set specific,
+type or unit related filter mechanisms, configurable defaults on a
+system-wide level should be provided by \emph{GUIs} in any case.
+Following data types are supposedly vulnerable to compromise privacy,
+thus proposed to support precision adjustments: \emph{Date} (time), any
+kind of absolute measurements, sets containing data series, and position
+information, as mentioned before.
 
-\emph{\textbf{Conclusions:}}
+\emph{\textbf{Conclusions:}} The most important aspect, when interacting
+with something or someone, is being provided with some kind of feedback.
+An action typically causes - and is therefore expected - a reaction. The
+result is an interaction, unless no reaction occurred.
 
-Those are all vital characteristics that need to be addressed by the
-\emph{specification}.
-
-\emph{GUIs} need to be provided for all \emph{client} and \emph{mobile}
-platforms, primarily to provide an efficient user experience for the
+The discussion above outlines the relevance of those interactions for
+the \emph{PDaaS}. Thus, for users and other software to interact with
+the \emph{PDaaS} interfaces are mandatory. Primary characteristics of
+those interfaces are complete functionality, security precautions and
+restrictions, as well as comprehensive documentations. And visual user
+interfaces in addition, need to provide reliable and adaptive rendering,
+a consistent and encouraging interaction design and. \emph{GUIs} need to
+be provided for all \emph{desktop} and \emph{mobile} platforms,
+primarily to provide an efficient user experience for the
 \emph{operator}. The \emph{operator} is the only role with permissions
 to access a \emph{GUI}. Components on the \emph{server} platform should
 provide \emph{CLIs}, at least when no other technical option exist to
@@ -4877,17 +4927,14 @@ interact with them. Also accessing the database from command line could
 be appreciated at some point. \emph{APIs} are mostly meant for
 \emph{data consumers} to interact with the \emph{PDaaS} and perhaps for
 automated data contribution (based on \emph{operator} role; e.g.~browser
-plugin). \emph{Client} platforms might use those provided \emph{APIs} as
-well. In any case \emph{APIs} must be separated according to the
+plugin). \emph{Desktop} platforms might use those \emph{APIs} as well.
+In any case, \emph{APIs} must be separated according to the
 \emph{roles}.
 
-The most important aspect when interacting with something or someone is
-being provided with some kind of feedback. An action typically causes,
-and is therefore expected, a reaction. When combining both, the result
-is interaction.
-
-The details of their implementations are not the concern of this
-specification, as long a every containing requirement is acknowledged.
+These are all vital characteristics whose details need to be addressed
+by the \emph{specification}. Whose implementation details though are not
+the concern of this specification, as long as every stated requirement
+is being acknowledged.
 
 \chapter{\texorpdfstring{Specification
 \emph{(Draft)}}{Specification (Draft)}}\label{specification-draft}
@@ -4941,6 +4988,9 @@ Infrastructure}\label{notification-infrastructure-1}
 \subsection{Write}\label{write}
 
 (!) every data or configuration change has to be reversible
+
+precision of data: demanding lower precision than the \emph{data
+subject} has approved is always possible. The other ways around not.
 
 \section{Protocols}\label{protocols}
 
@@ -5263,7 +5313,6 @@ How do the APIs involved with the protocols look like?
 ``Relevance'')}{Ethical \& Social Impact (TODO: or Relevance)}}\label{ethical-social-impact-todo-or-relevance}
 
 \begin{itemize}
-\tightlist
 \item
   Regarding involving an official party to verify data reliability: The
   actual question would be, is the \emph{data subject} certain, that she
@@ -5276,6 +5325,9 @@ How do the APIs involved with the protocols look like?
   \emph{data consumers} might have a big impact for the \emph{data
   subject's} life. For example a housing loan won't be granted or a
   medical treatment has been refused.
+\item
+  give back the data subject to control the level of privacy she is
+  willing to share
 \end{itemize}
 
 \section{Business Models \&
@@ -5312,6 +5364,16 @@ Monetisation}\label{business-models-monetisation}
   \end{itemize}
 \item
   Consumer:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    what can she do with it: adjsut precision of datasets and values to
+    increase privacy
+  \item
+    control and get an overview on where her data might flow (and for
+    what purpose)
+  \end{itemize}
 \end{itemize}
 
 TODO: make a reference or involve the research mentioned at the
@@ -5348,6 +5410,11 @@ beginning
   backup or since the liberal relation, the system would continue to
   function, but limited, until a data storage gets part of the system
   again (TODO: touched on in the data section at the end)
+\item
+  during concept development, it appears to become necessary to define
+  another role, for \emph{data contributors} (plugins/clients that are
+  authorized by the \emph{operator} but only allowed to push data to the
+  \emph{PDaaS}).
 \end{itemize}
 
 \section{Solutions}\label{solutions}
@@ -6127,5 +6194,10 @@ environment (ACME)}. URL
 success -- by the numbers}. URL
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 - retrieved 2016-12-16
+
+\hypertarget{ref-web_2016_wikipedia_accordion-gui}{}
+{[}134{]} \emph{Accordion (GUI)}. URL
+\url{https://en.wikipedia.org/w/index.php?title=Accordion_(GUI)\&oldid=758084292}.
+- retrieved 2017-02-01. ---~Page Version ID: 758084292
 
 \end{document}

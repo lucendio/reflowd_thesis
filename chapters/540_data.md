@@ -439,7 +439,7 @@ extensively validated against existing *structs*. Only if these are matching, th
 be stored. In the second version the *data subject* need to be ask to review the imported data to 
 make sure everything is as expected. When enabling third party software to submit data, appropriate
 authentication and permission mechanisms must be in place. That software is classed like all other
-*operator* clients, but without permissions to obtain data.
+*operator* front ends, but without permissions to obtain data.
 
 
 

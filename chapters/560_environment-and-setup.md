@@ -13,9 +13,9 @@ The range of environment systems for *server* platforms is highly diverse but th
 to either the UNIX or LINUX family, even though almost every platform is POSIX-compliant 
 [^abbr_posix]. When it comes to *mobile* platforms the market is fare less divers. Native 
 applications are either developed in *Java* (for Google's Android) or in Swift (for Apple's iOS).
-Whereas the environment systems has nearly no relevance for the *client*, other then the screen size 
-and maybe which browser and version the environment system runs. But that's probably something the
-user can change.
+Whereas the environment systems has nearly no relevance for the *desktop*, other then the screen 
+size and maybe which browser and version the environment system runs. But that's probably something 
+the user can change.
 
 As a result, being able to use certain components on a *server* platform depends on what *server* 
 environment is provided. And vice versa, in order to decide on what implementation of a component is 
@@ -40,7 +40,7 @@ Migrating from a server-located *personal data storage* to the *mobile* based ve
 another challenge. The subsequent approach is a first and more general solution to that problem.
 
 *NOTICE: it is assumed that a running instance of a *PDaaS* is in place, the *operator* owns a 
-modern mobile device and on this device a *PDaaS* client application is installed.*
+modern mobile device and on this device a *PDaaS* mobile application is installed.*
 
 1.  After starting the app, the *operator* needs to establish a connection between the server and
     mobile application. Therefor the *operator* either has to scans a QR-Code with the help of that

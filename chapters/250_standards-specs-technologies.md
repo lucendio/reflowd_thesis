@@ -8,7 +8,7 @@ be a reasonable choice and what purposes they might going to service.
 
 __[HTTP]{#link_http}__ [@web_spec_http1], well known as the stateless *"transport layer"* for the 
 *World Wide Web*, is most likely going to fulfill the same purpose in the context of this work,
-because it implements a server-client pattern in it very core.
+because it implements a server-client pattern in its very core.
 Whether internal components (local or as part of a distributed system) talk to each other or data 
 consumers interact with the system, this protocol transfers the data hat need to be exchanged.
 Features introduced with Version 2 [@web_spec_http2] of the protocol are yet to be known of their 

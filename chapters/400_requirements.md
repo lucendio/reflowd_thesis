@@ -84,6 +84,14 @@ conceivable, but have to respect related requirements ([S.P.01](#sp01), [S.A.03]
 specific environment conditions though. The least feasible solution would be a manual backup only
 allowed by the *operator*.
 
+__*[S.P.06]{#sp06}* - Data Precision__\
+As stated in the previous chapter about *[Data as a Product](#personal-data-as-a-product)*, the 
+level of precision of data has a significant impact on the *data subject's* privacy. Therefore the 
+*data subjects* must be provided with the ability to configure how precise certain data should be 
+when it is provided to *data consumers* somehow. Those adjustments should have no impact on the 
+actual stored data. That is, adjustments have to be made after the data is fetched but before 
+further processing.
+
 
 #### Interfaces:
 
@@ -119,7 +127,7 @@ screen sizes nowadays.
 
 __*[P.VIU.02]{#pviu02}* - Platform support__\
 The user interface must be at least implemented based on web technologies, that is provided by a
-server and is thus available on any platform that comes with a modern browser.
+server and is thus available on any system that comes with a modern browser.
 To enable additional features and behavior, at least for mobile devices it is recommended to build 
 a user interface upon native supported technologies, such as *Swift* and *Java*. The operator would 
 benefit from capabilities such as *push notifications* and storing data on that device.
@@ -190,9 +198,10 @@ must be logged. Such log is the foundation of the *access history*, with this th
 keep track of and look up past accesses.
 
 __*[P.B.02]{#pb02}* - Real time__\
-Real time communication might be essential for time-critical data transaction. Hence at least one
-user interfaces should be connected to the server through an ongoing connection to enable
-real time support (example scenario: permission request got reviewed on mobile device, but 
-notification indicator reflects "still pending"). But if just one client is associated to the 
-system, real time (in the sense of keeping UI state up to date) would not be necessary.
-(see [P.VIU.02](#pviu02}))
+Real time communication might be essential for time-critical data transaction. Hence graphical
+user interfaces should be communicating with the server through an ongoing connection to enable
+real time support. (Assuming the following example scenario: permission request got reviewed on 
+mobile device, but notification indicator still reflects "pending"). If just one of the user 
+interfaces has no real-time capabilities but all the other do, the user interface might get into an 
+undefined state presenting the user with wrong information, which will decrease the user experience
+dramatically. This mean, either all user interfaces provide real-time feedback or non. 

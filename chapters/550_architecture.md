@@ -14,7 +14,8 @@ availability ([S.A.05](#sa05)) and b) separating some concerns
 to place these concerns, which are in fact different environments with different properties.
 Those combinations of locations and environments are herein after called *platforms*. To further 
 describe these *platforms* characteristics such as architectural layer and access possibilities to 
-it's internals are taken into account. This results in the following three types of *platforms*:
+it's internals are taken into account. This resulting three types of *platforms* are shown in Table
+@tbl:platforms-characteristics.
 
 
 +---------+---------+---------------+---------------+-----------+----------------------------------+
@@ -51,7 +52,7 @@ relation(s) to each other.
 +   revers proxying certain traffic to different components
 +   en- & decrypt HTTPS traffic, thus authenticate *consumers*
 +   load balancing (if necessary)
-+   web client notification
++   desktop notification
 
 *Technologies:*
 +   HTTP
@@ -217,10 +218,10 @@ virtual machines or containers, so that they can scale and run more independentl
 *redundancy* as well.
 
 In theory, a possible version of the arrangement would be to move all components to either the 
-client or the mobile platform. This comes along with some downsides and major issues that are 
+desktop or the mobile platform. This comes along with some downsides and major issues that are 
 anything but trivial to solve. Aside from ensuring a nearly 100% uptime and localization in a
 landscape where NAT [^abbr_nat] and dynamic IPs are still common practice, not only on the mobile
-platform but on the client platform as well, all component, but the user interface, needs to be 
+platform but on the desktop platform as well, all component, but the user interface, needs to be 
 implemented with native technologies. Nevertheless, from a *operator's* perspective it would mean 
 having all components at hand and therefore full control over the *PDaaS*, it still would lack of 
 major requirements, though.
@@ -244,10 +245,10 @@ subdomains including their individual keys and certificates provided by the *PKI
 authentication is either done by the *Operator API* or by the *web server*, depending on the *web 
 server's* capabilities. Though, it makes more sense, to entrust the *web server* with that task, 
 because it's the outmost component and it would prevent unauthorized and potential malicious 
-requests from getting further into the system. And since a native client on a mobile platform is 
+requests from getting further into the system. And since a native front end on a mobile platform is 
 considered *private*, it is reasonable to change the *operator* authentication from JWT-based to 
 TLS-based *two-way authentication*, which would otherwise be inconvenient when using web-based 
-clients.
+front ends.
  
 If there are components that are only placed on the server and that have to communicate between each 
 other, but are separated into independent processes, then some inter-process communication need to 
@@ -285,7 +286,7 @@ also should be used to authenticate that individual against an external parties.
 
 
 *__Conclusions:__*
-Considering amount of effort a single-platform version, namely client or mobile, would take to get 
+Considering amount of effort a single-platform version, namely desktop or mobile, would take to get 
 fully operational with respect to the specification, it is not only reasonable but also more secure 
 to involve a server environment with proper security measures, static IP and high availability. Even
 if that server is a local machine connected to the *data subject's* private network. That said, it 
@@ -295,7 +296,7 @@ should be possible to migrate effortlessly towards the *distributed* approach th
 higher level , because all the sensitive personal data somewhere on a computer machine.
 As of the proposed architecture all components (or group of components) are portable and therefore
 relocatable among the suggested platforms; and with the introduced authentication method for 
-*operators* using multiple clients the for the same *PDaaS* are thereby supports and can be 
+*operators* using multiple front ends for the same *PDaaS* are thereby supports and can be 
 implemented with almost no effort, which covers more use cases.
 As a supplement, an *identity provider* based on the OpenID standard would fit nicely into the 
 existing arrangement and not interfering with the other components. However, it is beyond the scope 
