@@ -69,7 +69,7 @@ simple type (string, integer, boolean, etc.) or a structured composition based o
 
 __*[S.P.04]{#sp04}* - Write__\
 Primarily the operator is the only one who has the permissions to add, change or remove data. This
-is done either by using the appropriate forms provided by visual user interface or import 
+is done either by using the appropriate forms provided by graphical user interface or import 
 mechanisms. The latter could be enabled through (A) support for file upload containing supported 
 formats, (B) data API restricted to the operator or (C) defining an external source reachable via 
 http (e.g. *RESTful URI*) in order to (semi-)automate additional an ongoing data import from 
@@ -111,10 +111,10 @@ take place, all data send back and forth should be serialized/structured in a JS
 structure.
 
 
-#### Visual User Interface:
+#### Graphical User Interface:
 
 __*[P.VIU.01]{#pviu01}* - Responsive user interface__\
-The visual user interface has to be responsive to the available space, because of the diversity of
+The graphical user interface has to be responsive to the available space, because of the diversity of
 screen sizes nowadays.
 
 __*[P.VIU.02]{#pviu02}* - Platform support__\
@@ -146,7 +146,7 @@ Given these circumstances, the *permission request review* and *permission profi
 become a special challenge. 
 
 __*[P.I.02]{#pi02}* - Design__\
-The visual user interface must be designed and structured in such a way that is is highly intuitive
+The graphical user interface must be designed and structured in such a way that is is highly intuitive
 for the user to operate. Thus, it is important e.g. to use meaningful icons and appropriate labels.
 It also means a flat and not crammed menu navigation. Context related interaction elements should be
 positioned within the area designated for that context.

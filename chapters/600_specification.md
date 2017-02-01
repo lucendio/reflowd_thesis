@@ -45,6 +45,8 @@ TODO: should might must n stuff in table (see dark mail spec)
 
 ### Write
 
+(!) every data or configuration change has to be reversible
+
 
 
 ## Protocols

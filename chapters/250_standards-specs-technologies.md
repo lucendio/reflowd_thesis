@@ -109,7 +109,7 @@ is one of those *PKI*s - a public one and probably the largest. It is based on t
 
 __REST(ful)__ [^abbr_rest] is a common set of principles to design web resources communication, 
 primarily server-client relations, in a more generic and thereby interoperable way. Aside from 
-hierarchically structured URIs, which reflect semantic meanings, it involves a group of rudimentary 
+hierarchically structured URIs, which reflect certain semantic content, it involves a group of rudimentary 
 vocabulary [^http_methods] to provide basic Create-Read-Update-Delete operations across distributed
 systems. The entire request need to contain everything that is required to get proceeded, e.g. state 
 data and possibly authentication. These operation normally wont get applied directly to the 

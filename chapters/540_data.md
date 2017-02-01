@@ -422,11 +422,11 @@ frequently backups would already suffice or if a implementation on the applicati
 Before serving data it first needs to be put into the *PDS*. This can be done in three different 
 ways:
 
-1.  the *data subject* is provided with forms by the visual user interface, which she is using to 
+1.  the *data subject* is provided with forms by the graphical user interface, which she is using to 
     insert data about her, for example her [profile information (Code 05)](#code-05_struct_profile).
     This data is then submitted into the *PDaaS* which takes care of storing it.
 2.  the *data subject* is in possession of file(s) or string(s) that contain a data format that is 
-    supported by the system. The visual user interface provides a mechanism to either upload the 
+    supported by the system. The graphical user interface provides a mechanism to either upload the 
     file(s) or insert the string(s), thereby the data is then send into the system. If this raw data
     is not self-explaining to the system the *data subject* has to elaborate on the context of those
     data.

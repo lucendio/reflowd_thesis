@@ -1749,9 +1749,9 @@ widely used IETF\footnote{Internet Engineering Task Force; non-profit
   {[}\protect\hyperlink{ref-web_spec_rest}{92}{]}} is a common set of
 principles to design web resources communication, primarily
 server-client relations, in a more generic and thereby interoperable
-way. Aside from hierarchically structured URIs, which reflect semantic
-meanings, it involves a group of rudimentary vocabulary\footnote{knows
-  as HTTP Methods or Verbs
+way. Aside from hierarchically structured URIs, which reflect certain
+semantic content, it involves a group of rudimentary
+vocabulary\footnote{knows as HTTP Methods or Verbs
   {[}\protect\hyperlink{ref-web_spec_http-methods}{93}{]} (e.g.~GET,
   OPTIONS, PUT, DELETE)} to provide basic Create-Read-Update-Delete
 operations across distributed systems. The entire request need to
@@ -2155,8 +2155,8 @@ structured composition based on a schema.
 \textbf{\emph{\protect\hypertarget{sp04}{}{S.P.04}} - Write}\\
 Primarily the operator is the only one who has the permissions to add,
 change or remove data. This is done either by using the appropriate
-forms provided by visual user interface or import mechanisms. The latter
-could be enabled through (A) support for file upload containing
+forms provided by graphical user interface or import mechanisms. The
+latter could be enabled through (A) support for file upload containing
 supported formats, (B) data API restricted to the operator or (C)
 defining an external source reachable via http (e.g. \emph{RESTful URI})
 in order to (semi-)automate additional an ongoing data import from
@@ -2205,12 +2205,13 @@ When components communicating between each other or interactions with
 the system from the outside take place, all data send back and forth
 should be serialized/structured in a JSON or JSON-like structure.
 
-\subsubsection{Visual User Interface:}\label{visual-user-interface}
+\subsubsection{Graphical User
+Interface:}\label{graphical-user-interface}
 
 \textbf{\emph{\protect\hypertarget{pviu01}{}{P.VIU.01}} - Responsive
 user interface}\\
-The visual user interface has to be responsive to the available space,
-because of the diversity of screen sizes nowadays.
+The graphical user interface has to be responsive to the available
+space, because of the diversity of screen sizes nowadays.
 
 \textbf{\emph{\protect\hypertarget{pviu02}{}{P.VIU.02}} - Platform
 support}\\
@@ -2249,8 +2250,8 @@ review} and \emph{permission profile creation} might become a special
 challenge.
 
 \textbf{\emph{\protect\hypertarget{pi02}{}{P.I.02}} - Design}\\
-The visual user interface must be designed and structured in such a way
-that is is highly intuitive for the user to operate. Thus, it is
+The graphical user interface must be designed and structured in such a
+way that is is highly intuitive for the user to operate. Thus, it is
 important e.g.~to use meaningful icons and appropriate labels. It also
 means a flat and not crammed menu navigation. Context related
 interaction elements should be positioned within the area designated for
@@ -3869,18 +3870,18 @@ can be done in three different ways:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  the \emph{data subject} is provided with forms by the visual user
+  the \emph{data subject} is provided with forms by the graphical user
   interface, which she is using to insert data about her, for example
   her \protect\hyperlink{code-05_struct_profile}{profile information
   (Code 05)}. This data is then submitted into the \emph{PDaaS} which
   takes care of storing it.
 \item
   the \emph{data subject} is in possession of file(s) or string(s) that
-  contain a data format that is supported by the system. The visual user
-  interface provides a mechanism to either upload the file(s) or insert
-  the string(s), thereby the data is then send into the system. If this
-  raw data is not self-explaining to the system the \emph{data subject}
-  has to elaborate on the context of those data.
+  contain a data format that is supported by the system. The graphical
+  user interface provides a mechanism to either upload the file(s) or
+  insert the string(s), thereby the data is then send into the system.
+  If this raw data is not self-explaining to the system the \emph{data
+  subject} has to elaborate on the context of those data.
 \item
   Third party software, for example a browser plugin, is used to provide
   the \emph{PDaaS} with data; in this case it's a browser history. This
@@ -4634,44 +4635,259 @@ introduce new problems instead of solving them.
 
 \section{User Interfaces}\label{user-interfaces}
 
-conceiving visual user interfaces is beyond the scope of this work and
-the specification.
+Designing graphical user interfaces is beyond the scope of this work and
+the \emph{PDaaS} specification as well. Nevertheless this section shell
+be understood as a collection of proposed ideas addressing the questions
+of what types of user interfaces the \emph{PDaaS} should provide and
+which features they might need to support.
+
+The most notable characteristic used to distinguish user interfaces from
+each other are those interfaces that are visible and the ones that
+arn't. For example a \emph{graphical user interface (GUI)}, composed of
+visually separated areas with a certain semantic and assembled with
+meaningful objects on which the user can physically act, for example by
+touching them. The interface then reacts on those actions by changing
+their appearance. In this way the user can comprehend her actions.
+Whereas non-graphical user interfaces don't provide the user with
+objects or surfaces to interact with. Instead, the primarily used medium
+is text, regardless if it's human-readable or not. But \emph{command
+line interfaces (CLI)}, available mainly in command line environments or
+shells, still provides a certain level of interactivity. A running
+program can pause in order to prompt the user with an input request. If
+an input is made and submitted the program then proceeds. The group of
+interfaces whose interactions can be fully automated are for example
+\emph{application programming interfaces (API)}. Depending on the
+transport technologies, it's no unusual that \emph{API} interactions are
+consisting of just one action causing one reaction. Non-graphical
+interfaces enabling interactions on lower level. Even though they
+provide more functionality and can more time efficient, they are more
+rudemental and often less secure. While \emph{GUIs} are normally meant
+for end users to interact with applications on a more sophisticated
+level, \emph{CLIs} are used during development, for automation, or for
+server environment administration; probably remotely, because they are
+typically headless. Whereas \emph{APIs}, documented by its provider,
+used to enable software developers program automated requests against
+those interfaces.
+
+Table \ref{tbl:ui-features} provides a list of features with the
+associated user interfaces that should support them. It is notable that
+the \emph{GUI} provides the \emph{operator} with a powerful tool, which
+therefore needs reliable protection mechanisms (see
+\protect\hyperlink{authentication}{Authentication}). Whereas \emph{API}
+capabilities are very limited, because it's the one interface exposed to
+third parties.
+
+\begin{longtable}[]{@{}lccc@{}}
+\caption{Features that should be supported by the given user interfaces
+\label{tbl:ui-features}}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.36\columnwidth}\raggedright\strut
+Feature\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering\strut
+GUI\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering\strut
+CLI\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering\strut
+API\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.36\columnwidth}\raggedright\strut
+Feature\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering\strut
+GUI\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering\strut
+CLI\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering\strut
+API\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+manage \emph{permission profiles}
+(\protect\hyperlink{pviu03}{P.VIU.03})\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+view access history (\protect\hyperlink{pviu04}{P.VIU.04})\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+register \emph{consumer}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+add new \emph{client}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+authenticate \emph{operator}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+migrate \emph{personal data}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+review \emph{permission requests}
+(\protect\hyperlink{pi04}{P.I.04})\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+create \& maintain templates (\protect\hyperlink{pi05}{P.I.05})\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+introduce new data \emph{structs}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+configure \emph{PDaaS}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+import personal data\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
+read/access \emph{personal data}\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+manipulate \emph{personal data}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
+run supervised code execution\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
+\textbf{X}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+The architectural design includes \emph{client} and \emph{mobile}
+platforms. While prioritizing a web-based \emph{GUI}, the management
+tool for the \emph{operator} also need to be implemented natively for
+common mobile systems (\protect\hyperlink{pviu02}{P.VIU.02}); in this
+case Android and iOS. This again enables to provide real-time
+notifications (\protect\hyperlink{pi03}{P.I.03},
+\protect\hyperlink{pb02}{P.B.02}) on mobile platforms, whereas
+WebSocket-based connections add the same feature to \emph{client}
+platforms. Since screen sizes can vary, in particular on \emph{mobile}
+platforms, the \emph{GUI} is required to be highly responsive and has to
+adapt (\protect\hyperlink{pviu01}{P.VIU.01}). Given the capabilities of,
+a inaccurate or error-prone rendered \emph{GUI} can quickly cause
+unintended incidents. The main focus though has to
+
+Known challenges for the \emph{GUI} design is primarily to make very
+efficient but also fun ro review review \emph{consumer registrations}
+and \emph{permission requests}. Especially the latter
 
 \begin{itemize}
-\tightlist
-\item
-  has to be visual?
-\item
-  what about an api? e.g.~for third party apps (for operator) - maybe
-  self fulfilling because open source
-\item
-  Internal:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    UI for Management \& Administration
-  \item
-    Authentication/login
-  \end{itemize}
-\end{itemize}
-
-list all different features (w/ respect to the requirements) and give a
-suggestion on how a solution would look like; e.g.~graph data structure
-with accordion menus/dropdowns
-
-\begin{itemize}
-\tightlist
 \item
   when a data point is a Date or location, some kind of accuracy should
   be able to defined (in user interface)
+\item
+  list all different features (w/ respect to the requirements) and give
+  a suggestion on how a solution would look like; e.g.~graph data
+  structure with accordion menus/dropdowns
 \end{itemize}
 
-TOD: data Consumption (data inflow) - how data will get into the system
-- hwo is the user able to do that, and how does it works - manually and
-automated
-
 \emph{\textbf{Conclusions:}}
+
+Those are all vital characteristics that need to be addressed by the
+\emph{specification}.
+
+\emph{GUIs} need to be provided for all \emph{client} and \emph{mobile}
+platforms, primarily to provide an efficient user experience for the
+\emph{operator}. The \emph{operator} is the only role with permissions
+to access a \emph{GUI}. Components on the \emph{server} platform should
+provide \emph{CLIs}, at least when no other technical option exist to
+interact with them. Also accessing the database from command line could
+be appreciated at some point. \emph{APIs} are mostly meant for
+\emph{data consumers} to interact with the \emph{PDaaS} and perhaps for
+automated data contribution (based on \emph{operator} role; e.g.~browser
+plugin). \emph{Client} platforms might use those provided \emph{APIs} as
+well. In any case \emph{APIs} must be separated according to the
+\emph{roles}.
+
+The most important aspect when interacting with something or someone is
+being provided with some kind of feedback. An action typically causes,
+and is therefore expected, a reaction. When combining both, the result
+is interaction.
+
+The details of their implementations are not the concern of this
+specification, as long a every containing requirement is acknowledged.
 
 \chapter{\texorpdfstring{Specification
 \emph{(Draft)}}{Specification (Draft)}}\label{specification-draft}
@@ -4723,6 +4939,8 @@ Infrastructure}\label{notification-infrastructure-1}
 \subsection{Read}\label{read}
 
 \subsection{Write}\label{write}
+
+(!) every data or configuration change has to be reversible
 
 \section{Protocols}\label{protocols}
 
