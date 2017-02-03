@@ -1,10 +1,13 @@
 ## Scenarios
 
+
+
 The following use cases shall depict different situations and possible ways such emerging software
 might be applicable or useful, while providing it's user with more control over her personal data.
 Some of them are more practical and realistic, like ordering and purchasing online a product,
 others might have no current usage, but showing a certain potential to become more relevant when 
 new technologies and business models emerge, followed by new demands of data.
+
 
 
 #### Ordering a product online

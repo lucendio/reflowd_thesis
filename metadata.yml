@@ -23,7 +23,8 @@ bibliography: [
     './assets/bibliographie/urls.bib',
     './assets/bibliographie/graphics.bib',
     './assets/bibliographie/media.bib',
-    './assets/bibliographie/specs.bib'
+    './assets/bibliographie/specs.bib',
+    './assets/bibliographie/studies.bib'
 ]
 
 csl: './assets/citation/din-1505-2-numeric.csl'

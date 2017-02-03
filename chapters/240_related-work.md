@@ -1,5 +1,13 @@
 ## Related Work
 
+
+
+*NOTICE:* All research, projects, studies and work mentioned in this section represents only a 
+fraction of what's already been done in this field and should be therefore seen as an excerpt 
+containing selected, most related and relevant approaches. 
+
+
+
 The idea of a digital vault, controlled and maintained by the data subject, the individual, isn't 
 that new. Holding her most sensitive and valuable collections of bits and bytes, protected from 
 all these data brokers and authorities, while interacting with the digital and physical world, 
