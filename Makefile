@@ -162,6 +162,18 @@ pdf:
 	"$(CONTENTS_DIR)/"*.md
 
 
+	@pandoc \
+		$(CONTENTS_DIR)/900_declaration-of-authorship.draft \
+		\
+		--latex-engine=xelatex \
+		--latex-engine-opt= \
+		\
+		--from=markdown$(MARKDOWN_EXTENSIONS) \
+		\
+		--output="$(OUTPUT_DIR)/declaration-of-authorship.pdf"
+
+
+
 
 html:
 	@pandoc \

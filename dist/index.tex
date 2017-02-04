@@ -5,6 +5,7 @@
 % % % additions by tompollard START -->
 
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
+% TODO: delete if images position is awkward
 \usepackage{float}
 \let\origfigure=\figure
 \let\endorigfigure=\endfigure
@@ -461,104 +462,184 @@ individual who the personal data belongs to. it enables her to get a
 more precise understanding of what data is accessed by whom and how this
 might effect her privacy.
 
+\hypertarget{terminologies}{\section{Terminologies}\label{terminologies}}
+
+\begin{description}
+\tightlist
+\item[Web Service]
+TODO
+\item[Open Specification]
+TODO
+\item[Big Data]
+deep learning, neural networks
+\item[Profile Data]
+individual's inherent data; TODO
+\item[Personal Data (TODO)]
+Personal Information predominantly static data points related to an
+individual
+\item[Personal Data as a Service (PDaaS)]
+a web service controlled, owned and maybe even hosted by an individual,
+that provides access to the data subject's personal data and offers
+maintainability as well as permission management. It can be seen as her
+personal agent; sometimes also referred to as \emph{the system}
+\item[Personal Data Store]
+TODO
+\item[Vendor Relationship Manager]
+The \emph{ProjectVRM} defines the a VRM as follows: ``TODO''
+{[}\protect\hyperlink{ref-web_2010_projectvrm-wiki_about-vrm}{14}{]}
+\item[Personal Information Management Systems (PIMS)]
+TODO
+{[}\protect\hyperlink{ref-web_2010_projectvrm-wiki_pims-example-list}{15}{]}
+\item[serverless]
+TODO https://auth0.com/blog/2016/06/09/what-is-serverless/
+\item[Digital Footprints]
+TODO
+\item[Data Subject]
+an individual who first and foremost is the owner of all of her personal
+data; sometimes referred to as \emph{owner}
+\item[\protect\hypertarget{terminologies--operator}{}{Operator}]
+a \emph{data subject} using a PDaaS to control (and probably host) her
+personal data; sometimes referred to as \emph{data controller}
+\item[\protect\hypertarget{terminologies--consumer}{}{(Data) Consumer}]
+Third party, external entity requesting data, authorized by the data
+subject to do so; sometimes referred to as \emph{(data) collector}
+\item[Data Broker(s)]
+entities with commercial interests, that collect, aggregate and analyze
+information/data of any kind - in this case about human beings - from
+different sources in order to enrich the data sets, to finally license
+the resulting corpora to other organisations.
+{[}\protect\hyperlink{ref-report_2014_data-brokers}{16}{]}
+\item[Permission Request]
+initial attempt to request permissions for accessing certain data from
+the \emph{PDaaS}; third party registers as \emph{data consumer}
+\item[Access Request]
+obtain/request actual data from the system (requires a third party to be
+registered as a \emph{data consumer})
+\item[Permission Profile]
+a data set about a third party that already made a permission request.
+The set contains additional information and access rules
+\item[Data Access]
+after a third party's \emph{permission request} got reviewed and saved,
+that entity is then able to make an attempt to access data.
+\item[Endpoint]
+an endpoint is defined as the part of the URI that is unique to every
+\emph{data consumer}, or to be more precise, unique to every
+\emph{permission profile}. Usually it is the first part of a URI,
+whereas following parts stand for different resources that might be
+available within that endpoint It can also be seen as group of resources
+that all can be accessed by under specific circumstances
+\end{description}
+
 \hypertarget{scenarios}{\section{Scenarios}\label{scenarios}}
 
-The following use cases shall depict different situations and possible
-ways such emerging software might be applicable or useful, while
-providing it's user with more control over her personal data. Some of
-them are more practical and realistic, like ordering and purchasing
-online a product, others might have no current usage, but showing a
-certain potential to become more relevant when new technologies and
-business models emerge, followed by new demands of data.
+The following use cases portray different situations and possible ways
+in which the tool in question might be applicable, and shows in several
+ways that it can be helpful to be in charge of its own personal data.
+Some are more practical and realistic, like ordering and purchasing a
+product on the internet, while others might at the moment not seem to be
+very useful, but show a certain potential to become more relevant when
+new technologies and business models will occur, who are followed by new
+desires for data.
 
-\subsubsection{Ordering a product
-online}\label{ordering-a-product-online}
+\subsubsection{Ordering a product on the
+web}\label{ordering-a-product-on-the-web}
 
-The data subject searches through the web to find a new toaster, since
+The data subject searches through the web to find a new toaster, because
 her old one recently broke. After some clicks and reviews, she found her
 soon-to-become latest member of the household's kitchenware. After
 putting the model name in a price search engine, hoping to save some
 money, the first entry, offering a 23\% discount, caught her attention.
-She decides to have a deeper look into the toasters and thus has heading
-towards the original web shop entry. Finally she came around and put the
-item onto her card, despite tha fact, that she has never bought
-something from that online shop before. Then she proceeded to checkout
-to place her order. The shop-interface is asking her to either insert
-her credentials, proceed without registration or sign-in, or insert s
-URI to an endpoint of her \emph{Personal Data as a Service}. TODO: the
-following description might need some adjustments according data flow /
-process description She opens up the management panel of her
-\emph{PDaaS} and creates a new entry in a list of data consumers, that
-already have access to characteristics of her personal data. As a
-result, she receives a URI, which she inserts according, as mentioned
-before; after she assures herself that the data exchange with the shop
-through the browser is based on a secure connection (HTTPS). Under this
-URI, the shop-system can then request data, that is required for a
-successful transaction. Moving on to the next step after submitting the
-URI, the data subject is ask to decide how she would like to pay. The
-choices are: credit card, invoice, online payment provider of choice or
-bank transfer. She chooses the last one, submits her selection and
-thereby completes her order. After a moment, a push notification pops up
-on her mobile device, which is a permission request from her
-\emph{PDaaS}, asking for granting the shop-system, she just places the
-order, access to her full name, address and email. Additionally she can
-decide between three states of how long the permission wil be valid:
-\emph{only one time}, \emph{expires on date} and \emph{granted, until
-further notice}. Since she never ordered at this shop before and might
-never again, she decided to grant access only for this specific
-occasion. After the shop-system receives the data, it sends an email to
-the data subject, containing some information about her order, including
-the shop's bank details. which then enables her to actually pay the
-amount due. After the system recognizes the payment has coming in, it
-triggers the shipment of the toaster. In order to get a full impression
-of how the whole process might have look like when the data subject had
-chosen one of the other payment methods, the differences will be
-describes in the following. If the data subject would have wanted to pay
-with her credit card, the only difference would have been, that the
-shop-system had requested also to access the credit card number and it's
-belonging secret, and when sending the email the system would have
-omitted the information about the shop's bank details. Being able to
-choose paying with invoice where possible only because the \emph{PDaaS}
-response has indicated, that it's containing \emph{profile data} is
-certified and therefore trustworthy. Which reduces the shop owner's risk
-and would have enabled him in case of fraud or misuse to take action.
-Choosing to involve paypal as a \emph{middleman} to process the payment,
-requires the data subject to had already granted paypal certain access
-to her \emph{PDaaS}. If that's the case, then the shop-system would have
-ask also for her paypal-ID, which then the system will use to request
-the payment directly from paypal. This on the other side will cause
-paypal to consult the \emph{PDaaS}, which results in a second
-notification, asking the data subject for permission to proceed. After
-the payment transfer was successful, the shipment will gets initiated.
-And with the package arriving at the data subject's doorstep the whole
-transaction has finished.
+She decides to have a deeper look into the toasters, therefore she is
+headed towards the original web shop entry. Finally she comes around and
+puts the item onto her card, despite the fact that she never bought
+something from that online shop before. Then she proceeds to checkout so
+that she can place her order. The shop-interface asks her to either
+insert her credentials, proceed without registration or sign-in, or
+allow the shop to obtain all required data on its own by either scanning
+a QR-Code displayed below or insert a URI to her \emph{Personal Data as
+a Service}. She opens up the management panel of her \emph{PDaaS} in a
+new browser window and authenticates herself to the system. Afterwards
+she creates a new entry in a list of \emph{data consumers} who already
+get permitted to access certain characteristics of her personal data. As
+a result, she gets prompted with a URI, which she inserts as the shop
+interface requests her to do, only after she has convinced herself that
+the data exchange with the shop is based on a secure connection (HTTPS).
+Moving on to the next step after submitting the URI, the data subject is
+ask to decide how she would like to pay. The choices are: credit card,
+invoice, online payment or bank transfer. She chooses the last one,
+submits her selection and thereby completes the order process. She goes
+back to the kitchen. After some time, a push notification appears on her
+mobile device lying around. The notification is about a \emph{permission
+request} which has just arrived at her \emph{PDaaS}, asking for granting
+permissions to the shop-system, she places the order before. The shop
+wants to access her full name, address and email, which are required to
+proceed with the order. Based on the information given in the request,
+she creates a new \emph{permission profile} for the shop. Additionally,
+for the profile she can decide between three states of how long the
+permission is going to last: \emph{only one time}, \emph{expires on
+date} and \emph{granted, until further notice}. Since she has never
+ordered at this shop before and probably won't do it again, she decides
+to grant access only for this specific occasion. The shop-system gets
+then notified about the result of decisions. If the result is positive -
+which is the case here - the data can be obtained and the order can be
+further processed. As a result, the data subject receives an email,
+containing information regarding her order including the shop owner's
+bank details, which enables her to pay the due amount. After the
+shop-system receives the payment, the toaster is shipped.
+
+In order to get a full impression of how the whole process might would
+look like if the data subject would have chosen one of the other payment
+methods, the differences are describes below. If the data subject would
+have wanted to pay with her credit card, the shop-system would have
+asked to also access her credit card as well as its belonging secret.
+And when sending the email, the system would have omitted the
+information about the shop's bank details. Paying with invoice, would
+have been possible only if the \emph{PDaaS} initially had been able to
+provided certified profile data, which therefore would have been rated
+trustworthy. That again would have reduced the risk taken by shop owner
+and would have enabled him to take action in cases of fraud or misuse.
+Choosing to involve an online payment service provider as a
+\emph{middleman} for processing the payment, would have required the
+data subject to have granted the provider certain access to her
+\emph{PDaaS} upfront. In that case, the shop-system then would have
+asked for her payment provider account identifier, so that the system
+could have requested the payment directly form that payment service
+provider. This on the other side would have caused the service provider
+to consult the \emph{PDaaS}, which would have result in a second
+notification asking the data subject for permission to proceed. After
+the payment transfer would have been succeeded, the shipment would have
+been initiated.
 
 \subsubsection{Interacting with a social
 network}\label{interacting-with-a-social-network}
 
-Entering a social network for the first time, only take the URI to the
-data subject's \emph{PDaaS} and a password. The data subject receives a
-notification on her mobile device asking for permission to access
-certain data about her. If her mobile device is currently not at hand,
-she can also use the administration panel provided by her \emph{PDaaS}
-and reachable with a web browser on every internet-enabled device.
-Within that panel pending permission reviews will be indicated. Whether
-the data subject has already reviewed the request or not, she should be
-able to login to the social network. After doing so, she should not be
-able to see any of her information. After granting permissions to the
-social network to accessing certain data \emph{until-further-notice} and
-reloading the session, she then should see all her So every time,
-someone on that network tries to access her information, whom she has
-allowed to see that information (which is managed by the user only from
-within the network), the network pulls the data from the data subjects's
-\emph{PDaaS}, if it's still permitted to do so. It's also imaginable,
-that the social network and a \emph{PDaaS} are establishing a backward
-channel. This channel could be used to send all the content she would
-create over time while interacting with the social network and it's
-participants back to her \emph{PDaaS}. The network itself only stores a
-reference to all content object, whether it's for example an image, a
-post or comment on somebody else's post and if it's needed the actual
-content will be fetched from the data subject's \emph{PDaaS}.
+Entering a social network for the first time only requires either a URI
+to the data subject's \emph{PDaaS}, which has uniquely been generated
+for that purpose, or a QR-Code provided by the social network. The data
+subject receives a notification on her mobile device send from her
+\emph{PDaaS}, revealing what data that network wants to access and maybe
+even why. If her mobile device is currently not at hand, she can also
+use the management panel provided by her \emph{PDaaS}, which is
+accessible with a web browser on every internet-enabled device. Within
+that panel pending permission reviews are indicated. Regardless of
+whether the data subject has already reviewed the request, she should
+still be able to login. After doing so, she would see all her
+information, unless she has not yet granted permissions to the social
+network to access her data \emph{until-further-notice}. If this is done,
+after waiting a moment and then reloading the browser session, all her
+data should then show up. So, every time if someone on that network
+tries to access her information, whom she has allowed to see those
+information, which is managed by every user only from within the
+network, the network pulls the required data from her \emph{PDaaS}, as
+long as it is permitted to do so. It is also conceivable, that the
+social network does provide a back-channel to the \emph{PDaaS}, so that
+all the content she creates within that network including all
+interactions with other users can be stored in her \emph{PDaaS}, so that
+it could be provided to other \emph{data consumers}. The network itself
+only stores references all these content objects. Whether it's for
+example an image, a post or comment on a post from somebody else, if the
+actual content is needed to be displayed it gets fetched from the
+corresponding \emph{PDaaS}.
 
 \subsubsection{Applying for a loan and checking
 creditworthiness}\label{applying-for-a-loan-and-checking-creditworthiness}
@@ -669,74 +750,6 @@ data will only be stored in the \emph{PDaaS}. If somebody is interested
 in such then have to ask for access permission. That same concept about
 movement tracking and vehicle data could also be applied to driving
 (motor) bicycle.
-
-\hypertarget{terminologies}{\section{Terminologies}\label{terminologies}}
-
-\begin{description}
-\tightlist
-\item[Web Service]
-TODO
-\item[Open Specification]
-TODO
-\item[Big Data]
-deep learning, neural networks
-\item[Profile Data]
-individual's inherent data; TODO
-\item[Personal Data (TODO)]
-Personal Information predominantly static data points related to an
-individual
-\item[Personal Data as a Service (PDaaS)]
-a web service controlled, owned and maybe even hosted by an individual,
-that provides access to the data subject's personal data and offers
-maintainability as well as permission management. It can be seen as her
-personal agent; sometimes also referred to as \emph{the system}
-\item[Personal Data Store]
-TODO
-\item[Vendor Relationship Manager]
-The \emph{ProjectVRM} defines the a VRM as follows: ``TODO''
-{[}\protect\hyperlink{ref-web_2010_projectvrm-wiki_about-vrm}{14}{]}
-\item[Personal Information Management Systems (PIMS)]
-TODO
-{[}\protect\hyperlink{ref-web_2010_projectvrm-wiki_pims-example-list}{15}{]}
-\item[serverless]
-TODO https://auth0.com/blog/2016/06/09/what-is-serverless/
-\item[Digital Footprints]
-TODO
-\item[Data Subject]
-an individual who first and foremost is the owner of all of her personal
-data; sometimes referred to as \emph{owner}
-\item[\protect\hypertarget{terminologies--operator}{}{Operator}]
-a \emph{data subject} using a PDaaS to control (and probably host) her
-personal data; sometimes referred to as \emph{data controller}
-\item[\protect\hypertarget{terminologies--consumer}{}{(Data) Consumer}]
-Third party, external entity requesting data, authorized by the data
-subject to do so; sometimes referred to as \emph{(data) collector}
-\item[Data Broker(s)]
-entities with commercial interests, that collect, aggregate and analyze
-information/data of any kind - in this case about human beings - from
-different sources in order to enrich the data sets, to finally license
-the resulting corpora to other organisations.
-{[}\protect\hyperlink{ref-report_2014_data-brokers}{16}{]}
-\item[Permission Request]
-initial attempt to request permissions for accessing certain data from
-the \emph{PDaaS}; third party registers as \emph{data consumer}
-\item[Access Request]
-obtain/request actual data from the system (requires a third party to be
-registered as a \emph{data consumer})
-\item[Permission Profile]
-a data set about a third party that already made a permission request.
-The set contains additional information and access rules
-\item[Data Access]
-after a third party's \emph{permission request} got reviewed and saved,
-that entity is then able to make an attempt to access data.
-\item[Endpoint]
-an endpoint is defined as the part of the URI that is unique to every
-\emph{data consumer}, or to be more precise, unique to every
-\emph{permission profile}. Usually it is the first part of a URI,
-whereas following parts stand for different resources that might be
-available within that endpoint It can also be seen as group of resources
-that all can be accessed by under specific circumstances
-\end{description}
 
 \chapter{Fundamentals}\label{fundamentals}
 
@@ -3753,95 +3766,26 @@ between the needs of a \emph{personal data storage (PDS)} and a general
 feature in order to be suitable for either of the defined purposes
 \label{tbl:dbs-features}}\tabularnewline
 \toprule
-\begin{minipage}[b]{0.37\columnwidth}\raggedright\strut
-Characteristic\strut
-\end{minipage} & \begin{minipage}[b]{0.20\columnwidth}\centering\strut
-Personal Data Storage\strut
-\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
-Persistence Layer\strut
-\end{minipage}\tabularnewline
+Characteristic & Personal Data Storage & Persistence
+Layer\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-\begin{minipage}[b]{0.37\columnwidth}\raggedright\strut
-Characteristic\strut
-\end{minipage} & \begin{minipage}[b]{0.20\columnwidth}\centering\strut
-Personal Data Storage\strut
-\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering\strut
-Persistence Layer\strut
-\end{minipage}\tabularnewline
+Characteristic & Personal Data Storage & Persistence
+Layer\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.32\columnwidth}\raggedright\strut
-portable\strut
-\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.32\columnwidth}\raggedright\strut
-advanced user \& permission management\strut
-\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
-document-oriented\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
-support common primitives\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.32\columnwidth}\raggedright\strut
-replication\strut
-\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
-efficient binary storage and serialization\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.32\columnwidth}\raggedright\strut
-high performance\strut
-\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.37\columnwidth}\raggedright\strut
-operations and transactions\strut
-\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.32\columnwidth}\raggedright\strut
-background optimization\strut
-\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.32\columnwidth}\raggedright\strut
-version control\strut
-\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
-\strut
-\end{minipage}\tabularnewline
+portable & - & -\tabularnewline
+advanced user \& permission management & - & \textbf{X}\tabularnewline
+document-oriented & \textbf{X} & \textbf{X}\tabularnewline
+support common primitives & \textbf{X} & \textbf{X}\tabularnewline
+replication & - & \textbf{X}\tabularnewline
+efficient binary storage and serialization & \textbf{X} &
+\textbf{X}\tabularnewline
+high performance & - & \textbf{X}\tabularnewline
+operations and transactions & \textbf{X} & \textbf{X}\tabularnewline
+background optimization & - & \textbf{X}\tabularnewline
+version control & - & -\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -5529,8 +5473,8 @@ The work will be continued.
 \section*{Code}\label{code}
 \addcontentsline{toc}{section}{Code}
 
-\section*{Bibliography}\label{bibliography}
-\addcontentsline{toc}{section}{Bibliography}
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
 
 \hypertarget{refs}{}
 \hypertarget{ref-web_2016_privacy-international-about-big-data}{}

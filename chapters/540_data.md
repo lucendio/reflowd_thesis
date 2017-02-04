@@ -341,33 +341,18 @@ it is pivotal to distinguish between the needs of a *personal data storage (PDS)
 *persistence layer (PL)* for the system's backend.
 
 
-----------------------------------------------------------
-Characteristic                Personal Data   Persistence 
-                                 Storage         Layer
----------------------------- --------------- -------------
-portable
-
-advanced user & permission                        __X__
-management
-
-document-oriented                 __X__          __X__
-
-support common primitives         __X__          __X__
-
-replication                                      __X__
-
-efficient binary storage          __X__          __X__
-and serialization
-
-high performance                                 __X__
-
-operations and                    __X__          __X__
-transactions
-
-background optimization                          __X__
-
-version control
-----------------------------------------------------------
+| Characteristic                               | Personal Data Storage | Persistence Layer |
+|----------------------------------------------|:---------------------:|:-----------------:|
+|  portable                                    |           -           |         -         |
+|  advanced user & permission management       |           -           |       __X__       |
+|  document-oriented                           |         __X__         |       __X__       |
+|  support common primitives                   |         __X__         |       __X__       |
+|  replication                                 |           -           |       __X__       |
+|  efficient binary storage and serialization  |         __X__         |       __X__       |
+|  high performance                            |           -           |       __X__       |
+|  operations and transactions                 |         __X__         |       __X__       |
+|  background optimization                     |           -           |       __X__       |
+|  version control                             |           -           |         -         |
 
 Table: selection of characteristics that a database system has to feature in order to be suitable 
     for either of the defined purposes {#tbl:dbs-features} 

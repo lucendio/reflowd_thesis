@@ -8,6 +8,7 @@ $endif$
 % % % additions by tompollard START -->
 
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
+% TODO: delete if images position is awkward
 \usepackage{float}
 \let\origfigure=\figure
 \let\endorigfigure=\endfigure
