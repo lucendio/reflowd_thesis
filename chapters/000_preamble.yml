@@ -10,28 +10,26 @@ date:   \today
 version: '0.0.1'
 
 abstract: >
-    Often data is referred to as *the oil of the 21st century*. Whereas recovering petroleum
-    or coal is governed b certain rules and legislation, at the same time however vast
-    amounts of personal data is harvested from all sorts of resources with no working restrictions
-    or asking for permission. Well air-conditioned data centers are mining to the clock of dozens of
+    Often data is referred to as *the oil of the 21st century*.  But recovering petroleum
+    or coal is governed by certain rules and legislation, while vast
+    amounts of personal data are harvested from all sorts of resources with no working restrictions
+    or asking for permission. Well air-conditioned data centers are mining around the clock via dozens of
     CPUs. Eager to discover even the tiniest correlations worth interpreting in enormous haystacks
-    that are filled with data actually belonging to millions of individuals, who have no knowledge
+    that are filled with data belonging to millions of individuals, who have no knowledge
     of those computations. But these very computations, and thus their developers, almost inevitably
     and without restraints discriminate against these so called *data subjects*.
-    Such practices cannot be accepted, because these datasets represent someone's identity as well
-    as her personality, but getting recklessly monetized after all.
-    Such practices cannot be accepted, for though these haystacks are actually represent identities
-    of human beings including their personality, they still getting monetized recklessly.
+    Such practices cannot be accepted because these datasets represent someone's identity as well
+    as her personality but are recklessly monetized.
     To address this issue and reduce the possibility of discrimination, third parties have to be
     supplied with the least amount of data in order to stay functional. That is, data owners
     must be in charge of deciding which entity has access to what personal data of theirs.
     This project aims to specify a personal data service that empowers its user to regain full
-    control over her personal data. It facilitates to regulate data flow and provides detailed
-    information on where did those data go, so that *data subjects* can become their own data
-    broker.
+    control over her personal data. It facilitates the regulation of data flow and provides detailed
+    information on where the data goes so that *data subjects* can become their own data
+    brokers.
     In order to trust such a service, the user must be able to look inside and see for herself if it
-    behaves not as expected. Therefore the specification and all implementations are being open
-    sourced and developed transparently in public, which would then also encourage self-hosting.
+    behaves in unexpected ways. Therefore the specification and all implementations are being open
+    sourced and developed transparently in public, which also encourages self-hosting.
 
 
 keywords:
