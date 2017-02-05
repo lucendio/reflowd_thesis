@@ -34,6 +34,10 @@ abstract: >
     sourced and developed transparently in public, which would then also encourage self-hosting.
 
 
+acknowledgement: >
+    I'm thanking my Haekelschmein and my internet provider. TODO
+
+
 keywords:
     -   'personal data store'
     -   'personal data as a service'
@@ -49,6 +53,8 @@ lang: 'en'
 
 \newpage
 \begin{center}
+\thispagestyle{empty}
+\setcounter{page}{0}
 This page intentionally left blank
 \end{center}
 \newpage

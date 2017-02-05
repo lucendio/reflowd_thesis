@@ -63,43 +63,54 @@
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
 \fi
+
+% added 20170205 -->
+% NOTE: Replace "english" in "captionsenglish" with the language you use
+\addto\captionsenglish{
+  \renewcommand{\contentsname}
+    {Table of Contents}
+}
+% added 20170205 <--
+
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
 \newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 % Add ',fontsize=\small' for more characters per line
-\newenvironment{Shaded}{}{}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
 \newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
 \newcommand{\BuiltInTok}[1]{{#1}}
 \newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
 \newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
 \newcommand{\NormalTok}[1]{{#1}}
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
@@ -132,14 +143,16 @@
 \makeatother
 
 
-
-% Table of contents formatting
-\renewcommand{\contentsname}{Table of Contents}
-\setcounter{tocdepth}{3}
-
 % Headers and page numbering
 \usepackage{fancyhdr}
-\pagestyle{plain}
+% 20170205 changed from \pagestyle{plain}
+\pagestyle{fancy}
+% added 20170205 -->
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[OL]{\leftmark}
+\fancyfoot[C]{\thepage}
+% added 20170205 <--
 
 % Table package
 \usepackage{ctable}% http://ctan.org/pkg/ctable
@@ -247,6 +260,18 @@
 }
 \makeatother
 
+
+% added 20170205 -->
+% make block quote latin again
+\let\origquote\quote
+\let\endorigquote\endquote
+\renewenvironment{quote}{%
+    \origquote
+    \itshape
+}
+{\endorigquote}
+% added 20170205 <--
+
 \title{Open Specification of a user-controlled Web Service for Personal Data}
 \providecommand{\subtitle}[1]{}
 \subtitle{Master Thesis}
@@ -286,21 +311,46 @@ open sourced and developed transparently in public, which would then
 also encourage self-hosting.
 \end{abstract}
 
+% added 20170204 -->
+% moved from cover to separate page
+\pagenumbering{Roman}
+\addcontentsline{toc}{chapter}{Acknowledgement}
+\section*{Acknowledgement}
+I'm thanking my Haekelschmein and my internet provider. TODO
+\newpage
+% moved from cover 20170204 <--
+
+
 {
 \setcounter{tocdepth}{1}
+% added 20170205 -->
+% suppress fancyheader
+\pagestyle{plain}
+% added 20170205 <--
 \tableofcontents
 }
 % added 20170129 -->
 \newpage
+\addcontentsline{toc}{chapter}{List of Tables}
 % added 20170129 <--
 \listoftables
 % added 20170129 -->
 \newpage
+\addcontentsline{toc}{chapter}{List of Figures}
 % added 20170129 <--
 \listoffigures
+% added 20170205 -->
+% to fix page numbering
+\newpage
+% added 20170205 <--
+% added 20170205 -->
+\pagenumbering{arabic}
+% added 20170205 <--
 \newpage
 
 \begin{center}
+\thispagestyle{empty}
+\setcounter{page}{0}
 This page intentionally left blank
 \end{center}\newpage
 
@@ -3270,96 +3320,6 @@ of how it might look like, when a \emph{consumer} obtains the name of
 the \emph{data subject} and a bank account of hers, that supports online
 payment.
 
-\textbf{\protect\hypertarget{code-01_sparql-query}{}{Code 01: Example
-query in SPARQL}:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{# }\KeywordTok{query} \DecValTok{1}\NormalTok{: obtain }\KeywordTok{the} \KeywordTok{data} \NormalTok{subject}\StringTok{'s first and last name}
-\StringTok{PREFIX person: <http://pdaas.tld/schemas/person>}
-
-\StringTok{SELECT $firstname $lastname}
-\StringTok{FROM <https://unique-consumer-endpoint.pdaas.tld/sparql/profile>}
-\StringTok{WHERE \{}
-\StringTok{    $person person:firstname $firstname .}
-\StringTok{    $person person:lastname $lastname .}
-\StringTok{\}}
-
-
-\StringTok{# query 2: obtain all bank accounts that are available for online payment}
-\StringTok{PREFIX bank-account: <http://pdaas.tld/schemas/bank-account>}
-
-\StringTok{SELECT $accountId $bankName $paymentMethod}
-\StringTok{FROM <https://unique-consumer-endpoint.pdaas.tld/sparql/finance>}
-\StringTok{WHERE \{}
-\StringTok{    $bank-account bank-account:payment-method "online-service" .}
-\StringTok{    $bank-account bank-account:payment-method $paymentMethod .}
-\StringTok{    $bank-account bank-account:account-id $accountId . }
-\StringTok{    $bank-account bank-account:bank-name $bankName .}
-\StringTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{\protect\hypertarget{code-02_sparql-query-results}{}{Code 02:
-Results of Code 01 in JSON}:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ErrorTok{//} \ErrorTok{result} \ErrorTok{1:}
-\FunctionTok{\{}
-    \DataTypeTok{"head"}\FunctionTok{:} \FunctionTok{\{}
-        \DataTypeTok{"vars"}\FunctionTok{:} \OtherTok{[}
-            \StringTok{"firstname"}\OtherTok{,}
-            \StringTok{"lastname"}
-        \OtherTok{]}
-    \FunctionTok{\},}
-    \DataTypeTok{"results"}\FunctionTok{:} \FunctionTok{\{}
-        \DataTypeTok{"bindings"}\FunctionTok{:} \OtherTok{[}
-            \FunctionTok{\{}
-                \DataTypeTok{"firstname"}\FunctionTok{:} \FunctionTok{\{}
-                    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"literal"}\FunctionTok{,}
-                    \DataTypeTok{"value"}\FunctionTok{:} \StringTok{"Doe"}
-                \FunctionTok{\},}
-                \DataTypeTok{"lastname"}\FunctionTok{:} \FunctionTok{\{}
-                    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"literal"}\FunctionTok{,}
-                    \DataTypeTok{"value"}\FunctionTok{:} \StringTok{"Jane"}
-                \FunctionTok{\}}
-            \FunctionTok{\}}
-        \OtherTok{]}
-    \FunctionTok{\}}
-\FunctionTok{\}}
-
-\ErrorTok{//} \ErrorTok{result} \ErrorTok{2:}
-\FunctionTok{\{}
-    \DataTypeTok{"head"}\FunctionTok{:} \FunctionTok{\{}
-        \DataTypeTok{"vars"}\FunctionTok{:} \OtherTok{[}
-            \StringTok{"accountId"}\OtherTok{,}
-            \StringTok{"bankName"}\OtherTok{,}
-            \StringTok{"paymentMethod"}
-        \OtherTok{]}
-    \FunctionTok{\},}
-    \DataTypeTok{"results"}\FunctionTok{:} \FunctionTok{\{}
-        \DataTypeTok{"bindings"}\FunctionTok{:} \OtherTok{[}
-            \FunctionTok{\{}
-                \DataTypeTok{"accountId"}\FunctionTok{:} \FunctionTok{\{}
-                    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"integer"}\FunctionTok{,}
-                    \DataTypeTok{"value"}\FunctionTok{:} \DecValTok{0905553715}
-                \FunctionTok{\},}
-                \DataTypeTok{"bankName"}\FunctionTok{:} \FunctionTok{\{}
-                    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"literal"}\FunctionTok{,}
-                    \DataTypeTok{"value"}\FunctionTok{:} \StringTok{"A. W. Fritter Institute"}
-                \FunctionTok{\},}
-                \DataTypeTok{"paymentMethod"}\FunctionTok{:} \FunctionTok{\{}
-                    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"literal"}\FunctionTok{,}
-                    \DataTypeTok{"value"}\FunctionTok{:} \StringTok{"online-service"}
-                \FunctionTok{\}}
-            \FunctionTok{\}}
-        \OtherTok{]}
-    \FunctionTok{\}}
-\FunctionTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
 Without going into much details here, the syntax of this example
 (\protect\hyperlink{code-01_sparql-query}{Code 01}) already shows its
 nature of decentralization. This aspect at the same time introduces
@@ -3372,48 +3332,6 @@ result might have returned multiple ``rows'' with redundant data, if
 more then one bank account would have supported online payment; varying
 in three columns containing data about bank accounts though, but being
 identical in the fields related to the profile information.
-
-\textbf{\protect\hypertarget{code-03_graphql-query}{}{Code 03: Example
-query in GraphQL}:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{# URL}\OperatorTok{:} \NormalTok{https}\OperatorTok{:}\CommentTok{//unique-consumer-endpoint.pdaas.tld/graphql}
-
-\NormalTok{query }\OperatorTok{\{}
-    \NormalTok{profile }\OperatorTok{\{}
-        \NormalTok{firstname}
-        \NormalTok{lastname}
-    \OperatorTok{\}}
-    \AttributeTok{bankAccounts}\NormalTok{(}\DataTypeTok{paymentMethod}\OperatorTok{:} \StringTok{'online-service'}\NormalTok{) }\OperatorTok{\{}
-        \NormalTok{accountId}
-        \NormalTok{bankName}
-        \NormalTok{paymentMethod}
-    \OperatorTok{\}}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{\protect\hypertarget{code-04_graphql-query-result}{}{Code 04:
-Result of Code 03 in JSON}:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{\{}
-    \DataTypeTok{"profile"}\FunctionTok{:} \FunctionTok{\{}
-        \DataTypeTok{"firstname"}\FunctionTok{:} \StringTok{"Jane"}\FunctionTok{,} 
-        \DataTypeTok{"lastname"}\FunctionTok{:} \StringTok{"Doe"}
-    \FunctionTok{\},}
-    \DataTypeTok{"bankAccounts"}\FunctionTok{:} \OtherTok{[}
-        \FunctionTok{\{}
-            \DataTypeTok{"accountId"}\FunctionTok{:} \DecValTok{0905553715}\FunctionTok{,}
-            \DataTypeTok{"bankName"}\FunctionTok{:} \StringTok{"A. W. Fritter Institute"}\FunctionTok{,}
-            \DataTypeTok{"paymentMethod"}\FunctionTok{:} \StringTok{"online-service"}
-        \FunctionTok{\}}
-    \OtherTok{]}
-\FunctionTok{\}}
-\end{Highlighting}
-\end{Shaded}
 
 Whereas comparing the \emph{GraphQL} query syntax
 (\protect\hyperlink{code-03_graphql-query}{Code 03}) with it's result
@@ -3536,62 +3454,6 @@ Suggestions for useful structs}}
   Diseases
 \end{itemize}
 
-\emph{NOTICE: schema notation is based on the rules underpinning the
-schema definition provided by the SimpleSchema project
-{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{129}{]}.}
-
-\textbf{\protect\hypertarget{code-05_struct_profile}{}{Code 05: Struct -
-Profile (example)}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\OperatorTok{\{}
-    \DataTypeTok{firstname}\OperatorTok{:} \NormalTok{String}\OperatorTok{,}
-    \DataTypeTok{lastname}\OperatorTok{:} \NormalTok{String}\OperatorTok{,}
-    \DataTypeTok{pseudonym}\OperatorTok{:} \NormalTok{String}\OperatorTok{,}
-    \DataTypeTok{birth}\OperatorTok{:} \NormalTok{Date}\OperatorTok{,}
-    \DataTypeTok{gender}\OperatorTok{:} \NormalTok{String}\OperatorTok{,}
-    \DataTypeTok{religion}\OperatorTok{:} \NormalTok{String}\OperatorTok{,}
-    \DataTypeTok{motherTongue}\OperatorTok{:} \NormalTok{Language}
-    \DataTypeTok{photo}\OperatorTok{:} \NormalTok{File}\OperatorTok{,}
-    \DataTypeTok{residence}\OperatorTok{:} \NormalTok{Address}\OperatorTok{,}
-    \DataTypeTok{employer}\OperatorTok{:} \NormalTok{Organisation}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{\protect\hypertarget{code-06_struct_contact}{}{Code 06: Struct -
-Contact (example)}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\OperatorTok{\{}
-    \DataTypeTok{label}\OperatorTok{:} \NormalTok{String}\OperatorTok{,}
-    \DataTypeTok{type}\OperatorTok{:} \AttributeTok{String}\NormalTok{(}\StringTok{'phone'}\OperatorTok{|}\StringTok{'email'}\OperatorTok{|}\StringTok{'url'}\OperatorTok{|}\StringTok{'name-of-social-network'}\NormalTok{)}\OperatorTok{,}
-    \DataTypeTok{prio}\OperatorTok{:} \AttributeTok{Integer}\NormalTok{(}\DecValTok{0-2}\NormalTok{)}\OperatorTok{,}
-    \DataTypeTok{uid}\OperatorTok{:} \NormalTok{String}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{\protect\hyperlink{code-07_struct_position}{Code 07: Struct -
-Position (example)}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\OperatorTok{\{}
-    \DataTypeTok{lat}\OperatorTok{:} \NormalTok{Float}\OperatorTok{,}
-    \DataTypeTok{lon}\OperatorTok{:} \NormalTok{Float}\OperatorTok{,}
-    \DataTypeTok{radius}\OperatorTok{:} \OperatorTok{\{}
-        \DataTypeTok{value}\OperatorTok{:} \NormalTok{Float}\OperatorTok{,}
-        \DataTypeTok{unit}\OperatorTok{:} \NormalTok{Distance}
-    \OperatorTok{\},}
-    \DataTypeTok{description}\OperatorTok{:} \NormalTok{String}
-    \DataTypeTok{ts}\OperatorTok{:} \NormalTok{Date}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
 \textbf{\protect\hypertarget{list-02_data-categories}{}{List 02:
 relevant (sub-)categories of data}}
 
@@ -3694,8 +3556,8 @@ relevant (sub-)categories of data}}
 The available \emph{primitives} mainly depend on those who are supported
 by the query language itself. In this case, all \emph{primitives}
 mentioned above are supported by \emph{SPARQL}
-{[}\protect\hyperlink{ref-web_spec_xml_types}{130}{]} and \emph{GraphQL}
-{[}\protect\hyperlink{ref-web_spec_graphql_types}{131}{]}. When choosing
+{[}\protect\hyperlink{ref-web_spec_xml_types}{129}{]} and \emph{GraphQL}
+{[}\protect\hyperlink{ref-web_spec_graphql_types}{130}{]}. When choosing
 a database system it has to be ensured that either the system already
 supports the required \emph{primitives} or they can be emulated somehow
 with a least amount of drawbacks. When modelling relations between data
@@ -3925,7 +3787,7 @@ not impact how the system's interfaces behave from a user perspective.
 The foundation of this project is a server-client Architecture, which is
 chosen for a) providing availability (\protect\hyperlink{sa05}{S.A.05})
 and b) separating some concerns
-{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{132}{]}.
+{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{131}{]}.
 Such a distributed system provides various locations to place these
 concerns, which are in fact different environments with different
 properties. Those combinations of locations and environments are herein
@@ -3935,101 +3797,38 @@ possibilities to it's internals are taken into account. This resulting
 three types of \emph{platforms} are shown in Table
 \ref{tbl:platforms-characteristics}.
 
-\begin{longtable}[]{@{}lccccl@{}}
+\begin{longtable}[]{@{}lcclll@{}}
 \caption{All platform types where components of the \emph{PDaaS}
 architecture can be placed
 \label{tbl:platforms-characteristics}}\tabularnewline
 \toprule
-\begin{minipage}[b]{0.08\columnwidth}\raggedright\strut
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.08\columnwidth}\centering\strut
-trusted\strut
-\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering\strut
-private\strut
-\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering\strut
-controlled by\strut
-\end{minipage} & \begin{minipage}[b]{0.10\columnwidth}\centering\strut
-Layer\strut
-\end{minipage} & \begin{minipage}[b]{0.29\columnwidth}\raggedright\strut
-Purpose\strut
-\end{minipage}\tabularnewline
+Type & trusted & private & controlled by & Layer &
+Purpose\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-\begin{minipage}[b]{0.08\columnwidth}\raggedright\strut
-Type\strut
-\end{minipage} & \begin{minipage}[b]{0.08\columnwidth}\centering\strut
-trusted\strut
-\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering\strut
-private\strut
-\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering\strut
-controlled by\strut
-\end{minipage} & \begin{minipage}[b]{0.10\columnwidth}\centering\strut
-Layer\strut
-\end{minipage} & \begin{minipage}[b]{0.29\columnwidth}\raggedright\strut
-Purpose\strut
-\end{minipage}\tabularnewline
+Type & trusted & private & controlled by & Layer &
+Purpose\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
-Server\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-yes\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-yes\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-data subject\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-back end\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
-\begin{itemize}
-\tightlist
-\item
-  business logic
-\item
-  third-party interfaces
-\item
-  data storage
-\end{itemize}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
-Desktop\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-no\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-no\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-data subject\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-front end\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
-\begin{itemize}
-\tightlist
-\item
-  based on web technologies
-\end{itemize}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
-Mobile\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-no\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-conditionally\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-data subject\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering\strut
-front end\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
-\begin{itemize}
-\tightlist
-\item
-  typically mobiles devices
-\item
-  based on host-specific native technologies
-\item
-  data storage
-\end{itemize}\strut
-\end{minipage}\tabularnewline
+Server & yes & yes & data & back & - business logic\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & subject & end & - third-party
+interfaces\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) & - data
+storage\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \)\tabularnewline
+Desktop & no & no & data & front & - based on web\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & subject & end & \(\ \)
+technologies\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \)\tabularnewline
+Mobile & no & cond. & data & front & - typically mobiles\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & subject & end & \(\ \) devices\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) & - based on
+host-specific\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) native
+technologies\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) & - data
+storage\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -4039,7 +3838,8 @@ highlights all major components, including the platforms in which they
 could be positioned, in addition to further details about their
 purpose(s) and relation(s) to each other.
 
-\paragraph{Web server}\label{web-server}
+~\\
+\textbf{Web server}
 
 \emph{Platform:} Server
 
@@ -4073,7 +3873,8 @@ purpose(s) and relation(s) to each other.
   WebSockets
 \end{itemize}
 
-\paragraph{Permission Manager}\label{permission-manager}
+~\\
+\textbf{Permission Manager}
 
 \emph{Platform:} Server
 
@@ -4093,7 +3894,14 @@ purpose(s) and relation(s) to each other.
 
 \emph{Technologies:}
 
-\paragraph{PKI}\label{pki}
+\begin{itemize}
+\tightlist
+\item
+  TODO
+\end{itemize}
+
+~\\
+\textbf{PKI}
 
 \emph{Platform:} Server
 
@@ -4116,10 +3924,11 @@ purpose(s) and relation(s) to each other.
 \item
   X.509
 \item
-  ACME {[}\protect\hyperlink{ref-web_spec_acme}{133}{]} (Let's Encrypt)
+  ACME {[}\protect\hyperlink{ref-web_spec_acme}{132}{]} (Let's Encrypt)
 \end{itemize}
 
-\paragraph{Storage Connector}\label{storage-connector}
+~\\
+\textbf{Storage Connector}
 
 \emph{Platform:} Server
 
@@ -4141,7 +3950,8 @@ purpose(s) and relation(s) to each other.
   driver for used database
 \end{itemize}
 
-\paragraph{Operator API}\label{operator-api}
+~\\
+\textbf{Operator API}
 
 \emph{Platform:} Server
 
@@ -4169,7 +3979,8 @@ purpose(s) and relation(s) to each other.
   JWT
 \end{itemize}
 
-\paragraph{Code Execution Environment}\label{code-execution-environment}
+~\\
+\textbf{Code Execution Environment}
 
 \emph{Platform:} Server
 
@@ -4201,7 +4012,8 @@ purpose(s) and relation(s) to each other.
   Container (OCI)
 \end{itemize}
 
-\paragraph{Tracker}\label{tracker}
+~\\
+\textbf{Tracker}
 
 \emph{Platform:} Server
 
@@ -4219,7 +4031,8 @@ purpose(s) and relation(s) to each other.
 
 \emph{Technologies:}
 
-\paragraph{Personal Data Storage}\label{personal-data-storage}
+~\\
+\textbf{Personal Data Storage}
 
 \emph{Platform:} Server, Mobile
 
@@ -4241,7 +4054,8 @@ purpose(s) and relation(s) to each other.
   depending on host environment
 \end{itemize}
 
-\paragraph{Persistence Layer}\label{persistence-layer}
+~\\
+\textbf{Persistence Layer}
 
 \emph{Platform:} Server
 
@@ -4268,8 +4082,8 @@ purpose(s) and relation(s) to each other.
   Filesystem
 \end{itemize}
 
-\paragraph{Notification
-Infrastructure}\label{notification-infrastructure}
+~\\
+\textbf{Notification Infrastructure}
 
 \emph{Platform:} Server
 
@@ -4292,7 +4106,8 @@ Infrastructure}\label{notification-infrastructure}
   mobile device manufacturer's Push Notification server for mobile apps
 \end{itemize}
 
-\paragraph{User Interface}\label{user-interface}
+~\\
+\textbf{User Interface}
 
 \emph{Platform:} Desktop, Mobile
 
@@ -4324,6 +4139,7 @@ Infrastructure}\label{notification-infrastructure}
   Swift, Objective-C
 \end{itemize}
 
+~\\
 After outlining all different components while keeping the aspect of
 portability (\protect\hyperlink{sa02}{S.A.02}) in mind, it needs to be
 figured out which arrangements make sense and what variations might be
@@ -4436,7 +4252,7 @@ accessibility to those service owners. Whereas users get the benefit of
 just using one account for all her apps - a universal key so to say, but
 only one exemplar. So the downside here is, only a handful of third
 parties
-{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{134}{]}
+{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{133}{]}
 provide those authentication services.\\
 OpenID is designed with a very specific type of scenarios in mind,
 namely the one just described - bringing decentralisation to the market
@@ -4671,166 +4487,38 @@ capabilities are very limited, because it's the one interface that the
 \caption{Features that should be supported by the given user interfaces
 \label{tbl:ui-features}}\tabularnewline
 \toprule
-\begin{minipage}[b]{0.36\columnwidth}\raggedright\strut
-Feature\strut
-\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering\strut
-GUI\strut
-\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering\strut
-CLI\strut
-\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering\strut
-API\strut
-\end{minipage}\tabularnewline
+Feature & GUI & CLI & API\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-\begin{minipage}[b]{0.36\columnwidth}\raggedright\strut
-Feature\strut
-\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering\strut
-GUI\strut
-\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering\strut
-CLI\strut
-\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering\strut
-API\strut
-\end{minipage}\tabularnewline
+Feature & GUI & CLI & API\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-manage \emph{permission profiles}
-(\protect\hyperlink{pviu03}{P.VIU.03})\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-view access history (\protect\hyperlink{pviu04}{P.VIU.04})\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-register \emph{consumer}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-add new \emph{front end}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-authenticate \emph{operator}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-migrate \emph{personal data}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-review \emph{permission requests}
-(\protect\hyperlink{pi04}{P.I.04})\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-create \& maintain templates (\protect\hyperlink{pi05}{P.I.05})\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-adjust precision of data (\protect\hyperlink{pi06}{P.I.06})\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-introduce new data \emph{structs}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-configure \emph{PDaaS}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-import personal data\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.36\columnwidth}\raggedright\strut
-read/access \emph{personal data}\strut
-\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-manipulate \emph{personal data}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.24\columnwidth}\raggedright\strut
-run supervised code execution\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage} & \begin{minipage}[t]{0.24\columnwidth}\centering\strut
-\textbf{X}\strut
-\end{minipage}\tabularnewline
+manage \emph{permission profiles} (\protect\hyperlink{pviu03}{P.VIU.03})
+& \textbf{X} & - & \textbf{X}\tabularnewline
+view access history (\protect\hyperlink{pviu04}{P.VIU.04}) & \textbf{X}
+& \textbf{X} & -\tabularnewline
+register \emph{consumer} & \textbf{X} & \textbf{X} & -\tabularnewline
+add new \emph{front end} & \textbf{X} & - & -\tabularnewline
+authenticate \emph{operator} & \textbf{X} & - & -\tabularnewline
+migrate \emph{personal data} & \textbf{X} & \textbf{X} &
+-\tabularnewline
+review \emph{permission requests} (\protect\hyperlink{pi04}{P.I.04}) &
+\textbf{X} & - & -\tabularnewline
+create \& maintain templates (\protect\hyperlink{pi05}{P.I.05}) &
+\textbf{X} & - & -\tabularnewline
+adjust precision of data (\protect\hyperlink{pi06}{P.I.06}) & \textbf{X}
+& - & \textbf{X}\tabularnewline
+introduce new data \emph{structs} & \textbf{X} & - &
+\textbf{X}\tabularnewline
+configure \emph{PDaaS} & \textbf{X} & - & -\tabularnewline
+import personal data & \textbf{X} & - & \textbf{X}\tabularnewline
+read/access \emph{personal data} & \textbf{X} & \textbf{X} &
+\textbf{X}\tabularnewline
+manipulate \emph{personal data} & \textbf{X} & \textbf{X} &
+-\tabularnewline
+run supervised code execution & - & \textbf{X} &
+\textbf{X}\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -4855,7 +4543,7 @@ become hard to solve, because how can graph-based and nested data
 structures be displayed in such a way that makes reviewing and also
 manipulating an easy task to do - even on a screen of a mobile phone.
 One approach could be to utilize the \emph{accordion} pattern
-{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{135}{]} for
+{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{134}{]} for
 edges and start nesting them in order to represent subsequent data
 structure. The interaction then might look like tree-structured
 navigation moving along relations just by expanding and folding in data
@@ -4935,12 +4623,12 @@ TODO: should might must n stuff in table (see dark mail spec)
 
 \subsection{Webserver}\label{webserver}
 
-\subsection{User Interface}\label{user-interface-1}
+\subsection{User Interface}\label{user-interface}
 
 \subsection{Storage/Persistence}\label{storagepersistence}
 
 \subsection{Notification
-Infrastructure}\label{notification-infrastructure-1}
+Infrastructure}\label{notification-infrastructure}
 
 \subsection{Data API}\label{data-api}
 
@@ -5467,14 +5155,209 @@ beginning
 
 The work will be continued.
 
-\chapter*{Appendix}\label{appendix}
-\addcontentsline{toc}{chapter}{Appendix}
+\chapter*{Source Code}\label{source-code}
+\addcontentsline{toc}{chapter}{Source Code}
 
-\section*{Code}\label{code}
-\addcontentsline{toc}{section}{Code}
+\pagenumbering{Roman} \setcounter{page}{6} \pagestyle{plain}
 
-\section*{References}\label{references}
-\addcontentsline{toc}{section}{References}
+\textbf{\protect\hypertarget{code-01_sparql-query}{}{Code 01: Example
+query in SPARQL}:}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{# }\KeywordTok{query} \DecValTok{1}\NormalTok{: obtain }\KeywordTok{the} \FunctionTok{first} \KeywordTok{and} \FunctionTok{last} \NormalTok{name fof }\KeywordTok{data} \NormalTok{subject}
+\NormalTok{PREFIX person: <http://pdaas.tld/schemas/person>}
+
+\KeywordTok{SELECT} \NormalTok{$firstname $lastname}
+\KeywordTok{FROM} \NormalTok{<https://unique-consumer-endpoint.pdaas.tld/sparql/profile>}
+\KeywordTok{WHERE} \NormalTok{\{}
+    \NormalTok{$person person}\CharTok{:firstname} \NormalTok{$firstname .}
+    \NormalTok{$person person}\CharTok{:lastname} \NormalTok{$lastname .}
+\NormalTok{\}}
+
+
+\NormalTok{# }\KeywordTok{query} \DecValTok{2}\NormalTok{: obtain }\KeywordTok{all} \NormalTok{bank accounts that are available }\KeywordTok{for} 
+\NormalTok{# }\KeywordTok{online} \NormalTok{payment}
+\NormalTok{PREFIX bank-account: <http://pdaas.tld/schemas/bank-account>}
+
+\KeywordTok{SELECT} \NormalTok{$accountId $bankName $paymentMethod}
+\KeywordTok{FROM} \NormalTok{<https://unique-consumer-endpoint.pdaas.tld/sparql/finance>}
+\KeywordTok{WHERE} \NormalTok{\{}
+    \NormalTok{$bank-account bank-account}\CharTok{:payment}\NormalTok{-method }\OtherTok{"online-service"} \NormalTok{.}
+    \NormalTok{$bank-account bank-account}\CharTok{:payment}\NormalTok{-method $paymentMethod .}
+    \NormalTok{$bank-account bank-account}\CharTok{:account}\NormalTok{-id $accountId . }
+    \NormalTok{$bank-account bank-account}\CharTok{:bank}\NormalTok{-name $bankName .}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\textbf{\protect\hypertarget{code-02_sparql-query-results}{}{Code 02:
+Results of Code 01 in JSON}:}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\ErrorTok{//} \ErrorTok{result} \ErrorTok{1:}
+\FunctionTok{\{}
+    \DataTypeTok{"head"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"vars"}\FunctionTok{:} \OtherTok{[}
+            \StringTok{"firstname"}\OtherTok{,}
+            \StringTok{"lastname"}
+        \OtherTok{]}
+    \FunctionTok{\},}
+    \DataTypeTok{"results"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"bindings"}\FunctionTok{:} \OtherTok{[}
+            \FunctionTok{\{}
+                \DataTypeTok{"firstname"}\FunctionTok{:} \FunctionTok{\{}
+                    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"literal"}\FunctionTok{,}
+                    \DataTypeTok{"value"}\FunctionTok{:} \StringTok{"Doe"}
+                \FunctionTok{\},}
+                \DataTypeTok{"lastname"}\FunctionTok{:} \FunctionTok{\{}
+                    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"literal"}\FunctionTok{,}
+                    \DataTypeTok{"value"}\FunctionTok{:} \StringTok{"Jane"}
+                \FunctionTok{\}}
+            \FunctionTok{\}}
+        \OtherTok{]}
+    \FunctionTok{\}}
+\FunctionTok{\}}
+
+\ErrorTok{//} \ErrorTok{result} \ErrorTok{2:}
+\FunctionTok{\{}
+    \DataTypeTok{"head"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"vars"}\FunctionTok{:} \OtherTok{[}
+            \StringTok{"accountId"}\OtherTok{,}
+            \StringTok{"bankName"}\OtherTok{,}
+            \StringTok{"paymentMethod"}
+        \OtherTok{]}
+    \FunctionTok{\},}
+    \DataTypeTok{"results"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"bindings"}\FunctionTok{:} \OtherTok{[}
+            \FunctionTok{\{}
+                \DataTypeTok{"accountId"}\FunctionTok{:} \FunctionTok{\{}
+                    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"integer"}\FunctionTok{,}
+                    \DataTypeTok{"value"}\FunctionTok{:} \DecValTok{0905553715}
+                \FunctionTok{\},}
+                \DataTypeTok{"bankName"}\FunctionTok{:} \FunctionTok{\{}
+                    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"literal"}\FunctionTok{,}
+                    \DataTypeTok{"value"}\FunctionTok{:} \StringTok{"A. W. Fritter Institute"}
+                \FunctionTok{\},}
+                \DataTypeTok{"paymentMethod"}\FunctionTok{:} \FunctionTok{\{}
+                    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"literal"}\FunctionTok{,}
+                    \DataTypeTok{"value"}\FunctionTok{:} \StringTok{"online-service"}
+                \FunctionTok{\}}
+            \FunctionTok{\}}
+        \OtherTok{]}
+    \FunctionTok{\}}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\textbf{\protect\hypertarget{code-03_graphql-query}{}{Code 03: Example
+query in GraphQL}:}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{# URL}\OperatorTok{:} \NormalTok{https}\OperatorTok{:}\CommentTok{//unique-consumer-endpoint.pdaas.tld/graphql}
+
+\NormalTok{query }\OperatorTok{\{}
+    \NormalTok{profile }\OperatorTok{\{}
+        \NormalTok{firstname}
+        \NormalTok{lastname}
+    \OperatorTok{\}}
+    \AttributeTok{bankAccounts}\NormalTok{(}\DataTypeTok{paymentMethod}\OperatorTok{:} \StringTok{'online-service'}\NormalTok{) }\OperatorTok{\{}
+        \NormalTok{accountId}
+        \NormalTok{bankName}
+        \NormalTok{paymentMethod}
+    \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+~\\
+\textbf{\protect\hypertarget{code-04_graphql-query-result}{}{Code 04:
+Result of Code 03 in JSON}:}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\FunctionTok{\{}
+    \DataTypeTok{"profile"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"firstname"}\FunctionTok{:} \StringTok{"Jane"}\FunctionTok{,} 
+        \DataTypeTok{"lastname"}\FunctionTok{:} \StringTok{"Doe"}
+    \FunctionTok{\},}
+    \DataTypeTok{"bankAccounts"}\FunctionTok{:} \OtherTok{[}
+        \FunctionTok{\{}
+            \DataTypeTok{"accountId"}\FunctionTok{:} \DecValTok{0905553715}\FunctionTok{,}
+            \DataTypeTok{"bankName"}\FunctionTok{:} \StringTok{"A. W. Fritter Institute"}\FunctionTok{,}
+            \DataTypeTok{"paymentMethod"}\FunctionTok{:} \StringTok{"online-service"}
+        \FunctionTok{\}}
+    \OtherTok{]}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\emph{NOTICE: schema notation is based on the rules underpinning the
+schema definition provided by the SimpleSchema project
+{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{135}{]}.}
+
+\textbf{\protect\hypertarget{code-05_struct_profile}{}{Code 05: Struct -
+Profile (example)}}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\OperatorTok{\{}
+    \DataTypeTok{firstname}\OperatorTok{:} \NormalTok{String}\OperatorTok{,}
+    \DataTypeTok{lastname}\OperatorTok{:} \NormalTok{String}\OperatorTok{,}
+    \DataTypeTok{pseudonym}\OperatorTok{:} \NormalTok{String}\OperatorTok{,}
+    \DataTypeTok{birth}\OperatorTok{:} \NormalTok{Date}\OperatorTok{,}
+    \DataTypeTok{gender}\OperatorTok{:} \NormalTok{String}\OperatorTok{,}
+    \DataTypeTok{religion}\OperatorTok{:} \NormalTok{String}\OperatorTok{,}
+    \DataTypeTok{motherTongue}\OperatorTok{:} \NormalTok{Language}
+    \DataTypeTok{photo}\OperatorTok{:} \NormalTok{File}\OperatorTok{,}
+    \DataTypeTok{residence}\OperatorTok{:} \NormalTok{Address}\OperatorTok{,}
+    \DataTypeTok{employer}\OperatorTok{:} \NormalTok{Organisation}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{\protect\hypertarget{code-06_struct_contact}{}{Code 06: Struct -
+Contact (example)}}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\OperatorTok{\{}
+    \DataTypeTok{label}\OperatorTok{:} \NormalTok{String}\OperatorTok{,}
+    \DataTypeTok{type}\OperatorTok{:} \AttributeTok{String}\NormalTok{(}\StringTok{'phone'}\OperatorTok{|}\StringTok{'email'}\OperatorTok{|}\StringTok{'url'}\OperatorTok{|}\StringTok{'name-of-social-network'}\NormalTok{)}\OperatorTok{,}
+    \DataTypeTok{prio}\OperatorTok{:} \AttributeTok{Integer}\NormalTok{(}\DecValTok{0-2}\NormalTok{)}\OperatorTok{,}
+    \DataTypeTok{uid}\OperatorTok{:} \NormalTok{String}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{\protect\hyperlink{code-07_struct_position}{Code 07: Struct -
+Position (example)}}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\OperatorTok{\{}
+    \DataTypeTok{lat}\OperatorTok{:} \NormalTok{Float}\OperatorTok{,}
+    \DataTypeTok{lon}\OperatorTok{:} \NormalTok{Float}\OperatorTok{,}
+    \DataTypeTok{radius}\OperatorTok{:} \OperatorTok{\{}
+        \DataTypeTok{value}\OperatorTok{:} \NormalTok{Float}\OperatorTok{,}
+        \DataTypeTok{unit}\OperatorTok{:} \NormalTok{Distance}
+    \OperatorTok{\},}
+    \DataTypeTok{description}\OperatorTok{:} \NormalTok{String}
+    \DataTypeTok{ts}\OperatorTok{:} \NormalTok{Date}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter*{References}\label{references}
+\addcontentsline{toc}{chapter}{References}
 
 \hypertarget{refs}{}
 \hypertarget{ref-web_2016_privacy-international-about-big-data}{}
@@ -6146,43 +6029,43 @@ retrieved 2017-01-28
 universal financial industry message scheme}. URL
 \url{https://www.iso20022.org/}. - retrieved 2017-01-28
 
-\hypertarget{ref-web_2017_repo_node-simple-schema}{}
-{[}129{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
-\url{https://github.com/aldeed/node-simple-schema}. - retrieved
-2017-01-29
-
 \hypertarget{ref-web_spec_xml_types}{}
-{[}130{]} \textsc{W3C}: \emph{XML schema part 2: Datatypes second
+{[}129{]} \textsc{W3C}: \emph{XML schema part 2: Datatypes second
 edition}. URL
 \url{https://www.w3.org/TR/xmlschema-2/\#built-in-primitive-datatypes}.
 - retrieved 2017-01-29
 
 \hypertarget{ref-web_spec_graphql_types}{}
-{[}131{]} \textsc{Facebook, Inc.}: \emph{GraphQL Specification}. URL
+{[}130{]} \textsc{Facebook, Inc.}: \emph{GraphQL Specification}. URL
 \url{https://facebook.github.io/graphql/\#sec-Input-Values}. - retrieved
 2017-01-29
 
 \hypertarget{ref-web_2016_wikipedia_separation-of-concerns}{}
-{[}132{]} \emph{Separation of concerns}. URL
+{[}131{]} \emph{Separation of concerns}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Separation_of_concerns\&oldid=747272729}.
 - retrieved 2017-01-24. ---~Page Version ID: 747272729
 
 \hypertarget{ref-web_spec_acme}{}
-{[}133{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
+{[}132{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
 \textsc{Hoffman-Andrews, Jacob}: \emph{Automatic certificate management
 environment (ACME)}. URL
 \url{https://tools.ietf.org/html/draft-ietf-acme-acme-04}. - retrieved
 2017-01-11
 
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}134{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
+{[}133{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
 success -- by the numbers}. URL
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 - retrieved 2016-12-16
 
 \hypertarget{ref-web_2016_wikipedia_accordion-gui}{}
-{[}135{]} \emph{Accordion (GUI)}. URL
+{[}134{]} \emph{Accordion (GUI)}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Accordion_(GUI)\&oldid=758084292}.
 - retrieved 2017-02-01. ---~Page Version ID: 758084292
+
+\hypertarget{ref-web_2017_repo_node-simple-schema}{}
+{[}135{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
+\url{https://github.com/aldeed/node-simple-schema}. - retrieved
+2017-01-29
 
 \end{document}

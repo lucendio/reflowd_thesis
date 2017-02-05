@@ -111,7 +111,7 @@ else ifeq ($(env),macos)
 	# required fonts
 	tlmgr install collection-fontsrecommended csquotes biblatex biber
 	# additional packages
-	tlmgr install truncate tocloft morefloats sectsty siunitx threeparttable
+	tlmgr install truncate tocloft morefloats sectsty siunitx threeparttable framed quotchap
 
 else ifeq ($(env),win)
 	@echo 'operating system not supported'
@@ -145,9 +145,9 @@ pdf:
 	--number-sections \
 	--number-offset=1,1,1 \
 	\
-	--columns=10 \
+	--columns=6 \
 	\
-	--highlight-style=pygments \
+	--highlight-style=tango \
 	\
 	--latex-engine=xelatex \
 	--latex-engine-opt= \
@@ -163,7 +163,7 @@ pdf:
 
 
 	@pandoc \
-		$(CONTENTS_DIR)/900_declaration-of-authorship.draft \
+		$(CONTENTS_DIR)/declaration-of-authorship.draft \
 		\
 		--latex-engine=xelatex \
 		--latex-engine-opt= \
@@ -200,7 +200,7 @@ html:
 	--number-sections \
 	--number-offset=1,1,1 \
 	\
-	--highlight-style=pygments \
+	--highlight-style=tango \
 	\
 	--data-dir="$(PANDOC_DATA_DIR)" \
 	\
@@ -239,7 +239,7 @@ tex:
 	--number-sections \
 	--number-offset=1,1,1 \
 	\
-	--highlight-style=pygments \
+	--highlight-style=tango \
 	\
 	--latex-engine=xelatex \
 	--latex-engine-opt= \
@@ -278,6 +278,7 @@ tex:
 #   --toc-depth=3
 
 #   --highlight-style=pygments
+#   --listings --> native latex code styling instead of highlight-style
 
 #   --include-in-header=FILE
 #   --include-before-body=FILE
@@ -287,8 +288,6 @@ tex:
 #   --html-q-tags
 
 #   --number-sections
-
-#   --listings ???
 
 #   --email-obfuscation=none|javascript|references
 

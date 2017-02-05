@@ -12,38 +12,38 @@
             div.sourceCode { overflow-x: auto; }
             table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
               margin: 0; padding: 0; vertical-align: baseline; border: none; }
-            table.sourceCode { width: 100%; line-height: 100%; }
+            table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
             td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
             td.sourceCode { padding-left: 5px; }
-            code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-            code > span.dt { color: #902000; } /* DataType */
-            code > span.dv { color: #40a070; } /* DecVal */
-            code > span.bn { color: #40a070; } /* BaseN */
-            code > span.fl { color: #40a070; } /* Float */
-            code > span.ch { color: #4070a0; } /* Char */
-            code > span.st { color: #4070a0; } /* String */
-            code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-            code > span.ot { color: #007020; } /* Other */
-            code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-            code > span.fu { color: #06287e; } /* Function */
-            code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-            code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-            code > span.cn { color: #880000; } /* Constant */
-            code > span.sc { color: #4070a0; } /* SpecialChar */
-            code > span.vs { color: #4070a0; } /* VerbatimString */
-            code > span.ss { color: #bb6688; } /* SpecialString */
+            pre, code { background-color: #f8f8f8; }
+            code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+            code > span.dt { color: #204a87; } /* DataType */
+            code > span.dv { color: #0000cf; } /* DecVal */
+            code > span.bn { color: #0000cf; } /* BaseN */
+            code > span.fl { color: #0000cf; } /* Float */
+            code > span.ch { color: #4e9a06; } /* Char */
+            code > span.st { color: #4e9a06; } /* String */
+            code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+            code > span.ot { color: #8f5902; } /* Other */
+            code > span.al { color: #ef2929; } /* Alert */
+            code > span.fu { color: #000000; } /* Function */
+            code > span.er { color: #a40000; font-weight: bold; } /* Error */
+            code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+            code > span.cn { color: #000000; } /* Constant */
+            code > span.sc { color: #000000; } /* SpecialChar */
+            code > span.vs { color: #4e9a06; } /* VerbatimString */
+            code > span.ss { color: #4e9a06; } /* SpecialString */
             code > span.im { } /* Import */
-            code > span.va { color: #19177c; } /* Variable */
-            code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-            code > span.op { color: #666666; } /* Operator */
-            code > span.bu { } /* BuiltIn */
+            code > span.va { color: #000000; } /* Variable */
+            code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+            code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+            code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
             code > span.ex { } /* Extension */
-            code > span.pp { color: #bc7a00; } /* Preprocessor */
-            code > span.at { color: #7d9029; } /* Attribute */
-            code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-            code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-            code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-            code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+            code > span.at { color: #c4a000; } /* Attribute */
+            code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+            code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+            code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+            code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
             </style>
                             <link rel="stylesheet" href="./assets/styles/tompollard.css" />
                                 <script src="js/jquery.js"></script>
@@ -100,9 +100,9 @@
                 <li><a href="#overview"><span class="toc-section-number">7.2</span> Overview</a></li>
                 <li><a href="#components"><span class="toc-section-number">7.3</span> Components</a><ul>
                 <li><a href="#webserver"><span class="toc-section-number">7.3.2</span> Webserver</a></li>
-                <li><a href="#user-interface-1"><span class="toc-section-number">7.3.3</span> User Interface</a></li>
+                <li><a href="#user-interface"><span class="toc-section-number">7.3.3</span> User Interface</a></li>
                 <li><a href="#storagepersistence"><span class="toc-section-number">7.3.4</span> Storage/Persistence</a></li>
-                <li><a href="#notification-infrastructure-1"><span class="toc-section-number">7.3.5</span> Notification Infrastructure</a></li>
+                <li><a href="#notification-infrastructure"><span class="toc-section-number">7.3.5</span> Notification Infrastructure</a></li>
                 <li><a href="#data-api"><span class="toc-section-number">7.3.6</span> Data API</a></li>
                 </ul></li>
                 <li><a href="#data-1"><span class="toc-section-number">7.4</span> Data</a><ul>
@@ -135,10 +135,8 @@
                 <li><a href="#future-work"><span class="toc-section-number">8.8</span> Future Work</a></li>
                 <li><a href="#summary"><span class="toc-section-number">8.9</span> Summary</a></li>
                 </ul></li>
-                <li><a href="#appendix">Appendix</a><ul>
-                <li><a href="#code">Code</a></li>
+                <li><a href="#source-code">Source Code</a></li>
                 <li><a href="#references">References</a></li>
-                </ul></li>
                 </ul>
             </div>
                             <div id="LOF">
@@ -682,111 +680,7 @@ authenticates the <em>data consumer</em> and checks the related <em>permission p
 <p>The core task of a <em>PDaaS</em> is providing data, <em>personal data</em>, which in conjunction is the digital manifestation of an individual, a person. One party creates the data, another one obtains and processes it. Thus, both need to agree, or at least need to know, how that data looks like, how is it structured and what are their semantics. The following section is intended to discuss different technologies, used to create queries that obtain those data points that are desired. Further on, it describes some basic data types and schemas, that might be useful in the context of <em>personal data</em> as well as for previously introduces <a href="#scenarios">scenarios</a>.</p>
 <p>First of all, to address the need of portability, which has to be satisfied by those components, that are storing and providing <em>personal data</em>, it is essential to abstract the actual storage from how it gets accessed. This makes it possible to relocate those storage into other platforms and environments. Thereby the <em>personal data storage</em> itself becomes platform-agnostic from an outside view, in other words portable. In order to reduce possible issues related to unsupported communication protocols it might be reasonable to enforce HTTP - over TLS, if they don’t share the same environment - even if the storage therefor requires an additional driver or proxy layer, like for example a mobile app.</p>
 <p>Possible technologies are for example <em><a href="#link-graphql">GraphQL</a></em> or the <em><a href="#link-sparql">SPARQL</a></em>, which is part of the <em><a href="#link-semantic-web">Semantic Web Suite</a></em>. Both are query languages underpinned by the concept of a graph. This means, relations between data points are embedded within the data structure itself. That meant, in terms of a graph, relations are <em>edges</em> and data points are <em>nodes</em>. In consequence the structure of a query itself reappears in it’s result, which means the originator of that query knows exactly what to expect for the response. Therefore it’s not necessary to provide any additional information about how to handle and interpret the responded data. The example below gives a first impression of how it might look like, when a <em>consumer</em> obtains the name of the <em>data subject</em> and a bank account of hers, that supports online payment.</p>
-<p><strong><span id="code-01_sparql-query">Code 01: Example query in SPARQL</span>:</strong></p>
-<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"># <span class="kw">query</span> <span class="dv">1</span>: obtain <span class="kw">the</span> <span class="kw">data</span> subject<span class="st">&#39;s first and last name</span>
-<span class="st">PREFIX person: &lt;http://pdaas.tld/schemas/person&gt;</span>
-
-<span class="st">SELECT $firstname $lastname</span>
-<span class="st">FROM &lt;https://unique-consumer-endpoint.pdaas.tld/sparql/profile&gt;</span>
-<span class="st">WHERE {</span>
-<span class="st">    $person person:firstname $firstname .</span>
-<span class="st">    $person person:lastname $lastname .</span>
-<span class="st">}</span>
-
-
-<span class="st"># query 2: obtain all bank accounts that are available for online payment</span>
-<span class="st">PREFIX bank-account: &lt;http://pdaas.tld/schemas/bank-account&gt;</span>
-
-<span class="st">SELECT $accountId $bankName $paymentMethod</span>
-<span class="st">FROM &lt;https://unique-consumer-endpoint.pdaas.tld/sparql/finance&gt;</span>
-<span class="st">WHERE {</span>
-<span class="st">    $bank-account bank-account:payment-method &quot;online-service&quot; .</span>
-<span class="st">    $bank-account bank-account:payment-method $paymentMethod .</span>
-<span class="st">    $bank-account bank-account:account-id $accountId . </span>
-<span class="st">    $bank-account bank-account:bank-name $bankName .</span>
-<span class="st">}</span></code></pre></div>
-<p><strong><span id="code-02_sparql-query-results">Code 02: Results of Code 01 in JSON</span>:</strong></p>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="er">//</span> <span class="er">result</span> <span class="er">1:</span>
-<span class="fu">{</span>
-    <span class="dt">&quot;head&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-        <span class="dt">&quot;vars&quot;</span><span class="fu">:</span> <span class="ot">[</span>
-            <span class="st">&quot;firstname&quot;</span><span class="ot">,</span>
-            <span class="st">&quot;lastname&quot;</span>
-        <span class="ot">]</span>
-    <span class="fu">},</span>
-    <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-        <span class="dt">&quot;bindings&quot;</span><span class="fu">:</span> <span class="ot">[</span>
-            <span class="fu">{</span>
-                <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
-                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;Doe&quot;</span>
-                <span class="fu">},</span>
-                <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
-                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;Jane&quot;</span>
-                <span class="fu">}</span>
-            <span class="fu">}</span>
-        <span class="ot">]</span>
-    <span class="fu">}</span>
-<span class="fu">}</span>
-
-<span class="er">//</span> <span class="er">result</span> <span class="er">2:</span>
-<span class="fu">{</span>
-    <span class="dt">&quot;head&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-        <span class="dt">&quot;vars&quot;</span><span class="fu">:</span> <span class="ot">[</span>
-            <span class="st">&quot;accountId&quot;</span><span class="ot">,</span>
-            <span class="st">&quot;bankName&quot;</span><span class="ot">,</span>
-            <span class="st">&quot;paymentMethod&quot;</span>
-        <span class="ot">]</span>
-    <span class="fu">},</span>
-    <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-        <span class="dt">&quot;bindings&quot;</span><span class="fu">:</span> <span class="ot">[</span>
-            <span class="fu">{</span>
-                <span class="dt">&quot;accountId&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;integer&quot;</span><span class="fu">,</span>
-                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="dv">0905553715</span>
-                <span class="fu">},</span>
-                <span class="dt">&quot;bankName&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
-                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;A. W. Fritter Institute&quot;</span>
-                <span class="fu">},</span>
-                <span class="dt">&quot;paymentMethod&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
-                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;online-service&quot;</span>
-                <span class="fu">}</span>
-            <span class="fu">}</span>
-        <span class="ot">]</span>
-    <span class="fu">}</span>
-<span class="fu">}</span></code></pre></div>
 <p>Without going into much details here, the syntax of this example (<a href="#code-01_sparql-query">Code 01</a>) already shows its nature of decentralization. This aspect at the same time introduces additional external dependencies. Because the query language itself has no concept of schemas or any kind of semantic, it needs to be made aware of them. SPARQL queries typically return XML which then can be rendered into (HTML) tables. JSON and RDF are supported as well. The reason for performing two queries instead of just one is, because otherwise the result might have returned multiple “rows” with redundant data, if more then one bank account would have supported online payment; varying in three columns containing data about bank accounts though, but being identical in the fields related to the profile information.</p>
-<p><strong><span id="code-03_graphql-query">Code 03: Example query in GraphQL</span>:</strong></p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"># URL<span class="op">:</span> https<span class="op">:</span><span class="co">//unique-consumer-endpoint.pdaas.tld/graphql</span>
-
-query <span class="op">{</span>
-    profile <span class="op">{</span>
-        firstname
-        lastname
-    <span class="op">}</span>
-    <span class="at">bankAccounts</span>(<span class="dt">paymentMethod</span><span class="op">:</span> <span class="st">&#39;online-service&#39;</span>) <span class="op">{</span>
-        accountId
-        bankName
-        paymentMethod
-    <span class="op">}</span>
-<span class="op">}</span></code></pre></div>
-<p><strong><span id="code-04_graphql-query-result">Code 04: Result of Code 03 in JSON</span>:</strong></p>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
-    <span class="dt">&quot;profile&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-        <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;Jane&quot;</span><span class="fu">,</span> 
-        <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="st">&quot;Doe&quot;</span>
-    <span class="fu">},</span>
-    <span class="dt">&quot;bankAccounts&quot;</span><span class="fu">:</span> <span class="ot">[</span>
-        <span class="fu">{</span>
-            <span class="dt">&quot;accountId&quot;</span><span class="fu">:</span> <span class="dv">0905553715</span><span class="fu">,</span>
-            <span class="dt">&quot;bankName&quot;</span><span class="fu">:</span> <span class="st">&quot;A. W. Fritter Institute&quot;</span><span class="fu">,</span>
-            <span class="dt">&quot;paymentMethod&quot;</span><span class="fu">:</span> <span class="st">&quot;online-service&quot;</span>
-        <span class="fu">}</span>
-    <span class="ot">]</span>
-<span class="fu">}</span></code></pre></div>
 <p>Whereas comparing the <em>GraphQL</em> query syntax (<a href="#code-03_graphql-query">Code 03</a>) with it’s result (<a href="#code-04_graphql-query-result">Code 04</a>) shows of a remarkable resemblance. By defining <code>paymentMethod</code> as an argument, the resolver for <code>bankAccounts</code> then implements an instruction to match the value of that argument (<code>'online-service'</code>) against the whole set. <em>GraphQL’s server</em> then knows from which resources the data in question need to be pulled and how they need to be aggregated. While SPARQL has a full-featured query language syntax including all sorts of controls (e.g. aggregation, operators, nested queries etc.), GraphQL’s syntax instead is more rudimental, because all it’s functions and logic was abandoned from the language itself and put into a server part. With this concept of separation it is straightforward to validate queries, because it essentially means matching against types. Both query languages share a comprehensive understanding of a type-system, that encourages to create all kinds of data types. However, when comparing the results of both languages, some distinctions appear. While in GraphQL the characteristics of graph-structured data are remain, <em>SPARQL’s</em> output is missing a certain level of depth. The reason for that originates in the design of the query language and it’s syntax. <em>SPARQL</em> is able to notice implicit relations between data points, though it’s query language is not capable of grabbing and presenting them. Thus the result only consists of two dimensions.</p>
 <p>It is crucial for the <em>PDaaS</em> to provide the <em>data subject</em> with abilities to create her own data types and schemas (<a href="#sp03">S.P.03</a>). Thereby she is enabled to serve data points according to her own needs and terms. In order to interact with their customers or users, <em>data consumers</em> might develop and provide schemas for their requests as well. This can help <em>data subjects</em> to speedup the process of permission granting and to easier understand what data points are affected. Data types and schemas are the key to validate incoming and outgoing data. If data violates the underlying schema or no appropriate schema exists, the data transfer fails. Other missing data types could be developed by a community, because not every <em>data subject</em> might have the ability to model her own data types. Thus everyone can benefit from that effort taken by a few. As a result, the ones that are widely used might then become de facto standards. Moreover, it’s also possible that several data types will emerge, which are based on common standards, for example <em>medical record</em> <span class="citation" data-cites="web_spec_data-schemas_ehr">[<a href="#ref-web_spec_data-schemas_ehr">126</a>]</span>, <em>point of interest</em> <span class="citation" data-cites="web_spec_data-schemas_poi">[<a href="#ref-web_spec_data-schemas_poi">127</a>]</span> or <em>bank transfer</em> <span class="citation" data-cites="web_spec_data-schemas_bank-transfer">[<a href="#ref-web_spec_data-schemas_bank-transfer">128</a>]</span>. With this approach those data types can be viewed as something like a plugin or add-on for the <em>PDaaS</em>.</p>
 <p>In order to avoid confusion about the differences between types and schemas and to simplify their relations, the following two definitions are henceforth being used. A (data) <em>type</em> is the superior term; hence refers to both of them.</p>
@@ -814,38 +708,6 @@ query <span class="op">{</span>
 <li>Language</li>
 <li>Diseases</li>
 </ul>
-<p><em>NOTICE: schema notation is based on the rules underpinning the schema definition provided by the SimpleSchema project <span class="citation" data-cites="web_2017_repo_node-simple-schema">[<a href="#ref-web_2017_repo_node-simple-schema">129</a>]</span>.</em></p>
-<p><strong><span id="code-05_struct_profile">Code 05: Struct - Profile (example)</span></strong></p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="op">{</span>
-    <span class="dt">firstname</span><span class="op">:</span> String<span class="op">,</span>
-    <span class="dt">lastname</span><span class="op">:</span> String<span class="op">,</span>
-    <span class="dt">pseudonym</span><span class="op">:</span> String<span class="op">,</span>
-    <span class="dt">birth</span><span class="op">:</span> Date<span class="op">,</span>
-    <span class="dt">gender</span><span class="op">:</span> String<span class="op">,</span>
-    <span class="dt">religion</span><span class="op">:</span> String<span class="op">,</span>
-    <span class="dt">motherTongue</span><span class="op">:</span> Language
-    <span class="dt">photo</span><span class="op">:</span> File<span class="op">,</span>
-    <span class="dt">residence</span><span class="op">:</span> Address<span class="op">,</span>
-    <span class="dt">employer</span><span class="op">:</span> Organisation
-<span class="op">}</span></code></pre></div>
-<p><strong><span id="code-06_struct_contact">Code 06: Struct - Contact (example)</span></strong></p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="op">{</span>
-    <span class="dt">label</span><span class="op">:</span> String<span class="op">,</span>
-    <span class="dt">type</span><span class="op">:</span> <span class="at">String</span>(<span class="st">&#39;phone&#39;</span><span class="op">|</span><span class="st">&#39;email&#39;</span><span class="op">|</span><span class="st">&#39;url&#39;</span><span class="op">|</span><span class="st">&#39;name-of-social-network&#39;</span>)<span class="op">,</span>
-    <span class="dt">prio</span><span class="op">:</span> <span class="at">Integer</span>(<span class="dv">0-2</span>)<span class="op">,</span>
-    <span class="dt">uid</span><span class="op">:</span> String
-<span class="op">}</span></code></pre></div>
-<p><strong><a href="#code-07_struct_position">Code 07: Struct - Position (example)</a></strong></p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="op">{</span>
-    <span class="dt">lat</span><span class="op">:</span> Float<span class="op">,</span>
-    <span class="dt">lon</span><span class="op">:</span> Float<span class="op">,</span>
-    <span class="dt">radius</span><span class="op">:</span> <span class="op">{</span>
-        <span class="dt">value</span><span class="op">:</span> Float<span class="op">,</span>
-        <span class="dt">unit</span><span class="op">:</span> Distance
-    <span class="op">},</span>
-    <span class="dt">description</span><span class="op">:</span> String
-    <span class="dt">ts</span><span class="op">:</span> Date
-<span class="op">}</span></code></pre></div>
 <p><strong><span id="list-02_data-categories">List 02: relevant (sub-)categories of data</span></strong></p>
 <ul>
 <li>Finance
@@ -895,7 +757,7 @@ query <span class="op">{</span>
 <li>Medication</li>
 </ul></li>
 </ul>
-<p>The available <em>primitives</em> mainly depend on those who are supported by the query language itself. In this case, all <em>primitives</em> mentioned above are supported by <em>SPARQL</em> <span class="citation" data-cites="web_spec_xml_types">[<a href="#ref-web_spec_xml_types">130</a>]</span> and <em>GraphQL</em> <span class="citation" data-cites="web_spec_graphql_types">[<a href="#ref-web_spec_graphql_types">131</a>]</span>. When choosing a database system it has to be ensured that either the system already supports the required <em>primitives</em> or they can be emulated somehow with a least amount of drawbacks. When modelling relations between data point one can use for example keys (or identifiers) to make reference, or additional syntactical tools like <em>lists</em> (or arrays) and maps (or objects). Those tools facilitate readability so that relations are almost intuitively observable, therefore they should be enforced. Whereas another know concept in data modelling, inheritance, isn’t required, but could help to reason about certain <em>structs</em> and their representations, it might add complexity though.</p>
+<p>The available <em>primitives</em> mainly depend on those who are supported by the query language itself. In this case, all <em>primitives</em> mentioned above are supported by <em>SPARQL</em> <span class="citation" data-cites="web_spec_xml_types">[<a href="#ref-web_spec_xml_types">129</a>]</span> and <em>GraphQL</em> <span class="citation" data-cites="web_spec_graphql_types">[<a href="#ref-web_spec_graphql_types">130</a>]</span>. When choosing a database system it has to be ensured that either the system already supports the required <em>primitives</em> or they can be emulated somehow with a least amount of drawbacks. When modelling relations between data point one can use for example keys (or identifiers) to make reference, or additional syntactical tools like <em>lists</em> (or arrays) and maps (or objects). Those tools facilitate readability so that relations are almost intuitively observable, therefore they should be enforced. Whereas another know concept in data modelling, inheritance, isn’t required, but could help to reason about certain <em>structs</em> and their representations, it might add complexity though.</p>
 <p>Aside form the <em>subject’s</em> <em>personal data</em> other information and data must be persist as well. This includes for example:</p>
 <ul>
 <li>Application data
@@ -998,68 +860,122 @@ query <span class="op">{</span>
 <section id="architecture" class="level2">
 <h2><span class="header-section-number">6.6</span> Architecture</h2>
 <p>By taking all previous sections, their discussions and the requirements as well into account, this section serves the sole purpose of figuring out how all the different concepts and conclusions discussed before can fit together in an overall system architecture that is organized in either a distributed or a monolithic manner. This type of changes should not impact how the system’s interfaces behave from a user perspective.</p>
-<p>The foundation of this project is a server-client Architecture, which is chosen for a) providing availability (<a href="#sa05">S.A.05</a>) and b) separating some concerns <span class="citation" data-cites="web_2016_wikipedia_separation-of-concerns">[<a href="#ref-web_2016_wikipedia_separation-of-concerns">132</a>]</span>. Such a distributed system provides various locations to place these concerns, which are in fact different environments with different properties. Those combinations of locations and environments are herein after called <em>platforms</em>. To further describe these <em>platforms</em> characteristics such as architectural layer and access possibilities to it’s internals are taken into account. This resulting three types of <em>platforms</em> are shown in Table <a href="#tbl:platforms-characteristics">2</a>.</p>
+<p>The foundation of this project is a server-client Architecture, which is chosen for a) providing availability (<a href="#sa05">S.A.05</a>) and b) separating some concerns <span class="citation" data-cites="web_2016_wikipedia_separation-of-concerns">[<a href="#ref-web_2016_wikipedia_separation-of-concerns">131</a>]</span>. Such a distributed system provides various locations to place these concerns, which are in fact different environments with different properties. Those combinations of locations and environments are herein after called <em>platforms</em>. To further describe these <em>platforms</em> characteristics such as architectural layer and access possibilities to it’s internals are taken into account. This resulting three types of <em>platforms</em> are shown in Table <a href="#tbl:platforms-characteristics">2</a>.</p>
 <a name="tbl:platforms-characteristics"></a>
 <table>
 <caption>Table 2: All platform types where components of the <em>PDaaS</em> architecture can be placed </caption>
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 10%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 12%" />
-<col style="width: 35%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Type</th>
 <th style="text-align: center;">trusted</th>
 <th style="text-align: center;">private</th>
-<th style="text-align: center;">controlled by</th>
-<th style="text-align: center;">Layer</th>
+<th style="text-align: left;">controlled by</th>
+<th style="text-align: left;">Layer</th>
 <th style="text-align: left;">Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><p>Server</p></td>
-<td style="text-align: center;"><p>yes</p></td>
-<td style="text-align: center;"><p>yes</p></td>
-<td style="text-align: center;"><p>data subject</p></td>
-<td style="text-align: center;"><p>back end</p></td>
-<td style="text-align: left;"><ul>
-<li>business logic</li>
-<li>third-party interfaces</li>
-<li>data storage</li>
-</ul></td>
+<td style="text-align: left;">Server</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: left;">data</td>
+<td style="text-align: left;">back</td>
+<td style="text-align: left;">- business logic</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><p>Desktop</p></td>
-<td style="text-align: center;"><p>no</p></td>
-<td style="text-align: center;"><p>no</p></td>
-<td style="text-align: center;"><p>data subject</p></td>
-<td style="text-align: center;"><p>front end</p></td>
-<td style="text-align: left;"><ul>
-<li>based on web technologies</li>
-</ul></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: left;">subject</td>
+<td style="text-align: left;">end</td>
+<td style="text-align: left;">- third-party interfaces</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><p>Mobile</p></td>
-<td style="text-align: center;"><p>no</p></td>
-<td style="text-align: center;"><p>conditionally</p></td>
-<td style="text-align: center;"><p>data subject</p></td>
-<td style="text-align: center;"><p>front end</p></td>
-<td style="text-align: left;"><ul>
-<li>typically mobiles devices</li>
-<li>based on host-specific native technologies</li>
-<li>data storage</li>
-</ul></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: left;">- data storage</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Desktop</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">data</td>
+<td style="text-align: left;">front</td>
+<td style="text-align: left;">- based on web</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: left;">subject</td>
+<td style="text-align: left;">end</td>
+<td style="text-align: left;"><span class="math inline">\ </span> technologies</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mobile</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">cond.</td>
+<td style="text-align: left;">data</td>
+<td style="text-align: left;">front</td>
+<td style="text-align: left;">- typically mobiles</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: left;">subject</td>
+<td style="text-align: left;">end</td>
+<td style="text-align: left;"><span class="math inline">\ </span> devices</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: left;">- based on host-specific</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span> native technologies</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: center;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: left;"><span class="math inline">\ </span></td>
+<td style="text-align: left;">- data storage</td>
 </tr>
 </tbody>
 </table>
 <p>The next step is to determine those components, that are required in order to cover most of the defined use cases. The conglomeration below highlights all major components, including the platforms in which they could be positioned, in addition to further details about their purpose(s) and relation(s) to each other.</p>
-<section id="web-server" class="level5">
-<h5><span class="header-section-number">6.6.1.0.1</span> Web server</h5>
+<p> <br />
+<strong>Web server</strong></p>
 <p><em>Platform:</em> Server</p>
 <p><em>Purpose:</em></p>
 <ul>
@@ -1076,9 +992,8 @@ query <span class="op">{</span>
 <li>TLS</li>
 <li>WebSockets</li>
 </ul>
-</section>
-<section id="permission-manager" class="level5">
-<h5><span class="header-section-number">6.6.1.0.2</span> Permission Manager</h5>
+<p> <br />
+<strong>Permission Manager</strong></p>
 <p><em>Platform:</em> Server</p>
 <p><em>Purpose:</em></p>
 <ul>
@@ -1088,9 +1003,11 @@ query <span class="op">{</span>
 <li>queue <em>consumer</em> requests</li>
 </ul>
 <p><em>Technologies:</em></p>
-</section>
-<section id="pki" class="level5">
-<h5><span class="header-section-number">6.6.1.0.3</span> PKI</h5>
+<ul>
+<li>TODO</li>
+</ul>
+<p> <br />
+<strong>PKI</strong></p>
 <p><em>Platform:</em> Server</p>
 <p><em>Purpose:</em></p>
 <ul>
@@ -1101,11 +1018,10 @@ query <span class="op">{</span>
 <p><em>Technologies:</em></p>
 <ul>
 <li>X.509</li>
-<li>ACME <span class="citation" data-cites="web_spec_acme">[<a href="#ref-web_spec_acme">133</a>]</span> (Let’s Encrypt)</li>
+<li>ACME <span class="citation" data-cites="web_spec_acme">[<a href="#ref-web_spec_acme">132</a>]</span> (Let’s Encrypt)</li>
 </ul>
-</section>
-<section id="storage-connector" class="level5">
-<h5><span class="header-section-number">6.6.1.0.4</span> Storage Connector</h5>
+<p> <br />
+<strong>Storage Connector</strong></p>
 <p><em>Platform:</em> Server</p>
 <p><em>Purpose:</em></p>
 <ul>
@@ -1116,9 +1032,8 @@ query <span class="op">{</span>
 <ul>
 <li>driver for used database</li>
 </ul>
-</section>
-<section id="operator-api" class="level5">
-<h5><span class="header-section-number">6.6.1.0.5</span> Operator API</h5>
+<p> <br />
+<strong>Operator API</strong></p>
 <p><em>Platform:</em> Server</p>
 <p><em>Purpose:</em></p>
 <ul>
@@ -1132,9 +1047,8 @@ query <span class="op">{</span>
 <ul>
 <li>JWT</li>
 </ul>
-</section>
-<section id="code-execution-environment" class="level5">
-<h5><span class="header-section-number">6.6.1.0.6</span> Code Execution Environment</h5>
+<p> <br />
+<strong>Code Execution Environment</strong></p>
 <p><em>Platform:</em> Server</p>
 <p><em>Purpose:</em></p>
 <ul>
@@ -1149,9 +1063,8 @@ query <span class="op">{</span>
 <li>Virtualization</li>
 <li>Container (OCI)</li>
 </ul>
-</section>
-<section id="tracker" class="level5">
-<h5><span class="header-section-number">6.6.1.0.7</span> Tracker</h5>
+<p> <br />
+<strong>Tracker</strong></p>
 <p><em>Platform:</em> Server</p>
 <p><em>Purpose:</em></p>
 <ul>
@@ -1160,9 +1073,8 @@ query <span class="op">{</span>
 <li>log all <em>access requests</em></li>
 </ul>
 <p><em>Technologies:</em></p>
-</section>
-<section id="personal-data-storage" class="level5">
-<h5><span class="header-section-number">6.6.1.0.8</span> Personal Data Storage</h5>
+<p> <br />
+<strong>Personal Data Storage</strong></p>
 <p><em>Platform:</em> Server, Mobile</p>
 <p><em>Purpose:</em></p>
 <ul>
@@ -1173,9 +1085,8 @@ query <span class="op">{</span>
 <li>non relational database</li>
 <li>depending on host environment</li>
 </ul>
-</section>
-<section id="persistence-layer" class="level5">
-<h5><span class="header-section-number">6.6.1.0.9</span> Persistence Layer</h5>
+<p> <br />
+<strong>Persistence Layer</strong></p>
 <p><em>Platform:</em> Server</p>
 <p><em>Purpose:</em></p>
 <ul>
@@ -1188,9 +1099,8 @@ query <span class="op">{</span>
 <li>non relational database</li>
 <li>Filesystem</li>
 </ul>
-</section>
-<section id="notification-infrastructure" class="level5">
-<h5><span class="header-section-number">6.6.1.0.10</span> Notification Infrastructure</h5>
+<p> <br />
+<strong>Notification Infrastructure</strong></p>
 <p><em>Platform:</em> Server</p>
 <p><em>Purpose:</em></p>
 <ul>
@@ -1201,9 +1111,8 @@ query <span class="op">{</span>
 <li>WebSockets for web UIs via local web server</li>
 <li>mobile device manufacturer’s Push Notification server for mobile apps</li>
 </ul>
-</section>
-<section id="user-interface" class="level5">
-<h5><span class="header-section-number">6.6.1.0.11</span> User Interface</h5>
+<p> <br />
+<strong>User Interface</strong></p>
 <p><em>Platform:</em> Desktop, Mobile</p>
 <p><em>Purpose:</em></p>
 <ul>
@@ -1219,7 +1128,8 @@ query <span class="op">{</span>
 <li>Java</li>
 <li>Swift, Objective-C</li>
 </ul>
-<p>After outlining all different components while keeping the aspect of portability (<a href="#sa02">S.A.02</a>) in mind, it needs to be figured out which arrangements make sense and what variations might be possible. The result are two, more or less, distinct designs that are proposed. As stated above, one is a more monolithic approach and the other involve more platform types and demonstrates the flexibility.</p>
+<p> <br />
+After outlining all different components while keeping the aspect of portability (<a href="#sa02">S.A.02</a>) in mind, it needs to be figured out which arrangements make sense and what variations might be possible. The result are two, more or less, distinct designs that are proposed. As stated above, one is a more monolithic approach and the other involve more platform types and demonstrates the flexibility.</p>
 <figure>
 <img src="./assets/figures/TODO_pdaas_component-composition_monolithic.jpg" alt="Figure 1: PDaaS Architecture, monolithic composition" id="fig:composition-monolithic" /><figcaption>Figure 1: PDaaS Architecture, monolithic composition</figcaption>
 </figure>
@@ -1232,10 +1142,9 @@ query <span class="op">{</span>
 <p>Authenticating <em>consumers</em> is performed based on TLS by the web server and it’s configured subdomains including their individual keys and certificates provided by the <em>PKI</em>. The <em>operator</em> authentication is either done by the <em>Operator API</em> or by the <em>web server</em>, depending on the <em>web server’s</em> capabilities. Though, it makes more sense, to entrust the <em>web server</em> with that task, because it’s the outmost component and it would prevent unauthorized and potential malicious requests from getting further into the system. And since a native front end on a mobile platform is considered <em>private</em>, it is reasonable to change the <em>operator</em> authentication from JWT-based to TLS-based <em>two-way authentication</em>, which would otherwise be inconvenient when using web-based front ends.</p>
 <p>If there are components that are only placed on the server and that have to communicate between each other, but are separated into independent processes, then some inter-process communication need to be established (e.g. sockets). It is also conceivable that inter-communication between server components could be unidirectional only. Approaches like changing configuration files by writing to the filesystem can therefor be feasible in some cases. Components that can vary in terms of their platform, have to communicate to the other components via <em>HTTPS</em>.</p>
 <p>The architecture implicitly distinguishes between two different groups of endpoints. These endpoints are made available by the <em>web server</em>, which reverse-proxys incoming connections to role-related (<em>operator</em> or <em>data consumer</em>) components. Starting from that, this separation can be driven further by simply encapsulating those components into services, that either are related to one of the roles or used by both. This basically results in the <em>web server</em> communicating with the two role-services in a bidirectional manner. The group of endpoints for <em>data consumers</em> mainly consists of those were <em>access requests</em> and <em>permission requests</em> are coming in and the public one, that is used for <em>consumer</em> registrations. The other one is a small group of endpoints required for all the tools the <em>operator</em> might need; from data API or notification through to authentication and web-based user interface.</p>
-<p>Considering the rapid growth of emerging website and applications, which all require user registration, users are getting tired of creating new accounts. Hence they tend to reuse their password(s). Providers started outsource that sensitive topic of user management by integrating third party authentication services, which not only makes is almost effortless to implement, but also leaves the responsibility as well as the accessibility to those service owners. Whereas users get the benefit of just using one account for all her apps - a universal key so to say, but only one exemplar. So the downside here is, only a handful of third parties <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">134</a>]</span> provide those authentication services.<br />
+<p>Considering the rapid growth of emerging website and applications, which all require user registration, users are getting tired of creating new accounts. Hence they tend to reuse their password(s). Providers started outsource that sensitive topic of user management by integrating third party authentication services, which not only makes is almost effortless to implement, but also leaves the responsibility as well as the accessibility to those service owners. Whereas users get the benefit of just using one account for all her apps - a universal key so to say, but only one exemplar. So the downside here is, only a handful of third parties <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">133</a>]</span> provide those authentication services.<br />
 OpenID is designed with a very specific type of scenarios in mind, namely the one just described - bringing decentralisation to the market of authentication services - which differs from those addressed by the <em>PDaaS</em>; at least, when it comes to <em>data consumer</em> interactions. Although, the <em>PDaaS</em> has the ability to become the digital representation of it’s <em>operator</em>. Hence it can and also should be used to authenticate that individual against an external parties.</p>
 <p><em><strong>Conclusions:</strong></em> Considering amount of effort a single-platform version, namely desktop or mobile, would take to get fully operational with respect to the specification, it is not only reasonable but also more secure to involve a server environment with proper security measures, static IP and high availability. Even if that server is a local machine connected to the <em>data subject’s</em> private network. That said, it is sufficient to start with the <em>monolithic</em> approach and as suitable mobile applications emerge that are supporting major administration features, notifications and <em>personal data storage</em>, it should be possible to migrate effortlessly towards the <em>distributed</em> approach that comes with a higher level , because all the sensitive personal data somewhere on a computer machine. As of the proposed architecture all components (or group of components) are portable and therefore relocatable among the suggested platforms; and with the introduced authentication method for <em>operators</em> using multiple front ends for the same <em>PDaaS</em> are thereby supports and can be implemented with almost no effort, which covers more use cases. As a supplement, an <em>identity provider</em> based on the OpenID standard would fit nicely into the existing arrangement and not interfering with the other components. However, it is beyond the scope of this work to make elaborate on this topic. For now it is stated as a feasible and logical addition to the <em>PDaaS</em>.</p>
-</section>
 </section>
 <section id="environment-and-setup" class="level2">
 <h2><span class="header-section-number">6.7</span> Environment and Setup</h2>
@@ -1264,14 +1173,8 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <p>The most notable characteristic used to distinguish user interfaces from each other are those interfaces that are visible and the ones that arn’t. For example a <em>graphical user interface (GUI)</em>, composed of visually separated areas with a certain semantic and assembled with meaningful objects on which the user can physically act, for example by touching them. The interface then reacts on those actions by changing their appearance. In this way the user can comprehend her actions. Whereas non-graphical user interfaces don’t provide the user with objects or surfaces to interact with. Instead, the primarily used medium is text, regardless if it’s human-readable or not. But <em>command line interfaces (CLI)</em>, available mainly in command line environments or shells, still provides a certain level of interactivity. A running program can pause in order to prompt the user with an input request. If an input is made and submitted the program then proceeds. The group of interfaces whose interactions can be fully automated are for example <em>application programming interfaces (API)</em>. Depending on the transport technologies, it’s no unusual that <em>API</em> interactions are consisting of just one action causing one reaction. Non-graphical interfaces enabling interactions on lower level. Even though they provide more functionality and can more time efficient, they are more rudemental and often less secure. While <em>GUIs</em> are normally meant for end users to interact with applications on a more sophisticated level, <em>CLIs</em> are used during development, for automation, or for server environment administration; probably remotely, because they are typically headless. Whereas <em>APIs</em>, documented by its provider, used to enable software developers program automated requests against those interfaces.</p>
 <p>Table <a href="#tbl:ui-features">3</a> provides a list of features and associates the different user interfaces mentioned before to those features if they should be supported by the interface types. It is notable that the <em>GUI</em> provides the <em>operator</em> with a powerful tool Hence it requires reliable protection mechanisms (see <a href="#authentication">Authentication</a>). Whereas <em>API</em> capabilities are very limited, because it’s the one interface that the <em>PDaaS</em> exposes to third parties.</p>
 <a name="tbl:ui-features"></a>
-<table style="width:82%;">
+<table>
 <caption>Table 3: Features that should be supported by the given user interfaces </caption>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Feature</th>
@@ -1284,73 +1187,73 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <tr class="odd">
 <td style="text-align: left;">manage <em>permission profiles</em> (<a href="#pviu03">P.VIU.03</a>)</td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
 <td style="text-align: center;"><strong>X</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">view access history (<a href="#pviu04">P.VIU.04</a>)</td>
 <td style="text-align: center;"><strong>X</strong></td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">register <em>consumer</em></td>
 <td style="text-align: center;"><strong>X</strong></td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">add new <em>front end</em></td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">authenticate <em>operator</em></td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">migrate <em>personal data</em></td>
 <td style="text-align: center;"><strong>X</strong></td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">review <em>permission requests</em> (<a href="#pi04">P.I.04</a>)</td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">create &amp; maintain templates (<a href="#pi05">P.I.05</a>)</td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">adjust precision of data (<a href="#pi06">P.I.06</a>)</td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
 <td style="text-align: center;"><strong>X</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">introduce new data <em>structs</em></td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
 <td style="text-align: center;"><strong>X</strong></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">configure <em>PDaaS</em></td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">import personal data</td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
 <td style="text-align: center;"><strong>X</strong></td>
 </tr>
 <tr class="odd">
@@ -1363,18 +1266,18 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <td style="text-align: left;">manipulate <em>personal data</em></td>
 <td style="text-align: center;"><strong>X</strong></td>
 <td style="text-align: center;"><strong>X</strong></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">run supervised code execution</td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
 <td style="text-align: center;"><strong>X</strong></td>
 <td style="text-align: center;"><strong>X</strong></td>
 </tr>
 </tbody>
 </table>
 <p>The architectural design includes <em>desktop</em> and <em>mobile</em> platforms. While prioritizing a web-based <em>GUI</em>, the management tool for the <em>operator</em> also need to be implemented natively for common mobile systems (<a href="#pviu02">P.VIU.02</a>); in this case Android and iOS. This again enables to provide real-time notifications (<a href="#pi03">P.I.03</a>, <a href="#pb02">P.B.02</a>) on mobile platforms, whereas WebSocket-based connections add this feature to <em>desktop</em> platforms. Since screen sizes can vary, in particular on <em>mobile</em> platforms, the <em>GUI</em> is required to be highly responsive and has to adapt (<a href="#pviu01">P.VIU.01</a>). Given the capabilities of, a inaccurate or error-prone rendered <em>GUI</em> can quickly cause unintended incidents. The main focus though has to</p>
-<p>Known challenges for the <em>GUI</em> design are primarily developing very efficient but also fun to use interfaces for reviewing <em>consumer registrations</em> and <em>permission requests</em>. Especially the latter can become hard to solve, because how can graph-based and nested data structures be displayed in such a way that makes reviewing and also manipulating an easy task to do - even on a screen of a mobile phone. One approach could be to utilize the <em>accordion</em> pattern <span class="citation" data-cites="web_2016_wikipedia_accordion-gui">[<a href="#ref-web_2016_wikipedia_accordion-gui">135</a>]</span> for edges and start nesting them in order to represent subsequent data structure. The interaction then might look like tree-structured navigation moving along relations just by expanding and folding in data points.</p>
+<p>Known challenges for the <em>GUI</em> design are primarily developing very efficient but also fun to use interfaces for reviewing <em>consumer registrations</em> and <em>permission requests</em>. Especially the latter can become hard to solve, because how can graph-based and nested data structures be displayed in such a way that makes reviewing and also manipulating an easy task to do - even on a screen of a mobile phone. One approach could be to utilize the <em>accordion</em> pattern <span class="citation" data-cites="web_2016_wikipedia_accordion-gui">[<a href="#ref-web_2016_wikipedia_accordion-gui">134</a>]</span> for edges and start nesting them in order to represent subsequent data structure. The interaction then might look like tree-structured navigation moving along relations just by expanding and folding in data points.</p>
 <p>Since other parts of the system have to provide the mechanisms to increase or reduce the precision of data due to privacy protection, the challenge here is to find the right design concepts for <em>data subject</em> to facilitate those adjustments. Precision adjustments can be achieved by either changing the sampling rate in a dataset containing a series of data points, or by rounding values to a certain extend. An example is cutting fractional digits of the latitude and longitude values in a position information, or removing all position information obtained between every quarter from a full day tracking period. Whether <em>data subjects</em> can choose from an abstracted precision grading (e.g. <em>high</em>, <em>mid</em>, and <em>low</em>) or they set specific, type or unit related filter mechanisms, configurable defaults on a system-wide level should be provided by <em>GUIs</em> in any case. Following data types are supposedly vulnerable to compromise privacy, thus proposed to support precision adjustments: <em>Date</em> (time), any kind of absolute measurements, sets containing data series, and position information, as mentioned before.</p>
 <p><em><strong>Conclusions:</strong></em> The most important aspect, when interacting with something or someone, is being provided with some kind of feedback. An action typically causes - and is therefore expected - a reaction. The result is an interaction, unless no reaction occurred.</p>
 <p>The discussion above outlines the relevance of those interactions for the <em>PDaaS</em>. Thus, for users and other software to interact with the <em>PDaaS</em> interfaces are mandatory. Primary characteristics of those interfaces are complete functionality, security precautions and restrictions, as well as comprehensive documentations. And visual user interfaces in addition, need to provide reliable and adaptive rendering, a consistent and encouraging interaction design and. <em>GUIs</em> need to be provided for all <em>desktop</em> and <em>mobile</em> platforms, primarily to provide an efficient user experience for the <em>operator</em>. The <em>operator</em> is the only role with permissions to access a <em>GUI</em>. Components on the <em>server</em> platform should provide <em>CLIs</em>, at least when no other technical option exist to interact with them. Also accessing the database from command line could be appreciated at some point. <em>APIs</em> are mostly meant for <em>data consumers</em> to interact with the <em>PDaaS</em> and perhaps for automated data contribution (based on <em>operator</em> role; e.g. browser plugin). <em>Desktop</em> platforms might use those <em>APIs</em> as well. In any case, <em>APIs</em> must be separated according to the <em>roles</em>.</p>
@@ -1398,13 +1301,13 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <section id="webserver" class="level3">
 <h3><span class="header-section-number">7.3.2</span> Webserver</h3>
 </section>
-<section id="user-interface-1" class="level3">
+<section id="user-interface" class="level3">
 <h3><span class="header-section-number">7.3.3</span> User Interface</h3>
 </section>
 <section id="storagepersistence" class="level3">
 <h3><span class="header-section-number">7.3.4</span> Storage/Persistence</h3>
 </section>
-<section id="notification-infrastructure-1" class="level3">
+<section id="notification-infrastructure" class="level3">
 <h3><span class="header-section-number">7.3.5</span> Notification Infrastructure</h3>
 </section>
 <section id="data-api" class="level3">
@@ -1675,13 +1578,282 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <p>The work will be continued.</p>
 </section>
 </section>
-<section id="appendix" class="level1 unnumbered">
-<h1>Appendix</h1>
-<section id="code" class="level2 unnumbered">
-<h2>Code</h2>
+<section id="source-code" class="level1 unnumbered">
+<h1>Source Code</h1>
+<p>  </p>
+<p><strong><span id="code-01_sparql-query">Code 01: Example query in SPARQL</span>:</strong></p>
+<div class="sourceCode"><table class="sourceCode sql numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="sourceCode"><pre><code class="sourceCode sql"># <span class="kw">query</span> <span class="dv">1</span>: obtain <span class="kw">the</span> <span class="fu">first</span> <span class="kw">and</span> <span class="fu">last</span> name fof <span class="kw">data</span> subject
+PREFIX person: &lt;http://pdaas.tld/schemas/person&gt;
+
+<span class="kw">SELECT</span> $firstname $lastname
+<span class="kw">FROM</span> &lt;https://unique-consumer-endpoint.pdaas.tld/sparql/profile&gt;
+<span class="kw">WHERE</span> {
+    $person person<span class="ch">:firstname</span> $firstname .
+    $person person<span class="ch">:lastname</span> $lastname .
+}
+
+
+# <span class="kw">query</span> <span class="dv">2</span>: obtain <span class="kw">all</span> bank accounts that are available <span class="kw">for</span> 
+# <span class="kw">online</span> payment
+PREFIX bank-account: &lt;http://pdaas.tld/schemas/bank-account&gt;
+
+<span class="kw">SELECT</span> $accountId $bankName $paymentMethod
+<span class="kw">FROM</span> &lt;https://unique-consumer-endpoint.pdaas.tld/sparql/finance&gt;
+<span class="kw">WHERE</span> {
+    $bank-account bank-account<span class="ch">:payment</span>-method <span class="ot">&quot;online-service&quot;</span> .
+    $bank-account bank-account<span class="ch">:payment</span>-method $paymentMethod .
+    $bank-account bank-account<span class="ch">:account</span>-id $accountId . 
+    $bank-account bank-account<span class="ch">:bank</span>-name $bankName .
+}</code></pre></td></tr></table></div>
+
+<p><strong><span id="code-02_sparql-query-results">Code 02: Results of Code 01 in JSON</span>:</strong></p>
+<div class="sourceCode"><table class="sourceCode json numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+</pre></td><td class="sourceCode"><pre><code class="sourceCode json"><span class="er">//</span> <span class="er">result</span> <span class="er">1:</span>
+<span class="fu">{</span>
+    <span class="dt">&quot;head&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;vars&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+            <span class="st">&quot;firstname&quot;</span><span class="ot">,</span>
+            <span class="st">&quot;lastname&quot;</span>
+        <span class="ot">]</span>
+    <span class="fu">},</span>
+    <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;bindings&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+            <span class="fu">{</span>
+                <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
+                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;Doe&quot;</span>
+                <span class="fu">},</span>
+                <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
+                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;Jane&quot;</span>
+                <span class="fu">}</span>
+            <span class="fu">}</span>
+        <span class="ot">]</span>
+    <span class="fu">}</span>
+<span class="fu">}</span>
+
+<span class="er">//</span> <span class="er">result</span> <span class="er">2:</span>
+<span class="fu">{</span>
+    <span class="dt">&quot;head&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;vars&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+            <span class="st">&quot;accountId&quot;</span><span class="ot">,</span>
+            <span class="st">&quot;bankName&quot;</span><span class="ot">,</span>
+            <span class="st">&quot;paymentMethod&quot;</span>
+        <span class="ot">]</span>
+    <span class="fu">},</span>
+    <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;bindings&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+            <span class="fu">{</span>
+                <span class="dt">&quot;accountId&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;integer&quot;</span><span class="fu">,</span>
+                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="dv">0905553715</span>
+                <span class="fu">},</span>
+                <span class="dt">&quot;bankName&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
+                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;A. W. Fritter Institute&quot;</span>
+                <span class="fu">},</span>
+                <span class="dt">&quot;paymentMethod&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;literal&quot;</span><span class="fu">,</span>
+                    <span class="dt">&quot;value&quot;</span><span class="fu">:</span> <span class="st">&quot;online-service&quot;</span>
+                <span class="fu">}</span>
+            <span class="fu">}</span>
+        <span class="ot">]</span>
+    <span class="fu">}</span>
+<span class="fu">}</span></code></pre></td></tr></table></div>
+
+<p><strong><span id="code-03_graphql-query">Code 03: Example query in GraphQL</span>:</strong></p>
+<div class="sourceCode"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"># URL<span class="op">:</span> https<span class="op">:</span><span class="co">//unique-consumer-endpoint.pdaas.tld/graphql</span>
+
+query <span class="op">{</span>
+    profile <span class="op">{</span>
+        firstname
+        lastname
+    <span class="op">}</span>
+    <span class="at">bankAccounts</span>(<span class="dt">paymentMethod</span><span class="op">:</span> <span class="st">&#39;online-service&#39;</span>) <span class="op">{</span>
+        accountId
+        bankName
+        paymentMethod
+    <span class="op">}</span>
+<span class="op">}</span></code></pre></td></tr></table></div>
+<p> <br />
+<strong><span id="code-04_graphql-query-result">Code 04: Result of Code 03 in JSON</span>:</strong></p>
+<div class="sourceCode"><table class="sourceCode json numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="sourceCode"><pre><code class="sourceCode json"><span class="fu">{</span>
+    <span class="dt">&quot;profile&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;Jane&quot;</span><span class="fu">,</span> 
+        <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="st">&quot;Doe&quot;</span>
+    <span class="fu">},</span>
+    <span class="dt">&quot;bankAccounts&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+        <span class="fu">{</span>
+            <span class="dt">&quot;accountId&quot;</span><span class="fu">:</span> <span class="dv">0905553715</span><span class="fu">,</span>
+            <span class="dt">&quot;bankName&quot;</span><span class="fu">:</span> <span class="st">&quot;A. W. Fritter Institute&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;paymentMethod&quot;</span><span class="fu">:</span> <span class="st">&quot;online-service&quot;</span>
+        <span class="fu">}</span>
+    <span class="ot">]</span>
+<span class="fu">}</span></code></pre></td></tr></table></div>
+
+<p><em>NOTICE: schema notation is based on the rules underpinning the schema definition provided by the SimpleSchema project <span class="citation" data-cites="web_2017_repo_node-simple-schema">[<a href="#ref-web_2017_repo_node-simple-schema">135</a>]</span>.</em></p>
+<p><strong><span id="code-05_struct_profile">Code 05: Struct - Profile (example)</span></strong></p>
+<div class="sourceCode"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="op">{</span>
+    <span class="dt">firstname</span><span class="op">:</span> String<span class="op">,</span>
+    <span class="dt">lastname</span><span class="op">:</span> String<span class="op">,</span>
+    <span class="dt">pseudonym</span><span class="op">:</span> String<span class="op">,</span>
+    <span class="dt">birth</span><span class="op">:</span> Date<span class="op">,</span>
+    <span class="dt">gender</span><span class="op">:</span> String<span class="op">,</span>
+    <span class="dt">religion</span><span class="op">:</span> String<span class="op">,</span>
+    <span class="dt">motherTongue</span><span class="op">:</span> Language
+    <span class="dt">photo</span><span class="op">:</span> File<span class="op">,</span>
+    <span class="dt">residence</span><span class="op">:</span> Address<span class="op">,</span>
+    <span class="dt">employer</span><span class="op">:</span> Organisation
+<span class="op">}</span></code></pre></td></tr></table></div>
+<p><strong><span id="code-06_struct_contact">Code 06: Struct - Contact (example)</span></strong></p>
+<div class="sourceCode"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="op">{</span>
+    <span class="dt">label</span><span class="op">:</span> String<span class="op">,</span>
+    <span class="dt">type</span><span class="op">:</span> <span class="at">String</span>(<span class="st">&#39;phone&#39;</span><span class="op">|</span><span class="st">&#39;email&#39;</span><span class="op">|</span><span class="st">&#39;url&#39;</span><span class="op">|</span><span class="st">&#39;name-of-social-network&#39;</span>)<span class="op">,</span>
+    <span class="dt">prio</span><span class="op">:</span> <span class="at">Integer</span>(<span class="dv">0-2</span>)<span class="op">,</span>
+    <span class="dt">uid</span><span class="op">:</span> String
+<span class="op">}</span></code></pre></td></tr></table></div>
+<p><strong><a href="#code-07_struct_position">Code 07: Struct - Position (example)</a></strong></p>
+<div class="sourceCode"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="op">{</span>
+    <span class="dt">lat</span><span class="op">:</span> Float<span class="op">,</span>
+    <span class="dt">lon</span><span class="op">:</span> Float<span class="op">,</span>
+    <span class="dt">radius</span><span class="op">:</span> <span class="op">{</span>
+        <span class="dt">value</span><span class="op">:</span> Float<span class="op">,</span>
+        <span class="dt">unit</span><span class="op">:</span> Distance
+    <span class="op">},</span>
+    <span class="dt">description</span><span class="op">:</span> String
+    <span class="dt">ts</span><span class="op">:</span> Date
+<span class="op">}</span></code></pre></td></tr></table></div>
 </section>
-<section id="references" class="level2 unnumbered">
-<h2>References</h2>
+<section id="references" class="level1 unnumbered">
+<h1>References</h1>
 <div id="refs" class="references">
 <div id="ref-web_2016_privacy-international-about-big-data">
 <p>[1] <em>Big data privacy international</em>. URL <a href="https://www.privacyinternational.org/node/8" class="uri">https://www.privacyinternational.org/node/8</a>. - retrieved 2016-11-15</p>
@@ -2067,29 +2239,28 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <div id="ref-web_spec_data-schemas_bank-transfer">
 <p>[128] <span style="font-variant: small-caps;">Authority, ISO 20022 Registration</span>: <em>ISO 20022 - universal financial industry message scheme</em>. URL <a href="https://www.iso20022.org/" class="uri">https://www.iso20022.org/</a>. - retrieved 2017-01-28</p>
 </div>
-<div id="ref-web_2017_repo_node-simple-schema">
-<p>[129] <em>Aldeed/node-simple-schema. GitHub</em>. URL <a href="https://github.com/aldeed/node-simple-schema" class="uri">https://github.com/aldeed/node-simple-schema</a>. - retrieved 2017-01-29</p>
-</div>
 <div id="ref-web_spec_xml_types">
-<p>[130] <span style="font-variant: small-caps;">W3C</span>: <em>XML schema part 2: Datatypes second edition</em>. URL <a href="https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes" class="uri">https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes</a>. - retrieved 2017-01-29</p>
+<p>[129] <span style="font-variant: small-caps;">W3C</span>: <em>XML schema part 2: Datatypes second edition</em>. URL <a href="https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes" class="uri">https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes</a>. - retrieved 2017-01-29</p>
 </div>
 <div id="ref-web_spec_graphql_types">
-<p>[131] <span style="font-variant: small-caps;">Facebook, Inc.</span>: <em>GraphQL Specification</em>. URL <a href="https://facebook.github.io/graphql/#sec-Input-Values" class="uri">https://facebook.github.io/graphql/#sec-Input-Values</a>. - retrieved 2017-01-29</p>
+<p>[130] <span style="font-variant: small-caps;">Facebook, Inc.</span>: <em>GraphQL Specification</em>. URL <a href="https://facebook.github.io/graphql/#sec-Input-Values" class="uri">https://facebook.github.io/graphql/#sec-Input-Values</a>. - retrieved 2017-01-29</p>
 </div>
 <div id="ref-web_2016_wikipedia_separation-of-concerns">
-<p>[132] <em>Separation of concerns</em>. URL <a href="https://en.wikipedia.org/w/index.php?title=Separation_of_concerns&amp;oldid=747272729" class="uri">https://en.wikipedia.org/w/index.php?title=Separation_of_concerns&amp;oldid=747272729</a>. - retrieved 2017-01-24. — Page Version ID: 747272729</p>
+<p>[131] <em>Separation of concerns</em>. URL <a href="https://en.wikipedia.org/w/index.php?title=Separation_of_concerns&amp;oldid=747272729" class="uri">https://en.wikipedia.org/w/index.php?title=Separation_of_concerns&amp;oldid=747272729</a>. - retrieved 2017-01-24. — Page Version ID: 747272729</p>
 </div>
 <div id="ref-web_spec_acme">
-<p>[133] <span style="font-variant: small-caps;">Kasten, James</span> ; <span style="font-variant: small-caps;">Barnes, Richard</span> ; <span style="font-variant: small-caps;">Hoffman-Andrews, Jacob</span>: <em>Automatic certificate management environment (ACME)</em>. URL <a href="https://tools.ietf.org/html/draft-ietf-acme-acme-04" class="uri">https://tools.ietf.org/html/draft-ietf-acme-acme-04</a>. - retrieved 2017-01-11</p>
+<p>[132] <span style="font-variant: small-caps;">Kasten, James</span> ; <span style="font-variant: small-caps;">Barnes, Richard</span> ; <span style="font-variant: small-caps;">Hoffman-Andrews, Jacob</span>: <em>Automatic certificate management environment (ACME)</em>. URL <a href="https://tools.ietf.org/html/draft-ietf-acme-acme-04" class="uri">https://tools.ietf.org/html/draft-ietf-acme-acme-04</a>. - retrieved 2017-01-11</p>
 </div>
 <div id="ref-web_2009-success-of-facebook-connect">
-<p>[134] <span style="font-variant: small-caps;">Carlson, Nicholas</span>: <em>Facebook connect is a huge success – by the numbers</em>. URL <a href="http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7" class="uri">http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7</a>. - retrieved 2016-12-16</p>
+<p>[133] <span style="font-variant: small-caps;">Carlson, Nicholas</span>: <em>Facebook connect is a huge success – by the numbers</em>. URL <a href="http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7" class="uri">http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7</a>. - retrieved 2016-12-16</p>
 </div>
 <div id="ref-web_2016_wikipedia_accordion-gui">
-<p>[135] <em>Accordion (GUI)</em>. URL <a href="https://en.wikipedia.org/w/index.php?title=Accordion_(GUI)&amp;oldid=758084292" class="uri">https://en.wikipedia.org/w/index.php?title=Accordion_(GUI)&amp;oldid=758084292</a>. - retrieved 2017-02-01. — Page Version ID: 758084292</p>
+<p>[134] <em>Accordion (GUI)</em>. URL <a href="https://en.wikipedia.org/w/index.php?title=Accordion_(GUI)&amp;oldid=758084292" class="uri">https://en.wikipedia.org/w/index.php?title=Accordion_(GUI)&amp;oldid=758084292</a>. - retrieved 2017-02-01. — Page Version ID: 758084292</p>
+</div>
+<div id="ref-web_2017_repo_node-simple-schema">
+<p>[135] <em>Aldeed/node-simple-schema. GitHub</em>. URL <a href="https://github.com/aldeed/node-simple-schema" class="uri">https://github.com/aldeed/node-simple-schema</a>. - retrieved 2017-01-29</p>
 </div>
 </div>
-</section>
 </section>
 <section class="footnotes">
 <hr />

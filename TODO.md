@@ -1,22 +1,22 @@
 
 ### Design (tex)
 
-[]   remove numeration from level 3 on (0, 1, 2 have to stay)
-[]   references: handle urls which are to long
-[]   indentation at the beginning of a paragraph
-[]   fixing block style when line breaks causes the previous line to get stretched
-[]   reduce line height and font size
-[]   change block and inline quotation style
-[]   change code blocks
-[]   everything but chapters have to be numbered in roman style
-[]   distinguish between new sections (empty line between) and new paragraphs (just a new line)
-[]   adding several *new-pages* and additional pages for e.g. acknowledgement 
-[]   verbatim/code LOC
-[]   chapter title in header?
-[]   everything (tables of..., bib, attachments) should be listed in TOC, but in other hirach level
-     or numbering (e.g. roman)
-[]   move included images more towards its original place of inclusion
-[]   change font to avenir LT, and code to source code
+[x]   remove numeration from level 3 on (0, 1, 2 have to stay)
+[x]   references: handle urls which are to long
+[-]   indentation at the beginning of a paragraph
+[?]   fixing block style when line breaks causes the previous line to get stretched
+[0]   reduce line height and font size
+[x]   change block and inline quotation style
+[x]   change code blocks
+[x]   everything but chapters have to be numbered in roman style
+[-]   distinguish between new sections (empty line between) and new paragraphs (just a new line)
+[x]   adding several *new-pages* and additional pages for e.g. acknowledgement 
+[x]   verbatim/code LOC
+[x]   chapter title in header?
+[x]   everything (tables of..., bib, attachments) should be listed in TOC, but in other hirach level
+      or numbering (e.g. roman)
+[x]   move included images more towards its original place of inclusion
+[-]   change font to avenir LT, and code to source code
 
 
 #### Rules:
@@ -34,24 +34,25 @@
      
 ### Structure
 
-[]   move Code and Lists into attachment
+[X]   move Code and --Lists-- into attachment
 
 
 ### Content
 
-[]   add to cover:
-     +  author:
-            -   Master's Thesis - International Media and Computing
-            -   email: gj@lucendio.com
-     +  supervisors/advisors:
-            1.  Prof. Dr. Burkhard Messer, burkhard.messer@htw-berlin.de
-            2.  Prof. Dr.-Ing. Carsten Busch, carsten.busch@HTW-Berlin.de
-     +  Organisation: HTW Berlin - University of Applied Sciences
-     +  Faculty: School of Computing, Communication and Business
-[]   add acknowledgements page
-[]   create arch diagrams (mono, distri)
-[]   remove file filed from all bibs
-[]   display subtitle
+[ ]   add to cover:
+      +  author:
+             -   Master's Thesis - International Media and Computing
+             -   email: gj@lucendio.com
+      +  supervisors/advisors:
+             1.  Prof. Dr. Burkhard Messer, burkhard.messer@htw-berlin.de
+             2.  Prof. Dr.-Ing. Carsten Busch, carsten.busch@HTW-Berlin.de
+      +  Organisation: HTW Berlin - University of Applied Sciences
+      +  Faculty: School of Computing, Communication and Business
+[x]   add acknowledgements page
+[ ]   create arch diagrams (mono, distri)
+[ ]   remove file field from all bibs
+[ ]   display subtitle
+[ ]   (!) change name to full before final render 
 
 
 ### On date of submission
