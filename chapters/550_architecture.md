@@ -243,7 +243,7 @@ major requirements, though.
 Aside from providing the *operator* with a non-stationary and instantly accessible interface to her 
 *PDaaS*, involving a *mobile platform* has the purpose of enabling the *data subject* to carry all 
 her sensitive data along. This is considered a major advantage over the monolithic approach, were
-all the personal data is located in the *"cloud"*. Depending on the perspective, it can either be 
+all the personal data is located in the *'cloud'*. Depending on the perspective, it can either be 
 seen as a *singe source of truth* or a *single point of failure*. Regardless of that, it introduces 
 the demand of a backup or some redundancy concept, which has briefly been touched on in the 
 discussion about database system requirements within the [*data* section](#data). 

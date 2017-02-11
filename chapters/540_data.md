@@ -285,5 +285,5 @@ Therefore *GraphQL* (and its implementations) is the query language of choice fo
 Engaging a user community when it comes to creating new structs can compensate the lack of certain
 types. Examples for a potential start point of *PDaaS* supported data types were showed before.
 Data Modelling in general is a large research field for it's own. With regards to the *PDaaS* it 
-needs much more work, though tt's beyond the scope of this document. The basic approaches within 
+needs much more work, though it's beyond the scope of this work. The basic approaches within 
 this section should only be viewed as an introduction that gives an outlook of how it's imagined. 

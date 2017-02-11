@@ -9,12 +9,17 @@ Conclusion
 The actual question would be, is the *data subject* certain, that she really wants to hand over 
 those capabilities to official authorities? Depending on which *data consumers*, what task their
 are entrusted with and what motivation the *data subject* has has in mind to do so, the *PDaaS* 
-might become a powerful *"digital reflection"* and starts to get seen as a real and reliable 
+might become a powerful *'digital reflection'* and starts to get seen as a real and reliable 
 representation of herself. Then the decisions made by *data consumers* might have a big impact for
 the *data subject's* life. For example a housing loan won't be granted or a medical treatment has 
 been refused.
 
 +   give back the data subject to control the level of privacy she is willing to share
+
++   (formally placed in 230) At the end it all comes down to understanding the human being and why she behaves as she does. 
+    The challenge is not only to compute certain motives but rather concluding to the right ones. 
+    When analyzing computed results with the corresponding data models and trying to conclude, 
+    it is important to keep in mind, that correlation is by far no proof of causation.
 
 
 ## Business Models & Monetisation

@@ -1,111 +1,125 @@
 ## Personal Data in the context of the Big Data Movement
 
-+   big data itself initially can be seen as a *huge blob of data* containing more or less
-    structured data sets [@web_2016_oxford_definition_big-data], whose size might have exceeded 
-    the capabilities of retrieving certain information almost only by hand. Such high data 
-    haystacks usually come along with new challenges in logistic and resource management, when 
-    information retrieval needs to get automated on a large scale 
-    [@web_2016_wikipedia_definition_big-data]. Theses practices are commonly referred to *Big 
-    Data (Analysis)* including distributed computing and machine learning. 
-+   Big Data, or to be more precise, collecting and analyzing big data, serves the prior purpose 
-    to extract useful information, which on the other hand depends on what was the opening 
-    question about, but also what data sets the corpus is containing.
-+   At first, (A) formalizing question(s) that the results have to answer. 
-    Secondly, (B) deciding what data is needed and appropriate and then start collecting. Third, (C) 
-    designing data models accordingly and correlate with the data (D) next, analyse and interpret 
-    the results. (E) last but not least, make business decisions based und the analyses 
-    ([@paper_2015_big-data-analytics_a-survey] Fig. 3).
-    
-+   machine learning/data mining --> computers trained to find coronations
-    
-+   since quite a few businesses (in terms of purpose or intention) are based around the concept 
-    of customers, which are generally somewhat entities consisting of at least one human being,
-    personal data takes a major part in what *Big Data* can be about. 
-    In the context of this thesis, these entities are individuals with a unique identity. And to 
-    understand the behaviour, decision making and needs of her customers a vendor, who owns the 
-    business, needs to know as much as possible about them, when she wants to know what changes
-    she needs to address in order to move towards the most lucrative business.
-+   personal data and information are reflecting all this knowledge. It starts with profile (or sensitive) data, such
-    as gender, age, residency or income, goes on with time series events like geo-location changes, 
-    or web search history and goes all the way up to health data and self-created content like 
-    *Tweets* [^tweets] or videos.
-
-+   all these classes of personal data hold a major share[^its-all-somehow-personal] in the field 
-    of data analytics (TODO: find statistics
-    showing shares of data types/classes/categories, [@book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining]
-    [@web_2013_big-data-collection-collides-with-privacy-concerns])
-+   but, depending on the specific attributes, they might be not that easy to acquire. in general
-    most businesses obtain data from within their own platforms. some data might be in the user's 
-    rang of control (e.g. customer or profile data), but most of the data comes from interacting
-    directly (content creation, inputs) or indirectly (transactions, meta information). the level
-    of sensitivity is mainly based on the purpose of the platform (benefit for the user) and what
-    is the provider's demand from the users commitment (e.g. required inputs or usage requires 
-    access to location)
-+   from a technical perspective collecting passively created data is as simple as integrating 
-    logging mechanisms in the program logic. since the industry moved towards the cloud 
-    [^because-of-the-cloud] most scenarios utilized server-client architectures. Furthermore 
-    the *always-on* philosophy evolved to an imperative state. standalone software is starting 
-    to call the author's servers from time to time, just to make sure the user behaves properly. 
-    For browsers it was already a common narrative to make here and then requests to the server - still 
-    preventable though, but when it comes to native mobile apps it is almost impossible 
-    [@web_2016_answers-io] to notice such behaviour and therefore preventing apps from doing so.
-+   these architectural developments were inducing the gathering of potentially useful information 
-    from all over the system on a large scale [@web_2016_big-data-enthusiasts-should-not-ignore]. 
-    Logging events, caused by the user's interactions, on the client, which then get forwarded 
-    to backend servers. Or keeping track of all kinds of transactions, which is done directly in the 
-    backend. Before running together in a designated place, all these collected chucks of data 
-    (TODO or "data points") are getting enriched with meta information. Finally get stored and 
-    probably never removed again - all for later analyses.
-
-+   The mindset in the *Big Data Community* is grounded on the basic assumption of 
-    *more data is more helpful*, which already is emphasised by the often-cited concept of the 
-    three *Vs* (Volume, Velocity, Variety) [@report_2001_3d-data-management-controlling-data-volume-velocity-and-variety]. 
-    which is not entirely wrong, because it lies in the nature of pattern and correlation discovery,
-    to provide increasing quality results [@paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data],
-    while enriching the overall data with more precise data sets.
-    But when new technologies are emerging, questioning the downsides and possible negative 
-    mid- or long-term impacts are typically not very likely to be a high priority. The focus lies 
-    on e.g. trying to to reach and eventually breach boundaries while beginning to evolve. So 
-    non-technical aspects such as privacy and security awareness doesn't come in naturally, instead 
-    a wider range of research needs to be done alongside the evolution process and the increasing 
-    adoption rate in order to uncover such issues. Only then they can addressed properly on 
-    different levels - technical, political as well as social. So that the *Big Data Community*
-    itself is able to evolve, too.
-    All in all it's a balancing act between respecting the user's privacy and having enough data 
-    at hand to satisfy the initial questioning with the computed results. Therefore people
-    working in such contexts need to have advanced domain knowledge, be aware of any downsides or 
-    pitfalls and need to be sensible about the ramifications of their approaches and doings.
-    Such improvements are already happening, not only originating from the field's forward thinkers
-    [@web_2016_the-state-of-big-data], 
-    but also advocated by governments, consumer rights organisations and even leading Tech-Companies 
-    start trying to do better [@web_2016_apple_customer-letter] [@web_2016_what-is-differential-privacy]
-    [@web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption] - as discussed in the section 
-    [TODO see personal data as of the law], 
-
-+   earlier in the text a difference was made between actively created and passively created data 
-+   based on that one could say *profile/account data* is actively created, because it got into 
-    the system by the user's actively made decision to insert these information into a form and
-    submit it - for whatever reason. whereas detecting the user's current location and adding this
-    information to the submitted form is *meta data*
-+   of cause, it is debatable whether these kind of data belongs, in the sense of being the 
-    rightful owner, to the user or to the author or owner of the software containing the code
-    that effectively created the data.
-+   maybe personal data is every data/information whose creation (or digital existence) is a 
-    direct result of user interaction/engagement?
-+   lets have a look into what the rule book says about that --> next topic (law)
 
 
-[^its-all-somehow-personal]: it doesn't matter whether an individual or just someone on behalf of 
-    an organisation spend money for something. at the end of the day, they are all humans on this 
-    planet and in a capitalistic oriented world money needs to flow and profits needs to be 
-    maximized. So to know where it will flow or why it will flow in a certain direction it is 
-    crucial to know everything about it's decision maker - the humans on this planet.
+The term __[Big Data]{#def--big-data}__ initially has been referred to as a *huge amount of data* 
+containing more or less structured datasets [@web_2016_oxford_definition_big-data], whose size, over 
+time, has started to limit its usability, because it exceeded the capabilities of state-of-the-art 
+standalone computer systems and storage-capacity. But instead of reducing the overall size, the 
+issues are addressed by utilizing distributed storing and parallel computing. Aside from challenges 
+in logistic and resource management when for example information retrieval needs to get automated on 
+a large scale [@web_2016_wikipedia_definition_big-data], this strategy still doesn't answer the 
+question of how to extract useful information from such deep "data lakes". What questions need to be 
+asked to get answers whose usefulness has yet to be known of? To discover knowledge in order to back 
+decision-making processes, technologies from the fields of *data mining*, *artificial intelligence* 
+and *machine learning* (e.g. neural networks) have been adapted. All in conjunction this is nowadays 
+known as *Big Data (Analytics)*. Additionally it is a collective term for the practise or approach 
+as here described, as well as the philosophy of massively collecting data while tending to neglect 
+people's privacy.
+ 
+Big Data analytics serve the prior purpose of extracting useful information, whose result depends on 
+the question initially being asked as well as what datasets the corpus contains. General steps 
+involved in such a knowledge discovery process, can be outlined as follows 
+[@chapter_2007_the-knowledge-discovery-process] 
+[@paper_2009_a-data-mining-knowledge-discovery-process-model], 
+1.  find and understand problems; formalize question(s) which the results have to answer
+2.  design data models accordingly and test/correlate them against sample data 
+3.  collect and prepare data
+4.  process data (data mining)
+5.  analyse and interpret results 
+6.  use discovered knowledge (e.g. make appropriate business decisions) 
 
-[^tweets]: public massages published by an account on [twitter.com](twitter.com), which will be 
-    displayed in the timeline of all her subscribers and also might contain additional types of 
-    content like images, links or video
-           
-[^because-of-the-cloud]: side note - one might come to the conclusion, that only the trend towards
-    the *cloud* made it actually possible to collect to such an extent we are  all observing these 
-    days, because standalone software should not necessarily require internet connection and 
-    therefore the vendors had no way to gather information whatsoever
+In general, the majority of businesses are typically required to have customer relationships. Such 
+relations are based on the transfer of valued goods (e.g. services, products, etc.) in exchange for 
+compensation (e.g. money). In order to process such a transfer, the vendor requires certain 
+information about the involved customer. Since all entities related to this concept, including the 
+customers, are considered to be human beings, such information most likely includes 
+*[Personal Data](#digital-identity-personal-data-and-ownership)*.
+A business normally is eager to grow, and if it has commercial interests as well it aims for profit
+maximization. So the business needs to overall improve, but therefor it requires knowledge on what 
+are its flaws in addition to where and how it can improve. To gain such knowledge, analytics based on 
+Big Data approaches are part of various business strategies. But this also means, that a lot of 
+Personal Data gets collected as part of those analytics, since that data is part of many business 
+processes.
+
+As a result of humans being primarily responsible for every money flow in this globalized 
+environment, they also decide on the success of business. This basically means, every process 
+analysis with an underlying commercial dependency somehow involves personal data
+[@web_2016_facebook-utilizes-98-data-points] [@web_2016_big-data-types-of-data-used-in-analytics]
+[@book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining]
+[@web_2013_big-data-collection-collides-with-privacy-concerns], whether this data is mandatory
+in that process or additionally obtained to for example measure and analyse customer behaviour. 
+Common data points involved in big data analytics start with gender, age, residency or income, 
+goes on with time series events like changing current geo-location or web search history and goes 
+all the way up to health data and self-created content like posts, images or videos.
+Depending on the data point though, that data might not be that easy to collect. In general, most 
+businesses obtain data from within their own platforms. Some data might even be in the customer's 
+rang of control (e.g. customer or profile data), but most of the data is created during direct 
+(content creation, inputs) or indirect (transactions, meta information) interaction with the
+business. The sensitivity level of involved personal data is determined by how big is the benefit 
+for the customer in comparison to what is the vendor's demand from the customer's commitment (e.g. 
+required inputs, or usage requires access to location information) 
+
+From a technical perspective, collecting indirectly created data is as simple as integrating 
+logging or debugging statements in the program logic. Since most vendors and organisations nowadays 
+have a business that is partially happening through the internet or is even completely based on it, 
+most scenarios of transactions utilizing server-client architectures.
+Furthermore, the *always-on* philosophy evolved to an imperative and implicit state of devices. 
+Standalone software, installed on a personal computer, calls the vendor's infrastructure that is 
+located in the cloud on a regularly basis, just to make sure that its user behaves properly, while
+en passant the vendor is provided with detailed user statistics. The web-browser already invokes a 
+common narrative that requests happening here and then - still preventable though But when it comes 
+to native mobile applications it's almost impossible [@web_2016_answers-io] to notice such behaviour 
+or even prevent them from exposing potentially sensitive information. Those developments in 
+architecture design have enabled a system-wide collection of potentially useful information on a 
+large scale [@web_2016_big-data-enthusiasts-should-not-ignore].
+Logging transactions triggered by the user on the client and forwarding the resulting logs to the 
+back end infrastructure, or keeping track of all sorts of transactions directly in the back end; all 
+these collected chucks of data are then being enriched with meta information before running together 
+in a designated place where they finally get stored and probably never removed again, waiting to 
+get analysed some day.
+
+Within *Big Data Communities* sometimes the *big* seems to get misinterpret as, regardless of what 
+the problem is that needs to be solved, gathering as much data points as possible is a valid 
+approach, even if it's just precautionary - in the future, those exact data might become valuable. 
+Such mindset is reflected by the often-cited concept of the three *Vs* (Volume, Velocity, Variety) 
+[@report_2001_3d-data-management-controlling-data-volume-velocity-and-variety]. It is not entirely 
+wrong though, because it's the nature of pattern and correlation discovery to provide increasing 
+quality results [@paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data], 
+when the overall data corpus gets enriched with more and precise datasets.
+But typically when new technologies emerge and maybe even get hyped, questioning downsides and 
+possible negative mid- or long-term impacts are typically unlikely to be high priority. The focus 
+instead is to experiment and try to reach and maybe even breach boundaries while beginning to 
+evolve. Non-technical aspects such as privacy and security awareness don't come in naturally, 
+instead the adoption rate has to increase, whereupon more and divers research is happen, which then 
+might uncover such issues. Only then they can be addressed properly and on different levels - 
+technical, political as well as social. Hence, the *Big Data Community* itself is able to evolve, 
+too.
+
+Big Data and Knowledge Discovery is a balancing act between respecting the user's privacy and having 
+enough data at hand so that initial questioning can be satisfied by the computed results. 
+Aside from having specific domain knowledge of the used technologies, people who are work in these 
+fields, need to be aware of any downsides or pitfalls and also have to be sensible on the 
+ramifications of their approaches and doings.
+Such improvements are already happening, not only originating from the community's forward thinkers
+[@web_2016_the-state-of-big-data], but also advocated by governments and consumer rights 
+organisations, as stated in the previous section (see 
+*[legislation](#digital-identity-personal-data-and-ownership)*. Even leading Tech-Companies start 
+trying to do better [@web_2016_apple_customer-letter] [@web_2016_what-is-differential-privacy] 
+[@web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption]. 
+
+In various science and research areas it's also very common to gather and store enormous amounts of 
+data. In these contexts the data and its analytical results are used to for example run complex 
+simulations (e.g. weather, population, diseases, hardware, physics), monitor and analyse complex 
+proceedings (e.g. nature, infrastructure, behaviour), explore the unknown (e.g. universe), or even 
+to imitate a famous painter [@web_2016_research-experiment_ai-rembrandt]. But unlike in the academic 
+sector, the commercial interest within the private sector is much larger, therefore Personal Data 
+are in great demand, because forecasting customer behaviour rather then the global warming is much 
+more valuable in that context.
+
+It is the logical conclusion to distribute and scale horizontal when the data demand exceeds latest 
+hardware capacity and capability, but it's no justification for thoughtless data collecting.
+Eventually, not the amount of data does count, but how to handle such amounts in order to not loose 
+its usefulness; what data then flow into those data lakes is up to the questioner, which might not 
+act in the interest of everyone. Therefore *data subject* need to regain control and actively 
+participate in formulate these questions. 

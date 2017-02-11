@@ -16,7 +16,7 @@ related to these individuals. In other words, searching for causation where in b
 might find correlations - or in other words *discrimination*, which
 
 >   [...] refers to unfair or unequal treatment of people based on membership to a category or a
->   minority, without regard to individual merit. *[@paper_2008_discrimination-aware-data-mining]*
+>   minority, without regard to individual merit. [@paper_2008_discrimination-aware-data-mining]
 
 When interacting directly with each other, discrimination of human beings is still a serious issue 
 in our society, but also when humans leverage computers and algorithms to uncover formerly 
@@ -29,12 +29,12 @@ The described phenomenon is originally referred to as *Bias in computer systems*
 [@paper_1996_bias-in-computer-systems]. What at first seems like machines going rouge on 
 humans, is, in fact, the *cognitive bias* [@wikipedia_2016_cognitive-bias] of human nature, modeled 
 into machine executable language and built to reveal the patterns their creators were looking for - 
-the *"Inheritance of humanness"* [@web_2016_big-data-is-people] so to say.
+the *"inherent humanness"* [@web_2016_big-data-is-people] so to say.
 
 In addition to the identity-defining data mentioned before, humans have the habit to create more and 
 more data on a daily basis - pro-actively (e.g by writing a post) and passively (e.g by allowing 
 the app to access their current location while submitting the post). As a result, already gigantic 
-databases keep growing bigger and bigger, waiting to be harvested, collected, aggregated, analyzed 
+databases keep growing bigger and bigger, waiting to be harvested, collected, aggregated, analysed 
 and finally interpreted. The crux here is, the more data being made available 
 [@video_2015_big-data-and-deep-learning_discrimination] to *mine* on, the higher the chances to 
 isolate datasets (clusters) that differ from each other but are coherent within themselves. Thereby 
