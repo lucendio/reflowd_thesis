@@ -1,243 +1,255 @@
 ## Digital Identity, Personal Data and Ownership 
 
-+   *Digital Identity*
-    -   what is a *DI*? and in comparison to *Personal Data*? 
-    -   what is required to make the PDaaS used or seen as a *DI*?
-    
-+   *Personal Data* definition
-    +   general - freely spoken
-    +   as of EU law (incl citation)
-    +   as of US law (incl citation)
-    +   is it just policy/guideline or enforceable too (law/rule)? what relevance/impact have
-        companies *terms and conditions*?
-    +   EU and USA (since server might be located outside the state or effective range)
-
-+   *Ownership* of personal data
-    -   who is the owner in what situation or under what circumstances?
-    -   am I the owner when I was the one who was collecting them? Does it depend on whether the 
-        resource was public or somewhat private?
-    -   what will happen with her data service after a person died?
-
-####################################################################################################
 
 
-+   A __Digital Identity__ is a non-physical abstraction of an entity, such as an organisation,
-an individual, a device or even software, which allows bidirectional association. In the context 
-of this document, it only refers to human beings. Therefore a *digital identity* is the 
-individual's representation in digital systems, consisting of identity-defining data, such as 
-*personal information* and it's history and preferences 
+A __[Digital Identity]{#def--digital-identity}__ is viewed as a non-physical abstraction of an 
+entity, such as an organisation, an individual, a device or even some software. It is bidirectional 
+associated to its physical counterpart. In the context of this work, it only refers to human beings. 
+Therefore a Digital Identity is the representation of an individual in digital systems, consisting 
+of identity-defining data, such as *personal information*, its own history and its preferences 
 [@whitepaper_2012_the-value-of-our-digital-identity_definition]. *Personal information*, in this 
-case, refers to inherent (date of birth) and imposed (credit card number) characteristics.
+case, refers to inherent (e.g. date of birth) as well as imposed (e.g. credit card number) 
+characteristics. The individual to whom those data relates to, is therewith the owner of that  
+*Digital Identity*.
+From a technical standpoint, a *Digital Identity* is essentially a collection of characteristics, 
+attributes and time series data (e.g. interaction logs or bank transfer history). Based on a subset 
+of those attribute values, a unique fingerprint can be easily generated. Depending on the data point 
+and complexity of its value, either a unique identifier on its own (e.g. social security number) - 
+depending on the context - or only a few are also enough to generate such fingerprint. Hence it 
+doesn't take a 
+complete set of attributes including all its values, but rather just a fraction of a *Digital 
+Identity* in order to determine its rightful owner and physical counterpart. The *Digital Identity* 
+can be viewed as an avatar in digital environments or even as the digital part of a persons's 
+identity. That is, a *Digital Identity* of a living individual can't just be reduced to some 
+bits and bytes, instead it should be valued as an appropriate, and maybe even legal, representation 
+in certain contexts and for a variety of purposes.
+In some of those situations it might be required (e.g. administrative purposes) to ensure a certain 
+level of authenticity for a *Digital Identity* or for particular attributes of it. This means, to 
+provide reliable confirmation that the attribute values are really the ones that belong to exactly 
+that individual they pretend to belong. An independent third party, who is trusted by all entities 
+participating in such a construct, could somehow verify (or vouch) the subject in question.
+On the other hand this concept opens up at least on class of attack scenarios. The risk of identity 
+theft for example increases dramatically, when assigning such value to a *Digital Identity*, 
+because the attacker is now longer required to be physically present in order to impersonate that
+identity or "steal" certain unique identifiers from person. Instead it's sufficient to gain access 
+to the areas where those sensitive data is stored.
+It is noted, that different technical solutions to these issues do exist and will be discussed 
+later on.
 
-+   From a technical perspective a DI is essentially a collection of characteristics, attributes
-and time series data (e.g. interaction logs or bank account history). A subset of those attributes 
-combined can form unique fingerprint, like certain single data points (e.g. social security number)
-in their own context might be, too. Thus it might not be necessary to know the values of all 
-attributes in order to identify a person as the rightful owner and physical counterpart. 
-It can also be seen as an avatar in the digital world or as the digital part of a human's identity. 
-Therefore it's important to not view the *DI* as a reduction of a living individual to some bits 
-and bytes, but rather as a appropriate representation for certain purposes and contexts.
- 
-+   It is also possible to provide an additional level of authenticity insurance for data 
-related to an entity. Therefor an unrelated third party, which needs to be approved not only by
-the related individual, but also by all entities participating in a context, which might be 
-relevant e.g. for some administration purposes.
-+   But the concept would also impose a new level of attacking vectors to the identity owner, such as 
-identity theft. The attacker is no longer required to be physically present to be able to steal 
-certain unique identifiers from a person. It is sufficient to gain access to area where the 
-sensitive data is stored.
+In the context of this project, and all related work, __[Personal Data]{#def--personal-data}__ is 
+defined as the total amount of data that is part of either an individual's *Digital Identity* or its 
+*[Digital Footprint](#terminologies--digital-footprint)*. On the one hand. that includes all the 
+intellectual property (e.g. posts, images, videos or comments) ever created, and all kinds of 
+tracking data, interaction monitoring and metadata, that is used to manually or automatically 
+enriched content (e.g.geo-location attached to a tweet as meta information). Moreover, it refers to 
+data that is captured by someone or something from within the individual's private living space or 
+property.
+*Personal data* is basically understood as every data point reflecting the individual as such and 
+its personality - partially or as a whole.
 
+The european "Data Protection Regulations" on the other hand defines 
+*[Personal Data]{#def--personal-data-as-of-legis}* as follows:
 
-
-+   In the context of this document and all related work, __Personal Data__ is specified as a
-    combination of an individual's *Digital Identity* and all of it's ever created intellectual 
-    property [@web_2016_wikipedia_intellectual-property] (e.g. posts, images, tweets or comments). This includes all sorts of tracking data 
-    and interaction monitoring, as well as metadata manually or automated enriching content 
-    (e.g.geo-location attached to a tweet as meta information). Data, captured by someone ore 
-    something on or about the individual's private living space and property. 
-    Simply every data point reflecting the individual's personality - partly or as a whole - is 
-    seen as *personal data*.
-    
-+   The european *Data Protection Regulations* defining *Personal Data* as follows:
 >   ‘personal data’ means any information relating to an identified or identifiable natural person 
 >   (‘data subject’); an identifiable natural person is one who can be identified, directly or 
 >   indirectly, in particular by reference to an identifier such as a name, an identification 
 >   number, location data, an online identifier or to one or more factors specific to the physical, 
 >   physiological, genetic, mental, economic, cultural or social identity of that natural person;
->   *[@regulation_2016_eu_general-data-protection-regulation_definition]*
+>   [@regulation_2016_eu_general-data-protection-regulation_definition]
     
-+   The U.S.A. has little legislation on defining and protecting consumer's privacy. At least they
-    have no explicit bills addressing such area [@web_2016_wikipedia_information-privacy-law_us]. 
-    Though some of the existing sectoral laws consist of partially applicable policies and 
-    guidelines [@web_2016_data-protection-laws-in-the-us]; most of them addressing specific types
-    of data.
-    In 2015 the White House made an attempt to fill the gap with the *Consumer Privacy Bill of 
-    Rights Act*, but to this date it didn't passes the draft state. According to the critics, it 
-    lags of concrete enforceable rules consumers can rely on 
-    [@web_2015_white-house-releases-consumer-privacy-bill-draft]. The draft contains a general 
-    definition of *Personal Data*:
+Whereas the U.S.A. has little to no legislation defining *personal data* and thereby protecting
+the individual's privacy. There is at least no explicit federal law addressing such areas 
+[@web_2016_wikipedia_information-privacy-law_us]. Though, some of the existing sectoral laws 
+contain partially applicable policies and guidelines [@web_2016_data-protection-laws-in-the-us]; 
+most of them addressing only data related to specific topics (e.g. health insurance, financial 
+record or lending).
+In 2015 the White House has attempted to fill that gap with the "Consumer Privacy Bill of Rights 
+Act", but to this date it doesn't left the draft state. According to the critics, the bill lacks of 
+concrete enforceable rules on which consumers can rely on
+[@web_2015_white-house-releases-consumer-privacy-bill-draft]. The draft contains a general 
+definition of *Personal Data*:
+
 >   “Personal data” means any data that are under the control of a covered entity, not otherwise 
 >   generally available to the public through lawful means, and are linked, or as a practical matter 
 >   linkable by the covered entity, to a specific individual, or linked to a device that is 
 >   associated with or routinely used by an individual, including but not limited to [...]
->   *[@bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition]*
-+   followed by a list of concrete data points, e.g. email or postal address, name, social security 
-    number and alike.
-    Aside from the legislation with bills, a few third-party organisation can also participate by
-    and add new or overwriting existing rules and policies. Namely for example the *Federal 
-    Communications Commission* (FCC), recently releasing *Rules to Protect Broadband Consumer 
-    Privacy* including a list of categories of sensitive information
-    [@rules_2016_fcc_to-protect-broadband-consumer-privacy_sensitive-types-of-data],
-    which wants *Personally Identifiable Information* (alias Personal Data) to be 
-    understood as:
+>   [@bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition]
+
+At the end a list of concrete data points follows; such as email or postal address, name, social 
+security number and alike.
+
+Aside from legislation through the government, several third-party organisations in the U.S. are 
+also allowed to define rules and policies that can overwrite existing laws, namely the *Federal 
+Communications Commission (FCC)*, which recently released "Rules to Protect Broadband Consumer 
+Privacy" for ISPs [^abbr_isp] including a list of categories of sensitive information
+[@rules_2016_fcc_to-protect-broadband-consumer-privacy_sensitive-types-of-data]. Thereby the FCC
+wants *Personally Identifiable Information* (alias *Personal Data*) to be understood as:
+    
 >   [...] any information that is linked or linkable to an individual. [...] information is 
 >   “linked” or “linkable” to an individual if it can be used on its own, in context, or in 
 >   combination to identify an individual or to logically associate with other information about a 
 >   specific individual. 
->   *[@rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information]*   
+>   [@rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information]
 
-+   Despite minor difference in detail, they all have similar ideas of personal data and
-    their belonging. Even though, the version proposed by EU is almost identical with the 
-    definition introduced for the context of this work. Although the FCC's statutory authorities
-    might be somewhat debatable regarding certain topics, the *Communications Act* as a U.S. 
-    federal law equips the FCC with power to regulate and legislate.
-    
-+   Having a common opinion on what data points are belonging to person is the foundation to 
-    define a set of rules on how deal with *Personal Data* accordingly. Every business, 
-    operating within the EU, is required [^eu-data-protection-regulation_informing-data-subject] 
-    to provide it's users with a *Privacy Policy*, while e.g. in the U.S. - as mentioned above - 
-    only partially and depending on context and data type users must be informed about which and 
-    how their data get processed [@web_2016_privacy-policies-are-mandatory-by-law]. 
-    
-+   A user commonly agrees on the privacy policy, by starting to interact with 
-    the author's business, thus every *Privacy Policy* is required to be publicly accessible; e.g. 
-    before creating an account.
+Despite minor difference in details, the FCC has s serious idea of what includes *personal data* and
+to whom their belong. Although the FCC's legal participation might be somewhat debatable regarding 
+limitation to certain topics, the "Communications Act" as a U.S. federal law qualifies the FCC to 
+regulate and legislate within its boundaries.
+
+Having a common understanding on what data points belong to a person is the foundation of defining 
+a set rules on how to handle *Personal Data* appropriately. Hence, every business, operating within 
+the EU, is required [^eu-data-protection-regulation_informing-data-subject] to provide its users 
+with a *Privacy Policy*, while for example in the U.S. - as mentioned above - only infrequently and 
+depending on the class of data or context users, must be informed about how their data get processed 
+and what data points are involved [@web_2016_privacy-policies-are-mandatory-by-law].    
+A user typically agrees on a *Privacy Policy* by starting to interact with the author's business or
+platform. Thus every *Privacy Policy* is required to be publicly accessible; for instance not in a 
+restricted area after logging, but before creating an account; like in the following example showe, 
+taken from facebook's current landing page.
+
 >   By clicking Create an account, you agree to our [Terms](https://www.facebook.com/legal/terms) 
 >   and that you have read our [Data Policy](https://www.facebook.com/about/privacy), including 
 >   our [Cookie Use](https://www.facebook.com/policies/cookies/). 
->   *[web_2016_facebooks-landing-page_policy-acknowledgement]*
-+   It can be seen more likely an information notice, that translates and specifies general 
-    given law, rather then a contract.
-+   With such knowledge at hand, it is up to each individual, if the service's benefits are worth 
-    sharing some personal data, while simultaneously acquiescing potential downsides concerning 
-    the privacy of such data.
-    
-+   Every entity who is doing so, muss process Personal data according to the law and their 
-    *Privacy Policy*. If they policies are violating existing law or the entity effectively goes 
-    against the law with their actual doing, penalties might follow. Depending on the level and 
-    impact of their infringement in addition the law itself, aside from revising their wrong-doings 
-    the entity might have to compensate the affected individuals, pay a fine or get revoked their 
-    license.
-    
-+   Not only privacy laws, but every legal jurisdiction has it's limitations - concerning their
-    territorial nature - which makes legislation not exactly an appropriate tool when it comes 
-    to fixing existing issues and strengthen the individual's privacy and rights in a global 
-    context like the *world wide web*.
-    If no international agreement is in place [@web_2016_international-privacy-standards], only 
-    those laws are considered valid and enforcible where the organisation is registered, and 
-    maybe the fact where (meaning in which area of jurisdiction) the their servers are located 
-    or the data is processed and stored.
+>   [@web_2016_facebooks-landing-page_policy-acknowledgement]
+
+It can be viewed more like an information notice, which translates and specifies the prevailing 
+legal situation, rather then a contract, which the user would be forced to read and accept before 
+revealing her data; otherwise known from procedures like software installations, where the user 
+might have to accept terms of use or license agreements.
+With a *Privacy Policy* at hand, it's up to each individual to decide, if the benefits, the service 
+offers, are worth sharing part(s) of her *personal data*, while at the same time reluctantly 
+tolerating potential downsides concerning the privacy of that data.
+When the vendor considers its policies being accepted by a user, her personal data must be processed 
+as stated in that policies but most certainly according to the law. If the policies violate existing 
+law or the vendor effectively goes against the law with its actual doing, penalties might follow. 
+Depending on level and impact of the infringement in addition to what the law itself says, the 
+vendor, while revisiting its wrong-doings in order to improve, might have to compensate affected 
+individuals, pay a fine or get revoked its license.
+
+Not only privacy laws, but every legal jurisdiction has it's limitations - such as its territorial 
+nature - which makes it not exactly an appropriate tool for addressing existing issues and 
+strengthen individuals privacy and rights in a global context like the *world wide web*.
+Whereas the EU has approved an extensive regulation, mentioned above, that is supposed to provide 
+privacy protection and defines the handling of personal data, the U.S. on the other hand has only 
+subject-specific rules which merely apply to its own citizens.
+Even though, the definition of personal data included in the EU regulation is almost identical to 
+the one introduced for the context of this work, it does only apply to vendors and individuals who
+are part of the EU. Even privacy policies won't help if the vendor is registered in a different area 
+of jurisdiction than the user is located. For those circumstances international agreements might 
+be established [@web_2016_international-privacy-standards], but this approach might still be useless 
+if it either provides no proper tools for users to enforce their rights or is simply being ignored 
+by contract partners with or without legal foundation [@web_2017_privacy-shield_faq] 
+[@web_2017_privacy-shield_kritik].
 
 
+While the legislation mentioned above is in place, *[Ownership]{#def--ownership}* of *Personal Data* 
+has no legal basis what so ever. The concepts of intellectual property protection and copyright 
+might intuitively be applicable, because the data that is defined through the soul existence of the 
+*data subject* (Digital Identity) and the data that is created by her, seems to be her *intellectual 
+property* as weill. Such type of property implies to be a result of a creative process though, but 
+unfortunately facts, like *personal data* mostly are, don't show a *threshold of originality* 
+[@paper_2014_who-owns-yours-data]. Thus, the legal concept of *intellectual property* does not 
+apply.
+However, [Ownership]{#def--ownership} in the context of this work, is understood as a concept of 
+having exclusive control over its personal data and how that data get processed at any given point 
+in time. The exclusive control is emphasizing as (A) the right to do what ever is desired with its 
+property and (B) by which rules and mechanisms the ownership can be assigned to someone 
+[@book_1987_private-ownership_definition]. This might result in a logistical challenge in which the 
+data subject has to allow data access without loosing the exclusive control over that data. In any 
+case some effort might be required in order to preserve ownership as described, caused by the 
+general characteristics that data has.
 
-Whereas __Ownership__ of *Personal Data* has no legal ground foundation what so ever. The concepts 
-of intellectual property protection and copyright might intuitively be applicable, because the data, 
-created by the data subject, seems to be her *intellectual property*. Such property implies to be a result 
-of a creative process though, but unfortunately there is no *threshold of originality* in facts, 
-like *personal information* is [@paper_2014_who-owns-yours-data]. 
-
-+   Ownership in the sense of having exclusive control over it's personal data and how they get 
-processed at any given point in time; this not only comes with high costs, but is also very 
-inconvenient for both parties - data subject and data consumer. It consists of two [concepts]{#def-ownership}: (A) the 
-right to do what every is desired with their property and (B) in which rules and mechanisms the 
-ownership can be assigned to someone [@book_1987_private-ownership_definition].
-
-+   The european DPR [^abbr_dpr] contains only one occurrence of the word *ownership*, which is not 
-even related to the context of *personal data* or the *data subject*. It only stats, that 
-*"Natural persons should have control of their own personal data."* 
+The european "Data Protection Regulations" mentioned before indicates only one occurrence of the 
+word *ownership*, and it's not even related to the context of *personal data* or the *data subject*. 
+It regulation only stats, that *"Natural persons should have control of their own personal data"* 
 [@regulation_2016_eu_general-data-protection-regulation_ownership]. 
 Whereas Commissioner J. Rosenworcel of the FCC wants *"consumers [...] to [...] take some ownership 
 of what is done with their personal information."* 
-[@rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership]
-
-+   Typically the question of data ownership is addressed in data consumer's *Terms of Service* 
-(ToS), which an individual might have to accept in order to establish a (legal) relationship with 
-it's author. I should be kept in mind, that *ToS* might change over time; not necessarily to the 
-users advantage. All addressed issues (by the ToS) must not violate any applicable or related law, 
-otherwise the *ToS* might not be legally recognized.
-Taking the following excerpts from different *ToS*:
+[@rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership] Despite those two exceptions, 
+elaborations on *data ownership* is almost not existent in current legislation. Instead the question 
+is typically addressed in *Terms of Service (ToS)* provided by *data consumers*, which an individual 
+might have to accept in order to establish a (legal) relationship with its author. The individual 
+should keep in mind, that *Terms of Services* can change over time; not necessarily to the users 
+advantage. The contents of a *ToS* must not violate any applicable or related law, otherwise the 
+terms might not be legally recognized.
+Taking for example the following excerpts from different *Terms of Services*:
  
 >   You own all of the content and information you post on Facebook, and you can control how 
->   it is shared [...]. *(under "2. Sharing Your Content and Information", by Facebook
->   [@web_2016_facebook_terms-of-service])*
+>   it is shared [...]. (under "2. Sharing Your Content and Information", by Facebook
+>   [@web_2016_facebook_terms-of-service])
 
 >   You retain your rights to any Content you submit, post or display on or through the Services. 
->   What’s yours is yours — you own your Content. *(under "3. Content on the Services", by Twitter
->   [@web_2016_twitter_terms-of-service])* 
+>   What’s yours is yours — you own your Content. (under "3. Content on the Services", by Twitter
+>   [@web_2016_twitter_terms-of-service])
 
 >   Some of our Services allow you to upload, submit, store, send or receive content. You retain 
 >   ownership of any intellectual property rights that you hold in that content. In short, what 
->   belongs to you stays yours. *(under "Your Content in our Services", by Google 
->   [@web_2016_google_terms-of-service])*
+>   belongs to you stays yours. (under "Your Content in our Services", by Google 
+>   [@web_2016_google_terms-of-service])
 
 >   Except for material we may license to you, Apple does not claim ownership of the materials 
->   and/or Content you submit or make available on the Service "(under "H. Content Submitted 
->   or Made Available by You on the Service", by Apple [@web_2016_apple-icloud_terms-of-service])*
+>   and/or Content you submit or make available on the Service (under "H. Content Submitted 
+>   or Made Available by You on the Service", by Apple [@web_2016_apple-icloud_terms-of-service])
 
-All these statements are followed by the same term, stating that the user grants the author a 
-worldwide license to do almost any imaginable thing with her data. This even applies to Apple, 
-if the user is *"submitting or posting [...] Content on areas of the Service that are accessible
-by the public or other users with whom [the user] consent to share [...] Content"*
-[@web_2016_apple-icloud_terms-of-service].
-+   It is worth noticing, that in every *ToS* it is only referred to the data subject's 
-content, not all her personal data. As mentioned above, personal information are no 
-intellectual property, but playing an important role in data analytics though. Which is why
-*privacy policies* are in place, to ensure at least some user enlightenment, even though it
-doesn't compensate the lack of control.
-+   In addition to that, the meaning of *ownership* used in the quoted *ToS* is missing a 
-clear outline and thus causing ambiguity and leaving room for interpretation. Nor the actual 
-definition of *ownership*, as described earlier, is applicable for these kind of cases, since 
-the user losing all its control is by design. Handing over data to the consumer annihilates
-the exclusive control over the data and revokes the ability of assigning such control. There 
-is no (legislation based) way to establish a feasible concept of *ownership*, if the data consumer 
-has no motivation to promote the user the a comprehensive owner of her data.
- 
-+   Leaving all the legal layer aside for a moment and switching the perspectives a bit; 
-Data consumers might argue, that they had invested in enabling themselves to collect, process 
-and store personal data, so it belongs to them. But from the data subject's point of view it might 
-only be the case as long as as she would benefit as well somehow, e.g. using products, services 
-or features, offered by consumers, which quality depends on personal data. 
-If the data subject chooses to move to a competitor might what to bring her personal data with
-her. But then again the former data consumer would object, competitors would
-benefit from all investments the consumer has made, but without any effort.
-Though, not entirely wrong, two aspects need to be emphasize. (A) In order to archive a high
-level of quality for their analytics and therefore in making right decisions to gain 
-improvement, it's vital to huge amount of effort in developing these underlying technologies,
-not only in acquiring personal data. Which again only constitutes (B) the foundation of various 
-subsequential computations followed by an ongoing collecting, aggregation and 
-analytics of actively and passively created data and metadata (e.g. food deliver history or
-platform interactions and tracking). Given the initially introduced definition of *personal 
-data* it appears to only be a fraction of the involved data belonging to its owner. The larger part 
-consists of highly valuable metadata [@web_2013_why-metadata-matters] 
-[@web_2016_why-you-need-metadata-for-big-data-to-success] and therefore should remain to the 
-data collector and either be deleted or sufficiently anonymized, if the owner cancels the 
-relationship. The data subject should not depend on the collector's willingness when it comes 
-to handing over her personal data (e.g. list of favorites or delivery history). Instead, 
-using her own tool to provide the consumer with required data (e.g. list of favorites) or 
-tap into her data creating interactions (e.g. food deliveries) on her own.
+All those statements are essentially superseded by a subsequent statement within each *ToS*, stating 
+that the user grants the author a worldwide license to do almost any imaginable thing with her data. 
+In case of Apple for example, if the user is *"submitting or posting [...] Content on areas of the 
+Service that are accessible by the public or other users with whom [the user] consent to share [...] 
+Content"* [@web_2016_apple-icloud_terms-of-service].
+It is worth to be noted though, that every *ToS* only refers to the content created by the *data 
+subject* instead of all her personal data. As mentioned above, personal information are no subject 
+of intellectual property, but playing an important role in data analytics though. Which is why 
+*privacy policies* are in place, to ensure at least some enlightenment on the whereabouts of the
+user's personal data, even though it doesn't compensate the absent of control.
+Additionally, neither the meaning of *ownership*, to which the quoted terms refer to, is 
+sufficiently outlined, which results in ambiguity, and thus leaves room for interpretation, nor the
+proposed definition of *ownership*, [as described earlier]{#def--ownership}, is applicable to these 
+*Terms of services*, since the *data subject* looses all its control by design. Handing over data 
+to a consumer effectively disables the exclusive control over the data and eliminates the ability to 
+assign such control. Hence, the *ownership* to that data doesn't exist any further. That is, no 
+(legislation based) way exists to establish a feasible concept of *ownership*, unless the data 
+consumer has a motivation to promote the *data subject* to the sole owner of her data as well as 
+honours these privileges.
 
-+   Whether an individual dies or a user deletes her account, as long as certain data point are
-shared with / connected to other users, the data will remain. At least when it comes to facebook.
+Leaving the legislation aside for a moment to move away from the top view; data consumers might 
+argue, that they have invested a lot in order to enable themselves to collect, process and store 
+personal data, hence it belongs to them. Whereas from the data subject's point of view this might 
+only be acceptable as long as she herself benefits from that arrangement somehow. Which would be the 
+case if for example the data subject uses products, services or features, offered by consumers, 
+whose quality depends on personal data. If the data subject then chooses to move to a competitor, 
+she would want to bring her personal data with her. But then again the former data consumer would 
+object that competitors could in this way benefit from all the investment the consumer has already 
+made, but without any effort. Not entirely wrong though, two aspects need to be emphasize here. 
+In order to get high quality analytics and therefore being able to make accurate decisions to 
+gain overall improvement, it is (A) vital to put a huge amount of effort in developing the 
+underlying technologies, rather then primarily collecting masses of personal data. But this effort 
+is just the precondition and applies to all of its customers, which again weakens its argumentation.
+It is followed by (B) an ongoing and recurring process of collecting, aggregating and analyzing 
+actively and passively created data and metadata (e.g. food deliver history or platform interactions 
+and tracking).
+According to the definition of *[Personal Data](#def--personal-data-as-of-legis)* through 
+legislation, it appears to be only a fraction of the data, namely *personal information*, that is 
+involved in these kind of processes. The larger part, which is defined as the subject's 
+*[digital footprint](#terminologies--digital-footprint)*, consists of highly valuable metadata 
+[@web_2013_why-metadata-matters] [@web_2016_why-you-need-metadata-for-big-data-to-success], but is 
+not covered by law. If the *data subject* ends the relationship with a collector, at least the 
+personal information should be erased and every remaining data sufficiently anonymized or even 
+handed back. Which again can currently be enforced only by legislation, because the *data subject* 
+has no access to the collector's infrastructure where the data about her is stored. 
 
-+   Generally speaking, all data solely associating with an individual, is in the ownership of 
-the same. But since it doesn't exist any legal concepts on *personal data* ownership, a 
-technical solution could help to regain some control. 
+In summary, approaching the issues from a legislative angle has showed to be fraught with problems 
+on a variety of levels. Not least because it can hardly be proven that vendors behave accordingly. 
+Thus *data subjects* should not depend on the collector's willingness to respect *Ownership* of 
+*Personal Data* as stated here. Instead a technical approach is proposed to embraces the *data 
+subject* as the origin of her personal data and to proactively regaining control, rather then just 
+relying.
 
 
-[^eu-data-protection-regulation]: passed 2016, immediately enforceable in every member country of 
-    the European Union, will supersede *Data Protection Directive 95/46/EC* 
+
+[^eu-data-protection-regulation]: passed 2016, enforceable from May 2018 on in every member country 
+    of the European Union, will supersede the "Data Protection Directive 95/46/EC" 
     
-[^eu-data-protection-regulation_informing-data-subject]: according to article 12-14 of the *EU
-    General Data Protection Regulation 2016/679*
+[^eu-data-protection-regulation_informing-data-subject]: according to article 12-14 of the "EU
+    General Data Protection Regulation 2016/679"
     
-[^abbr_dpr]: EU Data Protection Regulation
+[^abbr_isp]: Internet Service Provider

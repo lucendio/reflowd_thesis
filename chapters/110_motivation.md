@@ -4,7 +4,8 @@
 
 Nowadays, it is difficult to find a business that does not collect data about something; 
 humans are particular targets of choice for the *Big Data Movement* 
-[@web_2016_privacy-international-about-big-data]. Since humans are all individuals, they are  distinct from each other. While subsets of individuals might share a minor set of 
+[@web_2016_privacy-international-about-big-data]. Since humans are all individuals, they are 
+distinct from each other. While subsets of individuals might share a minor set of 
 attributes, the majority is still very unique to an individual, given that the overall variety of 
 attributes is complex. That small amount of similarity might seem to be less 
 important, due to the nature of inflationary occurrence, but the opposite turns out to be true. 
@@ -15,12 +16,13 @@ related to these individuals. In other words, searching for causation where in b
 might find correlations. This is also known as *discrimination*, which
 
 >   [...] refers to unfair or unequal treatment of people based on membership to a category or a
->   minority, without regard to individual merit. *[@paper_2008_discrimination-aware-data-mining]*
+>   minority, without regard to individual merit. [@paper_2008_discrimination-aware-data-mining]
 
 When interacting directly with each other, discrimination of human beings is a serious issue 
 in our society, but also when humans leverage computers and algorithms to uncover formerly 
 unnoticed information in order to inform their decision making. For example, when 
-qualifying for a loan, hiring employees, investigating crimes or renting flats. The decision to approve or deny is based on computed data about the individuals in question
+qualifying for a loan, hiring employees, investigating crimes or renting flats. The decision to 
+approve or deny is based on computed data about the individuals in question
 [@book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge], which is merely 
 discrimination on a much larger scale and with less effort (almost parenthetically). 
 The described phenomenon is originally referred to as *Bias in computer systems*

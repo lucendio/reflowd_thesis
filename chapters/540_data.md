@@ -30,88 +30,6 @@ responded data. The example below gives a first impression of how it might look 
 *consumer* obtains the name of the *data subject* and a bank account of hers, that supports online 
 payment.
 
-__[Code 01: Example query in SPARQL]{#code-01_sparql-query}:__
-```sql
-# query 1: obtain the data subject's first and last name
-PREFIX person: <http://pdaas.tld/schemas/person>
-
-SELECT $firstname $lastname
-FROM <https://unique-consumer-endpoint.pdaas.tld/sparql/profile>
-WHERE {
-    $person person:firstname $firstname .
-    $person person:lastname $lastname .
-}
-
-
-# query 2: obtain all bank accounts that are available for online payment
-PREFIX bank-account: <http://pdaas.tld/schemas/bank-account>
-
-SELECT $accountId $bankName $paymentMethod
-FROM <https://unique-consumer-endpoint.pdaas.tld/sparql/finance>
-WHERE {
-    $bank-account bank-account:payment-method "online-service" .
-    $bank-account bank-account:payment-method $paymentMethod .
-    $bank-account bank-account:account-id $accountId . 
-    $bank-account bank-account:bank-name $bankName .
-}
-```
-
-__[Code 02: Results of Code 01 in JSON]{#code-02_sparql-query-results}:__
-```JSON
-// result 1:
-{
-    "head": {
-        "vars": [
-            "firstname",
-            "lastname"
-        ]
-    },
-    "results": {
-        "bindings": [
-            {
-                "firstname": {
-                    "type": "literal",
-                    "value": "Doe"
-                },
-                "lastname": {
-                    "type": "literal",
-                    "value": "Jane"
-                }
-            }
-        ]
-    }
-}
-
-// result 2:
-{
-    "head": {
-        "vars": [
-            "accountId",
-            "bankName",
-            "paymentMethod"
-        ]
-    },
-    "results": {
-        "bindings": [
-            {
-                "accountId": {
-                    "type": "integer",
-                    "value": 0905553715
-                },
-                "bankName": {
-                    "type": "literal",
-                    "value": "A. W. Fritter Institute"
-                },
-                "paymentMethod": {
-                    "type": "literal",
-                    "value": "online-service"
-                }
-            }
-        ]
-    }
-}
-```
-
 Without going into much details here, the syntax of this example ([Code 01](#code-01_sparql-query)) 
 already shows its nature of decentralization. This aspect at the same time introduces additional 
 external dependencies. Because the query language itself has no concept of schemas or any kind of 
@@ -121,40 +39,6 @@ The reason for performing two queries instead of just one is, because otherwise 
 have returned multiple "rows" with redundant data, if more then one bank account would have 
 supported online payment; varying in three columns containing data about bank accounts though, but 
 being identical in the fields related to the profile information.
-
-__[Code 03: Example query in GraphQL]{#code-03_graphql-query}:__
-```js
-# URL: https://unique-consumer-endpoint.pdaas.tld/graphql
-
-query {
-    profile {
-        firstname
-        lastname
-    }
-    bankAccounts(paymentMethod: 'online-service') {
-        accountId
-        bankName
-        paymentMethod
-    }
-}
-```
-
-__[Code 04: Result of Code 03 in JSON]{#code-04_graphql-query-result}:__
-```JSON
-{
-    "profile": {
-        "firstname": "Jane", 
-        "lastname": "Doe"
-    },
-    "bankAccounts": [
-        {
-            "accountId": 0905553715,
-            "bankName": "A. W. Fritter Institute",
-            "paymentMethod": "online-service"
-        }
-    ]
-}
-```
 
 Whereas comparing the *GraphQL* query syntax ([Code 03](#code-03_graphql-query)) with it's result 
 ([Code 04](#code-04_graphql-query-result)) shows of a remarkable resemblance. 
@@ -225,49 +109,6 @@ __[List 01: Suggestions for useful structs]{#list-01_suggested-structs}__
 +   TimeRange
 +   Language
 +   Diseases
-
-*NOTICE: schema notation is based on the rules underpinning the schema definition provided by the 
-SimpleSchema project [@web_2017_repo_node-simple-schema].*
-
-__[Code 05: Struct - Profile (example)]{#code-05_struct_profile}__
-```js
-{
-    firstname: String,
-    lastname: String,
-    pseudonym: String,
-    birth: Date,
-    gender: String,
-    religion: String,
-    motherTongue: Language
-    photo: File,
-    residence: Address,
-    employer: Organisation
-}
-```
-
-__[Code 06: Struct - Contact (example)]{#code-06_struct_contact}__
-```js
-{
-    label: String,
-    type: String('phone'|'email'|'url'|'name-of-social-network'),
-    prio: Integer(0-2),
-    uid: String
-}
-```
-
-__[Code 07: Struct - Position (example)](#code-07_struct_position)__
-```js
-{
-    lat: Float,
-    lon: Float,
-    radius: {
-        value: Float,
-        unit: Distance
-    },
-    description: String
-    ts: Date
-}
-```
 
 __[List 02: relevant (sub-)categories of data]{#list-02_data-categories}__
 +   Finance
@@ -341,33 +182,18 @@ it is pivotal to distinguish between the needs of a *personal data storage (PDS)
 *persistence layer (PL)* for the system's backend.
 
 
-----------------------------------------------------------
-Characteristic                Personal Data   Persistence 
-                                 Storage         Layer
----------------------------- --------------- -------------
-portable
-
-advanced user & permission                        __X__
-management
-
-document-oriented                 __X__          __X__
-
-support common primitives         __X__          __X__
-
-replication                                      __X__
-
-efficient binary storage          __X__          __X__
-and serialization
-
-high performance                                 __X__
-
-operations and                    __X__          __X__
-transactions
-
-background optimization                          __X__
-
-version control
-----------------------------------------------------------
+| Characteristic                               | Personal Data Storage | Persistence Layer |
+|----------------------------------------------|:---------------------:|:-----------------:|
+|  portable                                    |           -           |         -         |
+|  advanced user & permission management       |           -           |       __X__       |
+|  document-oriented                           |         __X__         |       __X__       |
+|  support common primitives                   |         __X__         |       __X__       |
+|  replication                                 |           -           |       __X__       |
+|  efficient binary storage and serialization  |         __X__         |       __X__       |
+|  high performance                            |           -           |       __X__       |
+|  operations and transactions                 |         __X__         |       __X__       |
+|  background optimization                     |           -           |       __X__       |
+|  version control                             |           -           |         -         |
 
 Table: selection of characteristics that a database system has to feature in order to be suitable 
     for either of the defined purposes {#tbl:dbs-features} 
@@ -459,5 +285,5 @@ Therefore *GraphQL* (and its implementations) is the query language of choice fo
 Engaging a user community when it comes to creating new structs can compensate the lack of certain
 types. Examples for a potential start point of *PDaaS* supported data types were showed before.
 Data Modelling in general is a large research field for it's own. With regards to the *PDaaS* it 
-needs much more work, though tt's beyond the scope of this document. The basic approaches within 
+needs much more work, though it's beyond the scope of this work. The basic approaches within 
 this section should only be viewed as an introduction that gives an outlook of how it's imagined. 

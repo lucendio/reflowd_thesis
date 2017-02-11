@@ -64,7 +64,7 @@ and serration.
 __*[S.P.03]{#sp03}* - Schema and Structure__\
 The *Operator* can create new data types (based on a schema) in order to extend the capabilities of
 the data API. Structures and schemas can change over time ([S.P.04](#sp04)). 
-Every data set and data point has to relate to a corresponding and existing type, whether it's a 
+Every dataset and data point has to relate to a corresponding and existing type, whether it's a 
 simple type (string, integer, boolean, etc.) or a structured composition based on a schema.
 
 __*[S.P.04]{#sp04}* - Write__\
@@ -147,7 +147,7 @@ capabilities. It is build upon and therefore requires the [access logging](#pb01
 #### Interactions:
     
 __*[P.I.01]{#pi01}* - Effort__\
-Common interactions processes, like changing *profile data*, importing data sets or manage 
+Common interactions processes, like changing *profile data*, importing datasets or manage 
 *permission request* have to require as little effort as possible. This means short UI response 
 time on the one hand and as less single input and interaction steps as possible to complete a task.
 Given these circumstances, the *permission request review* and *permission profile creation* might 

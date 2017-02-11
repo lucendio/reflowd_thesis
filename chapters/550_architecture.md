@@ -18,21 +18,21 @@ it's internals are taken into account. This resulting three types of *platforms*
 @tbl:platforms-characteristics.
 
 
-+---------+---------+---------------+---------------+-----------+----------------------------------+
-| Type    | trusted | private       | controlled by | Layer     | Purpose                          |
-+:========+:=======:+:=============:+:=============:+:=========:+:=================================+
-| Server  | yes     | yes           | data subject  | back end  | -    business logic              |
-|         |         |               |               |           | -    third-party interfaces      |
-|         |         |               |               |           | -    data storage                |
-+---------+---------+---------------+---------------+-----------+----------------------------------+
-| Desktop | no      | no            | data subject  | front end | -    based on web technologies   |
-+---------+---------+---------------+---------------+-----------+----------------------------------+
-| Mobile  | no      | conditionally | data subject  | front end | -    typically mobiles devices   |
-|         |         |               |               |           | -    based on host-specific      |
-|         |         |               |               |           |      native technologies         |
-|         |         |               |               |           | -    data storage                |
-+---------+---------+---------------+---------------+-----------+----------------------------------+
-
+| Type    | trusted | private | controlled by | Layer   | Purpose                               |
+|:--------|:-------:|:-------:|:--------------|:--------|:--------------------------------------|
+| Server  | yes     | yes     | data          | back    | - business logic                      |
+|   $\ $  |   $\ $  |   $\ $  | subject       | end     | - third-party interfaces              |
+|   $\ $  |   $\ $  |   $\ $  |   $\ $        |   $\ $  | - data storage                        |
+|   $\ $  |   $\ $  |   $\ $  |   $\ $        |   $\ $  | $\ $                                  |
+| Desktop | no      | no      | data          | front   | - based on web                        |
+|   $\ $  |   $\ $  |   $\ $  | subject       | end     | $\ $ technologies                     |
+|   $\ $  |   $\ $  |   $\ $  |   $\ $        |   $\ $  | $\ $                                  |
+| Mobile  | no      | cond.   | data          | front   | - typically mobiles                   |
+|   $\ $  |   $\ $  |   $\ $  | subject       | end     |   $\ $ devices                        |
+|   $\ $  |   $\ $  |   $\ $  |   $\ $        |   $\ $  | - based on host-specific              |
+|   $\ $  |   $\ $  |   $\ $  |   $\ $        |   $\ $  | $\ $ native technologies              |
+|   $\ $  |   $\ $  |   $\ $  |   $\ $        |   $\ $  | - data storage                        |
+                                                                                                  
 Table: All platform types where components of the *PDaaS* architecture can be placed 
     {#tbl:platforms-characteristics}
 
@@ -42,7 +42,9 @@ defined use cases. The conglomeration below highlights all major components, inc
 in which they could be positioned, in addition to further details about their purpose(s) and 
 relation(s) to each other.
 
-##### Web server
+\ \
+
+__Web server__
 
 *Platform:* Server
 
@@ -59,8 +61,9 @@ relation(s) to each other.
 +   TLS
 +   WebSockets
 
+\ \
 
-##### Permission Manager
+__Permission Manager__
 
 *Platform:* Server
 
@@ -71,9 +74,11 @@ relation(s) to each other.
 +   queue *consumer* requests
 
 *Technologies:*
++   TODO
 
-    
-##### PKI
+\ \
+
+__PKI__
 
 *Platform:* Server
 
@@ -86,8 +91,9 @@ relation(s) to each other.
 +   X.509
 +   ACME [@web_spec_acme] (Let's Encrypt)
 
+\ \
 
-##### Storage Connector
+__Storage Connector__
 
 *Platform:* Server
 
@@ -98,8 +104,9 @@ relation(s) to each other.
 *Technologies:*
 +   driver for used database 
 
+\ \
 
-##### Operator API
+__Operator API__
 
 *Platform:* Server
 
@@ -113,8 +120,9 @@ relation(s) to each other.
 *Technologies:*
 +   JWT
 
+\ \
 
-##### Code Execution Environment
+__Code Execution Environment__
 
 *Platform:* Server
 
@@ -130,8 +138,9 @@ relation(s) to each other.
 +   Virtualization
 +   Container (OCI)
 
+\ \
 
-##### Tracker
+__Tracker__
 
 *Platform:* Server
 
@@ -142,8 +151,9 @@ relation(s) to each other.
 
 *Technologies:*
 
+\ \
 
-##### Personal Data Storage
+__Personal Data Storage__
 
 *Platform:* Server, Mobile
 
@@ -154,8 +164,9 @@ relation(s) to each other.
 +   non relational database
 +   depending on host environment
 
+\ \
 
-##### Persistence Layer
+__Persistence Layer__
 
 *Platform:* Server
 
@@ -168,8 +179,9 @@ relation(s) to each other.
 +   non relational database
 +   Filesystem
 
+\ \
 
-##### Notification Infrastructure
+__Notification Infrastructure__
 
 *Platform:* Server
 
@@ -181,8 +193,9 @@ relation(s) to each other.
 +   WebSockets for web UIs via local web server
 +   mobile device manufacturer's Push Notification server for mobile apps 
 
+\ \
 
-##### User Interface
+__User Interface__
 
 *Platform:* Desktop, Mobile
 
@@ -198,6 +211,7 @@ relation(s) to each other.
 +   Java
 +   Swift, Objective-C
 
+\ \
 
 After outlining all different components while keeping the aspect of portability ([S.A.02](#sa02))
 in mind, it needs to be figured out which arrangements make sense and what variations might be 
@@ -229,7 +243,7 @@ major requirements, though.
 Aside from providing the *operator* with a non-stationary and instantly accessible interface to her 
 *PDaaS*, involving a *mobile platform* has the purpose of enabling the *data subject* to carry all 
 her sensitive data along. This is considered a major advantage over the monolithic approach, were
-all the personal data is located in the *"cloud"*. Depending on the perspective, it can either be 
+all the personal data is located in the *'cloud'*. Depending on the perspective, it can either be 
 seen as a *singe source of truth* or a *single point of failure*. Regardless of that, it introduces 
 the demand of a backup or some redundancy concept, which has briefly been touched on in the 
 discussion about database system requirements within the [*data* section](#data). 

@@ -31,7 +31,7 @@ system resources but also emulates a whole network infrastructure (e.g. DNS, TCP
 Thereby, it is used to determine how certain container (and its containing component) are allowed 
 to communicate and what resource are accessible from inside (e.g. filesystem). This complete 
 abstraction to the surrounding environment means it quasi is the only dependency the *PDaaS* would
-have, regardless of how its components are implemented. They just have to be *"containerizable"* - 
+have, regardless of how its components are implemented. They just have to be *'containerizable'* - 
 satisfy the *[container image specification](#link-container)* [@web_oci-spec_image].
 This concept can be utilized for the *[supervised code execution](#supervised-data-access)* 
 ([S.A.01](#sa01)) mentioned before without any restraints.

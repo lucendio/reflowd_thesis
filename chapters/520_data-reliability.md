@@ -22,7 +22,7 @@ reliability or not. Based on the procedures that are available, the data reliabi
 somehow.
 
 But how does this reliability check exactly should look like? It comes down to two general steps. 
-The first one is matching the actual data involved in that request against a reference data set. 
+The first one is matching the actual data involved in that request against a reference dataset. 
 The second step is optional, although important for the *data consumer* in order to evaluate the 
 sufficiency of the provided level of reliability. It involves the party, that also runs the first 
 step, to confirm the result of that audit. The result of that evaluation then gets included in the 
@@ -32,7 +32,7 @@ The following proposed methods are distinguish in the provided level of reliabil
 as in the amount of effort to support them and in the possible impact to its surrounding system. Not 
 all data points are necessary to test for reliability. Profile data for example are more likely to 
 be tested, whereas consumption lists or location histories are more or less hard to verify, because 
-currently there is no reliable way to verify the origin of those data sets.
+currently there is no reliable way to verify the origin of those datasets.
 
 (1) __Local Verification by matching__\
 The probably simplest and at the same time least reliable method is to just look at the existing 
@@ -52,7 +52,7 @@ Another method involves a third party who also has the same data that needs to b
 is to hand the data in question over to that party, who then tries to match against all those data 
 points available in that context. The party also has the ability to sign data. Which is what she 
 does, if the matching procedure has a positive outcome. It is required to sign the whole response
-or at least a replicable data set that contains the data that  were initially required. The party 
+or at least a replicable dataset that contains the data that  were initially required. The party 
 then hands everything back to the *PDaaS* for further processing.
 
 (4) __Recurring Certification__\
@@ -104,8 +104,8 @@ offers a simple loosely linking dependency. Whose design would make it even poss
 a certificate manually but automate it on the other side. Nevertheless, both provide a trustworthy 
 certification. 
 
-Finally the first method, which does just a matching of two data sets against each other. Those
-data sets are obtained from the same *PDaaS* storage, but at a different time; right before the 
+Finally the first method, which does just a matching of two datasets against each other. Those
+datasets are obtained from the same *PDaaS* storage, but at a different time; right before the 
 request finally gets proceeded, though. The method is not very useful - in general and specifically 
 to this issue, because not much happens within the system during that time (case were data in the 
 storage changes during request processing are discussed in the section on 

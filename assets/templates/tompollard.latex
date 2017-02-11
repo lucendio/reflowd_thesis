@@ -8,6 +8,7 @@ $endif$
 % % % additions by tompollard START -->
 
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
+% TODO: delete if images position is awkward
 \usepackage{float}
 \let\origfigure=\figure
 \let\endorigfigure=\endfigure
@@ -122,6 +123,15 @@ $for(polyglossia-otherlangs)$
   \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
 $endfor$
 \fi
+
+% added 20170205 -->
+% NOTE: Replace "english" in "captionsenglish" with the language you use
+\addto\captionsenglish{
+  \renewcommand{\contentsname}
+    {$toc-title$}
+}
+% added 20170205 <--
+
 $endif$
 $if(natbib)$
 \usepackage{natbib}
@@ -253,6 +263,18 @@ $abstract$
 \end{abstract}
 $endif$
 
+% added 20170204 -->
+% moved from cover to separate page
+$if(acknowledgement)$
+\pagenumbering{Roman}
+\addcontentsline{toc}{chapter}{Acknowledgement}
+\section*{Acknowledgement}
+$acknowledgement$
+\newpage
+$endif$
+% moved from cover 20170204 <--
+
+
 $for(include-before)$
 $include-before$
 
@@ -263,21 +285,34 @@ $if(colorlinks)$
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
 $endif$
 \setcounter{tocdepth}{$toc-depth$}
+% added 20170205 -->
+% suppress fancyheader
+\pagestyle{plain}
+% added 20170205 <--
 \tableofcontents
 }
 $endif$
 $if(lot)$
 % added 20170129 -->
 \newpage
+\addcontentsline{toc}{chapter}{List of Tables}
 % added 20170129 <--
 \listoftables
 $endif$
 $if(lof)$
 % added 20170129 -->
 \newpage
+\addcontentsline{toc}{chapter}{List of Figures}
 % added 20170129 <--
 \listoffigures
+% added 20170205 -->
+% to fix page numbering
+\newpage
+% added 20170205 <--
 $endif$
+% added 20170205 -->
+\pagenumbering{arabic}
+% added 20170205 <--
 $body$
 
 $if(natbib)$

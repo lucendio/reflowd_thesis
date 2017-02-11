@@ -9,6 +9,7 @@ previous discussions and developed solutions.
 
 
 TODO: should might must n stuff in table (see dark mail spec)
+or just reference: https://tools.ietf.org/html/rfc2119
 
 
 

@@ -35,45 +35,23 @@ mechanisms (see [Authentication](#authentication)). Whereas *API* capabilities a
 because it's the one interface that the *PDaaS* exposes to third parties.
 
 
-----------------------------------------------------------
-Feature                         GUI       CLI       API
----------------------------- --------- --------- ---------
-manage *permission profiles*   __X__               __X__
-([P.VIU.03](#pviu03))
-                               
-view access history            __X__     __X__
-([P.VIU.04](#pviu04))
-                               
-register *consumer*            __X__     __X__
-                               
-add new *front end*            __X__
-                               
-authenticate *operator*        __X__
-                               
-migrate *personal data*        __X__     __X__
-                               
-review *permission requests*   __X__
-([P.I.04](#pi04))
-
-create & maintain templates    __X__
-([P.I.05](#pi05))
-
-adjust precision of data       __X__               __X__
-([P.I.06](#pi06))
-
-introduce new data *structs*   __X__               __X__
-                               
-configure *PDaaS*              __X__
-                               
-import personal data           __X__               __X__
-                               
-read/access *personal data*    __X__     __X__     __X__
-                               
-manipulate *personal data*     __X__     __X__
-
-run supervised code                      __X__     __X__ 
-execution
------------------------------------------------------------
+| Feature                                             |   GUI   |   CLI   |   API   |
+|:----------------------------------------------------|:-------:|:-------:|:-------:|
+| manage *permission profiles* ([P.VIU.03](#pviu03))  |  __X__  |    -    |  __X__  |
+| view access history ([P.VIU.04](#pviu04))           |  __X__  |  __X__  |    -    |
+| register *consumer*                                 |  __X__  |  __X__  |    -    |
+| add new *front end*                                 |  __X__  |    -    |    -    |
+| authenticate *operator*                             |  __X__  |    -    |    -    |
+| migrate *personal data*                             |  __X__  |  __X__  |    -    |
+| review *permission requests* ([P.I.04](#pi04))      |  __X__  |    -    |    -    |
+| create & maintain templates ([P.I.05](#pi05))       |  __X__  |    -    |    -    |
+| adjust precision of data ([P.I.06](#pi06))          |  __X__  |    -    |  __X__  |
+| introduce new data *structs*                        |  __X__  |    -    |  __X__  |
+| configure *PDaaS*                                   |  __X__  |    -    |    -    |
+| import personal data                                |  __X__  |    -    |  __X__  |
+| read/access *personal data*                         |  __X__  |  __X__  |  __X__  |
+| manipulate *personal data*                          |  __X__  |  __X__  |    -    |
+| run supervised code execution                       |    -    |  __X__  |  __X__  |
 
 Table: Features that should be supported by the given user interfaces {#tbl:ui-features} 
 
