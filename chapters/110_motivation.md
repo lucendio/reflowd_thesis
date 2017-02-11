@@ -20,9 +20,9 @@ might find correlations. This is also known as *discrimination*, which
 
 When interacting directly with each other, discrimination of human beings is a serious issue 
 in our society, but also when humans leverage computers and algorithms to uncover formerly 
-unnoticed information in order to inform their decision making. For example, when 
-qualifying for a loan, hiring employees, investigating crimes or renting flats. The decision to 
-approve or deny is based on computed data about the individuals in question
+unnoticed information in order to inform their decision making. For example, when qualifying for a 
+loan, hiring employees, investigating crimes or renting flats. The decision to approve or deny is 
+based on computed data about the individuals in question
 [@book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge], which is merely 
 discrimination on a much larger scale and with less effort (almost parenthetically). 
 The described phenomenon is originally referred to as *Bias in computer systems*
@@ -38,7 +38,6 @@ databases grow ever larger, waiting to be harvested, collected, aggregated, anal
 and finally interpreted. The crux here is, the more data being made available 
 [@video_2015_big-data-and-deep-learning_discrimination] to *mine* on, the higher the chances to 
 isolate datasets (clusters) that differ from each other but are coherent within themselves.
-
 By defining those datasets, instead of distinguishing on an individual level, humans are being 
 reduced to these set-defining characteristics in order to fit in these clusters.
 
