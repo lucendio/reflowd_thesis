@@ -44,6 +44,11 @@ or just reference: https://tools.ietf.org/html/rfc2119
 
 ### Read
 
++   permission profiles
+    +   type
+    +   how often
+    +   what data
+
 ### Write
 
 (!) every data or configuration change has to be reversible

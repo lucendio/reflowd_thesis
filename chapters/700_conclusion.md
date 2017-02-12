@@ -78,6 +78,8 @@ system would continue to function, but limited, until a data storage gets part o
 contributors* (plugins/clients that are authorized by the *operator* but only allowed to push data 
 to the *PDaaS*).
 
++   when *structs* currently in use get changes all data have to migrate accordingly and fully 
+automated
 
 
 ## Solutions

@@ -55,6 +55,7 @@ __Web server__
 +   en- & decrypt HTTPS traffic, thus authenticate *consumers*
 +   load balancing (if necessary)
 +   desktop notification
++   spam protection
 
 *Technologies:*
 +   HTTP
@@ -74,7 +75,7 @@ __Permission Manager__
 +   queue *consumer* requests
 
 *Technologies:*
-+   TODO
++   any modern language/framework capable of parallel computing 
 
 \ \
 
@@ -150,6 +151,7 @@ __Tracker__
 +   log all *access requests*
 
 *Technologies:*
++   any modern language/framework capable of parallel computing
 
 \ \
 

@@ -36,7 +36,7 @@ to as *owner*.
 
 [Operator]{#terminologies--operator}:
 : A *data subject* that uses a *PDaaS* to control (and probably host) her personal data; sometimes 
-referred to as *data controller*
+referred to as *data controller* or *data owner*.
 
 [(Data) Consumer]{#terminologies--consumer}:
 : Third party who requests permission or is already allowed to access the *operator's* *personal 

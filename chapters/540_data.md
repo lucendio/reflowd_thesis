@@ -1,6 +1,8 @@
 ## Data
 
 
+TODO: add "Thereby #si02 is obsolete in that the purpose has shifted"
+
 
 The core task of a *PDaaS* is providing data, *personal data*, which in conjunction is the digital
 manifestation of an individual, a person. One party creates the data, another one obtains and

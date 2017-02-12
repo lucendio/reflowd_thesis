@@ -97,8 +97,8 @@ The concept of authorizing a *data consumer* to get the ability of accessing per
 simple. During the *registration* consumers have to provide detailed information about their 
 intentions, so that the *operator* is confident about their permissions when reviewing them. The 
 created *permission profile* reflects the result of that review. Such a *permission profile* defines 
-what data points are requested to access and how long those permissions last. The later is defined
-as *permission type* and can be one of the following:
+what data points are requested to access, how often they can be accessed and how long those 
+permissions last. The latter is defined as *permission type* and can be one of the following:
 
 *one-time-only*
 : access permissions are hereby granted for just a single *access request* (with respect to certain 
