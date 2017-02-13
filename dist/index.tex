@@ -1749,7 +1749,7 @@ technologies will be described briefly, and outlined what purposes they
 might be going service in addition to why they might be a reasonable
 choice.
 
-\textbf{\protect\hypertarget{link_http}{}{HTTP}}
+\textbf{\protect\hypertarget{def--http}{}{HTTP}}
 {[}\protect\hyperlink{ref-web_spec_http1}{82}{]}, the well known
 stateless `transport layer' for, among others, the \emph{World Wide
 Web}. It most likely will fulfill the same purpose in the context of
@@ -1781,7 +1781,7 @@ object-literal notation. Like XML, its structuring mechanisms allow i.a.
 type preservation and nesting, which enable to represent more complex
 data structures including relations.
 
-The open standard \textbf{\protect\hypertarget{link_oauth}{}{OAuth}}
+The open standard \textbf{\protect\hypertarget{def--oauth}{}{OAuth}}
 defines a process flow for authorizing third parties to access
 externally hosted resources, such as the user's profile image on a
 social media platform. The authorisation validation is done by the help
@@ -1843,7 +1843,7 @@ distributed software, to not maintain any state, either the architecture
 need to be changed so that the state at is no longer needed in that
 component, or embed the state into the process communication so that it
 is passed from one component to the other. This is a common use case for
-a \textbf{\protect\hypertarget{link_jwt}{}{JSON Web Token}} \emph{(JWT)}
+a \textbf{\protect\hypertarget{def--jwt}{}{JSON Web Token}} \emph{(JWT)}
 {[}\protect\hyperlink{ref-web_spec_json-web-token}{94}{]}. A \emph{JWT},
 as it's name implies, is, syntactically speaking, formatted as
 \emph{JSON}, but URI-safe encoded into \emph{Base64}, before it gets
@@ -1890,7 +1890,7 @@ are involved. It is designed with the goal to agree on a \emph{secret}
 while at the same time using a non-private channel. The data, exchanged
 during the process, alone cannot be used to exploit the secret. Such
 behaviour is similar to the concepts of
-\textbf{\protect\hypertarget{link_asym-crypto}{}{Asymmetrical
+\textbf{\protect\hypertarget{def--asym-crypto}{}{Asymmetrical
 Cryptography}} \emph{(or public-key cryptography)}
 {[}\protect\hyperlink{ref-book_2014_chapter-9-1-public-key-crypto}{98}{]},
 which is underpinned by a \emph{key-pair}; one key is \emph{public} and
@@ -1902,10 +1902,10 @@ together it would provide integrity and authentication.
 
 Putting \emph{HTTP} on top of the \emph{Transport Layer Security (TLS)}
 {[}\protect\hyperlink{ref-web_spec_tls}{99}{]} results in
-\textbf{HTTPS}. TLS provides encryption during data transport, which
-reduces the vulnerability to \emph{man-in-the-middle} attacks and thus
-ensures not only confidentiality but data integrity too.
-\emph{Asymmetric cryptography} is the foundation for the connection
+\textbf{{[}HTTPS{]}\{\#\}}. TLS provides encryption during data
+transport, which reduces the vulnerability to \emph{man-in-the-middle}
+attacks and thus ensures not only confidentiality but data integrity
+too. \emph{Asymmetric cryptography} is the foundation for the connection
 establishment, hence \emph{TLS} also allows to verify integrity of the
 entity on the the connection's counterside, and, depending on the
 integration, it could even be used for authentication purposes. Though,
@@ -1945,7 +1945,7 @@ them. But utilizing these principals for all internal server-client
 interaction is also very common. This concept can also be understood as
 a proxy to the actual business logic in the back end.
 
-The \emph{QL} in \textbf{\protect\hypertarget{link-graphql}{}{GraphQL}}
+The \emph{QL} in \textbf{\protect\hypertarget{def--graphql}{}{GraphQL}}
 {[}\protect\hyperlink{ref-web_spec_graphql}{104}{]} stands for
 \emph{query language}. Developed by Facebook Inc., its goal is to
 abstract multiple data sources into a unified API or resource, so that
@@ -1962,7 +1962,7 @@ almost any operation and the flow control from the the \emph{QL} and
 moves it into a second layer. The so called \emph{GraphQL} server is
 responsible for resolving and executing queries.
 
-The term \textbf{\protect\hypertarget{link-semantic-web}{}{Semantic
+The term \textbf{\protect\hypertarget{def--semantic-web}{}{Semantic
 Web}} bundles a conglomerate of standards released by the W3C.\footnote{World
   Wide Web Consortium; international community that develops standards
   for the web} It is based around an idea called \emph{web of linked
@@ -1976,7 +1976,7 @@ essential for the \emph{Semantic Web}. RDF\footnote{Resource Description
 defines the syntax. OWL\footnote{Web Ontology Language
   {[}\protect\hyperlink{ref-web_w3c-tr_owl}{106}{]}} provides the
 guidelines on how the semantics and schemas (vocabulary) should be
-defined and with \protect\hypertarget{link-sparql}{}{SPARQL}
+defined and with \protect\hypertarget{def--sparql}{}{SPARQL}
 {[}\protect\hyperlink{ref-web_w3c-tr_sparql}{107}{]}, the query
 language, data can be retrieved. One can not help it, but picture the
 web as a database - queryable data with URIs that are embedded in
@@ -2006,7 +2006,7 @@ reference implementation called \emph{databox}
 specification process.
 
 The concept of an application (or software)
-\textbf{\protect\hypertarget{link-container}{}{container}} is about
+\textbf{\protect\hypertarget{def--container}{}{container}} is about
 encapsulating runtime environments by introducing an additional layer of
 abstraction. A container bundles just those software dependencies
 (e.g.~binaries) that are absolutely necessary so that the enclosed
@@ -2051,7 +2051,7 @@ citizens. Processes like changing residence information or filing tax
 report, are all summarized since then under the name
 \emph{E-government}.\footnote{Electronic government} One of those
 developments is the so called \textbf{Electronic ID
-Card}\{\#link\_eid-card\}, hereinafter called \emph{eID card}. Equipped
+Card}\{\#def--eid-card\}, hereinafter called \emph{eID card}. Equipped
 with storage, logic and interfaces for wireless communication, those
 \emph{eID cards} can be used to store certain information and digital
 keys, or to authenticate the owner electronically to a third party
@@ -2088,7 +2088,8 @@ that the email can then be encrypted with those keys and are therefore
 only readable by the owner of the keys's private part.
 
 Related to that topic, another technology emerging as part of the
-\emph{e-government} development, is the german \textbf{De-Mail}
+\emph{e-government} development, is the german
+\textbf{\protect\hypertarget{def--de-mail}{}{De-Mail}}
 {[}\protect\hyperlink{ref-web_2017_about-de-mail}{119}{]}. It's an
 eMail-Service that is meant to provide infrastructure and mechanisms to
 exchange legally binding electronic documents. One would expect a
@@ -2562,43 +2563,43 @@ non.
 \hypertarget{design-discussion}{\chapter{Design
 Discussion}\label{design-discussion}}
 
-The following chapter documents the processes of some design decision
-makings, examines possible issues emerging alongside and discuses
-different solutions obtained from several perspectives in order to
-evaluate their advantages and disadvantages. Probably not every issue
-will get it's\\
-deserved room, but major aspects will be addressed. In short, the
-majority of the project's conceptual work is done below.
+The following chapter documents the processes of a variety of design
+decision makings, examines possible issues emerging alongside and
+discuses different solutions obtained from several perspectives in order
+to evaluate their advantages and disadvantages. Probably not every issue
+gets its deserved room, but major aspects will be addressed. In short,
+the majority of the project's conceptual work is done below.
 
 The end of every subchapter includes a section containing a summary of
-conclusions, which is based on the prior discussions related to that
-topic.
+conclusions based on the prior discussions related to that topic of that
+subchapter.
 
 \hypertarget{authentication}{\section{Authentication}\label{authentication}}
 
 First of all, the system has to support two
-\protect\hyperlink{sa03}{roles}. Any entity can be assigned to either
-one of them, hence entities that are trying to authenticate to the
-system might have different intentions. The \emph{operator} for example
-wants to review \emph{permission requests} in real time, so accessing
-the system from different devices is a common scenario. When inheriting
-the \emph{operator role} an entity gains further capabilities to
-interact with the system, such as data manipulation. Whereas a
-\emph{data consumer} always uses just one origin and processes requests
+\protect\hyperlink{sa03}{roles}. Either one or non of these roles is
+assigned to an entity, hence entities that are trying to authenticate to
+the system might have different intentions depending on the
+characteristics of those roles. The \emph{operator} for example wants to
+review \emph{permission requests} in real time, so accessing the system
+from different devices is a common scenario. When inheriting the
+\emph{operator role} an entity gains further capabilities to interact
+with the system, such as data manipulation. Whereas a \emph{data
+consumer} always uses just one origin and processes requests
 sequentially. Those very distinct groups of scenarios would make it
-possible to apply different authentication mechanisms that do not
+possible to apply different authentication mechanisms that not
 necessarily have a lot in common.
 
 With respect to the requirements (\protect\hyperlink{sa01}{S.A.01}), the
 most appropriate way to communicate with the \emph{PDaaS} over the
-internet would be by using \emph{\protect\hyperlink{link_http}{HTTP}}.
-Furthermore, to preserve confidentiality on every in- and outgoing data
-(\protect\hyperlink{sp01}{S.P.01}) the most convenient solution is to
-use \emph{HTTP} on top of \emph{TLS}. \emph{TLS} relies i.a. on
-\protect\hyperlink{link_asym-crypto}{asymmetric cryptography}. During
+internet would be by using \emph{\protect\hyperlink{def--http}{HTTP}}.
+Thus, to preserve confidentiality on all in- and outgoing data
+(\protect\hyperlink{sp01}{S.P.01}) the most convenient solution in this
+case is to use \emph{HTTP} on top of \emph{TLS}. \emph{TLS} relies i.a.
+on \protect\hyperlink{def--asym-crypto}{asymmetric cryptography}. During
 the connection establishment the initial handshake requires a
 certificate, issued and signed by a CA, which has to be provided by the
-server. This ensures at the same time a seasonable level of identity
+server. This ensures at the same time a reasonable level of identity
 authentication, almost effortless. If the certificate is not installed,
 it can be installed manually on the client. If the certificate is not
 trusted (e.g.~it is self-signed), it can either be ignored or the
@@ -2614,155 +2615,152 @@ still optional though.
 
 \emph{HTTP} as a comprehensive and flexible protocol enables to use
 several technologies for server-client authentication purposes. Some of
-them are build-in, others can simply be implemented on top of the
-protocol. Within the scope of this work, those technologies are
-categorized in the following types (TODO: maybe find other labels): (A)
-stateful and (B) stateless authentication. The first one (A) includes
-vor example \emph{Basic access Authentication} (or \emph{Basic Auth})
-and authentication based on \emph{Cookies}. Whereas the \emph{two-way
-authentication} in TLS mentioned above and
-\protect\hyperlink{link_jwt}{authentication based on web-token} are
+them are build-in, others can simply be implemented on top of it. Within
+the scope of this work, those technologies are categorized in the
+following types: (A) stateful and (B) stateless authentication. The
+first one (A) includes vor example \emph{Basic access Authentication}
+(or \emph{Basic Auth}) and authentications based on \emph{Cookies}.
+Whereas the \emph{two-way authentication} in TLS mentioned above and
+\protect\hyperlink{def--jwt}{authentication based on web-token} are
 associated with the latter (B). \emph{Basic Auth} is natively provided
-by the \emph{http-agent} and requires in it's original form
-(\emph{user:password}) some sort of state on the server; at least when
+by the \emph{http-agent} and requires in its original form
+\emph{(user:password)} some sort of state on the server; at least when
 the system has to provide multitenancy. If instead just a general access
 restriction for certain requests would suffice, no state is required.
 One of the most common implementations of user-specific states is a
 \emph{session} on the server, that contains one or more values
 representing the state and a unique identifier, by which an entity can
 be associated with. A client has to provide that session ID in order to
-get provided with all the session-related data hold by the server. This
-is typically done in a HTTP header, whether as \emph{Basic Auth} value,
-a \emph{Cookie}, which is domain-specific, or in some other custom
-header. Since the \emph{two-way authentication} (or \emph{mutual
-authentication}
+be provided with all session-related data hold by the server. This is
+typically done in a HTTP header, whether as \emph{Basic Auth} value, a
+\emph{Cookie}, which is domain-specific, or in some other custom header.
+Since the \emph{two-way authentication} (or \emph{mutual authentication}
 {[}\protect\hyperlink{ref-web_2017_wikipedia_mutual-auth}{124}{]}) is
-done based on files containing keys and certificates, which are
-typically not very fluctuant in it's contents or state, this procedure
-is categorized as stateless. Order or origin of incoming requests have
-no impact on the result of the actual authentication process. The same
+performed based on files containing keys and certificates, which are
+typically not very fluctuant in its contents or state, this procedure is
+categorized as stateless. Order or origin of incoming requests have no
+impact on the result of the actual authentication process. The same
 applies to TLS features such as \emph{Session {[}ID, Ticket{]}
 Resumption}
 {[}\protect\hyperlink{ref-book_2013_networking-101_tls-session-resumption}{125}{]},
-thus they are left aside, because they serve the sole purpose of
+therefore they are left aside, because they serve the sole purpose of
 performance optimization. Similar to the \emph{Session Ticket
 Resumption}
 {[}\protect\hyperlink{ref-web_spec_tls-session-ticket-resumption}{126}{]}
-a web token, namely the \protect\hyperlink{link_jwt}{JSON Web Token},
+a web token, namely the \protect\hyperlink{def--jwt}{JSON Web Token},
 also moves the state towards the client, but that's about all they have
 in common. A \emph{JWT} carries everything with it that's worth knowing,
 including possible states, and if necessary the token is symmetrical
-encrypted by the server. That is, only the server is able to obtain data
-from it and reacting accordingly.
+encrypted by the server. That is, only the server is able to see the
+actual data contained by JWT and therefore reacting accordingly.
 
-Keeping track of a state (or multiple states) on the server and keeping
-data that is involved\\
-synchronized between server and client is expensive and by fare trivial.
-Expensive in the sense of additional resources a server would require to
-remember all the data for those states, that otherwise won't be needed.
-And it's not trivial, because this pattern requires the server to be
+Keeping track of one or multiple states on the server and maintain the
+synchronization of involved data between server and client is expensive
+and by fare trivial, because this pattern requires the server to be
 aware of all current states (sessions) and has to have them accessible
-at all time. This also means, that the contents responses for certain
-requests might depend on preceding requests and their incoming order.
-Furthermore those session data has to be safely stored from time to
-time. Otherwise if the server fails to run at some point, data only
-existing in the memory would be gone without any possibility to get
-recovered. To stateless authentications non of those aspects apply.
-Certificates and keys as well as web tokens are both carry the
-information that might be necessary with them. Thus, considering those
-disadvantages, \emph{public key cryptography} and web tokens are the
-preferred technologies for all authentication processes.
+at all time. The additional resources required for such an approach were
+referred to as being expensive. It also means, that requests, ultimately
+resulting in responses that contain contents, might depend on preceding
+requests and their incoming order. Furthermore those session data has to
+be in a consistent state in order to ge safely stored from time to time.
+Otherwise, if the server fails to run at some point, data only existing
+in the memory would be gone with no chance to get recovered. To a
+stateless authentication non of those aspects applies. Certificates and
+keys as well as web tokens are both carry the information with them that
+might be necessary. Thus, considering those disadvantages, \emph{public
+key cryptography} and web tokens are the preferred technologies for all
+authentication processes.
 
-Except for the \emph{two-way authentication} all authentication
-technologies mentioned above require an initial step to obtain some sort
-of token that is used to authenticate all subsequent requests. This step
-is commonly known as \emph{login} or \emph{sign in} and requires the
-authorizing entity to provide some credentials consisting at least of
-two parts. One part, that uniquely relates to the entity but doesn't
-have to be private, and another part only the entity knows or has.
-Typically that's a username or email address and a password or some
-other secret bit sequence (e.g.~stored and provided by a USB stick). As
-another possible secret (or unique object) an
-\emph{\protect\hyperlink{link_eid-card}{eID card}} could be used.
-Conceivable applications would be (1) to let the \emph{operator} login
-to the \emph{PDaaS} Management Tool or
+Except for \emph{two-way authentication} all authentication technologies
+mentioned above require an initial step from the client to obtain some
+sort of token that is used to authenticate all subsequent requests. This
+step is commonly known as \emph{login} or \emph{sign in} and requires
+the authorizing entity to provide some credentials consisting of at
+least two parts. One part, that uniquely relates to the entity but
+doesn't have to be private, and another part that only the entity knows
+or has. Typically that's a username or email address and a password or
+some other secret bit sequence (e.g.~stored on and provided by a USB
+stick). An \emph{\protect\hyperlink{def--eid-card}{eID card}} could
+possibly be used as secret (or unique object) as well. Suitable use
+cases therefor are (A) to let the \emph{operator} login to the
+\emph{PDaaS} management tool or
 
 \begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
+\def\labelenumi{(\Alph{enumi})}
 \setcounter{enumi}{1}
 \tightlist
 \item
-  to approve or authorize \emph{access requests} or \emph{data access}
-  attempts. How the actual login process (1) would look like partially
-  depends on the \emph{eID card}'s implementation, but in general this
-  use case would make sense. When considering the german implementation
-  \emph{(nPA)}, accessing the management tool via desktop requires also
-  a card reader, preferably with an integrated hardware keypad. Instead
-  accessing the tool on a mobile device could be achieved with the
-  card's RFID-capabilities, as long as the used device is able to
-  communicate with the RFID-chip. Both scenarios (1+2) need the
-  \emph{nPA} to have the \emph{eID} feature enabled. If a service wants
-  to provide \emph{nPA}-based online authentication
-  \emph{(eID-Service)}, which is defined as a non-sovereign
-  \emph{(``nicht hoheitlich'')} feature, it has to comply with several
-  requirements {[}\protect\hyperlink{ref-web_bsi-spec_eid}{127}{]}
-  starting with applying for a permission to send a certificate signing
-  request to a BerCA.\footnote{(german)
-    Berechtigungszertifikate-Anbieter} This request is send from an
-  \emph{eID-Server}
+  to approve or authorize \emph{access requests}. How the actual login
+  process (A) would look like partially depends on the \emph{eID card}'s
+  implementation, but in general this use case would make sense. When
+  considering the german implementation \emph{(nPA)} for example,
+  accessing the management tool via desktop requires also a card reader,
+  preferably with an integrated hardware keypad. Whereas authenticating
+  to the tool with a mobile device could be achieved with the card's
+  RFID-capabilities, as long as the used device is able to communicate
+  with the RFID-chip. Both scenarios (A+B) required the \emph{nPA} to
+  have the \emph{eID} feature enabled. If a service wants to provide
+  \emph{nPA}-based online authentication \emph{(eID-Service)}, which is
+  defined as a non-sovereign \emph{(``nicht hoheitlich'')} feature, it
+  has to comply with several requirements
+  {[}\protect\hyperlink{ref-web_bsi-spec_eid}{127}{]} starting with
+  applying for a permission to send a certificate signing request to a
+  BerCA.\footnote{(german) Berechtigungszertifikate-Anbieter} This
+  request is send from an \emph{eID-Server}
   {[}\protect\hyperlink{ref-web_2017_npa-eid-server}{128}{]} in order to
-  get signed a public key,\\
-  which previously has been generated on a dedicated and certified
-  hardware. This hardware is required by the officials as part of a
-  \emph{eID-Server}. The key pair - re-generated and re-signed every
-  three days - is needed to establish a connection to the \emph{nPA},
-  which is then used to authenticate the owner of that \emph{eID card}.
-  The described procedure appears to be highly expensive (regarding
-  effort, hardware costs etc.), especially because every single
-  \emph{operator} would needs to go through the whole process in order
-  to support this authentication method; not mentioning the uncertainty
-  of the official's decision on the permission application. Another
-  approach could be to integrate an external authentication provider
-  supporting the \emph{nPA}, which would not only add an additional
-  dependency, but would also weaken the system. All two scenarios are
-  fairly similar, insofar as they would use the same mechanism to
-  initially authenticate to the system, but with different intentions.
+  get a public key signed, which priorly has been generated on a
+  dedicated and certified hardware. This hardware is requested by the
+  officials as part of a \emph{eID-Server}. The key pair - re-generated
+  and re-signed every three days - is needed to establish a connection
+  to the \emph{nPA}, which is then used to authenticate the owner of
+  that \emph{eID card}. The described procedure appears to be highly
+  expensive (regarding effort, hardware costs etc.), especially because
+  every single \emph{operator} would needs to go through the whole
+  process in order to support this authentication method; not mentioning
+  the uncertainty of the official's decision on the permission
+  application. Another approach could be to integrate an external
+  authentication provider supporting the \emph{nPA}, which would not
+  only add an additional dependency, but also weaken the system. All two
+  scenarios are fairly similar, insofar as they would use the same
+  mechanism to initially authenticate to the system, but with different
+  intentions.
 \end{enumerate}
 
-Because of it's simplicity the concept of web tokens are fairly
+Because of its simplicity the concept of web tokens are fairly
 straightforward to implement into the \emph{PDaaS}. But since web tokens
-ensure integrity and the optional confidentiality only of their own
-carriage but not the entire HTTP payload, both requirements need to be
-addressed separately. Serving HTTP over \emph{TLS} solves this issue.
-For connections that use a web token, it should be sufficient to rely on
-the public PKI that drives the internet with \emph{HTTP} over
-\emph{TLS}, because all information required to authenticate is provided
-by the token itself. Though, the situation is different if instead
-\emph{two-way authentication} is used. For this, the system has to
-provide it's own \emph{PKI} including a Certificate Authority that
+ensure integrity and optional confidentiality only of their own carriage
+but not for the entire HTTP payload, both requirements need to be
+addressed separately. Serving HTTP over \emph{TLS} solves that issue
+though. For connections that use a web token, it should be sufficient to
+rely on the public PKI that drives the internet with \emph{HTTP} over
+\emph{TLS}. All information required for the actual authenticate are
+provided by the token itself. Though, the situation is different if
+\emph{two-way authentication} is used instead. Therefor, the system has
+to provide its own \emph{PKI} including a Certificate Authority that
 issues certificates for \emph{data consumers}, because not only the
 \emph{endpoints} on the \emph{PDaaS} (server) need to be certified, all
 \emph{data consumers} (clients) need to present a certificate as well.
 Only the \emph{PDaaS} verifies and thus determines (supervised by the
 \emph{operator}) who is authorized to get access to the system. Hence
-the \emph{PKI} needs to be selfcontained without any external role in
-order to function independently so that only invited parties can get
-involved. With referring to the statement mentioned above, \emph{data
-consumer} have to be able as well to verify the identity of the
-\emph{PDaaS}, in order to prevent man-in-the-middle attacks. Address
-this issue basically means, \emph{data consumers} have to verify the
-certificate presented by the \emph{PDaaS}. This can be done in two ways.
-One is, a certificate has been installed on the \emph{PDaaS} that is
-certified and therefore trusted by a trustworthy public CA, as mentioned
-above. Then \emph{consumer} uses CA's certificate to verify the
-\emph{PDaaS} certificate. The other way is, to let the \emph{PDaaS}
-create and sign a public key by itself. Before \emph{consumers} then get
-presented with the self-signed certificate of the \emph{PDaaS} during
-the initiation of the TLS connection, they already have to be aware of
-that certificate. That is, \emph{consumers} need to be provided with
-that certificate on a private channel upfront.
+the \emph{PKI} needs to be selfcontained and private in order to
+function independently so that only invited parties can get involved.
+Referring to the statement mentioned above, \emph{data consumer} have as
+well to be able to verify the identity of the \emph{PDaaS}, in order to
+prevent man-in-the-middle attacks. Addressing this issue basically
+means, \emph{data consumers} have to verify the certificate presented by
+the \emph{PDaaS}. This can be done in two ways. One is, a certificate
+has been installed on the \emph{PDaaS} that is certified and therefore
+trusted by a trustworthy public CA, as mentioned above. Then
+\emph{consumers} use the CA's certificate to verify the \emph{PDaaS}
+certificate. The other way is, to let the \emph{PDaaS} create and sign a
+public key by itself. Before \emph{consumers} then get presented with
+the self-signed certificate of the \emph{PDaaS} during the initiation of
+the TLS connection, they already have to be aware of that certificate.
+That is, \emph{consumers} need to be provided with that certificate on a
+private channel upfront. Otherwise would the process be again vulnerable
+to man-in-the-middle-attacks.
 
-If a public-key-based connection, performing a \emph{two-way
+In summary, if a public-key-based connection, performing a \emph{two-way
 authentication}, establishes successfully, it implies that the identity
 originating the request is valid and the integrity of the containing
 data is given. Whereas on a token-based authentication every incoming
@@ -2774,31 +2772,33 @@ An advantage of token-based authentication over TLS-based \emph{two-way
 authentication} is that the token can be used on multiple clients at the
 same time. Or an account, a token is associated with, can actually have
 more than one token. Whereas during the asymmetric cryptography-based
-\emph{two-way authentication} the client's private key is required. So
-if it's likely that a \emph{operator} has several clients, regardless
-for what purposes, then the private key has to be on those clients.
-Though, a private key typically does not leave it's current system or
-least does not exist in multiple systems at the same time in order to
-prevent exposure, which any action of duplication implies. To reduce
-those risks, it's common practice to generate a private key at that
-location where it is going to be used.
+\emph{two-way authentication} the client's private key is required,
+which results in 1:1 relation. So if it's likely that a \emph{operator}
+has several clients, regardless for what purposes, then the same private
+key has to be on those clients. Though, a private key typically does not
+leave its current system or at least does not exist in multiple systems
+at the same time in order to prevent exposure, which any action of
+duplication implies. To reduce those risks, it's common practice to
+generate a private key at that location where it is going to be used.
 
 OpenID, a open standard for decentralized user authentication, also uses
-subdomains as unique identifiers for associating with entities that need
-to authenticated, similar to approach proposed in this work. But since
-it underpinned by a very distinct scenario it is also very related and
-therefore restricted to that. Trying to adopt the standard might result
-in various changes leading to an implementation that shares not much
-compliance, which is not the intention of a standard.
+subdomains as unique identifiers to associate with entities that need to
+be authenticated, similar to the approach proposed in this work. But
+since it originates in a very distinct scenario it is also very related
+and therefore restricted to that. Trying to adopt the standard might
+result in various adjustments to this project leading to an
+implementation that shares not much compliance, which is not the
+intention of a standard.
 
-The technology \emph{De-Mail} tries to ensure authenticity of an authors
-identity, by embedding a legal foundation into email-based
-communication. But instead of providing technically valid authenticity
-by end-to-end encryption so that a recipient can truly rely on that
-information, it only goes as far as legal definition and legislation
-reaches. Thus it has no relevance to this work, other then the concept
-of letting a server sign outgoing data, which might be the only solution
-to avoid an overhead in user interaction caused by recurring events.
+The technology \emph{\protect\hyperlink{def--de-mail}{De-Mail}} tries to
+ensure authenticity of an author's identity by embedding a legal
+foundation into email-based communication. But instead of providing
+technically valid authenticity through end-to-end encryption so that a
+recipient can truly rely on that information, it only goes as far as
+legal definition and legislation reaches. Thus it has no relevance to
+this work, other then the concept of letting a server sign outgoing
+data, which might be the only solution to avoid an overhead in user
+interaction caused by recurring events.
 
 Computations based on asymmetric cryptography usually is slower then the
 ones based on symmetric cryptography
@@ -2813,37 +2813,37 @@ allow them to be, thus the level of security can be increased.
 distinct advantages of the two authentication mechanisms, it is
 preferred to use asymmetric cryptography in combination with
 \emph{HTTPS} for the communication between the system and \emph{data
-consumers}, where the system provides it's own \emph{PKI}. Whereas a
+consumers}, where the system provides its own \emph{PKI}. Whereas a
 token-based authentication on top of \emph{HTTPS} and public CAs should
 be suitable for communication between the system and the
 \emph{operator}, preferable based on
-\emph{\protect\hyperlink{link_jwt}{JSON Web Tokens}}, because the
+\emph{\protect\hyperlink{def--jwt}{JSON Web Tokens}}, because the
 session state is preserved within the token rather then having the
-system itself keeping track of it. Though, it is also worth mentioning,
-that a a JSON Web Token implementation is feasible as well to fully
-replace the approach consisting of \emph{two-way authentication} on TLS
-level and a private \emph{PKI}. The disadvantage here would be, that
-whether \emph{data consumers} are able to authenticate themselves or
-not, a HTTPS connection will establish in any case. At the same point,
-authenticating the \emph{operator} is doable on the TLS-level as well;
-by restricting this possibility to only trusted environments like native
-mobile applications, because browser-based applications are not
-considered trusted and they lack of certain capabilities. Addressing the
-need of \emph{consumers} verifying whether the \emph{PDaaS} provided
-certificate can be trusted or not, both solutions, providing self-signed
-certificate on a secure channel upfront or using certificates certified
-by publicly trusted entities are legitimate. Even though the latter
-requires a service or an automatism that provides a new signed
-certificate whenever a new \emph{data consumer} registers, such
-dependencies should be kept to an absolute minimum. To hardening an
-authentication procedure often one or more factors are added, for
-example an \emph{eID card} or one-time password. This adds complexity to
-the procedure and thus increases the effort that is needed to make an
-attack successful. But equally it also increases the effort to support
-those factors in the first place. Using multi-factor authentication is
-generally valued and will be briefly noted as an optional security
-enhancement for the \emph{operator role}. However detailed discussions
-regarding this topic are left to follow-up work on the specification.
+system itself keeping track of it. Though, it is worth mentioning, that
+a JSON Web Token implementation is feasible as well to fully replace the
+approach of \emph{two-way authentication} and private \emph{PKI}. The
+disadvantage here would be, whether \emph{data consumers} are able to
+authenticate themselves or not, a HTTPS connection will establish in any
+case. At the same point, authenticating the \emph{operator} is as well
+doable on the TLS layer; but this approach is restricted only to trusted
+environments like native mobile applications, because browser-based
+applications are not considered trusted and they missing of certain
+capabilities. Addressing the requirement of \emph{consumers} to verify
+whether the certificate, presented by the \emph{PDaaS}, can be trusted
+or not, both solutions, providing self-signed certificate on a secure
+channel upfront or using certificates certified by publicly trusted
+entities are legitimate. Although, the latter requires a service or an
+automatism that provides a new signed certificate whenever a new
+\emph{data consumer} registers, such dependencies should be kept to an
+absolute minimum. To hardening an authentication procedure often one or
+more factors are added, for example an \emph{eID card} or one-time
+password. This adds complexity to the procedure and thus increases the
+effort that is needed to perform a successful attack. But equally it
+also increases the effort to support those factors in the first place.
+Using multi-factor authentication is generally valued and will be
+briefly noted as an optional security enhancement for the \emph{operator
+role}. However detailed discussions regarding this topic are left to
+follow-up work on the specification.
 
 \hypertarget{data-reliability}{\section{Data
 Reliability}\label{data-reliability}}
@@ -2853,26 +2853,25 @@ authentication} it was discussed how to preserve data integrity -
 referring to possible man-in-the-middle attacks and alike. Furthermore
 it was described how to authenticate the different user roles so that
 their identities are ensured, though, authenticity of the actual data a
-\emph{PDaaS} provides has yet to be ensured. In this case, authenticity
+\emph{PDaaS} provides has yet to be provided. Data authenticity here
 refers to authentic and reliable (\protect\hyperlink{sa04}{S.A.04})
-data, which means a) the data really represent the entity that is
+data, which means (A) the data really represent the entity that is
 associated to the originating \emph{PDaaS} and is thus owned by that
-entity, and b) the data is true at that moment when the related
-responses leaves the system. Since the \emph{operator} can change the
-data at any point in time, this property requires a process where a
-trustworthy third party has to somehow verify the reliability of the
-data in question. That process on the other hand, is in direct contrast
-to the discussion about the
+entity, and (B) the data is true at that moment when the data, attempted
+to be accessed, is queried from within the system. Since the
+\emph{operator} can change the data at any point in time, this property
+requires a process where a trustworthy third party has to be able
+somehow to verify the reliability of the data in question. That process
+on the other hand, is in direct contrast to the discussion about the
 \protect\hyperlink{authentication}{authentication system} and why it
-should be designed so that it is selfcontained. If instead it's not
-required to provide information on the data being reliable or not, it
-won't be an issue anymore. The information can be defined in a response
-as an optional property. Within the request the \emph{data consumer} has
-to indicate whether the response should contain information about it's
-reliability or not. Depending on what data is requested, the
-\emph{PDaaS} decides whether it's necessary to test for reliability or
-not. Based on the procedures that are available, the data reliability
-gets verified somehow.
+should be designed to be selfcontained. But if providing information on
+data reliability is not required, it won't be an issue anymore. The
+information can be defined in a response as an optional property. Within
+the request the \emph{data consumer} has to indicate whether the
+response should contain information about its reliability or not.
+Depending on what data is requested, the \emph{PDaaS} then decides to
+test the reliability. Based on the procedures that are available, the
+data reliability gets verified somehow.
 
 But how does this reliability check exactly should look like? It comes
 down to two general steps. The first one is matching the actual data
@@ -2883,21 +2882,21 @@ involves the party, that also runs the first step, to confirm the result
 of that audit. The result of that evaluation then gets included in the
 response.
 
-The following proposed methods are distinguish in the provided level of
-reliability as well as in the amount of effort to support them and in
-the possible impact to its surrounding system. Not all data points are
-necessary to test for reliability. Profile data for example are more
-likely to be tested, whereas consumption lists or location histories are
-more or less hard to verify, because currently there is no reliable way
-to verify the origin of those datasets.
+The following proposed methods vary in the provided level of reliability
+as well as in the amount of effort to support them and in the possible
+impact to its surrounding system. Not all data points are necessary to
+test for reliability. Profile data for example are more likely to be
+tested, whereas consumption lists or location histories are more or less
+hard to verify, because currently there is no reliable way to verify the
+origin of those datasets, besides from being not a primary focus here.
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
 \item
   \textbf{Local Verification by matching}\\
   The probably simplest and at the same time least reliable method is to
-  just look at the existing data stored in the database and matches them
-  against those data that is used to create a response.
+  just look at the existing data tha is stored in the database and
+  matches them against those data that is used to create a response.
 \item
   \textbf{Local Verification and signing}\\
   An electronic ID card can serve as an authentication token for the
@@ -2906,49 +2905,51 @@ to verify the origin of those datasets.
   example, the \emph{eID} feature would provide access to the owner's
   basic profile data, which thus can be used to match against those data
   points that are both, hold by that \emph{nPA} and going to be used to
-  create the response. If the result of that matching procedure is
-  positive, the related data then gets signed with a \emph{QES} courtesy
-  of the \emph{data subject's} \emph{nPA}. That signature also gets
-  included in the response, so that the recipient can verify the
-  reliability of the data.
+  create the response, originating in the \emph{PDaaS} persistence
+  layer. If the result of that matching procedure is positive, the
+  related data then gets signed with a \emph{QES} courtesy of the
+  \emph{data subject's} \emph{nPA}. That signature also gets included in
+  the response, so that the recipient can verify the reliability of the
+  data.
 \item
   \textbf{Remote Verification and signing}\\
   Another method involves a third party who also has the same data that
   needs to be tested. The idea is to hand the data in question over to
   that party, who then tries to match against all those data points
   available in that context. The party also has the ability to sign
-  data. Which is what she does, if the matching procedure has a positive
-  outcome. It is required to sign the whole response or at least a
-  replicable dataset that contains the data that were initially
+  data, which is what's happening, if the matching procedure has a
+  positive outcome. It is required to sign the whole response or at
+  least a replicable dataset that contains the data that were initially
   required. The party then hands everything back to the \emph{PDaaS} for
   further processing.
 \item
   \textbf{Recurring Certification}\\
-  The following method describes a modification of (3). In this method
-  involved no matching procedure. The external third party, verifies if
-  the data in question are correct and if they relate to the \emph{data
-  subject} by either literally looking at the data or by automatically
-  processing a matching against their databases. If that party is
-  satisfied, a certificate will be issued. This certificate contains an
-  expiration date, which implies the consequence of going through this
-  process again in the future, much like an issuing process of a common
-  \emph{Certificate Authority}. This certificate is then served as part
-  of a response, which enabled the \emph{data consumer} to verify the
-  data reliability on its own. This is done by hashing the data in
-  question, decrypting the hash embedded in the certificate and matching
-  one against the other. If they are equal, the data has not changed
-  since the party's review and is therefore reliable. If data has
-  changed in the \emph{PDaaS} and data points are affected, that are
-  also included in this verification process, then a new certificate
-  created, because the containing hash is now invalid.
+  The following method describes a modification of (3). This method
+  involves no matching procedure. The external third party, verifies
+  whether the data in question are correct and whether they relate to
+  the \emph{data subject} by either literally looking at the data or by
+  automatically processing a matching against their databases. If that
+  party is satisfied, a certificate will be issued. This certificate
+  contains an expiration date, which implies the consequence of going
+  through this process again in the future, much like an issuing process
+  of a common \emph{Certificate Authority}. This certificate is then
+  served as part of a response, which enabled the \emph{data consumer}
+  to verify the data's reliability on its own. This is done by hashing
+  the data in question, decrypting the hash embedded in the certificate
+  and matching one against the other. If they are equal, the data has
+  not changed since the party's review and is therefore reliable.
+  Though, if data has changed in the \emph{PDaaS} and data points are
+  affected, that are also included in this verification process, then a
+  new certificate needs to be issued, because the containing hash is now
+  invalid.
 \end{enumerate}
 
 Only one method per request should be used to verify data reliability,
 because every method can imply a different level of confidence. As
 described above the response send back to the \emph{data consumer} has
-to indicate the method that has been used. Based on that the \emph{data
-consumer} is then able evaluate that level und can act accordingly
-(e.g.~verify a signature).
+to indicate the used method. Based on that the \emph{data consumer} is
+then able evaluate that level und can act accordingly (e.g.~verify a
+signature).
 
 Expanding those verification procedures is reasonable, but to keep it
 simple for now this aspect won't receive further attention, since the
@@ -2957,168 +2958,168 @@ though.
 
 \emph{\textbf{Conclusions:}} The signing procedure as part of local
 verification method involve private key and certificate stored on the
-operator's \emph{eID card}. Every time when the \emph{PDaaS} verifies
-data reliability that method has to runs. Thus the \emph{operator} is
-forced to interact wit the \emph{PDaaS}. Otherwise the operators private
-key need to be stored somewhere within the \emph{PDaaS}. No matter where
-or when, that would potentially expose a highly confidential part of a
-cryptographic procedure. Not only would this reduces the overall
-security level of the system, it also makes every task this method is
-involved vulnerable to certain attacks. Aside from that, it's highly
-unlikely that an \emph{eID card} would allow to extract it's containing
-private keys. That is, increasing inconvenience is inevitable for this
-proposed method. The \emph{Local Verification and signing} method also
-has the same dependencies mentioned in the discussion about the
-requirements for using the (german) \emph{eID card} as an authentication
-token. And since it was rejected because of those dependencies and
-because of the inconvenience mentioned before, this verification method
-eventually will not being supported in the specification.
+operator's \emph{eID card}. Every time the \emph{PDaaS} verifies data
+reliability that method has to be went through. Thus the \emph{operator}
+is forced to interact wit the \emph{PDaaS}. Otherwise the operator's
+private key needs to be stored somewhere within the \emph{PDaaS}. No
+matter where or how, that would potentially expose a highly confidential
+part of a cryptographic procedure. Not only would this reduces the
+overall security level of the system, it also makes every task this
+method is involved in vulnerable to certain attacks. Aside from that,
+it's highly unlikely that an \emph{eID card} would allow to extract it's
+containing private keys. This all results in increased inconvenience
+which is inevitable for this proposed method. The \emph{Local
+Verification and signing} method has the same dependencies too mentioned
+in the discussion about requirements for using the (german) \emph{eID
+card} as an authentication token. And since it was rejected because of
+those dependencies and because of the inconvenience mentioned before,
+that verification method eventually is not going to be supported in the
+specification.
 
-The \emph{Remote Verification and signing} method would require the
+The \emph{Remote Verification and signing (3)} method would require the
 external party to be an official authority, because no other entity has
-a) the data in question (primarily profile data), which makes them b)
-legally binding. They are commonly trusted. The same goes for The
-\emph{Recurring Certification}, but while the \emph{Remote Verification
-and signing} method introduces a very strong dependency to that external
-party, the \emph{Recurring Certification}\\
-offers a simple loosely linking dependency. Whose design would make it
+(A) the data in question (primarily profile data), which makes them (B)
+legally binding; and they are commonly trusted. The same goes for The
+\emph{Recurring Certification (4)}, but while the \emph{Remote
+Verification and signing} method introduces a very strong dependency to
+that external party, the \emph{Recurring Certification}\\
+offers a simple loosely linked dependency. Whose design would make it
 even possible to obtain such a certificate manually but automate it on
-the other side. Nevertheless, both provide a trustworthy certification.
+the other side as well. Nevertheless, both provide a trustworthy
+certification.
 
-Finally the first method, which does just a matching of two datasets
-against each other. Those datasets are obtained from the same
-\emph{PDaaS} storage, but at a different time; right before the request
-finally gets proceeded, though. The method is not very useful - in
-general and specifically to this issue, because not much happens within
-the system during that time (case were data in the storage changes
-during request processing are discussed in the section on
-\emph{\protect\hyperlink{access-management}{Access Management}}). Even
-if the whole system would be compromised, this method has no use in that
-case, because a) if that's the situation, other issues might need more
-urgent addressing then ensuring data reliability for \emph{data
-consumers} and b) even then, the chances are insignificant that this
-method result is negative. Hence it provides the lowest level of
-reliability.
+Finally the first method, \emph{Local Verification by matching (1)},
+which just performs a matching of two datasets against each other. Those
+datasets are obtained from the same \emph{PDaaS} storage, but at
+different times; right before the request finally gets proceeded,
+though. The primary purpose of addressing the issue of data reliability
+rests on the \emph{data consumer's} concern of accessing data that is
+intentionally tampered with (e.g.~by the \emph{data subject}), since
+integrity during transport is already ensured. In this light, and even
+if the whole system would be compromised, which in that case might need
+more urgent addressing then ensuring data reliability, it won't mitigate
+the fact, that the \emph{operator} is the only one able to change data.
+Hence it provides the lowest level of reliability.
 
 Certain fields of application of a \emph{PDaaS} as a data resource might
 already impose some constraints about the level of reliability and maybe
-even how that can be provide. Determined by legislation or other rules,
-violation might prevent the \emph{PDaaS} from being used. Others instead
-- depending on their guidelines and business model - don't rely on any
-kind of confidence. In general, \emph{data consumers} are expected to
-already have a basic confidence in a \emph{PDaaS} and the data coming
-from there. Regardless of that, providing an indication about the data's
-authenticity is valued as a first and important step towards a fully
-working feature. All of the proposed verification methods have some
-downsides, Though, the \emph{Recurring Certification} method would be
-the least invasive and therewith an adequate choice.
+even how it can be provide. Violation of relevant legislation or other
+rules might prevent the \emph{PDaaS} from being put in use. Others
+instead - depending on their guidelines and business model - don't rely
+on a certain level of confidence. In general, \emph{data consumers} are
+expected to already have a basic confidence in a \emph{PDaaS} and in the
+data originating there. Regardless of that, providing an indication on
+the authenticity of data is valued as a first and important step towards
+a fully working feature. All of the proposed verification methods have
+some downsides, Though, the \emph{Recurring Certification} method would
+be the least invasive and therewith an adequate choice.
 
-For the \emph{PDaaS} a primary goal is to preserve all data owned by the
+A primary goal for the \emph{PDaaS} is to preserve all data owned by the
 \emph{data subject} and giving her control over where the data might go;
 not providing sufficient proof for the data authenticity.\\
 Though, it is still important, to provide \emph{data consumers} with an
 information about the level of reliability, but it is up to them how to
-rate that information and how to proceed with the obtained data.
+rate that information and how to act on that.
 
-\hypertarget{access-management}{\section{Access
-Management}\label{access-management}}
+\section{Access Management}\label{access-management}
 
 In the subsequent section it will be discussed, how several processes
-around the topic of \emph{data consumers obtaining data from the PDaaS}
+around the topic of \emph{data consumers accessing data on the PDaaS}
 can be modeled, what consequences certain variations might have and what
 issues need to be addressed.
 
-Below it is proposed what a general design might look like for the
-process of how \emph{data consumers} get authorized and thereby access
-the \emph{data subject's} personal data and how
+Below a general design is proposed of how \emph{data consumers} get
+authorized and thereby are able to access the \emph{data subject's}
+personal data, and how
 \protect\hyperlink{standards-specifications-and-related-technologies}{previous
 mentioned technologies} can be assembled in order to meet the specified
-\protect\hyperlink{requirements}{requirements}. OR Based on the
-\protect\hyperlink{standards-specifications-and-related-technologies}{outlined
-technologies} and specified
-\protect\hyperlink{requirements}{requirements} the general design for a
-process in which a \emph{data consumer} gets authorized and thereby
-access the \emph{operator's} personal data is proposed as followed.
+\protect\hyperlink{requirements}{requirements}.
 
-\textbf{Part One: consumer registration}\\
-0) The \emph{operator} creates a new unique URI in the system
+\subsection*{Part One: consumer
+registration}\label{part-one-consumer-registration}
+\addcontentsline{toc}{subsection}{Part One: consumer registration}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
-\tightlist
+\setcounter{enumi}{-1}
 \item
-  \textbf{Prepare registration}; the \emph{operator} has to tell third
-  party were and how to register as a \emph{data consumer} by handing
-  over a URI that is unique to the current registration process.
-  \emph{Several things need to be noted here. First, the operator
-  ``pulls'' consumers into the system. This is the only way for a
+  The \emph{operator} creates a new unique URI in the system
+\item
+  \textbf{Prepare registration}; the \emph{operator} has to tell the
+  third party were and how to register as a \emph{data consumer} by
+  handing over a URI uniquely associated to the current registration
+  process. \emph{Several things need to be noted here. First, the
+  operator `pulls' consumers into the system. This is the only way for a
   consumer to establish a relation. If consumers were able initiate this
   process on their own without the operator's involvement, it would be
   much harder for the system to detect spam or fraudulent requests.
   Second, handing over that URI must be done over a secure channel.}
-\end{enumerate}
-
-\emph{NOTICE: the two initial steps could also be made from the opposite
-direction. Third parties put all information and data required for a
-registration together and present them to the }operator\emph{ in form of
-a QR-Code, so that the }operator* can obtain it and whereby is able to
-proceed. This approach would short cut and hence simplify the process.*
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi})}
-\setcounter{enumi}{1}
 \item
-  \textbf{Send permission request}; The third party then makes the
+  \textbf{Send registration attempt}; the third party then makes the
   actual attempt to register as a \emph{data consumer} by providing
   required information. Those information have to be include some kind
   of feedback channel (e.g.~URI) so that the system can get back to that
-  third party.
-\item
-  \textbf{Review permission request}; the operator gets notified about
-  new registration attempts, which she then has to review and decide
-  whether to grant or refuse the requested data access.
-\item
-  \textbf{Create permission profile}; if access has been granted a new
-  \emph{permission profile} is going to be created. Optionally, a new
-  \emph{permission profile} could also be created if the access has been
-  refused. It's just meant for the \emph{operator} to keep track of her
-  decisions.
-\item
-  \textbf{Respond to third party}; regardless of the decision, the third
-  party get's then informed via feedback channel about that decision and
-  is also provided with further details required to obtain actual data.
+  third party. They also may contain a first \emph{permission request}.
 \end{enumerate}
 
-\textbf{Part Two: obtain data}\\
-0) A successful registration as a \emph{data consumer} is required
+\emph{NOTICE: the two initial steps can be skipped if the third party
+would rather present the information mentioned in step 2), as a QR-Code
+so that the }operator* can obtain it and thereby is able to proceed.
+This approach would short cut and hence simplify the process.*
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
 \item
-  \textbf{Send request}; \emph{data consumer} sends \emph{access
+  \textbf{Review registration attempt}; the operator gets notified about
+  a new registration attempt, which she then has to review and decide
+  whether to accept it or not.
+\item
+  \textbf{Create permission profile}; if a \emph{permission request} is
+  enclosed in the registration, it has to be reviewed as well. If it's
+  not, step follows immediately. If permissions are granted a new
+  \emph{permission profile} is created. Optionally, it could also be
+  created if the permissions were refused. It's just meant for the
+  \emph{operator} to keep track of her decisions.
+\item
+  \textbf{Respond to third party}; regardless of the decision, the third
+  party get's then informed via feedback channel about th decisions and
+  is also provided with further details required to obtain actual data.
+\end{enumerate}
+
+\subsection*{Part Two: obtain data}\label{part-two-obtain-data}
+\addcontentsline{toc}{subsection}{Part Two: obtain data}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{-1}
+\item
+  A successful registration as a \emph{data consumer} is required
+\item
+  \textbf{Send request}; the \emph{data consumer} sends \emph{access
   request} to the system, containing a all information about what data
   is needed, how to process the data and what the response should
   contain.
 \item
   \textbf{Parse and check request}; after the system has received an
   \emph{access request}, first it\\
-  authenticates the \emph{data consumer} and checks the related
-  \emph{permission profile}. According to the defined \emph{access
+  authenticates the \emph{data consumer} and checks related
+  \emph{permission profiles}. According to the defined \emph{access
   rules}, the system decides how to proceed. Either it pauses, because
   it needs further attention from the \emph{operator}, or it can start
   to process and create the response.
 \item
-  \textbf{Compute response}; How that would look like mainly depends on
-  what the \emph{access request} contains and also what the
-  \emph{permission profile} determines (see \emph{access request types}
+  \textbf{Compute response}; how the computation would look like mainly
+  depends on the contents of the \emph{access request} and also on what
+  a \emph{permission profile} determines (see `types of access requests'
   below).
 \item
   \textbf{Respond to consumer}; handover the computed response back to
-  the requester. There are two ways of responding to an \emph{access
-  request}. Either the system respond with a state of the process and
+  the requester by proceeding with one of the two following options.
+  Either the system responses with a current status of the process and
   where the \emph{consumer} will/can find the demanded data, or the
   \emph{consumer} includes a callback URI, which the system has to
-  invoke with data in demand.
+  invoke with demanded response.
 \end{enumerate}
 
 With respect to the requirements (\protect\hyperlink{sp01}{S.P.01}),
@@ -3127,7 +3128,7 @@ the following three types of \emph{access requests} are defined,
 starting with the most sufficient solution:
 
 \begin{enumerate}
-\def\labelenumi{(\Alph{enumi})}
+\def\labelenumi{\alph{enumi})}
 \tightlist
 \item
   \textbf{Supervised Code Execution}; \emph{access requests}
@@ -3135,7 +3136,7 @@ starting with the most sufficient solution:
   potentially including information about provisioning. After the
   required data is retrieved from the storage, the program gets invoked
   with the data locally on the system but within a completely separated
-  environment (\emph{sandbox}). The result of that invocation gets
+  environment \emph{(sandbox)}. The result of that invocation gets
   returned to the system.
 \item
   \textbf{Data DRM\footnote{\emph{Digital Rights Management} - set of
@@ -3148,38 +3149,41 @@ starting with the most sufficient solution:
   is planned to proceed the requested data. Now when \emph{consumers}
   receive the response, the program needs to get invoked with the
   cipher, so that, by priorly fetching the key from the \emph{PDaaS},
-  the cipher gets decrypted from within the invocation. Thus the data is
-  made available to the wrapped software and only during runtime. After
-  the invocation has finished the program needs to propagate the results
-  returned by the software back to the outer environment.
+  the cipher can be decrypted from within the invocation. Thus the data
+  is made available to the wrapped software and only during runtime.
+  After the invocation has finished the program needs to propagate the
+  results that are returned by the software back to the outer
+  environment.
 \item
-  \textbf{Plain Forwarding (default)}; retrieve data from the storage,
-  quick-checking the result and forwarding it directly into response.
+  \textbf{Plain Forwarding {[}default{]}}; retrieve data from the
+  storage, quick-checking the result and forwarding it directly into
+  response.
 \end{enumerate}
 
-So the data won't leave, unless the \emph{PDaaS} doesn't support any of
+So, the data won't leave, unless the \emph{PDaaS} doesn't support any of
 the proposed request types or the \emph{data consumer} provides no
-alternative, so that the fallback type has to be applied. If that's the
-case, the confidentiality of all personal data is already preserved,
-because all communications from and to the \emph{PDaaS} are generally
-happening over HTTPS anyway, so that the data is encrypted during the
-transport.
+alternative, so that the fallback type must be applied. If that's the
+case, the overall confidentiality of all personal data is still
+preserved, because all communications from and to the \emph{PDaaS} are
+generally happening over HTTPS anyway, so that the data is encrypted
+during the transport.
 
-The concept of authorizing a \emph{data consumer} to get the ability of
-accessing personal data is fairly simple. During the \emph{registration}
-consumers have to provide detailed information about their intentions,
-so that the \emph{operator} is confident about their permissions when
-reviewing them. The created \emph{permission profile} reflects the
-result of that review. Such a \emph{permission profile} defines what
-data points are requested to access, how often they can be accessed and
-how long those permissions last. The latter is defined as
-\emph{permission type} and can be one of the following:
+The concept of authorizing a data consumer to get the ability of
+accessing personal data is fairly trivial. During (or after) the
+\emph{registration} consumers have to provide detailed information about
+their intentions, so that the operator is confident about their
+permissions when reviewing them. The created \emph{permission profile}
+reflects the result of that review. Such a permission profile defines
+what data points are requested and eventually permitted to access, how
+often they can be accessed and how long those permissions last. The
+latter is defined as \emph{permission type} and is either one of the
+following:
 
 \begin{description}
 \tightlist
 \item[\emph{one-time-only}]
 access permissions are hereby granted for just a single \emph{access
-request} (with respect to certain errors regarding the communication
+request} (with tolerating certain errors regarding the communication
 layer)
 \item[\emph{expires-on-date}]
 access permissions are hereby granted until the defined point in time
@@ -3189,122 +3193,123 @@ access permissions are hereby granted until the \emph{permission type}
 has changed or the \emph{permission profile} has been deleted
 \end{description}
 
-\emph{NOTICE: The default }permission type* should be configurable. The
-\emph{operator} can change all \emph{permission profiles} at any point
-in time.*
+\emph{NOTICE: The default permission type should be configurable. The
+operator can change all permission profiles at any point in time.}
 
-Among other information, an \emph{access request} contains the
-\emph{data query} that shows very precisely what data points are
-affected by that request. So if an \emph{access request} arrives at the
-\emph{PDaaS}, assuming the \emph{data consumer} has been authenticated
-sufficiently, the systems (0) searches for a \emph{permission profile}
-that correspond to the \emph{data consumer} and the requested data
-points. If it fails to find one, the access request gets refused. But if
-it does, then it checks (1) if the permission type suffices at that
-moment and (2) if the query only contains data points that are also
-enabled in the \emph{profile}. Here the order does matter, because it is
-imaginable that the operation behind (1) is less complex then operation
-(2). So, at the end running (1) before (2) can result in a lower
-response-time, if operation (1) already results negative. If all
-operations have a positive result, access is granted.
+Among other information, an access request contains the \emph{data
+query} that shows very precisely what data points are affected by that
+request. So if an \emph{access request} arrives at the \emph{PDaaS},
+assuming the \emph{data consumer} has been authenticated sufficiently,
+the systems (0) searches for a permission profile that correspond to the
+\emph{data consumer} and the requested data points. If it fails to find
+one, the access request gets refused. But if it does, then it checks (1)
+if the permission type suffices at that moment and (2) if the query only
+contains data points that are enabled in the profile as well. Here the
+order does matter, because it is imaginable that the operation behind
+(1) is less complex then operation (2). So, at the end running (1)
+before (2) can result in a lower response-time, if operation (1) already
+results negative. If all operations have a positive result, access is
+granted.
 
 As stated in the section about \protect\hyperlink{data-reliability}{data
 reliability}, the \emph{data subject} is able to add, change or remove
 all her data or even the \emph{permission profiles} at any point in
 time. This raises the question of how to solve the situation were
-\emph{data requests} are being processed, while those changes are
+\emph{access requests} are being processed, while those changes are
 happening and might affect the result of those requests. The first and
 simplest approach would be to not address this issue at all, but that
 would be unreasonable, because providing data to the \emph{consumer}
-normally means for the \emph{data subject} get something in return or to
-somehow benefit from that. So that approach is no option. Using a
+normally means for the \emph{data subject} to get something in return or
+to somehow benefit from that. So that approach is no option. Using a
 failure of reliability verifications as a mechanism to re-request data
 won't work either in that case, because it would be based on a wrong
 assumption, since that failure can have multiple causes, not only the
 issue here in question. A stateless solution seems to be not fitting due
 to the time-related dependency. So the only currently perceivable way is
 to keep track of all momentarily processing or pending \emph{access
-requests}, to detect those who are affected by that changes so that each
+requests} to detect those who are affected by the changes so that each
 of them can be aborted and processed again. Here it is important to
 determine the right moment, when all changes are done, otherwise the
 system might end up restarting those computations repeatedly within a
 short amount of time. The described issue relates to both,
 \emph{personal data} and \emph{permission profiles}, because either can
-impact the response send to t \emph{data consumer}. Furthermore, it
-needs to be ensured that only after the \emph{permission requests} are
-being reviewed and the \emph{permission profiles} are being created, the
-\emph{data consumers} receive their credentials or a notification to get
-started.
+impact the response that is returned to the \emph{data consumer}.
+Furthermore, it needs to be ensured that only after \emph{permission
+requests} are being reviewed and \emph{permission profiles} are being
+created, the \emph{data consumers} receive their credentials or a
+notification to get started.
 
-It is up to the \emph{data consumers} to decide which data they are
+It is up to \emph{data consumers} to decide which data they are
 requesting to access, but how do they know what data can be requested?
-The only option is to expose information about data availability, which
-can be done in a variety of ways. First, those information can be made
-publicly available via URI, providing a Machine-readable format, so that
-it can be processed automatically by \emph{data consumers}. It is also
-feasible to restrict that access to only registered \emph{consumers}, in
-order to prevent those information from being crawled. They might be
-valued as meta data and therefore used in unwanted computations that
-could raise privacy concerns. It is imaginable to let the
-\emph{operator} restrict the access to these availability information on
-the level of individual \emph{data consumers} or system-wide, and to set
-a default configuration for that behaviour. Depending on that
-configurations request might fail, thus requester need to be provided
-with meaningful errors. Http error codes
+The only option is to expose information about data availability
+(\protect\hyperlink{si02}{S.I.02}), which can be done in a variety of
+ways. First, those information can be made publicly available via URI,
+providing a Machine-readable format, so that information can be
+processed automatically by consumers. It is also feasible to restrict
+that access to registered \emph{consumers} only, in order to prevent
+those information from being crawled. They could be valuable as meta
+data and therefore used in undesired processing that could raise privacy
+concerns. It is imaginable to let the \emph{operators} restrict the
+access to such availability information on an individual consumer-basis
+or system-wide, and furthermore to set default configurations for this
+behaviour. Depending on those configurations request might fail, thus
+requester need to be provided with meaningful errors. Http error codes
 {[}\protect\hyperlink{ref-web_spec_http-error-codes}{130}{]} might be a
-a sufficient fit for that purpose.
+sufficient fit for that purpose.
 
-An already standardized way to implement authorization would be
-\protect\hyperlink{link_oauth}{OAuth} Specification, and since the TLS
+An already standardized way to implement authorization is the
+\protect\hyperlink{def--oauth}{OAuth} Specification. And since the TLS
 layer is already in place to handle authentication, the choice would be
 to use version 2 of the standard, because it relies on HTTPS. Only two
-of the four \emph{grant types} provided by OAuth would match with
-process design introduced above. The types are \texttt{password} and
+of the four \emph{grant types} provided by OAuth would match with the
+process design introduced before. The types are \texttt{password} and
 \texttt{client\_credentials}, which basically require identifier(s) and
-secret or credentials to directly request the \texttt{token}. The other
-two types define additional steps and interactions involving client
-\emph{(consumer)} and user \emph{(operator)} before getting
-the\texttt{token}. This would make the proposed process undesirably more
-complicated. Although the proposal includes user interactions like
-selecting and confirming requested permissions as well. According to the
+secret or credentials to directly obtain a \texttt{token}. The other two
+types define additional steps and interactions involving consumer and
+operator before getting the \texttt{token}, because these other two
+types are intended to be used for processes involving untrusted
+environments (e.g.~browser, third party apps). Aside from not fitting
+into such scenarios it would also make the proposed process undesirably
+more complicated. Although the proposal includes user interactions like
+selecting and confirming requested permissions. According to the
 documentations
 {[}\protect\hyperlink{ref-web_spec_oauth-1a_client-reg}{131}{]}
 {[}\protect\hyperlink{ref-web_spec_oauth-2_client-reg}{132}{]}, both
-OAuth versions (1.0a and 2) require the client \emph{(data consumer)} to
-register to the authorization server upfront (to obtain a
+OAuth versions (1.0a and 2) require the client (here \emph{data
+consumer}) to register to the authorization server upfront (to obtain a
 \texttt{client\_id}), before initializing the authorization process.
 However, as stated before, the concept of the \emph{data subject}
-``pulling'' a \emph{data consumer} towards the \emph{PDaaS} is preferred
-over letting \emph{data consumers} try to ``push'' themselves towards
-the system. The reason is to prevent unwanted applications for data
-access, because they all have to get reviewed by the \emph{data
-subject}. Furthermore, it is not within the scope of the OAuth
-Specification to define how this should be accomplished. Thus, such step
-needs to be added in addition to an entire OAuth-Flow, which might cause
-otherwise avoidable overhead in user interactions. Moreover, the
-proposed design does not include that step either. Instead, it is not
-needed process at all, because according to the former proposed process,
-client identification happens implicitly as a result of how the resource
-owner \emph{(operator)} obtains the registration request from the client
-(Part One: consumer registration, step 0 and 1). Further investigations
-show that the \texttt{access\_token} semantic as from the perspective of
-a resource server, which are a) authentication (does this token exist?)
-and b) authorization (is this token valid and what does it permit?),
-have in part already been provided by the proposed way of using the TLS
-layer. Because every \emph{data consumer} has it's own endpoint to
-connect with the \emph{PDaaS} and the certificate used by the
-\emph{consumer} is singed by a signature that is only used for that
-endpoint. This means, the \emph{consumer} is already authenticated, when
-the TLS connection has successfully established. And since the endpoints
-relates to the \emph{permission profiles} it would make providing an
-\texttt{access\_token} to become obsolete. To summarize, implementing
-OAuth would introduce several mechanisms that otherwise can be provided
-by the combination of \emph{two-way authentication} in TLS, dedicated
-endpoints and certification.
+`pulling' a \emph{data consumer} towards the \emph{PDaaS} is preferred
+over letting \emph{data consumers} try to `push' themselves towards the
+system. The reason to prevent undesired registration attempt, is,
+because they all have to be reviewed by the \emph{data subject}.
+Furthermore, it is not within the scope of the OAuth Specification to
+define how this should be accomplished. Thus, such step needs to be
+added in addition to an entire OAuth-Flow, which might cause otherwise
+avoidable overhead in user interactions. Moreover, the proposed design
+does not include that specific registration process either. Instead,
+this process is not needed at all, because according proposal, client
+identification happens implicitly as a result of how the resource owner
+(operator) obtains the registration request from the client (see
+\emph{Part One: consumer registration, step 0 to 2}). Further
+investigations show that the semantic of an \texttt{access\_token} from
+the perspective of an resource server consists of (A) authentication
+{[}does this token exist?{]} and (B) authorization {[}Is this token
+valid and what does it permit?{]}. Those aspects are in part already
+provided by the proposed way of using the TLS layer. Because every data
+consumer has its own endpoint to connect with the \emph{PDaaS} and the
+certificate used by the \emph{consumer} is singed by a signature only
+used for that endpoint. This means, the consumer is already
+authenticated, when the TLS connection has successfully established. And
+since \emph{permission profiles} relate to a specific endpoint, it would
+make providing an \texttt{access\_token} to become obsolete. To
+summarize, implementing OAuth would introduce several mechanisms that
+otherwise can be provided by the combination of \emph{two-way
+authentication} in TLS, dedicated endpoints and certification.
 
 \emph{\textbf{Conclusions:}} In the preceding text, various solutions
-were developed, based on which the following three solutions are at
-disposal:
+were developed, based on which, the following three solutions are being
+at disposal:
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -3318,96 +3323,86 @@ disposal:
   sub-domains as dedicated endpoints
 \end{enumerate}
 
-The solutions a) and b) require an extra step were \emph{data consumers}
-would register themselves at the \emph{PDaaS}. This already needs a
-secure channel to prevent man-in-the-middle attacks. Furthermore does
-option a) obtain a symmetric key for creating signatures used to ensue
-confidentiality and integrity in the subsequent steps. All those
-cryptographic procedures need to be adopted when implementing the
-specification emerging from this work and when interacting with those
-implementations. While this can cause much more harm, is is proposed to
-leave as much of these sensitive parts as possible to existing
-implementations that already have proven themselves. Thus HTTPS is
-mandatory, which makes
+The solutions a) and b) require an extra step in which data consumers
+need to register themselves at the \emph{PDaaS}. This already must be
+done on a secure channel to prevent man-in-the-middle attacks.
+Furthermore in that step does option a) obtain a symmetric key for
+creating signatures used to ensue confidentiality and integrity in
+subsequent steps. All those cryptographic procedures need to be adopted
+when implementing the here proposed specification and also when
+interacting with those implementations. While this can cause much more
+harm, it is proposed to leave as much of these sensitive parts as
+possible to existing implementations who have already proven themselves.
+Thus HTTPS is mandatory, which makes b) more suitable over a), because
+it's also more flexible and easier to implement. Whereas solution c)
+moves the complete authentication procedure to a different layer. It
+hence results in separating authentication and authorization from each
+other, leaving no remains of relation. This opens the authorization
+design up to for example other implementations that might be more
+suitable for certain \emph{data types}. In addition, it would only
+require little effort to support the case where multiple \emph{data
+consumers} share the same \emph{endpoint} and thereby the same
+\emph{permission profiles}. Combining b) and c) would result in
+significant redundancy, since both solutions have much overlap in their
+provided features, even though b) aims to be a framework for
+authorization. The process description in the beginning of this section
+is used as the foundation of \emph{access management} in the
+\emph{PDaaS}. Implementing OAuth based on this design would leave
+nothing from the framework, but a simple request returning an identifier
+associated with permissions. And even these identifiers are obsolete
+when combining TLS with dedicated \emph{consumer}-specific endpoints, as
+c) states. So, there is not much benefit in using OAuth, other then
+developers might be somewhat familiar with the API. This can be
+addressed by a detailed specification for this project, hence c) is
+preferred over b). At the end, the only suitable use case from this work
+would consists of just a request that obtains a token after
+authenticating with the provided credentials. And since OAuth only
+provides a framework for how to authorize third parties to access
+external resources, but leaves the procedure of how to actually verify
+those access attempts up to its implementers
+{[}\protect\hyperlink{ref-web_spec_oauth-1a_access-verification}{133}{]}
+{[}\protect\hyperlink{ref-web_spec_oauth-2_access-verification}{134}{]}.
+In the context of this project OAuth does not comply with the rest of
+the design aspects.
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  more suitable over a), because it's also more flexible and easier to
-  implement. Whereas solution c) moves the complete authentication
-  procedure to a different layer. It hence results in separating
-  authentication and authorization from each other, leaving no remains
-  of relation. This opens the authorization design up to for example
-  other implementations that might be more suitable for certain
-  \emph{data types}. In addition, it would only require little effort to
-  support the case where multiple \emph{data consumers} share the same
-  \emph{endpoint} and thereby the same \emph{permission profiles}. And
-  combining b) and c) would result in significant redundancy, since both
-  solutions have much overlap in the features they are providing, even
-  though b) aims to be a framework for authorization. The process
-  description from the beginning of this section will be used as the
-  foundation of \emph{access management} in the \emph{PDaaS}.
-  Implementing OAuth based on this design would leave nothing from the
-  framework, but a simple request returning an identifier for it's
-  permissions. And even these identifiers are obsolete when combining
-  TLS with dedicated \emph{consumer}-specific endpoint, as c) states. So
-  there is not much benefit in using OAuth, other then developers might
-  be somewhat familiar with the API. This can be addressed by a detailed
-  specification for this project, hence c) is preferred over b). At the
-  end, the only suitable use case from the specification would consists
-  of just a request that obtains a token after authenticating with the
-  provided credentials. And since OAuth only provides a framework for
-  how to authorize third parties to access external resources, but
-  leaves the procedure of how to actually verify those access attempts
-  up to it's implementers
-  {[}\protect\hyperlink{ref-web_spec_oauth-1a_access-verification}{133}{]}
-  {[}\protect\hyperlink{ref-web_spec_oauth-2_access-verification}{134}{]}.
-  In the context of this project OAuth doesn't really match with the
-  rest of the design aspects.
-\end{enumerate}
+How the first steps of a registration are look like, is up to the
+\emph{consumer}, even though the option involving a QR-Code might result
+in a nicer user experience from the perspective of a data subject. In
+any case, a secure channel is vital.
 
-How the first steps of a \emph{consumer registration} are look like, is
-up to the \emph{consumer}, even though the version involving a QR-Code
-might result in a nicer user experience from the \emph{data subject's}
-perspective. In any case, the secure channel is vital.
-
-When obtaining personal data, at the same time preventing those data
-from leakage is almost impossible, because of the nature of digital data
-being able to get effortlessly copied. Nevertheless it is possible to
-make it much more difficult, so that it becomes inefficient to bypass
-those mechanism. At the same time it requires also some effort to
+When accessing personal data, at the same time preventing those data
+from leakage is almost impossible, which originates in the nature of
+digital data being able to get effortlessly copied. Nevertheless it is
+possible to make it much more difficult, so that it becomes inefficient
+to bypass those mechanisms. At the same time it requires some effort to
 establish, run and maintain the infrastructure needed for those
 mechanisms. In case of the \emph{Data DRM} proposal that effort is not
 proportionate, because it requires additional infrastructure, interfaces
-and cryptographic procedures, thus introduces new attack scenarios. For
-now the only approach being considered, is the \emph{Supervised Code
-Execution}, aside from the default forwarding. When implementing this
-approach, two directions might need to be considered. Alongside the
-executable program \emph{data consumers} either provide all dependencies
-so that everything is bundled up, or don't provide any dependency at
-all. The latter is preferred, because it reduces the amount of
-potentially malicious, flawed or needless components, so that the
-\emph{data subject}, supported by her \emph{PDaaS}, gains more
-supervising capabilities and thus more control over her personal data.
-Since the overall goal here is to prevent the \emph{data subject} from
-loosing control over her data, it might also be conceivable, that
-certain categories of personal data with a higher level of sensitivity
-also require a least sufficient \emph{request type}. If the \emph{data
-consumer} does not comply, access will be refused. Also, depending on
-which category the personal data relates to, the \emph{PDaaS} might be
-able to anonymize certain types of data somehow, if it's capable of
-doing so all, because the \emph{consumer} at least supposedly knows what
-individual is behind that \emph{PDaaS} it currently interacts with. The
-field for \emph{data anonymization} is a large research area on its own,
-which recently started to gains a lot of traction due to emerging
-privacy concerns about \emph{big data}. Thus it will be left for future
-work.
+and cryptographic procedures and introduces therefore new attack
+scenarios. For now the only approach being considered, is the
+\emph{Supervised Code Execution}, aside from defaulting to simple
+forwarding. When implementing this approach, two directions might need
+to be considered. Alongside the executable program, \emph{data
+consumers} either provide all dependencies so that everything is bundled
+up, or don't provide any dependency at all. The latter is preferred,
+because it reduces the amount of potentially malicious, flawed or
+needless components, so that the data subject, supported by her
+\emph{PDaaS}, has more supervising capabilities and thus more control
+over her personal data. Since the overall goal here is to prevent the
+data subject from loosing control over her data, it might also be
+conceivable, that certain categories of personal data, representing a
+higher level of sensitivity, also require a least sufficient
+\emph{request type}. If the data consumer does not comply, access will
+be refused. Also, depending on which category the personal data relates
+to, the \emph{PDaaS} might be able to somehow anonymize certain types of
+data, if it is even capable of doing so, because the \emph{consumer} at
+least supposedly knows what individual is behind the \emph{PDaaS} it is
+currently interacting with. The field of \emph{data anonymization} is a
+large research area on its own, which recently started to gain a lot of
+traction due to emerging privacy concerns about \emph{Big Data}. Thus it
+will be left for future work.
 
 \hypertarget{data}{\section{Data}\label{data}}
-
-TODO: add ``Thereby \#si02 is obsolete in that the purpose has shifted''
 
 The core task of a \emph{PDaaS} is providing data, \emph{personal data},
 which in conjunction is the digital manifestation of an individual, a
@@ -3417,100 +3412,108 @@ looks like, how is it structured and what are their semantics. The
 following section is intended to discuss different technologies, used to
 create queries that obtain those data points that are desired. Further
 on, it describes some basic data types and schemas, that might be useful
-in the context of \emph{personal data} as well as for previously
+in the context of \emph{personal data} and also for previously
 introduces \protect\hyperlink{scenarios}{scenarios}.
 
 First of all, to address the need of portability, which has to be
-satisfied by those components, that are storing and providing
+satisfied by those components, who are storing and providing
 \emph{personal data}, it is essential to abstract the actual storage
 from how it gets accessed. This makes it possible to relocate those
-storage into other platforms and environments. Thereby the
+storage onto other platforms and environments. Thereby the
 \emph{personal data storage} itself becomes platform-agnostic from an
-outside view, in other words portable. In order to reduce possible
-issues related to unsupported communication protocols it might be
-reasonable to enforce HTTP - over TLS, if they don't share the same
+outside perspective, in other words portable. In order to reduce
+possible issues related to unsupported communication protocols it might
+be reasonable to enforce HTTP - over TLS, if they don't share the same
 environment - even if the storage therefor requires an additional driver
 or proxy layer, like for example a mobile app.
 
 Possible technologies are for example
-\emph{\protect\hyperlink{link-graphql}{GraphQL}} or the
-\emph{\protect\hyperlink{link-sparql}{SPARQL}}, which is part of the
-\emph{\protect\hyperlink{link-semantic-web}{Semantic Web Suite}}. Both
+\emph{\protect\hyperlink{def--graphql}{GraphQL}} or the
+\emph{\protect\hyperlink{def--sparql}{SPARQL}}, which is part of the
+\emph{\protect\hyperlink{def--semantic-web}{Semantic Web Suite}}. Both
 are query languages underpinned by the concept of a graph. This means,
 relations between data points are embedded within the data structure
 itself. That meant, in terms of a graph, relations are \emph{edges} and
 data points are \emph{nodes}. In consequence the structure of a query
-itself reappears in it's result, which means the originator of that
-query knows exactly what to expect for the response. Therefore it's not
+itself reappears in its result, which means the originator of that query
+knows exactly what to expect for the response. Therefore it's not
 necessary to provide any additional information about how to handle and
-interpret the responded data. The example below gives a first impression
-of how it might look like, when a \emph{consumer} obtains the name of
-the \emph{data subject} and a bank account of hers, that supports online
-payment.
+interpret the responded data. The code examples
+(\protect\hyperlink{code-01_sparql-query}{Code 01} and
+\protect\hyperlink{code-02_sparql-query-results}{Code 02},
+\protect\hyperlink{code-03_graphql-query}{Code 03} and
+\protect\hyperlink{code-04_graphql-query-result}{Code 04}) give a first
+impression of how it might look like, when a \emph{consumer} obtains the
+name of the \emph{data subject} and a bank account of hers, that
+supports online payment.
 
-Without going into much details here, the syntax of this example
+Without going into much details here, the syntax of the SPARQL query
 (\protect\hyperlink{code-01_sparql-query}{Code 01}) already shows its
 nature of decentralization. This aspect at the same time introduces
 additional external dependencies. Because the query language itself has
 no concept of schemas or any kind of semantic, it needs to be made aware
 of them. SPARQL queries typically return XML which then can be rendered
-into (HTML) tables. JSON and RDF are supported as well. The reason for
-performing two queries instead of just one is, because otherwise the
-result might have returned multiple ``rows'' with redundant data, if
-more then one bank account would have supported online payment; varying
-in three columns containing data about bank accounts though, but being
-identical in the fields related to the profile information.
+into (HTML) tables. JSON and RDF are also supported. The reason for
+performing two queries in the example instead of just one, is, because
+otherwise the result would have returned multiple `rows' with redundant
+data, if more then one bank account would have supported online payment;
+varyingly in those three columns data contain data about bank accounts,
+but being identical in the fields related to the profile information,
+though.
 
-Whereas comparing the \emph{GraphQL} query syntax
-(\protect\hyperlink{code-03_graphql-query}{Code 03}) with it's result
-(\protect\hyperlink{code-04_graphql-query-result}{Code 04}) shows of a
-remarkable resemblance. By defining \texttt{paymentMethod} as an
+Whereas the GraphQL query syntax
+(\protect\hyperlink{code-03_graphql-query}{Code 03}) compared with its
+result (\protect\hyperlink{code-04_graphql-query-result}{Code 04}) shows
+of a remarkable resemblance. By defining \texttt{paymentMethod} as an
 argument, the resolver for \texttt{bankAccounts} then implements an
 instruction to match the value of that argument
 (\texttt{\textquotesingle{}online-service\textquotesingle{}}) against
-the whole set. \emph{GraphQL's server} then knows from which resources
-the data in question need to be pulled and how they need to be
-aggregated. While SPARQL has a full-featured query language syntax
-including all sorts of controls (e.g. aggregation, operators, nested
-queries etc.), GraphQL's syntax instead is more rudimental, because all
-it's functions and logic was abandoned from the language itself and put
-into a server part. With this concept of separation it is
-straightforward to validate queries, because it essentially means
-matching against types. Both query languages share a comprehensive
-understanding of a type-system, that encourages to create all kinds of
-data types. However, when comparing the results of both languages, some
-distinctions appear. While in GraphQL the characteristics of
-graph-structured data are remain, \emph{SPARQL's} output is missing a
-certain level of depth. The reason for that originates in the design of
-the query language and it's syntax. \emph{SPARQL} is able to notice
-implicit relations between data points, though it's query language is
-not capable of grabbing and presenting them. Thus the result only
+the whole set. GraphQL's server then knows from which resources the data
+in question need to be pulled and how they need to be aggregated. While
+SPARQL has a full-featured query language syntax including all sorts of
+controls (e.g. aggregation, operators, nested queries etc.), GraphQL's
+syntax instead is more rudimental, because all its functions and logic
+has been abandoned from the language itself and put into a server part.
+With this concept of separation it is straightforward to validate
+queries, because it essentially means matching against types. Both query
+languages share a comprehensive understanding of a type-system, that
+encourages to create all kinds of data types. While in GraphQL common
+schemas still need to be created, SPARQL already provides a reasonable
+amount of vocabulary
+{[}\protect\hyperlink{ref-web_w3c-tr_rdf-schemas}{135}{]}. However, when
+comparing the results of both languages, some distinctions appear. While
+in GraphQL the characteristics of graph-structured data are remain,
+SPARQL's output is missing a certain level of depth. The reason for that
+originates in the design of the query language and its syntax. SPARQL is
+able to notice implicit relations between data points, though its query
+language is not capable of grabbing and presenting them. Thus the result
+(\protect\hyperlink{code-02_sparql-query-results}{Code 02}) only
 consists of two dimensions.
 
 It is crucial for the \emph{PDaaS} to provide the \emph{data subject}
 with abilities to create her own data types and schemas
 (\protect\hyperlink{sp03}{S.P.03}). Thereby she is enabled to serve data
 points according to her own needs and terms. In order to interact with
-their customers or users, \emph{data consumers} might develop and
-provide schemas for their requests as well. This can help \emph{data
+their customers or users, \emph{data consumers} might as well develop
+and provide schemas for their requests. This can help \emph{data
 subjects} to speedup the process of permission granting and to easier
 understand what data points are affected. Data types and schemas are the
 key to validate incoming and outgoing data. If data violates the
 underlying schema or no appropriate schema exists, the data transfer
 fails. Other missing data types could be developed by a community,
-because not every \emph{data subject} might have the ability to model
-her own data types. Thus everyone can benefit from that effort taken by
-a few. As a result, the ones that are widely used might then become de
+because not every \emph{data subject} might be capable of modeling her
+own data types. Thus everyone can benefit from that effort taken by a
+few. As a result, the ones that are widely used might then become de
 facto standards. Moreover, it's also possible that several data types
-will emerge, which are based on common standards, for example
+will emerge, that are based on common standards, for example
 \emph{medical record}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_ehr}{135}{]},
+{[}\protect\hyperlink{ref-web_spec_data-schemas_ehr}{136}{]},
 \emph{point of interest}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_poi}{136}{]} or
+{[}\protect\hyperlink{ref-web_spec_data-schemas_poi}{137}{]} or
 \emph{bank transfer}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_bank-transfer}{137}{]}.
-With this approach those data types can be viewed as something like a
-plugin or add-on for the \emph{PDaaS}.
+{[}\protect\hyperlink{ref-web_spec_data-schemas_bank-transfer}{138}{]}.
+With that approach those data types can be viewed as something like a
+plugin or add-on to the \emph{PDaaS} ecosystem.
 
 In order to avoid confusion about the differences between types and
 schemas and to simplify their relations, the following two definitions
@@ -3531,13 +3534,14 @@ modeled. A selection of such types can be found in the list of
 01)}, whereas an extract of (sub-)categories that might be useful in a
 \emph{PDaaS} are specified in a list of
 \protect\hyperlink{list-02_data-categories}{data categories (List 02)}.
-Additional examples for \emph{structs} include a
+Additional examples for \emph{structs} are a
 \protect\hyperlink{code-05_struct_profile}{\emph{data subject's} profile
 (Code 05)}, a \protect\hyperlink{code-06_struct_contact}{contact (Code
-06)} and bare \protect\hyperlink{code-07_struct_position}{position (Code
-07)}. All those examples and lists are only meant as a starting point
-that should cover basic scenarios as well to give a first impression of
-what data types a \emph{PDaaS} could provide.
+06)} and bare \protect\hyperlink{code-07_struct_position}{position
+information (Code 07)}. All those examples and lists are only to be
+understood as a starting point that should cover basic scenarios as well
+as to give a first impression of what data types a \emph{PDaaS} could
+provide.
 
 \textbf{\protect\hypertarget{list-01_suggested-structs}{}{List 01:
 Suggestions for useful structs}}
@@ -3569,6 +3573,8 @@ Suggestions for useful structs}}
     Audio
   \item
     Video
+  \item
+    Photo
   \end{itemize}
 \item
   Organisation
@@ -3599,6 +3605,8 @@ relevant (sub-)categories of data}}
   \end{itemize}
 \item
   Shopping history
+\item
+  Product
 \item
   Things/Objects
 \item
@@ -3684,21 +3692,21 @@ relevant (sub-)categories of data}}
 The available \emph{primitives} mainly depend on those who are supported
 by the query language itself. In this case, all \emph{primitives}
 mentioned above are supported by \emph{SPARQL}
-{[}\protect\hyperlink{ref-web_spec_xml_types}{138}{]} and \emph{GraphQL}
-{[}\protect\hyperlink{ref-web_spec_graphql_types}{139}{]}. When choosing
+{[}\protect\hyperlink{ref-web_spec_xml_types}{139}{]} and \emph{GraphQL}
+{[}\protect\hyperlink{ref-web_spec_graphql_types}{140}{]}. When choosing
 a database system it has to be ensured that either the system already
 supports the required \emph{primitives} or they can be emulated somehow
 with a least amount of drawbacks. When modelling relations between data
-point one can use for example keys (or identifiers) to make reference,
+points one can use for example keys (or identifiers) to make reference,
 or additional syntactical tools like \emph{lists} (or arrays) and maps
 (or objects). Those tools facilitate readability so that relations are
-almost intuitively observable, therefore they should be enforced.
-Whereas another know concept in data modelling, inheritance, isn't
-required, but could help to reason about certain \emph{structs} and
-their representations, it might add complexity though.
+almost intuitively observable, hence they should be enforced. Whereas
+another known concept in data modelling, called \emph{inheritance},
+isn't required, but could help to reason about certain \emph{structs}
+and their representations. It might add complexity, though.
 
-Aside form the \emph{subject's} \emph{personal data} other information
-and data must be persist as well. This includes for example:
+Aside form the subject's personal data other information and data must
+be persisted as well. This includes for example:
 
 \begin{itemize}
 \tightlist
@@ -3710,19 +3718,19 @@ and data must be persist as well. This includes for example:
   \item
     Templates (\protect\hyperlink{pi05}{P.I.05})
   \item
-    permission profiles (incl. versioning)
+    Permission profiles (incl. versioning)
   \item
-    consumer information
+    Consumer information
   \item
-    meta data
+    Meta data
   \item
-    notifications
+    Notifications
   \item
-    states
+    States
   \item
-    tokes
+    Tokes
   \item
-    access logs
+    Access logs
   \end{itemize}
 \item
   Files
@@ -3730,23 +3738,23 @@ and data must be persist as well. This includes for example:
   \begin{itemize}
   \tightlist
   \item
-    cryptographic keys
+    Cryptographic keys
   \item
-    executable program
+    Executable program
   \item
-    container images
+    Container images
   \item
-    configurations
+    Configurations
   \item
-    user interfaces
+    User interfaces
   \item
-    documentations
+    Documentations
   \end{itemize}
 \end{itemize}
 
 The list revels that not only a database system is needed to satisfy the
 requirements, but the environments filesystem might need to be utilized
-as well. This leads to the the question what requirements a database
+as well. This leads to the question of what requirements a database
 system has to satisfy. But first of all it is pivotal to distinguish
 between the needs of a \emph{personal data storage (PDS)} and a general
 \emph{persistence layer (PL)} for the system's backend.
@@ -3782,126 +3790,130 @@ version control & - & -\tabularnewline
 Although, most of the characteristics (in Table \ref{tbl:dbs-features})
 are self explanatory, certain aspects need to be commented on. Fist,
 portability, an important requirement
-(\protect\hyperlink{sa02}{S.A.02}), which is oddly not marked in the
-Table \ref{tbl:dbs-features}. That's because of the priorly introduced
-concept of abstracting the \emph{personal data storage} with a
-additional query language. This makes the access to the \emph{PDS}
-platform-agnostic. Whereas the database system storing that data can be
-implemented with respect to the requirements while considering the
-environment constraints at the same time. Basic permission management
-should suffice the \emph{PDS}, since it's not differently accessed in
-multiple ways. It's only relates to the query language abstraction. Data
-and especially it's structure is expected to be highly fluctuant
+(\protect\hyperlink{sa02}{S.A.02}), that is oddly not marked in Table
+\ref{tbl:dbs-features}. This is because of the priorly introduced
+concept of abstracting the \emph{personal data storage} with an
+additional query language. Therefore the access to the \emph{PDS}
+becomes platform-agnostic. Whereas the database system storing that data
+can be implemented with respect to the requirements while considering
+the environment constraints at the same time. Basic permission
+management should suffice the \emph{PDS}, since it's not accessed in
+multiple ways. It only relates to the query language abstraction. Data
+and especially its structure is expected to be highly fluctuant
 (\protect\hyperlink{sp02}{S.P.02}), thus advantages of relational
 databases (e.g.~schema-oriented and -optimized) would instead harm the
 performance and flexibility, because they are not primarily designed to
 handle schema changes. Database systems, whose storage engine is build
 upon a document-oriented approach, would be a better choice. Replication
-can be used for horizontal scaling, federation and backups
-(\protect\hyperlink{sp05}{S.P.05}). Here it is focused on the latter,
+can be utilized for horizontal scaling, federation or backups
+(\protect\hyperlink{sp05}{S.P.05}). The focus here is on the latter,
 because without \emph{PL} the \emph{PDaaS} wont be able to function. In
 case of irreversible data loss, the whole system state is gone, which
 then has to be reconfigured and reproduced from the ground up. Such
 effort can be spared by introducing a reliable backup strategy. With the
-\emph{PDS} on the other hand replication is not necessary, but ensuring
+\emph{PDS} on the other hand replication is not necessary, but to ensure
 no data loss still needs to be addressed. Therefor every database system
 that might be used for the \emph{PDS} must provide a mechanism to backup
 or at least to export the data, which can be triggered and obtained
-through the \emph{operator's} management tool. Another approach could be
-to not only store the actual data written to the \emph{PDS} but also to
-save all queries used to write that data in a chronological order.
-Therefore the current state can be restored just by running those
-writing queries against the \emph{PDS}. It is reasonable to store the
-the queries from the abstracted query language not the ones the query
+through the operator's management tool. Another approach imaginable
+could be to not only store the actual data written to the \emph{PDS} but
+also to save all queries in a chronological order that have somehow
+changed the data. Therefore the current state can be restored just by
+running those queries against the \emph{PDS}. It is reasonable to store
+the queries of the abstracted query language not the ones the query
 language is transformed into. If a mobile device is part of the
-\emph{PDaaS}, another approach would be for the \emph{operator} could be
-to perform regular device backups. These are all just initial thoughts
+\emph{PDaaS}, another approach for the operator could be to perform
+regular device backups. Those strategies are all just initial thoughts
 which might be sufficient only as a starting point. Other solutions are
-imaginable, but elaborating on those is beyond the scope of this work.
-Depending on what technologies are being used, it might be necessary
-from a conceptional perspective to split the \emph{PL} into two parts.
-One part is a database system and the other is represented by the
-environment's filesystem. This might be no alternative, when it comes to
-configuration files certain technologies or key files, which are
-typically accessed as files. In any case, both have to be able to store
-files of any kind, which is required for instants to support the use
-case of medical records. File size restriction should be mandatory
-though. The \emph{PDaaS} has no intention to replace existing \emph{file
-hosting} solutions.
+imaginable. Though, elaborating on those is beyond the scope of this
+work. Depending on the technologies that are being used, it might be
+necessary from a conceptional perspective to split the \emph{PL} into
+two parts. One part is a database system and the other is represented by
+the environment's filesystem. It might be no alternative when it comes
+to key files, which are typically accessed as files, or configuration
+files for certain technologies. In any case, both \emph{PL} and
+\emph{PDS}, have to be able to store files of any kind, which is
+required for instants to support the secenario of medical records. File
+size restriction should be mandatory though, because the \emph{PDaaS}
+has no intention to replace existing \emph{file hosting} solutions.
 
-Being able to revert certain data points or to review the change-history
-of those data, can be very useful; not only when those changes were
-persisted mistakenly. This behaviour might not be necessary for every
-data, especially when it comes to application configuration or logs.
-Also, not every \emph{operator} might require those features. Therefore
-and because database systems with no alternative might not be able to
-provide this capability, it's not required by either the \emph{PDS} or
-the \emph{PL}. If it not natively supported but still desired, it needs
-to be considered if for example high frequently backups would already
-suffice or if a implementation on the application is required.
+Being able to undo changes of certain data points or to review the
+change-history of those data can be very useful; not only when those
+changes were persisted mistakenly. This behaviour might not be necessary
+for every data, especially when it comes to application configuration or
+logs. Also, not every \emph{operator} might require these features.
+Therefore, and because database systems with no alternative might not be
+able to provide this capability, it's not required by either \emph{PDS}
+nor \emph{PL}. If a history is not natively supported but still desired,
+it has to be considered if for example high frequently backups would
+already suffice or if a implementation on the application-level is
+required.
 
-Before serving data it first needs to be put into the \emph{PDS}. This
-can be done in three different ways:
+Before serving data it needs to be at first inserted into the
+\emph{PDS}. This can be done in three different ways:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  the \emph{data subject} is provided with forms by the graphical user
-  interface, which she is using to insert data about her, for example
-  her \protect\hyperlink{code-05_struct_profile}{profile information
-  (Code 05)}. This data is then submitted into the \emph{PDaaS} which
-  takes care of storing it.
+  The \emph{data subject} uses forms provided by the graphical user
+  interface to insert data about her, for example her
+  \protect\hyperlink{code-05_struct_profile}{profile information (Code
+  05)}. This data is then submitted into the \emph{PDaaS} which takes
+  care of storing it.
 \item
-  the \emph{data subject} is in possession of file(s) or string(s) that
-  contain a data format that is supported by the system. The graphical
-  user interface provides a mechanism to either upload the file(s) or
-  insert the string(s), thereby the data is then send into the system.
-  If this raw data is not self-explaining to the system the \emph{data
-  subject} has to elaborate on the context of those data.
+  The \emph{data subject} is in possession of file(s) or string(s)
+  containing a data format that is supported by the system. The
+  graphical user interface provides a mechanism to either upload the
+  file(s) or insert the string(s). Thereby the data is then send into
+  the system. If this raw data is not self-explaining to the system the
+  \emph{data subject} has to provide more information on the context of
+  those data.
 \item
   Third party software, for example a browser plugin, is used to provide
-  the \emph{PDaaS} with data; in this case it's a browser history. This
-  software uses a restricted API which is provided by the \emph{PDaaS},
-  to let data flow into the system.
+  the \emph{PDaaS} with data; in this case a browser history. This
+  software uses a restricted API provided by the \emph{PDaaS} to let
+  data flow into the system.
 \end{enumerate}
 
-These three concepts, especially 2. and 3. are required to be inspected
+These three concepts, especially b) and c) are required to get inspected
 for malicious content and extensively validated against existing
-\emph{structs}. Only if these are matching, the submitted data can be
-stored. In the second version the \emph{data subject} need to be ask to
+\emph{structs}. Only if these checks do not fail, the submitted data can
+be stored. For scenario b) the \emph{data subject} needs to be asked to
 review the imported data to make sure everything is as expected. When
 enabling third party software to submit data, appropriate authentication
 and permission mechanisms must be in place. That software is classed
 like all other \emph{operator} front ends, but without permissions to
-obtain data.
+obtain data. According to the
+\protect\hyperlink{authentication}{discussion on authentication}, these
+mechanisms thus can be implemented through \emph{JWT}.
 
 \emph{\textbf{Conclusions:}} In order to gain flexibility in choosing
 technology and location for the \emph{personal data storage}, the
-logical consequence is to abstract the interface to to the database
+logical consequence is to abstract the interface from the database
 system. Introducing a separate query language is proposed as a
 reasonable approach. It can be chosen between two suggested query
 languages, \emph{GraphQL} or \emph{SPARQL}. Both provide the necessary
-features required to integrate them in a distributed system;
-\emph{SPARQL} with it concepts of URIs as identifiers and resources, and
-\emph{GraphQL} with it's separation of query definition and execution.
-This also has an effect on the process of query validation, which is
+features required to integrate them with a distributed system;
+\emph{SPARQL} with its concepts of URIs as identifiers and resources,
+and \emph{GraphQL} with its separation of query definition and
+execution. This also effects the process of query validation, which is
 much harder to do for \emph{SPARQL}, because its syntax is more flexible
-and allows some shorthands. In general \emph{SPARQL's} syntax is harder
-to reason about compared to \emph{GraphQL}. And even though the result
-of both languages is formatted in JSON, only \emph{GraphQL} preserves
-all the relations which are embedded in the query syntax, in the output
-as well. Therefore \emph{GraphQL} (and its implementations) is the query
-language of choice for this project.
+and allows some shorthands, therefore the possibilities are way to many.
+In general \emph{SPARQL's} syntax is harder to reason about compared to
+\emph{GraphQL}. And even though the result of both languages is
+formatted in JSON, only \emph{GraphQL} preserves all the relations in
+the output, which are already embedded in the query syntax. In result,
+\emph{GraphQL} (and its implementations) is the query language of choice
+for this project.
 
-Engaging a user community when it comes to creating new structs can
-compensate the lack of certain types. Examples for a potential start
-point of \emph{PDaaS} supported data types were showed before. Data
-Modelling in general is a large research field for it's own. With
-regards to the \emph{PDaaS} it needs much more work, though it's beyond
-the scope of this work. The basic approaches within this section should
-only be viewed as an introduction that gives an outlook of how it's
-imagined.
+When it comes to creating new structs engaging a user community can
+compensate the lack of certain types. Examples for a potential starting
+point of \emph{PDaaS}-supported data types were showed before. Data
+Modelling in general is a large research field to its own. With regards
+to the \emph{PDaaS} it needs much more attention, though it's beyond the
+scope of this work. The basic approaches within this section should only
+be viewed as an introduction that gives an outlook of how it's imagined.
 
 \section{Architecture}\label{architecture}
 
@@ -3915,7 +3927,7 @@ not impact how the system's interfaces behave from a user perspective.
 The foundation of this project is a server-client Architecture, which is
 chosen for a) providing availability (\protect\hyperlink{sa05}{S.A.05})
 and b) separating some concerns
-{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{140}{]}.
+{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{141}{]}.
 Such a distributed system provides various locations to place these
 concerns, which are in fact different environments with different
 properties. Those combinations of locations and environments are herein
@@ -4054,7 +4066,7 @@ purpose(s) and relation(s) to each other.
 \item
   X.509
 \item
-  ACME {[}\protect\hyperlink{ref-web_spec_acme}{141}{]} (Let's Encrypt)
+  ACME {[}\protect\hyperlink{ref-web_spec_acme}{142}{]} (Let's Encrypt)
 \end{itemize}
 
 ~\\
@@ -4388,15 +4400,15 @@ accessibility to those service owners. Whereas users get the benefit of
 just using one account for all her apps - a universal key so to say, but
 only one exemplar. So the downside here is, only a handful of third
 parties
-{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{142}{]}
+{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{143}{]}
 provide those authentication services.\\
 OpenID is designed with a very specific type of scenarios in mind,
 namely the one just described - bringing decentralisation to the market
 of authentication services - which differs from those addressed by the
 \emph{PDaaS}; at least, when it comes to \emph{data consumer}
-interactions. Although, the \emph{PDaaS} has the ability to become the
-digital representation of it's \emph{operator}. Hence it can and also
-should be used to authenticate that individual against an external
+interactions. Even though, the \emph{PDaaS} has the ability to become
+the digital representation of it's \emph{operator}. Hence it can and
+also should be used to authenticate that individual against external
 parties.
 
 \emph{\textbf{Conclusions:}} Considering amount of effort a
@@ -4424,57 +4436,60 @@ feasible and logical addition to the \emph{PDaaS}.
 
 \section{Environment and Setup}\label{environment-and-setup}
 
-As stated in the project's core principles \emph{Open Development} is
-vital for the project to gain trust. Interestingly, this has a
-significant impact on how a \emph{PDaaS} might be deployed or installed.
-All its components can just get taken and used as it suits everyone's
-needs; of cause, while respecting their licenses. Furthermore, enforcing
-\emph{portability} leads to a more simplified and independent
-development process that can be organized in a way so that the primary
-division into components can be leveraged.
+As stated in the project's \protect\hyperlink{core-principles}{core
+principles}, \emph{Open Development} is vital for the project to gain
+trust. Interestingly, this has a significant impact on how a
+\emph{PDaaS} might be deployed or installed. All its components can just
+be grabbed and used as it suits everyone's needs; while respecting their
+licenses. Furthermore, enforcing \emph{portability}
+(\protect\hyperlink{sa02}{S.A.02}) leads to a more simplified and
+independent development process that can be organized in a way so that
+the primary division into components can be leveraged.
 
 The range of environment systems for \emph{server} platforms is highly
-diverse but the main shares belong to either the UNIX or LINUX family,
-even though almost every platform is POSIX-compliant.\footnote{Portable
-  Operating System Interface; a collection of standards released by the
-  IEEE Computer Society to preserve compatibility between operating
-  systems.} When it comes to \emph{mobile} platforms the market is fare
-less divers. Native applications are either developed in \emph{Java}
-(for Google's Android) or in Swift (for Apple's iOS). Whereas the
-environment systems has nearly no relevance for the \emph{desktop},
-other then the screen size and maybe which browser and version the
-environment system runs. But that's probably something the user can
-change.
+diverse but the main shares
+{[}\protect\hyperlink{ref-web_2017_wikipedia_os-market-share}{144}{]}
+belong to either the UNIX or LINUX family, even though almost every
+platform is POSIX-compliant.\footnote{Portable Operating System
+  Interface; a collection of standards released by the IEEE Computer
+  Society to preserve compatibility between operating systems} When it
+comes to \emph{mobile} platforms the market is fare less divers. Native
+applications are either developed in \emph{Java} (for Google's Android)
+or in Swift (for Apple's iOS). Whereas the environment systems has
+nearly no relevance for the \emph{desktop}, other then the screen size
+and maybe which browser and version the environment system runs. But
+that's a situation the user can change if necessary.
 
 As a result, being able to use certain components on a \emph{server}
-platform depends on what \emph{server} environment is provided. And vice
-versa, in order to decide on what implementation of a component is
-suitable, it's crucial in what environment that component has to run in.
-Either way, not to forget all the dependencies a component might have.
-Such constraints can be avoided by abstracting the runtime of those
-components and either embed every required software dependency or
-provide them in separate runtimes, if that's possible. Depending on the
-technologies used, this concept is commonly known as
+platform depends on what \emph{server} environment is available. And
+vice versa, in order to decide what implementation of a component is
+suitable, it's crucial to know in which environment that component has
+to run in. Either way, not to forget all the dependencies a component
+itself might have. Such constraints can be avoided by abstracting the
+runtime of those components and either embed every required software
+dependency or provide them in separate runtimes, if that's possible.
+Depending on the used technologies, this concept is commonly known as
 \emph{virtualization} or \emph{containerization}. It isolates software
-by putting them into so called \emph{container}. But since those
+by putting them into a so called \emph{container}. But since those
 container-wrapped components still have to interact with each other,
 they need to be supervised or at least managed. This is done by an
-orchestration software, which not only allocates system resources but
-also emulates a whole network infrastructure (e.g.~DNS, TCP/IP,
-routing). Thereby, it is used to determine how certain container (and
-its containing component) are allowed to communicate and what resource
-are accessible from inside (e.g.~filesystem). This complete abstraction
-to the surrounding environment means it quasi is the only dependency the
-\emph{PDaaS} would have, regardless of how its components are
-implemented. They just have to be \emph{`containerizable'} - satisfy the
-\emph{\protect\hyperlink{link-container}{container image specification}}
+orchestration software, which not only allocates system resources but is
+also capable of emulating a whole network infrastructure (e.g.~DNS,
+TCP/IP, routing). Thereby, it is utilized to determine how certain
+container (and its containing component) are allowed to communicate and
+what resource are accessible from the inside (e.g.~filesystem). This
+complete abstraction to the surrounding environment it effectively means
+it's the only dependency the \emph{PDaaS} would have, regardless of how
+its components are implemented. They just have to be
+\emph{`containerizable'} - satisfy the
+\emph{\protect\hyperlink{def--container}{container image specification}}
 {[}\protect\hyperlink{ref-web_oci-spec_image}{116}{]}. This concept can
-be utilized for the
+also be utilized for the
 \emph{\protect\hyperlink{supervised-data-access}{supervised code
 execution}} (\protect\hyperlink{sa01}{S.A.01}) mentioned before without
 any restraints.
 
-Migrating from a server-located \emph{personal data storage} to the
+Migrating from a server-located \emph{personal data storage} to a
 \emph{mobile} based version introduces another challenge. The subsequent
 approach is a first and more general solution to that problem.
 
@@ -4485,20 +4500,19 @@ device a \emph{PDaaS} mobile application is installed.*
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  After starting the app, the \emph{operator} needs to establish a
-  connection between the server and mobile application. Therefor the
-  \emph{operator} either has to scans a QR-Code with the help of that
-  app. THe QR-Code is presented to the \emph{operator} within her
-  personal management interface of the \emph{PDaaS} running in a
-  browser. Or the \emph{operator} inserts her credentials in to a form
-  presented by the mobile application.
+  After starting the app, the operator needs to establish a connection
+  between server and mobile application. Therefor the operator either
+  has to scan a QR-Code with the help of that app. The QR-Code is
+  presented to the operator within the management tool of the
+  \emph{PDaaS} running in a browser. Or the operator inserts her
+  credentials into a form presented by the mobile application.
 \item
-  After the connection has established, the \emph{operator} can trigger
-  a progress that duplicated all her \emph{personal data} to the device
-  that just has been associated with the \emph{PDaaS}.
+  After the connection has established, the operator can trigger a
+  progress that duplicated all her personal data to the device that has
+  just been associated with the \emph{PDaaS}.
 \item
-  At this point one of two ways can be proceeded, depending on whether a
-  complete write log for the \emph{personal data}
+  At this point, one of two ways can be proceeded with, depending on
+  whether a complete write log for the \emph{personal data}
   (\protect\hyperlink{data}{see discussion about backup strategies} does
   exist or not.
 
@@ -4506,40 +4520,41 @@ device a \emph{PDaaS} mobile application is installed.*
   \def\labelenumii{\alph{enumii})}
   \tightlist
   \item
-    \emph{{[}LOG-EXISTS{]}} query by query the whole log is obtained
+    If \emph{{[}LOG-EXISTS{]}}, query by query the whole log is obtained
     from the existing storage and is then again executed in
-    chronologically order by the query language abstraction. The only
-    difference here is that the target storage,on which that query is
-    actually performed on, is located on that newly introduced platform
+    chronologically order by the query language abstraction, starting
+    with the oldest. The only difference here is that the target
+    storage, on which that query is actually performed on, is located on
+    that newly introduced platform
   \item
-    If the \emph{{[}LOG-NOT-EXISTS{]}}, the situation is more
-    complicated, if the database systems are not based on exactly the
-    same technology. Hence, additional migration software is required.
-    If both database systems provide import and export mechanisms that
+    If \emph{{[}LOG-NOT-EXISTS{]}}, the situation is more complicated,
+    if the database systems are not based on exactly the same
+    technology. Hence, additional migration software is required. If
+    both database systems provide import and export mechanisms that
     support at least one interoperable data format, the migration
     software can leverage this features simply by exporting all the data
-    and saving it to the filesystem. The software then transfers dump to
-    the target environment and triggers the import process. Otherwise,
-    the software not only needs to be aware of both database systems and
-    their native query, it also has to have a comprehensive
-    understanding of how their data structuring concepts work, in order
-    to reliably transform one into the other. So to be more specific, at
-    first the software has to analyse the structure of source database.
-    Based on this result it might need to perform some configuration on
-    the target database, before actually obtaining the data from the
-    source database. The received data then need to be transformed into
-    queries that are supported by the target system. Those transformed
-    queries are transferred to the target environment, where those
-    incoming queries get executed until all data is migrated.
+    and saving it to the filesystem. The software then transfers the
+    dump to the target environment and triggers the import process. When
+    this si not the case, the software not only needs to be aware of
+    both database systems and their native query language, it also has
+    to have a comprehensive understanding of how their data structuring
+    concepts work, in order to reliably transform one into the another.
+    So, to be more specific, at first the software has to analyse the
+    structure of the source database. Based on this result it might need
+    to perform some configuration on the target database, before
+    actually obtaining the data from there. Received data then need to
+    be transformed into queries that are supported by the target
+    database system. Those transformed queries are transferred to the
+    target environment, where those incoming queries get executed until
+    all data is migrated.
   \end{enumerate}
 \item
-  After thr duplication process has finished, the \emph{operator} can
-  decide which \emph{PDS} the \emph{PDaaS} should use to serve
-  \emph{access requests} and what should happen with the other
-  storage(s).
+  After the duplication process has finished, the operator can decide
+  which PDS the \emph{PDaaS} should use to serve \emph{access requests}
+  and what should happen with the other storage(s).
 \end{enumerate}
 
-So to conclude, a migration process of moving \emph{personal data} from
+To conclude, a migration process like moving \emph{personal data} from
 one platform instance to another can be much more simplified and robust,
 if a complete query log would exist. It is also worth mentioning, that
 the migration process described above is not restricted to exactly this
@@ -4547,25 +4562,25 @@ source or migration direction. As long as target and source are either a
 \emph{server} or a \emph{mobile} platform, any variant is imaginable.
 
 \emph{\textbf{Conclusions:}} Installing a \emph{PDaaS} should be
-straightforward with the least possible effort being used for
+straightforward with the least possible effort being spend for
 preparations. Package manager of all popular operating systems should
 offer (semi-)automated installations. Additionally, components
 themselves and the project as whole have to provide detailed
 documentations for various ways of how those parts or the entire system
-need to be installed. Alternatively, \emph{data subjects} might be are
+need to be installed. Alternatively, \emph{data subjects} might be
 willing to entrust external third parties with hosting a \emph{PDaaS}
 instance for them. In that case the distributed approach involving a
 \emph{mobile} platform might come in handy, so that the actual data is
-not stored somewhere beyond their reach. THe \emph{PDaaS} as an open
+not stored somewhere beyond their reach. The \emph{PDaaS} as an open
 source development encourages anybody who is interested or even wants to
 contribute to checkout the source code of the various implementations,
-get it to run and play around with it. But for that at least the
+get it to run and play around with it. But therefor at least the
 components of the \emph{server} platform are required to have documented
 on what other software they depend on, so that the target environment
-can be prepared accordingly. Aside from hardware on which the
-\emph{PDaaS} needs to run, the only other requirement is owning a
-internet domain that is registered on a public DNS\footnote{Domain Name
-  System; decentralized open directory that associates readable names
+can be prepared properly. Aside from hardware, on which the \emph{PDaaS}
+needs to run, the only other requirement is owning an internet domain
+that is registered on a public DNS\footnote{Domain Name System;
+  decentralized open directory that associates readable (domain) names
   with IP addresses} server and has no subdomains configured yet.
 
 If a component needs to get segregated from its host environment,
@@ -4588,31 +4603,31 @@ arn't. For example a \emph{graphical user interface (GUI)}, composed of
 visually separated areas with a certain semantic and assembled with
 meaningful objects on which the user can physically act, for example by
 touching them. The interface then reacts on those actions by changing
-their appearance. In this way the user can comprehend her actions.
-Whereas non-graphical user interfaces don't provide the user with
-objects or surfaces to interact with. Instead, the primarily used medium
-is text, regardless if it's human-readable or not. But \emph{command
-line interfaces (CLI)}, available mainly in command line environments or
-shells, still provides a certain level of interactivity. A running
-program can pause in order to prompt the user with an input request. If
-an input is made and submitted the program then proceeds. The group of
-interfaces whose interactions can be fully automated are for example
-\emph{application programming interfaces (API)}. Depending on the
-transport technologies, it's no unusual that \emph{API} interactions are
-consisting of just one action causing one reaction. Non-graphical
-interfaces enabling interactions on lower level. Even though they
-provide more functionality and can more time efficient, they are more
-rudemental and often less secure. While \emph{GUIs} are normally meant
-for end users to interact with applications on a more sophisticated
-level, \emph{CLIs} are used during development, for automation, or for
-server environment administration; probably remotely, because they are
-typically headless. Whereas \emph{APIs}, documented by its provider,
-used to enable software developers program automated requests against
-those interfaces.
+its appearance. In this way the user can recognize and comprehend her
+actions. Whereas non-graphical user interfaces don't provide the user
+with objects or surfaces to interact with. Instead, the primarily used
+medium is text, regardless if it's human-readable or not. But
+\emph{command line interfaces (CLI)}, available mainly in command line
+environments or shells, still provide a certain level of interactivity.
+A running program can pause in order to prompt the user with an input
+request. If an input is made and submitted the program then proceeds.
+The group of interfaces whose interactions can be fully automated, are
+for example \emph{application programming interfaces (API)}. Depending
+on the transport technologies, it's no unusual that \emph{API}
+interactions are consisting of just one action causing one reaction.
+Non-graphical interfaces enabling interactions on a lower level. Even
+though they provide more functionality and can be more time efficient,
+they are more rudemental and often less secure. While \emph{GUIs} are
+normally meant for end users to interact with applications on a more
+sophisticated level, \emph{CLIs} are used during development, for
+automation, or for server environment administration; probably remotely,
+because they are typically headless. Whereas \emph{APIs}, documented by
+its provider, enable software developers to program automated requests
+against those interfaces.
 
 Table \ref{tbl:ui-features} provides a list of features and associates
-the different user interfaces mentioned before to those features if they
-should be supported by the interface types. It is notable that the
+the different types of user interfaces mentioned before, which indicates
+if they should be supported by a certain type. It is notable that the
 \emph{GUI} provides the \emph{operator} with a powerful tool Hence it
 requires reliable protection mechanisms (see
 \protect\hyperlink{authentication}{Authentication}). Whereas \emph{API}
@@ -4630,29 +4645,26 @@ Feature & GUI & CLI & API\tabularnewline
 Feature & GUI & CLI & API\tabularnewline
 \midrule
 \endhead
-manage \emph{permission profiles} (\protect\hyperlink{pviu03}{P.VIU.03})
-& \textbf{X} & - & \textbf{X}\tabularnewline
+manage permission profiles (\protect\hyperlink{pviu03}{P.VIU.03}) &
+\textbf{X} & - & \textbf{X}\tabularnewline
 view access history (\protect\hyperlink{pviu04}{P.VIU.04}) & \textbf{X}
 & \textbf{X} & -\tabularnewline
-register \emph{consumer} & \textbf{X} & \textbf{X} & -\tabularnewline
-add new \emph{front end} & \textbf{X} & - & -\tabularnewline
-authenticate \emph{operator} & \textbf{X} & - & -\tabularnewline
-migrate \emph{personal data} & \textbf{X} & \textbf{X} &
--\tabularnewline
-review \emph{permission requests} (\protect\hyperlink{pi04}{P.I.04}) &
+register consumer & \textbf{X} & \textbf{X} & -\tabularnewline
+add new front end & \textbf{X} & - & -\tabularnewline
+authenticate operator & \textbf{X} & - & -\tabularnewline
+migrate personal data & \textbf{X} & \textbf{X} & -\tabularnewline
+review permission requests (\protect\hyperlink{pi04}{P.I.04}) &
 \textbf{X} & - & -\tabularnewline
 create \& maintain templates (\protect\hyperlink{pi05}{P.I.05}) &
 \textbf{X} & - & -\tabularnewline
 adjust precision of data (\protect\hyperlink{pi06}{P.I.06}) & \textbf{X}
 & - & \textbf{X}\tabularnewline
-introduce new data \emph{structs} & \textbf{X} & - &
-\textbf{X}\tabularnewline
+introduce new data structs & \textbf{X} & - & \textbf{X}\tabularnewline
 configure \emph{PDaaS} & \textbf{X} & - & -\tabularnewline
 import personal data & \textbf{X} & - & \textbf{X}\tabularnewline
-read/access \emph{personal data} & \textbf{X} & \textbf{X} &
+read/access personal data & \textbf{X} & \textbf{X} &
 \textbf{X}\tabularnewline
-manipulate \emph{personal data} & \textbf{X} & \textbf{X} &
--\tabularnewline
+manipulate personal data & \textbf{X} & \textbf{X} & -\tabularnewline
 run supervised code execution & - & \textbf{X} &
 \textbf{X}\tabularnewline
 \bottomrule
@@ -4660,73 +4672,74 @@ run supervised code execution & - & \textbf{X} &
 
 The architectural design includes \emph{desktop} and \emph{mobile}
 platforms. While prioritizing a web-based \emph{GUI}, the management
-tool for the \emph{operator} also need to be implemented natively for
+tool for the \emph{operator} also needs to be natively implemented for
 common mobile systems (\protect\hyperlink{pviu02}{P.VIU.02}); in this
 case Android and iOS. This again enables to provide real-time
 notifications (\protect\hyperlink{pi03}{P.I.03},
-\protect\hyperlink{pb02}{P.B.02}) on mobile platforms, whereas
-WebSocket-based connections add this feature to \emph{desktop}
-platforms. Since screen sizes can vary, in particular on \emph{mobile}
-platforms, the \emph{GUI} is required to be highly responsive and has to
-adapt (\protect\hyperlink{pviu01}{P.VIU.01}). Given the capabilities of,
-a inaccurate or error-prone rendered \emph{GUI} can quickly cause
-unintended incidents. The main focus though has to
+\protect\hyperlink{pb02}{P.B.02}) on mobile platforms, whereas the same
+feature is added to \emph{desktop} platforms by providing
+WebSocket-based connections. Since screen sizes can vary - in particular
+on \emph{mobile} platforms - the \emph{GUI} is required to be highly
+responsive and has to adapt (\protect\hyperlink{pviu01}{P.VIU.01})
+various screen sizes. Given the capabilities of the management tool, an
+inaccurate or error-prone rendered \emph{GUI} can quickly cause
+unintended incidents. Thus the main focus must be to ensure a very
+robust and low-latency interface rendering.
 
-Known challenges for the \emph{GUI} design are primarily developing very
+Known challenges for the \emph{GUI} design are primarily to develop very
 efficient but also fun to use interfaces for reviewing \emph{consumer
 registrations} and \emph{permission requests}. Especially the latter can
 become hard to solve, because how can graph-based and nested data
 structures be displayed in such a way that makes reviewing and also
-manipulating an easy task to do - even on a screen of a mobile phone.
+manipulating an easy task to do - even on a screen of a mobile phone?
 One approach could be to utilize the \emph{accordion} pattern
-{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{143}{]} for
+{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{145}{]} for
 edges and start nesting them in order to represent subsequent data
 structure. The interaction then might look like tree-structured
-navigation moving along relations just by expanding and folding in data
-points.
+navigation; moving alongside relations just by expanding and folding in
+data points.
 
-Since other parts of the system have to provide the mechanisms to
-increase or reduce the precision of data due to privacy protection, the
-challenge here is to find the right design concepts for \emph{data
-subject} to facilitate those adjustments. Precision adjustments can be
-achieved by either changing the sampling rate in a dataset containing a
-series of data points, or by rounding values to a certain extend. An
-example is cutting fractional digits of the latitude and longitude
-values in a position information, or removing all position information
-obtained between every quarter from a full day tracking period. Whether
-\emph{data subjects} can choose from an abstracted precision grading
-(e.g. \emph{high}, \emph{mid}, and \emph{low}) or they set specific,
-type or unit related filter mechanisms, configurable defaults on a
-system-wide level should be provided by \emph{GUIs} in any case.
-Following data types are supposedly vulnerable to compromise privacy,
-thus proposed to support precision adjustments: \emph{Date} (time), any
-kind of absolute measurements, sets containing data series, and position
-information, as mentioned before.
+Since other parts of the system have to provide the mechanisms for
+increasing or reducing the precision of data due to privacy protection,
+the challenge here is to find the right design concepts for data subject
+to facilitate those adjustments. Precision adjustments can be achieved
+by either changing the sampling rate in a dataset containing a series of
+data points, or by rounding values to a certain extend. Example are
+cutting fractional digits of the latitude and longitude values in a
+position information, or removing all position information obtained
+between every quarter from a full day tracking period. Whether data
+subjects can choose from an abstracted precision grading (e.g.
+\emph{high}, \emph{mid}, and \emph{low}) or they set specific type or
+unit related filter mechanisms, configurable defaults on a system-wide
+level should be provided by \emph{GUIs} in any case. Following data
+types are supposedly vulnerable to compromise privacy, thus proposed to
+support precision adjustments: \emph{Date} (time), any kind of absolute
+measurements, sets containing data series, and position information, as
+mentioned before.
 
 \emph{\textbf{Conclusions:}} The most important aspect, when interacting
-with something or someone, is being provided with some kind of feedback.
-An action typically causes - and is therefore expected - a reaction. The
+with something or someone, is being provided with a feedback. An action
+typically causes - and is therefore \emph{expected} - a reaction. The
 result is an interaction, unless no reaction occurred.
 
 The discussion above outlines the relevance of those interactions for
 the \emph{PDaaS}. Thus, for users and other software to interact with
-the \emph{PDaaS} interfaces are mandatory. Primary characteristics of
+the \emph{PDaaS} interfaces is mandatory. Primary characteristics of
 those interfaces are complete functionality, security precautions and
 restrictions, as well as comprehensive documentations. And visual user
-interfaces in addition, need to provide reliable and adaptive rendering,
-a consistent and encouraging interaction design and. \emph{GUIs} need to
-be provided for all \emph{desktop} and \emph{mobile} platforms,
-primarily to provide an efficient user experience for the
-\emph{operator}. The \emph{operator} is the only role with permissions
-to access a \emph{GUI}. Components on the \emph{server} platform should
-provide \emph{CLIs}, at least when no other technical option exist to
-interact with them. Also accessing the database from command line could
-be appreciated at some point. \emph{APIs} are mostly meant for
-\emph{data consumers} to interact with the \emph{PDaaS} and perhaps for
-automated data contribution (based on \emph{operator} role; e.g.~browser
-plugin). \emph{Desktop} platforms might use those \emph{APIs} as well.
-In any case, \emph{APIs} must be separated according to the
-\emph{roles}.
+interfaces in addition, needs to provide reliable and adaptive
+rendering, a consistent and encouraging interaction design. \emph{GUIs}
+need to be provided for all \emph{desktop} and \emph{mobile} platforms,
+primarily to provide an efficient user experience for the operator. The
+operator is the only role with permissions to access a \emph{GUI}.
+Components on the \emph{server} platform should provide \emph{CLIs}, at
+least when no other technical option exist to interact with them. Also
+accessing the database from command line could be appreciated at some
+point. APIs are mostly meant for data consumers to interact with the
+\emph{PDaaS}, and perhaps for automated data contribution (based on
+\emph{operator} role; e.g.~browser plugin). \emph{Desktop} platforms
+might use those \emph{APIs} as well. In any case, \emph{APIs} must be
+separated according to the \emph{roles}.
 
 These are all vital characteristics whose details need to be addressed
 by the \emph{specification}. Whose implementation details though are not
@@ -5110,9 +5123,10 @@ How do the APIs involved with the protocols look like?
 \subsection{Authentication}\label{authentication-1}
 
 \begin{itemize}
-\tightlist
 \item
   how should consumer authenticate?
+\item
+  list min. configs for tls! e.g.~use ciphers supporting PFS
 \end{itemize}
 
 \section{Recommendations}\label{recommendations}
@@ -5465,7 +5479,7 @@ Result of Code 03 in JSON}:}
 
 \emph{NOTICE: schema notation is based on the rules underpinning the
 schema definition provided by the SimpleSchema project
-{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{144}{]}.}
+{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{146}{]}.}
 
 \textbf{\protect\hypertarget{code-05_struct_profile}{}{Code 05: Struct -
 Profile (example)}}
@@ -6225,56 +6239,66 @@ retrieved 2016-11-01
 framework}. URL \url{https://tools.ietf.org/html/rfc6749\#section-7}. -
 retrieved 2016-11-01
 
+\hypertarget{ref-web_w3c-tr_rdf-schemas}{}
+{[}135{]} \textsc{Brickley, Dan}\,; \textsc{Guha, R.V.}: \emph{RDF
+schema 1.1}. URL \url{https://www.w3.org/TR/rdf-schema/}. - retrieved
+2017-02-12
+
 \hypertarget{ref-web_spec_data-schemas_ehr}{}
-{[}135{]} \textsc{Foundation}: \emph{OpenEHR - EHR information model}.
+{[}136{]} \textsc{Foundation}: \emph{OpenEHR - EHR information model}.
 URL \url{http://www.openehr.org/releases/RM/latest/docs/ehr/ehr.html}. -
 retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_data-schemas_poi}{}
-{[}136{]} \textsc{W3C}: \emph{Points of interest core}. URL
+{[}137{]} \textsc{W3C}: \emph{Points of interest core}. URL
 \url{https://www.w3.org/TR/poi-core/}. - retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_data-schemas_bank-transfer}{}
-{[}137{]} \textsc{Authority, ISO 20022 Registration}: \emph{ISO 20022 -
+{[}138{]} \textsc{Authority, ISO 20022 Registration}: \emph{ISO 20022 -
 universal financial industry message scheme}. URL
 \url{https://www.iso20022.org/}. - retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_xml_types}{}
-{[}138{]} \textsc{W3C}: \emph{XML schema part 2: Datatypes second
+{[}139{]} \textsc{W3C}: \emph{XML schema part 2: Datatypes second
 edition}. URL
 \url{https://www.w3.org/TR/xmlschema-2/\#built-in-primitive-datatypes}.
 - retrieved 2017-01-29
 
 \hypertarget{ref-web_spec_graphql_types}{}
-{[}139{]} \textsc{Facebook, Inc.}: \emph{GraphQL Specification}. URL
+{[}140{]} \textsc{Facebook, Inc.}: \emph{GraphQL Specification}. URL
 \url{https://facebook.github.io/graphql/\#sec-Input-Values}. - retrieved
 2017-01-29
 
 \hypertarget{ref-web_2016_wikipedia_separation-of-concerns}{}
-{[}140{]} \emph{Separation of concerns}. URL
+{[}141{]} \emph{Separation of concerns}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Separation_of_concerns\&oldid=747272729}.
 - retrieved 2017-01-24. ---~Page Version ID: 747272729
 
 \hypertarget{ref-web_spec_acme}{}
-{[}141{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
+{[}142{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
 \textsc{Hoffman-Andrews, Jacob}: \emph{Automatic certificate management
 environment (ACME)}. URL
 \url{https://tools.ietf.org/html/draft-ietf-acme-acme-04}. - retrieved
 2017-01-11
 
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}142{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
+{[}143{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
 success -- by the numbers}. URL
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 - retrieved 2016-12-16
 
+\hypertarget{ref-web_2017_wikipedia_os-market-share}{}
+{[}144{]} \emph{Usage share of operating systems}. URL
+\url{https://en.wikipedia.org/w/index.php?title=Usage_share_of_operating_systems\&oldid=764383522\#Public_servers_on_the_Internet}.
+- retrieved 2017-02-12. ---~Page Version ID: 764383522
+
 \hypertarget{ref-web_2016_wikipedia_accordion-gui}{}
-{[}143{]} \emph{Accordion (GUI)}. URL
+{[}145{]} \emph{Accordion (GUI)}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Accordion_(GUI)\&oldid=758084292}.
 - retrieved 2017-02-01. ---~Page Version ID: 758084292
 
 \hypertarget{ref-web_2017_repo_node-simple-schema}{}
-{[}144{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
+{[}146{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
 \url{https://github.com/aldeed/node-simple-schema}. - retrieved
 2017-01-29
 

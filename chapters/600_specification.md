@@ -245,6 +245,8 @@ actual storage gets relocated (e.g. from a server to a mobile device)
 
 +   how should consumer authenticate?
 
++   list min. configs for tls! e.g. use ciphers supporting PFS
+
 
 
 ## Recommendations

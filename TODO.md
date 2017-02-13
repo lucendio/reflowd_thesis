@@ -70,7 +70,7 @@ of contents
 [ ]   add to cover:
       +  author:
              -   Master's Thesis - International Media and Computing
-             -   email: gj@lucendio.com
+             -   email: ma-thesis+gj@lucendio.com
       +  supervisors/advisors:
              1.  Prof. Dr. Burkhard Messer, burkhard.messer@htw-berlin.de
              2.  Prof. Dr.-Ing. Carsten Busch, carsten.busch@HTW-Berlin.de

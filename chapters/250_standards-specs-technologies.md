@@ -10,7 +10,7 @@ might be a reasonable choice.
 
 
 
-__[HTTP]{#link_http}__ [@web_spec_http1], the well known stateless 'transport layer' for, among 
+__[HTTP]{#def--http}__ [@web_spec_http1], the well known stateless 'transport layer' for, among 
 others, the *World Wide Web*. It most likely will fulfill the same purpose in the context of this 
 work, because it implements a server-client pattern in its very core.
 Whether internal components, locally on the same host or as part of a distributed system, talk to 
@@ -29,7 +29,7 @@ contexts to transfer data via *HTTP*, whose syntax is inspired by the JavaScript
 notation. Like XML, its structuring mechanisms allow i.a. type preservation and nesting, which 
 enable to represent more complex data structures including relations.
 
-The open standard __[OAuth]{#link_oauth}__ defines a process flow for authorizing third parties to 
+The open standard __[OAuth]{#def--oauth}__ defines a process flow for authorizing third parties to 
 access externally hosted resources, such as the user's profile image on a social media platform. 
 The authorisation validation is done by the help of a previously generated token. However, 
 generating and supplying such token can be initiated in a variety of ways depending on the 
@@ -71,7 +71,7 @@ that a user's identity can share certain data with third parties via REST interf
 If it's required for certain components, while being part of a distributed software, to not maintain 
 any state, either the architecture need to be changed so that the state at is no longer needed in 
 that component, or embed the state into the process communication so that it is passed from one 
-component to the other. This is a common use case for a __[JSON Web Token]{#link_jwt}__ *(JWT)* 
+component to the other. This is a common use case for a __[JSON Web Token]{#def--jwt}__ *(JWT)* 
 [@web_spec_json-web-token]. A *JWT*, as it's name implies, is, syntactically speaking, formatted as 
 *JSON*, but URI-safe encoded into *Base64*, before it gets transferred.
 The token itself contains the state. Here is where the use of *HTTP* comes in handy, because the 
@@ -102,14 +102,15 @@ exposed to others than sender and receiver. This procedure is called __Diffie-He
 prime numbers are involved. It is designed with the goal to agree on a *secret* while at the same 
 time using a non-private channel. The data, exchanged during the process, alone cannot be used to 
 exploit the secret.
-Such behaviour is similar to the concepts of __[Asymmetrical Cryptography]{#link_asym-crypto}__ 
+Such behaviour is similar to the concepts of __[Asymmetrical Cryptography]{#def--asym-crypto}__ 
 *(or public-key cryptography)* [@book_2014_chapter-9-1-public-key-crypto], which is underpinned by a 
 *key-pair*; one key is *public* and the other one is *private*. Depending on which of keys is used 
 to *encrypt* the data, only the other one can be used for *decrypting* the cipher. If then this 
 technology gets combined with the concept of digital signatures (encrypted fingerprints from data), 
 together it would provide integrity and authentication.
 
-Putting *HTTP* on top of the *Transport Layer Security (TLS)* [@web_spec_tls] results in __HTTPS__. 
+Putting *HTTP* on top of the *Transport Layer Security (TLS)* [@web_spec_tls] results in 
+__[HTTPS]{#}__. 
 TLS provides encryption during data transport, which reduces the vulnerability to 
 *man-in-the-middle* attacks and thus ensures not only confidentiality but data integrity too. 
 *Asymmetric cryptography* is the foundation for the connection establishment, hence *TLS* also 
@@ -136,7 +137,7 @@ or service to third parties in order to synergistically integrate with them. But
 principals for all internal server-client interaction is also very common.
 This concept can also be understood as a proxy to the actual business logic in the back end.
 
-The *QL* in __[GraphQL]{#link-graphql}__ [@web_spec_graphql] stands for *query language*. Developed
+The *QL* in __[GraphQL]{#def--graphql}__ [@web_spec_graphql] stands for *query language*. Developed
 by Facebook Inc., its goal is to abstract multiple data sources into a unified API or resource, so 
 that different storage technologies are seamlessly queryable without using it's native *QL*. The 
 result is provided in JSON format, which naturally supports graph-like data structures. This is 
@@ -148,14 +149,14 @@ query language. It also separates almost any operation and the flow control from
 moves it into a second layer. The so called *GraphQL* server is responsible for resolving and 
 executing queries. 
 
-The term __[Semantic Web]{#link-semantic-web}__ bundles a conglomerate of standards released by the 
+The term __[Semantic Web]{#def--semantic-web}__ bundles a conglomerate of standards released by the 
 W3C [^abbr_w3c]. It is based around an idea called *web of linked data*, which aims to *"enable 
 people to create data stores on the Web, build vocabularies, and write rules for handling data"* 
 [web_2016_w3c_semantic-web-activity]. The standards address syntax, schemas, formats, access control 
 and integrations for several scopes and contexts. Among others, the following three technologies are 
 essential for the *Semantic Web*.
 RDF [^abbr_rdf] basically defines the syntax. OWL [^abbr_owl] provides the guidelines on how the 
-semantics and schemas (vocabulary) should be defined and with [SPARQL]{#link-sparql} 
+semantics and schemas (vocabulary) should be defined and with [SPARQL]{#def--sparql} 
 [@web_w3c-tr_sparql], the query language, data can be retrieved.
 One can not help it, but picture the web as a database - queryable data with URIs that are embedded 
 in arbitrary websites. Imagine a person's email address, which is available under a specific domain 
@@ -173,7 +174,7 @@ principles including the standards just mentioned, the project focuses on decent
 personal data management while developing a specification around this. A reference implementation 
 called *databox* [@web_2016_demo_databox] follows the specification process. 
 
-The concept of an application (or software) __[container]{#link-container}__ is about encapsulating 
+The concept of an application (or software) __[container]{#def--container}__ is about encapsulating 
 runtime environments by introducing an additional layer of abstraction. A container bundles just 
 those software dependencies (e.g. binaries) that are absolutely necessary so that the enclosed 
 program is able to run properly. The actual separation from the host system is done, aside from 
@@ -203,7 +204,7 @@ In the past years different countries around the world started to introduce *inf
 to the day-to-day processes, interactions and communications between public services and their 
 citizens. Processes like changing residence information or filing tax report, are all summarized 
 since then under the name *E-government* [^abbr_egov]. One of those developments is the so 
-called __Electronic ID Card__{#link_eid-card}, hereinafter called *eID card*. Equipped with storage, 
+called __Electronic ID Card__{#def--eid-card}, hereinafter called *eID card*. Equipped with storage, 
 logic and interfaces for wireless communication, those *eID cards* can be used to store certain 
 information and digital keys, or to authenticate the owner electronically to a third party without 
 being physically present. Such an *eID card* was introduced also in Germany in 2010. The so called 
@@ -227,7 +228,7 @@ the recipients must be obtained from these public server, so that the email can 
 with those keys and are therefore only readable by the owner of the keys's private part.
 
 Related to that topic, another technology emerging as part of the *e-government* development, 
-is the german __De-Mail__ [@web_2017_about-de-mail]. It's an eMail-Service that is meant to provide 
+is the german __[De-Mail]{#def--de-mail}__ [@web_2017_about-de-mail]. It's an eMail-Service that is meant to provide 
 infrastructure and mechanisms to exchange legally binding electronic documents. One would expect 
 a *public key cryptography*-based implementation from sender all the way over to the recipient 
 [@statement_2013_de-mail]; maybe even with taking advantage of the *nPA's* capability to create 

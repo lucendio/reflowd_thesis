@@ -295,9 +295,9 @@ one exemplar. So the downside here is, only a handful of third parties
 [@web_2009-success-of-facebook-connect] provide those authentication services.  
 OpenID is designed with a very specific type of scenarios in mind, namely the one just described - 
 bringing decentralisation to the market of authentication services - which differs from those 
-addressed by the *PDaaS*; at least, when it comes to *data consumer* interactions. Although, the 
+addressed by the *PDaaS*; at least, when it comes to *data consumer* interactions. Even though, the 
 *PDaaS* has the ability to become the digital representation of it's *operator*. Hence it can and 
-also should be used to authenticate that individual against an external parties.  
+also should be used to authenticate that individual against external parties.  
 
 
 
