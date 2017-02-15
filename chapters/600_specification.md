@@ -3,254 +3,66 @@ Specification *(Draft)*
 
 
 
-This chapter hold the first draft of what might become a specification. As for now it has therefore
-no claim of completeness, continuity or accuracy. The contents is based on and a result of all 
-previous discussions and developed solutions.  
+This chapter holds the first draft of what might become an open specification. As for now it has 
+therefore no claim of completeness, continuity or accuracy. Frequent changes are to be expected.
+The contents is based on and a result of all previous discussions and developed solutions. 
 
 
-TODO: should might must n stuff in table (see dark mail spec)
-or just reference: https://tools.ietf.org/html/rfc2119
 
+### Introduction {-}
 
+This specification describes a system with the purpose of controlling the personal data of a single 
+entity. By 'entity' it is primarily referred to a person, an individual. This individual manages
+all data relating to her in an online platform, operated by her, which exposes a service making 
+those data selectively accessible to third parties that might have an interest in them. Meanwhile
+the system tries to ensure that not personal data ever leaves the system. 
+The overall flexibility and portability of the system enables the individual to store her data for
+example on a mobile phone so that she is able to carry all her personal data along while the 
+accessibility of the data is ensured at all time.
 
-## Overview
 
-+   purpose
-+   architectural overview
-+   short description of the whole process
 
+### Notation and Conventions {-}
 
+The requirements notation used in this document originates in the 
+[RFC 2119](https://tools.ietf.org/html/rfc2119) and shall be interpreted as defined there. 
+This applies to the following keywords, recognizable through capital letters: MUST, MUST NOTE, 
+SHOULD 
 
-## Components
+Values and words presented in a `fixed-width font` need to be understood as names and must therefore
+be used as is.
 
-### Webserver
+Lists that are numbered outline its given order, which must therefore be followed. Lists that start 
+with a character (upper or lower case) have no claim to its order. Their items are inclusive 
+(logical *and*), while bullet list items are exclusive (logical *or*). 
 
-### User Interface
-    
-### Storage/Persistence
-    
-### Notification Infrastructure
 
-### Data API
 
+### Terminologies {-} 
 
+[(The) System]{#spec_term_system}:
+: refers to either the overall concept or the implementation of this specification
 
-## Data
+[Operator]{#spec_term_operator}:
+: data subject and owner, not necessarily provider or host though; individual, represented by the 
+  system and whose personal data can be accessed through the system; also referred to as 
+  *data controller*, *data subject* or *data owner*
 
-### Structure & Types
+[Third Party]{#spec_term_third-party}:
+: external entity or vendor, who is yet to become registered as a *consumer* to the system
 
-+   henceforth only two things: primitive and struct
-+   supported date types
+[(Data) Consumer]{#spec_term_consumer}:
+: external entity or vendor, who has registered to the system and is therefore permitted to request
+  access to data or even to access data hold by the system
 
-### Read
+[Personal Data]{#spec_term_personal-data}:
+: data, relates to the *operator*, that is contained in the system and selectively permitted to 
+  get accessed by consumes
+  
+[Data Broker]{#spec_term_data-broker}:
+: entity with commercial interests in collecting, aggregating and analyzing personal data from any 
+  possible resource in order to combine and enrich those, to license the result to other entities
 
-+   permission profiles
-    +   type
-    +   how often
-    +   what data
-
-### Write
-
-(!) every data or configuration change has to be reversible
-
-
-precision of data: demanding lower precision than the *data subject* has approved is always possible. The
-other ways around not.
-
-
-
-## Protocols
-
-###### Consumer registration
-
-0)  \[OPTIONAL\] *data subject* provides URI to *data consumers* 
-
-1)  *data consumers* create *permission request* that includes
-    -   X.509 based CSR [^abbr_csr]
-    -   callback URI via HTTPS as feedback channel
-    -   \[OPTIONAL\] information about what data points wanted to be accessed
-
-2)  depending on 0), *data consumer* provides *operator* with priorly created *permission 
-    request* either as QR-Code or via HTTPS by given URI 
-    
-3)  *operator* reviews request and decides to either refuse or grant assess; the latter results in:
-    a)  creating new *endpoint* 
-        +   create new unique subdomain and a related asymmetric key pair signed by the system's 
-            root CA (self-signed)
-        +   issue *consumer* certificate based on it's CRS and sign it with the key pair related 
-            to this *endpoint*
-    b)  if information is provided, creating new *permission profile* by either applying existing 
-        draft/template or configuring *permission type* (incl. expiration date if required) and 
-        permitted data endpoints; associate to specific *endpoint*
-
-4)  *data consumers* gets informed about the decision via callback channel
-    +   on grant, response includes 
-        +   *consumer's* certified certificate
-        +   certificate that's associated with the created endpoint
-        +   information on what data points are allowed to be accessed;
-    -   on refusal: error code/message
-    
-5)  *data consumer* handles the response appropriately
-    +   \[OPTIONAL\] pin the provided *PDaaS* certificate
-    
-
-###### Data Access
-
-0)  after successfully authenticated, *consumer* sends *access request*
- 
-1)  request contains at least the *data query*; based on that query and the *permission profiles*, 
-    access is tried to get verified
-    a)  on success, response gets computed
-    b)  on failure, error code/message is responded; process aborts
-        -   if the error was raised because no appropriate *permission profile* was found, then the
-            *consumer* first needs to request permission for the *data points* that were part of the 
-            query
-
-2)  \[OPTIONAL\] depending on whether the `keepalive` flag was set `true`, the connection of this
-    requests lasts until response computation has finished or timeout has reached, otherwise the 
-    response contains a URI unique to this current request including an estimation
-    when response will be available under that URI; connection can still timeout, which is defined 
-    by the system
- 
-3)  depending on the type of that *access request*, 
-    (A) the data get queried and the result is added to the response
-    (B) based in further information provided by the request, the environment for the *supervised
-        code execution* is getting provisioned, the program from the *consumer* will be ran against
-        various tests
-        a)  in fail, error code/message get added to the response
-        b)  on pass, computed result gets added to the response
-        
-4)  response is finalized and gets returned back to the *consumer*, either as a response to this 
-    request or provided under the unique URI as of 2) 
-
-
-###### Permission Validation
-
-TODO: detailed description of the algorithm that checks *permission profiles* according to an 
-*access request*; including all different possible cases (multiple profiles for one consumer etc)
-
-
-###### Add or Change Personal Data
-
-
-[^abbr_csr]: Certificate signing request
-
-
-
-
-
-### Data Management
-
-
-
-
-+   one third party access (consumer) relates to one access *endpoint*, that also authenticates that
-    third party by TLS based *two-way auth* 
-+   zero or more *permission profiles* are associated to one *endpoint*
-
-
-## APIs
-
-
-__Registration Request__
-+   contains certificate signing request
-+   \[OPTIONAL\] contains *permission request*
-
-```JSON
-{
-    "callbackUri": "TODO",
-    "csr": "TODO",
-    "dataPoints": [
-        "profile.lastname"
-    ]
-}
-```
-
-
-__Permission Request__
-+   creates new *permission profile*
-+   `https://example-consumer.pdaas.tld/pr`
-
-```JSON
-{
-    "callbackUri": "",
-    "dataPoints": [
-        "profile.lastname"
-    ]
-}
-```
-
-
-__Access Request__
-+   obtains actual data
-+   if `keepalive` is set `true`, the connections lasts until response computation has finished,
-    otherwise the response contains a URI unique to this current request including an estimation
-    when response will be available under that URI; connection can still timeout, which is defined 
-    by the system
-+   `https://example-consumer.pdaas.tld/ar`
-
-```JSON
-{
-    "query": "TODO"
-}
-```
-*Requirements:*
--   query has to match exactly one corresponding *permission profile*
-
-
-
-TODO: basic structure of a *permission profile*
-
-How do the APIs involved with the protocols look like?
-
-
-
-## Security
-
-+   the downside of having not just parts of the personal data in different places (which is
-    currently the common way to store), is in case of security breach, it would increase the 
-    possible damage by an exponential rate
-    Thereby all data is exposed at once, instead of not just the parts which a single service
-    has stored 
-+   does it matter from what origin the data request was made? how to check that? is the 
-    requester's server domain in the http header?
-    eventually there is no way to check that, so me might need to go with request logging and
-    trying to detect abnormal behaviour/occurrence with a learning artificial intelligence
-    
-+   is the consumer able to call the access request URI repeatedly and any time? (meaning will this
-    be stateless or stateful?)
-    
-+   initial consumer registration would be done on a common and valid https:443 CA-certified 
-    connection. after transferring their cert to them as a response, all subsequent calls
-    need to go to their own endpoint, defined as subdomains like `consumer-name.owners-notification-server.tld`
-
-
-### Environment
-
-
-### Transport
-
-+   communication between internal components *must* be done in https only, but which ciphers?
-    eventually even http/2?
-
-
-### Storage
-
-+   documents based DB instead of Relational DBS, because of structure/model flexibility 
-+   graphql because of it's nature to abstract a storage engine, which comes in handy when the 
-actual storage gets relocated (e.g. from a server to a mobile device)
-
-
-### Authentication
-
-+   how should consumer authenticate?
-
-+   list min. configs for tls! e.g. use ciphers supporting PFS
-
-
-
-## Recommendations
-
-### Software Dependencies
-
-### Host Environment(s)
+[Endpoint]{#spec_term_endpoint}:
+: dedicated entry for a specific *data consumer* to communicate with the system (e.g. access 
+  personal data)

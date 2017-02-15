@@ -250,6 +250,7 @@ __User Interface__
 
 *Relations:*
 +   Web server
++   Push Notification Service
 
 *Technologies:*
 +   HTML, CSS, Javascript

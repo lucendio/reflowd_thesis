@@ -100,33 +100,28 @@
                 <li><a href="#user-interfaces"><span class="toc-section-number">6.8</span> User Interfaces</a></li>
                 </ul></li>
                 <li><a href="#specification-draft"><span class="toc-section-number">7</span> Specification <em>(Draft)</em></a><ul>
-                <li><a href="#overview"><span class="toc-section-number">7.2</span> Overview</a></li>
-                <li><a href="#components"><span class="toc-section-number">7.3</span> Components</a><ul>
-                <li><a href="#webserver"><span class="toc-section-number">7.3.2</span> Webserver</a></li>
-                <li><a href="#user-interface"><span class="toc-section-number">7.3.3</span> User Interface</a></li>
-                <li><a href="#storagepersistence"><span class="toc-section-number">7.3.4</span> Storage/Persistence</a></li>
-                <li><a href="#notification-infrastructure"><span class="toc-section-number">7.3.5</span> Notification Infrastructure</a></li>
-                <li><a href="#data-api"><span class="toc-section-number">7.3.6</span> Data API</a></li>
+                <li><a href="#introduction-1">Introduction</a></li>
+                <li><a href="#notation-and-conventions">Notation and Conventions</a></li>
+                <li><a href="#terminologies-1">Terminologies</a></li>
+                <li><a href="#overview"><span class="toc-section-number">7.2</span> Overview</a><ul>
+                <li><a href="#key-features"><span class="toc-section-number">7.2.2</span> Key Features</a></li>
+                <li><a href="#scenarios-excerpt"><span class="toc-section-number">7.2.3</span> Scenarios <em>(Excerpt)</em></a></li>
+                <li><a href="#architectural-overview"><span class="toc-section-number">7.2.4</span> Architectural Overview</a></li>
+                <li><a href="#general-process-description"><span class="toc-section-number">7.2.5</span> General Process Description</a></li>
+                <li><a href="#relations"><span class="toc-section-number">7.2.6</span> Relations</a></li>
+                <li><a href="#depending-technologies"><span class="toc-section-number">7.2.7</span> Depending Technologies</a></li>
+                <li><a href="#prerequisites"><span class="toc-section-number">7.2.8</span> Prerequisites</a></li>
                 </ul></li>
-                <li><a href="#data-1"><span class="toc-section-number">7.4</span> Data</a><ul>
-                <li><a href="#structure-types"><span class="toc-section-number">7.4.2</span> Structure &amp; Types</a></li>
-                <li><a href="#read"><span class="toc-section-number">7.4.3</span> Read</a></li>
-                <li><a href="#write"><span class="toc-section-number">7.4.4</span> Write</a></li>
+                <li><a href="#components"><span class="toc-section-number">7.3</span> Components</a></li>
+                <li><a href="#security"><span class="toc-section-number">7.4</span> Security</a></li>
+                <li><a href="#protocols"><span class="toc-section-number">7.5</span> Protocols</a></li>
+                <li><a href="#data-types"><span class="toc-section-number">7.6</span> Data &amp; Types</a><ul>
+                <li><a href="#structure-types"><span class="toc-section-number">7.6.2</span> Structure &amp; Types</a></li>
+                <li><a href="#read"><span class="toc-section-number">7.6.3</span> Read</a></li>
+                <li><a href="#write"><span class="toc-section-number">7.6.4</span> Write</a></li>
                 </ul></li>
-                <li><a href="#protocols"><span class="toc-section-number">7.5</span> Protocols</a><ul>
-                <li><a href="#data-management"><span class="toc-section-number">7.5.2</span> Data Management</a></li>
-                </ul></li>
-                <li><a href="#apis"><span class="toc-section-number">7.6</span> APIs</a></li>
-                <li><a href="#security"><span class="toc-section-number">7.7</span> Security</a><ul>
-                <li><a href="#environment"><span class="toc-section-number">7.7.2</span> Environment</a></li>
-                <li><a href="#transport"><span class="toc-section-number">7.7.3</span> Transport</a></li>
-                <li><a href="#storage"><span class="toc-section-number">7.7.4</span> Storage</a></li>
-                <li><a href="#authentication-1"><span class="toc-section-number">7.7.5</span> Authentication</a></li>
-                </ul></li>
-                <li><a href="#recommendations"><span class="toc-section-number">7.8</span> Recommendations</a><ul>
-                <li><a href="#software-dependencies"><span class="toc-section-number">7.8.2</span> Software Dependencies</a></li>
-                <li><a href="#host-environments"><span class="toc-section-number">7.8.3</span> Host Environment(s)</a></li>
-                </ul></li>
+                <li><a href="#interfaces-1"><span class="toc-section-number">7.7</span> Interfaces</a></li>
+                <li><a href="#recommendations"><span class="toc-section-number">7.8</span> Recommendations</a></li>
                 </ul></li>
                 <li><a href="#conclusion"><span class="toc-section-number">8</span> Conclusion</a><ul>
                 <li><a href="#ethical-social-impact-todo-or-relevance"><span class="toc-section-number">8.2</span> Ethical &amp; Social Impact (TODO: or “Relevance”)</a></li>
@@ -1136,6 +1131,7 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <p><em>Relations:</em></p>
 <ul>
 <li>Web server</li>
+<li>Push Notification Service</li>
 </ul>
 <p><em>Technologies:</em></p>
 <ul>
@@ -1301,64 +1297,161 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 </section>
 <section id="specification-draft" class="level1">
 <h1><span class="header-section-number">7</span> Specification <em>(Draft)</em></h1>
-<p>This chapter hold the first draft of what might become a specification. As for now it has therefore no claim of completeness, continuity or accuracy. The contents is based on and a result of all previous discussions and developed solutions.</p>
-<p>TODO: should might must n stuff in table (see dark mail spec) or just reference: https://tools.ietf.org/html/rfc2119</p>
+<p>This chapter holds the first draft of what might become an open specification. As for now it has therefore no claim of completeness, continuity or accuracy. Frequent changes are to be expected. The contents is based on and a result of all previous discussions and developed solutions.</p>
+<section id="introduction-1" class="level3 unnumbered">
+<h3>Introduction</h3>
+<p>This specification describes a system with the purpose of controlling the personal data of a single entity. By ‘entity’ it is primarily referred to a person, an individual. This individual manages all data relating to her in an online platform, operated by her, which exposes a service making those data selectively accessible to third parties that might have an interest in them. Meanwhile the system tries to ensure that not personal data ever leaves the system. The overall flexibility and portability of the system enables the individual to store her data for example on a mobile phone so that she is able to carry all her personal data along while the accessibility of the data is ensured at all time.</p>
+</section>
+<section id="notation-and-conventions" class="level3 unnumbered">
+<h3>Notation and Conventions</h3>
+<p>The requirements notation used in this document originates in the <a href="https://tools.ietf.org/html/rfc2119">RFC 2119</a> and shall be interpreted as defined there. This applies to the following keywords, recognizable through capital letters: MUST, MUST NOTE, SHOULD</p>
+<p>Values and words presented in a <code>fixed-width font</code> need to be understood as names and must therefore be used as is.</p>
+<p>Lists that are numbered outline its given order, which must therefore be followed. Lists that start with a character (upper or lower case) have no claim to its order. Their items are inclusive (logical <em>and</em>), while bullet list items are exclusive (logical <em>or</em>).</p>
+</section>
+<section id="terminologies-1" class="level3 unnumbered">
+<h3>Terminologies</h3>
+<dl>
+<dt><span id="spec_term_system">(The) System</span>:</dt>
+<dd>refers to either the overall concept or the implementation of this specification
+</dd>
+<dt><span id="spec_term_operator">Operator</span>:</dt>
+<dd>data subject and owner, not necessarily provider or host though; individual, represented by the system and whose personal data can be accessed through the system; also referred to as <em>data controller</em>, <em>data subject</em> or <em>data owner</em>
+</dd>
+<dt><span id="spec_term_third-party">Third Party</span>:</dt>
+<dd>external entity or vendor, who is yet to become registered as a <em>consumer</em> to the system
+</dd>
+<dt><span id="spec_term_consumer">(Data) Consumer</span>:</dt>
+<dd>external entity or vendor, who has registered to the system and is therefore permitted to request access to data or even to access data hold by the system
+</dd>
+<dt><span id="spec_term_personal-data">Personal Data</span>:</dt>
+<dd>data, relates to the <em>operator</em>, that is contained in the system and selectively permitted to get accessed by consumes
+</dd>
+<dt><span id="spec_term_data-broker">Data Broker</span>:</dt>
+<dd>entity with commercial interests in collecting, aggregating and analyzing personal data from any possible resource in order to combine and enrich those, to license the result to other entities
+</dd>
+<dt><span id="spec_term_endpoint">Endpoint</span>:</dt>
+<dd>dedicated entry for a specific <em>data consumer</em> to communicate with the system (e.g. access personal data)
+</dd>
+</dl>
+</section>
 <section id="overview" class="level2">
 <h2><span class="header-section-number">7.2</span> Overview</h2>
+<p>The overall purpose of this specification is to provide detailed instructions to build a web service that on the one side encourages an individual to manage and maintain all the data relating to her in one place, and on the other side that enables third parties to access such data if they are permitted by the individual to do so, preferably through supervised code execution instead of just handing over the raw data points. The result is a one-to-many relation between the data owner - the individual - and all those who might require some data to for example proceed a purchase initiated by the operator or make a proper decision on her medical treatment.</p>
+<p>The system architecture is designed while keeping flexibility and portability in mind but still preserving simplicity and security. The result supports to run some components on different platforms in a distributed way. Therefore the operator is able to operate the system while being on the move, and can literally carry all her personal data along.</p>
+<p>The design of this specification tries to leverage as much existing standards and open technologies as possible for all the different aspects and components. So that by recognizing common practices its implementation and integration can be made as effortless as possible.</p>
+<section id="key-features" class="level3">
+<h3><span class="header-section-number">7.2.2</span> Key Features</h3>
+<p><strong>Perspective: <em>Operator</em></strong></p>
 <ul>
-<li>purpose</li>
-<li>architectural overview</li>
-<li>short description of the whole process</li>
+<li>full control over the flow of personal data</li>
+<li>maintain all personal data in one place</li>
+<li>real-time information and notification</li>
+<li>taking her personal data with her</li>
+<li>collect and analyse her own personal data</li>
+<li>trust through open development and open source</li>
+<li>commercialize data access on her own</li>
 </ul>
+<p><strong>Perspective: <em>Consumers</em></strong></p>
+<ul>
+<li>reliable single source of latest data about an individual</li>
+<li>access only those data that are actually required and thus reduce ‘noise’</li>
+<li>access data that never were been collectible before</li>
+<li>distributed computing</li>
+</ul>
+</section>
+<section id="scenarios-excerpt" class="level3">
+<h3><span class="header-section-number">7.2.3</span> Scenarios <em>(Excerpt)</em></h3>
+<section id="online-purchase" class="level5">
+<h5><span class="header-section-number">7.2.3.0.1</span> Online Purchase</h5>
+<p>In order to proceed with the checkout, the shop requires some personal from the user, such as shipping address, email and payment information. Either the shop is already a data consumer, then it would access the system in the background to check if any data has changed, or the shop has to register as a consumer first. After the registration process has been initiated, and if not already has happened the user is then forwarded to complete the checkout. After reviewing the registration and the data that are attempted to get accessed, the use is informed via email that the order has been proceeded and the shipment has started.</p>
+</section>
+<section id="social-network" class="level5">
+<h5><span class="header-section-number">7.2.3.0.2</span> Social Network</h5>
+</section>
+<section id="apply-for-a-loan" class="level5">
+<h5><span class="header-section-number">7.2.3.0.3</span> Apply for a Loan</h5>
+</section>
+<section id="browser-history" class="level5">
+<h5><span class="header-section-number">7.2.3.0.4</span> Browser History</h5>
+</section>
+<section id="movement-profile" class="level5">
+<h5><span class="header-section-number">7.2.3.0.5</span> Movement Profile</h5>
+</section>
+</section>
+<section id="architectural-overview" class="level3">
+<h3><span class="header-section-number">7.2.4</span> Architectural Overview</h3>
+</section>
+<section id="general-process-description" class="level3">
+<h3><span class="header-section-number">7.2.5</span> General Process Description</h3>
+</section>
+<section id="relations" class="level3">
+<h3><span class="header-section-number">7.2.6</span> Relations</h3>
+<ul>
+<li>one third party access (consumer) relates to one access <em>endpoint</em>, that also authenticates that third party by TLS based <em>two-way auth</em></li>
+<li>zero or more <em>permission profiles</em> are associated to one <em>endpoint</em></li>
+</ul>
+</section>
+<section id="depending-technologies" class="level3">
+<h3><span class="header-section-number">7.2.7</span> Depending Technologies</h3>
+<ol type="a">
+<li>HTTPS via TLS</li>
+<li>GraphQL</li>
+<li>document-based database systems</li>
+</ol>
+</section>
+<section id="prerequisites" class="level3">
+<h3><span class="header-section-number">7.2.8</span> Prerequisites</h3>
+<ol type="a">
+<li>domain</li>
+<li>publicly reachable server (e.g public IP)</li>
+<li>[OPTIONAL] mobile device</li>
+</ol>
+</section>
 </section>
 <section id="components" class="level2">
 <h2><span class="header-section-number">7.3</span> Components</h2>
-<section id="webserver" class="level3">
-<h3><span class="header-section-number">7.3.2</span> Webserver</h3>
-</section>
-<section id="user-interface" class="level3">
-<h3><span class="header-section-number">7.3.3</span> User Interface</h3>
-</section>
-<section id="storagepersistence" class="level3">
-<h3><span class="header-section-number">7.3.4</span> Storage/Persistence</h3>
-</section>
-<section id="notification-infrastructure" class="level3">
-<h3><span class="header-section-number">7.3.5</span> Notification Infrastructure</h3>
-</section>
-<section id="data-api" class="level3">
-<h3><span class="header-section-number">7.3.6</span> Data API</h3>
-</section>
-</section>
-<section id="data-1" class="level2">
-<h2><span class="header-section-number">7.4</span> Data</h2>
-<section id="structure-types" class="level3">
-<h3><span class="header-section-number">7.4.2</span> Structure &amp; Types</h3>
 <ul>
-<li>henceforth only two things: primitive and struct</li>
-<li>supported date types</li>
+<li>list of components, description and tasks</li>
 </ul>
 </section>
-<section id="read" class="level3">
-<h3><span class="header-section-number">7.4.3</span> Read</h3>
+<section id="security" class="level2">
+<h2><span class="header-section-number">7.4</span> Security</h2>
 <ul>
-<li>permission profiles
+<li>transport
 <ul>
-<li>type</li>
-<li>how often</li>
-<li>what data</li>
+<li>no HTTP allowed, all HTTP (80, 8080)</li>
+<li>HTTP/2 support for web gui</li>
+<li>TLS configurations: which ciphers (e.g. use ciphers supporting PFS)
+<ul>
+<li>TODO insert example nginx config</li>
 </ul></li>
+</ul></li>
+<li>authentication
+<ul>
+<li>PKI ‘n’ stuff</li>
+<li>JWT</li>
+<li>2-factor-auth (how?)</li>
+</ul></li>
+<li>distributed approach: location of PDS</li>
+<li>supervised code execution</li>
+<li>containerization</li>
+<li>environment</li>
+<li>pattern recognition for access requests (e.g. check if request come constantly from the same IP)
+<ul>
+<li>does it matter from what origin the data request was made? how to check that? is the requester’s server domain in the http header? eventually there is no way to check that, so me might need to go with request logging and trying to detect abnormal behaviour/occurrence with a learning artificial intelligence</li>
+</ul></li>
+<li>spam protection</li>
 </ul>
-</section>
-<section id="write" class="level3">
-<h3><span class="header-section-number">7.4.4</span> Write</h3>
-<p>(!) every data or configuration change has to be reversible</p>
-<p>precision of data: demanding lower precision than the <em>data subject</em> has approved is always possible. The other ways around not.</p>
-</section>
 </section>
 <section id="protocols" class="level2">
 <h2><span class="header-section-number">7.5</span> Protocols</h2>
-<section id="consumer-registration" class="level6">
-<h6><span class="header-section-number">7.5.1.0.0.1</span> Consumer registration</h6>
+<p><em>The following protocols reflect core procedures. They have to be understood as detailed instructions on how these procedures have to be implemented.</em></p>
+<section id="consumer-registration" class="level4">
+<h4><span class="header-section-number">7.5.1.1</span> Consumer Registration</h4>
+<p><em>Description: TODO</em></p>
+<ul>
+<li>initial consumer registration would be done on a common and valid https:443 CA-certified connection. after transferring their cert to them as a response, all subsequent calls need to go to their own endpoint, defined as subdomains like <code>consumer-name.owners-notification-server.tld</code></li>
+</ul>
 <ol start="0" type="1">
 <li><p>[OPTIONAL] <em>data subject</em> provides URI to <em>data consumers</em></p></li>
 <li><em>data consumers</em> create <em>permission request</em> that includes
@@ -1393,8 +1486,13 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 </ul></li>
 </ol>
 </section>
-<section id="data-access" class="level6">
-<h6><span class="header-section-number">7.5.1.0.0.2</span> Data Access</h6>
+<section id="permission-request" class="level4">
+<h4><span class="header-section-number">7.5.1.2</span> Permission Request</h4>
+<p><em>Description: applying for permission to get access to certain data</em></p>
+</section>
+<section id="access-request-accessing-data" class="level4">
+<h4><span class="header-section-number">7.5.1.3</span> Access Request (accessing data)</h4>
+<p><em>Description: TODO</em></p>
 <ol start="0" type="1">
 <li><p>after successfully authenticated, <em>consumer</em> sends <em>access request</em></p></li>
 <li>request contains at least the <em>data query</em>; based on that query and the <em>permission profiles</em>, access is tried to get verified
@@ -1418,101 +1516,153 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li><p>response is finalized and gets returned back to the <em>consumer</em>, either as a response to this request or provided under the unique URI as of 2)</p></li>
 </ol>
 </section>
-<section id="permission-validation" class="level6">
-<h6><span class="header-section-number">7.5.1.0.0.3</span> Permission Validation</h6>
-<p>TODO: detailed description of the algorithm that checks <em>permission profiles</em> according to an <em>access request</em>; including all different possible cases (multiple profiles for one consumer etc)</p>
+<section id="permission-validation" class="level4">
+<h4><span class="header-section-number">7.5.1.4</span> Permission Validation</h4>
+<p><em>Description: detailed description of the algorithm that checks permission profiles according to an access request; including all different possible cases (multiple profiles for one consumer etc)</em></p>
 </section>
-<section id="add-or-change-personal-data" class="level6">
-<h6><span class="header-section-number">7.5.1.0.0.4</span> Add or Change Personal Data</h6>
+<section id="adding-or-changing-personal-data" class="level4">
+<h4><span class="header-section-number">7.5.1.5</span> Adding or Changing Personal Data</h4>
+<p><em>Description: TODO</em></p>
 </section>
-<section id="data-management" class="level3">
-<h3><span class="header-section-number">7.5.2</span> Data Management</h3>
+</section>
+<section id="data-types" class="level2">
+<h2><span class="header-section-number">7.6</span> Data &amp; Types</h2>
 <ul>
-<li>one third party access (consumer) relates to one access <em>endpoint</em>, that also authenticates that third party by TLS based <em>two-way auth</em></li>
-<li>zero or more <em>permission profiles</em> are associated to one <em>endpoint</em></li>
+<li>abstraction concept (GraphQL)</li>
+<li>areas of applications (excerpt)
+<ul>
+<li>profile data</li>
+<li>sensor data (e.g. geo-location, motions)</li>
+<li>financial record (and history)</li>
+<li>payment information</li>
+<li>medical record</li>
+<li>governmental data</li>
+<li>biometric datasets (e.g. finger print, retina)</li>
+<li>web search history</li>
+<li>what about user-created content, like pictures, videos or blog posts?</li>
+</ul></li>
+<li>primitives and structs</li>
+<li>minimum feasible types</li>
+<li>structs as add-ons</li>
+<li>data models (PL)
+<ul>
+<li>registration</li>
+<li>permission profile
+<ul>
+<li>permission type</li>
+<li>max/min interval (how often)</li>
+<li>block all on this endpoint until further notice</li>
+</ul></li>
+</ul></li>
+</ul>
+<section id="structure-types" class="level3">
+<h3><span class="header-section-number">7.6.2</span> Structure &amp; Types</h3>
+<ul>
+<li>henceforth only two things: primitive and struct</li>
+<li>supported date types</li>
 </ul>
 </section>
+<section id="read" class="level3">
+<h3><span class="header-section-number">7.6.3</span> Read</h3>
+<ul>
+<li>permission profiles
+<ul>
+<li>type</li>
+<li>how often</li>
+<li>what data</li>
+</ul></li>
+</ul>
 </section>
-<section id="apis" class="level2">
-<h2><span class="header-section-number">7.6</span> APIs</h2>
+<section id="write" class="level3">
+<h3><span class="header-section-number">7.6.4</span> Write</h3>
+<p>(!) every data or configuration change has to be reversible</p>
+<p>precision of data: demanding lower precision than the <em>data subject</em> has approved is always possible. The other ways around not.</p>
+</section>
+</section>
+<section id="interfaces-1" class="level2">
+<h2><span class="header-section-number">7.7</span> Interfaces</h2>
+<ul>
+<li>graphical user interfaces
+<ul>
+<li>management tool: web and mobile</li>
+<li>platform types</li>
+<li>feature list</li>
+</ul></li>
+<li>registration</li>
+<li>Operator APIs</li>
+<li>for data consumers
+<ul>
+<li>permission requests</li>
+<li>access request</li>
+</ul></li>
+</ul>
 <p><strong>Registration Request</strong></p>
 <ul>
 <li>contains certificate signing request</li>
 <li>[OPTIONAL] contains <em>permission request</em></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><table class="sourceCode json numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="sourceCode"><pre><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;callbackUri&quot;</span><span class="fu">:</span> <span class="st">&quot;TODO&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;csr&quot;</span><span class="fu">:</span> <span class="st">&quot;TODO&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;dataPoints&quot;</span><span class="fu">:</span> <span class="ot">[</span>
         <span class="st">&quot;profile.lastname&quot;</span>
     <span class="ot">]</span>
-<span class="fu">}</span></code></pre></div>
+<span class="fu">}</span></code></pre></td></tr></table></div>
 <p><strong>Permission Request</strong></p>
 <ul>
 <li>creates new <em>permission profile</em></li>
 <li><code>https://example-consumer.pdaas.tld/pr</code></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><table class="sourceCode json numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="sourceCode"><pre><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;callbackUri&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;dataPoints&quot;</span><span class="fu">:</span> <span class="ot">[</span>
         <span class="st">&quot;profile.lastname&quot;</span>
     <span class="ot">]</span>
-<span class="fu">}</span></code></pre></div>
+<span class="fu">}</span></code></pre></td></tr></table></div>
 <p><strong>Access Request</strong></p>
 <ul>
 <li>obtains actual data</li>
 <li>if <code>keepalive</code> is set <code>true</code>, the connections lasts until response computation has finished, otherwise the response contains a URI unique to this current request including an estimation when response will be available under that URI; connection can still timeout, which is defined by the system</li>
 <li><code>https://example-consumer.pdaas.tld/ar</code></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><table class="sourceCode json numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+</pre></td><td class="sourceCode"><pre><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;query&quot;</span><span class="fu">:</span> <span class="st">&quot;TODO&quot;</span>
-<span class="fu">}</span></code></pre></div>
+<span class="fu">}</span></code></pre></td></tr></table></div>
 <p><em>Requirements:</em></p>
 <ul>
 <li>query has to match exactly one corresponding <em>permission profile</em></li>
 </ul>
-<p>TODO: basic structure of a <em>permission profile</em></p>
-<p>How do the APIs involved with the protocols look like?</p>
-</section>
-<section id="security" class="level2">
-<h2><span class="header-section-number">7.7</span> Security</h2>
-<ul>
-<li>the downside of having not just parts of the personal data in different places (which is currently the common way to store), is in case of security breach, it would increase the possible damage by an exponential rate Thereby all data is exposed at once, instead of not just the parts which a single service has stored</li>
-<li><p>does it matter from what origin the data request was made? how to check that? is the requester’s server domain in the http header? eventually there is no way to check that, so me might need to go with request logging and trying to detect abnormal behaviour/occurrence with a learning artificial intelligence</p></li>
-<li><p>is the consumer able to call the access request URI repeatedly and any time? (meaning will this be stateless or stateful?)</p></li>
-<li><p>initial consumer registration would be done on a common and valid https:443 CA-certified connection. after transferring their cert to them as a response, all subsequent calls need to go to their own endpoint, defined as subdomains like <code>consumer-name.owners-notification-server.tld</code></p></li>
-</ul>
-<section id="environment" class="level3">
-<h3><span class="header-section-number">7.7.2</span> Environment</h3>
-</section>
-<section id="transport" class="level3">
-<h3><span class="header-section-number">7.7.3</span> Transport</h3>
-<ul>
-<li>communication between internal components <em>must</em> be done in https only, but which ciphers? eventually even http/2?</li>
-</ul>
-</section>
-<section id="storage" class="level3">
-<h3><span class="header-section-number">7.7.4</span> Storage</h3>
-<ul>
-<li>documents based DB instead of Relational DBS, because of structure/model flexibility</li>
-<li>graphql because of it’s nature to abstract a storage engine, which comes in handy when the actual storage gets relocated (e.g. from a server to a mobile device)</li>
-</ul>
-</section>
-<section id="authentication-1" class="level3">
-<h3><span class="header-section-number">7.7.5</span> Authentication</h3>
-<ul>
-<li><p>how should consumer authenticate?</p></li>
-<li><p>list min. configs for tls! e.g. use ciphers supporting PFS</p></li>
-</ul>
-</section>
 </section>
 <section id="recommendations" class="level2">
 <h2><span class="header-section-number">7.8</span> Recommendations</h2>
-<section id="software-dependencies" class="level3">
-<h3><span class="header-section-number">7.8.2</span> Software Dependencies</h3>
+<section id="host-environments" class="level4">
+<h4><span class="header-section-number">7.8.1.1</span> Host Environment(s)</h4>
+<ul>
+<li>Setup/Hardware</li>
+</ul>
 </section>
-<section id="host-environments" class="level3">
-<h3><span class="header-section-number">7.8.3</span> Host Environment(s)</h3>
+<section id="software-recommendations" class="level4">
+<h4><span class="header-section-number">7.8.1.2</span> Software Recommendations</h4>
+<ul>
+<li>letsencrypt</li>
+<li>nginx</li>
+</ul>
 </section>
 </section>
 </section>
