@@ -4,20 +4,20 @@
 
 Web Service:
 : A service, that is accessible by electronic devices over the internet. This makes it almost 
-effortless to use a service which otherwise would be out of reach. Interactions with a service 
+effortless to use a service which would otherwise be out of reach. Interactions with a service 
 usually happen through enriched websites or other web-compatible applications and interfaces.
 
 Open Specification:
-: A specification is a formal and very detailed way of describing a technology, its internals and 
+: A specification is a formal and very detailed way of describing a technology, its internals, and 
 behaviour from external perspectives. It provides guidance for implementations to ensure a minimum
 level of interoperability. Structured in a formalized document it might become a *technical 
-standard*. *Open* means here at first nothing but it's accessible for anyone without restrictions. 
+standard*. *Open* in this case means at first nothing, but it's accessible for anyone without restrictions. 
 When it comes to the intellectual value itself, that might be handled differently, for example with 
 an enclosed license.
 
 [Profile Data]{#terminologies--profile-data}:
 : A collection of data points reflecting an individual's inherent information and other basic 
-predominantly static data points (no sets), which in conjunction uniquely relate to that individual.
+predominantly static data points (no sets), which, in conjunction, uniquely relate to that individual.
 
 [Digital Footprint]{#terminologies--digital-footprint}:
 : Refers to data that is related to an individual. It is distinguished between an active footprint, 
@@ -26,7 +26,7 @@ passive footprint, which includes all data about an individual collected by thir
 the individual's knowledge.
 
 Personal Data as a Service (PDaaS):
-: A web service controlled, owned and maybe even hosted by an individual. It provides access to 
+: A web service is controlled, owned, and maybe even hosted by an individual. It provides access to 
 the data subject's personal data and offers maintainability as well as permission management for 
 those data. It can be seen as her personal agent; sometimes also referred to as *the system*.
 
@@ -49,8 +49,8 @@ those corpora to other organisations. [@report_2014_data-brokers]
 
 Permission Request:
 : A formalized attempt made by a third party to request permissions in order to access certain data 
-points on the *PDaaS*. The request has to include all the data points that are demanded to being 
-accessed as well as sufficient information about the purpose. It requires the third party to already 
+points on the *PDaaS*. The request has to include all the data points to which access is being demanded,
+as well as sufficient information about the purpose. It requires the third party to already 
 being registered as *data consumer*.
 
 Access Request:
@@ -59,12 +59,12 @@ query, that defines what data points are tried to be accessed. The access is onl
 the query matches against the *permission profiles*.
 
 Permission Profile:
-: A set of access rules and configuration tied to a *data consumer*. It determines how long and what 
-data is accessible by the related *data consumer*. The profile is the result of a reviewed and 
+: A set of access rules and configuration tied to a *data consumer*. It determines what 
+data is accessible by the related *data consumer* and for how long. The profile is the result of a reviewed and 
 granted *permission request*. 
 
 Endpoint:
-: An endpoint is defined as part of a URI that uniquely associates to exactly one single *data 
+: An endpoint is defined as part of a URI that is uniquely associated with a single *data 
 consumer*. Usually it's the first part of a URI (e.g. domain incl. subdomains), whereas following 
 parts indicating different resources that might be available within that endpoint. It can also be 
 viewed as group of resources whose access is restricted. 
