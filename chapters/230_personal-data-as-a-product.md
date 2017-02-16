@@ -2,14 +2,14 @@
 
 
 
-The *Big Data* paradigm itself, as mentioned before, just provides a structured and technical-based 
-method to uncover non-obvious or non-visible information from self-made data silos, in order to 
-assist in making (right) (business) decisions. Though, when asking data collectors about their 
+The *Big Data* paradigm itself, as mentioned before, merely provides a structured and technically-based 
+method to uncover non-obvious or non-visible information from self-made data silos in order to 
+assist in making (correct) (business) decisions. Though, when asking data collectors about their 
 actual motivation, most likely the answer would be something along the lines of typical PR-phrasing 
 like *"we want to have a better understanding of our customers"*. In the long run, this means to 
-increase revenue, but in short term to do what exactly? Maybe to predict what might be the next 
-thing people are supposed to buy, or what things they would probably like to consume but most 
-certainly not yet know of?
+increase revenue, but in the short term to do what exactly? Maybe to predict what might be the next 
+thing people are supposed to buy, or what things they would probably like to consume but do 
+not yet know of?
 
 In order to try comprehending such perspective, lets take a look at some examples.
 
