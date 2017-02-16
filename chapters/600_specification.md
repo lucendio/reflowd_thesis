@@ -6,7 +6,8 @@ Specification *(Draft)*
 
 This chapter holds the first draft of what might become an open specification. As for now it has 
 therefore no claim of completeness, continuity or accuracy. Frequent changes are to be expected.
-The contents is based on and a result of all previous discussions and developed solutions. 
+The contents is based on and a result of all previous discussions and developed solutions. Hence
+parts of the contents might reoccurring.
 
 
 
