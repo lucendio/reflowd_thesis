@@ -77,7 +77,7 @@ Logging transactions triggered by the user on the client and forwarding the resu
 back end infrastructure, or keeping track of all sorts of transactions directly in the back end; all 
 these collected chucks of data are then being enriched with meta information before running together 
 in a designated place where they finally get stored and probably never removed again, waiting to 
-get analysed some day.
+get analyzed some day.
 
 Within *Big Data Communities* sometimes the *big* seems to get misinterpret as, regardless of what 
 the problem is that needs to be solved, gathering as much data points as possible is a valid 

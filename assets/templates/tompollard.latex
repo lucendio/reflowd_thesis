@@ -9,14 +9,15 @@ $endif$
 
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
 % TODO: delete if images position is awkward
-\usepackage{float}
-\let\origfigure=\figure
-\let\endorigfigure=\endfigure
-\renewenvironment{figure}[1][]{%
-\origfigure[b]
-}{%
-\endorigfigure
-}
+% NOTE: disabled 20170215
+%\usepackage{float}
+%\let\origfigure=\figure
+%let\endorigfigure=\endfigure
+%\renewenvironment{figure}[1][]{%
+%\origfigure[b]
+%}{%
+%\endorigfigure
+%}
 
 % TP: hack to truncate list of figures/tables.
 \usepackage{truncate}

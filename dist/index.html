@@ -104,13 +104,13 @@
                 <li><a href="#notation-and-conventions">Notation and Conventions</a></li>
                 <li><a href="#terminologies-1">Terminologies</a></li>
                 <li><a href="#overview"><span class="toc-section-number">7.2</span> Overview</a><ul>
-                <li><a href="#key-features"><span class="toc-section-number">7.2.2</span> Key Features</a></li>
-                <li><a href="#scenarios-excerpt"><span class="toc-section-number">7.2.3</span> Scenarios <em>(Excerpt)</em></a></li>
-                <li><a href="#architectural-overview"><span class="toc-section-number">7.2.4</span> Architectural Overview</a></li>
-                <li><a href="#general-process-description"><span class="toc-section-number">7.2.5</span> General Process Description</a></li>
-                <li><a href="#relations"><span class="toc-section-number">7.2.6</span> Relations</a></li>
-                <li><a href="#depending-technologies"><span class="toc-section-number">7.2.7</span> Depending Technologies</a></li>
-                <li><a href="#prerequisites"><span class="toc-section-number">7.2.8</span> Prerequisites</a></li>
+                <li><a href="#key-features">Key Features</a></li>
+                <li><a href="#scenarios-excerpt">Scenarios <em>(Excerpt)</em></a></li>
+                <li><a href="#architectural-overview">Architectural Overview</a></li>
+                <li><a href="#general-process-description">General Process Description</a></li>
+                <li><a href="#relations">Relations</a></li>
+                <li><a href="#depending-technologies-and-standards">Depending Technologies and Standards</a></li>
+                <li><a href="#prerequisites">Prerequisites</a></li>
                 </ul></li>
                 <li><a href="#components"><span class="toc-section-number">7.3</span> Components</a></li>
                 <li><a href="#security"><span class="toc-section-number">7.4</span> Security</a></li>
@@ -298,7 +298,7 @@ A user typically agrees on a <em>Privacy Policy</em> by starting to interact wit
 </ol>
 <p>In general, the majority of businesses are typically required to have customer relationships. Such relations are based on the transfer of valued goods (e.g. services, products, etc.) in exchange for compensation (e.g. money). In order to process such a transfer, the vendor requires certain information about the involved customer. Since all entities related to this concept, including the customers, are considered to be human beings, such information most likely includes <em><a href="#digital-identity-personal-data-and-ownership">Personal Data</a></em>. A business normally is eager to grow, and if it has commercial interests as well it aims for profit maximization. So the business needs to overall improve, but therefor it requires knowledge on what are its flaws in addition to where and how it can improve. To gain such knowledge, analytics based on Big Data approaches are part of various business strategies. But this also means, that a lot of Personal Data gets collected as part of those analytics, since that data is part of many business processes.</p>
 <p>As a result of humans being primarily responsible for every money flow in this globalized environment, they also decide on the success of business. This basically means, every process analysis with an underlying commercial dependency somehow involves personal data <span class="citation" data-cites="web_2016_facebook-utilizes-98-data-points">[<a href="#ref-web_2016_facebook-utilizes-98-data-points">42</a>]</span> <span class="citation" data-cites="web_2016_big-data-types-of-data-used-in-analytics">[<a href="#ref-web_2016_big-data-types-of-data-used-in-analytics">43</a>]</span> <span class="citation" data-cites="book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining">[<a href="#ref-book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining">44</a>]</span> <span class="citation" data-cites="web_2013_big-data-collection-collides-with-privacy-concerns">[<a href="#ref-web_2013_big-data-collection-collides-with-privacy-concerns">45</a>]</span>, whether this data is mandatory in that process or additionally obtained to for example measure and analyse customer behaviour. Common data points involved in big data analytics start with gender, age, residency or income, goes on with time series events like changing current geo-location or web search history and goes all the way up to health data and self-created content like posts, images or videos. Depending on the data point though, that data might not be that easy to collect. In general, most businesses obtain data from within their own platforms. Some data might even be in the customer’s rang of control (e.g. customer or profile data), but most of the data is created during direct (content creation, inputs) or indirect (transactions, meta information) interaction with the business. The sensitivity level of involved personal data is determined by how big is the benefit for the customer in comparison to what is the vendor’s demand from the customer’s commitment (e.g. required inputs, or usage requires access to location information)</p>
-<p>From a technical perspective, collecting indirectly created data is as simple as integrating logging or debugging statements in the program logic. Since most vendors and organisations nowadays have a business that is partially happening through the internet or is even completely based on it, most scenarios of transactions utilizing server-client architectures. Furthermore, the <em>always-on</em> philosophy evolved to an imperative and implicit state of devices. Standalone software, installed on a personal computer, calls the vendor’s infrastructure that is located in the cloud on a regularly basis, just to make sure that its user behaves properly, while en passant the vendor is provided with detailed user statistics. The web-browser already invokes a common narrative that requests happening here and then - still preventable though But when it comes to native mobile applications it’s almost impossible <span class="citation" data-cites="web_2016_answers-io">[<a href="#ref-web_2016_answers-io">46</a>]</span> to notice such behaviour or even prevent them from exposing potentially sensitive information. Those developments in architecture design have enabled a system-wide collection of potentially useful information on a large scale <span class="citation" data-cites="web_2016_big-data-enthusiasts-should-not-ignore">[<a href="#ref-web_2016_big-data-enthusiasts-should-not-ignore">47</a>]</span>. Logging transactions triggered by the user on the client and forwarding the resulting logs to the back end infrastructure, or keeping track of all sorts of transactions directly in the back end; all these collected chucks of data are then being enriched with meta information before running together in a designated place where they finally get stored and probably never removed again, waiting to get analysed some day.</p>
+<p>From a technical perspective, collecting indirectly created data is as simple as integrating logging or debugging statements in the program logic. Since most vendors and organisations nowadays have a business that is partially happening through the internet or is even completely based on it, most scenarios of transactions utilizing server-client architectures. Furthermore, the <em>always-on</em> philosophy evolved to an imperative and implicit state of devices. Standalone software, installed on a personal computer, calls the vendor’s infrastructure that is located in the cloud on a regularly basis, just to make sure that its user behaves properly, while en passant the vendor is provided with detailed user statistics. The web-browser already invokes a common narrative that requests happening here and then - still preventable though But when it comes to native mobile applications it’s almost impossible <span class="citation" data-cites="web_2016_answers-io">[<a href="#ref-web_2016_answers-io">46</a>]</span> to notice such behaviour or even prevent them from exposing potentially sensitive information. Those developments in architecture design have enabled a system-wide collection of potentially useful information on a large scale <span class="citation" data-cites="web_2016_big-data-enthusiasts-should-not-ignore">[<a href="#ref-web_2016_big-data-enthusiasts-should-not-ignore">47</a>]</span>. Logging transactions triggered by the user on the client and forwarding the resulting logs to the back end infrastructure, or keeping track of all sorts of transactions directly in the back end; all these collected chucks of data are then being enriched with meta information before running together in a designated place where they finally get stored and probably never removed again, waiting to get analyzed some day.</p>
 <p>Within <em>Big Data Communities</em> sometimes the <em>big</em> seems to get misinterpret as, regardless of what the problem is that needs to be solved, gathering as much data points as possible is a valid approach, even if it’s just precautionary - in the future, those exact data might become valuable. Such mindset is reflected by the often-cited concept of the three <em>Vs</em> (Volume, Velocity, Variety) <span class="citation" data-cites="report_2001_3d-data-management-controlling-data-volume-velocity-and-variety">[<a href="#ref-report_2001_3d-data-management-controlling-data-volume-velocity-and-variety">48</a>]</span>. It is not entirely wrong though, because it’s the nature of pattern and correlation discovery to provide increasing quality results <span class="citation" data-cites="paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data">[<a href="#ref-paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data">49</a>]</span>, when the overall data corpus gets enriched with more and precise datasets. But typically when new technologies emerge and maybe even get hyped, questioning downsides and possible negative mid- or long-term impacts are typically unlikely to be high priority. The focus instead is to experiment and try to reach and maybe even breach boundaries while beginning to evolve. Non-technical aspects such as privacy and security awareness don’t come in naturally, instead the adoption rate has to increase, whereupon more and divers research is happen, which then might uncover such issues. Only then they can be addressed properly and on different levels - technical, political as well as social. Hence, the <em>Big Data Community</em> itself is able to evolve, too.</p>
 <p>Big Data and Knowledge Discovery is a balancing act between respecting the user’s privacy and having enough data at hand so that initial questioning can be satisfied by the computed results. Aside from having specific domain knowledge of the used technologies, people who are work in these fields, need to be aware of any downsides or pitfalls and also have to be sensible on the ramifications of their approaches and doings. Such improvements are already happening, not only originating from the community’s forward thinkers <span class="citation" data-cites="web_2016_the-state-of-big-data">[<a href="#ref-web_2016_the-state-of-big-data">50</a>]</span>, but also advocated by governments and consumer rights organisations, as stated in the previous section (see <em><a href="#digital-identity-personal-data-and-ownership">legislation</a></em>. Even leading Tech-Companies start trying to do better <span class="citation" data-cites="web_2016_apple_customer-letter">[<a href="#ref-web_2016_apple_customer-letter">51</a>]</span> <span class="citation" data-cites="web_2016_what-is-differential-privacy">[<a href="#ref-web_2016_what-is-differential-privacy">52</a>]</span> <span class="citation" data-cites="web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption">[<a href="#ref-web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption">53</a>]</span>.</p>
 <p>In various science and research areas it’s also very common to gather and store enormous amounts of data. In these contexts the data and its analytical results are used to for example run complex simulations (e.g. weather, population, diseases, hardware, physics), monitor and analyse complex proceedings (e.g. nature, infrastructure, behaviour), explore the unknown (e.g. universe), or even to imitate a famous painter <span class="citation" data-cites="web_2016_research-experiment_ai-rembrandt">[<a href="#ref-web_2016_research-experiment_ai-rembrandt">54</a>]</span>. But unlike in the academic sector, the commercial interest within the private sector is much larger, therefore Personal Data are in great demand, because forecasting customer behaviour rather then the global warming is much more valuable in that context.</p>
@@ -1297,6 +1297,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 </section>
 <section id="specification-draft" class="level1">
 <h1><span class="header-section-number">7</span> Specification <em>(Draft)</em></h1>
+<p>  <em>Version 0.1.0</em></p>
 <p>This chapter holds the first draft of what might become an open specification. As for now it has therefore no claim of completeness, continuity or accuracy. Frequent changes are to be expected. The contents is based on and a result of all previous discussions and developed solutions.</p>
 <section id="introduction-1" class="level3 unnumbered">
 <h3>Introduction</h3>
@@ -1304,7 +1305,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 </section>
 <section id="notation-and-conventions" class="level3 unnumbered">
 <h3>Notation and Conventions</h3>
-<p>The requirements notation used in this document originates in the <a href="https://tools.ietf.org/html/rfc2119">RFC 2119</a> and shall be interpreted as defined there. This applies to the following keywords, recognizable through capital letters: MUST, MUST NOTE, SHOULD</p>
+<p>The requirements notation used in this document originates in the <a href="https://tools.ietf.org/html/rfc2119">RFC 2119</a> and shall be interpreted as described in there. This applies to the following keywords, recognizable through capital letters: MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and OPTIONAL.</p>
 <p>Values and words presented in a <code>fixed-width font</code> need to be understood as names and must therefore be used as is.</p>
 <p>Lists that are numbered outline its given order, which must therefore be followed. Lists that start with a character (upper or lower case) have no claim to its order. Their items are inclusive (logical <em>and</em>), while bullet list items are exclusive (logical <em>or</em>).</p>
 </section>
@@ -1313,6 +1314,12 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <dl>
 <dt><span id="spec_term_system">(The) System</span>:</dt>
 <dd>refers to either the overall concept or the implementation of this specification
+</dd>
+<dt><span id="spec_term_platform">Platform</span>:</dt>
+<dd>combination of environment capabilities and common role characteristics, which can be inherited form its hardware/device properties; possible values: <em>desktop</em>, <em>server</em>, <em>mobile</em>
+</dd>
+<dt><span id="spec_term_component">Component</span>:</dt>
+<dd>independent piece of software that is part of the system and might be capable of running on different platforms, but not at the same time though; serves a unique purpose within the system
 </dd>
 <dt><span id="spec_term_operator">Operator</span>:</dt>
 <dd>data subject and owner, not necessarily provider or host though; individual, represented by the system and whose personal data can be accessed through the system; also referred to as <em>data controller</em>, <em>data subject</em> or <em>data owner</em>
@@ -1323,6 +1330,9 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <dt><span id="spec_term_consumer">(Data) Consumer</span>:</dt>
 <dd>external entity or vendor, who has registered to the system and is therefore permitted to request access to data or even to access data hold by the system
 </dd>
+<dt><span id="spec_term_contributor">(Data) Contributor</span>:</dt>
+<dd>external entity, that is authorized by the <em>operator</em> to obtain and push personal data of hers into the system
+</dd>
 <dt><span id="spec_term_personal-data">Personal Data</span>:</dt>
 <dd>data, relates to the <em>operator</em>, that is contained in the system and selectively permitted to get accessed by consumes
 </dd>
@@ -1332,6 +1342,12 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <dt><span id="spec_term_endpoint">Endpoint</span>:</dt>
 <dd>dedicated entry for a specific <em>data consumer</em> to communicate with the system (e.g. access personal data)
 </dd>
+<dt><span id="spec_term_permission-profile">Permission Profile</span>:</dt>
+<dd>set of access rules and configurations tied to an <em>endpoint</em>, defining e.g. how long or often and what personal data is accessible by a related <em>data consumer</em>
+</dd>
+<dt><span id="spec_term_access-type">Access Type</span>:</dt>
+<dd>defines the method of how the access to personal data is provided
+</dd>
 </dl>
 </section>
 <section id="overview" class="level2">
@@ -1339,8 +1355,8 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <p>The overall purpose of this specification is to provide detailed instructions to build a web service that on the one side encourages an individual to manage and maintain all the data relating to her in one place, and on the other side that enables third parties to access such data if they are permitted by the individual to do so, preferably through supervised code execution instead of just handing over the raw data points. The result is a one-to-many relation between the data owner - the individual - and all those who might require some data to for example proceed a purchase initiated by the operator or make a proper decision on her medical treatment.</p>
 <p>The system architecture is designed while keeping flexibility and portability in mind but still preserving simplicity and security. The result supports to run some components on different platforms in a distributed way. Therefore the operator is able to operate the system while being on the move, and can literally carry all her personal data along.</p>
 <p>The design of this specification tries to leverage as much existing standards and open technologies as possible for all the different aspects and components. So that by recognizing common practices its implementation and integration can be made as effortless as possible.</p>
-<section id="key-features" class="level3">
-<h3><span class="header-section-number">7.2.2</span> Key Features</h3>
+<section id="key-features" class="level3 unnumbered">
+<h3>Key Features</h3>
 <p><strong>Perspective: <em>Operator</em></strong></p>
 <ul>
 <li>full control over the flow of personal data</li>
@@ -1359,72 +1375,245 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li>distributed computing</li>
 </ul>
 </section>
-<section id="scenarios-excerpt" class="level3">
-<h3><span class="header-section-number">7.2.3</span> Scenarios <em>(Excerpt)</em></h3>
+<section id="scenarios-excerpt" class="level3 unnumbered">
+<h3>Scenarios <em>(Excerpt)</em></h3>
 <section id="online-purchase" class="level5">
-<h5><span class="header-section-number">7.2.3.0.1</span> Online Purchase</h5>
+<h5><span class="header-section-number">7.2.1.0.1</span> Online Purchase</h5>
 <p>In order to proceed with the checkout, the shop requires some personal from the user, such as shipping address, email and payment information. Either the shop is already a data consumer, then it would access the system in the background to check if any data has changed, or the shop has to register as a consumer first. After the registration process has been initiated, and if not already has happened the user is then forwarded to complete the checkout. After reviewing the registration and the data that are attempted to get accessed, the use is informed via email that the order has been proceeded and the shipment has started.</p>
 </section>
 <section id="social-network" class="level5">
-<h5><span class="header-section-number">7.2.3.0.2</span> Social Network</h5>
+<h5><span class="header-section-number">7.2.1.0.2</span> Social Network</h5>
+<p>Instead of storing personal data by itself, a social network, after registering and being permitted to, can request and display data about a user, whenever other users try to access them. Created content such as posts, comments, images or videos can be stored in the system as well. The social network then just holds references to all the content, so that it can obtain and forward information on how to request those data, for example with a one-time url.</p>
 </section>
 <section id="apply-for-a-loan" class="level5">
-<h5><span class="header-section-number">7.2.3.0.3</span> Apply for a Loan</h5>
+<h5><span class="header-section-number">7.2.1.0.3</span> Apply for a Loan</h5>
+<p>The data that credit institutes take into account when deciding on creditworthiness of an individual can directly be accessed through the system; instead of gathering and acquiring them from all sorts of resources including filled out forms from applicants. The credit institute takes out the part of the computation that is responsible for those calculations and hands it over to the system, after it is permitted by the operator to do so. The system invokes that computation with the required data points and afterwards it just sends the result back to the credit institute.</p>
 </section>
 <section id="browser-history" class="level5">
-<h5><span class="header-section-number">7.2.3.0.4</span> Browser History</h5>
+<h5><span class="header-section-number">7.2.1.0.4</span> Browser History</h5>
+<p>A browser plugin, which is connected to the service, keeps track over every called URL. Those data, collected by the operator, could not only be reviewed and analyzed by herself, but also be made available to data consumers.</p>
 </section>
 <section id="movement-profile" class="level5">
-<h5><span class="header-section-number">7.2.3.0.5</span> Movement Profile</h5>
+<h5><span class="header-section-number">7.2.1.0.5</span> Movement Profile</h5>
+<p>Instead of letting third party apps keep track of an individual’s daily movements (e.g. fitness app), an app that is associated with the system, obtains and pushed those location data directly into it. If a third party is now interested in those data, it can apply and eventually get permitted to access those movement data, but with configured resolution the data subject is comfortable with.</p>
 </section>
 </section>
-<section id="architectural-overview" class="level3">
-<h3><span class="header-section-number">7.2.4</span> Architectural Overview</h3>
+<section id="architectural-overview" class="level3 unnumbered">
+<h3>Architectural Overview</h3>
+<p>The architecture design (see Fig. <a href="#fig:spec_arch_simplifier">3</a>) defines three different platforms whereon components of the system might be running. While <em>desktop</em> and <em>mobile</em> platforms are primarily meant to serve as the front end of the system and to present the operator with GUIs, the <em>mobile</em> platform especially might host the <em>Personal Data Storage</em>. The storage of the personal data can be located on every platform. This is enabled by abstracting the storage through the <em>Storage Connector</em> on the <em>server</em> platform.</p>
+<p>That <em>server</em> platform also provides an external API for accessing personal data. Incoming requests from third parties and consumers get then processed by the <em>Permission Manager</em>, which i.a. decides if and how data can be accessed. Every consumer has its dedicated exposed endpoint consisting of a subdomain (e.g. <code>consumerID.system.tld</code>). Further components are i.a. a <em>Code Execution Environment</em>, a <em>PKI</em> that provides and issues certificates and key-pairs to facilitate authenticating at the endpoints. The <em>Persistence Layer</em> is represented by potentially multiple technologies, such as databases or filesystem. A <em>Notification Infrastructure</em> streamlines the different ways and technologies to notify the operator about certain events (e.g. system receives new registration). Probably one of the most important component is the <em>Operator API</em>, through which the operator i.a. is able to configure the system or manage permissions, and the API is granted read/write permissions at the <em>Storage Connector</em>.</p>
+<figure>
+<img src="./assets/figures/spec_arch_simplifierd.png" alt="Figure 3: System Architecture, simplified" id="fig:spec_arch_simplifier" width="453" /><figcaption>Figure 3: System Architecture, simplified</figcaption>
+</figure>
 </section>
-<section id="general-process-description" class="level3">
-<h3><span class="header-section-number">7.2.5</span> General Process Description</h3>
-</section>
-<section id="relations" class="level3">
-<h3><span class="header-section-number">7.2.6</span> Relations</h3>
-<ul>
-<li>one third party access (consumer) relates to one access <em>endpoint</em>, that also authenticates that third party by TLS based <em>two-way auth</em></li>
-<li>zero or more <em>permission profiles</em> are associated to one <em>endpoint</em></li>
-</ul>
-</section>
-<section id="depending-technologies" class="level3">
-<h3><span class="header-section-number">7.2.7</span> Depending Technologies</h3>
-<ol type="a">
-<li>HTTPS via TLS</li>
-<li>GraphQL</li>
-<li>document-based database systems</li>
+<section id="general-process-description" class="level3 unnumbered">
+<h3>General Process Description</h3>
+<ol start="0" type="1">
+<li><p><em>Prerequisites: the data subject has an up-and-running system; existing third party aims to access personal data on the system</em></p></li>
+<li><p>Third party has to register at the system to become a data consumer, therefore it has to provide certain information to the operator either via QR-Code, which the operator can scans, or by submitting those information to a unique URI that is upfront generated and provided by the operator to the third party.</p></li>
+<li><p>Consumer reviews the registration. On a positive outcome a new endpoint gets defined and, depending on the content of the registration request, a permission profile is optionally created and configured by the operator. If the outcome instead is negative, an error message is prepared. In any case, afterwards the third party is informed about the outcome via callback URI, and optionally provided with additional information that are required for further interactions.</p></li>
+<li><p>After the consumer has set up a client according to the documentation and the information he has been provided with, and after he successfully authenticates to the system, he then submits a query to the dedicated endpoint.</p></li>
+<li><p>The incoming query is parsed and validated against all associated <em>permission profiles</em>. If the query passes, the request is processed according to configurations and depending on the determined <em>access type</em> (e.g. supervised code execution or plain forwarding). The response to the consumer either contains information about when and where the result can be obtained, or the actual result is included directly.</p></li>
+<li><p>Finally, the query result is returned to the consumer, either directly or self-obtained later on.</p></li>
 </ol>
 </section>
-<section id="prerequisites" class="level3">
-<h3><span class="header-section-number">7.2.8</span> Prerequisites</h3>
+<section id="relations" class="level3 unnumbered">
+<h3>Relations</h3>
+<section id="consumerendpoint-11" class="level5">
+<h5><span class="header-section-number">7.2.1.0.6</span> consumer:endpoint [1:1]</h5>
+<p>one entity (consumer) relates to one access point (endpoint), exclusively accessible and authenticated by TLS-based <em>two-way authentication</em></p>
+</section>
+<section id="endpointpermission-profile-1n" class="level5">
+<h5><span class="header-section-number">7.2.1.0.7</span> endpoint:permission-profile [1:n]</h5>
+<p>zero or more <em>permission profiles</em> are associated to one <em>endpoint</em> and are therefore responsible and included in the query validation procedure</p>
+</section>
+<section id="storage-connectorpersonal-data-storage-1n" class="level5">
+<h5><span class="header-section-number">7.2.1.0.8</span> storage-connector:personal-data-storage [1:n]</h5>
+<p>the <em>Storage Connector</em> MUST be able to access at least one or more <em>Personal Data Storage</em>, regardless of its location (platform)</p>
+</section>
+</section>
+<section id="depending-technologies-and-standards" class="level3 unnumbered">
+<h3>Depending Technologies and Standards</h3>
 <ol type="a">
-<li>domain</li>
-<li>publicly reachable server (e.g public IP)</li>
+<li>HTTP (<a href="https://tools.ietf.org/html/rfc2616">RFC 2616</a>, <a href="https://tools.ietf.org/html/rfc7540">RFC 7540</a>)</li>
+<li>TLS (<a href="https://tools.ietf.org/html/rfc5246">RFC 5246</a></li>
+<li>WebSockets (<a href="https://tools.ietf.org/html/rfc6455">RFC 6455</a>)</li>
+<li>JSON (<a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf">ECMA-404</a>)</li>
+<li>JWT (<a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a>, <a href="https://tools.ietf.org/html/rfc7515">RFC 7515</a>, <a href="https://tools.ietf.org/html/rfc7516%7D">RFC 7516</a>)</li>
+<li>GraphQL (<a href="https://facebook.github.io/graphql/">Working Draft – October 2016</a>)</li>
+<li>Open Container Specifications (by Open Container Initiative)
+<ul>
+<li><a href="https://github.com/opencontainers/image-spec/blob/master/spec.md">image</a></li>
+<li><a href="https://github.com/opencontainers/runtime-spec/blob/master/spec.md">runtime</a></li>
+</ul></li>
+<li>X.509 (<a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a></li>
+<li>ACME (<a href="https://ietf-wg-acme.github.io/acme/">Draft 05</a>)</li>
+</ol>
+<ul>
+<li>document-based database systems</li>
+<li>browser-supported technologies (HTML, CSS, JavaScript)</li>
+<li>Swift, Java</li>
+</ul>
+</section>
+<section id="prerequisites" class="level3 unnumbered">
+<h3>Prerequisites</h3>
+<ol type="a">
+<li>DNS-registered Domain</li>
+<li>publicly reachable server (e.g public IP or dynamic DNS)</li>
 <li>[OPTIONAL] mobile device</li>
 </ol>
 </section>
 </section>
 <section id="components" class="level2">
 <h2><span class="header-section-number">7.3</span> Components</h2>
+<section id="web-server" class="level5">
+<h5><span class="header-section-number">7.3.1.0.1</span> Web server</h5>
+<p>an interface to / proxy for server components</p>
+<ol type="a">
+<li>process incoming traffic originating by operator, consumer and third parties</li>
+<li>other server components are reachable only through this component</li>
+<li>serve web-based front ends</li>
+<li>perform all TLS-based authentications</li>
+<li>do load balancing, if necessary</li>
+<li>pass through notification for web-based Management Tools that are connected via Web Sockets</li>
+<li>rule-based traffic management leveraging network characteristics and alike</li>
+</ol>
+</section>
+<section id="permission-manager" class="level5">
+<h5><span class="header-section-number">7.3.1.0.2</span> Permission Manager</h5>
+<p>processes incoming requests from third parties or consumers</p>
+<ol type="a">
+<li>parse requests and proceed accordingly</li>
+<li>examine and check queries that are aiming to access personal data</li>
+<li>queue requests, if further processing is blocked</li>
+<li>notify operator about new registration attempts</li>
+<li>create and manage permission profiles</li>
+<li>obtain personal data</li>
+<li>delegate supervised code execution and obtain result</li>
+</ol>
+</section>
+<section id="key-infrastructure-pki" class="level5">
+<h5><span class="header-section-number">7.3.1.0.3</span> Key Infrastructure (PKI)</h5>
+<p>provides the system with keys and issues certificates</p>
+<ol type="a">
+<li>issue certificate based on CSR provided by third party</li>
+<li>create and self-sign a system key-pair</li>
+<li>create and sign key-pairs for every endpoint</li>
+<li>maintain certificates and its validity (recurring renewal) issued by public trusted CAs</li>
+<li>create new Diffie-Hellman groups</li>
+</ol>
+</section>
+<section id="storage-connector" class="level5">
+<h5><span class="header-section-number">7.3.1.0.4</span> Storage Connector</h5>
+<p>abstracts the <em>Personal Data Storage</em> and facilitates read, write, changelog and permissions</p>
+<ol type="a">
+<li>basic access management</li>
+<li>connect to the PDS</li>
+<li>validate query according to the abstracted query language</li>
+<li>query personal data</li>
+<li>keep track of all changes</li>
+<li>provide migration possibilities</li>
+</ol>
+</section>
+<section id="personal-data-storage" class="level5">
+<h5><span class="header-section-number">7.3.1.0.5</span> Personal Data Storage</h5>
+<p>a database system where the personal data is actual stored</p>
+<ol type="a">
+<li>can be located on any platform</li>
+<li>capable of translating the abstract query language into domain-specific query languages required by the supported database systems</li>
+<li>add, change, remove personal data</li>
+<li>provide translations for common operations (filter, sort, aggregate)</li>
+<li>store change history</li>
+<li>store binary data</li>
+</ol>
+</section>
+<section id="operator-api" class="level5">
+<h5><span class="header-section-number">7.3.1.0.6</span> Operator API</h5>
+<p>provides all functionalities an operator must be capable of</p>
+<ol type="a">
+<li>perform all JWT-based authentications</li>
+<li>read and write personal data through <em>Storage Connector</em></li>
+<li>configure, maintain and monitor system</li>
+<li>provide access history</li>
+<li>manage data structs</li>
+<li>control <em>Permission Manager</em></li>
+<li>administrate restricted access for <em>data contributors</em></li>
+</ol>
+</section>
+<section id="code-execution-environment" class="level5">
+<h5><span class="header-section-number">7.3.1.0.7</span> Code Execution Environment</h5>
+<p>provides isolated runtime (sandbox) for supervised code execution</p>
+<ol type="a">
+<li>invoke software provided by data consumers with required data points</li>
+<li>restrict access to the host environment</li>
+<li>provision runtimes</li>
+<li>perform test runs and code review</li>
+<li>monitor runtime during invocation</li>
+<li>handover results back <em>Permission Manager</em></li>
+<li>archive software in <em>Persistence Layer</em></li>
+</ol>
+</section>
+<section id="tracker" class="level5">
+<h5><span class="header-section-number">7.3.1.0.8</span> Tracker</h5>
+<p>logs events and transactions on the system</p>
+<ol type="a">
+<li>track states of ongoing access requests</li>
+<li>provide data for monitoring and system analytics</li>
+<li>log access history</li>
+<li>pattern recognition and anomaly detection</li>
+</ol>
+</section>
+<section id="persistence-layer" class="level5">
+<h5><span class="header-section-number">7.3.1.0.9</span> Persistence Layer</h5>
+<p>combines multiple technologies to represent and hold the current systems state</p>
+<ol type="a">
+<li>store
 <ul>
-<li>list of components, description and tasks</li>
-</ul>
+<li>system related data</li>
+<li>component configuration</li>
+<li>data provided by the <em>Tracker</em></li>
+<li>permission profiles</li>
+<li>tokens</li>
+</ul></li>
+<li>filesystem access</li>
+<li>hold keys and certificates</li>
+<li>cache certain runtime data</li>
+</ol>
+</section>
+<section id="notification-infrastructure" class="level5">
+<h5><span class="header-section-number">7.3.1.0.10</span> Notification Infrastructure</h5>
+<p>a unified facility to for server components to distribute notifications to multiple front ends</p>
+<ol type="a">
+<li></li>
+</ol>
+</section>
+<section id="data-contributor" class="level5">
+<h5><span class="header-section-number">7.3.1.0.11</span> Data Contributor</h5>
+<p>an authorized entity, typically software, that sends personal data into the system</p>
+<ol type="a">
+<li>data structure and format MUST be known by the system</li>
+</ol>
+</section>
+<section id="management-tool-and-other-guis-used-by-the-operator" class="level5">
+<h5><span class="header-section-number">7.3.1.0.12</span> Management Tool (and other GUIs used by the operator)</h5>
+<p>a graphical user interface, available for mobile and desktop platforms, accessible only by the operator to control the system</p>
+<ol type="a">
+<li></li>
+</ol>
+</section>
 </section>
 <section id="security" class="level2">
 <h2><span class="header-section-number">7.4</span> Security</h2>
 <ul>
 <li>transport
 <ul>
-<li>no HTTP allowed, all HTTP (80, 8080)</li>
+<li>no HTTP allowed, all HTTP (80, 8080) –&gt; must block all non-encrypted traffic (ports != 443)</li>
 <li>HTTP/2 support for web gui</li>
 <li>TLS configurations: which ciphers (e.g. use ciphers supporting PFS)
 <ul>
 <li>TODO insert example nginx config</li>
 </ul></li>
+<li>provide new dhparam for every endpoint</li>
 </ul></li>
 <li>authentication
 <ul>
@@ -1433,7 +1622,10 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li>2-factor-auth (how?)</li>
 </ul></li>
 <li>distributed approach: location of PDS</li>
-<li>supervised code execution</li>
+<li>supervised code execution
+<ul>
+<li>no shared filesystem, no network</li>
+</ul></li>
 <li>containerization</li>
 <li>environment</li>
 <li>pattern recognition for access requests (e.g. check if request come constantly from the same IP)
@@ -1547,6 +1739,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li>data models (PL)
 <ul>
 <li>registration</li>
+<li>endpoint (relation to the key and file)</li>
 <li>permission profile
 <ul>
 <li>permission type</li>

@@ -6,14 +6,15 @@
 
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
 % TODO: delete if images position is awkward
-\usepackage{float}
-\let\origfigure=\figure
-\let\endorigfigure=\endfigure
-\renewenvironment{figure}[1][]{%
-\origfigure[b]
-}{%
-\endorigfigure
-}
+% NOTE: disabled 20170215
+%\usepackage{float}
+%\let\origfigure=\figure
+%let\endorigfigure=\endfigure
+%\renewenvironment{figure}[1][]{%
+%\origfigure[b]
+%}{%
+%\endorigfigure
+%}
 
 % TP: hack to truncate list of figures/tables.
 \usepackage{truncate}
@@ -1294,7 +1295,7 @@ the resulting logs to the back end infrastructure, or keeping track of
 all sorts of transactions directly in the back end; all these collected
 chucks of data are then being enriched with meta information before
 running together in a designated place where they finally get stored and
-probably never removed again, waiting to get analysed some day.
+probably never removed again, waiting to get analyzed some day.
 
 Within \emph{Big Data Communities} sometimes the \emph{big} seems to get
 misinterpret as, regardless of what the problem is that needs to be
@@ -4863,6 +4864,8 @@ is being acknowledged.
 \chapter{\texorpdfstring{Specification
 \emph{(Draft)}}{Specification (Draft)}}\label{specification-draft}
 
+\hfill~ \emph{Version 0.1.0}
+
 This chapter holds the first draft of what might become an open
 specification. As for now it has therefore no claim of completeness,
 continuity or accuracy. Frequent changes are to be expected. The
@@ -4889,8 +4892,10 @@ all time.
 
 The requirements notation used in this document originates in the
 \href{https://tools.ietf.org/html/rfc2119}{RFC 2119} and shall be
-interpreted as defined there. This applies to the following keywords,
-recognizable through capital letters: MUST, MUST NOTE, SHOULD
+interpreted as described in there. This applies to the following
+keywords, recognizable through capital letters: MUST, MUST NOT,
+REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and
+OPTIONAL.
 
 Values and words presented in a \texttt{fixed-width\ font} need to be
 understood as names and must therefore be used as is.
@@ -4908,6 +4913,14 @@ while bullet list items are exclusive (logical \emph{or}).
 \item[\protect\hypertarget{spec_term_system}{}{(The) System}:]
 refers to either the overall concept or the implementation of this
 specification
+\item[\protect\hypertarget{spec_term_platform}{}{Platform}:]
+combination of environment capabilities and common role characteristics,
+which can be inherited form its hardware/device properties; possible
+values: \emph{desktop}, \emph{server}, \emph{mobile}
+\item[\protect\hypertarget{spec_term_component}{}{Component}:]
+independent piece of software that is part of the system and might be
+capable of running on different platforms, but not at the same time
+though; serves a unique purpose within the system
 \item[\protect\hypertarget{spec_term_operator}{}{Operator}:]
 data subject and owner, not necessarily provider or host though;
 individual, represented by the system and whose personal data can be
@@ -4920,6 +4933,10 @@ external entity or vendor, who is yet to become registered as a
 external entity or vendor, who has registered to the system and is
 therefore permitted to request access to data or even to access data
 hold by the system
+\item[\protect\hypertarget{spec_term_contributor}{}{(Data)
+Contributor}:]
+external entity, that is authorized by the \emph{operator} to obtain and
+push personal data of hers into the system
 \item[\protect\hypertarget{spec_term_personal-data}{}{Personal Data}:]
 data, relates to the \emph{operator}, that is contained in the system
 and selectively permitted to get accessed by consumes
@@ -4930,6 +4947,13 @@ and enrich those, to license the result to other entities
 \item[\protect\hypertarget{spec_term_endpoint}{}{Endpoint}:]
 dedicated entry for a specific \emph{data consumer} to communicate with
 the system (e.g.~access personal data)
+\item[\protect\hypertarget{spec_term_permission-profile}{}{Permission
+Profile}:]
+set of access rules and configurations tied to an \emph{endpoint},
+defining e.g.~how long or often and what personal data is accessible by
+a related \emph{data consumer}
+\item[\protect\hypertarget{spec_term_access-type}{}{Access Type}:]
+defines the method of how the access to personal data is provided
 \end{description}
 
 \section{Overview}\label{overview}
@@ -4957,7 +4981,8 @@ standards and open technologies as possible for all the different
 aspects and components. So that by recognizing common practices its
 implementation and integration can be made as effortless as possible.
 
-\subsection{Key Features}\label{key-features}
+\subsection*{Key Features}\label{key-features}
+\addcontentsline{toc}{subsection}{Key Features}
 
 \textbf{Perspective: \emph{Operator}}
 
@@ -4994,8 +5019,9 @@ implementation and integration can be made as effortless as possible.
   distributed computing
 \end{itemize}
 
-\subsection{\texorpdfstring{Scenarios
+\subsection*{\texorpdfstring{Scenarios
 \emph{(Excerpt)}}{Scenarios (Excerpt)}}\label{scenarios-excerpt}
+\addcontentsline{toc}{subsection}{Scenarios \emph{(Excerpt)}}
 
 \paragraph{Online Purchase}\label{online-purchase}
 
@@ -5011,63 +5037,451 @@ email that the order has been proceeded and the shipment has started.
 
 \paragraph{Social Network}\label{social-network}
 
+Instead of storing personal data by itself, a social network, after
+registering and being permitted to, can request and display data about a
+user, whenever other users try to access them. Created content such as
+posts, comments, images or videos can be stored in the system as well.
+The social network then just holds references to all the content, so
+that it can obtain and forward information on how to request those data,
+for example with a one-time url.
+
 \paragraph{Apply for a Loan}\label{apply-for-a-loan}
+
+The data that credit institutes take into account when deciding on
+creditworthiness of an individual can directly be accessed through the
+system; instead of gathering and acquiring them from all sorts of
+resources including filled out forms from applicants. The credit
+institute takes out the part of the computation that is responsible for
+those calculations and hands it over to the system, after it is
+permitted by the operator to do so. The system invokes that computation
+with the required data points and afterwards it just sends the result
+back to the credit institute.
 
 \paragraph{Browser History}\label{browser-history}
 
+A browser plugin, which is connected to the service, keeps track over
+every called URL. Those data, collected by the operator, could not only
+be reviewed and analyzed by herself, but also be made available to data
+consumers.
+
 \paragraph{Movement Profile}\label{movement-profile}
 
-\subsection{Architectural Overview}\label{architectural-overview}
+Instead of letting third party apps keep track of an individual's daily
+movements (e.g.~fitness app), an app that is associated with the system,
+obtains and pushed those location data directly into it. If a third
+party is now interested in those data, it can apply and eventually get
+permitted to access those movement data, but with configured resolution
+the data subject is comfortable with.
 
-\subsection{General Process
+\subsection*{Architectural Overview}\label{architectural-overview}
+\addcontentsline{toc}{subsection}{Architectural Overview}
+
+The architecture design (see Fig. \ref{fig:spec_arch_simplifier})
+defines three different platforms whereon components of the system might
+be running. While \emph{desktop} and \emph{mobile} platforms are
+primarily meant to serve as the front end of the system and to present
+the operator with GUIs, the \emph{mobile} platform especially might host
+the \emph{Personal Data Storage}. The storage of the personal data can
+be located on every platform. This is enabled by abstracting the storage
+through the \emph{Storage Connector} on the \emph{server} platform.
+
+That \emph{server} platform also provides an external API for accessing
+personal data. Incoming requests from third parties and consumers get
+then processed by the \emph{Permission Manager}, which i.a. decides if
+and how data can be accessed. Every consumer has its dedicated exposed
+endpoint consisting of a subdomain (e.g.
+\texttt{consumerID.system.tld}). Further components are i.a. a
+\emph{Code Execution Environment}, a \emph{PKI} that provides and issues
+certificates and key-pairs to facilitate authenticating at the
+endpoints. The \emph{Persistence Layer} is represented by potentially
+multiple technologies, such as databases or filesystem. A
+\emph{Notification Infrastructure} streamlines the different ways and
+technologies to notify the operator about certain events (e.g.~system
+receives new registration). Probably one of the most important component
+is the \emph{Operator API}, through which the operator i.a. is able to
+configure the system or manage permissions, and the API is granted
+read/write permissions at the \emph{Storage Connector}.
+
+\begin{figure}
+\centering
+\includegraphics[width=12.00000cm]{./assets/figures/spec_arch_simplifierd.png}
+\caption{System Architecture,
+simplified\label{fig:spec_arch_simplifier}}
+\end{figure}
+
+\subsection*{General Process
 Description}\label{general-process-description}
+\addcontentsline{toc}{subsection}{General Process Description}
 
-\subsection{Relations}\label{relations}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{-1}
+\item
+  \emph{Prerequisites: the data subject has an up-and-running system;
+  existing third party aims to access personal data on the system}
+\item
+  Third party has to register at the system to become a data consumer,
+  therefore it has to provide certain information to the operator either
+  via QR-Code, which the operator can scans, or by submitting those
+  information to a unique URI that is upfront generated and provided by
+  the operator to the third party.
+\item
+  Consumer reviews the registration. On a positive outcome a new
+  endpoint gets defined and, depending on the content of the
+  registration request, a permission profile is optionally created and
+  configured by the operator. If the outcome instead is negative, an
+  error message is prepared. In any case, afterwards the third party is
+  informed about the outcome via callback URI, and optionally provided
+  with additional information that are required for further
+  interactions.
+\item
+  After the consumer has set up a client according to the documentation
+  and the information he has been provided with, and after he
+  successfully authenticates to the system, he then submits a query to
+  the dedicated endpoint.
+\item
+  The incoming query is parsed and validated against all associated
+  \emph{permission profiles}. If the query passes, the request is
+  processed according to configurations and depending on the determined
+  \emph{access type} (e.g.~supervised code execution or plain
+  forwarding). The response to the consumer either contains information
+  about when and where the result can be obtained, or the actual result
+  is included directly.
+\item
+  Finally, the query result is returned to the consumer, either directly
+  or self-obtained later on.
+\end{enumerate}
+
+\subsection*{Relations}\label{relations}
+\addcontentsline{toc}{subsection}{Relations}
+
+\paragraph{consumer:endpoint {[}1:1{]}}\label{consumerendpoint-11}
+
+one entity (consumer) relates to one access point (endpoint),
+exclusively accessible and authenticated by TLS-based \emph{two-way
+authentication}
+
+\paragraph{endpoint:permission-profile
+{[}1:n{]}}\label{endpointpermission-profile-1n}
+
+zero or more \emph{permission profiles} are associated to one
+\emph{endpoint} and are therefore responsible and included in the query
+validation procedure
+
+\paragraph{storage-connector:personal-data-storage
+{[}1:n{]}}\label{storage-connectorpersonal-data-storage-1n}
+
+the \emph{Storage Connector} MUST be able to access at least one or more
+\emph{Personal Data Storage}, regardless of its location (platform)
+
+\subsection*{Depending Technologies and
+Standards}\label{depending-technologies-and-standards}
+\addcontentsline{toc}{subsection}{Depending Technologies and Standards}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  HTTP (\href{https://tools.ietf.org/html/rfc2616}{RFC 2616},
+  \href{https://tools.ietf.org/html/rfc7540}{RFC 7540})
+\item
+  TLS (\href{https://tools.ietf.org/html/rfc5246}{RFC 5246}
+\item
+  WebSockets (\href{https://tools.ietf.org/html/rfc6455}{RFC 6455})
+\item
+  JSON
+  (\href{http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf}{ECMA-404})
+\item
+  JWT (\href{https://tools.ietf.org/html/rfc7519}{RFC 7519},
+  \href{https://tools.ietf.org/html/rfc7515}{RFC 7515},
+  \href{https://tools.ietf.org/html/rfc7516\%7D}{RFC 7516})
+\item
+  GraphQL (\href{https://facebook.github.io/graphql/}{Working Draft --
+  October 2016})
+\item
+  Open Container Specifications (by Open Container Initiative)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://github.com/opencontainers/image-spec/blob/master/spec.md}{image}
+  \item
+    \href{https://github.com/opencontainers/runtime-spec/blob/master/spec.md}{runtime}
+  \end{itemize}
+\item
+  X.509 (\href{https://tools.ietf.org/html/rfc5280}{RFC 5280}
+\item
+  ACME (\href{https://ietf-wg-acme.github.io/acme/}{Draft 05})
+\end{enumerate}
 
 \begin{itemize}
 \tightlist
 \item
-  one third party access (consumer) relates to one access
-  \emph{endpoint}, that also authenticates that third party by TLS based
-  \emph{two-way auth}
+  document-based database systems
 \item
-  zero or more \emph{permission profiles} are associated to one
-  \emph{endpoint}
+  browser-supported technologies (HTML, CSS, JavaScript)
+\item
+  Swift, Java
 \end{itemize}
 
-\subsection{Depending Technologies}\label{depending-technologies}
+\subsection*{Prerequisites}\label{prerequisites}
+\addcontentsline{toc}{subsection}{Prerequisites}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  HTTPS via TLS
+  DNS-registered Domain
 \item
-  GraphQL
-\item
-  document-based database systems
-\end{enumerate}
-
-\subsection{Prerequisites}\label{prerequisites}
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\tightlist
-\item
-  domain
-\item
-  publicly reachable server (e.g public IP)
+  publicly reachable server (e.g public IP or dynamic DNS)
 \item
   {[}OPTIONAL{]} mobile device
 \end{enumerate}
 
 \section{Components}\label{components}
 
-\begin{itemize}
+\paragraph{Web server}\label{web-server}
+
+an interface to / proxy for server components
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  list of components, description and tasks
-\end{itemize}
+  process incoming traffic originating by operator, consumer and third
+  parties
+\item
+  other server components are reachable only through this component
+\item
+  serve web-based front ends
+\item
+  perform all TLS-based authentications
+\item
+  do load balancing, if necessary
+\item
+  pass through notification for web-based Management Tools that are
+  connected via Web Sockets
+\item
+  rule-based traffic management leveraging network characteristics and
+  alike
+\end{enumerate}
+
+\paragraph{Permission Manager}\label{permission-manager}
+
+processes incoming requests from third parties or consumers
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  parse requests and proceed accordingly
+\item
+  examine and check queries that are aiming to access personal data
+\item
+  queue requests, if further processing is blocked
+\item
+  notify operator about new registration attempts
+\item
+  create and manage permission profiles
+\item
+  obtain personal data
+\item
+  delegate supervised code execution and obtain result
+\end{enumerate}
+
+\paragraph{Key Infrastructure (PKI)}\label{key-infrastructure-pki}
+
+provides the system with keys and issues certificates
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  issue certificate based on CSR provided by third party
+\item
+  create and self-sign a system key-pair
+\item
+  create and sign key-pairs for every endpoint
+\item
+  maintain certificates and its validity (recurring renewal) issued by
+  public trusted CAs
+\item
+  create new Diffie-Hellman groups
+\end{enumerate}
+
+\paragraph{Storage Connector}\label{storage-connector}
+
+abstracts the \emph{Personal Data Storage} and facilitates read, write,
+changelog and permissions
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  basic access management
+\item
+  connect to the PDS
+\item
+  validate query according to the abstracted query language
+\item
+  query personal data
+\item
+  keep track of all changes
+\item
+  provide migration possibilities
+\end{enumerate}
+
+\paragraph{Personal Data Storage}\label{personal-data-storage}
+
+a database system where the personal data is actual stored
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  can be located on any platform
+\item
+  capable of translating the abstract query language into
+  domain-specific query languages required by the supported database
+  systems
+\item
+  add, change, remove personal data
+\item
+  provide translations for common operations (filter, sort, aggregate)
+\item
+  store change history
+\item
+  store binary data
+\end{enumerate}
+
+\paragraph{Operator API}\label{operator-api}
+
+provides all functionalities an operator must be capable of
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  perform all JWT-based authentications
+\item
+  read and write personal data through \emph{Storage Connector}
+\item
+  configure, maintain and monitor system
+\item
+  provide access history
+\item
+  manage data structs
+\item
+  control \emph{Permission Manager}
+\item
+  administrate restricted access for \emph{data contributors}
+\end{enumerate}
+
+\paragraph{Code Execution Environment}\label{code-execution-environment}
+
+provides isolated runtime (sandbox) for supervised code execution
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  invoke software provided by data consumers with required data points
+\item
+  restrict access to the host environment
+\item
+  provision runtimes
+\item
+  perform test runs and code review
+\item
+  monitor runtime during invocation
+\item
+  handover results back \emph{Permission Manager}
+\item
+  archive software in \emph{Persistence Layer}
+\end{enumerate}
+
+\paragraph{Tracker}\label{tracker}
+
+logs events and transactions on the system
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  track states of ongoing access requests
+\item
+  provide data for monitoring and system analytics
+\item
+  log access history
+\item
+  pattern recognition and anomaly detection
+\end{enumerate}
+
+\paragraph{Persistence Layer}\label{persistence-layer}
+
+combines multiple technologies to represent and hold the current systems
+state
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  store
+
+  \begin{itemize}
+  \tightlist
+  \item
+    system related data
+  \item
+    component configuration
+  \item
+    data provided by the \emph{Tracker}
+  \item
+    permission profiles
+  \item
+    tokens
+  \end{itemize}
+\item
+  filesystem access
+\item
+  hold keys and certificates
+\item
+  cache certain runtime data
+\end{enumerate}
+
+\paragraph{Notification
+Infrastructure}\label{notification-infrastructure}
+
+a unified facility to for server components to distribute notifications
+to multiple front ends
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+\end{enumerate}
+
+\paragraph{Data Contributor}\label{data-contributor}
+
+an authorized entity, typically software, that sends personal data into
+the system
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  data structure and format MUST be known by the system
+\end{enumerate}
+
+\paragraph{Management Tool (and other GUIs used by the
+operator)}\label{management-tool-and-other-guis-used-by-the-operator}
+
+a graphical user interface, available for mobile and desktop platforms,
+accessible only by the operator to control the system
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+\end{enumerate}
 
 \section{Security}\label{security}
 
@@ -5079,7 +5493,8 @@ Description}\label{general-process-description}
   \begin{itemize}
   \tightlist
   \item
-    no HTTP allowed, all HTTP (80, 8080)
+    no HTTP allowed, all HTTP (80, 8080) --\textgreater{} must block all
+    non-encrypted traffic (ports != 443)
   \item
     HTTP/2 support for web gui
   \item
@@ -5090,6 +5505,8 @@ Description}\label{general-process-description}
     \item
       TODO insert example nginx config
     \end{itemize}
+  \item
+    provide new dhparam for every endpoint
   \end{itemize}
 \item
   authentication
@@ -5107,6 +5524,12 @@ Description}\label{general-process-description}
   distributed approach: location of PDS
 \item
   supervised code execution
+
+  \begin{itemize}
+  \tightlist
+  \item
+    no shared filesystem, no network
+  \end{itemize}
 \item
   containerization
 \item
@@ -5355,6 +5778,8 @@ Data}\label{adding-or-changing-personal-data}
   \tightlist
   \item
     registration
+  \item
+    endpoint (relation to the key and file)
   \item
     permission profile
 

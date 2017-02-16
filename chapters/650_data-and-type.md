@@ -17,6 +17,7 @@
 +   structs as add-ons
 +   data models (PL)
     -   registration
+    -   endpoint (relation to the key and file)
     -   permission profile
         +   permission type 
         +   max/min interval (how often)
