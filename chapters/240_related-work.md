@@ -11,18 +11,18 @@ containing a selection of the most related and relevant approaches.*
 The idea of a digital vault, controlled and maintained by the data subject, is not new. It holds her 
 most sensitive and valuable collections of bits and bytes, protected from all the data brokers, 
 collectors and authorities, while interacting with the digital and physical world, opening and 
-closing its door from time to time to either put something important to her inside or releases important
-information for someone else.
-In the mid and late 2000s the growth of computer performance and capacity crossed its 
-zenith (see Moore's Law [@paper_1965_moors-law]). At the same time, the internet started to 
-become a key part in many people's lives and in society as a whole. Facilitated by these 
-circumstances, *cloud computing* has been on the rise ever since, causing the shift towards 
-distributed processing and patterns alike, thereby making it possible to rethink solutions from 
-the past and try to go new ways, namely a breakthrough 2007 in *neuronal networks* courtesy of G. 
-Hinton [@podcast_2015_cre-neuronale-netze]. As a result, fields like *data mining*, *machine 
-learning*, *artificial intelligence* and most recently combined under the collective term called 
-*Big Data*, have gained a wide range of attention as tools for knowledge discovery. In almost any 
-industry a greater amount of resources is invested in these areas 
+closing its door from time to time to either put something important to her inside or releases 
+important information for someone else.
+In the mid and late 2000s the growth of computer performance and capacity crossed its zenith (see 
+Moore's Law [@paper_1965_moors-law]). At the same time, the internet started to become a key part in 
+many people's lives and in society as a whole. Facilitated by these circumstances, *cloud computing* 
+has been on the rise ever since, causing the shift towards distributed processing and patterns 
+alike, thereby making it possible to rethink solutions from the past and try to go new ways, namely 
+a breakthrough 2007 in *neuronal networks* courtesy of G. Hinton 
+[@podcast_2015_cre-neuronale-netze]. As a result, fields like *data mining*, *machine learning*, 
+*artificial intelligence* and most recently combined under the collective term called *Big Data*, 
+have gained a wide range of attention as tools for knowledge discovery. In almost any industry a 
+greater amount of resources is invested in these areas 
 [@web_2016_industries-intention-to-invest-in-big-data]. 
 
 The initial motivation for this project can be understood as a counter-movement away from all the 
@@ -30,10 +30,10 @@ data silos in the cloud,  returning to a focus on privacy, the individual, and h
 ego.
 
 From simple middleware-solutions to full-fledged software-based platforms through to embedded
-hardware devices, a great variety of approaches have started to appear in the mid 2000s, continuing to this day. 
-However a side effect was, over time, various research teams and projects have invented and coined 
-different terms, which, in the end, all refer to the same (or similar) concept. The following 
-list shows some of them *(alphabetical order)*:
+hardware devices, a great variety of approaches have started to appear in the mid 2000s, continuing 
+to this day. However a side effect was, over time, various research teams and projects have invented 
+and coined different terms, which, in the end, all refer to the same (or similar) concept. The 
+following list shows some of them *(alphabetical order)*:
 
 +   Databox
 +   Identity Manager
@@ -60,36 +60,36 @@ for example *"Customers must have control of data they generate and gather. [The
 assert their own terms of engagement."* These principles can be found in various forms across much 
 work done in this area of research.
 
-Another work of research worth mentioning, because of the foundational work it has done, is 
-the european funded project called *Trusted Architecture for Securely Shared Service* (TAS3)
+Another work of research worth mentioning, because of the foundational work it has done, is the 
+european funded project called *Trusted Architecture for Securely Shared Service* (TAS3)
 [@web_2011_tas3-project]. This project has led to an open source reference implementation called 
-*ZXID* [^more-infos_zxid]. The major goal was to develop an architecture, that generalizes 
-various approaches towards a non context-agnostic solution fitting into more sophisticated and 
-dynamic scenarios, while still respecting commercial businesses (vendors) and users 
-(customers), but at the same time facilitating a high level of user-centric security and privacy 
-i.a. by a developed policy framework. Due to these requirements the architecture ended up being 
-rather complex [@graphic_2011_architecture_components-of-organization-domain]. Because the implementation 
-of *ZXID* involves several standards, like SAML 2.0 [^abbr_saml2] and XACML [^abbr_xacml], has 
-just three third-party dependencies, *OpenSSL*, *cURL (libcurl)* and *zlib*, and as of now it
-supports Java, PHP and Perl.
-The project has lasted for a period of 4 years. After completion in 2011, research 
-has continued i.a. by the *Liberty Alliance Project*. It is now part of the *Kantara 
-Initiative* [@web_kantara-initiative], including all documents and results. These results are 
-referenced occasionally, somewhat recently by the IEEE [@paper_2014_personal-data-store-approach].
+*ZXID* [^more-infos_zxid]. The major goal was to develop an architecture, that generalizes various 
+approaches towards a non context-agnostic solution fitting into more sophisticated and dynamic 
+scenarios, while still respecting commercial businesses (vendors) and users (customers), but at the 
+same time facilitating a high level of user-centric security and privacy i.a. by a developed policy 
+framework. Due to these requirements the architecture ended up being rather complex 
+[@graphic_2011_architecture_components-of-organization-domain]. The implementation, called *ZXID*, 
+involves several standards, for example SAML 2.0 [^abbr_saml2] and XACML [^abbr_xacml], and has just 
+three third-party dependencies, *OpenSSL*, *cURL (libcurl)* and *zlib*. As of now it even supports 
+Java, PHP and Perl.
+The project has lasted for a period of 4 years. After completion in 2011, research has continued 
+i.a. by the *Liberty Alliance Project*. It is now part of the *Kantara Initiative* 
+[@web_kantara-initiative], including all documents and results. These results are occasionally 
+referenced, i.a. by the IEEE [@paper_2014_personal-data-store-approach].
 
 A research project, which is probably the closest to what this work aims to create, bears the name 
 *openPDS* [@paper_2012_openpds_on-trusted-use-of-large-scale-personal-data] and is done by 
 *Humans Dynamics Lab* [@web_mit_openpds-safeanswers-project-page], which again is part of *MIT Media 
 Laboratories*. Despite the usual concepts of a *PDS*, it introduces multi-platform components and 
-user interfaces including mobile devices, and also separates the persistence layer physically. 
-This approach enables place- and time-independent administrative access for the data subject.
-Moreover, with their idea of *SafeAnswers* 
+user interfaces including mobile devices, and also separates the persistence layer physically. This 
+approach enables place- and time-independent administrative access for the data subject. Moreover, 
+with their idea of *SafeAnswers* 
 [@paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers], the team goes a step 
-further. The concept behind that idea is based around *remote code execution*, briefly described 
-in [one of the user stories in the first chapter](#header-applying-for-a-loan-and-checking-creditworthiness). 
+further. The concept behind that idea is based around *remote code execution*, briefly described in 
+[one of the user stories in the first chapter](#header-applying-for-a-loan-and-checking-creditworthiness). 
 It abstracts the concept of a data request to a more human-understandable level: a simple question.
-This question consists of two representations: (A) a human-readable question of a third party, 
-and (B) a code-based representation of that question, which gets executed in a sandbox on the data 
+This question consists of two representations: (A) a human-readable question of a third party, and 
+(B) a code-based representation of that question, which gets executed in a sandbox on the data 
 subjects's *PDS* system with the required data as arguments. The data, used as arguments, is 
 implicitly defined trough (A). The output of that execution represents both answer and response. 
 
@@ -97,17 +97,17 @@ Aside from all the research projects done within the academic context, applicati
 commercial interest have also started to occur in a variety of sectors. Microsoft's HealthVault
 [@web_microsoft_healthvault], for example, which aims to replace the patient's paper-based medical 
 records and combine them in one digital version. This results in a patient-centered medical data and 
-document archive, helping doctors to make more accurate decisions on medical treatment, because
-they have more knowledge obtained, for example, from a personal medical history.
+document archive, helping doctors to make more accurate decisions on medical treatment, because they 
+have more knowledge obtained, for example, from a personal medical history.
 
 *Meeco* [@web_meeco_how-it-works] [@slides_2015_meeco-case-study], based on the MyData-Project 
 [whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing], 
 essentially just replaces platform-agnostic advertisement service providers with a closed 
-environment and serves ads on its own. Although data subjects in this environment are provided 
-with more control over what information they reveal, this approach doesn't take the eagerly 
-demanded next step of getting rid of the advertisement market as a revenue stream and, instead, finding a 
-suitable business model that focuses on the data subject, not surrounding them with just another 
-walled garden.
+environment and serves ads on its own. Although data subjects in this environment are provided with 
+more control over what information they reveal, this approach doesn't take the eagerly demanded next 
+step of getting rid of the advertisement market as a revenue stream and, instead, finding a suitable 
+business model that focuses on the data subject, not surrounding them with just another walled 
+garden.
 
 A recently announced project, sponsored by Germany's *Federal Ministry of Education and Research*, 
 but developed and maintained primarily by *Fraunhofer-Gesellschaft* in cooperation with several 
@@ -122,8 +122,8 @@ paper, the project's focus mainly seems to lie in enabling and standardizing the
 collect, exchange and aggregate data with each other across process chains to ensure high 
 interoperability and accessibility.
 
-The following is a list of further research projects, work and commercial 
-products regarding the topic of *personal data*:
+The following is a list of further research projects, work and commercial products regarding the 
+topic of *personal data*:
 
 __Research__
 

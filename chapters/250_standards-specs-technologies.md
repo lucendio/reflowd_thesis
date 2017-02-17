@@ -34,8 +34,8 @@ access externally hosted resources, such as the user's profile image on a social
 The authorisation validation is done by the help of a previously generated token. However, 
 generating and supplying such token can be initiated in a variety of ways depending on the 
 underlying architecture and design, for example with the user entering her credentials 
-(`grant_type=authorization_code`). This design seems to *OAuth* is being misleadingly - but 
-intentionally - integrated as an authentication service 
+(`grant_type=authorization_code`). This design seems to cause that *OAuth* is being misleadingly - 
+but intentionally - integrated as an authentication service 
 [@web_2012_problem-with-oauth-for-authentication] rather then a authorization service; whether as
 an alternative or as an addition to existing in-house solutions. Therewith the application authors 
 pass the responsibility on to the OAuth-supporting data providers. 

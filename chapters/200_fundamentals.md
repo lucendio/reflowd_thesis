@@ -9,6 +9,5 @@ some of the issues caused by different legislation colliding through the one glo
 again requires an elaboration on how *Personal data* impacts our society as well as the economy.
 Overall, this chapter is meant to facilitate a common understanding of the stated issue and why it 
 could be addressed as described later on.
-Furthermore, there is a summary of what research has already been done its current state.
-Finally, it gives a brief overview of standards and technologies that might be utilized 
-for this project.
+Furthermore, there is a summary of what research has already been done its current state. Finally, 
+it gives a brief overview of standards and technologies that might be utilized for this project.
