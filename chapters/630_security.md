@@ -18,9 +18,36 @@ security level of the system.
     
 ### Authentication {-}
 
--   PKI 'n' stuff
--   JWT
--   2-factor-auth (how?)
+The following two authentication technologies MUST be supported by the system. 
+2-Factor authentication is OPTIONAL an can be implemented either by email or if a mobile platform is
+part of the system.
+
+
+##### Transport Layer Security
+
+
+
+##### JSON Web Token (JWT)
+
+When using JWT, they MUST be encrypted JWE and signed JWS. Thus, `{"alg":"none"}` as header MUST NOT
+be used.
+If the operator fails to connect to the system before the token's expiration date has been exceeded,
+the operator has login again. The token MUST be renewed, but at least after half of the period of 
+validity has been reached. JWTs MUST be created and verified by the *Operator API*. The secrets and
+keys for that purpose are stored in the *Persistence Layer*. Signature validation MAY get performed
+by the *Web server*.
+
+The following claims are REQUIRED:
+
++   `"exp"` (Expiration Time)
++   TODO
+
+The following algorithms for the `"alg"` are REQUIRED:
+
++   TODO
+
+
+##### 2-factor-auth (how?)
 
 
 ### System Architecture
