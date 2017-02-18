@@ -104,7 +104,7 @@ data can be located on every platform. This is enabled by abstracting the storag
 That *server* platform also provides an external API for accessing personal data. Incoming requests 
 from third parties and consumers get then processed by the *Permission Manager*, which i.a. decides
 if and how data can be accessed. Every consumer has its dedicated exposed endpoint consisting of a 
-subdomain (e.g. `consumerID.system.tld`). Further components are i.a. a 
+subdomain (e.g. `CONSUMER_ID.system.tld`). Further components are i.a. a 
 *Code Execution Environment*, a *PKI* that provides and issues certificates and key-pairs to 
 facilitate authenticating at the endpoints. The *Persistence Layer* is represented by potentially 
 multiple technologies, such as databases or filesystem. A *Notification Infrastructure* streamlines 

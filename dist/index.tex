@@ -274,6 +274,12 @@
 {\endorigquote}
 % added 20170205 <--
 
+
+% added 20170217 -->
+% to reduce font size in code
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{fontsize=\small,commandchars=\\\{\}}
+% added 20170217 <--
+
 \title{Open Specification of a user-controlled Web Service for Personal Data}
 \providecommand{\subtitle}[1]{}
 \subtitle{Master Thesis}
@@ -517,23 +523,23 @@ might affect her privacy.
 \tightlist
 \item[Web Service:]
 A service, that is accessible by electronic devices over the internet.
-This makes it almost effortless to use a service which otherwise would
+This makes it almost effortless to use a service which would otherwise
 be out of reach. Interactions with a service usually happen through
 enriched websites or other web-compatible applications and interfaces.
 \item[Open Specification:]
 A specification is a formal and very detailed way of describing a
-technology, its internals and behaviour from external perspectives. It
+technology, its internals, and behaviour from external perspectives. It
 provides guidance for implementations to ensure a minimum level of
 interoperability. Structured in a formalized document it might become a
-\emph{technical standard}. \emph{Open} means here at first nothing but
-it's accessible for anyone without restrictions. When it comes to the
-intellectual value itself, that might be handled differently, for
-example with an enclosed license.
+\emph{technical standard}. \emph{Open} in this case means at first
+nothing, but it's accessible for anyone without restrictions. When it
+comes to the intellectual value itself, that might be handled
+differently, for example with an enclosed license.
 \item[\protect\hypertarget{terminologies--profile-data}{}{Profile
 Data}:]
 A collection of data points reflecting an individual's inherent
 information and other basic predominantly static data points (no sets),
-which in conjunction uniquely relate to that individual.
+which, in conjunction, uniquely relate to that individual.
 \item[\protect\hypertarget{terminologies--digital-footprint}{}{Digital
 Footprint}:]
 Refers to data that is related to an individual. It is distinguished
@@ -542,11 +548,11 @@ an individual who chose to share them publicly, and a passive footprint,
 which includes all data about an individual collected by third parties
 without the individual's knowledge.
 \item[Personal Data as a Service (PDaaS):]
-A web service controlled, owned and maybe even hosted by an individual.
-It provides access to the data subject's personal data and offers
-maintainability as well as permission management for those data. It can
-be seen as her personal agent; sometimes also referred to as \emph{the
-system}.
+A web service that is controlled, owned, and maybe even hosted by an
+individual. It provides access to the data subject's personal data and
+offers maintainability as well as permission management for those data.
+It can be seen as her personal agent; sometimes also referred to as
+\emph{the system}.
 \item[Data Subject:]
 An individual who first and foremost is the owner of all of her personal
 data; sometimes referred to as \emph{owner}.
@@ -567,7 +573,7 @@ to other organisations.
 \item[Permission Request:]
 A formalized attempt made by a third party to request permissions in
 order to access certain data points on the \emph{PDaaS}. The request has
-to include all the data points that are demanded to being accessed as
+to include all the data points to which access is being demanded, as
 well as sufficient information about the purpose. It requires the third
 party to already being registered as \emph{data consumer}.
 \item[Access Request:]
@@ -577,13 +583,13 @@ tried to be accessed. The access is only permitted if the query matches
 against the \emph{permission profiles}.
 \item[Permission Profile:]
 A set of access rules and configuration tied to a \emph{data consumer}.
-It determines how long and what data is accessible by the related
-\emph{data consumer}. The profile is the result of a reviewed and
+It determines what data is accessible by the related \emph{data
+consumer} and for how long. The profile is the result of a reviewed and
 granted \emph{permission request}.
 \item[Endpoint:]
-An endpoint is defined as part of a URI that uniquely associates to
-exactly one single \emph{data consumer}. Usually it's the first part of
-a URI (e.g.~domain incl. subdomains), whereas following parts indicating
+An endpoint is defined as part of a URI that is uniquely associated with
+a single \emph{data consumer}. Usually it's the first part of a URI
+(e.g.~domain incl. subdomains), whereas following parts indicating
 different resources that might be available within that endpoint. It can
 also be viewed as group of resources whose access is restricted.
 \end{description}
@@ -596,20 +602,20 @@ ways that it can be helpful to be in charge of its own personal data.
 Some are more practical and realistic, like ordering and purchasing a
 product on the internet, while others might at the moment not seem to be
 very useful, but show a certain potential to become more relevant when
-new technologies and business models will occur, who are followed by new
-desires for data.
+new technologies and business models will occur, that are followed by
+new desires for data.
 
 \subsubsection{Ordering a product on the
 web}\label{ordering-a-product-on-the-web}
 
-The data subject searches through the web to find a new toaster, because
-her old one recently broke. After some clicks and reviews, she found her
+The data subject searches through the web to find a new toaster because
+her old one recently broke. After some clicks and reviews, she finds her
 soon-to-become latest member of the household's kitchenware. After
 putting the model name in a price search engine, hoping to save some
-money, the first entry, offering a 23\% discount, caught her attention.
-She decides to have a deeper look into the toasters, therefore she is
-headed towards the original web shop entry. Finally she comes around and
-puts the item onto her card, despite the fact that she never bought
+money, the first entry, offering a 23\% discount, catches her attention.
+She decides to have a deeper look into the toasters, so she heads
+towards the original web shop entry. Finally she comes around and puts
+the item onto her shopping cart, despite the fact that she never bought
 something from that online shop before. Then she proceeds to checkout so
 that she can place her order. The shop-interface asks her to either
 insert her credentials, proceed without registration or sign-in, or
@@ -623,165 +629,159 @@ a result, she gets prompted with a URI, which she inserts as the shop
 interface requests her to do, only after she has convinced herself that
 the data exchange with the shop is based on a secure connection (HTTPS).
 Moving on to the next step after submitting the URI, the data subject is
-ask to decide how she would like to pay. The choices are: credit card,
+asked to decide how she would like to pay. The choices are: credit card,
 invoice, online payment or bank transfer. She chooses the last one,
 submits her selection and thereby completes the order process. She goes
 back to the kitchen. After some time, a push notification appears on her
-mobile device lying around. The notification is about a \emph{permission
-request} which has just arrived at her \emph{PDaaS}, asking for granting
-permissions to the shop-system, she places the order before. The shop
-wants to access her full name, address and email, which are required to
-proceed with the order. Based on the information given in the request,
-she creates a new \emph{permission profile} for the shop. Additionally,
-for the profile she can decide between three states of how long the
-permission is going to last: \emph{only one time}, \emph{expires on
-date} and \emph{granted, until further notice}. Since she has never
-ordered at this shop before and probably won't do it again, she decides
-to grant access only for this specific occasion. The shop-system gets
-then notified about the result of decisions. If the result is positive -
-which is the case here - the data can be obtained and the order can be
-further processed. As a result, the data subject receives an email,
-containing information regarding her order including the shop owner's
-bank details, which enables her to pay the due amount. After the
+mobile device. The notification is about a \emph{permission request}
+which has just arrived at her \emph{PDaaS}, asking her to grant
+permissions to the shop-system, where she earlier placed the order. The
+shop wants to access her full name, address and email, which are
+required to proceed with the order. Based on the information given in
+the request, she creates a new \emph{permission profile} for the shop.
+Additionally, for the profile she can decide between three states of how
+long the permission is going to last: \emph{one time only},
+\emph{expires on date} and \emph{granted, until further notice}. Since
+she has never ordered at this shop before and probably won't do it
+again, she decides to grant access only for this specific occasion. The
+shop-system is then notified of the decision result. If the result is
+positive - which is the case here - the data can be obtained and the
+order can be further processed. As a result, the data subject receives
+an email, containing information regarding her order, including the shop
+owner's bank details, which enables her to pay the due amount. After the
 shop-system receives the payment, the toaster is shipped.
 
-In order to get a full impression of how the whole process might would
-look like if the data subject would have chosen one of the other payment
-methods, the differences are describes below. If the data subject would
-have wanted to pay with her credit card, the shop-system would have
-asked to also access her credit card as well as its belonging secret.
-And when sending the email, the system would have omitted the
-information about the shop's bank details. Paying with invoice, would
-have been possible only if the \emph{PDaaS} initially had been able to
-provided certified profile data, which therefore would have been rated
-trustworthy. That again would have reduced the risk taken by shop owner
-and would have enabled him to take action in cases of fraud or misuse.
-Choosing to involve an online payment service provider as a
-\emph{middleman} for processing the payment, would have required the
-data subject to have granted the provider certain access to her
-\emph{PDaaS} upfront. In that case, the shop-system then would have
-asked for her payment provider account identifier, so that the system
-could have requested the payment directly form that payment service
-provider. This on the other side would have caused the service provider
-to consult the \emph{PDaaS}, which would have result in a second
-notification asking the data subject for permission to proceed. After
-the payment transfer would have been succeeded, the shipment would have
-been initiated.
+In order to get a full impression of how the whole process would look
+like if the data subject would have chosen another payment method, the
+differences are described below. If the data subject had wanted to pay
+with her credit card, the shop-system would have asked to also access
+her credit card as well as its associated secret. When sending the
+email, the system would have omitted the information about the shop's
+bank details. Paying with invoice, would have been possible only if the
+\emph{PDaaS} initially had been able to provide certified profile data,
+which necessarily would have been rated trustworthy. That again would
+have reduced the risk taken by shop owner and would have enabled her to
+take action in cases of fraud or misuse. Choosing to involve an online
+payment service provider as a \emph{middleman} for processing the
+payment would have required the data subject to have granted the
+provider access to her \emph{PDaaS} upfront. In that case, the
+shop-system would have asked for her payment provider account
+identifier, so that the system could have requested the payment directly
+from that payment service provider. This would have caused the service
+provider to consult the \emph{PDaaS}, which would have resulted in a
+second notification asking the data subject for permission to proceed.
+After a successful payment transfer, the shipment would have been
+initiated.
 
 \subsubsection{Interacting with a social
 network}\label{interacting-with-a-social-network}
 
-Entering a social network for the first time only requires either a URI
-to the data subject's \emph{PDaaS}, which has uniquely been generated
-for that purpose, or a QR-Code provided by the social network. The data
-subject receives a notification on her mobile device send from her
-\emph{PDaaS}, revealing what data that network wants to access and maybe
-even why. If her mobile device is currently not at hand, she can also
-use the management panel provided by her \emph{PDaaS}, which is
-accessible with a web browser on every internet-enabled device. Within
-that panel pending permission reviews are indicated. Regardless of
-whether the data subject has already reviewed the request, she should
-still be able to login. After doing so, she would see all her
-information, unless she has not yet granted permissions to the social
-network to access her data \emph{until-further-notice}. If this is done,
-after waiting a moment and then reloading the browser session, all her
-data should then show up. So, every time if someone on that network
-tries to access her information, whom she has allowed to see those
-information, which is managed by every user only from within the
-network, the network pulls the required data from her \emph{PDaaS}, as
-long as it is permitted to do so. It is also conceivable, that the
-social network does provide a back-channel to the \emph{PDaaS}, so that
-all the content she creates within that network including all
-interactions with other users can be stored in her \emph{PDaaS}, so that
-it could be provided to other \emph{data consumers}. The network itself
-only stores references all these content objects. Whether it's for
-example an image, a post or comment on a post from somebody else, if the
-actual content is needed to be displayed it gets fetched from the
-corresponding \emph{PDaaS}.
+The first entry to a social network requires either a URI to the data
+subject's \emph{PDaaS}, which has uniquely been generated for that
+purpose, or a QR-Code provided by the social network. The data subject
+receives a notification on her mobile device send from her \emph{PDaaS},
+revealing what data that network wants to access and maybe even why. If
+her mobile device is currently not at hand, she can also use the
+management panel provided by her \emph{PDaaS}, which is accessible with
+a web browser on every internet-enabled device. Within that panel
+pending permission reviews are indicated. Regardless of whether the data
+subject has already reviewed the request, she should still be able to
+login. After doing so, she would see all her information, unless she has
+not yet granted permissions to the social network to access her data
+\emph{until-further-notice}. If this is done, after waiting a moment and
+then reloading the browser session, all her data should then show up. So
+every time someone on that network tries to access her information, with
+whom she has allowed to see that information, managed by each user
+within the network, the network pulls the required data from her
+\emph{PDaaS} as long as it is permitted to do so. It is also conceivable
+that the social network does provide a back-channel to the \emph{PDaaS},
+so that all content she creates within that network, including all
+interactions with other users, can be stored in her \emph{PDaaS},
+allowing it to be provided to other \emph{data consumers}. The network
+itself only stores references to all these content objects. Whether it
+is an image, a post, or comment on somebody else's post, the actual
+content to be displayed is fetched from the corresponding \emph{PDaaS}.
 
 \subsubsection{Applying for a loan and checking
 creditworthiness}\label{applying-for-a-loan-and-checking-creditworthiness}
 
-The data subject would like to buy an apartment. In order to finance
-such a acquisition, she needs a funding, which in her case, is based on
-a loan. During a conversation in a credit institute of her choice, an
-account consultant describes to her what data is required in order to
-decide on her creditworthiness. While nodding consensually, she takes
-out her smartphone and brings up the management panel of her
-\emph{PDaaS}. The consultant flips his screen showing a QR-Code and the
-\emph{data subject} scans it. The tool displays some information about
-the institute including a reference to this assignment and a list of all
-different data points the institute would like to access in order to
-calculate her scoring, such as address, monthly income, relationship
-status and family, history of banking or other current loans. After some
-back and forth and solving some misunderstandings with the help of her
-consultant, she decided to just partially allow access to the requested
-data and just for this time and purpose. The consultant kindly pointed
-out, that these decisions might have an impact on her scoring and thus
-on the lending and its terms. While handling some more formalities and
-talking about other possible products she might be interested in, the
-consultant gets notified by his computer confirming the access
-permission. Thereupon the two finishing their meeting and the consultant
-informs the data subject about the next steps, which include a note
-about contacting her within the next few days when the institute has
-come to a conclusion. In case of a positive outcome a new appointment
-for handling all the paperwork and signing the contract is needed to be
-made. From a technical point of view, two different ways of computing
-the score are imaginable. The first one would be, to just transfer the
-plain data including expire date and information about how reliable the
-data is. However, the actual computations and analytics to obtain the
-score, happen within the infrastructure of the credit institute. When
-this process has finished, all the personal data that have been
-transferred must be erased. An alternative, though, could prevent the
-data from leaving the \emph{PDaaS}. Therefor, the institute's request
-won't contain a data query. Instead it comes along with some software
-and information on how to run it. The \emph{PDaaS} server will provide
-an isolated runtime in which the software then can get executed. After
-that process is finished, the result is send back to the credit
-institute's infrastructure.
+The data subject would like to buy an apartment. In order to finance the
+acquisition, she needs funding which, in her case, is based on a loan.
+During a conversation in a credit institute of her choice, an account
+consultant describes to her what data is required in order to decide her
+creditworthiness. While nodding consensually, she takes out her
+smartphone and brings up the management panel of her \emph{PDaaS}. The
+consultant flips his screen showing a QR-Code and the \emph{data
+subject} scans it. The tool displays some information about the
+institute including a reference to this assignment and a list of all
+data points the institute would like to access in order to calculate her
+score, such as address, monthly income, relationship status and family,
+history of banking or other current loans. After some back and forth and
+solving some misunderstandings with the help of her consultant, she
+decides to allow only partial access to the requested data, and only for
+this time and purpose. The consultant kindly points out, that these
+decisions might impact her score and thus on the loan and its terms.
+While handling some more formalities and talking about other possible
+products she might be interested in, the consultant gets notified by his
+computer, confirming the access permission. Thereupon the two finish
+their meeting and the consultant informs the data subject of the next
+steps, which include a note about contacting her within the next few
+days, when the institute has come to a conclusion. In the case of a
+positive outcome, a new appointment for handling all the paperwork and
+signing the contract needs to be made. From a technical point of view,
+two different ways of computing the score are imaginable. The first
+would be to just transfer the plain data including expiry date and
+information about how reliable the data is. However, the actual
+computations and analytics to obtain the score happen within the
+infrastructure of the credit institute. When this process has finished,
+all the personal data that have been transferred must be erased. An
+alternative, though, could prevent the data from leaving the
+\emph{PDaaS}. Therefore, the institute's request won't contain a data
+query. Instead it comes along with some software and information on how
+to run it. The \emph{PDaaS} server will provide an isolated runtime in
+which the software can be executed. After that process is finished, the
+result is sent back to the credit institute's infrastructure.
 
-\subsubsection{Maintain and provide it's own medical
+\subsubsection{Maintain and provide its own medical
 record}\label{maintain-and-provide-its-own-medical-record}
 
-Some time ago on a hiking trip in a moment of carelessness the data
-subject accidently broke her leg. She came into a hospital and went
-straight into surgery, where the surgeon where able to fix the injury.
-Time went by and the leg healed completely. After she woke up today she
-felt some pain coming from the area where her leg was broken. She
-decided to call in sick and went straight to a doctor nearby. During her
-recovery she has been visiting that doctor regularly. At the reception
-desk, she opens up the \emph{PDaaS}'s management panel on her smartphone
-and searches through the list of data consumers. After she has found the
-entry for this clinic, she flips her phone to show the receptionist the
-corresponding QR-Code, which the receptionist starts to scan
-immediately. However the receptionist was not able to see any data on
-the screen, because the access has already been expired. The data
-subject only permitted access for the estimated time of recovery, which
-is already over. That's why she got a notification asking about
-re-granting some access. While\\
-going through the data points the clinic-system has requested, she
-notice that her address is incorrect. Last month she moved out into a
-bigger apartment just across the street. She must have forgotten to
-change that data. She immediately corrects the address right before
-saving the \emph{permission profile} for the clinic-system. She also
-includes access to all the data originating from that time after her
-accident. A moment later the receptionist confirms to now being able to
-see all necessary data. The data subject takes a seat in the waiting
-room. While passing some time, she decides to take a deeper look into
-her list of data consumers. Some of them she couldn't even remember and
-for others she was surprised on what data points she has granted access
-to them. She starts to restrict certain permissions, if it was
-appropriate in her opinion. She even removed some of the entries
-entirely. The appointment with her doctor went great. He even had to
-review the x-ray images in order to make a adequate differential
-diagnosis. After the visit, she makes a quick stop at a pharmacy along
-the way to pickup the drugs her doctor had prescribed for her to reduce
-the pain. She has to wait in the queue with two other customers being in
-front of her. She realizes, that it's the first time she here in this
-store. So she prepares a new entry in her list of data consumer,
+Some time ago on a hiking trip, in a moment of carelessness the data
+subject accidently broke her leg. She went to a hospital and straight
+into surgery, where the surgeon where able to fix the injury. Time went
+by and the leg healed completely. When she woke up today, she felt pain
+coming from the area where her leg was broken. She decided to call in
+sick and went straight to a doctor nearby. During her recovery she had
+been visiting that doctor regularly. At the reception desk, she opens up
+the \emph{PDaaS}'s management panel on her smartphone and searches
+through the list of data consumers. After she finds the entry for this
+clinic, she flips her phone to show the receptionist the corresponding
+QR-Code, which the receptionist scans immediately. However the
+receptionist was not able to see any data on the screen, because the
+access has already expired. The data subject only permitted access for
+the estimated time of recovery, which is already over. That's why she
+now gets a notification asking to re-grant some access. While going
+through the data points the clinic-system has requested, she notices
+that her address is incorrect. Last month she moved into a bigger
+apartment across the street. She must have forgotten to change that
+data. She immediately corrects the address, right before saving the
+\emph{permission profile} for the clinic-system. She also includes
+access to all the data originating from the time after her accident. A
+moment later the receptionist confirms now being able to see all
+necessary data. The data subject takes a seat in the waiting room. While
+passing time, she decides to take a deeper look into her list of data
+consumers. Some of them she couldn't even remember and for others she
+was surprised by which data points she had granted access to. She starts
+to restrict certain permissions, as she desires. She even removes some
+of the entries entirely. The appointment with her doctor went great. The
+doctor even had to review the x-ray images in order to make an adequate
+differential diagnosis. After the visit, she makes a quick stop at a
+pharmacy along the way to pickup the drugs her doctor had prescribed to
+reduce the pain. She has to wait in the queue since two other customers
+are in front of her. She realizes that it's the first time she's in this
+store. So she prepares a new entry in her list of data consumers,
 including all information about her prescriptions. By the time she gets
-served, she just let the person behind the register scan her QR-code. In
-the next seconds the data subject gets a notification about a
+served, she simply lets the person behind the register scan her QR-code.
+In the next seconds the data subject gets a notification about a
 \emph{permission request} from this store, which she quickly reviews and
 confirms by making sure that the permissions in that profile are the
 ones she prepared minutes ago. A moment later the pharmacist comes back
@@ -791,26 +791,26 @@ the data subject leaves the store.
 \subsubsection{Vehicle data and
 mobility}\label{vehicle-data-and-mobility}
 
-Assuming a car itself has no hardware on board to establish a wireless
-wide area connection to an outside access node. Only from the inside the
-car one is able to connect to it (wired or wireless). After entering a
-car, on the data subject' mobile device a notification comes up from the
-car asking for permission to connect that mobile device. In addition to
-the expiration date, the data subject is provided with two additional
-options, which she can en- or disable. First, a wifi network provided to
-everyone in the car can be enabled, which utilizes the uplink from the
-mobile device to the internet. Secondly, the car is allowed to use the
-uplink for opening up connections so it can emit or receive data from
+Let's assume a car has no hardware on board to establish a wireless wide
+area connection to an outside access node. One is only able to connect
+to the car from the inside (wired or wireless). After entering a car, on
+the data subject's mobile device a notification comes up from the car
+asking for permission to connect that mobile device. In addition to the
+expiration date, the data subject is provided with two additional
+options which she can enable or disable. First, a wifi network provided
+to everyone in the car can be enabled, which utilizes the uplink from
+the mobile device to the internet. Secondly, the car is allowed to use
+the uplink to open up connections so it can emit or receive data from
 the internet. As a result the device owner gains full control over any
 data the car might want to transfer. And this again would allow two
 things: (A) permission management for all outgoing data and (B) funnel
 all data generated and provided by the car towards the \emph{PDaaS} that
-associated with the linked device. It might be feasible as well to deny
-certain connections the car tries to open. Data will then be stored only
-in the \emph{PDaaS}. If a third party is interested in that data they
-have to ask for access permission. That same concept of movement
+is associated with the linked device. It might be feasible as well to
+deny certain connections the car tries to open. Data will then be stored
+only in the \emph{PDaaS}. If a third party is interested in that data
+they have to ask for access permission. That same concept of movement
 tracking and vehicle data aggregation could be applied to driving
-motorcycles and bicycle as well.
+motorcycles and bicycles as well.
 
 \chapter{Fundamentals}\label{fundamentals}
 
@@ -822,10 +822,9 @@ through the one global internet. This again requires an elaboration on
 how \emph{Personal data} impacts our society as well as the economy.
 Overall, this chapter is meant to facilitate a common understanding of
 the stated issue and why it could be addressed as described later on.
-Furthermore, it is summarized what research has already been done and
-what is its current state. Finally, it gives a brief overview of
-standards and technologies that might going to be utilized for this
-project.
+Furthermore, there is a summary of what research has already been done
+its current state. Finally, it gives a brief overview of standards and
+technologies that might be utilized for this project.
 
 \hypertarget{digital-identity-personal-data-and-ownership}{\section{Digital
 Identity, Personal Data and
@@ -834,64 +833,63 @@ Ownership}\label{digital-identity-personal-data-and-ownership}}
 A \textbf{\protect\hypertarget{def--digital-identity}{}{Digital
 Identity}} is viewed as a non-physical abstraction of an entity, such as
 an organisation, an individual, a device or even some software. It is
-bidirectional associated to its physical counterpart. In the context of
-this work, it only refers to human beings. Therefore a Digital Identity
-is the representation of an individual in digital systems, consisting of
-identity-defining data, such as \emph{personal information}, its own
-history and its preferences
+bidirectionally associated to its physical counterpart. In the context
+of this work, it only refers to human beings. Therefore a Digital
+Identity is the representation of an individual in digital systems,
+consisting of identity-defining data, such as \emph{personal
+information}, its own history and preferences
 {[}\protect\hyperlink{ref-whitepaper_2012_the-value-of-our-digital-identity_definition}{15}{]}.
 \emph{Personal information}, in this case, refers to inherent (e.g.~date
 of birth) as well as imposed (e.g.~credit card number) characteristics.
-The individual to whom those data relates to, is therewith the owner of
-that\\
+The individual to whom those data relates to, is the owner of that
 \emph{Digital Identity}. From a technical standpoint, a \emph{Digital
 Identity} is essentially a collection of characteristics, attributes and
 time series data (e.g.~interaction logs or bank transfer history). Based
 on a subset of those attribute values, a unique fingerprint can be
 easily generated. Depending on the data point and complexity of its
-value, either a unique identifier on its own (e.g.~social security
-number) - depending on the context - or only a few are also enough to
-generate such fingerprint. Hence it doesn't take a complete set of
-attributes including all its values, but rather just a fraction of a
-\emph{Digital Identity} in order to determine its rightful owner and
-physical counterpart. The \emph{Digital Identity} can be viewed as an
-avatar in digital environments or even as the digital part of a
-persons's identity. That is, a \emph{Digital Identity} of a living
-individual can't just be reduced to some bits and bytes, instead it
-should be valued as an appropriate, and maybe even legal, representation
-in certain contexts and for a variety of purposes. In some of those
-situations it might be required (e.g.~administrative purposes) to ensure
-a certain level of authenticity for a \emph{Digital Identity} or for
-particular attributes of it. This means, to provide reliable
-confirmation that the attribute values are really the ones that belong
-to exactly that individual they pretend to belong. An independent third
-party, who is trusted by all entities participating in such a construct,
-could somehow verify (or vouch) the subject in question. On the other
-hand this concept opens up at least on class of attack scenarios. The
-risk of identity theft for example increases dramatically, when
-assigning such value to a \emph{Digital Identity}, because the attacker
-is now longer required to be physically present in order to impersonate
-that identity or ``steal'' certain unique identifiers from person.
-Instead it's sufficient to gain access to the areas where those
-sensitive data is stored. It is noted, that different technical
-solutions to these issues do exist and will be discussed later on.
+value, such a fingerprint could require either a single, unique
+identifier on its own (e.g.~social security number) or only a few.
+Hence, it doesn't take a complete set of attributes including all its
+values, but rather just a fraction of a \emph{Digital Identity} in order
+to determine its rightful owner and physical counterpart. The
+\emph{Digital Identity} can be viewed as an avatar in digital
+environments or even as the digital part of a persons's identity. That
+is, a \emph{Digital Identity} of a living individual cannot simply be
+reduced to bits and bytes. Instead, it should be valued as an
+appropriate, and perhaps legal, representation in certain contexts and
+for a variety of purposes. In some of those situations it might be
+required (e.g.~administrative purposes) to ensure a certain level of
+authenticity for a \emph{Digital Identity} or for particular attributes
+of it. This means, to provide reliable confirmation that the attribute
+values are really the ones that belong to exactly they individual they
+supposedly belong to. An independent third party, who is trusted by all
+entities participating in such a construct, could somehow verify (or
+vouch for) the subject in question. On the other hand, this concept
+opens up at least one class of attack scenarios. The risk of identity
+theft, for example, increases dramatically when assigning such value to
+a \emph{Digital Identity} because the attacker is no longer required to
+be physically present in order to impersonate that identity or ``steal''
+certain unique identifiers from that person. Instead, it is sufficient
+to gain access to the areas where those sensitive data are stored. It is
+noted, that different technical solutions to these issues exist and will
+be discussed later on.
 
 In the context of this project, and all related work,
 \textbf{\protect\hypertarget{def--personal-data}{}{Personal Data}} is
 defined as the total amount of data that is part of either an
-individual's \emph{Digital Identity} or its
+individual's \emph{Digital Identity} or her
 \emph{\protect\hyperlink{terminologies--digital-footprint}{Digital
-Footprint}}. On the one hand. that includes all the intellectual
-property (e.g.~posts, images, videos or comments) ever created, and all
-kinds of tracking data, interaction monitoring and metadata, that is
-used to manually or automatically enriched content (e.g.geo-location
-attached to a tweet as meta information). Moreover, it refers to data
-that is captured by someone or something from within the individual's
-private living space or property. \emph{Personal data} is basically
-understood as every data point reflecting the individual as such and its
-personality - partially or as a whole.
+Footprint}}. On the one hand, this includes all intellectual property
+(e.g.~posts, images, videos or comments) ever created, and all kinds of
+tracking data, interaction monitoring and metadata, that is used to
+manually or automatically enrich content (e.g.geo-location attached to a
+tweet as meta information). Moreover, it refers to data that is captured
+by someone or something from within the individual's private living
+space or property. \emph{Personal data} is basically understood as every
+data point reflecting the individual as such and her personality -
+partially or as a whole.
 
-The european ``Data Protection Regulations'' on the other hand defines
+The european ``Data Protection Regulations'', on the other hand, defines
 \emph{\protect\hypertarget{def--personal-data-as-of-legis}{}{Personal
 Data}} as follows:
 
@@ -906,9 +904,9 @@ economic, cultural or social identity of that natural person;
 {[}\protect\hyperlink{ref-regulation_2016_eu_general-data-protection-regulation_definition}{16}{]}
 \end{quote}
 
-Whereas the U.S.A. has little to no legislation defining \emph{personal
-data} and thereby protecting the individual's privacy. There is at least
-no explicit federal law addressing such areas
+In contrast, the U.S.A. has little to no legislation defining
+\emph{personal data} and thereby protecting the individual's privacy.
+There is at least no explicit federal law addressing such areas
 {[}\protect\hyperlink{ref-web_2016_wikipedia_information-privacy-law_us}{17}{]}.
 Though, some of the existing sectoral laws contain partially applicable
 policies and guidelines
@@ -916,9 +914,9 @@ policies and guidelines
 most of them addressing only data related to specific topics
 (e.g.~health insurance, financial record or lending). In 2015 the White
 House has attempted to fill that gap with the ``Consumer Privacy Bill of
-Rights Act'', but to this date it doesn't left the draft state.
-According to the critics, the bill lacks of concrete enforceable rules
-on which consumers can rely on
+Rights Act'', but to this date it has not left the draft state.
+According to the critics, the bill lacks concrete, enforceable rules
+which consumers can rely on
 {[}\protect\hyperlink{ref-web_2015_white-house-releases-consumer-privacy-bill-draft}{19}{]}.
 The draft contains a general definition of \emph{Personal Data}:
 
@@ -932,15 +930,15 @@ limited to {[}\ldots{}{]}
 {[}\protect\hyperlink{ref-bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition}{20}{]}
 \end{quote}
 
-At the end a list of concrete data points follows; such as email or
-postal address, name, social security number and alike.
+At the end a list of concrete data points follows. Examples include
+email or postal address, name, social security number and so on.
 
-Aside from legislation through the government, several third-party
-organisations in the U.S. are also allowed to define rules and policies
-that can overwrite existing laws, namely the \emph{Federal
-Communications Commission (FCC)}, which recently released ``Rules to
-Protect Broadband Consumer Privacy'' for ISPs\footnote{Internet Service
-  Provider} including a list of categories of sensitive information
+Aside from government legislation, several third-party organisations in
+the U.S. are also allowed to define rules and policies that can
+overwrite existing laws, namely the \emph{Federal Communications
+Commission (FCC)}, which recently released ``Rules to Protect Broadband
+Consumer Privacy'' for ISPs\footnote{Internet Service Provider}
+including a list of categories of sensitive information
 {[}\protect\hyperlink{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_sensitive-types-of-data}{21}{]}.
 Thereby the FCC wants \emph{Personally Identifiable Information} (alias
 \emph{Personal Data}) to be understood as:
@@ -954,29 +952,29 @@ other information about a specific individual.
 {[}\protect\hyperlink{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information}{22}{]}
 \end{quote}
 
-Despite minor difference in details, the FCC has s serious idea of what
-includes \emph{personal data} and to whom their belong. Although the
-FCC's legal participation might be somewhat debatable regarding
+Despite minor difference in details, the FCC has a serious idea of what
+is included in \emph{personal data} and to whom they belong. Although
+the FCC's legal participation might be somewhat debatable regarding
 limitation to certain topics, the ``Communications Act'' as a U.S.
 federal law qualifies the FCC to regulate and legislate within its
 boundaries.
 
 Having a common understanding on what data points belong to a person is
 the foundation of defining a set rules on how to handle \emph{Personal
-Data} appropriately. Hence, every business, operating within the EU, is
+Data} appropriately. Hence, every business operating within the EU is
 required\footnote{according to article 12-14 of the ``EU General Data
   Protection Regulation 2016/679''} to provide its users with a
-\emph{Privacy Policy}, while for example in the U.S. - as mentioned
-above - only infrequently and depending on the class of data or context
-users, must be informed about how their data get processed and what data
-points are involved
-{[}\protect\hyperlink{ref-web_2016_privacy-policies-are-mandatory-by-law}{23}{]}.\\
+\emph{Privacy Policy}, while in the U.S. for example, as mentioned
+above, only infrequently and depending on the class of data or context
+users, must inform its users about how their data get processed and what
+data points are involved
+{[}\protect\hyperlink{ref-web_2016_privacy-policies-are-mandatory-by-law}{23}{]}.
 A user typically agrees on a \emph{Privacy Policy} by starting to
 interact with the author's business or platform. Thus every
-\emph{Privacy Policy} is required to be publicly accessible; for
-instance not in a restricted area after logging, but before creating an
-account; like in the following example showe, taken from facebook's
-current landing page.
+\emph{Privacy Policy} is required to be publicly accessible. For
+instance, not in a restricted area after logging in, but before creating
+an account. The following example is taken from facebook's current
+landing page.
 
 \begin{quote}
 By clicking Create an account, you agree to our
@@ -992,77 +990,77 @@ specifies the prevailing legal situation, rather then a contract, which
 the user would be forced to read and accept before revealing her data;
 otherwise known from procedures like software installations, where the
 user might have to accept terms of use or license agreements. With a
-\emph{Privacy Policy} at hand, it's up to each individual to decide, if
-the benefits, the service offers, are worth sharing part(s) of her
+\emph{Privacy Policy} at hand, it's up to each individual to decide if
+the benefits the service offers are worth sharing part(s) of her
 \emph{personal data}, while at the same time reluctantly tolerating
 potential downsides concerning the privacy of that data. When the vendor
-considers its policies being accepted by a user, her personal data must
-be processed as stated in that policies but most certainly according to
-the law. If the policies violate existing law or the vendor effectively
-goes against the law with its actual doing, penalties might follow.
-Depending on level and impact of the infringement in addition to what
-the law itself says, the vendor, while revisiting its wrong-doings in
-order to improve, might have to compensate affected individuals, pay a
-fine or get revoked its license.
+considers its policies accepted by a user, her personal data must be
+processed as stated in those policies but also according to the law. If
+the policies violate existing law or the vendor effectively goes against
+the law with its actual doings, penalties might follow. Depending on
+level and impact of the infringement in addition to what the law itself
+says, the vendor, while revisiting its wrong-doings in order to improve,
+might have to compensate affected individuals, pay a fine, or have its
+license revoked.
 
 Not only privacy laws, but every legal jurisdiction has it's limitations
-- such as its territorial nature - which makes it not exactly an
-appropriate tool for addressing existing issues and strengthen
-individuals privacy and rights in a global context like the \emph{world
-wide web}. Whereas the EU has approved an extensive regulation,
-mentioned above, that is supposed to provide privacy protection and
-defines the handling of personal data, the U.S. on the other hand has
-only subject-specific rules which merely apply to its own citizens. Even
-though, the definition of personal data included in the EU regulation is
-almost identical to the one introduced for the context of this work, it
-does only apply to vendors and individuals who are part of the EU. Even
-privacy policies won't help if the vendor is registered in a different
-area of jurisdiction than the user is located. For those circumstances
+- such as its territorial nature - which makes it an inappropriate tool
+for addressing existing issues and strengthening individuals' privacy
+and rights in a global context like the \emph{world wide web}. Whereas
+the EU has approved extensive regulations, mentioned above, that are
+supposed to provide privacy protection and defines the handling of
+personal data, the U.S., on the other hand, has only subject-specific
+rules which merely apply to its own citizens. Even though the definition
+of personal data included in the EU regulation is almost identical to
+the one introduced for the context of this work, it only applies to
+vendors and individuals who are part of the EU. Even privacy policies
+won't help if the vendor is registered in a different area of
+jurisdiction than the user's location. For those circumstances,
 international agreements might be established
 {[}\protect\hyperlink{ref-web_2016_international-privacy-standards}{25}{]},
-but this approach might still be useless if it either provides no proper
-tools for users to enforce their rights or is simply being ignored by
-contract partners with or without legal foundation
+but this approach might still be useless if it either fails to provide
+proper tools for users to enforce their rights or it is simply ignored
+by contract partners with or without legal foundation
 {[}\protect\hyperlink{ref-web_2017_privacy-shield_faq}{26}{]}
 {[}\protect\hyperlink{ref-web_2017_privacy-shield_kritik}{27}{]}.
 
 While the legislation mentioned above is in place,
 \emph{\protect\hypertarget{def--ownership}{}{Ownership}} of
-\emph{Personal Data} has no legal basis what so ever. The concepts of
+\emph{Personal Data} has no legal basis whatsoever. The concepts of
 intellectual property protection and copyright might intuitively be
-applicable, because the data that is defined through the soul existence
+applicable, because the data that is defined through the sole existence
 of the \emph{data subject} (Digital Identity) and the data that is
-created by her, seems to be her \emph{intellectual property} as weill.
-Such type of property implies to be a result of a creative process
-though, but unfortunately facts, like \emph{personal data} mostly are,
-don't show a \emph{threshold of originality}
+created by her seems to be her \emph{intellectual property} as well.
+Such property implies that it is the result of a creative process, but
+unfortunately facts, which most \emph{personal data} are, don't show a
+\emph{threshold of originality}
 {[}\protect\hyperlink{ref-paper_2014_who-owns-yours-data}{28}{]}. Thus,
 the legal concept of \emph{intellectual property} does not apply.
 However, \protect\hypertarget{def--ownership}{}{Ownership} in the
 context of this work, is understood as a concept of having exclusive
-control over its personal data and how that data get processed at any
-given point in time. The exclusive control is emphasizing as (A) the
+control over its personal data and how those data get processed at any
+given point in time. The exclusive control is emphasized as (A) the
 right to do what ever is desired with its property and (B) by which
 rules and mechanisms the ownership can be assigned to someone
 {[}\protect\hyperlink{ref-book_1987_private-ownership_definition}{29}{]}.
 This might result in a logistical challenge in which the data subject
-has to allow data access without loosing the exclusive control over that
+has to allow data access without losing the exclusive control over that
 data. In any case some effort might be required in order to preserve
 ownership as described, caused by the general characteristics that data
 has.
 
-The european ``Data Protection Regulations'' mentioned before indicates
+The european ``Data Protection Regulations'' mentioned before contain
 only one occurrence of the word \emph{ownership}, and it's not even
 related to the context of \emph{personal data} or the \emph{data
-subject}. It regulation only stats, that \emph{``Natural persons should
-have control of their own personal data''}
+subject}. It merely states that \emph{``Natural persons should have
+control of their own personal data''}
 {[}\protect\hyperlink{ref-regulation_2016_eu_general-data-protection-regulation_ownership}{30}{]}.
 Whereas Commissioner J. Rosenworcel of the FCC wants \emph{``consumers
 {[}\ldots{}{]} to {[}\ldots{}{]} take some ownership of what is done
 with their personal information.''}
 {[}\protect\hyperlink{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership}{31}{]}
-Despite those two exceptions, elaborations on \emph{data ownership} is
-almost not existent in current legislation. Instead the question is
+Despite those two exceptions, elaborations on \emph{data ownership} are
+almost non-existant in current legislation. Instead, the question is
 typically addressed in \emph{Terms of Service (ToS)} provided by
 \emph{data consumers}, which an individual might have to accept in order
 to establish a (legal) relationship with its author. The individual
@@ -1102,7 +1100,7 @@ the Service'', by Apple
 {[}\protect\hyperlink{ref-web_2016_apple-icloud_terms-of-service}{35}{]})
 \end{quote}
 
-All those statements are essentially superseded by a subsequent
+All those statements are essentially superceded by a subsequent
 statement within each \emph{ToS}, stating that the user grants the
 author a worldwide license to do almost any imaginable thing with her
 data. In case of Apple for example, if the user is \emph{``submitting or
@@ -1112,47 +1110,48 @@ to share {[}\ldots{}{]} Content''}
 {[}\protect\hyperlink{ref-web_2016_apple-icloud_terms-of-service}{35}{]}.
 It is worth to be noted though, that every \emph{ToS} only refers to the
 content created by the \emph{data subject} instead of all her personal
-data. As mentioned above, personal information are no subject of
-intellectual property, but playing an important role in data analytics
-though. Which is why \emph{privacy policies} are in place, to ensure at
-least some enlightenment on the whereabouts of the user's personal data,
-even though it doesn't compensate the absent of control. Additionally,
-neither the meaning of \emph{ownership}, to which the quoted terms refer
-to, is sufficiently outlined, which results in ambiguity, and thus
-leaves room for interpretation, nor the proposed definition of
-\emph{ownership}, \protect\hypertarget{def--ownership}{}{as described
-earlier}, is applicable to these \emph{Terms of services}, since the
-\emph{data subject} looses all its control by design. Handing over data
-to a consumer effectively disables the exclusive control over the data
-and eliminates the ability to assign such control. Hence, the
+data. As mentioned above, personal information are not the subject of
+intellectual property, but still play an important role in data
+analytics. Which is why \emph{privacy policies} are in place, to ensure
+at least some enlightenment on the whereabouts of the user's personal
+data, even though it doesn't compensate the absence of control.
+Additionally, neither the meaning of \emph{ownership}, to which the
+quoted terms refer to, is sufficiently outlined, which results in
+ambiguity, and thus leaves room for interpretation, nor the proposed
+definition of \emph{ownership},
+\protect\hypertarget{def--ownership}{}{as described earlier}, is
+applicable to these \emph{Terms of services}, since the \emph{data
+subject} loses all its control by design. Handing over data to a
+consumer effectively disables the exclusive control over the data and
+eliminates the ability to assign such control. Hence, the
 \emph{ownership} to that data doesn't exist any further. That is, no
 (legislation based) way exists to establish a feasible concept of
 \emph{ownership}, unless the data consumer has a motivation to promote
-the \emph{data subject} to the sole owner of her data as well as honours
+the \emph{data subject} to the sole owner of her data and to honour
 these privileges.
 
 Leaving the legislation aside for a moment to move away from the top
-view; data consumers might argue, that they have invested a lot in order
+view; data consumers might argue that they have invested a lot in order
 to enable themselves to collect, process and store personal data, hence
 it belongs to them. Whereas from the data subject's point of view this
 might only be acceptable as long as she herself benefits from that
-arrangement somehow. Which would be the case if for example the data
-subject uses products, services or features, offered by consumers, whose
+arrangement somehow. Which would be the case if, for example, the data
+subject uses products, services or features offered by consumers whose
 quality depends on personal data. If the data subject then chooses to
 move to a competitor, she would want to bring her personal data with
-her. But then again the former data consumer would object that
-competitors could in this way benefit from all the investment the
-consumer has already made, but without any effort. Not entirely wrong
-though, two aspects need to be emphasize here. In order to get high
-quality analytics and therefore being able to make accurate decisions to
-gain overall improvement, it is (A) vital to put a huge amount of effort
-in developing the underlying technologies, rather then primarily
-collecting masses of personal data. But this effort is just the
-precondition and applies to all of its customers, which again weakens
-its argumentation. It is followed by (B) an ongoing and recurring
-process of collecting, aggregating and analyzing actively and passively
-created data and metadata (e.g.~food deliver history or platform
-interactions and tracking). According to the definition of
+her. Again, the former data consumer would object that competitors would
+then benefit from all the investment the consumer has already made, but
+without any effort. While not entirely wrong, two aspects need to be
+emphasized here. In order to get high quality analytics and therefore be
+able to make accurate decisions to gain overall improvement, it is (A)
+vital to put a huge amount of effort in developing the underlying
+technologies, rather than primarily collecting masses of personal data.
+But this effort is just the precondition and applies to all of its
+customers, which again weakens its argumentation. It is followed by (B)
+an ongoing and recurring process of collecting, aggregating and
+analyzing actively and passively created data and metadata (e.g.~food
+delivery history or platform interactions and tracking). According to
+the definition of
 \emph{\protect\hyperlink{def--personal-data-as-of-legis}{Personal Data}}
 through legislation, it appears to be only a fraction of the data,
 namely \emph{personal information}, that is involved in these kind of
@@ -1162,32 +1161,31 @@ footprint}}, consists of highly valuable metadata
 {[}\protect\hyperlink{ref-web_2013_why-metadata-matters}{36}{]}
 {[}\protect\hyperlink{ref-web_2016_why-you-need-metadata-for-big-data-to-success}{37}{]},
 but is not covered by law. If the \emph{data subject} ends the
-relationship with a collector, at least the personal information should
-be erased and every remaining data sufficiently anonymized or even
-handed back. Which again can currently be enforced only by legislation,
-because the \emph{data subject} has no access to the collector's
-infrastructure where the data about her is stored.
+relationship with a collector, at the very least, the personal
+information should be erased and all remaining data sufficiently
+anonymized or even handed back. Which again can currently be enforced
+only by legislation because the \emph{data subject} has no access to the
+collector's infrastructure where the data about her is stored.
 
-In summary, approaching the issues from a legislative angle has showed
-to be fraught with problems on a variety of levels. Not least because it
+In summary, approaching the issues from a legislative angle has shown to
+be fraught with problems on a variety of levels. Not least because it
 can hardly be proven that vendors behave accordingly. Thus \emph{data
 subjects} should not depend on the collector's willingness to respect
 \emph{Ownership} of \emph{Personal Data} as stated here. Instead a
-technical approach is proposed to embraces the \emph{data subject} as
-the origin of her personal data and to proactively regaining control,
-rather then just relying.
+technical approach is proposed to embrace the \emph{data subject} as the
+origin of her personal data and to proactively regain control.
 
 \section{Personal Data in the context of the Big Data
 Movement}\label{personal-data-in-the-context-of-the-big-data-movement}
 
 The term \textbf{\protect\hypertarget{def--big-data}{}{Big Data}}
-initially has been referred to as a \emph{huge amount of data}
+initially has been referred to as a \emph{huge amount of data},
 containing more or less structured datasets
 {[}\protect\hyperlink{ref-web_2016_oxford_definition_big-data}{38}{]},
-whose size, over time, has started to limit its usability, because it
+whose size, over time, has started to limit its usability because it
 exceeded the capabilities of state-of-the-art standalone computer
-systems and storage-capacity. But instead of reducing the overall size,
-the issues are addressed by utilizing distributed storing and parallel
+systems and storage-capacity. Instead of reducing the overall size, the
+issues are addressed by utilizing distributed storing and parallel
 computing. Aside from challenges in logistic and resource management
 when for example information retrieval needs to get automated on a large
 scale
@@ -1198,13 +1196,13 @@ asked to get answers whose usefulness has yet to be known of? To
 discover knowledge in order to back decision-making processes,
 technologies from the fields of \emph{data mining}, \emph{artificial
 intelligence} and \emph{machine learning} (e.g.~neural networks) have
-been adapted. All in conjunction this is nowadays known as \emph{Big
-Data (Analytics)}. Additionally it is a collective term for the practise
-or approach as here described, as well as the philosophy of massively
+been adapted. Taken together, this is nowadays known as \emph{Big Data
+(Analytics)}. Additionally it is a collective term for the practice or
+approach, described here, as well as the attitude of massively
 collecting data while tending to neglect people's privacy.
 
 Big Data analytics serve the prior purpose of extracting useful
-information, whose result depends on the question initially being asked
+information, whose results depend on the question initially being asked
 as well as what datasets the corpus contains. General steps involved in
 such a knowledge discovery process, can be outlined as follows
 {[}\protect\hyperlink{ref-chapter_2007_the-knowledge-discovery-process}{40}{]}
@@ -1229,25 +1227,25 @@ such a knowledge discovery process, can be outlined as follows
   use discovered knowledge (e.g.~make appropriate business decisions)
 \end{enumerate}
 
-In general, the majority of businesses are typically required to have
-customer relationships. Such relations are based on the transfer of
-valued goods (e.g.~services, products, etc.) in exchange for
-compensation (e.g.~money). In order to process such a transfer, the
-vendor requires certain information about the involved customer. Since
-all entities related to this concept, including the customers, are
-considered to be human beings, such information most likely includes
+In general, the majority of businesses are required to have customer
+relationships. Such relations are based on the transfer of valued goods
+(e.g.~services, products, etc.) in exchange for compensation
+(e.g.~money). In order to process such a transfer, the vendor requires
+certain information about the involved customer. Since all entities
+related to this concept, including the customers, are considered to be
+human beings, such information most likely includes
 \emph{\protect\hyperlink{digital-identity-personal-data-and-ownership}{Personal
-Data}}. A business normally is eager to grow, and if it has commercial
-interests as well it aims for profit maximization. So the business needs
-to overall improve, but therefor it requires knowledge on what are its
-flaws in addition to where and how it can improve. To gain such
-knowledge, analytics based on Big Data approaches are part of various
-business strategies. But this also means, that a lot of Personal Data
-gets collected as part of those analytics, since that data is part of
-many business processes.
+Data}}. A business normally is eager to grow and, if it has commercial
+interests as well, it aims for profit maximization. So the business
+needs to improve and, therefore, it requires the knowledge of what and
+where its flaws are and how it can improve. To gain such knowledge,
+analytics based on Big Data approaches are part of various business
+strategies. But this also means that a lot of Personal Data get
+collected as part of those analytics, since that data is part of many
+business processes.
 
-As a result of humans being primarily responsible for every money flow
-in this globalized environment, they also decide on the success of
+As a result of humans being primarily responsible for all money flow in
+this globalized environment, they also decide on the success of
 business. This basically means, every process analysis with an
 underlying commercial dependency somehow involves personal data
 {[}\protect\hyperlink{ref-web_2016_facebook-utilizes-98-data-points}{42}{]}
@@ -1255,121 +1253,122 @@ underlying commercial dependency somehow involves personal data
 {[}\protect\hyperlink{ref-book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining}{44}{]}
 {[}\protect\hyperlink{ref-web_2013_big-data-collection-collides-with-privacy-concerns}{45}{]},
 whether this data is mandatory in that process or additionally obtained
-to for example measure and analyse customer behaviour. Common data
+to,for example, measure and analyze customer behaviour. Common data
 points involved in big data analytics start with gender, age, residency
 or income, goes on with time series events like changing current
-geo-location or web search history and goes all the way up to health
-data and self-created content like posts, images or videos. Depending on
-the data point though, that data might not be that easy to collect. In
-general, most businesses obtain data from within their own platforms.
-Some data might even be in the customer's rang of control (e.g.~customer
-or profile data), but most of the data is created during direct (content
-creation, inputs) or indirect (transactions, meta information)
-interaction with the business. The sensitivity level of involved
-personal data is determined by how big is the benefit for the customer
-in comparison to what is the vendor's demand from the customer's
-commitment (e.g. required inputs, or usage requires access to location
-information)
+geo-location or web search history and continues all the way up to
+health data and self-created content like posts, images, or videos.
+Depending on the data point though, those data might not be easy to
+collect. In general, most businesses obtain data from within their own
+platforms. Some data might even be in the customer's range of control
+(e.g.~customer or profile data), but most of the data is created during
+direct (content creation, inputs) or indirect (transactions, meta
+information) interaction with the business. The sensitivity level of
+involved personal data is determined by how big the benefit is for the
+customer in comparison to what the vendor's demand is from the
+customer's commitment (e.g. required inputs, or usage requires access to
+location information).
 
 From a technical perspective, collecting indirectly created data is as
 simple as integrating logging or debugging statements in the program
 logic. Since most vendors and organisations nowadays have a business
 that is partially happening through the internet or is even completely
-based on it, most scenarios of transactions utilizing server-client
-architectures. Furthermore, the \emph{always-on} philosophy evolved to
-an imperative and implicit state of devices. Standalone software,
+based on it, most scenarios of transactions utilize server-client
+architectures. Furthermore, the \emph{always-on} philosophy has evolved
+to an imperative and implicit state of devices. Standalone software,
 installed on a personal computer, calls the vendor's infrastructure that
-is located in the cloud on a regularly basis, just to make sure that its
-user behaves properly, while en passant the vendor is provided with
+is located in the cloud on a regular basis, just to make sure that its
+user behaves properly while, en passant, the vendor is provided with
 detailed user statistics. The web-browser already invokes a common
-narrative that requests happening here and then - still preventable
-though But when it comes to native mobile applications it's almost
-impossible {[}\protect\hyperlink{ref-web_2016_answers-io}{46}{]} to
-notice such behaviour or even prevent them from exposing potentially
-sensitive information. Those developments in architecture design have
-enabled a system-wide collection of potentially useful information on a
-large scale
+narrative that requests happen here and there and are preventable. But
+when it comes to native mobile applications, it's almost impossible
+{[}\protect\hyperlink{ref-web_2016_answers-io}{46}{]} to notice such
+behaviour or even prevent them from exposing potentially sensitive
+information. Those developments in architecture design have enabled a
+system-wide collection of potentially useful information on a large
+scale
 {[}\protect\hyperlink{ref-web_2016_big-data-enthusiasts-should-not-ignore}{47}{]}.
 Logging transactions triggered by the user on the client and forwarding
 the resulting logs to the back end infrastructure, or keeping track of
 all sorts of transactions directly in the back end; all these collected
-chucks of data are then being enriched with meta information before
-running together in a designated place where they finally get stored and
-probably never removed again, waiting to get analyzed some day.
+chunks of data are then enriched with meta information before running
+together in a designated place where they are finally stored and
+probably never removed, waiting to be analyzed some day.
 
-Within \emph{Big Data Communities} sometimes the \emph{big} seems to get
-misinterpret as, regardless of what the problem is that needs to be
-solved, gathering as much data points as possible is a valid approach,
-even if it's just precautionary - in the future, those exact data might
-become valuable. Such mindset is reflected by the often-cited concept of
-the three \emph{Vs} (Volume, Velocity, Variety)
+Within \emph{Big Data Communities} sometimes the \emph{big} is
+misinterpreted as, regardless of what the problem is that needs to be
+solved, speculatively gathering as many data points as possible with the
+hope that, in the future, those data might become valuable. This mindset
+is reflected by the oft-cited concept of the three \emph{Vs} (Volume,
+Velocity, Variety)
 {[}\protect\hyperlink{ref-report_2001_3d-data-management-controlling-data-volume-velocity-and-variety}{48}{]}.
 It is not entirely wrong though, because it's the nature of pattern and
 correlation discovery to provide increasing quality results
 {[}\protect\hyperlink{ref-paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data}{49}{]},
-when the overall data corpus gets enriched with more and precise
-datasets. But typically when new technologies emerge and maybe even get
-hyped, questioning downsides and possible negative mid- or long-term
-impacts are typically unlikely to be high priority. The focus instead is
-to experiment and try to reach and maybe even breach boundaries while
-beginning to evolve. Non-technical aspects such as privacy and security
-awareness don't come in naturally, instead the adoption rate has to
-increase, whereupon more and divers research is happen, which then might
-uncover such issues. Only then they can be addressed properly and on
-different levels - technical, political as well as social. Hence, the
-\emph{Big Data Community} itself is able to evolve, too.
+when the overall data corpus is enriched with larger and more precise
+datasets. When new technologies emerge and are hyped, questioning their
+downsides and potential negative mid- or long-term impacts is typically
+not a high priority. The focus is instead to experiment and try to reach
+and perhaps breach boundaries while beginning to evolve. Non-technical
+aspects such as privacy and security awareness don't come in naturally,
+instead the adoption rate has to increase before more and diverse
+research occurs that might uncover such issues. Only then can they be
+addressed properly and on different levels - technical, political, and
+social. Hence, the \emph{Big Data Community} itself is able to evolve,
+too.
 
 Big Data and Knowledge Discovery is a balancing act between respecting
 the user's privacy and having enough data at hand so that initial
 questioning can be satisfied by the computed results. Aside from having
-specific domain knowledge of the used technologies, people who are work
-in these fields, need to be aware of any downsides or pitfalls and also
-have to be sensible on the ramifications of their approaches and doings.
-Such improvements are already happening, not only originating from the
+specific domain knowledge of the used technologies, people working in
+these fields need to be aware of downsides or pitfalls and also have to
+be sensible about the ramifications of their approaches and doings. Such
+improvements are already happening, not only originating from the
 community's forward thinkers
 {[}\protect\hyperlink{ref-web_2016_the-state-of-big-data}{50}{]}, but
 also advocated by governments and consumer rights organisations, as
 stated in the previous section (see
 \emph{\protect\hyperlink{digital-identity-personal-data-and-ownership}{legislation}}.
-Even leading Tech-Companies start trying to do better
+Even leading Tech-Companies have begun trying to do better
 {[}\protect\hyperlink{ref-web_2016_apple_customer-letter}{51}{]}
 {[}\protect\hyperlink{ref-web_2016_what-is-differential-privacy}{52}{]}
 {[}\protect\hyperlink{ref-web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption}{53}{]}.
 
 In various science and research areas it's also very common to gather
 and store enormous amounts of data. In these contexts the data and its
-analytical results are used to for example run complex simulations
+analytical results are used to, for example, run complex simulations
 (e.g.~weather, population, diseases, hardware, physics), monitor and
 analyse complex proceedings (e.g.~nature, infrastructure, behaviour),
 explore the unknown (e.g.~universe), or even to imitate a famous painter
 {[}\protect\hyperlink{ref-web_2016_research-experiment_ai-rembrandt}{54}{]}.
 But unlike in the academic sector, the commercial interest within the
 private sector is much larger, therefore Personal Data are in great
-demand, because forecasting customer behaviour rather then the global
+demand, because forecasting customer behaviour rather than global
 warming is much more valuable in that context.
 
 It is the logical conclusion to distribute and scale horizontal when the
 data demand exceeds latest hardware capacity and capability, but it's no
-justification for thoughtless data collecting. Eventually, not the
-amount of data does count, but how to handle such amounts in order to
-not loose its usefulness; what data then flow into those data lakes is
-up to the questioner, which might not act in the interest of everyone.
-Therefore \emph{data subject} need to regain control and actively
-participate in formulate these questions.
+justification for thoughtless data collecting. Ultimately, it's not the
+amount of data that counts, but how it is handled (to not loose its
+usefulness); what data flows into those data lakes is up to the
+questioner, which might not act in the interest of everyone. Therefore
+\emph{data subjects} need to regain control and actively participate in
+formulating these questions.
 
 \hypertarget{personal-data-as-a-product}{\section{Personal Data as a
 Product}\label{personal-data-as-a-product}}
 
-The \emph{Big Data} paradigm itself, as mentioned before, just provides
-a structured and technical-based method to uncover non-obvious or
-non-visible information from self-made data silos, in order to assist in
-making (right) (business) decisions. Though, when asking data collectors
-about their actual motivation, most likely the answer would be something
-along the lines of typical PR-phrasing like \emph{``we want to have a
-better understanding of our customers''}. In the long run, this means to
-increase revenue, but in short term to do what exactly? Maybe to predict
-what might be the next thing people are supposed to buy, or what things
-they would probably like to consume but most certainly not yet know of?
+The \emph{Big Data} paradigm itself, as mentioned before, merely
+provides a structured and technically-based method to uncover
+non-obvious or non-visible information from self-made data silos in
+order to assist in making (correct) (business) decisions. Though, when
+asking data collectors about their actual motivation, most likely the
+answer would be something along the lines of typical PR-phrasing like
+\emph{``we want to have a better understanding of our customers''}. In
+the long run, this means to increase revenue, but in the short term to
+do what exactly? Maybe to predict what might be the next thing people
+are supposed to buy, or what things they would probably like to consume
+but do not yet know of?
 
 In order to try comprehending such perspective, lets take a look at some
 examples.
@@ -1507,25 +1506,25 @@ previously collected and sold them.
 \hypertarget{related-work}{\section{Related Work}\label{related-work}}
 
 \emph{NOTICE: All research, projects, studies and work mentioned in this
-section represents only a fraction of what's already been done in this
-field and should be therefore seen as an excerpt containing selected,
-most related and relevant approaches.}
+section represent only a fraction of what's already been done in this
+field and should be therefore seen as an excerpt containing a selection
+of the most related and relevant approaches.}
 
 The idea of a digital vault, controlled and maintained by the data
-subject, is not new. Holding her most sensitive and valuable collections
-of bits and bytes, protected from all the data brokers, collectors and
-authorities, while interacting with the digital and physical world,
-opening and closing its door from time to time to either put something
-important to her inside or releasing an information important for
-someone else. While in the mid and late 2000s the growth of computer
-performance and capacity has crossed its zenith (see Moore's Law
-{[}\protect\hyperlink{ref-paper_1965_moors-law}{65}{]}), at that same
-time the internet has started to become a key part in many people's
-lives and in the society as a whole. Facilitated by these circumstances,
+subject, is not new. It holds her most sensitive and valuable
+collections of bits and bytes, protected from all the data brokers,
+collectors and authorities, while interacting with the digital and
+physical world, opening and closing its door from time to time to either
+put something important to her inside or releases important information
+for someone else. In the mid and late 2000s the growth of computer
+performance and capacity crossed its zenith (see Moore's Law
+{[}\protect\hyperlink{ref-paper_1965_moors-law}{65}{]}). At the same
+time, the internet started to become a key part in many people's lives
+and in society as a whole. Facilitated by these circumstances,
 \emph{cloud computing} has been on the rise ever since, causing the
 shift towards distributed processing and patterns alike, thereby making
 it possible to rethink solutions from the past and try to go new ways,
-namely a breakthrough 2007 in \emph{neuronal networks} cutesy of G.
+namely a breakthrough 2007 in \emph{neuronal networks} courtesy of G.
 Hinton
 {[}\protect\hyperlink{ref-podcast_2015_cre-neuronale-netze}{66}{]}. As a
 result, fields like \emph{data mining}, \emph{machine learning},
@@ -1535,17 +1534,17 @@ attention as tools for knowledge discovery. In almost any industry a
 greater amount of resources is invested in these areas
 {[}\protect\hyperlink{ref-web_2016_industries-intention-to-invest-in-big-data}{67}{]}.
 
-The initial motivation for this project can be understand as a
-counter-movement away from all the data silos in the cloud, starting to
-focus again on privacy, the individual and its digital alter ego.
+The initial motivation for this project can be understood as a
+counter-movement away from all the data silos in the cloud, returning to
+a focus on privacy, the individual, and her digital alter ego.
 
-From simple middleware-solutions, on to full-fledged software-based
-platforms, through to embedded hardware devices, a great variety of
-approaches have started to appear in the mid 2000s to this day. A side
-effect, though, was, over time various research teams and projects have
-invented and coined different terms, which at the end all refer to the
-same, or at least similar, concept. The following list shows some of
-them \emph{(alphabetical order)}:
+From simple middleware-solutions to full-fledged software-based
+platforms through to embedded hardware devices, a great variety of
+approaches have started to appear in the mid 2000s, continuing to this
+day. However a side effect was, over time, various research teams and
+projects have invented and coined different terms, which, in the end,
+all refer to the same (or similar) concept. The following list shows
+some of them \emph{(alphabetical order)}:
 
 \begin{itemize}
 \tightlist
@@ -1578,13 +1577,13 @@ them \emph{(alphabetical order)}:
 One of the first occurring research projects was \emph{ProjectVRM},
 which originated from \emph{Berkman Center for Internet \& Society} at
 \emph{Harvard University}. As its name suggests, it was inspired by the
-idea of turning the concepts of a \emph{Customer Relationship
-Management} (CRM) upside down. This puts the vendor's customers back in
-charge of their data priorly managed by vendors. It also solves the
-problem of unintended data redundancy - from the customers perspective.
-Over time the project has growing to the largest and most influential
-one in this research field. It has transformed into an umbrella and hub
-for all kinds of projects and research related to that topic
+idea of turning the concept of a \emph{Customer Relationship Management}
+(CRM) upside down. This puts the vendor's customers back in charge of
+their data previously managed by vendors. It also solves the problem of
+unintended data redundancy - from the customers perspective. Over time
+the project has grown to the largest and most influential one in this
+research field. It has transformed into an umbrella and hub for all
+kinds of projects and research related to that topic
 {[}\protect\hyperlink{ref-web_2016_projectvrm_development-work}{68}{]},
 whether it's frameworks or standards, services offering (e.g.~privacy
 protection), reference implementations, applications, software or
@@ -1593,35 +1592,35 @@ of principles
 {[}\protect\hyperlink{ref-web_2016_projectvrm_principles}{69}{]}, for
 example \emph{``Customers must have control of data they generate and
 gather. {[}They{]} must be able to assert their own terms of
-engagement.''} These principles can be found in various ways across many
-work done within this research area.
+engagement.''} These principles can be found in various forms across
+much work done in this area of research.
 
 Another work of research worth mentioning, because of the foundational
-work it has been done, is the european funded project called
-\emph{Trusted Architecture for Securely Shared Service} (TAS3)
+work it has done, is the european funded project called \emph{Trusted
+Architecture for Securely Shared Service} (TAS3)
 {[}\protect\hyperlink{ref-web_2011_tas3-project}{70}{]}. This project
 has led to an open source reference implementation called
 \emph{ZXID}.\footnote{more information on the project, the code and the
   author, Sampo Kellomäki, can be found under \emph{zxid.org}} The major
-goal has been to develop an architecture, that generalizes various
-approaches towards a non context-agnostic solution fitting into more
-sophisticated and dynamic scenarios, while still respecting commercial
-businesses (vendors) as well as users (customers), but at the same time
-facilitating a high level of user-centric security and privacy i.a. by a
-developed policy framework. Due to these requirements the architecture
-ended up being rather complex
+goal was to develop an architecture, that generalizes various approaches
+towards a non context-agnostic solution fitting into more sophisticated
+and dynamic scenarios, while still respecting commercial businesses
+(vendors) and users (customers), but at the same time facilitating a
+high level of user-centric security and privacy i.a. by a developed
+policy framework. Due to these requirements the architecture ended up
+being rather complex
 {[}\protect\hyperlink{ref-graphic_2011_architecture_components-of-organization-domain}{71}{]}.
-\emph{ZXID} as its implementation involves several standards, like SAML
-2.0\footnote{Security Assertion Markup Language 2.0} and
-XACML,\footnote{eXtensible Access Control Markup Language} has just
+The implementation, called \emph{ZXID}, involves several standards, for
+example SAML 2.0\footnote{Security Assertion Markup Language 2.0} and
+XACML,\footnote{eXtensible Access Control Markup Language} and has just
 three third-party dependencies, \emph{OpenSSL}, \emph{cURL (libcurl)}
-and \emph{zlib}, and as of now it supports Java, PHP and Perl. The
-project has lasted for a period of 4 years. After it has been finished
-in 2011, the research work has continued i.a. by the \emph{Liberty
-Alliance Project}. It is now part of the \emph{Kantara Initiative}
+and \emph{zlib}. As of now it even supports Java, PHP and Perl. The
+project has lasted for a period of 4 years. After completion in 2011,
+research has continued i.a. by the \emph{Liberty Alliance Project}. It
+is now part of the \emph{Kantara Initiative}
 {[}\protect\hyperlink{ref-web_kantara-initiative}{72}{]}, including all
-documents and results. These results are references occasionally,
-recently by the IEEE
+documents and results. These results are occasionally referenced, i.a.
+by the IEEE
 {[}\protect\hyperlink{ref-paper_2014_personal-data-store-approach}{73}{]}.
 
 A research project, which is probably the closest to what this work aims
@@ -1631,22 +1630,30 @@ and is done by \emph{Humans Dynamics Lab}
 {[}\protect\hyperlink{ref-web_mit_openpds-safeanswers-project-page}{75}{]},
 which again is part of \emph{MIT Media Laboratories}. Despite the usual
 concepts of a \emph{PDS}, it introduces multi-platform components and
-user interfaces including a mobile devices, and also separates the
+user interfaces including mobile devices, and also separates the
 persistence layer physically. This approach enables place- and
 time-independent administrative access for the data subject. Moreover,
 with their idea of \emph{SafeAnswers}
 {[}\protect\hyperlink{ref-paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers}{76}{]},
-the team goes even a step further. The concept behind that idea is based
+the team goes a step further. The concept behind that idea is based
 around \emph{remote code execution}, briefly described in
 \protect\hyperlink{header-applying-for-a-loan-and-checking-creditworthiness}{one
 of the user stories in the first chapter}. It abstracts the concept of a
-data request to a more human-understandable level, a simple question.
+data request to a more human-understandable level: a simple question.
 This question consists of two representations: (A) a human-readable
-question of a third party, and (B) a code-based representation of that
-question, which gets executed in a sandbox on the data subjects's
-\emph{PDS} system with the required data as arguments. The data, used as
-arguments, is implicitly defined trough (A). The output of that
-execution represents both, answer and response.
+question of a third party, and
+
+\begin{enumerate}
+\def\labelenumi{(\Alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  a code-based representation of that question, which gets executed in a
+  sandbox on the data subjects's \emph{PDS} system with the required
+  data as arguments. The data, used as arguments, is implicitly defined
+  trough (A). The output of that execution represents both answer and
+  response.
+\end{enumerate}
 
 Aside from all the research projects done within the academic context,
 applications with a commercial interest have also started to occur in a
@@ -1655,21 +1662,21 @@ variety of sectors. Microsoft's HealthVault
 example, which aims to replace the patient's paper-based medical records
 and combine them in one digital version. This results in a
 patient-centered medical data and document archive, helping doctors to
-make a more accurate decisions on medical treatment, because they have
-more knowledge obtained for example from a personal medical history.
+make more accurate decisions on medical treatment, because they have
+more knowledge obtained, for example, from a personal medical history.
 
 \emph{Meeco} {[}\protect\hyperlink{ref-web_meeco_how-it-works}{78}{]}
 {[}\protect\hyperlink{ref-slides_2015_meeco-case-study}{79}{]}, based on
 the MyData-Project
 {[}whitepaper\_2014\_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing{]},
 essentially just replaces platform-agnostic advertisement service
-providers with a closed environment and serves ads on its own. Though,
-within this environment data subjects are provided with more control
-over what information they reveal, but this approach doesn't take the so
-eagerly demanded next step to get rid of the advertisement market as
-revenue stream and instead find a suitable business model that focuses
-on the data subject, not surrounding them with just another walled
-garden.
+providers with a closed environment and serves ads on its own. Although
+data subjects in this environment are provided with more control over
+what information they reveal, this approach doesn't take the eagerly
+demanded next step of getting rid of the advertisement market as a
+revenue stream and, instead, finding a suitable business model that
+focuses on the data subject, not surrounding them with just another
+walled garden.
 
 A recently announced project, sponsored by Germany's \emph{Federal
 Ministry of Education and Research}, but developed and maintained
@@ -1684,14 +1691,14 @@ period of three years until the third quarter of 2018. It aims
 linkage of data in business ecosystems''}, where at the same time
 \emph{``{[}\ldots{}{]} ensuring digital sovereignty of data owners''}
 {[}\protect\hyperlink{ref-whitepaper_2016_industrial-data-space}{81}{]}.
-It will be interesting to see how these two, yet rather distinct
-objectives, come together in the future. Based on the white paper, the
+It will be interesting to see how these two related but distinct
+objectives come together in the future. Based on the white paper, the
 project's focus mainly seems to lie in enabling and standardizing the
 way companies collect, exchange and aggregate data with each other
 across process chains to ensure high interoperability and accessibility.
 
-hereafter it can be found a selective list of further research projects,
-work and commercial products around the topic of \emph{personal data}:
+The following is a list of further research projects, work and
+commercial products regarding the topic of \emph{personal data}:
 
 \textbf{Research}
 
@@ -1791,8 +1798,8 @@ of a previously generated token. However, generating and supplying such
 token can be initiated in a variety of ways depending on the underlying
 architecture and design, for example with the user entering her
 credentials (\texttt{grant\_type=authorization\_code}). This design
-seems to \emph{OAuth} is being misleadingly - but intentionally -
-integrated as an authentication service
+seems to cause that \emph{OAuth} is being misleadingly - but
+intentionally - integrated as an authentication service
 {[}\protect\hyperlink{ref-web_2012_problem-with-oauth-for-authentication}{87}{]}
 rather then a authorization service; whether as an alternative or as an
 addition to existing in-house solutions. Therewith the application
@@ -4870,7 +4877,7 @@ This chapter holds the first draft of what might become an open
 specification. As for now it has therefore no claim of completeness,
 continuity or accuracy. Frequent changes are to be expected. The
 contents is based on and a result of all previous discussions and
-developed solutions.
+developed solutions. Hence parts of the contents might reoccurring.
 
 \subsection*{Introduction}\label{introduction-1}
 \addcontentsline{toc}{subsection}{Introduction}
@@ -4905,8 +4912,8 @@ followed. Lists that start with a character (upper or lower case) have
 no claim to its order. Their items are inclusive (logical \emph{and}),
 while bullet list items are exclusive (logical \emph{or}).
 
-\subsection*{Terminologies}\label{terminologies-1}
-\addcontentsline{toc}{subsection}{Terminologies}
+\subsection*{Terminology}\label{terminology}
+\addcontentsline{toc}{subsection}{Terminology}
 
 \begin{description}
 \tightlist
@@ -5090,7 +5097,7 @@ personal data. Incoming requests from third parties and consumers get
 then processed by the \emph{Permission Manager}, which i.a. decides if
 and how data can be accessed. Every consumer has its dedicated exposed
 endpoint consisting of a subdomain (e.g.
-\texttt{consumerID.system.tld}). Further components are i.a. a
+\texttt{CONSUMER\_ID.system.tld}). Further components are i.a. a
 \emph{Code Execution Environment}, a \emph{PKI} that provides and issues
 certificates and key-pairs to facilitate authenticating at the
 endpoints. The \emph{Persistence Layer} is represented by potentially
@@ -5242,7 +5249,7 @@ Standards}\label{depending-technologies-and-standards}
 
 \paragraph{Web server}\label{web-server}
 
-an interface to / proxy for server components
+an interface to (or proxy for) server components
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -5251,7 +5258,7 @@ an interface to / proxy for server components
   process incoming traffic originating by operator, consumer and third
   parties
 \item
-  other server components are reachable only through this component
+  all other server components are reachable only through this component
 \item
   serve web-based front ends
 \item
@@ -5284,14 +5291,14 @@ processes incoming requests from third parties or consumers
 \item
   create and manage permission profiles
 \item
-  obtain personal data
+  read personal data through \emph{Storage Connector}
 \item
   delegate supervised code execution and obtain result
 \end{enumerate}
 
 \paragraph{Key Infrastructure (PKI)}\label{key-infrastructure-pki}
 
-provides the system with keys and issues certificates
+provides the web server with keys and issues certificates
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -5303,8 +5310,8 @@ provides the system with keys and issues certificates
 \item
   create and sign key-pairs for every endpoint
 \item
-  maintain certificates and its validity (recurring renewal) issued by
-  public trusted CAs
+  maintain certificates and their validity (recurring renewal) issued by
+  trusted public CAs
 \item
   create new Diffie-Hellman groups
 \end{enumerate}
@@ -5328,12 +5335,12 @@ changelog and permissions
 \item
   keep track of all changes
 \item
-  provide migration possibilities
+  provide migration and backup possibilities
 \end{enumerate}
 
 \paragraph{Personal Data Storage}\label{personal-data-storage}
 
-a database system where the personal data is actual stored
+a database system where the personal data is actually stored
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -5372,7 +5379,7 @@ provides all functionalities an operator must be capable of
 \item
   manage data structs
 \item
-  control \emph{Permission Manager}
+  can control \emph{Permission Manager}
 \item
   administrate restricted access for \emph{data contributors}
 \end{enumerate}
@@ -5395,14 +5402,14 @@ provides isolated runtime (sandbox) for supervised code execution
 \item
   monitor runtime during invocation
 \item
-  handover results back \emph{Permission Manager}
+  handover results back to \emph{Permission Manager}
 \item
   archive software in \emph{Persistence Layer}
 \end{enumerate}
 
 \paragraph{Tracker}\label{tracker}
 
-logs events and transactions on the system
+logs events and transactions occurring in the system
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -5426,7 +5433,7 @@ state
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  store
+  store:
 
   \begin{itemize}
   \tightlist
@@ -5452,12 +5459,17 @@ state
 \paragraph{Notification
 Infrastructure}\label{notification-infrastructure}
 
-a unified facility to for server components to distribute notifications
-to multiple front ends
+a unified facility for server components to distribute notifications to
+multiple front ends
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
+\tightlist
 \item
+  support native mobile notifications through connected Push
+  Notification Service
+\item
+  notify operator about pending approval or review
 \end{enumerate}
 
 \paragraph{Data Contributor}\label{data-contributor}
@@ -5468,6 +5480,8 @@ the system
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
 \tightlist
+\item
+  MUST be explicitly authorized by the operator
 \item
   data structure and format MUST be known by the system
 \end{enumerate}
@@ -5480,63 +5494,240 @@ accessible only by the operator to control the system
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
+\tightlist
 \item
+  based on either web technologies or native technologies that are
+  supported by mobile platforms
+\item
+  offer all relevant features provided by the Operator API
+\item
+  scan third party registrations via QR-Codes or generate URI to submit
+  registration
 \end{enumerate}
 
 \section{Security}\label{security}
 
+The following aspects are required measures in order to improve and
+ensure the overall sufficient security level of the system.
+Configurations mentioned below MAY change prospectively due to issues or
+vulnerabilities emerging in the future.
+
+\subsection*{Transport}\label{transport}
+\addcontentsline{toc}{subsection}{Transport}
+
+All communications from and towards the system as well as internal
+communication between components located on different platforms MUST be
+established with \emph{HTTP over TLS}. Thus, external third parties are
+only allowed to communicate with the system on port \texttt{443},
+whereas internal communication runs through port \texttt{4223}. Port
+\texttt{80} MUST return HTTP Error \texttt{403\ Forbidden} and all other
+ports SHOULD be blocked.
+
+The key-pair used in TLS to agree on a mutual symmetric key, MUST be
+based on either the \emph{RSA} or \emph{DSA} cipher suite, although
+\emph{RSA} SHOULD be preferred over \emph{DSA}. All created keys MUST
+have a length of at least \texttt{4096} bits. The Ciphers for TLS, that
+support \emph{Perfect Forward Secrecy} SHOULD be preferred, but ciphers
+not supported by \texttt{TLSv1.2} MUST be avoided. Evey endpoint and all
+other dedicated entry points MUST provide their own generated
+Diffie-Hellman groups with a minimal length of \texttt{4096} bits.
+
+For web-based GUIs \emph{TLS session resumption} SHOULD be activated,
+but for \emph{endpoints} it MUST be deactivated. Web-based GUIs MUST NOT
+depend on external resources. All involved assets MUST be stored in the
+system and thus get served by the \emph{web server} as well. This
+required behaviour is enforced by utilizing the \emph{Content Security
+Policy (CSP)} in HTTP headers. The \emph{web server} MUST facilitate a
+web socket connection fFor web-based GUIs. If a browser does not support
+those natively, a fallback SHALL be provided by the GUI. Furthermore,
+those GUIs SHOULD be served with HTTP/2.
+
+The subsequent examples show two Nginx configuration for the \emph{web
+server}, implementing the previous specifications.
+
+\textbf{\protect\hypertarget{spec_code-01_nginx-config-web-gui}{}{Code
+01: web server configuration for a web-based GUI (excerpt)}:}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{server \{}
+\NormalTok{    server_name gui.system.tld;}
+
+\NormalTok{    listen 4223 ssl http2;}
+\NormalTok{    listen [::]:4223 ssl http2 ipv6only=on;}
+    
+\NormalTok{    ssl_trusted_certificate /path/to/public-ca.tld.crt.pem;}
+\NormalTok{    ssl_certificate         /path/to/gui.system.tld.crt.pem;}
+\NormalTok{    ssl_certificate_key     /path/to/gui.system.tld.key.pem;}
+\NormalTok{    ssl_dhparam             /path/to/gui.system.tld.dhp.pem;}
+    
+\NormalTok{    ssl_prefer_server_ciphers on;}
+\NormalTok{    ssl_protocols TLSv1.2;}
+\NormalTok{    ssl_ciphers 'ECDHE-ECDSA-AES256-GCM-SHA384:}
+\NormalTok{        ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:}
+\NormalTok{        ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:}
+\NormalTok{        ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:}
+\NormalTok{        ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:}
+\NormalTok{        ECDHE-RSA-AES128-SHA256';}
+
+\NormalTok{    ssl_session_cache shared:SSL:10m;}
+\NormalTok{    ssl_session_timeout 5m;}
+    
+\NormalTok{    add_header Strict-Transport-Security "max-age=15768000" always;}
+\NormalTok{    add_header Content-Security-Policy "default-src 'self'";}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+~~
+
+\textbf{\protect\hypertarget{spec_code-01_nginx-config-consumer-endpoint}{}{Code
+02: web server configuration for a consumer endpoint (excerpt)}:}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\NormalTok{server \{}
+\NormalTok{    server_name CONSUMER_ID.system.tld;}
+    
+\NormalTok{    listen 80;}
+\NormalTok{    listen [::]:80 ipv6only=on;}
+    
+\NormalTok{    return 403;}
+\NormalTok{\}}
+
+\NormalTok{server \{}
+\NormalTok{    server_name CONSUMER_ID.system.tld;}
+    
+\NormalTok{    listen 443 ssl http2;}
+\NormalTok{    listen [::]:443 ssl http2 ipv6only=on;}
+    
+\NormalTok{    ssl_trusted_certificate /path/to/system.tld.crt.pem;}
+\NormalTok{    ssl_certificate         /path/to/CONSUMER_ID.system.tld.crt.pem;}
+\NormalTok{    ssl_certificate_key     /path/to/CONSUMER_ID.system.tld.key.pem;}
+\NormalTok{    ssl_dhparam             /path/to/CONSUMER_ID.system.tld.dhp.pem;}
+    
+\NormalTok{    ssl_verify_client on;}
+\NormalTok{    ssl_client_certificate  /path/to/CONSUMER_ID.crt.pem;}
+    
+\NormalTok{    ssl_prefer_server_ciphers on;}
+\NormalTok{    ssl_protocols TLSv1.2;}
+\NormalTok{    ssl_ciphers 'ECDHE-ECDSA-AES256-GCM-SHA384:}
+\NormalTok{        ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:}
+\NormalTok{        ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:}
+\NormalTok{        ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:}
+\NormalTok{        ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:}
+\NormalTok{        ECDHE-RSA-AES128-SHA256';}
+    
+\NormalTok{    ssl_session_cache off;}
+    
+\NormalTok{    add_header Strict-Transport-Security "max-age=15768000" always;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Authentication}\label{authentication-1}
+\addcontentsline{toc}{subsection}{Authentication}
+
+The following two authentication technologies MUST be supported by the
+system. 2-Factor authentication as an enhancement of the operator
+authentication procedure is OPTIONAL and can be implemented either by
+email or if a mobile platform is part of the system.
+
+\paragraph{Transport Layer Security}\label{transport-layer-security}
+
+Before the first consumer tries to register on the system, the system
+MUST generate a key-pair and sign it by itself. With the resulting
+certificate the system becomes a private Certificate Authority primarily
+responsible for signing certificates that are required for every
+endpoint, and maybe even for connections between mobile and server
+platforms. The key-pair for a specific endpoint is then used to issue a
+certificate based on the \emph{Certificate Signing Request (CSR)},
+supplied by the consumer, who is associated to that very endpoint. The
+certified certificate and the endpoint's certificate MUST then be
+transferred to the consumer on a secure channel, which the consumer is
+responsible to provide (e.g.~HTTP over TLS certified by trusted public
+CA, or by a self-signed certificate provided with the registration).
+
+In order to use TLS for bidirectional authentication, not only the
+client (consumer) MUST be able to verify the server's (system)
+certificate, also the server MUST do the same for the client. This
+procedure is known as \emph{two-way authentication}, which is part of
+the TLS connection establishing. If the connection failed to establish
+the authentications has failed, and vice versa the consumer has
+successfully authenticated to the system.
+
+\paragraph{JSON Web Token (JWT)}\label{json-web-token-jwt}
+
+When using JWT, \texttt{\{"alg":"none"\}} as header MUST NOT be used. A
+JWT MAY be encrypted (JWE). If the operator fails to connect to the
+system before the token's expiration date has been exceeded, the
+operator is REQUIRED to login again. The token MUST be renewed, but at
+least after half of the period of validity has been reached. JWTs MUST
+be created and verified by the \emph{Operator API}. The secrets and keys
+for that purpose are stored in the \emph{Persistence Layer}. Signature
+validation MAY get performed by the \emph{Web server}.
+
+The following claims are REQUIRED:
+
 \begin{itemize}
 \tightlist
 \item
-  transport
-
-  \begin{itemize}
-  \tightlist
-  \item
-    no HTTP allowed, all HTTP (80, 8080) --\textgreater{} must block all
-    non-encrypted traffic (ports != 443)
-  \item
-    HTTP/2 support for web gui
-  \item
-    TLS configurations: which ciphers (e.g.~use ciphers supporting PFS)
-
-    \begin{itemize}
-    \tightlist
-    \item
-      TODO insert example nginx config
-    \end{itemize}
-  \item
-    provide new dhparam for every endpoint
-  \end{itemize}
+  \texttt{"iss"} (Issuer) - domain from which the front end component
+  obtains its data
 \item
-  authentication
+  \texttt{"sub"} (Subject) - front end platform name; MUST be
+  system-wide unique
+\item
+  \texttt{"aud"} (Audience) - \texttt{"operator"} or
+  \texttt{"contributor"}
+\item
+  \texttt{"exp"} (Expiration Time)
+\item
+  \texttt{"iat"} (Issued At)
+\item
+  \texttt{"jti"} (JWT ID)
+\end{itemize}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    PKI `n' stuff
-  \item
-    JWT
-  \item
-    2-factor-auth (how?)
-  \end{itemize}
+One of the following algorithms is REQUIRED (for the \texttt{"alg"}
+header):
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{"HS512"} (key length: 512 bits)
+\item
+  \texttt{"RSA1\_5"} (recommended key length: 2048 bits)
+\item
+  \texttt{"RSA-OAEP-256"} (recommended key length: 2048 bits)
+\item
+  \texttt{"A256KW"} (recommended key length: 2048 bits)
+\end{itemize}
+
+\subsection{System Architecture}\label{system-architecture}
+
+\begin{itemize}
+\tightlist
 \item
   distributed approach: location of PDS
 \item
-  supervised code execution
+  Containerization
+\end{itemize}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    no shared filesystem, no network
-  \end{itemize}
+\subsection{Supervised Code Execution}\label{supervised-code-execution}
+
+\begin{itemize}
+\tightlist
 \item
-  containerization
+  no shared filesystem, no network
+\end{itemize}
+
+\subsection{System Monitoring}\label{system-monitoring}
+
+\begin{itemize}
+\tightlist
 \item
-  environment
-\item
-  pattern recognition for access requests (e.g.~check if request come
-  constantly from the same IP)
+  pattern recognition \& anomaly detection for access requests
+  (e.g.~check if request come constantly from the same IP)
 
   \begin{itemize}
   \tightlist
@@ -5955,6 +6146,29 @@ subject} has approved is always possible. The other ways around not.
   letsencrypt
 \item
   nginx
+\item
+  systemd
+\item
+  rkt
+\item
+  Kubernetes
+\item
+  LibreSSL
+\end{itemize}
+
+\subsubsection{Resources}\label{resources}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices}{SSL
+  and TLS Deployment Best Practices}
+\item
+  \href{https://wiki.mozilla.org/Security/Server_Side_TLS}{Security/Server
+  Side TLS}
+\item
+  \href{https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html}{Strong
+  SSL Security on nginx}
 \end{itemize}
 
 \chapter{Conclusion}\label{conclusion}

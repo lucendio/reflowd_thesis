@@ -40,7 +40,7 @@ with a character (upper or lower case) have no claim to its order. Their items a
 
 
 
-### Terminologies {-} 
+### Terminology {-} 
 
 [(The) System]{#spec_term_system}:
 : refers to either the overall concept or the implementation of this specification
