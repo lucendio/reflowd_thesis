@@ -32,7 +32,8 @@ This applies to the following keywords, recognizable through capital letters: MU
 REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and OPTIONAL.
 
 Values and words presented in a `fixed-width font` need to be understood as names and must therefore
-be used as is.
+be used as is. If one of those starts with a `$` (Dollar) character, a variable is indicated, which 
+means for implementations, this variable has to be replaced with the actual value. 
 
 Lists that are numbered outline its given order, which must therefore be followed. Lists that start 
 with a character (upper or lower case) have no claim to its order. Their items are inclusive 

@@ -105,6 +105,11 @@ all of them
 
 +   future work: add/activate an intrusion detection system
 
++   PDS is on mobile platform and server platform is corrupted: storage connector must queue 
+    requests and regularly provide the server with a JWT, triggered by the operator when interacting
+    with the mobile app.
+
+
 
 
 

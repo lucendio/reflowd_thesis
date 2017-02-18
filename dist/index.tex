@@ -3930,7 +3930,7 @@ By taking all requirements as well as previous sections, their and
 discussions into account, this section has the purpose of figuring out
 how all the different concepts and conclusions from this chapter can fit
 together in an overall system architecture that is organized in either a
-distributed or a monolithic manner. The outcome of this section should
+distributed or a centralized manner. The outcome of this section should
 not impact results or conclusions from other topics related to the
 behave of the system's interfaces from a user point of view.
 
@@ -4411,14 +4411,14 @@ After outlining all different components while keeping the aspect of
 portability (\protect\hyperlink{sa02}{S.A.02}) in mind, it becomes
 apparent which arrangements make sense and what variations might be
 possible. As a result, two, more or less, distinct designs are proposed.
-One is a rather monolithic approach and the other involve more platform
+One is a rather centralized approach and the other involve more platform
 types and outlines a certain flexibility.
 
 \begin{figure}
 \centering
-\includegraphics{./assets/figures/pdaas_component-composition_monolithic.png}
-\caption{PDaaS Architecture, monolithic
-composition\label{fig:composition-monolithic}}
+\includegraphics{./assets/figures/pdaas_component-composition_centralized.png}
+\caption{PDaaS Architecture, centralized
+composition\label{fig:composition-centralized}}
 \end{figure}
 
 \begin{figure}
@@ -4429,8 +4429,8 @@ composition\label{fig:composition-distributed}}
 \end{figure}
 
 The main difference between the two compositions is the non-existence of
-the mobile platform in the monolithic approach (Figure
-\ref{fig:composition-monolithic}). Although \emph{monolithic} only
+the mobile platform in the centralized approach (Figure
+\ref{fig:composition-centralized}). Although \emph{centralized} only
 refers to the components arrangement on a \emph{server} platform,
 originally consisting of in a single process that contains all
 components and is thus is responsible for every task. It is also
@@ -4457,7 +4457,7 @@ Aside from providing the \emph{operator} with a non-stationary and
 instantly accessible interface to her \emph{PDaaS}, involving a
 \emph{mobile platform} primarily has the purpose of enabling the
 \emph{data subject} to carry all her sensitive data along. This is
-considered a major advantage over the monolithic approach, were all the
+considered a major advantage over the centralized approach, were all the
 personal data is located in the \emph{`cloud'}. Depending on the
 perspective, it can either be seen as a \emph{singe source of truth} or
 a \emph{single point of failure}. Regardless of that, it introduces the
@@ -4539,7 +4539,7 @@ it is not only reasonable but also more secure to involve a server
 platform with proper security measures, static IP and high availability.
 Even if that server is a local machine connected to the operator's
 private network. That said, it is sufficient to start with the
-\emph{monolithic} approach and as suitable mobile applications emerge
+\emph{centralized} approach and as suitable mobile applications emerge
 that are supporting major administration features, notifications and
 \emph{personal data storage}, it should be possible to migrate
 effortlessly towards the \emph{distributed} approach that brings a
@@ -4905,7 +4905,10 @@ REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and
 OPTIONAL.
 
 Values and words presented in a \texttt{fixed-width\ font} need to be
-understood as names and must therefore be used as is.
+understood as names and must therefore be used as is. If one of those
+starts with a \texttt{\$} (Dollar) character, a variable is indicated,
+which means for implementations, this variable has to be replaced with
+the actual value.
 
 Lists that are numbered outline its given order, which must therefore be
 followed. Lists that start with a character (upper or lower case) have
@@ -5658,14 +5661,21 @@ successfully authenticated to the system.
 
 \paragraph{JSON Web Token (JWT)}\label{json-web-token-jwt}
 
-When using JWT, \texttt{\{"alg":"none"\}} as header MUST NOT be used. A
-JWT MAY be encrypted (JWE). If the operator fails to connect to the
+When creating a JWT, the \texttt{"alg"} in the header MUST NOT be set to
+\texttt{"none"}. A JWT MAY be encrypted (JWE). JWTs MUST be created by
+the \emph{Operator API}. Validation MAY be performed by \emph{Operator
+API} or \emph{Web server}. Secrets and keys for that purpose are stored
+in the \emph{Persistence Layer}. As long as the token is not encrypted,
+every token MUST associate its own secret key for the HMAC computation.
+
+When authenticating, the JWT MUST be provided either as HTTP header
+(\texttt{Authorization:\ Bearer\ \$JWT}) or as a query parameter
+indicated by the key \texttt{t}. If the operator fails to connect to the
 system before the token's expiration date has been exceeded, the
 operator is REQUIRED to login again. The token MUST be renewed, but at
-least after half of the period of validity has been reached. JWTs MUST
-be created and verified by the \emph{Operator API}. The secrets and keys
-for that purpose are stored in the \emph{Persistence Layer}. Signature
-validation MAY get performed by the \emph{Web server}.
+least after half of the period of validity has been reached. The period,
+in which the token is valid, SHOULD be 24 hours but MUST NOT exceed 48
+hours.
 
 The following claims are REQUIRED:
 
@@ -5703,44 +5713,87 @@ header):
   \texttt{"A256KW"} (recommended key length: 2048 bits)
 \end{itemize}
 
-\subsection{System Architecture}\label{system-architecture}
+\hypertarget{system-architecture}{\subsection{System
+Architecture}\label{system-architecture}}
 
-\begin{itemize}
-\tightlist
-\item
-  distributed approach: location of PDS
-\item
-  Containerization
-\end{itemize}
+The centralized version of the system architecture places every
+component into the server platform, Even the web-based management tool,
+which later is fetched onto a front end platforms, initially is stored
+there. This means, all the operator's personal data is located somewhere
+in the `cloud', probably out of reach, and potentially vulnerable to
+unauthorized access. Whereas the distributed approach allows for example
+to re-locate the \emph{Personal Data Store} component to a mobile
+platform, that might as well be used by the operator to manage the
+system. The general approach of a more distributed deployment of
+components SHOULD reduce the vulnerability to certain scenarios and make
+it harder for entities to compromise (parts of) the system. As long as
+all requirements are met and every component is completely functional as
+well as the system as a whole, any component MAY be located on whatever
+platform is sufficient.
 
-\subsection{Supervised Code Execution}\label{supervised-code-execution}
+A second approach to gain not only portability, but also to increase the
+overall level of security is isolate components {[}and their
+process(es){]} from the surrounding platform environment. This enables
+explicit and controlled allocation of resources such as memory, CPU
+usage or network and filesystem access. This concept MUST be implemented
+by either using the process isolation features provided by the host
+environment, namely \emph{cgroups} and \emph{systemd-nspawn}, or by
+putting components into application containers. The latter is
+RECOMMENDED and MUST respect all \emph{Open Container} Specifications.
+An orchestration software MAY be utilized to manage all containers.
 
-\begin{itemize}
-\tightlist
-\item
-  no shared filesystem, no network
-\end{itemize}
+\subsection{\texorpdfstring{Supervised Code Execution
+\emph{(SCE)}}{Supervised Code Execution (SCE)}}\label{supervised-code-execution-sce}
+
+When running programs on the server platform provided by consumers, it
+is REQUIRED to only execute them after putting them into an application
+container (as referred to in
+\protect\hyperlink{system-architecture}{System Architecture}). This
+implies to first provision the container and then invoke it by providing
+the requested data points as parameters. The container MUST NOT be
+allowed to access the host's filesystem or network. Before running the
+container with the actual data, it MUST be executed several times with
+generated test data. If the program is provided as source code, it MUST
+automatically be inspected and reviewed. If one of those test layers
+result insufficiently, processing the access request MUST abort and MUST
+return with a failure information.
 
 \subsection{System Monitoring}\label{system-monitoring}
 
+The \emph{Tracker} component MUST ensure that the following information
+get persisted \emph{(required fields for those information are defined
+in \protect\hyperlink{data-and-types}{Data and Types})}:
+
 \begin{itemize}
 \tightlist
 \item
-  pattern recognition \& anomaly detection for access requests
-  (e.g.~check if request come constantly from the same IP)
-
-  \begin{itemize}
-  \tightlist
-  \item
-    does it matter from what origin the data request was made? how to
-    check that? is the requester's server domain in the http header?
-    eventually there is no way to check that, so me might need to go
-    with request logging and trying to detect abnormal
-    behaviour/occurrence with a learning artificial intelligence
-  \end{itemize}
+  Access Requests, regardless of its success
 \item
-  spam protection
+  failed access verifications
+\item
+  Registrations of consumers, regardless of its success
+\item
+  results of operator verifications
+\item
+  Permission Profile creation, manipulation and deletion
+\item
+  supervised code execution, regardless of its success
+\item
+  any other request attempt reaching the web server
+\item
+  used server resources
 \end{itemize}
+
+To make sure, that these data is collected, other components MUST
+provide the \emph{Tracker} with such information. Therefore, components
+such as \emph{Operator API}, \emph{Permission Manager} and \emph{Web
+server}, MUST push the information towards the \emph{Tracker}. By
+performing pattern recognition \& anomaly detection, the \emph{Tracker}
+is then able to recognize abnormal behaviour/occurrence, for example by
+monitoring the IP of an access request origin, which normally should not
+change very often. Such data MAY also help to prevent spam requests. If
+the \emph{Tracker} finds suspicious patterns, the operator MUST be
+notified via email and push notification.
 
 \section{Protocols}\label{protocols}
 
@@ -5988,12 +6041,52 @@ Data}\label{adding-or-changing-personal-data}
 
 \subsection{Structure \& Types}\label{structure-types}
 
+\emph{NOTICE: required fields are implicit and therefore not marked as
+such, but any other notation is explicit}
+
 \begin{itemize}
-\tightlist
 \item
   henceforth only two things: primitive and struct
 \item
   supported date types
+\item
+  Tracker:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    access-request
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \texttt{tsin:\ Number} - timestamp of occurrence
+    \item
+      \texttt{tsout:\ Number} - timestamp of response
+    \item
+      \texttt{type:\ String} - access type (\texttt{sce},\texttt{cp})
+    \item
+      \texttt{query:\ String} - data query
+    \item
+      \texttt{state:\ String} - current state of proceeding
+    \item
+      \texttt{endpoint:\ String} - endpoint on which the request came in
+    \item
+      \texttt{header:\ String} - consumer's HTTP header
+    \item
+      \texttt{result}: result of SCE {[}OPTIONAL{]}
+    \end{itemize}
+  \item
+    access-validation
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \texttt{access-request:\ String} - reference to access request
+    \item
+      \texttt{reason:\ String} - why has the verification failed
+    \end{itemize}
+  \end{itemize}
 \end{itemize}
 
 \subsection{Read}\label{read}
@@ -6323,6 +6416,10 @@ beginning
   what about token stealing when using jwt?
 \item
   future work: add/activate an intrusion detection system
+\item
+  PDS is on mobile platform and server platform is corrupted: storage
+  connector must queue requests and regularly provide the server with a
+  JWT, triggered by the operator when interacting with the mobile app.
 \end{itemize}
 
 \section{Future Work}\label{future-work}

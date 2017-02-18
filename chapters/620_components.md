@@ -47,7 +47,7 @@ e)  keep track of all changes
 f)  provide migration and backup possibilities
 
 
-##### Personal Data Storage
+##### Personal Data Storage *(PDS)*
 a database system where the personal data is actually stored
 
 a)  can be located on any platform
@@ -71,7 +71,7 @@ e)  can control *Permission Manager*
 d)  administrate restricted access for *data contributors*
 
 
-##### Code Execution Environment
+##### Code Execution Environment *(CEE)*
 provides isolated runtime (sandbox) for supervised code execution
   
 a)  invoke software provided by data consumers with required data points
