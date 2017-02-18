@@ -1793,7 +1793,7 @@ data structures including relations.
 The open standard \textbf{\protect\hypertarget{def--oauth}{}{OAuth}}
 defines a process flow for authorizing third parties to access
 externally hosted resources, such as the user's profile image on a
-social media platform. The authorisation validation is done by the help
+social media platform. The authorization validation is done by the help
 of a previously generated token. However, generating and supplying such
 token can be initiated in a variety of ways depending on the underlying
 architecture and design, for example with the user entering her
@@ -2189,7 +2189,7 @@ check should not cause a termination of the process, but instead should
 warn data consumers unverified authenticity, so that they themselves can
 decide if and how to proceed.
 
-\section{Authorisation}\label{authorisation}
+\section{Authorization}\label{authorization}
 
 Controlling it's own data might probably be the most important ability
 of such a system, because the data owner gets enabled to grant
@@ -5558,12 +5558,12 @@ server}, implementing the previous specifications.
 
 \NormalTok{    listen 4223 ssl http2;}
 \NormalTok{    listen [::]:4223 ssl http2 ipv6only=on;}
-    
+
 \NormalTok{    ssl_trusted_certificate /path/to/public-ca.tld.crt.pem;}
 \NormalTok{    ssl_certificate         /path/to/gui.system.tld.crt.pem;}
 \NormalTok{    ssl_certificate_key     /path/to/gui.system.tld.key.pem;}
 \NormalTok{    ssl_dhparam             /path/to/gui.system.tld.dhp.pem;}
-    
+
 \NormalTok{    ssl_prefer_server_ciphers on;}
 \NormalTok{    ssl_protocols TLSv1.2;}
 \NormalTok{    ssl_ciphers 'ECDHE-ECDSA-AES256-GCM-SHA384:}
@@ -5575,7 +5575,7 @@ server}, implementing the previous specifications.
 
 \NormalTok{    ssl_session_cache shared:SSL:10m;}
 \NormalTok{    ssl_session_timeout 5m;}
-    
+
 \NormalTok{    add_header Strict-Transport-Security "max-age=15768000" always;}
 \NormalTok{    add_header Content-Security-Policy "default-src 'self'";}
 \NormalTok{\}}
@@ -5591,27 +5591,27 @@ server}, implementing the previous specifications.
 \begin{Highlighting}[numbers=left,,]
 \NormalTok{server \{}
 \NormalTok{    server_name CONSUMER_ID.system.tld;}
-    
+
 \NormalTok{    listen 80;}
 \NormalTok{    listen [::]:80 ipv6only=on;}
-    
+
 \NormalTok{    return 403;}
 \NormalTok{\}}
 
 \NormalTok{server \{}
 \NormalTok{    server_name CONSUMER_ID.system.tld;}
-    
+
 \NormalTok{    listen 443 ssl http2;}
 \NormalTok{    listen [::]:443 ssl http2 ipv6only=on;}
-    
+
 \NormalTok{    ssl_trusted_certificate /path/to/system.tld.crt.pem;}
 \NormalTok{    ssl_certificate         /path/to/CONSUMER_ID.system.tld.crt.pem;}
 \NormalTok{    ssl_certificate_key     /path/to/CONSUMER_ID.system.tld.key.pem;}
 \NormalTok{    ssl_dhparam             /path/to/CONSUMER_ID.system.tld.dhp.pem;}
-    
+
 \NormalTok{    ssl_verify_client on;}
 \NormalTok{    ssl_client_certificate  /path/to/CONSUMER_ID.crt.pem;}
-    
+
 \NormalTok{    ssl_prefer_server_ciphers on;}
 \NormalTok{    ssl_protocols TLSv1.2;}
 \NormalTok{    ssl_ciphers 'ECDHE-ECDSA-AES256-GCM-SHA384:}
@@ -5620,9 +5620,9 @@ server}, implementing the previous specifications.
 \NormalTok{        ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:}
 \NormalTok{        ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:}
 \NormalTok{        ECDHE-RSA-AES128-SHA256';}
-    
+
 \NormalTok{    ssl_session_cache off;}
-    
+
 \NormalTok{    add_header Strict-Transport-Security "max-age=15768000" always;}
 \NormalTok{\}}
 \end{Highlighting}
@@ -6486,7 +6486,7 @@ query in SPARQL}:}
 \NormalTok{\}}
 
 
-\NormalTok{# }\KeywordTok{query} \DecValTok{2}\NormalTok{: obtain }\KeywordTok{all} \NormalTok{bank accounts that are available }\KeywordTok{for} 
+\NormalTok{# }\KeywordTok{query} \DecValTok{2}\NormalTok{: obtain }\KeywordTok{all} \NormalTok{bank accounts that are available }\KeywordTok{for}
 \NormalTok{# }\KeywordTok{online} \NormalTok{payment}
 \NormalTok{PREFIX bank-account: <http://pdaas.tld/schemas/bank-account>}
 
@@ -6594,7 +6594,7 @@ Result of Code 03 in JSON}:}
 \begin{Highlighting}[numbers=left,,]
 \FunctionTok{\{}
     \DataTypeTok{"profile"}\FunctionTok{:} \FunctionTok{\{}
-        \DataTypeTok{"firstname"}\FunctionTok{:} \StringTok{"Jane"}\FunctionTok{,} 
+        \DataTypeTok{"firstname"}\FunctionTok{:} \StringTok{"Jane"}\FunctionTok{,}
         \DataTypeTok{"lastname"}\FunctionTok{:} \StringTok{"Doe"}
     \FunctionTok{\},}
     \DataTypeTok{"bankAccounts"}\FunctionTok{:} \OtherTok{[}

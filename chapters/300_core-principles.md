@@ -61,7 +61,7 @@ data consumers unverified authenticity, so that they themselves can decide if an
  
 
 
-## Authorisation
+## Authorization
 
 Controlling it's own data might probably be the most important ability of such a system, because the 
 data owner gets enabled to grant permission to any entity who wants to obtain certain information in 

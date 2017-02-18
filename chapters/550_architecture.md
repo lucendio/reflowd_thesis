@@ -337,7 +337,7 @@ Whereas users get the benefit of just using one account for all their apps - a u
 say, but only one exemplar. So the downside here is, in reality only a handful of third parties 
 [@web_2009-success-of-facebook-connect] provide those authentication services.  
 OpenID is designed with a very specific type of scenarios in mind, namely the one just described - 
-bringing decentralisation to the market of authentication services - which differs from the ones 
+bringing decentralization to the market of authentication services - which differs from the ones 
 addressed by the *PDaaS*; at least, when it comes to *data consumer* interactions. Even though, the 
 *PDaaS* has the ability to become the digital representation of it's *operator*. Hence it can and 
 also should be used to authenticate that individual against external parties.  

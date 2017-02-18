@@ -81,7 +81,7 @@
                 <li><a href="#data-ownership"><span class="toc-section-number">4.2</span> Data Ownership</a></li>
                 <li><a href="#identity-verification"><span class="toc-section-number">4.3</span> Identity Verification</a></li>
                 <li><a href="#reliable-data"><span class="toc-section-number">4.4</span> Reliable Data</a></li>
-                <li><a href="#authorisation"><span class="toc-section-number">4.5</span> Authorisation</a></li>
+                <li><a href="#authorization"><span class="toc-section-number">4.5</span> Authorization</a></li>
                 <li><a href="#supervised-data-access"><span class="toc-section-number">4.6</span> Supervised Data Access</a></li>
                 <li><a href="#containerization"><span class="toc-section-number">4.7</span> Containerization</a></li>
                 <li><a href="#open-development"><span class="toc-section-number">4.8</span> Open Development</a></li>
@@ -149,7 +149,7 @@
                             <div id="LOT">
                 true
             </div>
-                
+
 
 <section id="introduction" class="level1">
 <h1><span class="header-section-number">2</span> Introduction</h1>
@@ -418,8 +418,8 @@ valid at that point in time - in short, preventing redundant work and outdated d
 <h2><span class="header-section-number">4.4</span> Reliable Data</h2>
 <p>Being able to verify the authenticity of a communication partner only means to be half-way through. Data consumers also need to trust the data itself, which is attributed by the following properties. (A) <em>integrity</em> - which means the recipient can verify that the received data is still the same, or if someone has tampered with the obtained data. (B) <em>authenticity</em> - it is somehow ensured, or the recipient must be certain, that the received data actual belongs to the individual, meaning the data truly reflects attributes of the individual, from whom the data comes from. A negative result of that check should not cause a termination of the process, but instead should warn data consumers unverified authenticity, so that they themselves can decide if and how to proceed.</p>
 </section>
-<section id="authorisation" class="level2">
-<h2><span class="header-section-number">4.5</span> Authorisation</h2>
+<section id="authorization" class="level2">
+<h2><span class="header-section-number">4.5</span> Authorization</h2>
 <p>Controlling it’s own data might probably be the most important ability of such a system, because the data owner gets enabled to grant permission to any entity who wants to obtain certain information in a potentially automated way about her. She can authorise as precise as desired how long and what data (sets, points or fields) is accessible by a single entity. Thereby, the data owner is able to change the <em>access permissions</em> for any entity at any point in time, for example motivated by a noticed incident.</p>
 </section>
 <section id="supervised-data-access" class="level2">
@@ -1653,12 +1653,12 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 
     listen 4223 ssl http2;
     listen [::]:4223 ssl http2 ipv6only=on;
-    
+
     ssl_trusted_certificate /path/to/public-ca.tld.crt.pem;
     ssl_certificate         /path/to/gui.system.tld.crt.pem;
     ssl_certificate_key     /path/to/gui.system.tld.key.pem;
     ssl_dhparam             /path/to/gui.system.tld.dhp.pem;
-    
+
     ssl_prefer_server_ciphers on;
     ssl_protocols TLSv1.2;
     ssl_ciphers &#39;ECDHE-ECDSA-AES256-GCM-SHA384:
@@ -1670,7 +1670,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 5m;
-    
+
     add_header Strict-Transport-Security &quot;max-age=15768000&quot; always;
     add_header Content-Security-Policy &quot;default-src &#39;self&#39;&quot;;
 }</code></pre></td></tr></table></div>
@@ -1714,27 +1714,27 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 36
 </pre></td><td class="sourceCode"><pre><code class="sourceCode">server {
     server_name CONSUMER_ID.system.tld;
-    
+
     listen 80;
     listen [::]:80 ipv6only=on;
-    
+
     return 403;
 }
 
 server {
     server_name CONSUMER_ID.system.tld;
-    
+
     listen 443 ssl http2;
     listen [::]:443 ssl http2 ipv6only=on;
-    
+
     ssl_trusted_certificate /path/to/system.tld.crt.pem;
     ssl_certificate         /path/to/CONSUMER_ID.system.tld.crt.pem;
     ssl_certificate_key     /path/to/CONSUMER_ID.system.tld.key.pem;
     ssl_dhparam             /path/to/CONSUMER_ID.system.tld.dhp.pem;
-    
+
     ssl_verify_client on;
     ssl_client_certificate  /path/to/CONSUMER_ID.crt.pem;
-    
+
     ssl_prefer_server_ciphers on;
     ssl_protocols TLSv1.2;
     ssl_ciphers &#39;ECDHE-ECDSA-AES256-GCM-SHA384:
@@ -1743,9 +1743,9 @@ server {
         ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:
         ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:
         ECDHE-RSA-AES128-SHA256&#39;;
-    
+
     ssl_session_cache off;
-    
+
     add_header Strict-Transport-Security &quot;max-age=15768000&quot; always;
 }</code></pre></td></tr></table></div>
 </section>
@@ -2187,7 +2187,7 @@ PREFIX person: &lt;http://pdaas.tld/schemas/person&gt;
 }
 
 
-# <span class="kw">query</span> <span class="dv">2</span>: obtain <span class="kw">all</span> bank accounts that are available <span class="kw">for</span> 
+# <span class="kw">query</span> <span class="dv">2</span>: obtain <span class="kw">all</span> bank accounts that are available <span class="kw">for</span>
 # <span class="kw">online</span> payment
 PREFIX bank-account: &lt;http://pdaas.tld/schemas/bank-account&gt;
 
@@ -2196,7 +2196,7 @@ PREFIX bank-account: &lt;http://pdaas.tld/schemas/bank-account&gt;
 <span class="kw">WHERE</span> {
     $bank-account bank-account<span class="ch">:payment</span>-method <span class="ot">&quot;online-service&quot;</span> .
     $bank-account bank-account<span class="ch">:payment</span>-method $paymentMethod .
-    $bank-account bank-account<span class="ch">:account</span>-id $accountId . 
+    $bank-account bank-account<span class="ch">:account</span>-id $accountId .
     $bank-account bank-account<span class="ch">:bank</span>-name $bankName .
 }</code></pre></td></tr></table></div>
 
@@ -2350,7 +2350,7 @@ query <span class="op">{</span>
 13
 </pre></td><td class="sourceCode"><pre><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;profile&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-        <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;Jane&quot;</span><span class="fu">,</span> 
+        <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;Jane&quot;</span><span class="fu">,</span>
         <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="st">&quot;Doe&quot;</span>
     <span class="fu">},</span>
     <span class="dt">&quot;bankAccounts&quot;</span><span class="fu">:</span> <span class="ot">[</span>
