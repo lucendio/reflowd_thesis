@@ -81,7 +81,7 @@
                 <li><a href="#data-ownership"><span class="toc-section-number">4.2</span> Data Ownership</a></li>
                 <li><a href="#identity-verification"><span class="toc-section-number">4.3</span> Identity Verification</a></li>
                 <li><a href="#reliable-data"><span class="toc-section-number">4.4</span> Reliable Data</a></li>
-                <li><a href="#authorisation"><span class="toc-section-number">4.5</span> Authorisation</a></li>
+                <li><a href="#authorization"><span class="toc-section-number">4.5</span> Authorization</a></li>
                 <li><a href="#supervised-data-access"><span class="toc-section-number">4.6</span> Supervised Data Access</a></li>
                 <li><a href="#containerization"><span class="toc-section-number">4.7</span> Containerization</a></li>
                 <li><a href="#open-development"><span class="toc-section-number">4.8</span> Open Development</a></li>
@@ -117,7 +117,7 @@
                 <li><a href="#transport">Transport</a></li>
                 <li><a href="#authentication-1">Authentication</a></li>
                 <li><a href="#system-architecture"><span class="toc-section-number">7.4.2</span> System Architecture</a></li>
-                <li><a href="#supervised-code-execution"><span class="toc-section-number">7.4.3</span> Supervised Code Execution</a></li>
+                <li><a href="#supervised-code-execution-sce"><span class="toc-section-number">7.4.3</span> Supervised Code Execution <em>(SCE)</em></a></li>
                 <li><a href="#system-monitoring"><span class="toc-section-number">7.4.4</span> System Monitoring</a></li>
                 </ul></li>
                 <li><a href="#protocols"><span class="toc-section-number">7.5</span> Protocols</a></li>
@@ -149,7 +149,7 @@
                             <div id="LOT">
                 true
             </div>
-                
+
 
 <section id="introduction" class="level1">
 <h1><span class="header-section-number">2</span> Introduction</h1>
@@ -418,8 +418,8 @@ valid at that point in time - in short, preventing redundant work and outdated d
 <h2><span class="header-section-number">4.4</span> Reliable Data</h2>
 <p>Being able to verify the authenticity of a communication partner only means to be half-way through. Data consumers also need to trust the data itself, which is attributed by the following properties. (A) <em>integrity</em> - which means the recipient can verify that the received data is still the same, or if someone has tampered with the obtained data. (B) <em>authenticity</em> - it is somehow ensured, or the recipient must be certain, that the received data actual belongs to the individual, meaning the data truly reflects attributes of the individual, from whom the data comes from. A negative result of that check should not cause a termination of the process, but instead should warn data consumers unverified authenticity, so that they themselves can decide if and how to proceed.</p>
 </section>
-<section id="authorisation" class="level2">
-<h2><span class="header-section-number">4.5</span> Authorisation</h2>
+<section id="authorization" class="level2">
+<h2><span class="header-section-number">4.5</span> Authorization</h2>
 <p>Controlling it’s own data might probably be the most important ability of such a system, because the data owner gets enabled to grant permission to any entity who wants to obtain certain information in a potentially automated way about her. She can authorise as precise as desired how long and what data (sets, points or fields) is accessible by a single entity. Thereby, the data owner is able to change the <em>access permissions</em> for any entity at any point in time, for example motivated by a noticed incident.</p>
 </section>
 <section id="supervised-data-access" class="level2">
@@ -818,7 +818,7 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 </section>
 <section id="architecture" class="level2">
 <h2><span class="header-section-number">6.6</span> Architecture</h2>
-<p>By taking all requirements as well as previous sections, their and discussions into account, this section has the purpose of figuring out how all the different concepts and conclusions from this chapter can fit together in an overall system architecture that is organized in either a distributed or a monolithic manner. The outcome of this section should not impact results or conclusions from other topics related to the behave of the system’s interfaces from a user point of view.</p>
+<p>By taking all requirements as well as previous sections, their and discussions into account, this section has the purpose of figuring out how all the different concepts and conclusions from this chapter can fit together in an overall system architecture that is organized in either a distributed or a centralized manner. The outcome of this section should not impact results or conclusions from other topics related to the behave of the system’s interfaces from a user point of view.</p>
 <p>The foundation of this project is a server-client Architecture, which is chosen for (A) providing availability (<a href="#sa05">S.A.05</a>) and (B) separating concerns <span class="citation" data-cites="web_2016_wikipedia_separation-of-concerns">[<a href="#ref-web_2016_wikipedia_separation-of-concerns">141</a>]</span>. Such a distributed system provides various locations to place these concerns, which are in fact different environments with different properties. Those combinations of locations and environments are herein after called <em>platforms</em>. To further describe these <em>platforms</em>, characteristics such as architectural layer and access possibilities to its internals are taken into account. The resulting three <em>platform</em> types are shown in Table <a href="#tbl:platforms-characteristics">2</a>.</p>
 <a name="tbl:platforms-characteristics"></a>
 <table>
@@ -1146,22 +1146,22 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>Swift, Objective-C</li>
 </ul>
 <p> <br />
-After outlining all different components while keeping the aspect of portability (<a href="#sa02">S.A.02</a>) in mind, it becomes apparent which arrangements make sense and what variations might be possible. As a result, two, more or less, distinct designs are proposed. One is a rather monolithic approach and the other involve more platform types and outlines a certain flexibility.</p>
+After outlining all different components while keeping the aspect of portability (<a href="#sa02">S.A.02</a>) in mind, it becomes apparent which arrangements make sense and what variations might be possible. As a result, two, more or less, distinct designs are proposed. One is a rather centralized approach and the other involve more platform types and outlines a certain flexibility.</p>
 <figure>
-<img src="./assets/figures/pdaas_component-composition_monolithic.png" alt="Figure 1: PDaaS Architecture, monolithic composition" id="fig:composition-monolithic" /><figcaption>Figure 1: PDaaS Architecture, monolithic composition</figcaption>
+<img src="./assets/figures/pdaas_component-composition_centralized.png" alt="Figure 1: PDaaS Architecture, centralized composition" id="fig:composition-centralized" /><figcaption>Figure 1: PDaaS Architecture, centralized composition</figcaption>
 </figure>
 <figure>
 <img src="./assets/figures/pdaas_component-composition_distributed.png" alt="Figure 2: PDaaS Architecture, distributed composition" id="fig:composition-distributed" /><figcaption>Figure 2: PDaaS Architecture, distributed composition</figcaption>
 </figure>
-<p>The main difference between the two compositions is the non-existence of the mobile platform in the monolithic approach (Figure <a href="#fig:composition-monolithic">1</a>). Although <em>monolithic</em> only refers to the components arrangement on a <em>server</em> platform, originally consisting of in a single process that contains all components and is thus is responsible for every task. It is also imaginable that all server components not necessarily have to be placed into one server environment, but being distributed over several virtual machines or containers, so that they can scale and run more independently. This can improve <em>redundancy</em> as well.</p>
+<p>The main difference between the two compositions is the non-existence of the mobile platform in the centralized approach (Figure <a href="#fig:composition-centralized">1</a>). Although <em>centralized</em> only refers to the components arrangement on a <em>server</em> platform, originally consisting of in a single process that contains all components and is thus is responsible for every task. It is also imaginable that all server components not necessarily have to be placed into one server environment, but being distributed over several virtual machines or containers, so that they can scale and run more independently. This can improve <em>redundancy</em> as well.</p>
 <p>In theory, a possible version of the arrangement would be to move all components to either the desktop or the mobile platform. This comes along with some downsides and major issues though, that are anything but trivial to solve. Nevertheless, not only to ensure nearly 100% uptime and discovery in a landscape where NAT<a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a> and dynamic IPs are still common practice, mobile platforms as well as on the desktop, all components but the user interface need to be implemented natively. From a <em>operator’s</em> perspective that would mean, to have all components at hand and therefore full control over the <em>PDaaS</em>. It still would still raise security concerns, though.</p>
-<p>Aside from providing the <em>operator</em> with a non-stationary and instantly accessible interface to her <em>PDaaS</em>, involving a <em>mobile platform</em> primarily has the purpose of enabling the <em>data subject</em> to carry all her sensitive data along. This is considered a major advantage over the monolithic approach, were all the personal data is located in the <em>‘cloud’</em>. Depending on the perspective, it can either be seen as a <em>singe source of truth</em> or a <em>single point of failure</em>. Regardless of that, it introduces the demand of a backup or some redundancy concept, which has briefly been touched on in the discussion about database system requirements within the <a href="#data">section on <em>data</em></a>. A mobile platform as part of the system makes it more easier for the data subject to establish a security concept, in which the relation between <em>personal data storage</em> and the rest of the system is much more liberated, so that all access attempts only happen under full supervision. It is debatable whether to place the <em>permission profiles</em> in the <em>persistence layer</em> among all other domain-related information, put it into the <em>personal data storage</em> too, or define it as an own storage component, in order to be flexible in its placing.</p>
+<p>Aside from providing the <em>operator</em> with a non-stationary and instantly accessible interface to her <em>PDaaS</em>, involving a <em>mobile platform</em> primarily has the purpose of enabling the <em>data subject</em> to carry all her sensitive data along. This is considered a major advantage over the centralized approach, were all the personal data is located in the <em>‘cloud’</em>. Depending on the perspective, it can either be seen as a <em>singe source of truth</em> or a <em>single point of failure</em>. Regardless of that, it introduces the demand of a backup or some redundancy concept, which has briefly been touched on in the discussion about database system requirements within the <a href="#data">section on <em>data</em></a>. A mobile platform as part of the system makes it more easier for the data subject to establish a security concept, in which the relation between <em>personal data storage</em> and the rest of the system is much more liberated, so that all access attempts only happen under full supervision. It is debatable whether to place the <em>permission profiles</em> in the <em>persistence layer</em> among all other domain-related information, put it into the <em>personal data storage</em> too, or define it as an own storage component, in order to be flexible in its placing.</p>
 <p>Authenticating <em>consumers</em> is performed based on TLS by the web server and its configured subdomains including their individual keys and certificates provided by the <em>PKI</em>. The <em>operator</em> authentication is either done by the <em>Operator API</em> or by the <em>web server</em>, depending on the <em>web server’s</em> capabilities. Though, it makes more sense, to entrust the <em>web server</em> with that task, because it’s the outmost component and it would prevent unauthorized and potential malicious requests from getting further into the system. And since a native front end on a mobile platform is considered <em>private</em> as well, it is reasonable in that case to change the <em>operator</em> authentication from JWT-based to TLS-based <em>two-way authentication</em>, which would otherwise be inconvenient when using web-based front ends.</p>
 <p>If components are placed only on the server and require to communicate between each other, but are separated into independent processes, then some inter-process communication need to be established (e.g. sockets). It is also conceivable that inter-communication between server components could just be unidirectional. Approaches like changing configuration files by writing to the filesystem can therefor be feasible in some cases. Components that can vary in terms of their platform, have to communicate to other components via <em>HTTPS</em>.</p>
 <p>The architecture implicitly distinguishes between two different groups of endpoints. These endpoints that are made available by the <em>web server</em>, which reverse-proxys incoming connections to role-related (operator* or data consumer) components. Starting from that, this separation can be driven further by simply encapsulating those components into services, that either are related to one of the roles or used by both. This basically results in the <em>web server</em> communicating with the two role-grouped services in a bidirectional manner. The group of endpoints for <em>data consumers</em> mainly consists of those through witch <em>access requests</em> and <em>permission requests</em> are coming in and the public one, that is used for when consumers apply for registration. The other one is a small group of endpoints required for all tools the <em>operator</em> might need; from data API or notification to authentication and web-based user interface.</p>
 <p>Considering the rapid growth of emerging website and applications, which all require user registration, users are getting tired of creating new accounts. Hence they tend to reuse their password(s). Providers started outsourcing that sensitive topic of user management by integrating third party authentication services, which not only makes that feature almost effortless to implement, but also leaves the responsibility as well as the accessibility to those service owners. Whereas users get the benefit of just using one account for all their apps - a universal key so to say, but only one exemplar. So the downside here is, in reality only a handful of third parties <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">143</a>]</span> provide those authentication services.<br />
 OpenID is designed with a very specific type of scenarios in mind, namely the one just described - bringing decentralisation to the market of authentication services - which differs from the ones addressed by the <em>PDaaS</em>; at least, when it comes to <em>data consumer</em> interactions. Even though, the <em>PDaaS</em> has the ability to become the digital representation of it’s <em>operator</em>. Hence it can and also should be used to authenticate that individual against external parties.</p>
-<p><em><strong>Conclusions:</strong></em> Considering the amount of effort a single-platform composition, namely <em>desktop</em> or <em>mobile</em>, would take to get fully operational with respect to the specification, it is not only reasonable but also more secure to involve a server platform with proper security measures, static IP and high availability. Even if that server is a local machine connected to the operator’s private network. That said, it is sufficient to start with the <em>monolithic</em> approach and as suitable mobile applications emerge that are supporting major administration features, notifications and <em>personal data storage</em>, it should be possible to migrate effortlessly towards the <em>distributed</em> approach that brings a higher level of confidence, because all the sensitive personal data is not on some computer machine somewhere on the internet, but right in the hands of its owner. By the proposed architecture, all components (or groups of components) are portable and therefore relocatable among the suggested platforms; and with the introduced authentication methods for operators multiple front ends for the same <em>PDaaS</em> are thereby supported and can be implemented with almost no effort, and that again covers more use cases. As a supplement, an <em>identity provider</em> based on the OpenID standard would fit nicely into the existing arrangement and does not interfere with the other components. However, it is beyond the scope of this work to elaborate on this topic. For now it is stated as a feasible and logical addition to the <em>PDaaS</em>.</p>
+<p><em><strong>Conclusions:</strong></em> Considering the amount of effort a single-platform composition, namely <em>desktop</em> or <em>mobile</em>, would take to get fully operational with respect to the specification, it is not only reasonable but also more secure to involve a server platform with proper security measures, static IP and high availability. Even if that server is a local machine connected to the operator’s private network. That said, it is sufficient to start with the <em>centralized</em> approach and as suitable mobile applications emerge that are supporting major administration features, notifications and <em>personal data storage</em>, it should be possible to migrate effortlessly towards the <em>distributed</em> approach that brings a higher level of confidence, because all the sensitive personal data is not on some computer machine somewhere on the internet, but right in the hands of its owner. By the proposed architecture, all components (or groups of components) are portable and therefore relocatable among the suggested platforms; and with the introduced authentication methods for operators multiple front ends for the same <em>PDaaS</em> are thereby supported and can be implemented with almost no effort, and that again covers more use cases. As a supplement, an <em>identity provider</em> based on the OpenID standard would fit nicely into the existing arrangement and does not interfere with the other components. However, it is beyond the scope of this work to elaborate on this topic. For now it is stated as a feasible and logical addition to the <em>PDaaS</em>.</p>
 </section>
 <section id="environment-and-setup" class="level2">
 <h2><span class="header-section-number">6.7</span> Environment and Setup</h2>
@@ -1312,7 +1312,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <section id="notation-and-conventions" class="level3 unnumbered">
 <h3>Notation and Conventions</h3>
 <p>The requirements notation used in this document originates in the <a href="https://tools.ietf.org/html/rfc2119">RFC 2119</a> and shall be interpreted as described in there. This applies to the following keywords, recognizable through capital letters: MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and OPTIONAL.</p>
-<p>Values and words presented in a <code>fixed-width font</code> need to be understood as names and must therefore be used as is.</p>
+<p>Values and words presented in a <code>fixed-width font</code> need to be understood as names and must therefore be used as is. If one of those starts with a <code>$</code> (Dollar) character, a variable is indicated, which means for implementations, this variable has to be replaced with the actual value.</p>
 <p>Lists that are numbered outline its given order, which must therefore be followed. Lists that start with a character (upper or lower case) have no claim to its order. Their items are inclusive (logical <em>and</em>), while bullet list items are exclusive (logical <em>or</em>).</p>
 </section>
 <section id="terminology" class="level3 unnumbered">
@@ -1653,12 +1653,12 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 
     listen 4223 ssl http2;
     listen [::]:4223 ssl http2 ipv6only=on;
-    
+
     ssl_trusted_certificate /path/to/public-ca.tld.crt.pem;
     ssl_certificate         /path/to/gui.system.tld.crt.pem;
     ssl_certificate_key     /path/to/gui.system.tld.key.pem;
     ssl_dhparam             /path/to/gui.system.tld.dhp.pem;
-    
+
     ssl_prefer_server_ciphers on;
     ssl_protocols TLSv1.2;
     ssl_ciphers &#39;ECDHE-ECDSA-AES256-GCM-SHA384:
@@ -1670,7 +1670,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 5m;
-    
+
     add_header Strict-Transport-Security &quot;max-age=15768000&quot; always;
     add_header Content-Security-Policy &quot;default-src &#39;self&#39;&quot;;
 }</code></pre></td></tr></table></div>
@@ -1714,27 +1714,27 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 36
 </pre></td><td class="sourceCode"><pre><code class="sourceCode">server {
     server_name CONSUMER_ID.system.tld;
-    
+
     listen 80;
     listen [::]:80 ipv6only=on;
-    
+
     return 403;
 }
 
 server {
     server_name CONSUMER_ID.system.tld;
-    
+
     listen 443 ssl http2;
     listen [::]:443 ssl http2 ipv6only=on;
-    
+
     ssl_trusted_certificate /path/to/system.tld.crt.pem;
     ssl_certificate         /path/to/CONSUMER_ID.system.tld.crt.pem;
     ssl_certificate_key     /path/to/CONSUMER_ID.system.tld.key.pem;
     ssl_dhparam             /path/to/CONSUMER_ID.system.tld.dhp.pem;
-    
+
     ssl_verify_client on;
     ssl_client_certificate  /path/to/CONSUMER_ID.crt.pem;
-    
+
     ssl_prefer_server_ciphers on;
     ssl_protocols TLSv1.2;
     ssl_ciphers &#39;ECDHE-ECDSA-AES256-GCM-SHA384:
@@ -1743,9 +1743,9 @@ server {
         ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:
         ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:
         ECDHE-RSA-AES128-SHA256&#39;;
-    
+
     ssl_session_cache off;
-    
+
     add_header Strict-Transport-Security &quot;max-age=15768000&quot; always;
 }</code></pre></td></tr></table></div>
 </section>
@@ -1759,7 +1759,8 @@ server {
 </section>
 <section id="json-web-token-jwt" class="level5">
 <h5><span class="header-section-number">7.4.1.0.2</span> JSON Web Token (JWT)</h5>
-<p>When using JWT, <code>{&quot;alg&quot;:&quot;none&quot;}</code> as header MUST NOT be used. A JWT MAY be encrypted (JWE). If the operator fails to connect to the system before the token’s expiration date has been exceeded, the operator is REQUIRED to login again. The token MUST be renewed, but at least after half of the period of validity has been reached. JWTs MUST be created and verified by the <em>Operator API</em>. The secrets and keys for that purpose are stored in the <em>Persistence Layer</em>. Signature validation MAY get performed by the <em>Web server</em>.</p>
+<p>When creating a JWT, the <code>&quot;alg&quot;</code> in the header MUST NOT be set to <code>&quot;none&quot;</code>. A JWT MAY be encrypted (JWE). JWTs MUST be created by the <em>Operator API</em>. Validation MAY be performed by <em>Operator API</em> or <em>Web server</em>. Secrets and keys for that purpose are stored in the <em>Persistence Layer</em>. As long as the token is not encrypted, every token MUST associate its own secret key for the HMAC computation.</p>
+<p>When authenticating, the JWT MUST be provided either as HTTP header (<code>Authorization: Bearer $JWT</code>) or as a query parameter indicated by the key <code>t</code>. If the operator fails to connect to the system before the token’s expiration date has been exceeded, the operator is REQUIRED to login again. The token MUST be renewed, but at least after half of the period of validity has been reached. The period, in which the token is valid, SHOULD be 24 hours but MUST NOT exceed 48 hours.</p>
 <p>The following claims are REQUIRED:</p>
 <ul>
 <li><code>&quot;iss&quot;</code> (Issuer) - domain from which the front end component obtains its data</li>
@@ -1780,26 +1781,27 @@ server {
 </section>
 <section id="system-architecture" class="level3">
 <h3><span class="header-section-number">7.4.2</span> System Architecture</h3>
-<ul>
-<li>distributed approach: location of PDS</li>
-<li>Containerization</li>
-</ul>
+<p>The centralized version of the system architecture places every component into the server platform, Even the web-based management tool, which later is fetched onto a front end platforms, initially is stored there. This means, all the operator’s personal data is located somewhere in the ‘cloud’, probably out of reach, and potentially vulnerable to unauthorized access. Whereas the distributed approach allows for example to re-locate the <em>Personal Data Store</em> component to a mobile platform, that might as well be used by the operator to manage the system. The general approach of a more distributed deployment of components SHOULD reduce the vulnerability to certain scenarios and make it harder for entities to compromise (parts of) the system. As long as all requirements are met and every component is completely functional as well as the system as a whole, any component MAY be located on whatever platform is sufficient.</p>
+<p>A second approach to gain not only portability, but also to increase the overall level of security is isolate components [and their process(es)] from the surrounding platform environment. This enables explicit and controlled allocation of resources such as memory, CPU usage or network and filesystem access. This concept MUST be implemented by either using the process isolation features provided by the host environment, namely <em>cgroups</em> and <em>systemd-nspawn</em>, or by putting components into application containers. The latter is RECOMMENDED and MUST respect all <em>Open Container</em> Specifications. An orchestration software MAY be utilized to manage all containers.</p>
 </section>
-<section id="supervised-code-execution" class="level3">
-<h3><span class="header-section-number">7.4.3</span> Supervised Code Execution</h3>
-<ul>
-<li>no shared filesystem, no network</li>
-</ul>
+<section id="supervised-code-execution-sce" class="level3">
+<h3><span class="header-section-number">7.4.3</span> Supervised Code Execution <em>(SCE)</em></h3>
+<p>When running programs on the server platform provided by consumers, it is REQUIRED to only execute them after putting them into an application container (as referred to in <a href="#system-architecture">System Architecture</a>). This implies to first provision the container and then invoke it by providing the requested data points as parameters. The container MUST NOT be allowed to access the host’s filesystem or network. Before running the container with the actual data, it MUST be executed several times with generated test data. If the program is provided as source code, it MUST automatically be inspected and reviewed. If one of those test layers result insufficiently, processing the access request MUST abort and MUST return with a failure information.</p>
 </section>
 <section id="system-monitoring" class="level3">
 <h3><span class="header-section-number">7.4.4</span> System Monitoring</h3>
+<p>The <em>Tracker</em> component MUST ensure that the following information get persisted <em>(required fields for those information are defined in <a href="#data-and-types">Data and Types</a>)</em>:</p>
 <ul>
-<li>pattern recognition &amp; anomaly detection for access requests (e.g. check if request come constantly from the same IP)
-<ul>
-<li>does it matter from what origin the data request was made? how to check that? is the requester’s server domain in the http header? eventually there is no way to check that, so me might need to go with request logging and trying to detect abnormal behaviour/occurrence with a learning artificial intelligence</li>
-</ul></li>
-<li>spam protection</li>
+<li>Access Requests, regardless of its success</li>
+<li>failed access verifications</li>
+<li>Registrations of consumers, regardless of its success</li>
+<li>results of operator verifications</li>
+<li>Permission Profile creation, manipulation and deletion</li>
+<li>supervised code execution, regardless of its success</li>
+<li>any other request attempt reaching the web server</li>
+<li>used server resources</li>
 </ul>
+<p>To make sure, that these data is collected, other components MUST provide the <em>Tracker</em> with such information. Therefore, components such as <em>Operator API</em>, <em>Permission Manager</em> and <em>Web server</em>, MUST push the information towards the <em>Tracker</em>. By performing pattern recognition &amp; anomaly detection, the <em>Tracker</em> is then able to recognize abnormal behaviour/occurrence, for example by monitoring the IP of an access request origin, which normally should not change very often. Such data MAY also help to prevent spam requests. If the <em>Tracker</em> finds suspicious patterns, the operator MUST be notified via email and push notification.</p>
 </section>
 </section>
 <section id="protocols" class="level2">
@@ -1917,9 +1919,29 @@ server {
 </ul>
 <section id="structure-types" class="level3">
 <h3><span class="header-section-number">7.6.2</span> Structure &amp; Types</h3>
+<p><em>NOTICE: required fields are implicit and therefore not marked as such, but any other notation is explicit</em></p>
 <ul>
 <li>henceforth only two things: primitive and struct</li>
-<li>supported date types</li>
+<li><p>supported date types</p></li>
+<li>Tracker:
+<ul>
+<li>access-request
+<ul>
+<li><code>tsin: Number</code> - timestamp of occurrence</li>
+<li><code>tsout: Number</code> - timestamp of response</li>
+<li><code>type: String</code> - access type (<code>sce</code>,<code>cp</code>)</li>
+<li><code>query: String</code> - data query</li>
+<li><code>state: String</code> - current state of proceeding</li>
+<li><code>endpoint: String</code> - endpoint on which the request came in</li>
+<li><code>header: String</code> - consumer’s HTTP header</li>
+<li><code>result</code>: result of SCE [OPTIONAL]</li>
+</ul></li>
+<li>access-validation
+<ul>
+<li><code>access-request: String</code> - reference to access request</li>
+<li><code>reason: String</code> - why has the verification failed</li>
+</ul></li>
+</ul></li>
 </ul>
 </section>
 <section id="read" class="level3">
@@ -2099,6 +2121,7 @@ server {
 </ul></li>
 <li><p>what about token stealing when using jwt?</p></li>
 <li><p>future work: add/activate an intrusion detection system</p></li>
+<li><p>PDS is on mobile platform and server platform is corrupted: storage connector must queue requests and regularly provide the server with a JWT, triggered by the operator when interacting with the mobile app.</p></li>
 </ul>
 </section>
 <section id="future-work" class="level2">
@@ -2164,7 +2187,7 @@ PREFIX person: &lt;http://pdaas.tld/schemas/person&gt;
 }
 
 
-# <span class="kw">query</span> <span class="dv">2</span>: obtain <span class="kw">all</span> bank accounts that are available <span class="kw">for</span> 
+# <span class="kw">query</span> <span class="dv">2</span>: obtain <span class="kw">all</span> bank accounts that are available <span class="kw">for</span>
 # <span class="kw">online</span> payment
 PREFIX bank-account: &lt;http://pdaas.tld/schemas/bank-account&gt;
 
@@ -2173,7 +2196,7 @@ PREFIX bank-account: &lt;http://pdaas.tld/schemas/bank-account&gt;
 <span class="kw">WHERE</span> {
     $bank-account bank-account<span class="ch">:payment</span>-method <span class="ot">&quot;online-service&quot;</span> .
     $bank-account bank-account<span class="ch">:payment</span>-method $paymentMethod .
-    $bank-account bank-account<span class="ch">:account</span>-id $accountId . 
+    $bank-account bank-account<span class="ch">:account</span>-id $accountId .
     $bank-account bank-account<span class="ch">:bank</span>-name $bankName .
 }</code></pre></td></tr></table></div>
 
@@ -2327,7 +2350,7 @@ query <span class="op">{</span>
 13
 </pre></td><td class="sourceCode"><pre><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;profile&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-        <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;Jane&quot;</span><span class="fu">,</span> 
+        <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;Jane&quot;</span><span class="fu">,</span>
         <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="st">&quot;Doe&quot;</span>
     <span class="fu">},</span>
     <span class="dt">&quot;bankAccounts&quot;</span><span class="fu">:</span> <span class="ot">[</span>

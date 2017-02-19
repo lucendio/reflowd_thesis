@@ -5,7 +5,7 @@
 By taking all requirements as well as previous sections, their and discussions into account, this 
 section has the purpose of figuring out how all the different concepts and conclusions from this 
 chapter can fit together in an overall system architecture that is organized in either a distributed 
-or a monolithic manner. The outcome of this section should not impact results or conclusions from 
+or a centralized manner. The outcome of this section should not impact results or conclusions from 
 other topics related to the behave of the system's interfaces from a user point of view. 
 
 The foundation of this project is a server-client Architecture, which is chosen for (A) providing 
@@ -261,17 +261,17 @@ __User Interface__
 
 After outlining all different components while keeping the aspect of portability ([S.A.02](#sa02))
 in mind, it becomes apparent which arrangements make sense and what variations might be possible.
-As a result, two, more or less, distinct designs are proposed. One is a rather monolithic approach 
+As a result, two, more or less, distinct designs are proposed. One is a rather centralized approach 
 and the other involve more platform types and outlines a certain flexibility.
 
 
-![PDaaS Architecture, monolithic composition](./assets/figures/pdaas_component-composition_monolithic.png){#fig:composition-monolithic}
+![PDaaS Architecture, centralized composition](./assets/figures/pdaas_component-composition_centralized.png){#fig:composition-centralized}
 
 ![PDaaS Architecture, distributed composition](./assets/figures/pdaas_component-composition_distributed.png){#fig:composition-distributed}
 
 
 The main difference between the two compositions is the non-existence of the mobile platform in the 
-monolithic approach (Figure @fig:composition-monolithic). Although *monolithic* only refers to the 
+centralized approach (Figure @fig:composition-centralized). Although *centralized* only refers to the 
 components arrangement on a *server* platform, originally consisting of in a single process that 
 contains all components and is thus is responsible for every task. 
 It is also imaginable that all server components not necessarily have to be placed into one server 
@@ -288,7 +288,7 @@ therefore full control over the *PDaaS*. It still would still raise security con
 
 Aside from providing the *operator* with a non-stationary and instantly accessible interface to her 
 *PDaaS*, involving a *mobile platform* primarily has the purpose of enabling the *data subject* to 
-carry all her sensitive data along. This is considered a major advantage over the monolithic 
+carry all her sensitive data along. This is considered a major advantage over the centralized 
 approach, were all the personal data is located in the *'cloud'*. Depending on the perspective, it 
 can either be seen as a *singe source of truth* or a *single point of failure*. Regardless of that, 
 it introduces the demand of a backup or some redundancy concept, which has briefly been touched on 
@@ -337,7 +337,7 @@ Whereas users get the benefit of just using one account for all their apps - a u
 say, but only one exemplar. So the downside here is, in reality only a handful of third parties 
 [@web_2009-success-of-facebook-connect] provide those authentication services.  
 OpenID is designed with a very specific type of scenarios in mind, namely the one just described - 
-bringing decentralisation to the market of authentication services - which differs from the ones 
+bringing decentralization to the market of authentication services - which differs from the ones 
 addressed by the *PDaaS*; at least, when it comes to *data consumer* interactions. Even though, the 
 *PDaaS* has the ability to become the digital representation of it's *operator*. Hence it can and 
 also should be used to authenticate that individual against external parties.  
@@ -349,7 +349,7 @@ Considering the amount of effort a single-platform composition, namely *desktop*
 take to get fully operational with respect to the specification, it is not only reasonable but also 
 more secure to involve a server platform with proper security measures, static IP and high
 availability. Even if that server is a local machine connected to the operator's private network. 
-That said, it is sufficient to start with the *monolithic* approach and as suitable mobile 
+That said, it is sufficient to start with the *centralized* approach and as suitable mobile 
 applications emerge that are supporting major administration features, notifications and 
 *personal data storage*, it should be possible to migrate effortlessly towards the *distributed* 
 approach that brings a higher level of confidence, because all the sensitive personal data is not on 

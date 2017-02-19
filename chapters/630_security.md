@@ -10,26 +10,25 @@ or vulnerabilities emerging in the future.
 
 ### Transport {-}
 
-All communications from and towards the system as well as internal communication between components 
+All communication from and towards the system as well as internal communication between components 
 located on different platforms MUST be established with *HTTP over TLS*. Thus, external third 
 parties are only allowed to communicate with the system on port `443`, whereas internal 
 communication runs through port `4223`. Port `80` MUST return HTTP Error `403 Forbidden` and all 
-other ports SHOULD be blocked.
+other ports SHOULD be dropped or blocked.
 
-The key-pair used in TLS to agree on a mutual symmetric key, MUST be based on either the *RSA* or 
-*DSA* cipher suite, although *RSA* SHOULD be preferred over *DSA*. All created keys MUST have a 
-length of at least `4096` bits. The Ciphers for TLS, that support *Perfect Forward Secrecy* SHOULD 
-be preferred, but ciphers not supported by `TLSv1.2` MUST be avoided. Evey endpoint and all other 
+The key-pair, used in TLS to agree on a mutual symmetric key, MUST be based on either the *RSA* or 
+*DSA* cipher suite, although *RSA* SHOULD be preferred. All created keys MUST have a length of at 
+least `4096` bits. Those ciphers for TLS, that support *Perfect Forward Secrecy* SHOULD be 
+preferred, but ciphers that are not supported by `TLSv1.2` MUST be avoided. All endpoint and other 
 dedicated entry points MUST provide their own generated Diffie-Hellman groups with a minimal length 
 of `4096` bits.
 
 For web-based GUIs *TLS session resumption* SHOULD be activated, but for *endpoints* it MUST be 
 deactivated. Web-based GUIs MUST NOT depend on external resources. All involved assets MUST be 
-stored in the system and thus get served by the *web server* as well. This required behaviour is 
-enforced by utilizing the *Content Security Policy (CSP)* in HTTP headers. The *web server* MUST 
-facilitate a web socket connection fFor web-based GUIs. If a browser does not support those 
-natively, a fallback SHALL be provided by the GUI. Furthermore, those GUIs SHOULD be served with 
-HTTP/2.
+stored in the system and thus get served by the *web server*. This required behaviour is enforced by 
+setting the *Content Security Policy (CSP)* in HTTP headers. The *web server* MUST facilitate a web 
+socket connection for web-based GUIs. If a browser does not support this natively, a fallback SHALL 
+be provided by the GUI. Furthermore, those GUIs SHOULD be served with HTTP/2.
 
 The subsequent examples show two Nginx configuration for the *web server*, implementing the previous 
 specifications.
@@ -111,7 +110,7 @@ server {
 
 The following two authentication technologies MUST be supported by the system. 2-Factor 
 authentication as an enhancement of the operator authentication procedure is OPTIONAL and can be 
-implemented either by email or if a mobile platform is part of the system.
+implemented either by email or with a mobile platform, if it is part of the system.
 
 
 ##### Transport Layer Security
@@ -127,26 +126,30 @@ consumer on a secure channel, which the consumer is responsible to provide (e.g.
 certified by trusted public CA, or by a self-signed certificate provided with the registration). 
 
 In order to use TLS for bidirectional authentication, not only the client (consumer) MUST be able to 
-verify the server's (system) certificate, also the server MUST do the same for the client. This 
+verify the server's (endpoint) certificate, also the server MUST do the same for the consumer. This 
 procedure is known as *two-way authentication*, which is part of the TLS connection establishing.
-If the connection failed to establish the authentications has failed, and vice versa the consumer
-has successfully authenticated to the system.
+If the connection failed to establish, the authentications has failed, and vice versa has the 
+consumer successfully authenticated to the system.
 
 
 ##### JSON Web Token (JWT)
 
-When using JWT, `{"alg":"none"}` as header MUST NOT be used. A JWT MAY be encrypted (JWE). If the 
-operator fails to connect to the system before the token's expiration date has been exceeded, the 
-operator is REQUIRED to login again. The token MUST be renewed, but at least after half of the 
-period of validity has been reached. JWTs MUST be created and verified by the *Operator API*. The 
-secrets and keys for that purpose are stored in the *Persistence Layer*. Signature validation MAY 
-get performed by the *Web server*.
+When creating a JWT, the `"alg"` in the header MUST NOT be set to `"none"`. A JWT MAY be encrypted 
+(JWE). JWTs MUST be created by the *Operator API*. Validation MAY be performed by *Operator API* or
+*Web server*. Secrets and keys for that purpose are stored in the *Persistence Layer*. As long as 
+the token is not encrypted, every token MUST associate its own secret key for the HMAC computation.
+
+When authenticating, the JWT MUST be provided either as HTTP header (`Authorization: Bearer $JWT`)
+or as a query parameter indicated by the key `t`. If the operator fails to connect to the system 
+before the token's expiration date has been exceeded, the operator is REQUIRED to login again. The 
+token MUST be renewed, but at least after half of the validity period is reached. The period, in 
+which the token is valid, SHOULD be 24 hours but MUST NOT exceed 48 hours.
 
 The following claims are REQUIRED:
 
 +   `"iss"` (Issuer) - domain from which the front end component obtains its data
 +   `"sub"` (Subject) - front end platform name; MUST be system-wide unique
-+   `"aud"` (Audience) - `"operator"` or `"contributor"` 
++   `"aud"` (Audience) - `"operator"` or `"contributor"`
 +   `"exp"` (Expiration Time)
 +   `"iat"` (Issued At)
 +   `"jti"` (JWT ID)
@@ -162,20 +165,59 @@ One of the following algorithms is REQUIRED (for the `"alg"` header):
 
 ### System Architecture
 
-+   distributed approach: location of PDS
-+   Containerization
+The centralized version of the system architecture places every component into the server platform. 
+Even the web-based management tool, which later is fetched onto front end platforms, initially is 
+stored there. This means, all the operator's personal data is located somewhere in the 'cloud', 
+probably out of reach, and potentially vulnerable to unauthorized access. Whereas the distributed 
+approach allows for example to re-locate the *Personal Data Store* component to a mobile platform,
+which as well might be used by the operator to manage the system. The general approach of a more 
+distributed deployment of components SHOULD reduces the vulnerability for certain scenarios and 
+makes it harder for entities to compromise (parts of) the system. 
+As long as all requirements are met and every component is completely functional and thus the system 
+as a whole, any component MAY be located on whatever platform is sufficient.
+
+A second approach to gain not only portability, but also to increase the overall level of 
+security is to isolate components [and their process(es)] from the surrounding platform environment. 
+This enables explicit and controlled allocation of resources, such as memory, CPU usage or network
+and filesystem access. This concept MUST be implemented by either using the process isolation 
+features provided by the host environment, namely *cgroups*, *namespaces* and *systemd-nspawn*, or 
+by putting components into application containers. The latter is RECOMMENDED and MUST respect all 
+*Open Container* Specifications. An orchestration software MAY be useful to manage all containers. 
 
 
-### Supervised Code Execution
 
--   no shared filesystem, no network
+### Supervised Code Execution *(SCE)*
+
+When running programs on the server platform provided by consumers, it is REQUIRED to solely execute 
+them after putting them into an application container (see 
+[System Architecture](#system-architecture)). This implies to provision the container first and then 
+invoke it by providing the requested data points as arguments. The container MUST NOT be allowed to 
+access the host's filesystem or network. Before running the container with the actual data, it MUST
+be executed several times with generated test data. If the program is provided as source code, it
+MUST be automatically inspected and reviewed. If one of those test layers result insufficiently, 
+processing the access request MUST abort and return with a failure information.
+
 
 
 ### System Monitoring
 
-+   pattern recognition & anomaly detection for access requests (e.g. check if request come constantly from the same IP)
-    -   does it matter from what origin the data request was made? how to check that? is the 
-        requester's server domain in the http header?
-        eventually there is no way to check that, so me might need to go with request logging and
-        trying to detect abnormal behaviour/occurrence with a learning artificial intelligence
-+   spam protection 
+The *Tracker* component MUST ensure that the following information are being persisted *(required 
+fields for those information are defined in [Data and Types](#data-and-types))*:
+
++   Access Requests (regardless of its success)
++   failed Access Verifications
++   Registrations of consumers (regardless of its success)
++   Results of operator Authentications
++   Permission Profile creation, manipulation and deletion
++   SCE (regardless of its success)
++   any third party request attempt arriving at the web server
++   Server Resources (continually)
+ 
+To make sure, that these data is collected, other components MUST provide the *Tracker* with such 
+information. Therefore, components such as *Operator API*, *Permission Manager* and *Web server*, 
+MUST push information towards the *Tracker*. 
+By performing pattern recognition & anomaly detection, the *Tracker* is then able to recognize 
+abnormal behaviour or occurrence, for example by monitoring the IP of an access request origin, 
+which normally should not change very often. Such data MAY also help to prevent spam requests. If 
+the *Tracker* finds suspicious patterns, the operator MUST be notified via email and push 
+notification.   

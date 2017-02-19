@@ -25,8 +25,25 @@
 
 ### Structure & Types
 
+*NOTICE: required fields are implicit and therefore not marked as such, but any other notation is 
+explicit*
+
 +   henceforth only two things: primitive and struct
 +   supported date types
+
++   Tracker:
+    -   access-request
+        -   `tsin: Number` - timestamp of occurrence
+        -   `tsout: Number` - timestamp of response
+        -   `type: String` - access type (`sce`,`cp`)
+        -   `query: String` - data query
+        -   `state: String` - current state of proceeding
+        -   `endpoint: String` - endpoint on which the request came in
+        -   `header: String` - consumer's HTTP header
+        -   `result`: result of SCE [OPTIONAL]
+    -   access-validation
+        -   `access-request: String` - reference to access request
+        -   `reason: String` - why has the verification failed  
 
 ### Read
 
@@ -34,6 +51,7 @@
     +   type
     +   how often
     +   what data
+    +   expiration of the data (in case of plain fwd)
 
 ### Write
 

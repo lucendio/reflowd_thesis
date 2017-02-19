@@ -49,6 +49,7 @@ __Access Request__
     otherwise the response contains a URI unique to this current request including an estimation
     when response will be available under that URI; connection can still timeout, which is defined 
     by the system
++   in case of plain forwarding, add an expiration date
 +   `https://example-consumer.pdaas.tld/ar`
 
 ``` {.json .numberLines}
@@ -58,3 +59,11 @@ __Access Request__
 ```
 *Requirements:*
 -   query has to match exactly one corresponding *permission profile*
+
+
+*Response*
+``` {.json .numberLines}
+{
+    "expiresAt": Date
+}
+```
