@@ -117,7 +117,7 @@ order to function independently so that only invited parties can be involved.
 Referring to the statement mentioned above, *data consumers* also have to be able to verify the 
 identity of the *PDaaS*, in order to prevent man-in-the-middle attacks. Addressing this issue 
 basically means, *data consumers* have to verify the certificate presented by the *PDaaS*. This can
-be done in two ways. One is a certificate having been installed on the *PDaaS* that is certified and 
+be done in two ways. One way is by a certificate having been installed on the *PDaaS* that is certified and 
 therefore trusted by a trustworthy public CA, as mentioned above. Then *consumers* use the CA's 
 certificate to verify the *PDaaS* certificate. The other way is to let the *PDaaS* create and sign 
 a public key by itself. Before *consumers* are presented with the self-signed certificate of the 
