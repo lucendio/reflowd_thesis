@@ -98,7 +98,7 @@ all of them
     -   but considering what data users already put into their 
         social networks (or: thE social network: fb), they/it has already become a de facto data silo and is 
         thus a single point of failure. If that service breaks or get down, the data from all users might be
-        lost or worse (stolen). The aspect of data decentralisation achieved by individual data stores can 
+        lost or worse (stolen). The aspect of data decentralization achieved by individual data stores can 
         be valued as positive.
 
 +   what about token stealing when using jwt?

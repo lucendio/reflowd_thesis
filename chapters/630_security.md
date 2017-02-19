@@ -180,8 +180,8 @@ A second approach to gain not only portability, but also to increase the overall
 security is to isolate components [and their process(es)] from the surrounding platform environment. 
 This enables explicit and controlled allocation of resources, such as memory, CPU usage or network
 and filesystem access. This concept MUST be implemented by either using the process isolation 
-features provided by the host environment, namely *cgroups* and *systemd-nspawn*, or by putting 
-components into application containers. The latter is RECOMMENDED and MUST respect all 
+features provided by the host environment, namely *cgroups*, *namespaces* and *systemd-nspawn*, or 
+by putting components into application containers. The latter is RECOMMENDED and MUST respect all 
 *Open Container* Specifications. An orchestration software MAY be useful to manage all containers. 
 
 
