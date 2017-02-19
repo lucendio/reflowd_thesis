@@ -37,10 +37,9 @@ Without going into much details here, the syntax of the SPARQL query
 same time introduces additional external dependencies. Because the query language itself has no 
 concept of schemas or any kind of semantic, it needs to be made aware of them. SPARQL queries 
 typically return XML which then can be rendered into (HTML) tables. JSON and RDF are also supported.
-The reason for performing two queries in the example instead of just one, is, because otherwise the 
-result would have returned multiple 'rows' with redundant data, if more then one bank account would 
-have supported online payment; varyingly in those three columns data contain data about bank 
-accounts, but being identical in the fields related to the profile information, though.
+The reason for performing two queries in the example instead of just one is because the 
+result would otherwise have returned multiple 'rows' with redundant data if more then one bank account  
+supported online payment; the bank account data would be different, but the profile information would be repeated.
 
 Whereas the GraphQL query syntax ([Code 03](#code-03_graphql-query)) compared with its result 
 ([Code 04](#code-04_graphql-query-result)) shows of a remarkable resemblance. 
