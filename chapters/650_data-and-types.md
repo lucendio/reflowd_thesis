@@ -51,6 +51,7 @@ explicit*
     +   type
     +   how often
     +   what data
+    +   expiration of the data (in case of plain fwd)
 
 ### Write
 

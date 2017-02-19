@@ -86,8 +86,8 @@ cipher, so that, by priorly fetching the key from the *PDaaS*, the cipher can be
 within the invocation. Thus the data is made available to the wrapped software and only during 
 runtime. After the invocation has finished the program needs to propagate the results that are 
 returned by the software back to the outer environment.
-c) __Plain Forwarding [default]__; retrieve data from the storage, quick-checking the result and 
-forwarding it directly into response.
+c) __Plain Forwarding [default]__; retrieve data from the storage, quick-checking the result, adding 
+an expiration date and forwarding it directly into response.
 
 So, the data won't leave, unless the *PDaaS* doesn't support any of the proposed request types or the 
 *data consumer* provides no alternative, so that the fallback type must be applied. If that's the 
@@ -100,8 +100,8 @@ The concept of authorizing a data consumer to get the ability of accessing perso
 trivial. During (or after) the *registration* consumers have to provide detailed information about 
 their intentions, so that the operator is confident about their permissions when reviewing them. 
 The created *permission profile* reflects the result of that review. Such a permission profile 
-defines what data points are requested and eventually permitted to access, how often they can be 
-accessed and how long those permissions last. The latter is defined as *permission type* and is
+defines what data points are permitted to access, how often they can be accessed, how long those 
+permissions last and when responded data expires. The latter is defined as *permission type* and is
 either one of the following:
 
 *one-time-only*
