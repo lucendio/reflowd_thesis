@@ -67,7 +67,7 @@ Furthermore, the *always-on* philosophy has evolved to an imperative and implici
 Standalone software, installed on a personal computer, calls the vendor's infrastructure that is 
 located in the cloud on a regular basis, just to make sure that its user behaves properly while,
 en passant, the vendor is provided with detailed user statistics. The web-browser already invokes a 
-common narrative that requests happen here and there and are preventable. But when it comes to 
+common narrative that requests happen sporadically in the background, although they are preventable. But when it comes to 
 native mobile applications, it's almost impossible [@web_2016_answers-io] to notice such behaviour 
 or even prevent them from exposing potentially sensitive information. Those developments in 
 architecture design have enabled a system-wide collection of potentially useful information on a 
