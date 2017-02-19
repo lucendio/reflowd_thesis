@@ -218,8 +218,7 @@ sensitive parts as possible to existing implementations who have already proven 
 HTTPS is mandatory, which makes b) more suitable over a), because it's also more flexible and easier 
 to implement.
 Solution c) moves the complete authentication procedure to a different layer. Hence, it 
-results in separating authentication and authorization from each other, leaving no remains of 
-relation. This opens the authorization design up to other implementations that might 
+results in separating authentication and authorization from each other. This opens the authorization design up to other implementations that might 
 be more suitable for certain *data types*. In addition, it would require little effort to 
 support the case where multiple *data consumers* share the same *endpoint* and thereby the same 
 *permission profiles*.
@@ -233,8 +232,8 @@ endpoints, as c) states. So there is not much benefit in using OAuth, other than
 be familiar with the API. This can be addressed by a detailed specification for this 
 project, hence c) is preferred over b). 
 In the end, the only suitable use case from this work would consists of just a request that obtains 
-a token after authenticating with the provided credentials. And since OAuth only provides a 
-framework for how to authorize third parties to access external resources, but leaves the procedure 
+a token after authenticating with the provided credentials. OAuth only provides a 
+framework for how to authorize third parties to access external resources, leaving the procedure 
 of how to actually verify those access attempts up to its implementers 
 [@web_spec_oauth-1a_access-verification] [@web_spec_oauth-2_access-verification].
 In the context of this project OAuth does not comply with the rest of the design aspects.
@@ -256,9 +255,8 @@ program, *data consumers* either provide all dependencies so that everything is 
 provide any dependencies at all. The latter is preferred, because it reduces the amount of potentially 
 malicious, flawed, or needless components, so that the data subject, supported by her *PDaaS*, has 
 more supervising capabilities and thus more control over her personal data.
-Since the overall goal here is to prevent the data subject from losing control over her data, it 
-might also be conceivable, that certain categories of personal data, representing a higher level of 
-sensitivity, also require a least sufficient *request type*. If the data consumer does not comply, 
+Since the overall goal here is to prevent the data subject from losing control over her data, it is conceivable that certain categories of personal data, representing a higher level of 
+sensitivity, require a limited *access type*. If the data consumer does not comply, 
 access will be refused.
 Also, depending on which category the personal data relates to, the *PDaaS* might  
 somehow anonymize certain types of data, if it is even capable of doing so, because the *consumer* 
