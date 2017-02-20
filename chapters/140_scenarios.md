@@ -17,20 +17,19 @@ The data subject searches through the web to find a new toaster because her old 
 After some clicks and reviews, she finds her soon-to-become latest member of the household's 
 kitchenware. After putting the model name in a price search engine, hoping to save some money, the
 first entry, offering a 23% discount, catches her attention. She decides to have a deeper look into 
-the toasters, so she heads towards the original web shop entry. Finally she comes around 
-and puts the item onto her shopping cart, despite the fact that she never bought something from that 
-online shop before. Then she proceeds to checkout so that she can place her order.
-The shop-interface asks her to either insert her credentials, proceed without registration or 
-sign-in, or allow the shop to obtain all required data on its own by either scanning a QR-Code 
-displayed below or insert a URI to her *Personal Data as a Service*. She opens up the management 
-panel of her *PDaaS* in a new browser window and authenticates herself to the system. Afterwards she 
-creates a new entry in a list of *data consumers* who already get permitted to access certain 
-characteristics of her personal data. As a result, she gets prompted with a URI, which she inserts 
-as the shop interface requests her to do, only after she has convinced herself that the data 
-exchange with the shop is based on a secure connection (HTTPS). Moving on to the next step after 
-submitting the URI, the data subject is asked to decide how she would like to pay. The choices are: 
-credit card, invoice, online payment or bank transfer. She chooses the last one, submits her 
-selection and thereby completes the order process.
+the toasters, so she heads towards the original web shop entry. Finally she puts the item into her 
+shopping cart, despite the fact that she never bought something from that online shop before. Then 
+she proceeds to checkout so that she can place her order. The shop-interface asks her to either 
+insert her credentials, proceed without registration or sign-in, or allow the shop to obtain all 
+required data on its own by either scanning a QR-Code displayed below or insert a URI to her 
+*Personal Data as a Service*. She opens up the management panel of her *PDaaS* in a new browser 
+window and authenticates herself to the system. Afterwards she creates a new entry in a list of 
+*data consumers* who already get permitted to access certain characteristics of her personal data. 
+As a result, she gets prompted with a URI, which she inserts as the shop interface requests her to 
+do, only after she has convinced herself that the data exchange with the shop is based on a secure 
+connection (HTTPS). Moving on to the next step after submitting the URI, the data subject is asked 
+to decide how she would like to pay. The choices are: credit card, invoice, online payment or bank 
+transfer. She chooses the last one, submits her selection and thereby completes the order process.
 She goes back to the kitchen. After some time, a push notification appears on her mobile device. 
 The notification is about a *permission request* which has just arrived at her *PDaaS*, asking her 
 to grant permissions to the shop-system, where she earlier placed the order. The shop wants to 

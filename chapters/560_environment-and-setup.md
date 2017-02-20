@@ -19,7 +19,8 @@ that's a situation the user can change if necessary.
 
 As a result, being able to use certain components on a *server* platform depends on what *server* 
 environment is available and vice versa. In order to decide what implementation of a component is 
-suitable, it's crucial to know in which environment that component has to run. Either way, it is also important not to forget all the dependencies a component itself might have.
+suitable, it's crucial to know in which environment that component has to run. Either way, it is 
+also important not to forget all the dependencies a component itself might have.
 Such constraints can be avoided by abstracting the runtime of those components and either embed 
 every required software dependency or provide them in separate runtimes, if possible. 
 Depending on the used technologies, this concept is commonly known as *virtualization* or 
@@ -27,14 +28,14 @@ Depending on the used technologies, this concept is commonly known as *virtualiz
 those container-wrapped components still have to interact with each other, they need to be 
 supervised or at least managed. This is done by an orchestration software, which not only allocates 
 system resources but is also capable of emulating a whole network infrastructure (e.g. DNS, TCP/IP, 
-routing). Thereby, it is utilized to determine how certain containers (and their contained components) 
-are allowed to communicate and what resource are accessible from the inside (e.g. filesystem). This 
-complete abstraction to the surrounding environment effectively means it's the only dependency 
-the *PDaaS* would have, regardless of how its components are implemented. They just have to be 
-*'containerizable'* - by satisfying the *[container image specification](#def--container)* 
-[@web_oci-spec_image]. This concept can also be utilized for the 
-*[supervised code execution](#supervised-data-access)* ([S.A.01](#sa01)) mentioned before without 
-any restraints.
+routing). Thereby, it is utilized to determine how certain containers (and their contained 
+components) are allowed to communicate and what resource are accessible from the inside (e.g. 
+filesystem). This complete abstraction to the surrounding environment effectively means it's the 
+only dependency the *PDaaS* would have, regardless of how its components are implemented. They just 
+have to be *'containerizable'* - by satisfying the 
+*[container image specification](#def--container)* [@web_oci-spec_image]. This concept can also be 
+utilized for the *[supervised code execution](#supervised-data-access)* ([S.A.01](#sa01)) mentioned 
+before without any restraints.
  
 Migrating from a server-located *personal data storage* to a *mobile* based version introduces 
 another challenge. The subsequent approach is a first and more general solution to that problem.
@@ -45,25 +46,24 @@ modern mobile device and on this device a *PDaaS* mobile application is installe
 1.  After starting the app, the operator needs to establish a connection between server and mobile 
     application. Therefore, the operator has to scan a QR-Code with the help of that app. The 
     QR-Code is presented to the operator within the management tool of the *PDaaS* running in a 
-    browser. Alterntively, the operator inserts her credentials into a form presented by the mobile 
+    browser. Alternatively, the operator inserts her credentials into a form presented by the mobile 
     application.
 
-2.  After the connection is established, the operator can trigger a progress that duplicates
-    all her personal data to the device that has just been associated with the *PDaaS*.
+2.  After the connection is established, the operator can trigger a progress that duplicates all her 
+    personal data to the device that has just been associated with the *PDaaS*.
     
-3.  At this point, one of two ways path can follow, depending on whether a complete write log
-    for the *personal data* ([see discussion about backup strategies](#data) 
-    exists or not.
+3.  At this point, one of two ways path can follow, depending on whether a complete write log for 
+    the *personal data* ([see discussion about backup strategies](#data) exists or not.
     a)  If *[LOG-EXISTS]*, query by query the whole log is obtained from the existing storage and is
-        then again executed in chronological order by the query language abstraction, starting 
-        with the oldest. The only difference here is that the target storage, on which that query is 
+        then again executed in chronological order by the query language abstraction, starting with 
+        the oldest. The only difference here is that the target storage, on which that query is 
         actually performed on, is located on that newly introduced platform.
     b)  If *[LOG-NOT-EXISTS]*, the situation is more complicated if the database systems are not 
-        based on exactly the same technology. This would mean additional migration software is required. If 
-        both database systems provide import and export mechanisms that support at least one 
-        interoperable data format, the migration software can leverage these features simply by 
-        exporting all the data and saving it to the filesystem. The software then transfers the dump
-        to the target environment and triggers the import process.
+        based on exactly the same technology. This would mean additional migration software is 
+        required. If both database systems provide import and export mechanisms that support at 
+        least one interoperable data format, the migration software can leverage these features 
+        simply by exporting all the data and saving it to the filesystem. The software then 
+        transfers the dump to the target environment and triggers the import process.
         When this is not the case, the software not only needs to be aware of both database systems 
         and their native query language, it also has to have a comprehensive understanding of how 
         their data structuring concepts work, in order to reliably transform one into the another. 
@@ -90,14 +90,13 @@ Installing a *PDaaS* should be straightforward with the least possible effort be
 preparations. Package managers of all popular operating systems should offer (semi-)automated 
 installations. Additionally, components themselves and the project as whole have to provide detailed 
 documentations for various ways of how those parts or the entire system need to be installed.
-Alternatively, *data subjects* might be willing to entrust external third parties with hosting 
-a *PDaaS* instance for them. In that case, the distributed approach involving a *mobile* 
-platform might come in handy, so that the actual data is not stored somewhere beyond their reach.
+Alternatively, *data subjects* might be willing to entrust external third parties with hosting a 
+*PDaaS* instance for them. In that case, the distributed approach involving a *mobile* platform 
+might come in handy, so that the actual data is not stored somewhere beyond their reach.
 The *PDaaS* as an open source development encourages anybody who is interested or even wants to 
-contribute to checkout the source code of the various implementations, get it to run, and play around 
-with it. Therefore, at least the components of the *server* platform are required to 
-document what other software they depend on, so that the target environment can be prepared 
-properly.
+contribute to checkout the source code of the various implementations, get it to run, and play 
+around with it. Therefore, at least the components of the *server* platform are required to document 
+what other software they depend on, so that the target environment can be prepared properly.
 Aside from hardware, on which the *PDaaS* needs to run, the only other requirement is owning an
 internet domain that is registered on a public DNS [^abbr_dns] server and has no subdomains 
 configured yet.

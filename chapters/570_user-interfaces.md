@@ -18,15 +18,15 @@ interact with. Instead, the primary medium is text, regardless if it's human-rea
 But *command line interfaces (CLI)*, available mainly in command line environments or shells, still 
 provide a certain level of interactivity. A running program can pause in order to prompt the user 
 with an input request. If an input is made and submitted, the program then proceeds. The group of 
-interfaces whose interactions can be fully automated can be called *application programming 
-interfaces (API)*. Depending on the transport technologies, it's not unusual that *API* interactions 
-consist of just one action causing one reaction. 
+interfaces whose interactions can be fully automated can be called 
+*application programming interfaces (API)*. Depending on the transport technologies, it's not 
+unusual that *API* interactions consist of just one action causing one reaction. 
 Non-graphical interfaces enable interactions on a lower level. Even though they provide more 
 functionality and can be more time efficient, they are more rudimentary and often less secure.
 While *GUIs* are normally meant for end users to interact with applications on a more sophisticated 
 level, *CLIs* are used during development, for automation, or for server environment administration;
-probably remotely since they are typically headless. Whereas *APIs*, documented by their
-providers, enable software developers to program automated requests against those interfaces.
+probably remotely since they are typically headless. Whereas *APIs*, documented by their providers, 
+enable software developers to program automated requests against those interfaces.
 
 Table @tbl:ui-features provides a list of features and associates the different types of user 
 interfaces mentioned before, which indicates if they should be supported by a certain type. It is 
@@ -58,9 +58,9 @@ Table: Features that should be supported by the given user interfaces {#tbl:ui-f
 
 The architectural design includes *desktop* and *mobile* platforms. While prioritizing a web-based 
 *GUI*, the management tool for the *operator* also needs to be natively implemented for common 
-mobile systems ([P.VIU.02](#pviu02)); in this case Android and iOS. This enables
-real-time notifications ([P.I.03](#pi03), [P.B.02](#pb02)) on mobile platforms, whereas the same 
-feature is added to *desktop* platforms by providing WebSocket-based connections. 
+mobile systems ([P.VIU.02](#pviu02)); in this case Android and iOS. This enables real-time 
+notifications ([P.I.03](#pi03), [P.B.02](#pb02)) on mobile platforms, whereas the same feature is 
+added to *desktop* platforms by providing WebSocket-based connections. 
 Since screen sizes can vary - in particular on *mobile* platforms - the *GUI* is required to be 
 highly responsive and has to adapt ([P.VIU.01](#pviu01)) to various screen sizes. Given the 
 capabilities of the  management tool, an inaccurate or error-prone rendered *GUI* can quickly cause 
@@ -68,9 +68,10 @@ unintended incidents. Thus, the main focus must be to ensure a very robust and l
 rendering.
 
 Known challenges for the *GUI* design are primarily to develop very efficient, but also fun to use 
-interfaces for reviewing *consumer registrations* and *permission requests*. The latter
-can become especially hard to solve because of the problem of how to display graph-based and nested data structures in such a way that reviewing and also manipulating them is easy, even on the small screen of a 
-mobile phone? One approach could be to utilize the *accordion* pattern 
+interfaces for reviewing *consumer registrations* and *permission requests*. The latter can become 
+especially hard to solve because of the problem of how to display graph-based and nested data 
+structures in such a way that reviewing and also manipulating them is easy, even on the small screen 
+of a mobile phone? One approach could be to utilize the *accordion* pattern 
 [@web_2016_wikipedia_accordion-gui] for edges and start nesting them in order to represent 
 subsequent data structure. The interaction then might look like tree-structured navigation; moving
 alongside relations just by expanding and folding in data points. 
@@ -80,26 +81,26 @@ precision of data due to privacy protection, the challenge here is to find the r
 for the data subject to facilitate those adjustments. 
 Precision adjustments can be achieved by either changing the sampling rate in a dataset containing a 
 series of data points, or by rounding values to a certain extent. Examples are cutting fractional 
-digits of the latitude and longitude values in a position, or removing all position 
-information obtained between every quarter from a full day tracking period. Whether data subjects 
-can choose from an abstracted precision grading (e.g. *high*, *mid*, and *low*) or they set specific 
-type or unit related filter mechanisms, configurable defaults on a system-wide level should be 
-provided by *GUIs* in any case. The following data types are supposedly vulnerable to compromising 
-privacy, thus proposed to support precision adjustments: *Date* (time), any kind of absolute 
-measurements, sets containing data series, and position information, as mentioned before.
+digits of the latitude and longitude values in a position, or removing all position information 
+obtained between every quarter from a full day tracking period. Whether data subjects can choose 
+from an abstracted precision grading (e.g. *high*, *mid*, and *low*) or they set specific type or 
+unit related filter mechanisms, configurable defaults on a system-wide level should be provided by 
+*GUIs* in any case. The following data types are supposedly vulnerable to compromising privacy, thus 
+proposed to support precision adjustments: *Date* (time), any kind of absolute measurements, sets 
+containing data series, and position information, as mentioned before.
 
 
 
 *__Conclusions:__*
 The most important aspect, when interacting with something or someone, is being provided with 
-feedback. An action typically causes - and is therefore *expected* to cause - a reaction. The result is
-an interaction, unless no reaction occurred. 
+feedback. An action typically causes - and is therefore *expected* to cause - a reaction. The result 
+is an interaction, unless no reaction occurred. 
 
 The discussion above outlines the relevance of those interactions for the *PDaaS*. Thus, for users 
 and other software to interact with the *PDaaS* interfaces are mandatory. Primary characteristics of 
 those interfaces are complete functionality, security precautions and restrictions, as well as 
-comprehensive documentation. Visual user interfaces also need to provide reliable and 
-adaptive rendering, a consistent and encouraging interaction design.
+comprehensive documentation. Visual user interfaces also need to provide reliable and adaptive 
+rendering, a consistent and encouraging interaction design.
 *GUIs* need to be provided for all *desktop* and *mobile* platforms, primarily to provide an 
 efficient user experience for the operator. The operator is the only role with permissions to access 
 a *GUI*. Components on the *server* platform should provide *CLIs*, at least when no other technical 
@@ -109,6 +110,6 @@ and perhaps for automated data contribution (based on *operator* role; e.g. brow
 *Desktop* platforms might use those *APIs* as well. In any case, *APIs* must be separated according 
 to the *roles*.
 
-These are all vital characteristics whose details need to be addressed by the *specification*.
-Their implementation details are not the concern of this specification, as long as every 
-stated requirement is being acknowledged.
+These are all vital characteristics whose details need to be addressed by the *specification*. Their 
+implementation details are not the concern of this specification, as long as every stated 
+requirement is being acknowledged.
