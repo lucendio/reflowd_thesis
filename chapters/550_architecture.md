@@ -2,16 +2,16 @@
 
 
 
-By taking all requirements as well as previous sections, their and discussions into account, this 
+By taking all requirements in previous sections and their discussions into account, this 
 section has the purpose of figuring out how all the different concepts and conclusions from this 
 chapter can fit together in an overall system architecture that is organized in either a distributed 
 or a centralized manner. The outcome of this section should not impact results or conclusions from 
-other topics related to the behave of the system's interfaces from a user point of view. 
+other topics related to the behaviour of the system's interfaces from a user point of view. 
 
 The foundation of this project is a server-client Architecture, which is chosen for (A) providing 
 availability ([S.A.05](#sa05)) and (B) separating concerns 
 [@web_2016_wikipedia_separation-of-concerns]. Such a distributed system provides various locations
-to place these concerns, which are in fact different environments with different properties.
+to place these concerns, which are, in fact, different environments with different properties.
 Those combinations of locations and environments are herein after called *platforms*. To further 
 describe these *platforms*, characteristics such as architectural layer and access possibilities to 
 its internals are taken into account. The resulting three *platform* types are shown in Table
@@ -37,10 +37,10 @@ Table: All platform types where components of the *PDaaS* architecture can be pl
     {#tbl:platforms-characteristics}
 
 
-The next step is to determine all the components, that are required in order to cover most of the 
+The next step is to determine all the components that are required in order to cover most of the 
 defined use cases. The conglomeration below highlights all major components, including information 
-in which platforms they could be positioned, in addition to further details about their major 
-task(s), underlying technologies and relation(s) to each other.
+about which platforms they could be in, as well as further details about their major 
+task(s), underlying technologies, and relation(s) to each other.
 \ \
 
 __Web server__
@@ -259,10 +259,10 @@ __User Interface__
 
 \ \
 
-After outlining all different components while keeping the aspect of portability ([S.A.02](#sa02))
+After outlining all different components, while keeping the aspect of portability ([S.A.02](#sa02))
 in mind, it becomes apparent which arrangements make sense and what variations might be possible.
-As a result, two, more or less, distinct designs are proposed. One is a rather centralized approach 
-and the other involve more platform types and outlines a certain flexibility.
+As a result, two more or less distinct designs are proposed. One is a rather centralized approach 
+and the other involves more platform types and outlines a certain flexibility.
 
 
 ![PDaaS Architecture, centralized composition](./assets/figures/pdaas_component-composition_centralized.png){#fig:composition-centralized}
@@ -272,16 +272,16 @@ and the other involve more platform types and outlines a certain flexibility.
 
 The main difference between the two compositions is the non-existence of the mobile platform in the 
 centralized approach (Figure @fig:composition-centralized). Although *centralized* only refers to the 
-components arrangement on a *server* platform, originally consisting of in a single process that 
+components arrangement on a *server* platform, originally consisting of a single process that 
 contains all components and is thus is responsible for every task. 
-It is also imaginable that all server components not necessarily have to be placed into one server 
+It is also imaginable that all server components are note necessarily placed into one server 
 environment, but being distributed over several virtual machines or containers, so that they can 
 scale and run more independently. This can improve *redundancy* as well.
 
 In theory, a possible version of the arrangement would be to move all components to either the 
 desktop or the mobile platform. This comes along with some downsides and major issues though, that 
-are anything but trivial to solve. Nevertheless, not only to ensure nearly 100% uptime and 
-discovery in a landscape where NAT [^abbr_nat] and dynamic IPs are still common practice, mobile 
+are far from trivial to solve. Nevertheless, to not only ensure nearly 100% uptime and 
+discovery in a landscape where NAT [^abbr_nat] and dynamic IPs are still common practice, for mobile 
 platforms as well as on the desktop, all components but the user interface need to be implemented
 natively. From a *operator's* perspective that would mean, to have all components at hand and 
 therefore full control over the *PDaaS*. It still would still raise security concerns, though.
@@ -290,40 +290,40 @@ Aside from providing the *operator* with a non-stationary and instantly accessib
 *PDaaS*, involving a *mobile platform* primarily has the purpose of enabling the *data subject* to 
 carry all her sensitive data along. This is considered a major advantage over the centralized 
 approach, were all the personal data is located in the *'cloud'*. Depending on the perspective, it 
-can either be seen as a *singe source of truth* or a *single point of failure*. Regardless of that, 
+can either be seen as a *single source of truth* or a *single point of failure*. Regardless of that, 
 it introduces the demand of a backup or some redundancy concept, which has briefly been touched on 
 in the discussion about database system requirements within the [section on *data*](#data). 
 A mobile platform as part of the system makes it more easier for the data subject to establish a 
-security concept, in which the relation between *personal data storage* and the rest of the system 
+security concept in which the relation between *personal data storage* and the rest of the system 
 is much more liberated, so that all access attempts only happen under full supervision.
 It is debatable whether to place the *permission profiles* in the *persistence layer* among all 
 other domain-related information, put it into the *personal data storage* too, or define it as 
-an own storage component, in order to be flexible in its placing.
+having its own storage component, in order to be flexible in its placing.
 
 Authenticating *consumers* is performed based on TLS by the web server and its configured 
 subdomains including their individual keys and certificates provided by the *PKI*. The *operator* 
-authentication is either done by the *Operator API* or by the *web server*, depending on the *web 
-server's* capabilities. Though, it makes more sense, to entrust the *web server* with that task, 
-because it's the outmost component and it would prevent unauthorized and potential malicious 
+authentication is done either by the *Operator API* or by the *web server*, depending on the *web 
+server's* capabilities. Though, it makes more sense to entrust the *web server* with that task, 
+because it's the outermost component and it would prevent unauthorized and potentially malicious 
 requests from getting further into the system. And since a native front end on a mobile platform is 
 considered *private* as well, it is reasonable in that case to change the *operator* authentication 
 from JWT-based to TLS-based *two-way authentication*, which would otherwise be inconvenient when 
 using web-based front ends.
  
-If components are placed only on the server and require to communicate between each other, but are 
+If components are placed only on the server and require communication with each other but are 
 separated into independent processes, then some inter-process communication need to be established 
 (e.g. sockets). It is also conceivable that inter-communication between server components could just 
 be unidirectional. Approaches like changing configuration files by writing to the filesystem can 
-therefor be feasible in some cases. Components that can vary in terms of their platform, have to 
+therefore be feasible in some cases. Components that can vary in terms of their platform have to 
 communicate to other components via *HTTPS*.
 
 The architecture implicitly distinguishes between two different groups of endpoints. These endpoints
 that are made available by the *web server*, which reverse-proxys incoming connections to 
 role-related (operator* or data consumer) components. Starting from that, this separation can be driven
-further by simply encapsulating those components into services, that either are related to one of
+further by simply encapsulating those components into services, that are related to one of
 the roles or used by both. This basically results in the *web server* communicating with the two 
 role-grouped services in a bidirectional manner.
-The group of endpoints for *data consumers* mainly consists of those through witch *access requests* 
+The group of endpoints for *data consumers* mainly consists of those through which *access requests* 
 and *permission requests* are coming in and the public one, that is used for when consumers apply 
 for registration. The other one is a small group of endpoints required for all tools the *operator* 
 might need; from data API or notification to authentication and web-based user interface.
@@ -338,26 +338,26 @@ say, but only one exemplar. So the downside here is, in reality only a handful o
 [@web_2009-success-of-facebook-connect] provide those authentication services.  
 OpenID is designed with a very specific type of scenarios in mind, namely the one just described - 
 bringing decentralization to the market of authentication services - which differs from the ones 
-addressed by the *PDaaS*; at least, when it comes to *data consumer* interactions. Even though, the 
-*PDaaS* has the ability to become the digital representation of it's *operator*. Hence it can and 
-also should be used to authenticate that individual against external parties.  
+addressed by the *PDaaS*; at least when it comes to *data consumer* interactions. The 
+*PDaaS* has the ability to become the digital representation of its *operator*, therefore it can and 
+should also be used to authenticate that individual against external parties.  
 
 
 
 *__Conclusions:__*
 Considering the amount of effort a single-platform composition, namely *desktop* or *mobile*, would 
 take to get fully operational with respect to the specification, it is not only reasonable but also 
-more secure to involve a server platform with proper security measures, static IP and high
-availability. Even if that server is a local machine connected to the operator's private network. 
+more secure to involve a server platform with proper security measures, a static IP, and high
+availability, even if that server is a local machine connected to the operator's private network. 
 That said, it is sufficient to start with the *centralized* approach and as suitable mobile 
-applications emerge that are supporting major administration features, notifications and 
+applications emerge that are supporting major administration features, notifications, and 
 *personal data storage*, it should be possible to migrate effortlessly towards the *distributed* 
-approach that brings a higher level of confidence, because all the sensitive personal data is not on 
+approach that brings a higher level of confidence because all the sensitive personal data is not on 
 some computer machine somewhere on the internet, but right in the hands of its owner.
 By the proposed architecture, all components (or groups of components) are portable and therefore
 relocatable among the suggested platforms; and with the introduced authentication methods for 
-operators multiple front ends for the same *PDaaS* are thereby supported and can be implemented with 
-almost no effort, and that again covers more use cases.
+operators, multiple front ends for the same *PDaaS* are thereby supported and can be implemented with 
+almost no effort, which, in return, covers more use cases.
 As a supplement, an *identity provider* based on the OpenID standard would fit nicely into the 
 existing arrangement and does not interfere with the other components. However, it is beyond the 
 scope of this work to elaborate on this topic. For now it is stated as a feasible and logical 
