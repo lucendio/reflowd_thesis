@@ -25,13 +25,13 @@ variety of purposes.
 In some of those situations it might be required (e.g. administrative purposes) to ensure a certain 
 level of authenticity for a *Digital Identity* or for particular attributes of it. This means, to 
 provide reliable confirmation that the attribute values are really the ones that belong to exactly 
-the individual they supposedly belong to. An independent third party, who is trusted by all 
-entities participating in such a construct, could somehow verify (or vouch for) the subject in 
-question. On the other hand, this concept opens up at least one class of attack scenarios. The risk 
-of identity theft, for example, increases dramatically when assigning such value to a 
-*Digital Identity* because the attacker is no longer required to be physically present in order to 
-impersonate that identity or "steal" certain unique identifiers from that person. Instead, it is 
-sufficient to gain access to the areas where those sensitive data are stored.
+the individual they supposedly belong to. An independent third party, who is trusted by all entities 
+participating in such a construct, could somehow verify (or vouch for) the subject in question. On 
+the other hand, this concept opens up at least one class of attack scenarios. The risk of identity 
+theft, for example, increases dramatically when assigning such value to a *Digital Identity* because 
+the attacker is no longer required to be physically present in order to impersonate that identity or 
+"steal" certain unique identifiers from that person. Instead, it is sufficient to gain access to the 
+areas where those sensitive data are stored.
 It is noted, that different technical solutions to these issues exist and will be discussed later 
 on.
 

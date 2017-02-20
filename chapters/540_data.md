@@ -2,44 +2,44 @@
 
 
 
-The core task of a *PDaaS* is providing data, *personal data*, which is the digital
-manifestation of an individual, a person. One party creates the data, another one obtains and
-processes it. Thus, both need to agree, or at least need to know, how that data looks like, how is 
-it structured, and what their semantics are. The following section is intended to discuss different
-technologies used to create queries that obtain desired data points. Further on, it 
-describes some basic data types and schemas, that might be useful in the context of *personal data* 
-and also for previously introduced [scenarios](#scenarios).  
+The core task of a *PDaaS* is providing data, *personal data*, which is the digital manifestation of 
+an individual, a person. One party creates the data, another one obtains and processes it. Thus, 
+both need to agree, or at least need to know, how that data looks like, how is it structured, and 
+what their semantics are. The following section is intended to discuss different technologies used 
+to create queries that obtain desired data points. Further on, it describes some basic data types 
+and schemas, that might be useful in the context of *personal data* and also for previously 
+introduced [scenarios](#scenarios).  
 
-First of all, to address the need of portability, which has to be satisfied by those components
-that are storing and providing *personal data*, it is essential to abstract the actual storage from 
-how it gets accessed. This makes it possible to relocate that storage onto other platforms and 
+First of all, to address the need of portability, which has to be satisfied by those components that 
+are storing and providing *personal data*, it is essential to abstract the actual storage from how 
+it gets accessed. This makes it possible to relocate that storage onto other platforms and 
 environments. Thereby the *personal data storage* itself becomes platform-agnostic from an outside 
 perspective, in other words, portable. In order to reduce possible issues related to unsupported 
 communication protocols it might be reasonable to enforce HTTP - over TLS, if they don't share the 
 same environment - even if the storage therefore requires an additional driver or proxy layer, like, 
 for example, a mobile app.
 
-Possible technologies are, for example, *[GraphQL](#def--graphql)* or the 
-*[SPARQL](#def--sparql)*, which is part of the *[Semantic Web Suite](#def--semantic-web)*. Both are
-query languages underpinned by the concept of a graph. This means, relations between data points 
-are embedded within the data structure itself. That means, in terms of a graph, relations are 
-*edges* and data points are *nodes*. As a consequence, the structure of a query itself reappears in its 
-result, which means the originator of that query knows exactly what to expect for the response. 
-Therefore it's not necessary to provide any additional information about how to handle and interpret 
-the response data. The code examples 
+Possible technologies are, for example, *[GraphQL](#def--graphql)* or the *[SPARQL](#def--sparql)*, 
+which is part of the *[Semantic Web Suite](#def--semantic-web)*. Both are query languages 
+underpinned by the concept of a graph. This means, relations between data points are embedded within 
+the data structure itself. That means, in terms of a graph, relations are *edges* and data points 
+are *nodes*. As a consequence, the structure of a query itself reappears in its result, which means 
+the originator of that query knows exactly what to expect for the response. Therefore it's not 
+necessary to provide any additional information about how to handle and interpret the response data. 
+The code examples 
 ([Code 01](#code-01_sparql-query) and [Code 02](#code-02_sparql-query-results), 
 [Code 03](#code-03_graphql-query) and [Code 04](#code-04_graphql-query-result)) 
 give a first impression of how it might look like when a *consumer* obtains the name of the 
 *data subject* and a bank account of hers that supports online payment.
 
-Without going into great detail, the syntax of the SPARQL query 
-([Code 01](#code-01_sparql-query)) already shows its nature of decentralization. This aspect at the 
-same time introduces additional external dependencies. Because the query language itself has no 
-concept of schemas or any kind of semantic, it needs to be made aware of them. SPARQL queries 
-typically return XML which then can be rendered into (HTML) tables. JSON and RDF are also supported.
-The reason for performing two queries in the example instead of just one is because the 
-result would otherwise have returned multiple 'rows' with redundant data if more then one bank account  
-supported online payment; the bank account data would be different, but the profile information would be repeated.
+Without going into great detail, the syntax of the SPARQL query ([Code 01](#code-01_sparql-query)) 
+already shows its nature of decentralization. This aspect at the same time introduces additional 
+external dependencies. Because the query language itself has no concept of schemas or any kind of 
+semantic, it needs to be made aware of them. SPARQL queries typically return XML which then can be 
+rendered into (HTML) tables. JSON and RDF are also supported. The reason for performing two queries 
+in the example instead of just one is because the result would otherwise have returned multiple 
+'rows' with redundant data if more then one bank account supported online payment; the bank account 
+data would be different, but the profile information would be repeated.
 
 The GraphQL query syntax ([Code 03](#code-03_graphql-query)) compared with its result 
 ([Code 04](#code-04_graphql-query-result)) shows a remarkable resemblance. 
@@ -53,8 +53,8 @@ all of its functions and logic have been abandoned from the language itself and 
 With this concept of separation it is straightforward to validate queries because it essentially 
 means matching against types. 
 Both query languages share a comprehensive understanding of a type-system that encourages the 
-creation of all kinds of data types. While in GraphQL common schemas still need to be created, SPARQL 
-already provides a reasonable amount of vocabulary [@web_w3c-tr_rdf-schemas]. However, when 
+creation of all kinds of data types. While in GraphQL common schemas still need to be created, 
+SPARQL already provides a reasonable amount of vocabulary [@web_w3c-tr_rdf-schemas]. However, when 
 comparing the results of both languages, some distinctions appear. While in GraphQL the 
 characteristics of graph-structured data remain, SPARQL's output is missing a certain level of 
 depth. The reason for that originates in the design of the query language and its syntax. SPARQL is 
@@ -64,11 +64,11 @@ consists of two dimensions.
 
 It is crucial for the *PDaaS* to provide the *data subject* with abilities to create her own data 
 types and schemas ([S.P.03](#sp03)). Thereby she is enabled to serve data points according to her 
-own needs and terms. In order to interact with their customers or users, *data consumers* might 
-as well develop and provide schemas for their requests. This can help *data subjects* to speed up the 
-process of permission granting and to more easily understand what data points are affected. Data types 
-and schemas are the key to validate incoming and outgoing data. If data violates the underlying 
-schema or no appropriate schema exists, the data transfer fails. 
+own needs and terms. In order to interact with their customers or users, *data consumers* might as 
+well develop and provide schemas for their requests. This can help *data subjects* to speed up the 
+process of permission granting and to more easily understand what data points are affected. Data 
+types and schemas are the key to validate incoming and outgoing data. If data violates the 
+underlying schema or no appropriate schema exists, the data transfer fails. 
 Other missing data types could be developed by a community, because not every *data subject* might 
 be capable of modeling her own data types. Thus everyone can benefit from that effort taken by a 
 few. As a result, the ones that are widely used might then become de facto standards. Moreover, it's 
@@ -88,10 +88,10 @@ term; hence refers to both of them.
     *primitives*, but can consist of other structs as well
   
 Based on these two concepts almost any imaginable data type can be modeled. A selection of such
-types can be found in the list of [suggested structs (List 01)](#list-01_suggested-structs), 
-whereas an extract of (sub-)categories that might be useful in a *PDaaS* are specified in a list
-of [data categories (List 02)](#list-02_data-categories). Additional examples for *structs*
-are a [*data subject's* profile (Code 05)](#code-05_struct_profile), a
+types can be found in the list of [suggested structs (List 01)](#list-01_suggested-structs), whereas 
+an extract of (sub-)categories that might be useful in a *PDaaS* are specified in a list of 
+[data categories (List 02)](#list-02_data-categories). Additional examples for *structs* are a 
+[*data subject's* profile (Code 05)](#code-05_struct_profile), a 
 [contact (Code 06)](#code-06_struct_contact) and bare 
 [position information (Code 07)](#code-07_struct_position). 
 All those examples and lists are only to be understood as a starting point that should cover basic 
@@ -182,8 +182,8 @@ includes for example:
 
 The list revels that not only a database system is needed to satisfy the requirements, but the 
 environments filesystem might need to be utilized as well.
-This leads to the question of what requirements a database system has to satisfy. But first,
-it is pivotal to distinguish between the needs of a *personal data storage (PDS)* and a general 
+This leads to the question of what requirements a database system has to satisfy. But first, it is 
+pivotal to distinguish between the needs of a *personal data storage (PDS)* and a general 
 *persistence layer (PL)* for the system's backend.
 
 
@@ -211,9 +211,9 @@ concept of abstracting the *personal data storage* with an additional query lang
 access to the *PDS* becomes platform-agnostic. Whereas the database system storing that data can be 
 implemented with respect to the requirements while considering the environment constraints at the 
 same time. 
-Basic permission management should suffice the *PDS*, since it's not accessed in multiple ways. 
-It only relates to the query language abstraction. Data and especially its structure is expected to
-be highly fluctuant ([S.P.02](#sp02)), thus advantages of relational databases (e.g. schema-oriented 
+Basic permission management should suffice the *PDS*, since it's not accessed in multiple ways. It 
+only relates to the query language abstraction. Data and especially its structure is expected to be 
+highly fluctuant ([S.P.02](#sp02)), thus advantages of relational databases (e.g. schema-oriented 
 and -optimized) would instead harm the performance and flexibility, as they are not primarily 
 designed to handle schema changes. Database systems whose storage engine is built upon a 
 document-oriented approach would be a better choice. 
@@ -221,22 +221,22 @@ Replication can be utilized for horizontal scaling, federation, or backups ([S.P
 focus here is on the latter, because without *PL* the *PDaaS* wont be able to function. In case of 
 irreversible data loss, the whole system state is gone, which then has to be reconfigured and 
 reproduced from the ground up. Such effort can be spared by introducing a reliable backup strategy. 
-With the *PDS*, on the other hand, replication is not necessary, but, in order to prevent data loss, still 
-needs to be addressed. Therefore every database system that might be used for the *PDS* must provide 
-a mechanism to backup or at least to export the data, which can be triggered and obtained through 
-the operator's management tool. Another approach imaginable could be to not only store the actual 
-data written to the *PDS* but also to save all queries in a chronological order that have somehow 
-changed the data. Therefore the current state can be restored just by running those queries against 
-the *PDS*. It is reasonable to store the queries of the abstracted query language not the ones the 
-query language is transformed into. If a mobile device is part of the *PDaaS*, another approach for 
-the operator could be to perform regular device backups. Those strategies are all just initial 
-thoughts which might be sufficient only as a starting point. Other solutions are imaginable. Though, 
-elaborating on those is beyond the scope of this work.
+With the *PDS*, on the other hand, replication is not necessary, but, in order to prevent data loss, 
+still needs to be addressed. Therefore every database system that might be used for the *PDS* must 
+provide a mechanism to backup or at least to export the data, which can be triggered and obtained 
+through the operator's management tool. Another approach imaginable could be to not only store the 
+actual data written to the *PDS* but also to save all queries in a chronological order that have 
+somehow changed the data. Therefore the current state can be restored just by running those queries 
+against the *PDS*. It is reasonable to store the queries of the abstracted query language not the 
+ones the query language is transformed into. If a mobile device is part of the *PDaaS*, another 
+approach for the operator could be to perform regular device backups. Those strategies are all just 
+initial thoughts which might be sufficient only as a starting point. Other solutions are imaginable. 
+Though, elaborating on those is beyond the scope of this work.
 Depending on the technologies that are being used, it might be necessary from a conceptional 
 perspective to split the *PL* into two parts. One part is a database system and the other is 
-represented by the environment's filesystem. It might not be an alternative when it comes to key files,
-which are typically accessed as files, or configuration files for certain technologies. 
-In any case, both *PL* and *PDS*, have to be able to store files of any kind, which is required, for 
+represented by the environment's filesystem. It might not be an alternative when it comes to key 
+files, which are typically accessed as files, or configuration files for certain technologies. In 
+any case, both *PL* and *PDS*, have to be able to store files of any kind, which is required, for 
 instance, to support the scenario of medical records. File size restriction should be mandatory 
 though, because the *PDaaS* has no intention to replace existing *file hosting* solutions. 
 
@@ -244,10 +244,9 @@ Being able to undo changes to certain data points or to review the change-histor
 be very useful; not only when those changes were persisted mistakenly. This behaviour might not be 
 necessary for all data, especially when it comes to application configuration or logs. Also, not 
 every *operator* might require these features. Because of this and because database systems with no 
-alternative might not be able to provide this capability, it's not required by either *PDS* or 
-*PL*. If a history is not natively supported but still desired, it has to be considered if, for 
-example, frequent backups would suffice or if a implementation on the 
-application-level is required.
+alternative might not be able to provide this capability, it's not required by either *PDS* or *PL*. 
+If a history is not natively supported but still desired, it has to be considered if, for example, 
+frequent backups would suffice or if a implementation on the application-level is required.
 
 Before serving data, it needs to be at first inserted into the *PDS*. This can be done in three 
 different ways:
@@ -261,13 +260,13 @@ file(s) or insert the string(s). Thereby the data is then sent into the system. 
 are not self-explainatory to the system, the *data subject* has to provide more information on the 
 context of those data.
 c)  Third party software, for example a browser plugin, is used to provide the *PDaaS* with data; in
-this case, a browser history. This software uses a restricted API provided by the *PDaaS* to let data 
-flow into the system.
+this case, a browser history. This software uses a restricted API provided by the *PDaaS* to let 
+data flow into the system.
 
 These three concepts, especially b) and c), are required to be inspected for malicious content and
 extensively validated against existing *structs*. Only if these checks do not fail, the submitted 
-data can be stored. For scenario b), the *data subject* needs to be asked to review the imported data 
-to make sure everything is as expected. When enabling third party software to submit data, 
+data can be stored. For scenario b), the *data subject* needs to be asked to review the imported 
+data to make sure everything is as expected. When enabling third party software to submit data, 
 appropriate authentication and permission mechanisms must be in place. 
 That software is classed like all other *operator* front ends, but without permissions to obtain 
 data. According to the [discussion on authentication](#authentication), these mechanisms thus can be 
@@ -276,14 +275,14 @@ implemented through *JWT*.
 
 
 *__Conclusions:__*
-In order to gain flexibility in choosing technology and location for the *personal data storage*, 
-it is logical to abstract the interface from the database system. Introducing a
-separate query language is proposed as a reasonable approach. It can be chosen between two suggested 
-query languages, *GraphQL* or *SPARQL*. Both provide the necessary features required to be integrated
-with a distributed system; *SPARQL*, with its concepts of URIs as identifiers and resources, and 
-*GraphQL*, with its separation of query definition and execution. This also effects the process of 
-query validation, which is much harder to do for *SPARQL*, because its syntax is more flexible and 
-allows some shorthands, therefore the possibilities are far too numerous. In general *SPARQL's* syntax is 
+In order to gain flexibility in choosing technology and location for the *personal data storage*, it 
+is logical to abstract the interface from the database system. Introducing a separate query language 
+is proposed as a reasonable approach. It can be chosen between two suggested query languages, 
+*GraphQL* or *SPARQL*. Both provide the necessary features required to be integrated with a 
+distributed system; *SPARQL*, with its concepts of URIs as identifiers and resources, and *GraphQL*, 
+with its separation of query definition and execution. This also effects the process of query 
+validation, which is much harder to do for *SPARQL*, because its syntax is more flexible and allows 
+some shorthands, therefore the possibilities are far too numerous. In general *SPARQL's* syntax is 
 harder to comprehend compared to *GraphQL*. And even though the result of both languages is 
 formatted in JSON, only *GraphQL* preserves all the relations in the output, which are already 
 embedded in the query syntax. 
@@ -291,6 +290,6 @@ As a result, *GraphQL* (and its implementations) is the query language of choice
 
 When it comes to creating new structs, engaging a user community can compensate the lack of certain
 types. Examples for a potential starting point of *PDaaS*-supported data types were showed before.
-Data Modelling in general is a large research field to its own. With regards to the *PDaaS* it 
-needs much more attention, though it's beyond the scope of this work. The basic approaches within 
-this section should only be viewed as an introduction that gives an outlook of how it's imagined. 
+Data Modelling in general is a large research field to its own. With regards to the *PDaaS* it needs 
+much more attention, though it's beyond the scope of this work. The basic approaches within this 
+section should only be viewed as an introduction that gives an outlook of how it's imagined. 
