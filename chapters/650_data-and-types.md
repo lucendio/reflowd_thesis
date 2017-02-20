@@ -19,8 +19,11 @@
     -   registration
     -   endpoint (relation to the key and file)
     -   permission profile
+        +   permitted data endpoints; 
+        +   associate to specific *endpoint*
         +   permission type 
         +   max/min interval (how often)
+        +   expiration date of an access request, granted based on that profile
         +   block all on this endpoint until further notice
 
 ### Structure & Types

@@ -121,8 +121,8 @@ primarily responsible for signing certificates that are required for every endpo
 for connections between mobile and server platforms.
 The key-pair for a specific endpoint is then used to issue a certificate based on the 
 *Certificate Signing Request (CSR)*, supplied by the consumer, who is associated to that very 
-endpoint. The certified certificate and the endpoint's certificate MUST then be transferred to the
-consumer on a secure channel, which the consumer is responsible to provide (e.g. HTTP over TLS 
+endpoint. The certified certificate and the endpoint's certificate MUST then be transferred back to 
+the consumer on a secure channel, which the consumer is responsible to provide (e.g. HTTP over TLS 
 certified by trusted public CA, or by a self-signed certificate provided with the registration). 
 
 In order to use TLS for bidirectional authentication, not only the client (consumer) MUST be able to 

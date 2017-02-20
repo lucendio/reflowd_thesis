@@ -9,6 +9,16 @@
 
 
 
+#### System Configurations and Defaults
+
++   operator notifications (type, occasion)
++   expiration date for forwarded data 
++   response method of access request
++   access type
++   response timeout limit of access request
+
+
+
 #### Software Recommendations
 
 

@@ -73,7 +73,7 @@ __Permission Manager__
 
 *Tasks:*
 *   creating *permission profiles*
-+   permission validation
++   access verification
 +   examine data queries 
 +   queue *consumer* requests
 

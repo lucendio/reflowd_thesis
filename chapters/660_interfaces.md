@@ -20,9 +20,9 @@ __Registration Request__
 
 ``` {.json .numberLines}
 {
-    "callbackUri": "TODO",
     "csr": "TODO",
-    "dataPoints": [
+    "cb": "TODO",
+    "access": [
         "profile.lastname"
     ]
 }

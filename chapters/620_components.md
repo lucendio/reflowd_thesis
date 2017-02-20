@@ -14,7 +14,7 @@ f)  pass through notification for web-based Management Tools that are connected 
 g)  rule-based traffic management leveraging network characteristics and alike  
 
 
-##### Permission Manager 
+##### Permission Manager *(PM)*
 processes incoming requests from third parties or consumers
 
 a)  parse requests and proceed accordingly
@@ -92,7 +92,7 @@ c)  log access history
 d)  pattern recognition and anomaly detection
 
 
-##### Persistence Layer
+##### Persistence Layer *(PL)*
 combines multiple technologies to represent and hold the current systems state  
 
 a)  store:
@@ -109,8 +109,9 @@ d)  cache certain runtime data
 ##### Notification Infrastructure
 a unified facility for server components to distribute notifications to multiple front ends 
 
-a)  support native mobile notifications through connected Push Notification Service
-b)  notify operator about pending approval or review
+a)  notify operator about pending approval or review
+b)  support native mobile notifications through connected Push Notification Service
+c)  is able to send email   
 
 
 ##### Data Contributor 
