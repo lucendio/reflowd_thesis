@@ -18,7 +18,7 @@ other then the screen size and maybe which browser and version the environment s
 that's a situation the user can change if necessary.
 
 As a result, being able to use certain components on a *server* platform depends on what *server* 
-environment is available and vice versa.  In order to decide what implementation of a component is 
+environment is available and vice versa. In order to decide what implementation of a component is 
 suitable, it's crucial to know in which environment that component has to run. Either way, it is also important not to forget all the dependencies a component itself might have.
 Such constraints can be avoided by abstracting the runtime of those components and either embed 
 every required software dependency or provide them in separate runtimes, if possible. 
