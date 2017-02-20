@@ -153,7 +153,8 @@ __[List 02: relevant (sub-)categories of data]{#list-02_data-categories}__
 The available *primitives* mainly depend on those who are supported by the query language itself.
 In this case, all *primitives* mentioned above are supported by *SPARQL* [@web_spec_xml_types] and 
 *GraphQL* [@web_spec_graphql_types]. When choosing a database system it has to be ensured that 
-either the system already supports the required *primitives* or they can be emulated somehow minimal drawbacks. When modelling relations between data points, one can use, for example, keys 
+either the system already supports the required *primitives* or they can be emulated somehow with 
+minimal drawbacks. When modelling relations between data points, one can use, for example, keys 
 (or identifiers) to make references, or additional syntactical tools like *lists* (or arrays) and 
 maps (or objects). Those tools facilitate readability so that relations are almost intuitively 
 observable, hence they should be enforced. Whereas another known concept in data modelling, 
@@ -246,7 +247,7 @@ necessary for all data, especially when it comes to application configuration or
 every *operator* might require these features. Because of this and because database systems with no 
 alternative might not be able to provide this capability, it's not required by either *PDS* or 
 *PL*. If a history is not natively supported but still desired, it has to be considered if, for 
-example, high frequency backups would suffice or if a implementation on the 
+example, frequent backups would suffice or if a implementation on the 
 application-level is required.
 
 Before serving data, it needs to be at first inserted into the *PDS*. This can be done in three 
