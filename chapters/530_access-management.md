@@ -256,7 +256,7 @@ provide any dependencies at all. The latter is preferred, because it reduces the
 malicious, flawed, or needless components, so that the data subject, supported by her *PDaaS*, has 
 more supervising capabilities and thus more control over her personal data.
 Since the overall goal here is to prevent the data subject from losing control over her data, it is conceivable that certain categories of personal data, representing a higher level of 
-sensitivity, require a limited *access type*. If the data consumer does not comply, 
+sensitivity, require a minimum viable *access type*. If the data consumer does not comply, 
 access will be refused.
 Also, depending on which category the personal data relates to, the *PDaaS* might  
 somehow anonymize certain types of data, if it is even capable of doing so, because the *consumer* 

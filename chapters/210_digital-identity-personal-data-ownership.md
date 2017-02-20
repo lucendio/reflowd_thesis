@@ -25,7 +25,7 @@ variety of purposes.
 In some of those situations it might be required (e.g. administrative purposes) to ensure a certain 
 level of authenticity for a *Digital Identity* or for particular attributes of it. This means, to 
 provide reliable confirmation that the attribute values are really the ones that belong to exactly 
-they individual they supposedly belong to. An independent third party, who is trusted by all 
+the individual they supposedly belong to. An independent third party, who is trusted by all 
 entities participating in such a construct, could somehow verify (or vouch for) the subject in 
 question. On the other hand, this concept opens up at least one class of attack scenarios. The risk 
 of identity theft, for example, increases dramatically when assigning such value to a 

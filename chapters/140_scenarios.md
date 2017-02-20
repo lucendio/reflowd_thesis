@@ -17,8 +17,8 @@ The data subject searches through the web to find a new toaster because her old 
 After some clicks and reviews, she finds her soon-to-become latest member of the household's 
 kitchenware. After putting the model name in a price search engine, hoping to save some money, the
 first entry, offering a 23% discount, catches her attention. She decides to have a deeper look into 
-the toasters, so she heads towards the original web shop entry. Finally she comes around 
-and puts the item onto her shopping cart, despite the fact that she never bought something from that 
+the toasters, so she heads towards the original web shop entry. Finally she  
+puts the item into her shopping cart, despite the fact that she never bought something from that 
 online shop before. Then she proceeds to checkout so that she can place her order.
 The shop-interface asks her to either insert her credentials, proceed without registration or 
 sign-in, or allow the shop to obtain all required data on its own by either scanning a QR-Code 
