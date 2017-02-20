@@ -205,17 +205,24 @@ and data gets obtained from the PDS.*
 
 1.  gather all *permission profiles* relating to the given endpoint
 
-2.  find all profiles, addressing at least on requested data point
-    +   if not all requested data points are addressed among those profiles
+2.  find all profiles, that
+    a)  address at least one requested data point and
+    b)  have a valid *permission type* at that moment
+
+3.  check resulting subset and if ...
+    +   it's empty
+        1)  return with a negative result (`false`)
+    
+    +   not all requested data points are addressed among those profiles
         1)  pause processing
         2)  notify operator and ask for decision on whether access to unregulated data points is 
             allowed or denied
         3)  after missing data points got acknowledged by operator, go back to (2.)
     
-    +   if all requested data points are addressed among those profiles and ... 
+    +   all requested data points are addressed among those profiles and ... 
         -   at least one is not allowed to access (counting also `refused` profiles)
-            1)  return with a negative result (`false`) and [OPTIONAL] include information on which 
-                data points are affected
+            1)  return with a negative result (`false`) and [OPTIONAL] include information on 
+                which data points are affected
             2)  inform operator about this incident
     
         -   all are allowed to access 

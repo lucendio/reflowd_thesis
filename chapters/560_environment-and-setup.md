@@ -52,8 +52,8 @@ modern mobile device and on this device a *PDaaS* mobile application is installe
 2.  After the connection is established, the operator can trigger a progress that duplicates all her 
     personal data to the device that has just been associated with the *PDaaS*.
     
-3.  At this point, one of two ways path can follow, depending on whether a complete write log for 
-    the *personal data* ([see discussion about backup strategies](#data) exists or not.
+3.  At this point, one of two paths can follow, depending on whether a complete write log for the 
+    *personal data* ([see discussion about backup strategies](#data) exists or not.
     a)  If *[LOG-EXISTS]*, query by query the whole log is obtained from the existing storage and is
         then again executed in chronological order by the query language abstraction, starting with 
         the oldest. The only difference here is that the target storage, on which that query is 

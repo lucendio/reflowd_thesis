@@ -119,7 +119,7 @@ profile* has been deleted
 profiles at any point in time.*
 
 Among other information, an access request contains the *data query* that shows very precisely what 
-data points are affected by that request. So if an *access request* arrives at the *PDaaS*,assuming 
+data points are affected by that request. So if an *access request* arrives at the *PDaaS*, assuming 
 the *data consumer* has been authenticated sufficiently, the system (0) searches for a permission 
 profile that corresponds to the *data consumer* and the requested data points. If it fails to find 
 one, the access request is refused. But if it does, then it checks (1) if the permission type 

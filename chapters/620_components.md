@@ -79,7 +79,7 @@ b)  restrict access to the host environment
 c)  provision runtimes
 d)  perform test runs and code review
 e)  monitor runtime during invocation
-f)  handover results back to *Permission Manager*
+f)  hand over results back to *Permission Manager*
 g)  archive software in *Persistence Layer*
 
 
