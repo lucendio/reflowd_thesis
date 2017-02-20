@@ -3,46 +3,49 @@ PDaaS Thesis
 
 
 
-## About this repo
+### About
 
 This repository contains the master's thesis called
 
     Open Specification of a user-controlled Web Service for Personal Data
     
-namely the sources, as well as rendered documents in the *html* and *pdf* 
-format (`./dist`) and the tool with these documents were build with
+its sources (see `./chapters`) , as well as rendered documents in the *html*, *pdf* and *tex* format 
+(see `./dist`) and the tools, that are used to built those formats
 
 
 
-## Dependencies
+### Dependencies
 
 +   [brew](http://brew.sh/)
 +   [pandoc](http://pandoc.org/installing.html#mac-os-x)
 +   [Basic TeX](https://www.tug.org/mactex/morepackages.html)
++   [Python](https://www.python.org/)
 
 
 
-## Installation
+### Installation
 
 ```
-sudo ./install.sh
+$   make install
 ```
 
-__NOTE:__ currently it only supports OSX
+*NOTICE: as of now, it only supports OSX*
 
 
 
+### How to build
 
-## How to build
+```
+$   make pdf
+$   make html
+$   make tex
+```
 
-1.  assuming the installation was successful, run `./build.sh` puts the rendered results 
-    into `./dist`
 
 
+### Resources & Credits
 
-## Resources & Credits
-
-### Howtos and experiences 
+#### Howtos and experiences 
 
 +   http://blog.kdheepak.com/writing-papers-with-markdown.html
 +   http://www.chriskrycho.com/2015/academic-markdown-and-citations.html
@@ -52,7 +55,7 @@ __NOTE:__ currently it only supports OSX
 +   http://tech.lauritz.me/easy-latex-with-markdown-pandoc/
 
 
-### Documentation and knowledge
+#### Documentation and knowledge
 
 +   http://pandoc.org/MANUAL.html
 +   https://github.com/jgm/pandoc/wiki
@@ -64,7 +67,7 @@ __NOTE:__ currently it only supports OSX
 +   http://cs.fit.edu/~wds/guides/howto/howto.html
 
 
-### Based on:
+#### Based on:
 
 +   https://github.com/tompollard/phd_thesis_markdown
 +   https://github.com/chiakaivalya/thesis-markdown-pandoc
