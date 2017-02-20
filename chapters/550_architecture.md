@@ -357,7 +357,7 @@ some computer machine somewhere on the internet, but right in the hands of its o
 By the proposed architecture, all components (or groups of components) are portable and therefore
 relocatable among the suggested platforms; and with the introduced authentication methods for 
 operators, multiple front ends for the same *PDaaS* are thereby supported and can be implemented with 
-almost no effort, which, int turn, covers more use cases.
+almost no effort, which, in return, covers more use cases.
 As a supplement, an *identity provider* based on the OpenID standard would fit nicely into the 
 existing arrangement and does not interfere with the other components. However, it is beyond the 
 scope of this work to elaborate on this topic. For now it is stated as a feasible and logical 
