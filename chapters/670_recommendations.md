@@ -28,6 +28,9 @@
 +   rkt
 +   Kubernetes
 +   LibreSSL
++   CouchDB
++   RethinkDB
++   Prometheus
 
 
 

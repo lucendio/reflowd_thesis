@@ -3187,18 +3187,17 @@ operator can change all permission profiles at any point in time.}
 
 Among other information, an access request contains the \emph{data
 query} that shows very precisely what data points are affected by that
-request. So if an \emph{access request} arrives at the
-\emph{PDaaS},assuming the \emph{data consumer} has been authenticated
-sufficiently, the system (0) searches for a permission profile that
-corresponds to the \emph{data consumer} and the requested data points.
-If it fails to find one, the access request is refused. But if it does,
-then it checks (1) if the permission type suffices at that moment and
-(2) if the query only contains data points that are enabled in the
-profile as well. Here, the order matters because it is imaginable that
-the operation behind (1) is less complex then operation (2). Running (1)
-before (2) can result in a faster response-time, if operation (1)
-already results negative. If all operations have a positive result,
-access is granted.
+request. So if an \emph{access request} arrives at the \emph{PDaaS},
+assuming the \emph{data consumer} has been authenticated sufficiently,
+the system (0) searches for a permission profile that corresponds to the
+\emph{data consumer} and the requested data points. If it fails to find
+one, the access request is refused. But if it does, then it checks (1)
+if the permission type suffices at that moment and (2) if the query only
+contains data points that are enabled in the profile as well. Here, the
+order matters because it is imaginable that the operation behind (1) is
+less complex then operation (2). Running (1) before (2) can result in a
+faster response-time, if operation (1) already results negative. If all
+operations have a positive result, access is granted.
 
 As stated in the section about \protect\hyperlink{data-reliability}{data
 reliability}, the \emph{data subject} is able to add, change, or remove
@@ -4608,7 +4607,7 @@ device a \emph{PDaaS} mobile application is installed.*
   progress that duplicates all her personal data to the device that has
   just been associated with the \emph{PDaaS}.
 \item
-  At this point, one of two ways path can follow, depending on whether a
+  At this point, one of two paths can follow, depending on whether a
   complete write log for the \emph{personal data}
   (\protect\hyperlink{data}{see discussion about backup strategies}
   exists or not.
@@ -5382,7 +5381,7 @@ provides isolated runtime (sandbox) for supervised code execution
 \item
   monitor runtime during invocation
 \item
-  handover results back to \emph{Permission Manager}
+  hand over results back to \emph{Permission Manager}
 \item
   archive software in \emph{Persistence Layer}
 \end{enumerate}
@@ -6148,6 +6147,15 @@ originating data consumer.}
 \item
   obtain data from \emph{PDS}
 \item
+  adjust data precision
+
+  \begin{itemize}
+  \tightlist
+  \item
+    requesting lower precision than approved by \emph{data subject} is
+    always possible, but not the other ways around
+  \end{itemize}
+\item
   compute result according to provided access type
 
   \begin{itemize}
@@ -6227,12 +6235,32 @@ obtained from the PDS.}
 \item
   gather all \emph{permission profiles} relating to the given endpoint
 \item
-  find all profiles, addressing at least on requested data point
+  find all profiles, that
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \tightlist
+  \item
+    address at least one requested data point and
+  \item
+    have a valid \emph{permission type} at that moment
+  \end{enumerate}
+\item
+  check resulting subset and if \ldots{}
 
   \begin{itemize}
   \tightlist
   \item
-    if not all requested data points are addressed among those profiles
+    it's empty
+
+    \begin{enumerate}
+    \def\labelenumii{\arabic{enumii})}
+    \tightlist
+    \item
+      return with a negative result (\texttt{false})
+    \end{enumerate}
+  \item
+    not all requested data points are addressed among those profiles
 
     \begin{enumerate}
     \def\labelenumii{\arabic{enumii})}
@@ -6247,7 +6275,7 @@ obtained from the PDS.}
       (2.)
     \end{enumerate}
   \item
-    if all requested data points are addressed among those profiles and
+    all requested data points are addressed among those profiles and
     \ldots{}
 
     \begin{itemize}
@@ -6291,82 +6319,138 @@ obtained from the PDS.}
 
 \section{Data \& Types}\label{data-types}
 
+The system is aware of two different classes of data - personal data and
+system data. The latter is stored within the \emph{Persistence Layer}
+and represents the current state of the system, whereas all the personal
+data, that reflects the Digital Identity of the operator and is
+maintained and also provided by the \emph{Personal Data Store}.
+
+\subsection*{Personal Data}\label{personal-data}
+\addcontentsline{toc}{subsection}{Personal Data}
+
+The \emph{PDS} is portable and can be placed on any of the platform
+types supported by the system, whereas data queries typically originate
+in a server platform. In order to provide such flexibility, and unless
+editing personal data happens on the same platform instance on which the
+data is also stored, access to the \emph{PDS} MUST be abstracted. This
+design approach can be implemented by utilizing GraphQL's native
+architecture, which is - aside from its generic graph-structured query
+language - primarily characterized by its separation of validation and
+execution. The execution level requires adapters for every database
+system the PDS have to support, while the validation is agnostic
+regarding a query origin. That is, the underlying database system can be
+swapped, or various database systems can run side by side. A universal
+query languages has also the advantages of being effortless
+re-applicable to a different storage system and being able to revert
+every data change. Therefore it is REQUIRED to store every writing query
+chronological, alongside the current state of the personal data.
+
+\emph{Additional requirements are:}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  precision of data, accessed by consumers must be adjustable (e.g.~cut
+  fractional digits, decrease sampling rate of time series datasets)\\
+\item
+  store and fetch binary data
+\end{enumerate}
+
+\emph{Suitable Areas or Scenarios of Application (excerpt):}
+
 \begin{itemize}
 \tightlist
 \item
-  abstraction concept (GraphQL)
+  core/master/profile data of an individual
 \item
-  areas of applications (excerpt)
-
-  \begin{itemize}
-  \tightlist
-  \item
-    profile data
-  \item
-    sensor data (e.g.~geo-location, motions)
-  \item
-    financial record (and history)
-  \item
-    payment information
-  \item
-    medical record
-  \item
-    governmental data
-  \item
-    biometric datasets (e.g.~finger print, retina)
-  \item
-    web search history
-  \item
-    what about user-created content, like pictures, videos or blog
-    posts?
-  \end{itemize}
+  biometric data (e.g.~finger print, retina)
 \item
-  primitives and structs
+  financial record (and history)
 \item
-  minimum feasible types
+  sensor data (e.g.~geo-location, motions, IoT)
 \item
-  structs as add-ons
+  payment information
 \item
-  data models (PL)
-
-  \begin{itemize}
-  \tightlist
-  \item
-    registration
-  \item
-    endpoint (relation to the key and file)
-  \item
-    permission profile
-
-    \begin{itemize}
-    \tightlist
-    \item
-      permitted data endpoints;
-    \item
-      associate to specific \emph{endpoint}
-    \item
-      permission type
-    \item
-      max/min interval (how often)
-    \item
-      expiration date of an access request, granted based on that
-      profile
-    \item
-      block all on this endpoint until further notice
-    \end{itemize}
-  \end{itemize}
+  medical record
+\item
+  governmental data
+\item
+  user-generated content (blog posts, comments, pictures, videos, etc.)
+\item
+  web search or browsing history
+\item
+  consume behaviors (e.g.~watchlist, music playlist)
 \end{itemize}
+
+\subsection*{System Data}\label{system-data}
+\addcontentsline{toc}{subsection}{System Data}
+
+The \emph{PL} consists of multiple storage technologies and MUST be
+placed on a trusted platform type, a server. At least TWO technologies
+MUST be supported; the platform's filesystem, which SHOULD be accessible
+by other components on that platform, and a document-oriented storage
+system that provides high flexibility through a schema-free approach and
+MUST also shared among several components. It is OPTIONAL, if the
+\emph{Tracker} uses the same storage system, multiple ones or a complete
+different storing mechanism. Regardless, they are all summarized under
+the \emph{Persistence Layer} component.
+
+Additional requirements are:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  configurations and application data (e.g.~permission profile) MUST be
+  reversible
+\end{enumerate}
 
 \subsection{Structure \& Types}\label{structure-types}
 
-\emph{NOTICE: required fields are implicit and therefore not marked as
-such, but any other notation is explicit}
+\emph{NOTICE: Required fields are implicit and therefore not marked as
+such. Any other notation is explicit, though.}
 
 \begin{itemize}
 \item
   henceforth only two things: primitive and struct
 \item
   supported date types
+\item
+  primitives and structs
+\item
+  minimum feasible types
+\item
+  structs as add-ons
+\end{itemize}
+
+\subsection*{Data Models}\label{data-models}
+\addcontentsline{toc}{subsection}{Data Models}
+
+\begin{itemize}
+\tightlist
+\item
+  registration
+\item
+  endpoint (relation to the key and file)
+\item
+  permission profile
+
+  \begin{itemize}
+  \tightlist
+  \item
+    permitted data endpoints;
+  \item
+    associate to specific \emph{endpoint}
+  \item
+    permission type
+  \item
+    max/min interval (how often)
+  \item
+    expiration date of an access request, granted based on that profile
+  \item
+    block all on this endpoint until further notice
+  \end{itemize}
 \item
   Tracker:
 
@@ -6406,33 +6490,6 @@ such, but any other notation is explicit}
     \end{itemize}
   \end{itemize}
 \end{itemize}
-
-\subsection{Read}\label{read}
-
-\begin{itemize}
-\tightlist
-\item
-  permission profiles
-
-  \begin{itemize}
-  \tightlist
-  \item
-    type
-  \item
-    how often
-  \item
-    what data
-  \item
-    expiration of the data (in case of plain fwd)
-  \end{itemize}
-\end{itemize}
-
-\subsection{Write}\label{write}
-
-(!) every data or configuration change has to be reversible
-
-precision of data: demanding lower precision than the \emph{data
-subject} has approved is always possible. The other ways around not.
 
 \section{Interfaces}\label{interfaces-1}
 
@@ -6596,6 +6653,12 @@ Defaults}\label{system-configurations-and-defaults}
   Kubernetes
 \item
   LibreSSL
+\item
+  CouchDB
+\item
+  RethinkDB
+\item
+  Prometheus
 \end{itemize}
 
 \subsubsection{Resources}\label{resources}

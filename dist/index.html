@@ -122,9 +122,10 @@
                 </ul></li>
                 <li><a href="#protocols"><span class="toc-section-number">7.5</span> Protocols</a></li>
                 <li><a href="#data-types"><span class="toc-section-number">7.6</span> Data &amp; Types</a><ul>
+                <li><a href="#personal-data">Personal Data</a></li>
+                <li><a href="#system-data">System Data</a></li>
                 <li><a href="#structure-types"><span class="toc-section-number">7.6.2</span> Structure &amp; Types</a></li>
-                <li><a href="#read"><span class="toc-section-number">7.6.3</span> Read</a></li>
-                <li><a href="#write"><span class="toc-section-number">7.6.4</span> Write</a></li>
+                <li><a href="#data-models">Data Models</a></li>
                 </ul></li>
                 <li><a href="#interfaces-1"><span class="toc-section-number">7.7</span> Interfaces</a></li>
                 <li><a href="#recommendations"><span class="toc-section-number">7.8</span> Recommendations</a></li>
@@ -610,7 +611,7 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 </dd>
 </dl>
 <p><em>NOTICE: The default permission type should be configurable. The operator can change all permission profiles at any point in time.</em></p>
-<p>Among other information, an access request contains the <em>data query</em> that shows very precisely what data points are affected by that request. So if an <em>access request</em> arrives at the <em>PDaaS</em>,assuming the <em>data consumer</em> has been authenticated sufficiently, the system (0) searches for a permission profile that corresponds to the <em>data consumer</em> and the requested data points. If it fails to find one, the access request is refused. But if it does, then it checks (1) if the permission type suffices at that moment and (2) if the query only contains data points that are enabled in the profile as well. Here, the order matters because it is imaginable that the operation behind (1) is less complex then operation (2). Running (1) before (2) can result in a faster response-time, if operation (1) already results negative. If all operations have a positive result, access is granted.</p>
+<p>Among other information, an access request contains the <em>data query</em> that shows very precisely what data points are affected by that request. So if an <em>access request</em> arrives at the <em>PDaaS</em>, assuming the <em>data consumer</em> has been authenticated sufficiently, the system (0) searches for a permission profile that corresponds to the <em>data consumer</em> and the requested data points. If it fails to find one, the access request is refused. But if it does, then it checks (1) if the permission type suffices at that moment and (2) if the query only contains data points that are enabled in the profile as well. Here, the order matters because it is imaginable that the operation behind (1) is less complex then operation (2). Running (1) before (2) can result in a faster response-time, if operation (1) already results negative. If all operations have a positive result, access is granted.</p>
 <p>As stated in the section about <a href="#data-reliability">data reliability</a>, the <em>data subject</em> is able to add, change, or remove all her data or even the <em>permission profiles</em> at any point in time. This raises the question of how to solve the situation were <em>access requests</em> are being processed while those changes are happening and might affect the result of those requests. The first and simplest approach would be to not address this issue at all, but that would be unreasonable because providing data to the <em>consumer</em> normally means for the <em>data subject</em> to get something in return or to somehow benefit from that. So that approach is not an option. Using a failure of reliability verifications as a mechanism to re-request data won’t work either in that case, because it would be based on a wrong assumption, since that failure can have multiple causes, not only the issue here in question. A stateless solution seems to not fit due to the time-related dependency. So the only currently perceivable way is to keep track of all momentarily processing or pending <em>access requests</em> to detect those who are affected by the changes so that each of them can be aborted and processed again. Here it is important to determine the right moment, when all changes are done, otherwise the system might end up restarting those computations repeatedly within a short amount of time. The described issue relates to both <em>personal data</em> and <em>permission profiles</em> because either can impact the response that is returned to the <em>data consumer</em>. Furthermore, it needs to be ensured that only after <em>permission requests</em> are reviewed and <em>permission profiles</em> are created, the <em>data consumers</em> receive their credentials or a notification to get started.</p>
 <p>It is up to <em>data consumers</em> to decide which data they are requesting to access, but how do they know what data can be requested? The only option is to expose information about data availability (<a href="#si02">S.I.02</a>), which can be done in a variety of ways. First, that information can be made publicly available via URI, providing a Machine-readable format so that information can be processed automatically by consumers. It is also feasible to restrict that access to registered <em>consumers</em> only, in order to prevent that information from being crawled. They could be valuable as meta data and therefore used in undesired processing that could raise privacy concerns. It is imaginable to allow <em>operators</em> to restrict the access to such availability information on an individual consumer-basis or system-wide, and furthermore, to set default configurations for this behaviour. Depending on those configurations a request might fail, thus the requester needs to be provided with meaningful errors. Http error codes <span class="citation" data-cites="web_spec_http-error-codes">[<a href="#ref-web_spec_http-error-codes">130</a>]</span> might be a sufficient fit for this purpose.</p>
 <p>An already standardized way to implement authorization is the <a href="#def--oauth">OAuth</a> Specification. And since the TLS layer is already in place to handle authentication, the choice would be to use version 2 of the standard, because it relies on HTTPS. Only two of the four <em>grant types</em> provided by OAuth would match with the process design introduced earlier. The types are <code>password</code> and <code>client_credentials</code>, which basically require identifier(s) and secret or credentials to directly obtain a <code>token</code>. The other two types define additional steps and interactions involving consumer and operator before getting the <code>token</code> because they are intended to be used for processes involving untrusted environments (e.g. browser, third party apps). Aside from not fitting into such scenarios it would also make the proposed process undesirably more complicated. Although the proposal includes user interactions like selecting and confirming requested permissions. According to the documentations <span class="citation" data-cites="web_spec_oauth-1a_client-reg">[<a href="#ref-web_spec_oauth-1a_client-reg">131</a>]</span> <span class="citation" data-cites="web_spec_oauth-2_client-reg">[<a href="#ref-web_spec_oauth-2_client-reg">132</a>]</span>, both OAuth versions (1.0a and 2) require the client (here <em>data consumer</em>) to register to the authorization server upfront (to obtain a <code>client_id</code>), before initializing the authorization process. However, as stated earlier, the concept of the <em>data subject</em> ‘pulling’ a <em>data consumer</em> towards the <em>PDaaS</em> is preferred over letting <em>data consumers</em> try to ‘push’ themselves towards the system. The reason to prevent undesired registration attempts is that they all have to be reviewed by the <em>data subject</em>. Furthermore, it is not within the scope of the OAuth Specification to define how this should be accomplished. Thus, such step needs to be added in addition to an entire OAuth-Flow, which might cause otherwise avoidable overhead in user interactions. Moreover, the proposed design does not include that specific registration process either. Instead, this process is not needed at all because, according to the proposal, client identification happens implicitly as a result of how the resource owner (operator) obtains the registration request from the client (see <em>Part One: consumer registration, step 0 to 2</em>). Further investigations show that the semantic of an <code>access_token</code> from the perspective of a resource server consists of (A) authentication [does this token exist?] and (B) authorization [Is this token valid and what does it permit?]. Those aspects are in part already provided by the proposed way of using the TLS layer. Because every data consumer has its own endpoint to connect with the <em>PDaaS</em> and the certificate used by the <em>consumer</em> is signed by a signature only used for that endpoint. This means the consumer is already authenticated when the TLS connection has been successfully established. And since <em>permission profiles</em> relate to a specific endpoint, it would make providing an <code>access_token</code> obsolete. To summarize, implementing OAuth would introduce several mechanisms that otherwise can be provided by the combination of <em>two-way authentication</em> in TLS, dedicated endpoints and certification.</p>
@@ -1167,7 +1168,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <ol type="1">
 <li><p>After starting the app, the operator needs to establish a connection between server and mobile application. Therefore, the operator has to scan a QR-Code with the help of that app. The QR-Code is presented to the operator within the management tool of the <em>PDaaS</em> running in a browser. Alternatively, the operator inserts her credentials into a form presented by the mobile application.</p></li>
 <li><p>After the connection is established, the operator can trigger a progress that duplicates all her personal data to the device that has just been associated with the <em>PDaaS</em>.</p></li>
-<li>At this point, one of two ways path can follow, depending on whether a complete write log for the <em>personal data</em> (<a href="#data">see discussion about backup strategies</a> exists or not.
+<li>At this point, one of two paths can follow, depending on whether a complete write log for the <em>personal data</em> (<a href="#data">see discussion about backup strategies</a> exists or not.
 <ol type="a">
 <li>If <em>[LOG-EXISTS]</em>, query by query the whole log is obtained from the existing storage and is then again executed in chronological order by the query language abstraction, starting with the oldest. The only difference here is that the target storage, on which that query is actually performed on, is located on that newly introduced platform.</li>
 <li>If <em>[LOG-NOT-EXISTS]</em>, the situation is more complicated if the database systems are not based on exactly the same technology. This would mean additional migration software is required. If both database systems provide import and export mechanisms that support at least one interoperable data format, the migration software can leverage these features simply by exporting all the data and saving it to the filesystem. The software then transfers the dump to the target environment and triggers the import process. When this is not the case, the software not only needs to be aware of both database systems and their native query language, it also has to have a comprehensive understanding of how their data structuring concepts work, in order to reliably transform one into the another. So, to be more specific, at first the software has to analyse the structure of the source database. Based on this result it might need to perform some configuration on the target database before actually obtaining the data from there. Received data then needs to be transformed into queries that are supported by the target database system. Those transformed queries are transferred to the target environment, where those incoming queries get executed until all data is migrated.</li>
@@ -1549,7 +1550,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li>provision runtimes</li>
 <li>perform test runs and code review</li>
 <li>monitor runtime during invocation</li>
-<li>handover results back to <em>Permission Manager</em></li>
+<li>hand over results back to <em>Permission Manager</em></li>
 <li>archive software in <em>Persistence Layer</em></li>
 </ol>
 </section>
@@ -1956,6 +1957,10 @@ server {
 </ol></li>
 </ul></li>
 <li><p>obtain data from <em>PDS</em></p></li>
+<li>adjust data precision
+<ul>
+<li>requesting lower precision than approved by <em>data subject</em> is always possible, but not the other ways around</li>
+</ul></li>
 <li>compute result according to provided access type
 <ul>
 <li><em>forward</em>
@@ -1992,15 +1997,24 @@ server {
 </ul>
 <ol type="1">
 <li><p>gather all <em>permission profiles</em> relating to the given endpoint</p></li>
-<li>find all profiles, addressing at least on requested data point
+<li>find all profiles, that
+<ol type="a">
+<li>address at least one requested data point and</li>
+<li>have a valid <em>permission type</em> at that moment</li>
+</ol></li>
+<li>check resulting subset and if …
 <ul>
-<li>if not all requested data points are addressed among those profiles
+<li>it’s empty
+<ol type="1">
+<li>return with a negative result (<code>false</code>)</li>
+</ol></li>
+<li>not all requested data points are addressed among those profiles
 <ol type="1">
 <li>pause processing</li>
 <li>notify operator and ask for decision on whether access to unregulated data points is allowed or denied</li>
 <li>after missing data points got acknowledged by operator, go back to (2.)</li>
 </ol></li>
-<li>if all requested data points are addressed among those profiles and …
+<li>all requested data points are addressed among those profiles and …
 <ul>
 <li>at least one is not allowed to access (counting also <code>refused</code> profiles)
 <ol type="1">
@@ -2023,24 +2037,51 @@ server {
 </section>
 <section id="data-types" class="level2">
 <h2><span class="header-section-number">7.6</span> Data &amp; Types</h2>
+<p>The system is aware of two different classes of data - personal data and system data. The latter is stored within the <em>Persistence Layer</em> and represents the current state of the system, whereas all the personal data, that reflects the Digital Identity of the operator and is maintained and also provided by the <em>Personal Data Store</em>.</p>
+<section id="personal-data" class="level3 unnumbered">
+<h3>Personal Data</h3>
+<p>The <em>PDS</em> is portable and can be placed on any of the platform types supported by the system, whereas data queries typically originate in a server platform. In order to provide such flexibility, and unless editing personal data happens on the same platform instance on which the data is also stored, access to the <em>PDS</em> MUST be abstracted. This design approach can be implemented by utilizing GraphQL’s native architecture, which is - aside from its generic graph-structured query language - primarily characterized by its separation of validation and execution. The execution level requires adapters for every database system the PDS have to support, while the validation is agnostic regarding a query origin. That is, the underlying database system can be swapped, or various database systems can run side by side. A universal query languages has also the advantages of being effortless re-applicable to a different storage system and being able to revert every data change. Therefore it is REQUIRED to store every writing query chronological, alongside the current state of the personal data.</p>
+<p><em>Additional requirements are:</em></p>
+<ol type="a">
+<li>precision of data, accessed by consumers must be adjustable (e.g. cut fractional digits, decrease sampling rate of time series datasets)<br />
+</li>
+<li>store and fetch binary data</li>
+</ol>
+<p><em>Suitable Areas or Scenarios of Application (excerpt):</em></p>
 <ul>
-<li>abstraction concept (GraphQL)</li>
-<li>areas of applications (excerpt)
-<ul>
-<li>profile data</li>
-<li>sensor data (e.g. geo-location, motions)</li>
+<li>core/master/profile data of an individual</li>
+<li>biometric data (e.g. finger print, retina)</li>
 <li>financial record (and history)</li>
+<li>sensor data (e.g. geo-location, motions, IoT)</li>
 <li>payment information</li>
 <li>medical record</li>
 <li>governmental data</li>
-<li>biometric datasets (e.g. finger print, retina)</li>
-<li>web search history</li>
-<li>what about user-created content, like pictures, videos or blog posts?</li>
-</ul></li>
+<li>user-generated content (blog posts, comments, pictures, videos, etc.)</li>
+<li>web search or browsing history</li>
+<li>consume behaviors (e.g. watchlist, music playlist)</li>
+</ul>
+</section>
+<section id="system-data" class="level3 unnumbered">
+<h3>System Data</h3>
+<p>The <em>PL</em> consists of multiple storage technologies and MUST be placed on a trusted platform type, a server. At least TWO technologies MUST be supported; the platform’s filesystem, which SHOULD be accessible by other components on that platform, and a document-oriented storage system that provides high flexibility through a schema-free approach and MUST also shared among several components. It is OPTIONAL, if the <em>Tracker</em> uses the same storage system, multiple ones or a complete different storing mechanism. Regardless, they are all summarized under the <em>Persistence Layer</em> component.</p>
+<p>Additional requirements are:</p>
+<ol type="a">
+<li>configurations and application data (e.g. permission profile) MUST be reversible</li>
+</ol>
+</section>
+<section id="structure-types" class="level3">
+<h3><span class="header-section-number">7.6.2</span> Structure &amp; Types</h3>
+<p><em>NOTICE: Required fields are implicit and therefore not marked as such. Any other notation is explicit, though.</em></p>
+<ul>
+<li>henceforth only two things: primitive and struct</li>
+<li><p>supported date types</p></li>
 <li>primitives and structs</li>
 <li>minimum feasible types</li>
-<li>structs as add-ons</li>
-<li>data models (PL)
+<li><p>structs as add-ons</p></li>
+</ul>
+</section>
+<section id="data-models" class="level3 unnumbered">
+<h3>Data Models</h3>
 <ul>
 <li>registration</li>
 <li>endpoint (relation to the key and file)</li>
@@ -2053,14 +2094,6 @@ server {
 <li>expiration date of an access request, granted based on that profile</li>
 <li>block all on this endpoint until further notice</li>
 </ul></li>
-</ul></li>
-</ul>
-<section id="structure-types" class="level3">
-<h3><span class="header-section-number">7.6.2</span> Structure &amp; Types</h3>
-<p><em>NOTICE: required fields are implicit and therefore not marked as such, but any other notation is explicit</em></p>
-<ul>
-<li>henceforth only two things: primitive and struct</li>
-<li><p>supported date types</p></li>
 <li>Tracker:
 <ul>
 <li>access-request
@@ -2081,23 +2114,6 @@ server {
 </ul></li>
 </ul></li>
 </ul>
-</section>
-<section id="read" class="level3">
-<h3><span class="header-section-number">7.6.3</span> Read</h3>
-<ul>
-<li>permission profiles
-<ul>
-<li>type</li>
-<li>how often</li>
-<li>what data</li>
-<li>expiration of the data (in case of plain fwd)</li>
-</ul></li>
-</ul>
-</section>
-<section id="write" class="level3">
-<h3><span class="header-section-number">7.6.4</span> Write</h3>
-<p>(!) every data or configuration change has to be reversible</p>
-<p>precision of data: demanding lower precision than the <em>data subject</em> has approved is always possible. The other ways around not.</p>
 </section>
 </section>
 <section id="interfaces-1" class="level2">
@@ -2205,6 +2221,9 @@ server {
 <li>rkt</li>
 <li>Kubernetes</li>
 <li>LibreSSL</li>
+<li>CouchDB</li>
+<li>RethinkDB</li>
+<li>Prometheus</li>
 </ul>
 </section>
 <section id="resources" class="level4">

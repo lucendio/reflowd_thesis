@@ -168,7 +168,11 @@ originating data consumer.*
         
 3.  obtain data from *PDS*
 
-4.  compute result according to provided access type
+4.  adjust data precision 
+    -   requesting lower precision than approved by *data subject* is always possible, but not the 
+        other way around
+
+5.  compute result according to provided access type
     +   *forward*
         1)  add expiration date for the data
         2)  move all obtained data to response handler
@@ -183,7 +187,7 @@ originating data consumer.*
         4)  run with real data
         5)  forward result to response handler
 
-5.  finalize response and submit it back to *consumer* 
+6.  finalize response and submit it back to *consumer* 
 
 
 *Result(s):*
