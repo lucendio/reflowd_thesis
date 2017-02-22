@@ -52,11 +52,16 @@
 \usepackage{sectsty}
 \usepackage[normalem]{ulem}
 \sectionfont{\rmfamily\mdseries\Large}
-\subsectionfont{\rmfamily\mdseries\scshape\large}
-\subsubsectionfont{\rmfamily\bfseries\upshape\large}
+% \subsectionfont{\rmfamily\mdseries\scshape\large}
 % \sectionfont{\rmfamily\mdseries\Large}
 % \subsectionfont{\rmfamily\mdseries\scshape\normalsize}
-% \subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
+
+% added 20170222 -->
+% adjust spacng before and after level 4 headline
+\usepackage{titlesec}
+\titlespacing*{\subsubsection}{0pt}{12pt plus 4pt minus 0pt}{0pt plus 0pt minus 0pt}
+% added 20170222 <--
 
 % Set figure legends and captions to be smaller sized sans serif font
 \usepackage[font={footnotesize,sf}]{caption}

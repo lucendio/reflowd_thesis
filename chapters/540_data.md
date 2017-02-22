@@ -81,12 +81,19 @@ In order to avoid confusion about the differences between types and schemas and 
 relations, the following two definitions are henceforth being used. A (data) *type* is the superior 
 term; hence refers to both of them. 
 
-[primitive]: most basic or atomic data type; defined as either *String*, *Boolean*, *Integer*, 
-    *Float* or *Nil (null)*
 
-[struct]: combines multiple types in order to define more complex data types; typically composed of 
-    *primitives*, but can consist of other structs as well
-  
+[primitive]
+
+: most basic or atomic data type; defined as either *String*, *Boolean*, *Integer*,  *Float* or 
+  *Nil (null)*
+
+
+[struct]
+
+: combines multiple types in order to define more complex data types; typically composed of 
+  *primitives*, but can consist of other structs as well
+
+
 Based on these two concepts almost any imaginable data type can be modeled. A selection of such
 types can be found in the list of [suggested structs (List 01)](#list-01_suggested-structs), whereas 
 an extract of (sub-)categories that might be useful in a *PDaaS* are specified in a list of 

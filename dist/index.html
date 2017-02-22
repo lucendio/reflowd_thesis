@@ -124,8 +124,8 @@
                 <li><a href="#data-types"><span class="toc-section-number">7.6</span> Data &amp; Types</a><ul>
                 <li><a href="#personal-data">Personal Data</a></li>
                 <li><a href="#system-data">System Data</a></li>
-                <li><a href="#structure-types"><span class="toc-section-number">7.6.2</span> Structure &amp; Types</a></li>
-                <li><a href="#data-models">Data Models</a></li>
+                <li><a href="#structure-types-of-personal-data"><span class="toc-section-number">7.6.2</span> Structure &amp; Types of Personal Data</a></li>
+                <li><a href="#data-models-for-system-data">Data Models for System Data</a></li>
                 </ul></li>
                 <li><a href="#interfaces-1"><span class="toc-section-number">7.7</span> Interfaces</a></li>
                 <li><a href="#recommendations"><span class="toc-section-number">7.8</span> Recommendations</a></li>
@@ -177,43 +177,43 @@
 <h2><span class="header-section-number">2.4</span> Terminologies</h2>
 <dl>
 <dt>Web Service:</dt>
-<dd>A service, that is accessible by electronic devices over the internet. This makes it almost effortless to use a service which would otherwise be out of reach. Interactions with a service usually happen through enriched websites or other web-compatible applications and interfaces.
+<dd><p>A service, that is accessible by electronic devices over the internet. This makes it almost effortless to use a service which would otherwise be out of reach. Interactions with a service usually happen through enriched websites or other web-compatible applications and interfaces.</p>
 </dd>
 <dt>Open Specification:</dt>
-<dd>A specification is a formal and very detailed way of describing a technology, its internals, and behaviour from external perspectives. It provides guidance for implementations to ensure a minimum level of interoperability. Structured in a formalized document it might become a <em>technical standard</em>. <em>Open</em> in this case means at first nothing, but it’s accessible for anyone without restrictions. When it comes to the intellectual value itself, that might be handled differently, for example with an enclosed license.
+<dd><p>A specification is a formal and very detailed way of describing a technology, its internals, and behaviour from external perspectives. It provides guidance for implementations to ensure a minimum level of interoperability. Structured in a formalized document it might become a <em>technical standard</em>. <em>Open</em> in this case means at first nothing, but it’s accessible for anyone without restrictions. When it comes to the intellectual value itself, that might be handled differently, for example with an enclosed license.</p>
 </dd>
 <dt><span id="terminologies--profile-data">Profile Data</span>:</dt>
-<dd>A collection of data points reflecting an individual’s inherent information and other basic predominantly static data points (no sets), which, in conjunction, uniquely relate to that individual.
+<dd><p>A collection of data points reflecting an individual’s inherent information and other basic predominantly static data points (no sets), which, in conjunction, uniquely relate to that individual.</p>
 </dd>
 <dt><span id="terminologies--digital-footprint">Digital Footprint</span>:</dt>
-<dd>Refers to data that is related to an individual. It is distinguished between an active footprint, which involves data and information about an individual who chose to share them publicly, and a passive footprint, which includes all data about an individual collected by third parties without the individual’s knowledge.
+<dd><p>Refers to data that is related to an individual. It is distinguished between an active footprint, which involves data and information about an individual who chose to share them publicly, and a passive footprint, which includes all data about an individual collected by third parties without the individual’s knowledge.</p>
 </dd>
 <dt>Personal Data as a Service (PDaaS):</dt>
-<dd>A web service that is controlled, owned, and maybe even hosted by an individual. It provides access to the data subject’s personal data and offers maintainability as well as permission management for those data. It can be seen as her personal agent; sometimes also referred to as <em>the system</em>.
+<dd><p>A web service that is controlled, owned, and maybe even hosted by an individual. It provides access to the data subject’s personal data and offers maintainability as well as permission management for those data. It can be seen as her personal agent; sometimes also referred to as <em>the system</em>.</p>
 </dd>
 <dt>Data Subject:</dt>
-<dd>An individual who first and foremost is the owner of all of her personal data; sometimes referred to as <em>owner</em>.
+<dd><p>An individual who first and foremost is the owner of all of her personal data; sometimes referred to as <em>owner</em>.</p>
 </dd>
 <dt><span id="terminologies--operator">Operator</span>:</dt>
-<dd>A <em>data subject</em> that uses a <em>PDaaS</em> to control (and probably host) her personal data; sometimes referred to as <em>data controller</em> or <em>data owner</em>.
+<dd><p>A <em>data subject</em> that uses a <em>PDaaS</em> to control (and probably host) her personal data; sometimes referred to as <em>data controller</em> or <em>data owner</em>.</p>
 </dd>
 <dt><span id="terminologies--consumer">(Data) Consumer</span>:</dt>
-<dd>Third party who requests permission or is already allowed to access the <em>operator’s</em> <em>personal data</em> through her <em>PDaaS</em>; sometimes referred to as <em>(data) collector</em> or vendor.
+<dd><p>Third party who requests permission or is already allowed to access the <em>operator’s</em> <em>personal data</em> through her <em>PDaaS</em>; sometimes referred to as <em>(data) collector</em> or vendor.</p>
 </dd>
 <dt><span id="terminologies--data-broker">Data Broker</span>:</dt>
-<dd>Third party with commercial interests in collecting, aggregating and analyzing information/data about humans from any possible resource in order to combine and enrich the data, to finally license those corpora to other organisations. <span class="citation" data-cites="report_2014_data-brokers">[<a href="#ref-report_2014_data-brokers">14</a>]</span>
+<dd><p>Third party with commercial interests in collecting, aggregating and analyzing information/data about humans from any possible resource in order to combine and enrich the data, to finally license those corpora to other organisations. <span class="citation" data-cites="report_2014_data-brokers">[<a href="#ref-report_2014_data-brokers">14</a>]</span></p>
 </dd>
 <dt>Permission Request:</dt>
-<dd>A formalized attempt made by a third party to request permissions in order to access certain data points on the <em>PDaaS</em>. The request has to include all the data points to which access is being demanded, as well as sufficient information about the purpose. It requires the third party to already being registered as <em>data consumer</em>.
+<dd><p>A formalized attempt made by a third party to request permissions in order to access certain data points on the <em>PDaaS</em>. The request has to include all the data points to which access is being demanded, as well as sufficient information about the purpose. It requires the third party to already being registered as <em>data consumer</em>.</p>
 </dd>
 <dt>Access Request:</dt>
-<dd>An attempt to actually access data provided by a <em>PDaaS</em>. The request primarily consists of a query, that defines what data points are tried to be accessed. The access is only permitted if the query matches against the <em>permission profiles</em>.
+<dd><p>An attempt to actually access data provided by a <em>PDaaS</em>. The request primarily consists of a query, that defines what data points are tried to be accessed. The access is only permitted if the query matches against the <em>permission profiles</em>.</p>
 </dd>
 <dt>Permission Profile:</dt>
-<dd>A set of access rules and configuration tied to a <em>data consumer</em>. It determines what data is accessible by the related <em>data consumer</em> and for how long. The profile is the result of a reviewed and granted <em>permission request</em>.
+<dd><p>A set of access rules and configuration tied to a <em>data consumer</em>. It determines what data is accessible by the related <em>data consumer</em> and for how long. The profile is the result of a reviewed and granted <em>permission request</em>.</p>
 </dd>
 <dt>Endpoint:</dt>
-<dd>An endpoint is defined as part of a URI that is uniquely associated with a single <em>data consumer</em>. Usually it’s the first part of a URI (e.g. domain incl. subdomains), whereas following parts indicating different resources that might be available within that endpoint. It can also be viewed as group of resources whose access is restricted.
+<dd><p>An endpoint is defined as part of a URI that is uniquely associated with a single <em>data consumer</em>. Usually it’s the first part of a URI (e.g. domain incl. subdomains), whereas following parts indicating different resources that might be available within that endpoint. It can also be viewed as group of resources whose access is restricted.</p>
 </dd>
 </dl>
 </section>
@@ -545,7 +545,7 @@ Real time communication might be essential for time-critical data transaction. H
 <p>The following proposed methods vary in the provided level of reliability as well as in the amount of effort to support them and in the possible impact to their surrounding systems. Not all data points are necessary to test for reliability. Profile data for example are more likely to be tested, whereas consumption lists or location histories are more difficult to verify, because currently there is no reliable way to verify the origin of those datasets, and they are also not a primary focus here.</p>
 <ol type="1">
 <li><p><strong>Local Verification by matching</strong><br />
-Probably the simplest and,at the same time, least reliable method is to just look at the existing data that are stored in the database and match them against those data that are used to create a response.</p></li>
+Probably the simplest and, at the same time, least reliable method is to just look at the existing data that are stored in the database and match them against those data that are used to create a response.</p></li>
 <li><p><strong>Local Verification and signing</strong><br />
 An electronic ID card can serve as an authentication token for the <em>operator</em>, but it can also be utilized to verify the reliability of certain data. Using the german implementation <em>(nPA)</em> as an example, the <em>eID</em> feature would provide access to the owner’s basic profile data, which can then be used to match against those data points that are both, held by that <em>nPA</em> and going to be used to create the response originating in the <em>PDaaS</em> persistence layer. If the result of that matching procedure is positive, the related data then gets signed with a <em>QES</em> courtesy of the <em>data subject’s</em> <em>nPA</em>. That signature also gets included in the response, so that the recipient can verify the reliability of the data.</p></li>
 <li><p><strong>Remote Verification and signing</strong><br />
@@ -635,8 +635,14 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <p>The GraphQL query syntax (<a href="#code-03_graphql-query">Code 03</a>) compared with its result (<a href="#code-04_graphql-query-result">Code 04</a>) shows a remarkable resemblance. By defining <code>paymentMethod</code> as an argument, the resolver for <code>bankAccounts</code> then implements an instruction to match the value of that argument (<code>'online-service'</code>) against the whole set. GraphQL’s server then knows from which resources the data in question need to be pulled and how they need to be aggregated. While SPARQL has a full-featured query language syntax including all sorts of controls (e.g. aggregation, operators, nested queries etc.), GraphQL’s syntax instead is more rudimentary because all of its functions and logic have been abandoned from the language itself and put into the server. With this concept of separation it is straightforward to validate queries because it essentially means matching against types. Both query languages share a comprehensive understanding of a type-system that encourages the creation of all kinds of data types. While in GraphQL common schemas still need to be created, SPARQL already provides a reasonable amount of vocabulary <span class="citation" data-cites="web_w3c-tr_rdf-schemas">[<a href="#ref-web_w3c-tr_rdf-schemas">135</a>]</span>. However, when comparing the results of both languages, some distinctions appear. While in GraphQL the characteristics of graph-structured data remain, SPARQL’s output is missing a certain level of depth. The reason for that originates in the design of the query language and its syntax. SPARQL is able to notice implicit relations between data points, though its query language is not capable of grabbing and presenting them. Thus the result (<a href="#code-02_sparql-query-results">Code 02</a>) only consists of two dimensions.</p>
 <p>It is crucial for the <em>PDaaS</em> to provide the <em>data subject</em> with abilities to create her own data types and schemas (<a href="#sp03">S.P.03</a>). Thereby she is enabled to serve data points according to her own needs and terms. In order to interact with their customers or users, <em>data consumers</em> might as well develop and provide schemas for their requests. This can help <em>data subjects</em> to speed up the process of permission granting and to more easily understand what data points are affected. Data types and schemas are the key to validate incoming and outgoing data. If data violates the underlying schema or no appropriate schema exists, the data transfer fails. Other missing data types could be developed by a community, because not every <em>data subject</em> might be capable of modeling her own data types. Thus everyone can benefit from that effort taken by a few. As a result, the ones that are widely used might then become de facto standards. Moreover, it’s also possible that several data types will emerge, that are based on common standards, for example <em>medical record</em> <span class="citation" data-cites="web_spec_data-schemas_ehr">[<a href="#ref-web_spec_data-schemas_ehr">136</a>]</span>, <em>point of interest</em> <span class="citation" data-cites="web_spec_data-schemas_poi">[<a href="#ref-web_spec_data-schemas_poi">137</a>]</span> or <em>bank transfer</em> <span class="citation" data-cites="web_spec_data-schemas_bank-transfer">[<a href="#ref-web_spec_data-schemas_bank-transfer">138</a>]</span>. With that approach those data types can be viewed as something like a plugin or add-on to the <em>PDaaS</em> ecosystem.</p>
 <p>In order to avoid confusion about the differences between types and schemas and to simplify their relations, the following two definitions are henceforth being used. A (data) <em>type</em> is the superior term; hence refers to both of them.</p>
-<pre><code>*Float* or *Nil (null)*</code></pre>
-<pre><code>*primitives*, but can consist of other structs as well</code></pre>
+<dl>
+<dt>[primitive]</dt>
+<dd><p>most basic or atomic data type; defined as either <em>String</em>, <em>Boolean</em>, <em>Integer</em>, <em>Float</em> or <em>Nil (null)</em></p>
+</dd>
+<dt>[struct]</dt>
+<dd><p>combines multiple types in order to define more complex data types; typically composed of <em>primitives</em>, but can consist of other structs as well</p>
+</dd>
+</dl>
 <p>Based on these two concepts almost any imaginable data type can be modeled. A selection of such types can be found in the list of <a href="#list-01_suggested-structs">suggested structs (List 01)</a>, whereas an extract of (sub-)categories that might be useful in a <em>PDaaS</em> are specified in a list of <a href="#list-02_data-categories">data categories (List 02)</a>. Additional examples for <em>structs</em> are a <a href="#code-05_struct_profile"><em>data subject’s</em> profile (Code 05)</a>, a <a href="#code-06_struct_contact">contact (Code 06)</a> and bare <a href="#code-07_struct_position">position information (Code 07)</a>. All those examples and lists are only to be understood as a starting point that should cover basic scenarios as well as to give a first impression of what data types a <em>PDaaS</em> could provide.</p>
 <p><strong><span id="list-01_suggested-structs">List 01: Suggestions for useful structs</span></strong></p>
 <ul>
@@ -927,8 +933,8 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 </tbody>
 </table>
 <p>The next step is to determine all the components that are required in order to cover most of the defined use cases. The conglomeration below highlights all major components, including information about which platforms they could be in, as well as further details about their major task(s), underlying technologies, and relation(s) to each other.</p>
-<p> <br />
-<strong>Web server</strong></p>
+<section id="web-server" class="level4">
+<h4><span class="header-section-number">6.6.1.1</span> Web server</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -951,8 +957,9 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>TLS</li>
 <li>WebSockets</li>
 </ul>
-<p> <br />
-<strong>Permission Manager</strong></p>
+</section>
+<section id="permission-manager" class="level4">
+<h4><span class="header-section-number">6.6.1.2</span> Permission Manager</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -973,8 +980,9 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <ul>
 <li>any modern language/framework capable of parallel computing</li>
 </ul>
-<p> <br />
-<strong>PKI</strong></p>
+</section>
+<section id="pki" class="level4">
+<h4><span class="header-section-number">6.6.1.3</span> PKI</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -991,8 +999,9 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>X.509</li>
 <li>ACME <span class="citation" data-cites="web_spec_acme">[<a href="#ref-web_spec_acme">142</a>]</span> (Let’s Encrypt)</li>
 </ul>
-<p> <br />
-<strong>Storage Connector</strong></p>
+</section>
+<section id="storage-connector" class="level4">
+<h4><span class="header-section-number">6.6.1.4</span> Storage Connector</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1007,8 +1016,9 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <ul>
 <li>driver for used database</li>
 </ul>
-<p> <br />
-<strong>Operator API</strong></p>
+</section>
+<section id="operator-api" class="level4">
+<h4><span class="header-section-number">6.6.1.5</span> Operator API</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1030,8 +1040,9 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <ul>
 <li>JWT</li>
 </ul>
-<p> <br />
-<strong>Code Execution Environment</strong></p>
+</section>
+<section id="code-execution-environment" class="level4">
+<h4><span class="header-section-number">6.6.1.6</span> Code Execution Environment</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1050,8 +1061,9 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>Virtualization</li>
 <li>Container (OCI)</li>
 </ul>
-<p> <br />
-<strong>Tracker</strong></p>
+</section>
+<section id="tracker" class="level4">
+<h4><span class="header-section-number">6.6.1.7</span> Tracker</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1067,8 +1079,9 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <ul>
 <li>any modern language/framework capable of parallel computing</li>
 </ul>
-<p> <br />
-<strong>Personal Data Storage</strong></p>
+</section>
+<section id="personal-data-storage" class="level4">
+<h4><span class="header-section-number">6.6.1.8</span> Personal Data Storage</h4>
 <p><em>Platform:</em> Server, Mobile</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1083,8 +1096,9 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>non relational database</li>
 <li>depending on host environment</li>
 </ul>
-<p> <br />
-<strong>Persistence Layer</strong></p>
+</section>
+<section id="persistence-layer" class="level4">
+<h4><span class="header-section-number">6.6.1.9</span> Persistence Layer</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1102,8 +1116,9 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>non relational database</li>
 <li>Filesystem</li>
 </ul>
-<p> <br />
-<strong>Notification Infrastructure</strong></p>
+</section>
+<section id="notification-infrastructure" class="level4">
+<h4><span class="header-section-number">6.6.1.10</span> Notification Infrastructure</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1118,8 +1133,9 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>WebSockets for web UIs via local web server</li>
 <li>mobile device manufacturer’s Push Notification server for mobile apps</li>
 </ul>
-<p> <br />
-<strong>User Interface</strong></p>
+</section>
+<section id="user-interface" class="level4">
+<h4><span class="header-section-number">6.6.1.11</span> User Interface</h4>
 <p><em>Platform:</em> Desktop, Mobile</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1157,6 +1173,7 @@ After outlining all different components, while keeping the aspect of portabilit
 <p>Considering the rapid growth of emerging website and applications, which all require user registration, users are getting tired of creating new accounts. Hence they tend to reuse their password(s). Providers started outsourcing that sensitive topic of user management by integrating third party authentication services, which not only makes that feature almost effortless to implement, but also leaves the responsibility as well as the accessibility to those service owners. Whereas users get the benefit of just using one account for all their apps - a universal key so to say, but only one exemplar. So the downside here is, in reality only a handful of third parties <span class="citation" data-cites="web_2009-success-of-facebook-connect">[<a href="#ref-web_2009-success-of-facebook-connect">143</a>]</span> provide those authentication services.<br />
 OpenID is designed with a very specific type of scenarios in mind, namely the one just described - bringing decentralization to the market of authentication services - which differs from the ones addressed by the <em>PDaaS</em>; at least when it comes to <em>data consumer</em> interactions. The <em>PDaaS</em> has the ability to become the digital representation of its <em>operator</em>, therefore it can and should also be used to authenticate that individual against external parties.</p>
 <p><em><strong>Conclusions:</strong></em> Considering the amount of effort a single-platform composition, namely <em>desktop</em> or <em>mobile</em>, would take to get fully operational with respect to the specification, it is not only reasonable but also more secure to involve a server platform with proper security measures, a static IP, and high availability, even if that server is a local machine connected to the operator’s private network. That said, it is sufficient to start with the <em>centralized</em> approach and as suitable mobile applications emerge that are supporting major administration features, notifications, and <em>personal data storage</em>, it should be possible to migrate effortlessly towards the <em>distributed</em> approach that brings a higher level of confidence because all the sensitive personal data is not on some computer machine somewhere on the internet, but right in the hands of its owner. By the proposed architecture, all components (or groups of components) are portable and therefore relocatable among the suggested platforms; and with the introduced authentication methods for operators, multiple front ends for the same <em>PDaaS</em> are thereby supported and can be implemented with almost no effort, which, in return, covers more use cases. As a supplement, an <em>identity provider</em> based on the OpenID standard would fit nicely into the existing arrangement and does not interfere with the other components. However, it is beyond the scope of this work to elaborate on this topic. For now it is stated as a feasible and logical addition to the <em>PDaaS</em>.</p>
+</section>
 </section>
 <section id="environment-and-setup" class="level2">
 <h2><span class="header-section-number">6.7</span> Environment and Setup</h2>
@@ -1467,7 +1484,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 </section>
 <section id="components" class="level2">
 <h2><span class="header-section-number">7.3</span> Components</h2>
-<section id="web-server" class="level5">
+<section id="web-server-1" class="level5">
 <h5><span class="header-section-number">7.3.1.0.1</span> Web server</h5>
 <p>an interface to (or proxy for) server components</p>
 <ol type="a">
@@ -1504,7 +1521,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li>create new Diffie-Hellman groups</li>
 </ol>
 </section>
-<section id="storage-connector" class="level5">
+<section id="storage-connector-1" class="level5">
 <h5><span class="header-section-number">7.3.1.0.4</span> Storage Connector</h5>
 <p>abstracts the <em>Personal Data Storage</em> and facilitates read, write, changelog and permissions</p>
 <ol type="a">
@@ -1528,7 +1545,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li>store binary data</li>
 </ol>
 </section>
-<section id="operator-api" class="level5">
+<section id="operator-api-1" class="level5">
 <h5><span class="header-section-number">7.3.1.0.6</span> Operator API</h5>
 <p>provides all functionalities an operator must be capable of</p>
 <ol type="a">
@@ -1554,7 +1571,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li>archive software in <em>Persistence Layer</em></li>
 </ol>
 </section>
-<section id="tracker" class="level5">
+<section id="tracker-1" class="level5">
 <h5><span class="header-section-number">7.3.1.0.8</span> Tracker</h5>
 <p>logs events and transactions occurring in the system</p>
 <ol type="a">
@@ -1581,7 +1598,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li>cache certain runtime data</li>
 </ol>
 </section>
-<section id="notification-infrastructure" class="level5">
+<section id="notification-infrastructure-1" class="level5">
 <h5><span class="header-section-number">7.3.1.0.10</span> Notification Infrastructure</h5>
 <p>a unified facility for server components to distribute notifications to multiple front ends</p>
 <ol type="a">
@@ -1957,9 +1974,21 @@ server {
 </ol></li>
 </ul></li>
 <li><p>obtain data from <em>PDS</em></p></li>
+<li>[OPTIONAL and if reliable == <code>true</code>] verify and indicate data reliability
+<ol type="1">
+<li>check, if data point(s) in obtained data are in group of data points whose reliability can be verified
+<ul>
+<li><em>yes</em>
+<ol type="1">
+<li>check if certificate is not expired</li>
+<li>compare fingerprint in certificate with calculated fingerprint *) if either fails and <code>notfyIfNotReliable == true</code>, pause and await operator’s decision, otherwise move on to next step</li>
+</ol></li>
+<li><em>no</em>, then move on to next step</li>
+</ul></li>
+</ol></li>
 <li>adjust data precision
 <ul>
-<li>requesting lower precision than approved by <em>data subject</em> is always possible, but not the other ways around</li>
+<li>requesting lower precision than approved by <em>data subject</em> is always possible, but not the other way around</li>
 </ul></li>
 <li>compute result according to provided access type
 <ul>
@@ -2037,11 +2066,11 @@ server {
 </section>
 <section id="data-types" class="level2">
 <h2><span class="header-section-number">7.6</span> Data &amp; Types</h2>
-<p>The system is aware of two different classes of data - personal data and system data. The latter is stored within the <em>Persistence Layer</em> and represents the current state of the system, whereas all the personal data, that reflects the Digital Identity of the operator and is maintained and also provided by the <em>Personal Data Store</em>.</p>
+<p>The system is aware of two different classes of data - personal data and system data. The latter is stored within the <em>Persistence Layer</em> and represents the current state of the system, whereas all the personal data, that reflects the Digital Identity of the operator, is maintained and also provided by the <em>Personal Data Store</em>.</p>
 <section id="personal-data" class="level3 unnumbered">
 <h3>Personal Data</h3>
-<p>The <em>PDS</em> is portable and can be placed on any of the platform types supported by the system, whereas data queries typically originate in a server platform. In order to provide such flexibility, and unless editing personal data happens on the same platform instance on which the data is also stored, access to the <em>PDS</em> MUST be abstracted. This design approach can be implemented by utilizing GraphQL’s native architecture, which is - aside from its generic graph-structured query language - primarily characterized by its separation of validation and execution. The execution level requires adapters for every database system the PDS have to support, while the validation is agnostic regarding a query origin. That is, the underlying database system can be swapped, or various database systems can run side by side. A universal query languages has also the advantages of being effortless re-applicable to a different storage system and being able to revert every data change. Therefore it is REQUIRED to store every writing query chronological, alongside the current state of the personal data.</p>
-<p><em>Additional requirements are:</em></p>
+<p>The <em>PDS</em> is portable and can be placed on any of the platform types supported by the system, whereas data queries typically originate in a server platform. In order to provide such flexibility, and unless editing personal data happens on the same platform instance on which the data is also stored, access to the <em>PDS</em> MUST be abstracted. This design approach can be implemented by utilizing GraphQL’s native architecture, which is - aside from its generic graph-structured query language - primarily characterized by its separation of validation and execution. The execution layer requires adapters for every database system the PDS has to support, while the validation is agnostic regarding the query origin. That is, the underlying database system can be swapped, or various database systems can run side by side. A universal query languages has also the advantages of being effortless re-applicable to a different storage system and being able to revert every data change. Therefore it is REQUIRED to store every writing query chronologically, next to the current state of the personal data.</p>
+<p><em>Additional requirement(s) are:</em></p>
 <ol type="a">
 <li>precision of data, accessed by consumers must be adjustable (e.g. cut fractional digits, decrease sampling rate of time series datasets)<br />
 </li>
@@ -2063,57 +2092,250 @@ server {
 </section>
 <section id="system-data" class="level3 unnumbered">
 <h3>System Data</h3>
-<p>The <em>PL</em> consists of multiple storage technologies and MUST be placed on a trusted platform type, a server. At least TWO technologies MUST be supported; the platform’s filesystem, which SHOULD be accessible by other components on that platform, and a document-oriented storage system that provides high flexibility through a schema-free approach and MUST also shared among several components. It is OPTIONAL, if the <em>Tracker</em> uses the same storage system, multiple ones or a complete different storing mechanism. Regardless, they are all summarized under the <em>Persistence Layer</em> component.</p>
-<p>Additional requirements are:</p>
+<p>The <em>PL</em> consists of multiple storage technologies and MUST be placed on a trusted platform type - a server. At least two technologies MUST be supported; the platform’s filesystem, which SHOULD be accessible by other components on the same platform, and a document-oriented storage system that provides high flexibility through a schema-free approach and MUST be shared as well among several components. It is OPTIONAL, if the <em>Tracker</em> uses the same storage system, multiple ones or a completely different storing mechanism. Regardless, they are all unified under the <em>Persistence Layer</em> component.</p>
+<p><em>Additional requirement(s) are:</em></p>
 <ol type="a">
 <li>configurations and application data (e.g. permission profile) MUST be reversible</li>
 </ol>
 </section>
-<section id="structure-types" class="level3">
-<h3><span class="header-section-number">7.6.2</span> Structure &amp; Types</h3>
-<p><em>NOTICE: Required fields are implicit and therefore not marked as such. Any other notation is explicit, though.</em></p>
+<section id="structure-types-of-personal-data" class="level3">
+<h3><span class="header-section-number">7.6.2</span> Structure &amp; Types of Personal Data</h3>
+<p>The type system, on which all personal data is based on, MUST be compatible with the type system provided by GraphQL. The subsequent definitions represent the least set of features that a type system for personal data MUST acknowledge in any implementation.</p>
+<dl>
+<dt><code>[primitive]</code></dt>
+<dd><p>most basic or atomic data type, consisting of just a single value that is either defined as <code>String</code>, <code>Boolean</code>, <code>Integer</code>, <code>Float</code> or <code>null</code>, which are <code>primitives</code> by themselves; <em>(corresponding to GraphQL’s <code>Scalar</code>)</em></p>
+</dd>
+<dt><code>[struct]</code></dt>
+<dd><p>combines multiple types in order to define more complex types; typically composed of <code>primitives</code> and organized as (nested) <em>Object(s)</em> or <em>List(s)</em>; can consist of other structs as well</p>
+</dd>
+</dl>
+<p>The <em>Storage Connector</em> MUST support a basic set of <code>primitives</code> and <code>structs</code> right from the start, in order to reduce the effort when making first steps with the system. The following types are initially REQUIRED:</p>
+<section id="primitives" class="level4">
+<h4><span class="header-section-number">7.6.2.1</span> Primitives:</h4>
 <ul>
-<li>henceforth only two things: primitive and struct</li>
-<li><p>supported date types</p></li>
-<li>primitives and structs</li>
-<li>minimum feasible types</li>
-<li><p>structs as add-ons</p></li>
+<li><code>ID</code></li>
+<li><code>Date</code></li>
+<li><code>Email</code></li>
+<li><code>Domain</code></li>
+<li><code>PhoneNumber</code></li>
+<li><code>URL</code></li>
 </ul>
 </section>
-<section id="data-models" class="level3 unnumbered">
-<h3>Data Models</h3>
+<section id="structs" class="level4">
+<h4><span class="header-section-number">7.6.2.2</span> Structs:</h4>
 <ul>
-<li>registration</li>
-<li>endpoint (relation to the key and file)</li>
-<li>permission profile
+<li><code>Position</code></li>
+<li><code>File</code></li>
+<li><code>Address</code></li>
+<li><code>Unit</code></li>
+<li><code>Product</code></li>
+<li><code>Diseases</code></li>
+<li><code>Treatment</code></li>
+<li><code>Organisation</code></li>
+<li><code>Route</code></li>
+<li><code>CV</code></li>
+<li><code>Contact</code></li>
+<li><code>Transaction</code></li>
+</ul>
+<p>Other <em>structs</em>, that might become needful over time, can either be created and modeled by the operator herself or are developed and provided by community members and other third parties, so that unsupported types just need to be imported into the system.</p>
+</section>
+</section>
+<section id="data-models-for-system-data" class="level3 unnumbered">
+<h3>Data Models for System Data</h3>
+<p>Aside from personal data, whose structure is adjustable by the <em>data subject</em> to suit her needs, the system itself REQUIRES some data models as well in order to provide i.a. mechanisms for managing the process of accessing data. Those models are outlined below.</p>
+<p>The types that MUST be supported by the <em>PL</em> are similar to the <em>primitives</em> available in the Query Language, but somewhat more rudimentary: <code>String</code>, <code>Boolean</code>, <code>Number</code>, and <code>null</code>. Everything beyond this depends on the technologies that are being used.</p>
+<p><em>NOTICE: Required fields are implicit and therefore not marked as such. Any other notation is explicit, though. The indicated value types are minimum viable; if supported, a more precise one SHOULD be used.</em></p>
+<section id="endpoint" class="level4">
+<h4><span class="header-section-number">7.6.2.3</span> Endpoint</h4>
 <ul>
-<li>permitted data endpoints;</li>
-<li>associate to specific <em>endpoint</em></li>
-<li>permission type</li>
-<li>max/min interval (how often)</li>
-<li>expiration date of an access request, granted based on that profile</li>
-<li>block all on this endpoint until further notice</li>
+<li><code>name: String</code> - full valid subdomain name</li>
+<li><code>consumer: String || Object</code> - consumer information || name
+<ul>
+<li><code>name: String</code> - readable and descriptive consumer name</li>
+<li><code>description: String</code> - [OPTIONAL] consumer description provided during registration</li>
 </ul></li>
-<li>Tracker:
+<li><code>crt: String</code> - endpoint’s certificate (filesystem path or file content)</li>
+<li><code>key: String</code> - endpoint’s private key (filesystem path or file content)</li>
+<li><code>ccert: String</code> - consumer’s certificate (filesystem path or file content)</li>
+</ul>
+</section>
+<section id="permission-profile" class="level4">
+<h4><span class="header-section-number">7.6.2.4</span> Permission Profile</h4>
 <ul>
-<li>access-request
+<li><code>data: [String]</code> - [MUST if <code>query == undefined</code>] list of permitted data endpoints</li>
+<li><code>query: Object || String</code> - [MUST if <code>data == undefined</code>] query, representing permitted data</li>
+<li><code>endpoint: String</code> - associating endpoint</li>
+<li><code>type: String</code> - how long the profile is valid
 <ul>
+<li><code>: one-time-only</code></li>
+<li><code>: expires-on-date</code></li>
+<li><code>: until-further-notice</code></li>
+</ul></li>
+<li><code>expiresAt: Number</code> - [MUST if type == <code>expires-on-date'</code>] date of expiration</li>
+<li><code>interval: Object</code> - least amount of time between two access requests
+<ul>
+<li><code>value: Number</code> - time value</li>
+<li><code>unit: String</code> - unit of time value</li>
+</ul></li>
+<li><code>createdAt: Number</code> - date of creation of this profile</li>
+<li><code>disbaled: Boolean</code> - [OPTIONAL] disabled until further notice</li>
+<li><code>access: String</code> - [OPTIONAL] access type: <code>fwd</code> (plain forward) or <code>sce</code> (supervised code execution)</li>
+<li><code>dataExpiration: Number</code> - [SHOULD if access == <code>'fwd'</code>] date of when responded data becomes outdated and thus unreliable</li>
+</ul>
+</section>
+<section id="notification" class="level4">
+<h4><span class="header-section-number">7.6.2.5</span> Notification</h4>
+<p><em>NOTICE: MUST be encrypted, if is sent via Push Notification Service</em></p>
+<ul>
+<li><code>oid: String</code> - identifier of what this notification has triggered</li>
+<li><code>type: String</code> - type of procedure/occasion</li>
+<li><code>message: String</code> - information, that is presented to operator</li>
+<li><code>payload: String</code> - anything, that can be serialized into a string (e.g. JSON, containing information about a related procedure)</li>
+</ul>
+</section>
+<section id="tracker-2" class="level4">
+<h4><span class="header-section-number">7.6.2.6</span> Tracker</h4>
+<p><em>Collection:</em> <code>registrations</code></p>
+<ul>
+<li><code>id: String</code> - identifier of this document</li>
+<li><code>csr: String</code> - certificate signing request</li>
+<li><code>callback: String</code> - callback URL for submitting registration response</li>
+<li><code>crt: String</code> - [OPTIONAL] certificate for callback URL, if not publicly trusted</li>
+<li><code>pr: Boolean</code> - was permission request included?</li>
+<li><code>header: String</code> - third party’s HTTP header</li>
+<li><code>tsin: Number</code> - timestamp of occurrence</li>
+</ul>
+<p><em>Collection:</em> <code>access-requests</code></p>
+<ul>
+<li><code>id: String</code> - identifier of this document</li>
 <li><code>tsin: Number</code> - timestamp of occurrence</li>
 <li><code>tsout: Number</code> - timestamp of response</li>
-<li><code>type: String</code> - access type (<code>sce</code>,<code>cp</code>)</li>
-<li><code>query: String</code> - data query</li>
-<li><code>state: String</code> - current state of proceeding</li>
+<li><code>type: String</code> - access type: <code>fwd</code> (plain forward) or <code>sce</code> (supervised code execution)</li>
+<li><code>program: String || Object</code> - [MUST if <code>type == 'sec'</code>] filesystem path or file content that facilitates supervised code execution</li>
+<li><code>data: [String]</code> - [MUST if <code>query == undefined</code>] list of permitted data endpoints</li>
+<li><code>query: Object || String</code> - [MUST if <code>data == undefined</code>] query representing permitted data</li>
+<li><code>state: String</code> - current state of proceeding
+<ul>
+<li><code>: 'handling'</code> - pre-process access request</li>
+<li><code>: 'verifying'</code> - verify against existing permission profiles</li>
+<li><code>: 'obtaining'</code> - query data from <em>PDS</em></li>
+<li><code>: 'adjusting'</code> - apply precision rules</li>
+<li><code>: 'responding'</code> - hand over generated result back to consumer</li>
+</ul></li>
 <li><code>endpoint: String</code> - endpoint on which the request came in</li>
 <li><code>header: String</code> - consumer’s HTTP header</li>
-<li><code>result</code>: result of SCE [OPTIONAL]</li>
-</ul></li>
-<li>access-validation
-<ul>
-<li><code>access-request: String</code> - reference to access request</li>
-<li><code>reason: String</code> - why has the verification failed</li>
-</ul></li>
-</ul></li>
+<li><code>result: String</code> - [MUST if access == <code>'sce'</code>] serialized result of <em>SCE</em></li>
+<li><code>responseMethod: String</code> - how the system should submit he response to the consumer (<code>keepalive</code> or <code>push</code>)</li>
+<li><code>verifyReliability: Boolean</code> - indicate in response, that obtained data is reliable/authentic</li>
 </ul>
+<p><em>Collection:</em> <code>failed-access-verifications</code></p>
+<ul>
+<li><code>id: String</code> - identifier of this document</li>
+<li><code>requestId: String</code> - reference to <code>access-request</code> ID</li>
+<li><code>reason: String</code> - why has the verification failed (e.g. error or refused message)</li>
+</ul>
+</section>
+<section id="system-configurations-and-defaults__" class="level4">
+<h4><span class="header-section-number">7.6.2.7</span> System Configurations and Defaults__</h4>
+<a name="tbl:spec_system-default-config"></a>
+<table>
+<caption>Table 4: Global System Configurations and their default values </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Primitive</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>dataExpiration</code></td>
+<td style="text-align: left;">Number</td>
+<td style="text-align: center;"><em>now + 48 hours</em></td>
+<td style="text-align: left;">see <em>Permission Profile</em> above</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>accessResponseMethod</code></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: center;"><code>'push'</code></td>
+<td style="text-align: left;">see <em>Collection:</em> <code>access-requests</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>accessResponseTimeout</code></td>
+<td style="text-align: left;">Number</td>
+<td style="text-align: center;"><code>120</code></td>
+<td style="text-align: left;">timeout of access response in sec.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>accessType</code></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: center;"><code>'sce'</code></td>
+<td style="text-align: left;">see <em>Permission Profile</em> above</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>notifyInGui</code></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: center;"><code>true</code></td>
+<td style="text-align: left;">notify in management tool</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>notifyByMail</code></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: center;"><code>true</code></td>
+<td style="text-align: left;">notify via email</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>notifyOnRegistration</code></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: center;"><code>true</code></td>
+<td style="text-align: left;">notify on incoming registration</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>notifyOnPermission</code></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: center;"><code>true</code></td>
+<td style="text-align: left;">notify on incoming permission request</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>notifyOnAccess</code></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: center;"><code>false</code></td>
+<td style="text-align: left;">notify on incoming access request</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>notifyOnViolation</code></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: center;"><code>true</code></td>
+<td style="text-align: left;">notify on violations of access rules</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>notifyOnAnomaly</code></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: center;"><code>true</code></td>
+<td style="text-align: left;">notify if <em>Tracker</em> recognizes anomaly</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>notifyOnError</code></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: center;"><code>false</code></td>
+<td style="text-align: left;">notify on unexpected errors in system</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>notifyOnError</code></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: center;"><code>false</code></td>
+<td style="text-align: left;">notify on unexpected errors in system</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>notfyIfNotReliable</code></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: center;"><code>false</code></td>
+<td style="text-align: left;">notify on failed reliability check</td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 </section>
 <section id="interfaces-1" class="level2">
@@ -2202,18 +2424,8 @@ server {
 <li>Setup/Hardware</li>
 </ul>
 </section>
-<section id="system-configurations-and-defaults" class="level4">
-<h4><span class="header-section-number">7.8.1.2</span> System Configurations and Defaults</h4>
-<ul>
-<li>operator notifications (type, occasion)</li>
-<li>expiration date for forwarded data</li>
-<li>response method of access request</li>
-<li>access type</li>
-<li>response timeout limit of access request</li>
-</ul>
-</section>
 <section id="software-recommendations" class="level4">
-<h4><span class="header-section-number">7.8.1.3</span> Software Recommendations</h4>
+<h4><span class="header-section-number">7.8.1.2</span> Software Recommendations</h4>
 <ul>
 <li>letsencrypt</li>
 <li>nginx</li>
@@ -2227,11 +2439,12 @@ server {
 </ul>
 </section>
 <section id="resources" class="level4">
-<h4><span class="header-section-number">7.8.1.4</span> Resources</h4>
+<h4><span class="header-section-number">7.8.1.3</span> Resources</h4>
 <ul>
 <li><a href="https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices">SSL and TLS Deployment Best Practices</a></li>
 <li><a href="https://wiki.mozilla.org/Security/Server_Side_TLS">Security/Server Side TLS</a></li>
 <li><a href="https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html">Strong SSL Security on nginx</a></li>
+<li><a href="https://facebook.github.io/graphql/#sec-Types">GraphQL Specification - 3.1 Types</a></li>
 </ul>
 </section>
 </section>

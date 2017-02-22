@@ -198,7 +198,11 @@
 \usepackage[normalem]{ulem}
 \sectionfont{\rmfamily\mdseries\Large}
 \subsectionfont{\rmfamily\mdseries\scshape\large}
-\subsubsectionfont{\rmfamily\bfseries\upshape\large}
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
+
+\usepackage{titlesec}
+\titlespacing*{\subsubsection}{0pt}{12pt plus 4pt minus 0pt}{0pt plus 0pt minus 0pt}
+
 % \sectionfont{\rmfamily\mdseries\Large}
 % \subsectionfont{\rmfamily\mdseries\scshape\normalsize}
 % \subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
@@ -520,7 +524,6 @@ might affect her privacy.
 \hypertarget{terminologies}{\section{Terminologies}\label{terminologies}}
 
 \begin{description}
-\tightlist
 \item[Web Service:]
 A service, that is accessible by electronic devices over the internet.
 This makes it almost effortless to use a service which would otherwise
@@ -2884,7 +2887,7 @@ focus here.
 \def\labelenumi{(\arabic{enumi})}
 \item
   \textbf{Local Verification by matching}\\
-  Probably the simplest and,at the same time, least reliable method is
+  Probably the simplest and, at the same time, least reliable method is
   to just look at the existing data that are stored in the database and
   match them against those data that are used to create a response.
 \item
@@ -3500,13 +3503,15 @@ schemas and to simplify their relations, the following two definitions
 are henceforth being used. A (data) \emph{type} is the superior term;
 hence refers to both of them.
 
-\begin{verbatim}
-*Float* or *Nil (null)*
-\end{verbatim}
-
-\begin{verbatim}
-*primitives*, but can consist of other structs as well
-\end{verbatim}
+\begin{description}
+\item[{[}primitive{]}]
+most basic or atomic data type; defined as either \emph{String},
+\emph{Boolean}, \emph{Integer}, \emph{Float} or \emph{Nil (null)}
+\item[{[}struct{]}]
+combines multiple types in order to define more complex data types;
+typically composed of \emph{primitives}, but can consist of other
+structs as well
+\end{description}
 
 Based on these two concepts almost any imaginable data type can be
 modeled. A selection of such types can be found in the list of
@@ -3960,8 +3965,7 @@ highlights all major components, including information about which
 platforms they could be in, as well as further details about their major
 task(s), underlying technologies, and relation(s) to each other.
 
-~\\
-\textbf{Web server}
+\subsubsection{Web server}\label{web-server}
 
 \emph{Platform:} Server
 
@@ -4007,8 +4011,7 @@ task(s), underlying technologies, and relation(s) to each other.
   WebSockets
 \end{itemize}
 
-~\\
-\textbf{Permission Manager}
+\subsubsection{Permission Manager}\label{permission-manager}
 
 \emph{Platform:} Server
 
@@ -4050,8 +4053,7 @@ task(s), underlying technologies, and relation(s) to each other.
   any modern language/framework capable of parallel computing
 \end{itemize}
 
-~\\
-\textbf{PKI}
+\subsubsection{PKI}\label{pki}
 
 \emph{Platform:} Server
 
@@ -4085,8 +4087,7 @@ task(s), underlying technologies, and relation(s) to each other.
   ACME {[}\protect\hyperlink{ref-web_spec_acme}{142}{]} (Let's Encrypt)
 \end{itemize}
 
-~\\
-\textbf{Storage Connector}
+\subsubsection{Storage Connector}\label{storage-connector}
 
 \emph{Platform:} Server
 
@@ -4116,8 +4117,7 @@ task(s), underlying technologies, and relation(s) to each other.
   driver for used database
 \end{itemize}
 
-~\\
-\textbf{Operator API}
+\subsubsection{Operator API}\label{operator-api}
 
 \emph{Platform:} Server
 
@@ -4161,8 +4161,8 @@ task(s), underlying technologies, and relation(s) to each other.
   JWT
 \end{itemize}
 
-~\\
-\textbf{Code Execution Environment}
+\subsubsection{Code Execution
+Environment}\label{code-execution-environment}
 
 \emph{Platform:} Server
 
@@ -4202,8 +4202,7 @@ task(s), underlying technologies, and relation(s) to each other.
   Container (OCI)
 \end{itemize}
 
-~\\
-\textbf{Tracker}
+\subsubsection{Tracker}\label{tracker}
 
 \emph{Platform:} Server
 
@@ -4235,8 +4234,7 @@ task(s), underlying technologies, and relation(s) to each other.
   any modern language/framework capable of parallel computing
 \end{itemize}
 
-~\\
-\textbf{Personal Data Storage}
+\subsubsection{Personal Data Storage}\label{personal-data-storage}
 
 \emph{Platform:} Server, Mobile
 
@@ -4266,8 +4264,7 @@ task(s), underlying technologies, and relation(s) to each other.
   depending on host environment
 \end{itemize}
 
-~\\
-\textbf{Persistence Layer}
+\subsubsection{Persistence Layer}\label{persistence-layer}
 
 \emph{Platform:} Server
 
@@ -4304,8 +4301,8 @@ task(s), underlying technologies, and relation(s) to each other.
   Filesystem
 \end{itemize}
 
-~\\
-\textbf{Notification Infrastructure}
+\subsubsection{Notification
+Infrastructure}\label{notification-infrastructure}
 
 \emph{Platform:} Server
 
@@ -4336,8 +4333,7 @@ task(s), underlying technologies, and relation(s) to each other.
   mobile device manufacturer's Push Notification server for mobile apps
 \end{itemize}
 
-~\\
-\textbf{User Interface}
+\subsubsection{User Interface}\label{user-interface}
 
 \emph{Platform:} Desktop, Mobile
 
@@ -5223,7 +5219,7 @@ Standards}\label{depending-technologies-and-standards}
 
 \section{Components}\label{components}
 
-\paragraph{Web server}\label{web-server}
+\paragraph{Web server}\label{web-server-1}
 
 an interface to (or proxy for) server components
 
@@ -5293,7 +5289,7 @@ provides the web server with keys and issues certificates
   create new Diffie-Hellman groups
 \end{enumerate}
 
-\paragraph{Storage Connector}\label{storage-connector}
+\paragraph{Storage Connector}\label{storage-connector-1}
 
 abstracts the \emph{Personal Data Storage} and facilitates read, write,
 changelog and permissions
@@ -5339,7 +5335,7 @@ a database system where the personal data is actually stored
   store binary data
 \end{enumerate}
 
-\paragraph{Operator API}\label{operator-api}
+\paragraph{Operator API}\label{operator-api-1}
 
 provides all functionalities an operator must be capable of
 
@@ -5386,7 +5382,7 @@ provides isolated runtime (sandbox) for supervised code execution
   archive software in \emph{Persistence Layer}
 \end{enumerate}
 
-\paragraph{Tracker}\label{tracker}
+\paragraph{Tracker}\label{tracker-1}
 
 logs events and transactions occurring in the system
 
@@ -5437,7 +5433,7 @@ state
 \end{enumerate}
 
 \paragraph{Notification
-Infrastructure}\label{notification-infrastructure}
+Infrastructure}\label{notification-infrastructure-1}
 
 a unified facility for server components to distribute notifications to
 multiple front ends
@@ -6147,13 +6143,44 @@ originating data consumer.}
 \item
   obtain data from \emph{PDS}
 \item
+  {[}OPTIONAL and if reliable == \texttt{true}{]} verify and indicate
+  data reliability
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii})}
+  \tightlist
+  \item
+    check, if data point(s) in obtained data are in group of data points
+    whose reliability can be verified
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{yes}
+
+      \begin{enumerate}
+      \def\labelenumiii{\arabic{enumiii})}
+      \tightlist
+      \item
+        check if certificate is not expired
+      \item
+        compare fingerprint in certificate with calculated fingerprint
+        *) if either fails and \texttt{notfyIfNotReliable\ ==\ true},
+        pause and await operator's decision, otherwise move on to next
+        step
+      \end{enumerate}
+    \item
+      \emph{no}, then move on to next step
+    \end{itemize}
+  \end{enumerate}
+\item
   adjust data precision
 
   \begin{itemize}
   \tightlist
   \item
     requesting lower precision than approved by \emph{data subject} is
-    always possible, but not the other ways around
+    always possible, but not the other way around
   \end{itemize}
 \item
   compute result according to provided access type
@@ -6322,8 +6349,8 @@ obtained from the PDS.}
 The system is aware of two different classes of data - personal data and
 system data. The latter is stored within the \emph{Persistence Layer}
 and represents the current state of the system, whereas all the personal
-data, that reflects the Digital Identity of the operator and is
-maintained and also provided by the \emph{Personal Data Store}.
+data, that reflects the Digital Identity of the operator, is maintained
+and also provided by the \emph{Personal Data Store}.
 
 \subsection*{Personal Data}\label{personal-data}
 \addcontentsline{toc}{subsection}{Personal Data}
@@ -6336,16 +6363,16 @@ data is also stored, access to the \emph{PDS} MUST be abstracted. This
 design approach can be implemented by utilizing GraphQL's native
 architecture, which is - aside from its generic graph-structured query
 language - primarily characterized by its separation of validation and
-execution. The execution level requires adapters for every database
-system the PDS have to support, while the validation is agnostic
-regarding a query origin. That is, the underlying database system can be
-swapped, or various database systems can run side by side. A universal
-query languages has also the advantages of being effortless
+execution. The execution layer requires adapters for every database
+system the PDS has to support, while the validation is agnostic
+regarding the query origin. That is, the underlying database system can
+be swapped, or various database systems can run side by side. A
+universal query languages has also the advantages of being effortless
 re-applicable to a different storage system and being able to revert
 every data change. Therefore it is REQUIRED to store every writing query
-chronological, alongside the current state of the personal data.
+chronologically, next to the current state of the personal data.
 
-\emph{Additional requirements are:}
+\emph{Additional requirement(s) are:}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -6387,16 +6414,16 @@ chronological, alongside the current state of the personal data.
 \addcontentsline{toc}{subsection}{System Data}
 
 The \emph{PL} consists of multiple storage technologies and MUST be
-placed on a trusted platform type, a server. At least TWO technologies
+placed on a trusted platform type - a server. At least two technologies
 MUST be supported; the platform's filesystem, which SHOULD be accessible
-by other components on that platform, and a document-oriented storage
-system that provides high flexibility through a schema-free approach and
-MUST also shared among several components. It is OPTIONAL, if the
-\emph{Tracker} uses the same storage system, multiple ones or a complete
-different storing mechanism. Regardless, they are all summarized under
-the \emph{Persistence Layer} component.
+by other components on the same platform, and a document-oriented
+storage system that provides high flexibility through a schema-free
+approach and MUST be shared as well among several components. It is
+OPTIONAL, if the \emph{Tracker} uses the same storage system, multiple
+ones or a completely different storing mechanism. Regardless, they are
+all unified under the \emph{Persistence Layer} component.
 
-Additional requirements are:
+\emph{Additional requirement(s) are:}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -6406,90 +6433,348 @@ Additional requirements are:
   reversible
 \end{enumerate}
 
-\subsection{Structure \& Types}\label{structure-types}
+\subsection{Structure \& Types of Personal
+Data}\label{structure-types-of-personal-data}
 
-\emph{NOTICE: Required fields are implicit and therefore not marked as
-such. Any other notation is explicit, though.}
+The type system, on which all personal data is based on, MUST be
+compatible with the type system provided by GraphQL. The subsequent
+definitions represent the least set of features that a type system for
+personal data MUST acknowledge in any implementation.
 
-\begin{itemize}
-\item
-  henceforth only two things: primitive and struct
-\item
-  supported date types
-\item
-  primitives and structs
-\item
-  minimum feasible types
-\item
-  structs as add-ons
-\end{itemize}
+\begin{description}
+\item[\texttt{{[}primitive{]}}]
+most basic or atomic data type, consisting of just a single value that
+is either defined as \texttt{String}, \texttt{Boolean},
+\texttt{Integer}, \texttt{Float} or \texttt{null}, which are
+\texttt{primitives} by themselves; \emph{(corresponding to GraphQL's
+\texttt{Scalar})}
+\item[\texttt{{[}struct{]}}]
+combines multiple types in order to define more complex types; typically
+composed of \texttt{primitives} and organized as (nested)
+\emph{Object(s)} or \emph{List(s)}; can consist of other structs as well
+\end{description}
 
-\subsection*{Data Models}\label{data-models}
-\addcontentsline{toc}{subsection}{Data Models}
+The \emph{Storage Connector} MUST support a basic set of
+\texttt{primitives} and \texttt{structs} right from the start, in order
+to reduce the effort when making first steps with the system. The
+following types are initially REQUIRED:
+
+\subsubsection{Primitives:}\label{primitives}
 
 \begin{itemize}
 \tightlist
 \item
-  registration
+  \texttt{ID}
 \item
-  endpoint (relation to the key and file)
+  \texttt{Date}
 \item
-  permission profile
-
-  \begin{itemize}
-  \tightlist
-  \item
-    permitted data endpoints;
-  \item
-    associate to specific \emph{endpoint}
-  \item
-    permission type
-  \item
-    max/min interval (how often)
-  \item
-    expiration date of an access request, granted based on that profile
-  \item
-    block all on this endpoint until further notice
-  \end{itemize}
+  \texttt{Email}
 \item
-  Tracker:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    access-request
-
-    \begin{itemize}
-    \tightlist
-    \item
-      \texttt{tsin:\ Number} - timestamp of occurrence
-    \item
-      \texttt{tsout:\ Number} - timestamp of response
-    \item
-      \texttt{type:\ String} - access type (\texttt{sce},\texttt{cp})
-    \item
-      \texttt{query:\ String} - data query
-    \item
-      \texttt{state:\ String} - current state of proceeding
-    \item
-      \texttt{endpoint:\ String} - endpoint on which the request came in
-    \item
-      \texttt{header:\ String} - consumer's HTTP header
-    \item
-      \texttt{result}: result of SCE {[}OPTIONAL{]}
-    \end{itemize}
-  \item
-    access-validation
-
-    \begin{itemize}
-    \tightlist
-    \item
-      \texttt{access-request:\ String} - reference to access request
-    \item
-      \texttt{reason:\ String} - why has the verification failed
-    \end{itemize}
-  \end{itemize}
+  \texttt{Domain}
+\item
+  \texttt{PhoneNumber}
+\item
+  \texttt{URL}
 \end{itemize}
+
+\subsubsection{Structs:}\label{structs}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Position}
+\item
+  \texttt{File}
+\item
+  \texttt{Address}
+\item
+  \texttt{Unit}
+\item
+  \texttt{Product}
+\item
+  \texttt{Diseases}
+\item
+  \texttt{Treatment}
+\item
+  \texttt{Organisation}
+\item
+  \texttt{Route}
+\item
+  \texttt{CV}
+\item
+  \texttt{Contact}
+\item
+  \texttt{Transaction}
+\end{itemize}
+
+Other \emph{structs}, that might become needful over time, can either be
+created and modeled by the operator herself or are developed and
+provided by community members and other third parties, so that
+unsupported types just need to be imported into the system.
+
+\subsection*{Data Models for System
+Data}\label{data-models-for-system-data}
+\addcontentsline{toc}{subsection}{Data Models for System Data}
+
+Aside from personal data, whose structure is adjustable by the
+\emph{data subject} to suit her needs, the system itself REQUIRES some
+data models as well in order to provide i.a. mechanisms for managing the
+process of accessing data. Those models are outlined below.
+
+The types that MUST be supported by the \emph{PL} are similar to the
+\emph{primitives} available in the Query Language, but somewhat more
+rudimentary: \texttt{String}, \texttt{Boolean}, \texttt{Number}, and
+\texttt{null}. Everything beyond this depends on the technologies that
+are being used.
+
+\emph{NOTICE: Required fields are implicit and therefore not marked as
+such. Any other notation is explicit, though. The indicated value types
+are minimum viable; if supported, a more precise one SHOULD be used.}
+
+\subsubsection{Endpoint}\label{endpoint}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{name:\ String} - full valid subdomain name
+\item
+  \texttt{consumer:\ String\ \textbar{}\textbar{}\ Object} - consumer
+  information \textbar{}\textbar{} name
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{name:\ String} - readable and descriptive consumer name
+  \item
+    \texttt{description:\ String} - {[}OPTIONAL{]} consumer description
+    provided during registration
+  \end{itemize}
+\item
+  \texttt{crt:\ String} - endpoint's certificate (filesystem path or
+  file content)
+\item
+  \texttt{key:\ String} - endpoint's private key (filesystem path or
+  file content)
+\item
+  \texttt{ccert:\ String} - consumer's certificate (filesystem path or
+  file content)
+\end{itemize}
+
+\subsubsection{Permission Profile}\label{permission-profile}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{data:\ {[}String{]}} - {[}MUST if
+  \texttt{query\ ==\ undefined}{]} list of permitted data endpoints
+\item
+  \texttt{query:\ Object\ \textbar{}\textbar{}\ String} - {[}MUST if
+  \texttt{data\ ==\ undefined}{]} query, representing permitted data
+\item
+  \texttt{endpoint:\ String} - associating endpoint
+\item
+  \texttt{type:\ String} - how long the profile is valid
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{:\ one-time-only}
+  \item
+    \texttt{:\ expires-on-date}
+  \item
+    \texttt{:\ until-further-notice}
+  \end{itemize}
+\item
+  \texttt{expiresAt:\ Number} - {[}MUST if type ==
+  \texttt{expires-on-date\textquotesingle{}}{]} date of expiration
+\item
+  \texttt{interval:\ Object} - least amount of time between two access
+  requests
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{value:\ Number} - time value
+  \item
+    \texttt{unit:\ String} - unit of time value
+  \end{itemize}
+\item
+  \texttt{createdAt:\ Number} - date of creation of this profile
+\item
+  \texttt{disbaled:\ Boolean} - {[}OPTIONAL{]} disabled until further
+  notice
+\item
+  \texttt{access:\ String} - {[}OPTIONAL{]} access type: \texttt{fwd}
+  (plain forward) or \texttt{sce} (supervised code execution)
+\item
+  \texttt{dataExpiration:\ Number} - {[}SHOULD if access ==
+  \texttt{\textquotesingle{}fwd\textquotesingle{}}{]} date of when
+  responded data becomes outdated and thus unreliable
+\end{itemize}
+
+\subsubsection{Notification}\label{notification}
+
+\emph{NOTICE: MUST be encrypted, if is sent via Push Notification
+Service}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{oid:\ String} - identifier of what this notification has
+  triggered
+\item
+  \texttt{type:\ String} - type of procedure/occasion
+\item
+  \texttt{message:\ String} - information, that is presented to operator
+\item
+  \texttt{payload:\ String} - anything, that can be serialized into a
+  string (e.g.~JSON, containing information about a related procedure)
+\end{itemize}
+
+\subsubsection{Tracker}\label{tracker-2}
+
+\emph{Collection:} \texttt{registrations}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{id:\ String} - identifier of this document
+\item
+  \texttt{csr:\ String} - certificate signing request
+\item
+  \texttt{callback:\ String} - callback URL for submitting registration
+  response
+\item
+  \texttt{crt:\ String} - {[}OPTIONAL{]} certificate for callback URL,
+  if not publicly trusted
+\item
+  \texttt{pr:\ Boolean} - was permission request included?
+\item
+  \texttt{header:\ String} - third party's HTTP header
+\item
+  \texttt{tsin:\ Number} - timestamp of occurrence
+\end{itemize}
+
+\emph{Collection:} \texttt{access-requests}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{id:\ String} - identifier of this document
+\item
+  \texttt{tsin:\ Number} - timestamp of occurrence
+\item
+  \texttt{tsout:\ Number} - timestamp of response
+\item
+  \texttt{type:\ String} - access type: \texttt{fwd} (plain forward) or
+  \texttt{sce} (supervised code execution)
+\item
+  \texttt{program:\ String\ \textbar{}\textbar{}\ Object} - {[}MUST if
+  \texttt{type\ ==\ \textquotesingle{}sec\textquotesingle{}}{]}
+  filesystem path or file content that facilitates supervised code
+  execution
+\item
+  \texttt{data:\ {[}String{]}} - {[}MUST if
+  \texttt{query\ ==\ undefined}{]} list of permitted data endpoints
+\item
+  \texttt{query:\ Object\ \textbar{}\textbar{}\ String} - {[}MUST if
+  \texttt{data\ ==\ undefined}{]} query representing permitted data
+\item
+  \texttt{state:\ String} - current state of proceeding
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{:\ \textquotesingle{}handling\textquotesingle{}} -
+    pre-process access request
+  \item
+    \texttt{:\ \textquotesingle{}verifying\textquotesingle{}} - verify
+    against existing permission profiles
+  \item
+    \texttt{:\ \textquotesingle{}obtaining\textquotesingle{}} - query
+    data from \emph{PDS}
+  \item
+    \texttt{:\ \textquotesingle{}adjusting\textquotesingle{}} - apply
+    precision rules
+  \item
+    \texttt{:\ \textquotesingle{}responding\textquotesingle{}} - hand
+    over generated result back to consumer
+  \end{itemize}
+\item
+  \texttt{endpoint:\ String} - endpoint on which the request came in
+\item
+  \texttt{header:\ String} - consumer's HTTP header
+\item
+  \texttt{result:\ String} - {[}MUST if access ==
+  \texttt{\textquotesingle{}sce\textquotesingle{}}{]} serialized result
+  of \emph{SCE}
+\item
+  \texttt{responseMethod:\ String} - how the system should submit he
+  response to the consumer (\texttt{keepalive} or \texttt{push})
+\item
+  \texttt{verifyReliability:\ Boolean} - indicate in response, that
+  obtained data is reliable/authentic
+\end{itemize}
+
+\emph{Collection:} \texttt{failed-access-verifications}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{id:\ String} - identifier of this document
+\item
+  \texttt{requestId:\ String} - reference to \texttt{access-request} ID
+\item
+  \texttt{reason:\ String} - why has the verification failed (e.g.~error
+  or refused message)
+\end{itemize}
+
+\subsubsection{System Configurations and
+Defaults\_\_}\label{system-configurations-and-defaults__}
+
+\begin{longtable}[]{@{}llcl@{}}
+\caption{Global System Configurations and their default values
+\label{tbl:spec_system-default-config}}\tabularnewline
+\toprule
+Key & Primitive & Default & Description\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Key & Primitive & Default & Description\tabularnewline
+\midrule
+\endhead
+\texttt{dataExpiration} & Number & \emph{now + 48 hours} & see
+\emph{Permission Profile} above\tabularnewline
+\texttt{accessResponseMethod} & String &
+\texttt{\textquotesingle{}push\textquotesingle{}} & see
+\emph{Collection:} \texttt{access-requests}\tabularnewline
+\texttt{accessResponseTimeout} & Number & \texttt{120} & timeout of
+access response in sec.\tabularnewline
+\texttt{accessType} & String &
+\texttt{\textquotesingle{}sce\textquotesingle{}} & see \emph{Permission
+Profile} above\tabularnewline
+\texttt{notifyInGui} & Boolean & \texttt{true} & notify in management
+tool\tabularnewline
+\texttt{notifyByMail} & Boolean & \texttt{true} & notify via
+email\tabularnewline
+\texttt{notifyOnRegistration} & Boolean & \texttt{true} & notify on
+incoming registration\tabularnewline
+\texttt{notifyOnPermission} & Boolean & \texttt{true} & notify on
+incoming permission request\tabularnewline
+\texttt{notifyOnAccess} & Boolean & \texttt{false} & notify on incoming
+access request\tabularnewline
+\texttt{notifyOnViolation} & Boolean & \texttt{true} & notify on
+violations of access rules\tabularnewline
+\texttt{notifyOnAnomaly} & Boolean & \texttt{true} & notify if
+\emph{Tracker} recognizes anomaly\tabularnewline
+\texttt{notifyOnError} & Boolean & \texttt{false} & notify on unexpected
+errors in system\tabularnewline
+\texttt{notifyOnError} & Boolean & \texttt{false} & notify on unexpected
+errors in system\tabularnewline
+\texttt{notfyIfNotReliable} & Boolean & \texttt{false} & notify on
+failed reliability check\tabularnewline
+\bottomrule
+\end{longtable}
 
 \section{Interfaces}\label{interfaces-1}
 
@@ -6620,23 +6905,6 @@ such. Any other notation is explicit, though.}
   Setup/Hardware
 \end{itemize}
 
-\subsubsection{System Configurations and
-Defaults}\label{system-configurations-and-defaults}
-
-\begin{itemize}
-\tightlist
-\item
-  operator notifications (type, occasion)
-\item
-  expiration date for forwarded data
-\item
-  response method of access request
-\item
-  access type
-\item
-  response timeout limit of access request
-\end{itemize}
-
 \subsubsection{Software Recommendations}\label{software-recommendations}
 
 \begin{itemize}
@@ -6674,6 +6942,9 @@ Defaults}\label{system-configurations-and-defaults}
 \item
   \href{https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html}{Strong
   SSL Security on nginx}
+\item
+  \href{https://facebook.github.io/graphql/\#sec-Types}{GraphQL
+  Specification - 3.1 Types}
 \end{itemize}
 
 \chapter{Conclusion}\label{conclusion}

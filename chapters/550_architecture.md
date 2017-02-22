@@ -42,9 +42,8 @@ defined use cases. The conglomeration below highlights all major components, inc
 about which platforms they could be in, as well as further details about their major task(s), 
 underlying technologies, and relation(s) to each other.
 
-\ \
 
-__Web server__
+#### Web server
 
 *Platform:* Server
 
@@ -66,9 +65,8 @@ __Web server__
 +   TLS
 +   WebSockets
 
-\ \
 
-__Permission Manager__
+#### Permission Manager
 
 *Platform:* Server
 
@@ -88,9 +86,8 @@ __Permission Manager__
 *Technologies:*
 +   any modern language/framework capable of parallel computing 
 
-\ \
 
-__PKI__
+#### PKI
 
 *Platform:* Server
 
@@ -106,9 +103,8 @@ __PKI__
 +   X.509
 +   ACME [@web_spec_acme] (Let's Encrypt)
 
-\ \
 
-__Storage Connector__
+#### Storage Connector
 
 *Platform:* Server
 
@@ -122,9 +118,8 @@ __Storage Connector__
 *Technologies:*
 +   driver for used database 
 
-\ \
 
-__Operator API__
+#### Operator API
 
 *Platform:* Server
 
@@ -145,9 +140,8 @@ __Operator API__
 *Technologies:*
 +   JWT
 
-\ \
 
-__Code Execution Environment__
+#### Code Execution Environment
 
 *Platform:* Server
 
@@ -166,9 +160,8 @@ __Code Execution Environment__
 +   Virtualization
 +   Container (OCI)
 
-\ \
 
-__Tracker__
+#### Tracker
 
 *Platform:* Server
 
@@ -183,9 +176,8 @@ __Tracker__
 *Technologies:*
 +   any modern language/framework capable of parallel computing
 
-\ \
 
-__Personal Data Storage__
+#### Personal Data Storage
 
 *Platform:* Server, Mobile
 
@@ -199,9 +191,8 @@ __Personal Data Storage__
 +   non relational database
 +   depending on host environment
 
-\ \
 
-__Persistence Layer__
+#### Persistence Layer
 
 *Platform:* Server
 
@@ -219,9 +210,8 @@ __Persistence Layer__
 +   non relational database
 +   Filesystem
 
-\ \
 
-__Notification Infrastructure__
+#### Notification Infrastructure
 
 *Platform:* Server
 
@@ -236,9 +226,8 @@ __Notification Infrastructure__
 +   WebSockets for web UIs via local web server
 +   mobile device manufacturer's Push Notification server for mobile apps 
 
-\ \
 
-__User Interface__
+#### User Interface
 
 *Platform:* Desktop, Mobile
 

@@ -35,7 +35,7 @@ there is no reliable way to verify the origin of those datasets, and they are al
 focus here. 
 
 (1) __Local Verification by matching__\
-Probably the simplest and,at the same time, least reliable method is to just look at the existing 
+Probably the simplest and, at the same time, least reliable method is to just look at the existing 
 data that are stored in the database and match them against those data that are used to create a 
 response.
 

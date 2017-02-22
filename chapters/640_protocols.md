@@ -168,11 +168,21 @@ originating data consumer.*
         
 3.  obtain data from *PDS*
 
-4.  adjust data precision 
+4.  [OPTIONAL and if reliable == `true`] verify and indicate data reliability
+    1)  check, if data point(s) in obtained data are in group of data points whose reliability can 
+        be verified
+        +   *yes*
+            1)  check if certificate is not expired 
+            2)  compare fingerprint in certificate with calculated fingerprint
+            *)  if either fails and `notfyIfNotReliable == true`, pause and await operator's 
+                decision, otherwise move on to next step
+        +   *no*, then move on to next step
+
+5.  adjust data precision 
     -   requesting lower precision than approved by *data subject* is always possible, but not the 
         other way around
 
-5.  compute result according to provided access type
+6.  compute result according to provided access type
     +   *forward*
         1)  add expiration date for the data
         2)  move all obtained data to response handler
@@ -187,7 +197,7 @@ originating data consumer.*
         4)  run with real data
         5)  forward result to response handler
 
-6.  finalize response and submit it back to *consumer* 
+7.  finalize response and submit it back to *consumer* 
 
 
 *Result(s):*
