@@ -43,7 +43,7 @@ about which platforms they could be in, as well as further details about their m
 underlying technologies, and relation(s) to each other.
 
 
-#### Web server
+#### Web server {-}
 
 *Platform:* Server
 
@@ -66,7 +66,7 @@ underlying technologies, and relation(s) to each other.
 +   WebSockets
 
 
-#### Permission Manager
+#### Permission Manager {-}
 
 *Platform:* Server
 
@@ -87,7 +87,7 @@ underlying technologies, and relation(s) to each other.
 +   any modern language/framework capable of parallel computing 
 
 
-#### PKI
+#### PKI {-}
 
 *Platform:* Server
 
@@ -104,7 +104,7 @@ underlying technologies, and relation(s) to each other.
 +   ACME [@web_spec_acme] (Let's Encrypt)
 
 
-#### Storage Connector
+#### Storage Connector {-}
 
 *Platform:* Server
 
@@ -119,7 +119,7 @@ underlying technologies, and relation(s) to each other.
 +   driver for used database 
 
 
-#### Operator API
+#### Operator API {-}
 
 *Platform:* Server
 
@@ -141,7 +141,7 @@ underlying technologies, and relation(s) to each other.
 +   JWT
 
 
-#### Code Execution Environment
+#### Code Execution Environment {-}
 
 *Platform:* Server
 
@@ -161,7 +161,7 @@ underlying technologies, and relation(s) to each other.
 +   Container (OCI)
 
 
-#### Tracker
+#### Tracker {-}
 
 *Platform:* Server
 
@@ -177,7 +177,7 @@ underlying technologies, and relation(s) to each other.
 +   any modern language/framework capable of parallel computing
 
 
-#### Personal Data Storage
+#### Personal Data Storage {-}
 
 *Platform:* Server, Mobile
 
@@ -192,7 +192,7 @@ underlying technologies, and relation(s) to each other.
 +   depending on host environment
 
 
-#### Persistence Layer
+#### Persistence Layer {-}
 
 *Platform:* Server
 
@@ -211,7 +211,7 @@ underlying technologies, and relation(s) to each other.
 +   Filesystem
 
 
-#### Notification Infrastructure
+#### Notification Infrastructure {-}
 
 *Platform:* Server
 
@@ -227,7 +227,7 @@ underlying technologies, and relation(s) to each other.
 +   mobile device manufacturer's Push Notification server for mobile apps 
 
 
-#### User Interface
+#### User Interface {-}
 
 *Platform:* Desktop, Mobile
 

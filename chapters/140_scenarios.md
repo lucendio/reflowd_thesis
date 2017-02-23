@@ -11,7 +11,7 @@ new desires for data.
 
 
 
-#### Ordering a product on the web
+#### Ordering a product on the web {-}
  
 The data subject searches through the web to find a new toaster because her old one recently broke.
 After some clicks and reviews, she finds her soon-to-become latest member of the household's 
@@ -62,7 +62,7 @@ notification asking the data subject for permission to proceed. After a successf
 the shipment would have been initiated.
 
 
-#### Interacting with a social network
+#### Interacting with a social network {-}
 
 The first entry to a social network requires either a URL to the data subject's *PDaaS*, which has 
 uniquely been generated for that purpose, or a QR-Code provided by the social network. The data 
@@ -84,7 +84,7 @@ objects. Whether it is an image, a post, or comment on somebody else's post, the
 be displayed is fetched from the corresponding *PDaaS*. 
 
 
-#### Applying for a loan and checking creditworthiness
+#### Applying for a loan and checking creditworthiness {-}
 
 The data subject would like to buy an apartment. In order to finance the acquisition, she needs
 funding which, in her case, is based on a loan. During a conversation in a credit institute of her 
@@ -115,7 +115,7 @@ runtime in which the software can be executed. After that process is finished, t
 back to the credit institute's infrastructure.
 
 
-#### Maintain and provide its own medical record
+#### Maintain and provide its own medical record {-}
 
 Some time ago on a hiking trip, in a moment of carelessness the data subject accidently broke her 
 leg. She went to a hospital and straight into surgery, where the surgeon where able to fix the 
@@ -150,7 +150,7 @@ minutes ago. A moment later the pharmacist comes back with her drugs, which she 
 The transaction is done and the data subject leaves the store.
 
 
-#### Vehicle data and mobility
+#### Vehicle data and mobility {-}
 
 Let's assume a car has no hardware on board to establish a wireless wide area connection to an 
 outside access node. One is only able to connect to the car from the inside (wired or wireless).

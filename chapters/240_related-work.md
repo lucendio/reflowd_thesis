@@ -88,8 +88,8 @@ with their idea of *SafeAnswers*
 further. The concept behind that idea is based around *remote code execution*, briefly described in 
 [one of the user stories in the first chapter](#header-applying-for-a-loan-and-checking-creditworthiness). 
 It abstracts the concept of a data request to a more human-understandable level: a simple question.
-This question consists of two representations: (A) a human-readable question of a third party, and 
-(B) a code-based representation of that question, which gets executed in a sandbox on the data 
+This question consists of two representations: (A) a human-readable question of a third party, 
+and (B) a code-based representation of that question, which gets executed in a sandbox on the data 
 subjects's *PDS* system with the required data as arguments. The data, used as arguments, is 
 implicitly defined trough (A). The output of that execution represents both answer and response. 
 

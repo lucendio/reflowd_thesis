@@ -173,6 +173,7 @@ originating data consumer.*
         be verified
         +   *yes*, proceed with configured method for checking reliability
             -   `null`
+                1)  abort reliability verification and move on to the next step
             -   `'qes'`
                 1)  notify operator that a signing procedure, involving her *eID* card, is required
                 2)  go through signing procedure and return certificate

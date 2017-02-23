@@ -9,7 +9,7 @@ by the *Personal Data Store*.
 
 
 
-### Personal Data {-}
+### Personal Data
 
 The *PDS* is portable and can be placed on any of the platform types supported by the system, 
 whereas data queries typically originate in a server platform. In order to provide such flexibility, 
@@ -47,7 +47,7 @@ b)  store and fetch binary data
 
 
 
-### System Data {-}
+### System Data
 
 The *PL* consists of multiple storage technologies and MUST be placed on a trusted platform type - 
 a server. At least two technologies MUST be supported; the platform's filesystem, which SHOULD be 
@@ -89,7 +89,7 @@ in order to reduce the effort when making first steps with the system. The follo
 initially REQUIRED:
 
 
-#### Primitives:
+#### Primitives: {-}
 
 +   `ID`
 +   `Date`
@@ -99,7 +99,7 @@ initially REQUIRED:
 +   `URL`
 
 
-#### Structs:
+#### Structs: {-}
 
 +   `Position`
 +   `File`
@@ -121,7 +121,7 @@ that unsupported types just need to be imported into the system.
 
 
 
-### Data Models for System Data {-}
+### Data Models for System Data
 
 Aside from personal data, whose structure is adjustable by the *data subject* to suit her needs, the 
 system itself REQUIRES some data models as well in order to provide i.a. mechanisms for managing 
@@ -233,24 +233,24 @@ SHOULD be used.*
    
 
 
-#### System Configurations and Defaults__
+#### System Configurations and Defaults
 
-| Key                     | Primitive | Default           | Description                            |
+| Key                      | Primitive | Default          | Description                            |
 |:-----------------------------------|:----------|:-----------:|:----------------------------------|
-| `dataExpiration`        | Number    | *now + 48 hours*  | see *Permission Profile* above         |
-| `accessResponseMethod`  | String    | `'push'`          | see *Collection:* `access-requests`    |
-| `accessResponseTimeout` | Number    | `120`             | timeout of access response in sec.     |
-| `accessType`            | String    | `'sce'`           | see *Permission Profile* above         |
-| `programMaxSize`        | Number    | `20480`           | size of program for SCE (in Kbyte)     |
-| `notifyInGui`           | Boolean   | `true`            | notify in management tool              |
-| `notifyByMail`          | Boolean   | `true`            | notify via email                       |
-| `notifyOnRegistration`  | Boolean   | `true`            | notify on incoming registration        |
-| `notifyOnPermission`    | Boolean   | `true`            | notify on incoming permission request  |
-| `notifyOnAccess`        | Boolean   | `false`           | notify on incoming access request      |
-| `notifyOnViolation`     | Boolean   | `true`            | notify on violations of access rules   |
-| `notifyOnAnomaly`       | Boolean   | `true`            | notify if *Tracker* recognizes anomaly |
-| `notifyOnError`         | Boolean   | `false`           | notify on unexpected errors in system  |
-| `notfyIfNotReliable`    | Boolean   | `false`           | notify on failed reliability check     |
-| `reliabilityCheckMethod`| String    | `null`            | method of checking data reliability    |
+| `dataExpiration`         | Number    | *now + 48 hours* | see *Permission Profile* above         |
+| `accessResponseMethod`   | String    | `'push'`         | see *Collection:* `access-requests`    |
+| `accessResponseTimeout`  | Number    | `120`            | timeout of access response in sec.     |
+| `accessType`             | String    | `'sce'`          | see *Permission Profile* above         |
+| `programMaxSize`         | Number    | `20480`          | size of program for SCE (in Kbyte)     |
+| `notifyInGui`            | Boolean   | `true`           | notify in management tool              |
+| `notifyByMail`           | Boolean   | `true`           | notify via email                       |
+| `notifyOnRegistration`   | Boolean   | `true`           | notify on incoming registration        |
+| `notifyOnPermission`     | Boolean   | `true`           | notify on incoming permission request  |
+| `notifyOnAccess`         | Boolean   | `false`          | notify on incoming access request      |
+| `notifyOnViolation`      | Boolean   | `true`           | notify on violations of access rules   |
+| `notifyOnAnomaly`        | Boolean   | `true`           | notify if *Tracker* recognizes anomaly |
+| `notifyOnError`          | Boolean   | `false`          | notify on unexpected errors in system  |
+| `notfyIfNotReliable`     | Boolean   | `false`          | notify on failed reliability check     |
+| `reliabilityCheckMethod` | String    | `null`           | method of checking data reliability    |
 
 Table: Global System Configurations and their default values {#tbl:spec_system-default-config} 

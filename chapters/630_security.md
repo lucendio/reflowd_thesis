@@ -8,7 +8,7 @@ or vulnerabilities emerging in the future.
 
 
 
-### Transport {-}
+### Transport
 
 All communication from and towards the system as well as internal communication between components 
 located on different platforms MUST be established with *HTTP over TLS*. Thus, external third 
@@ -30,8 +30,8 @@ setting the *Content Security Policy (CSP)* in HTTP headers. The *web server* MU
 socket connection for web-based GUIs. If a browser does not support this natively, a fallback SHALL 
 be provided by the GUI. Furthermore, those GUIs SHOULD be served with HTTP/2.
 
-The subsequent examples show two Nginx configuration for the *web server*, implementing the previous 
-specifications.
+The subsequent examples show two Nginx configurations for the *web server* component, implementing 
+the specifications from above.
 
 __[Code 01: web server configuration for a web-based GUI (excerpt)]{#spec_code-01_nginx-config-web-gui}:__
 ``` {.ngix .numberLines}
@@ -106,14 +106,14 @@ server {
 ```
 
 
-### Authentication {-}
+### Authentication
 
 The following two authentication technologies MUST be supported by the system. 2-Factor 
 authentication as an enhancement of the operator authentication procedure is OPTIONAL and can be 
 implemented either by email or with a mobile platform, if it is part of the system.
 
 
-##### Transport Layer Security
+#### Transport Layer Security
 
 Before the first consumer tries to register on the system, the system MUST generate a key-pair and 
 sign it by itself. With the resulting certificate the system becomes a private Certificate Authority
@@ -132,7 +132,7 @@ If the connection failed to establish, the authentications has failed, and vice 
 consumer successfully authenticated to the system.
 
 
-##### JSON Web Token (JWT)
+#### JSON Web Token (JWT)
 
 When creating a JWT, the `"alg"` in the header MUST NOT be set to `"none"`. A JWT MAY be encrypted 
 (JWE). JWTs MUST be created by the *Operator API*. Validation MAY be performed by *Operator API* or

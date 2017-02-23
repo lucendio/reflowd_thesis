@@ -41,7 +41,7 @@ with a character (upper or lower case) have no claim to its order. Their items a
 
 
 
-### Terminology {-} 
+### Terminology {-}
 
 [(The) System]{#spec_term_system}:
 

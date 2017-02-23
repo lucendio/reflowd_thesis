@@ -105,28 +105,28 @@
                 <li><a href="#notation-and-conventions">Notation and Conventions</a></li>
                 <li><a href="#terminology">Terminology</a></li>
                 <li><a href="#overview"><span class="toc-section-number">7.2</span> Overview</a><ul>
-                <li><a href="#key-features">Key Features</a></li>
-                <li><a href="#scenarios-excerpt">Scenarios <em>(Excerpt)</em></a></li>
-                <li><a href="#architectural-overview">Architectural Overview</a></li>
-                <li><a href="#general-process-description">General Process Description</a></li>
-                <li><a href="#relations">Relations</a></li>
-                <li><a href="#depending-technologies-and-standards">Depending Technologies and Standards</a></li>
-                <li><a href="#prerequisites">Prerequisites</a></li>
+                <li><a href="#key-features"><span class="toc-section-number">7.2.2</span> Key Features</a></li>
+                <li><a href="#scenarios-excerpt"><span class="toc-section-number">7.2.3</span> Scenarios <em>(Excerpt)</em></a></li>
+                <li><a href="#architectural-overview"><span class="toc-section-number">7.2.4</span> Architectural Overview</a></li>
+                <li><a href="#general-process-description"><span class="toc-section-number">7.2.5</span> General Process Description</a></li>
+                <li><a href="#relations"><span class="toc-section-number">7.2.6</span> Relations</a></li>
+                <li><a href="#depending-technologies-and-standards"><span class="toc-section-number">7.2.7</span> Depending Technologies and Standards</a></li>
+                <li><a href="#prerequisites"><span class="toc-section-number">7.2.8</span> Prerequisites</a></li>
                 </ul></li>
                 <li><a href="#components"><span class="toc-section-number">7.3</span> Components</a></li>
                 <li><a href="#security"><span class="toc-section-number">7.4</span> Security</a><ul>
-                <li><a href="#transport">Transport</a></li>
-                <li><a href="#authentication-1">Authentication</a></li>
-                <li><a href="#system-architecture"><span class="toc-section-number">7.4.2</span> System Architecture</a></li>
-                <li><a href="#supervised-code-execution-sce"><span class="toc-section-number">7.4.3</span> Supervised Code Execution <em>(SCE)</em></a></li>
-                <li><a href="#system-monitoring"><span class="toc-section-number">7.4.4</span> System Monitoring</a></li>
+                <li><a href="#transport"><span class="toc-section-number">7.4.2</span> Transport</a></li>
+                <li><a href="#authentication-1"><span class="toc-section-number">7.4.3</span> Authentication</a></li>
+                <li><a href="#system-architecture"><span class="toc-section-number">7.4.4</span> System Architecture</a></li>
+                <li><a href="#supervised-code-execution-sce"><span class="toc-section-number">7.4.5</span> Supervised Code Execution <em>(SCE)</em></a></li>
+                <li><a href="#system-monitoring"><span class="toc-section-number">7.4.6</span> System Monitoring</a></li>
                 </ul></li>
                 <li><a href="#protocols"><span class="toc-section-number">7.5</span> Protocols</a></li>
                 <li><a href="#data-types"><span class="toc-section-number">7.6</span> Data &amp; Types</a><ul>
-                <li><a href="#personal-data">Personal Data</a></li>
-                <li><a href="#system-data">System Data</a></li>
-                <li><a href="#structure-types-of-personal-data"><span class="toc-section-number">7.6.2</span> Structure &amp; Types of Personal Data</a></li>
-                <li><a href="#data-models-for-system-data">Data Models for System Data</a></li>
+                <li><a href="#personal-data"><span class="toc-section-number">7.6.2</span> Personal Data</a></li>
+                <li><a href="#system-data"><span class="toc-section-number">7.6.3</span> System Data</a></li>
+                <li><a href="#structure-types-of-personal-data"><span class="toc-section-number">7.6.4</span> Structure &amp; Types of Personal Data</a></li>
+                <li><a href="#data-models-for-system-data"><span class="toc-section-number">7.6.5</span> Data Models for System Data</a></li>
                 </ul></li>
                 <li><a href="#interfaces-1"><span class="toc-section-number">7.7</span> Interfaces</a><ul>
                 <li><a href="#graphical-user-interfaces-guis"><span class="toc-section-number">7.7.2</span> Graphical User Interfaces (GUIs)</a></li>
@@ -223,25 +223,25 @@
 <section id="scenarios" class="level2">
 <h2><span class="header-section-number">2.5</span> Scenarios</h2>
 <p>The following use cases portray different situations and possible ways in which the tool in question might be applicable, and shows in several ways that it can be helpful to be in charge of its own personal data. Some are more practical and realistic, like ordering and purchasing a product on the internet, while others might at the moment not seem to be very useful, but show a certain potential to become more relevant when new technologies and business models will occur, that are followed by new desires for data.</p>
-<section id="ordering-a-product-on-the-web" class="level4">
-<h4><span class="header-section-number">2.5.1.1</span> Ordering a product on the web</h4>
+<section id="ordering-a-product-on-the-web" class="level4 unnumbered">
+<h4>Ordering a product on the web</h4>
 <p>The data subject searches through the web to find a new toaster because her old one recently broke. After some clicks and reviews, she finds her soon-to-become latest member of the household’s kitchenware. After putting the model name in a price search engine, hoping to save some money, the first entry, offering a 23% discount, catches her attention. She decides to have a deeper look into the toasters, so she heads towards the original web shop entry. Finally she puts the item into her shopping cart, despite the fact that she never bought something from that online shop before. Then she proceeds to checkout so that she can place her order. The shop-interface asks her to either insert her credentials, proceed without registration or sign-in, or allow the shop to obtain all required data on its own by either scanning a QR-Code displayed below or insert a URL to her <em>Personal Data as a Service</em>. She opens up the management panel of her <em>PDaaS</em> in a new browser window and authenticates herself to the system. Afterwards she creates a new entry in a list of <em>data consumers</em> who already get permitted to access certain characteristics of her personal data. As a result, she gets prompted with a URL, which she inserts as the shop interface requests her to do, only after she has convinced herself that the data exchange with the shop is based on a secure connection (HTTPS). Moving on to the next step after submitting the URL, the data subject is asked to decide how she would like to pay. The choices are: credit card, invoice, online payment or bank transfer. She chooses the last one, submits her selection and thereby completes the order process. She goes back to the kitchen. After some time, a push notification appears on her mobile device. The notification is about a <em>permission request</em> which has just arrived at her <em>PDaaS</em>, asking her to grant permissions to the shop-system, where she earlier placed the order. The shop wants to access her full name, address and email, which are required to proceed with the order. Based on the information given in the request, she creates a new <em>permission profile</em> for the shop. Additionally, for the profile she can decide between three states of how long the permission is going to last: <em>one time only</em>, <em>expires on date</em> and <em>granted, until further notice</em>. Since she has never ordered at this shop before and probably won’t do it again, she decides to grant access only for this specific occasion. The shop-system is then notified of the decision result. If the result is positive - which is the case here - the data can be obtained and the order can be further processed. As a result, the data subject receives an email, containing information regarding her order, including the shop owner’s bank details, which enables her to pay the due amount. After the shop-system receives the payment, the toaster is shipped.</p>
 <p>In order to get a full impression of how the whole process would look like if the data subject would have chosen another payment method, the differences are described below. If the data subject had wanted to pay with her credit card, the shop-system would have asked to also access her credit card as well as its associated secret. When sending the email, the system would have omitted the information about the shop’s bank details. Paying with invoice, would have been possible only if the <em>PDaaS</em> initially had been able to provide certified profile data, which necessarily would have been rated trustworthy. That again would have reduced the risk taken by shop owner and would have enabled her to take action in cases of fraud or misuse. Choosing to involve an online payment service provider as a <em>middleman</em> for processing the payment would have required the data subject to have granted the provider access to her <em>PDaaS</em> upfront. In that case, the shop-system would have asked for her payment provider account identifier, so that the system could have requested the payment directly from that payment service provider. This would have caused the service provider to consult the <em>PDaaS</em>, which would have resulted in a second notification asking the data subject for permission to proceed. After a successful payment transfer, the shipment would have been initiated.</p>
 </section>
-<section id="interacting-with-a-social-network" class="level4">
-<h4><span class="header-section-number">2.5.1.2</span> Interacting with a social network</h4>
+<section id="interacting-with-a-social-network" class="level4 unnumbered">
+<h4>Interacting with a social network</h4>
 <p>The first entry to a social network requires either a URL to the data subject’s <em>PDaaS</em>, which has uniquely been generated for that purpose, or a QR-Code provided by the social network. The data subject receives a notification on her mobile device send from her <em>PDaaS</em>, revealing what data that network wants to access and maybe even why. If her mobile device is currently not at hand, she can also use the management panel provided by her <em>PDaaS</em>, which is accessible with a web browser on every internet-enabled device. Within that panel pending permission reviews are indicated. Regardless of whether the data subject has already reviewed the request, she should still be able to login. After doing so, she would see all her information, unless she has not yet granted permissions to the social network to access her data <em>until-further-notice</em>. If this is done, after waiting a moment and then reloading the browser session, all her data should then show up. So every time someone on that network tries to access her information, with whom she has allowed to see that information, managed by each user within the network, the network pulls the required data from her <em>PDaaS</em> as long as it is permitted to do so. It is also conceivable that the social network does provide a back-channel to the <em>PDaaS</em>, so that all content she creates within that network, including all interactions with other users, can be stored in her <em>PDaaS</em>, allowing it to be provided to other <em>data consumers</em>. The network itself only stores references to all these content objects. Whether it is an image, a post, or comment on somebody else’s post, the actual content to be displayed is fetched from the corresponding <em>PDaaS</em>.</p>
 </section>
-<section id="applying-for-a-loan-and-checking-creditworthiness" class="level4">
-<h4><span class="header-section-number">2.5.1.3</span> Applying for a loan and checking creditworthiness</h4>
+<section id="applying-for-a-loan-and-checking-creditworthiness" class="level4 unnumbered">
+<h4>Applying for a loan and checking creditworthiness</h4>
 <p>The data subject would like to buy an apartment. In order to finance the acquisition, she needs funding which, in her case, is based on a loan. During a conversation in a credit institute of her choice, an account consultant describes to her what data is required in order to decide her creditworthiness. While nodding consensually, she takes out her smartphone and brings up the management panel of her <em>PDaaS</em>. The consultant flips his screen showing a QR-Code and the <em>data subject</em> scans it. The tool displays some information about the institute including a reference to this assignment and a list of all data points the institute would like to access in order to calculate her score, such as address, monthly income, relationship status and family, history of banking or other current loans. After some back and forth and solving some misunderstandings with the help of her consultant, she decides to allow only partial access to the requested data, and only for this time and purpose. The consultant kindly points out, that these decisions might impact her score and thus on the loan and its terms. While handling some more formalities and talking about other possible products she might be interested in, the consultant gets notified by his computer, confirming the access permission. Thereupon the two finish their meeting and the consultant informs the data subject of the next steps, which include a note about contacting her within the next few days, when the institute has come to a conclusion. In the case of a positive outcome, a new appointment for handling all the paperwork and signing the contract needs to be made. From a technical point of view, two different ways of computing the score are imaginable. The first would be to just transfer the plain data including expiry date and information about how reliable the data is. However, the actual computations and analytics to obtain the score happen within the infrastructure of the credit institute. When this process has finished, all the personal data that have been transferred must be erased. An alternative, though, could prevent the data from leaving the <em>PDaaS</em>. Therefore, the institute’s request won’t contain a data query. Instead it comes along with some software and information on how to run it. The <em>PDaaS</em> server will provide an isolated runtime in which the software can be executed. After that process is finished, the result is sent back to the credit institute’s infrastructure.</p>
 </section>
-<section id="maintain-and-provide-its-own-medical-record" class="level4">
-<h4><span class="header-section-number">2.5.1.4</span> Maintain and provide its own medical record</h4>
+<section id="maintain-and-provide-its-own-medical-record" class="level4 unnumbered">
+<h4>Maintain and provide its own medical record</h4>
 <p>Some time ago on a hiking trip, in a moment of carelessness the data subject accidently broke her leg. She went to a hospital and straight into surgery, where the surgeon where able to fix the injury. Time went by and the leg healed completely. When she woke up today, she felt pain coming from the area where her leg was broken. She decided to call in sick and went straight to a doctor nearby. During her recovery she had been visiting that doctor regularly. At the reception desk, she opens up the <em>PDaaS</em>’s management panel on her smartphone and searches through the list of data consumers. After she finds the entry for this clinic, she flips her phone to show the receptionist the corresponding QR-Code, which the receptionist scans immediately. However the receptionist was not able to see any data on the screen, because the access has already expired. The data subject only permitted access for the estimated time of recovery, which is already over. That’s why she now gets a notification asking to re-grant some access. While going through the data points the clinic-system has requested, she notices that her address is incorrect. Last month she moved into a bigger apartment across the street. She must have forgotten to change that data. She immediately corrects the address, right before saving the <em>permission profile</em> for the clinic-system. She also includes access to all the data originating from the time after her accident. A moment later the receptionist confirms now being able to see all necessary data. The data subject takes a seat in the waiting room. While passing time, she decides to take a deeper look into her list of data consumers. Some of them she couldn’t even remember and for others she was surprised by which data points she had granted access to. She starts to restrict certain permissions, as she desires. She even removes some of the entries entirely. The appointment with her doctor went great. The doctor even had to review the x-ray images in order to make an adequate differential diagnosis. After the visit, she makes a quick stop at a pharmacy along the way to pickup the drugs her doctor had prescribed to reduce the pain. She has to wait in the queue since two other customers are in front of her. She realizes that it’s the first time she’s in this store. So she prepares a new entry in her list of data consumers, including all information about her prescriptions. By the time she gets served, she simply lets the person behind the register scan her QR-code. In the next seconds the data subject gets a notification about a <em>permission request</em> from this store, which she quickly reviews and confirms by making sure that the permissions in that profile are the ones she prepared minutes ago. A moment later the pharmacist comes back with her drugs, which she then pays in cash. The transaction is done and the data subject leaves the store.</p>
 </section>
-<section id="vehicle-data-and-mobility" class="level4">
-<h4><span class="header-section-number">2.5.1.5</span> Vehicle data and mobility</h4>
+<section id="vehicle-data-and-mobility" class="level4 unnumbered">
+<h4>Vehicle data and mobility</h4>
 <p>Let’s assume a car has no hardware on board to establish a wireless wide area connection to an outside access node. One is only able to connect to the car from the inside (wired or wireless). After entering a car, on the data subject’s mobile device a notification comes up from the car asking for permission to connect that mobile device. In addition to the expiration date, the data subject is provided with two additional options which she can enable or disable. First, a wifi network provided to everyone in the car can be enabled, which utilizes the uplink from the mobile device to the internet. Secondly, the car is allowed to use the uplink to open up connections so it can emit or receive data from the internet. As a result the device owner gains full control over any data the car might want to transfer. And this again would allow two things: (A) permission management for all outgoing data and (B) funnel all data generated and provided by the car towards the <em>PDaaS</em> that is associated with the linked device. It might be feasible as well to deny certain connections the car tries to open. Data will then be stored only in the <em>PDaaS</em>. If a third party is interested in that data they have to ask for access permission. That same concept of movement tracking and vehicle data aggregation could be applied to driving motorcycles and bicycles as well.</p>
 </section>
 </section>
@@ -355,10 +355,7 @@
 </ul>
 <p>One of the first occurring research projects was <em>ProjectVRM</em>, which originated from <em>Berkman Center for Internet &amp; Society</em> at <em>Harvard University</em>. As its name suggests, it was inspired by the idea of turning the concept of a <em>Customer Relationship Management</em> (CRM) upside down. This puts the vendor’s customers back in charge of their data previously managed by vendors. It also solves the problem of unintended data redundancy - from the customers perspective. Over time the project has grown to the largest and most influential one in this research field. It has transformed into an umbrella and hub for all kinds of projects and research related to that topic <span class="citation" data-cites="web_2016_projectvrm_development-work">[<a href="#ref-web_2016_projectvrm_development-work">68</a>]</span>, whether it’s frameworks or standards, services offering (e.g. privacy protection), reference implementations, applications, software or hardware components. <em>VRM</em> became more and more a synonym for a set of principles <span class="citation" data-cites="web_2016_projectvrm_principles">[<a href="#ref-web_2016_projectvrm_principles">69</a>]</span>, for example <em>“Customers must have control of data they generate and gather. [They] must be able to assert their own terms of engagement.”</em> These principles can be found in various forms across much work done in this area of research.</p>
 <p>Another work of research worth mentioning, because of the foundational work it has done, is the european funded project called <em>Trusted Architecture for Securely Shared Service</em> (TAS3) <span class="citation" data-cites="web_2011_tas3-project">[<a href="#ref-web_2011_tas3-project">70</a>]</span>. This project has led to an open source reference implementation called <em>ZXID</em>.<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> The major goal was to develop an architecture, that generalizes various approaches towards a non context-agnostic solution fitting into more sophisticated and dynamic scenarios, while still respecting commercial businesses (vendors) and users (customers), but at the same time facilitating a high level of user-centric security and privacy i.a. by a developed policy framework. Due to these requirements the architecture ended up being rather complex <span class="citation" data-cites="graphic_2011_architecture_components-of-organization-domain">[<a href="#ref-graphic_2011_architecture_components-of-organization-domain">71</a>]</span>. The implementation, called <em>ZXID</em>, involves several standards, for example SAML 2.0<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> and XACML,<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> and has just three third-party dependencies, <em>OpenSSL</em>, <em>cURL (libcurl)</em> and <em>zlib</em>. As of now it even supports Java, PHP and Perl. The project has lasted for a period of 4 years. After completion in 2011, research has continued i.a. by the <em>Liberty Alliance Project</em>. It is now part of the <em>Kantara Initiative</em> <span class="citation" data-cites="web_kantara-initiative">[<a href="#ref-web_kantara-initiative">72</a>]</span>, including all documents and results. These results are occasionally referenced, i.a. by the IEEE <span class="citation" data-cites="paper_2014_personal-data-store-approach">[<a href="#ref-paper_2014_personal-data-store-approach">73</a>]</span>.</p>
-<p>A research project, which is probably the closest to what this work aims to create, bears the name <em>openPDS</em> <span class="citation" data-cites="paper_2012_openpds_on-trusted-use-of-large-scale-personal-data">[<a href="#ref-paper_2012_openpds_on-trusted-use-of-large-scale-personal-data">74</a>]</span> and is done by <em>Humans Dynamics Lab</em> <span class="citation" data-cites="web_mit_openpds-safeanswers-project-page">[<a href="#ref-web_mit_openpds-safeanswers-project-page">75</a>]</span>, which again is part of <em>MIT Media Laboratories</em>. Despite the usual concepts of a <em>PDS</em>, it introduces multi-platform components and user interfaces including mobile devices, and also separates the persistence layer physically. This approach enables place- and time-independent administrative access for the data subject. Moreover, with their idea of <em>SafeAnswers</em> <span class="citation" data-cites="paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers">[<a href="#ref-paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers">76</a>]</span>, the team goes a step further. The concept behind that idea is based around <em>remote code execution</em>, briefly described in <a href="#header-applying-for-a-loan-and-checking-creditworthiness">one of the user stories in the first chapter</a>. It abstracts the concept of a data request to a more human-understandable level: a simple question. This question consists of two representations: (A) a human-readable question of a third party, and</p>
-<ol start="2" type="A">
-<li>a code-based representation of that question, which gets executed in a sandbox on the data subjects’s <em>PDS</em> system with the required data as arguments. The data, used as arguments, is implicitly defined trough (A). The output of that execution represents both answer and response.</li>
-</ol>
+<p>A research project, which is probably the closest to what this work aims to create, bears the name <em>openPDS</em> <span class="citation" data-cites="paper_2012_openpds_on-trusted-use-of-large-scale-personal-data">[<a href="#ref-paper_2012_openpds_on-trusted-use-of-large-scale-personal-data">74</a>]</span> and is done by <em>Humans Dynamics Lab</em> <span class="citation" data-cites="web_mit_openpds-safeanswers-project-page">[<a href="#ref-web_mit_openpds-safeanswers-project-page">75</a>]</span>, which again is part of <em>MIT Media Laboratories</em>. Despite the usual concepts of a <em>PDS</em>, it introduces multi-platform components and user interfaces including mobile devices, and also separates the persistence layer physically. This approach enables place- and time-independent administrative access for the data subject. Moreover, with their idea of <em>SafeAnswers</em> <span class="citation" data-cites="paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers">[<a href="#ref-paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers">76</a>]</span>, the team goes a step further. The concept behind that idea is based around <em>remote code execution</em>, briefly described in <a href="#header-applying-for-a-loan-and-checking-creditworthiness">one of the user stories in the first chapter</a>. It abstracts the concept of a data request to a more human-understandable level: a simple question. This question consists of two representations: (A) a human-readable question of a third party, and (B) a code-based representation of that question, which gets executed in a sandbox on the data subjects’s <em>PDS</em> system with the required data as arguments. The data, used as arguments, is implicitly defined trough (A). The output of that execution represents both answer and response.</p>
 <p>Aside from all the research projects done within the academic context, applications with a commercial interest have also started to occur in a variety of sectors. Microsoft’s HealthVault <span class="citation" data-cites="web_microsoft_healthvault">[<a href="#ref-web_microsoft_healthvault">77</a>]</span>, for example, which aims to replace the patient’s paper-based medical records and combine them in one digital version. This results in a patient-centered medical data and document archive, helping doctors to make more accurate decisions on medical treatment, because they have more knowledge obtained, for example, from a personal medical history.</p>
 <p><em>Meeco</em> <span class="citation" data-cites="web_meeco_how-it-works">[<a href="#ref-web_meeco_how-it-works">78</a>]</span> <span class="citation" data-cites="slides_2015_meeco-case-study">[<a href="#ref-slides_2015_meeco-case-study">79</a>]</span>, based on the MyData-Project [whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing], essentially just replaces platform-agnostic advertisement service providers with a closed environment and serves ads on its own. Although data subjects in this environment are provided with more control over what information they reveal, this approach doesn’t take the eagerly demanded next step of getting rid of the advertisement market as a revenue stream and, instead, finding a suitable business model that focuses on the data subject, not surrounding them with just another walled garden.</p>
 <p>A recently announced project, sponsored by Germany’s <em>Federal Ministry of Education and Research</em>, but developed and maintained primarily by <em>Fraunhofer-Gesellschaft</em> in cooperation with several private companies like <em>PricewaterhouseCoopers AG</em>, <em>Volkswagen AG</em>, <em>thyssenkrupp AG</em> or <em>REWE Systems GmbH</em>, is the so called <em>Industrial Data Space</em> <span class="citation" data-cites="web_industrial-data-space">[<a href="#ref-web_industrial-data-space">80</a>]</span>. The project unifies both, research and commercial interests and runs over a time period of three years until the third quarter of 2018. It aims <em>“[…] to facilitate the secure exchange and easy linkage of data in business ecosystems”</em>, where at the same time <em>“[…] ensuring digital sovereignty of data owners”</em> <span class="citation" data-cites="whitepaper_2016_industrial-data-space">[<a href="#ref-whitepaper_2016_industrial-data-space">81</a>]</span>. It will be interesting to see how these two related but distinct objectives come together in the future. Based on the white paper, the project’s focus mainly seems to lie in enabling and standardizing the way companies collect, exchange and aggregate data with each other across process chains to ensure high interoperability and accessibility.</p>
@@ -446,8 +443,8 @@ Together, these lead also to an overall security improvement, or at least it ena
 <section id="requirements" class="level1">
 <h1><span class="header-section-number">5</span> Requirements</h1>
 <p>Derived from the <a href="#core-principles">Core Principles</a>, the subsequent requirements shall be served as a list of features on the one hand, to get an idea of how the open specification and thus the resulting software might look like, and, on the other hand, to give an overview about priorities (can/could, may/might, should, must/have to). Other chapters may contain references to specific requirements listed below.</p>
-<section id="architecture-design" class="level4">
-<h4><span class="header-section-number">5.1.1.1</span> Architecture &amp; Design:</h4>
+<section id="architecture-design" class="level4 unnumbered">
+<h4>Architecture &amp; Design:</h4>
 <p><strong><em><span id="sa01">S.A.01</span></em> - Accessibility &amp; Compatibility</strong><br />
 Since the internet is one of the most widely used infrastructures for data transfer and communication, it is assumed that all common platforms support underlying technologies, such as HTTP and TLS. Thus the emerging system must implement a service based on web technologies, that provides supervised access to personal data.</p>
 <p><strong><em><span id="sa02">S.A.02</span></em> - Portability</strong><br />
@@ -461,8 +458,8 @@ When third parties are requesting data, it’s very likely that those procedures
 <p><strong><em><span id="sa06">S.A.06</span></em> - Communication</strong><br />
 To elaborate on <a href="#sa01">S.A.01</a> and <a href="#sa02">S.A.02</a> and ensure internal interoperability, all communication between components has to happen on HTTPS, in case they don’t run in the same environment.</p>
 </section>
-<section id="persistence" class="level4">
-<h4><span class="header-section-number">5.1.1.2</span> Persistence:</h4>
+<section id="persistence" class="level4 unnumbered">
+<h4>Persistence:</h4>
 <p><strong><em><span id="sp01">S.P.01</span></em> - Data Outflow</strong><br />
 Data may leave the system only if it’s absolutely necessary and no other option exists to retain the goal of the related process. But if data still needs to be transferred, none, other than the data consumer, must be able to access that data. Confidentiality has to be preserved at all costs.</p>
 <p><strong><em><span id="sp02">S.P.02</span></em> - Data Relationship</strong><br />
@@ -476,8 +473,8 @@ Providing and managing data is the core task here. Hence the system needs to mak
 <p><strong><em><span id="sp06">S.P.06</span></em> - Data Precision</strong><br />
 As stated in the previous chapter about <em><a href="#personal-data-as-a-product">Data as a Product</a></em>, the level of precision of data has a significant impact on the <em>data subject’s</em> privacy. Therefore the <em>data subjects</em> must be provided with the ability to configure how precise certain data should be when it is provided to <em>data consumers</em>. Those adjustments must have no impact on the actual stored data. That is, adjustments have to be made after the data is fetched but before it is further processed.</p>
 </section>
-<section id="interfaces" class="level4">
-<h4><span class="header-section-number">5.1.1.3</span> Interfaces:</h4>
+<section id="interfaces" class="level4 unnumbered">
+<h4>Interfaces:</h4>
 <p><strong><em><span id="si01">S.I.01</span></em> - Documentation</strong><br />
 The interfaces from all components have to be documented and well specified so that the components themselves could be individually replaced without any impact to the rest of the system. This also involves comprehensive information on how to communicate and what endpoints are provided, including required arguments and result structure.</p>
 <p><strong><em><span id="si02">S.I.02</span></em> - External Data Query</strong><br />
@@ -485,8 +482,8 @@ Data consumer can request a schema in order to know how the response data will a
 <p><strong><em><span id="si03">S.I.03</span></em> - Formats</strong><br />
 When components communicate between each other or interactions with the system from the outside take place, all data send back and forth should be serialized/structured in a JSON or JSON-like structure.</p>
 </section>
-<section id="graphical-user-interface" class="level4">
-<h4><span class="header-section-number">5.1.1.4</span> Graphical User Interface:</h4>
+<section id="graphical-user-interface" class="level4 unnumbered">
+<h4>Graphical User Interface:</h4>
 <p><strong><em><span id="pviu01">P.VIU.01</span></em> - Responsive user interface</strong><br />
 The graphical user interface has to be responsive to the available space, in order to acknowledge the diverse market of available screen sizes.</p>
 <p><strong><em><span id="pviu02">P.VIU.02</span></em> - Platform support</strong><br />
@@ -495,8 +492,8 @@ All graphical user interfaces must be implemented based on web technologies, whi
 The operator should be capable of filtering, sorting and searching through a list of <em>permission profiles</em>; for a better administration experience and to easily find certain entries in a continuously growing list of profiles.</p>
 <p><strong><em><span id="pviu04">P.VIU.04</span></em> - Access History</strong>  The operator must be provided with a list of all past <em>permission and access requests</em>, in order to monitor who is accessing what data and when, and thus being capable of evaluating and eventually stopping certain access and data usage. Such tool should have filter, search and sort capabilities. It is built upon and therefore requires the <a href="#pb01">access logging</a> functionality.</p>
 </section>
-<section id="interactions" class="level4">
-<h4><span class="header-section-number">5.1.1.5</span> Interactions:</h4>
+<section id="interactions" class="level4 unnumbered">
+<h4>Interactions:</h4>
 <p><strong><em><span id="pi01">P.I.01</span></em> - Effort</strong><br />
 Common interactions for use cases such as changing <em>profile data</em>, importing datasets or managing <em>permission requests</em>, have to require as little effort as possible. This means short UI response time on the one hand and as few single input and interaction steps as possible to complete a task. Given the circumstances (e.g. distributed architecture, involvement of mobile devices), the <em>permission request review</em> and <em>permission profile creation</em> might become a special challenge to hide complexity.</p>
 <p><strong><em><span id="pi02">P.I.02</span></em> - Design</strong><br />
@@ -513,8 +510,8 @@ A process involving data transaction must be always initiated by the data subjec
 <p><strong><em><span id="pi05">P.I.05</span></em> - Templating</strong><br />
 The operator should be able to create templates for <em>permission profiles</em> and <em>permission rules</em> in order to (A) apply a set of configurations in advance before a <em>permission request</em> arrives and (B) reduce recurring redundant configurations and interactions.</p>
 </section>
-<section id="behaviour" class="level4">
-<h4><span class="header-section-number">5.1.1.6</span> Behaviour:</h4>
+<section id="behaviour" class="level4 unnumbered">
+<h4>Behaviour:</h4>
 <p><strong><em><span id="pb01">P.B.01</span></em> - Access Logging</strong><br />
 All interactions and changes in the persistence layer should be logged. All data requests must be logged. Such a log is the foundation of the <em>access history</em>, so that the user is able to keep track of occurring accesses and look up past ones.</p>
 <p><strong><em><span id="pb02">P.B.02</span></em> - Real time</strong><br />
@@ -936,8 +933,8 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 </tbody>
 </table>
 <p>The next step is to determine all the components that are required in order to cover most of the defined use cases. The conglomeration below highlights all major components, including information about which platforms they could be in, as well as further details about their major task(s), underlying technologies, and relation(s) to each other.</p>
-<section id="web-server" class="level4">
-<h4><span class="header-section-number">6.6.1.1</span> Web server</h4>
+<section id="web-server" class="level4 unnumbered">
+<h4>Web server</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -961,8 +958,8 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>WebSockets</li>
 </ul>
 </section>
-<section id="permission-manager" class="level4">
-<h4><span class="header-section-number">6.6.1.2</span> Permission Manager</h4>
+<section id="permission-manager" class="level4 unnumbered">
+<h4>Permission Manager</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -984,8 +981,8 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>any modern language/framework capable of parallel computing</li>
 </ul>
 </section>
-<section id="pki" class="level4">
-<h4><span class="header-section-number">6.6.1.3</span> PKI</h4>
+<section id="pki" class="level4 unnumbered">
+<h4>PKI</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1003,8 +1000,8 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>ACME <span class="citation" data-cites="web_spec_acme">[<a href="#ref-web_spec_acme">143</a>]</span> (Let’s Encrypt)</li>
 </ul>
 </section>
-<section id="storage-connector" class="level4">
-<h4><span class="header-section-number">6.6.1.4</span> Storage Connector</h4>
+<section id="storage-connector" class="level4 unnumbered">
+<h4>Storage Connector</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1020,8 +1017,8 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>driver for used database</li>
 </ul>
 </section>
-<section id="operator-api" class="level4">
-<h4><span class="header-section-number">6.6.1.5</span> Operator API</h4>
+<section id="operator-api" class="level4 unnumbered">
+<h4>Operator API</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1044,8 +1041,8 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>JWT</li>
 </ul>
 </section>
-<section id="code-execution-environment" class="level4">
-<h4><span class="header-section-number">6.6.1.6</span> Code Execution Environment</h4>
+<section id="code-execution-environment" class="level4 unnumbered">
+<h4>Code Execution Environment</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1065,8 +1062,8 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>Container (OCI)</li>
 </ul>
 </section>
-<section id="tracker" class="level4">
-<h4><span class="header-section-number">6.6.1.7</span> Tracker</h4>
+<section id="tracker" class="level4 unnumbered">
+<h4>Tracker</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1083,8 +1080,8 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>any modern language/framework capable of parallel computing</li>
 </ul>
 </section>
-<section id="personal-data-storage" class="level4">
-<h4><span class="header-section-number">6.6.1.8</span> Personal Data Storage</h4>
+<section id="personal-data-storage" class="level4 unnumbered">
+<h4>Personal Data Storage</h4>
 <p><em>Platform:</em> Server, Mobile</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1100,8 +1097,8 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>depending on host environment</li>
 </ul>
 </section>
-<section id="persistence-layer" class="level4">
-<h4><span class="header-section-number">6.6.1.9</span> Persistence Layer</h4>
+<section id="persistence-layer" class="level4 unnumbered">
+<h4>Persistence Layer</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1120,8 +1117,8 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>Filesystem</li>
 </ul>
 </section>
-<section id="notification-infrastructure" class="level4">
-<h4><span class="header-section-number">6.6.1.10</span> Notification Infrastructure</h4>
+<section id="notification-infrastructure" class="level4 unnumbered">
+<h4>Notification Infrastructure</h4>
 <p><em>Platform:</em> Server</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1137,8 +1134,8 @@ authenticates the <em>data consumer</em> and checks related <em>permission profi
 <li>mobile device manufacturer’s Push Notification server for mobile apps</li>
 </ul>
 </section>
-<section id="user-interface" class="level4">
-<h4><span class="header-section-number">6.6.1.11</span> User Interface</h4>
+<section id="user-interface" class="level4 unnumbered">
+<h4>User Interface</h4>
 <p><em>Platform:</em> Desktop, Mobile</p>
 <p><em>Tasks:</em></p>
 <ul>
@@ -1394,8 +1391,8 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <p>The overall purpose of this specification is to provide detailed instructions to build a web service that on the one side encourages an individual to manage and maintain all the data relating to her in one place, and on the other side that enables third parties to access such data if they are permitted by the individual to do so, preferably through supervised code execution instead of just handing over the raw data points. The result is a one-to-many relation between the data owner - the individual - and all those who might require some data to for example proceed a purchase initiated by the operator or make a proper decision on her medical treatment.</p>
 <p>The system architecture is designed while keeping flexibility and portability in mind but still preserving simplicity and security. The result supports to run some components on different platforms in a distributed way. Therefore the operator is able to operate the system while being on the move, and can literally carry all her personal data along.</p>
 <p>The design of this specification tries to leverage as much existing standards and open technologies as possible for all the different aspects and components. So that by recognizing common practices its implementation and integration can be made as effortless as possible.</p>
-<section id="key-features" class="level3 unnumbered">
-<h3>Key Features</h3>
+<section id="key-features" class="level3">
+<h3><span class="header-section-number">7.2.2</span> Key Features</h3>
 <p><strong>Perspective: <em>Operator</em></strong></p>
 <ul>
 <li>full control over the flow of personal data</li>
@@ -1414,39 +1411,39 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li>distributed computing</li>
 </ul>
 </section>
-<section id="scenarios-excerpt" class="level3 unnumbered">
-<h3>Scenarios <em>(Excerpt)</em></h3>
+<section id="scenarios-excerpt" class="level3">
+<h3><span class="header-section-number">7.2.3</span> Scenarios <em>(Excerpt)</em></h3>
 <section id="online-purchase" class="level5">
-<h5><span class="header-section-number">7.2.1.0.1</span> Online Purchase</h5>
+<h5><span class="header-section-number">7.2.3.0.1</span> Online Purchase</h5>
 <p>In order to proceed with the checkout, the shop requires some personal from the user, such as shipping address, email and payment information. Either the shop is already a data consumer, then it would access the system in the background to check if any data has changed, or the shop has to register as a consumer first. After the registration process has been initiated, and if not already has happened the user is then forwarded to complete the checkout. After reviewing the registration and the data that are attempted to get accessed, the use is informed via email that the order has been proceeded and the shipment has started.</p>
 </section>
 <section id="social-network" class="level5">
-<h5><span class="header-section-number">7.2.1.0.2</span> Social Network</h5>
+<h5><span class="header-section-number">7.2.3.0.2</span> Social Network</h5>
 <p>Instead of storing personal data by itself, a social network, after registering and being permitted to, can request and display data about a user, whenever other users try to access them. Created content such as posts, comments, images or videos can be stored in the system as well. The social network then just holds references to all the content, so that it can obtain and forward information on how to request those data, for example with a one-time url.</p>
 </section>
 <section id="apply-for-a-loan" class="level5">
-<h5><span class="header-section-number">7.2.1.0.3</span> Apply for a Loan</h5>
+<h5><span class="header-section-number">7.2.3.0.3</span> Apply for a Loan</h5>
 <p>The data that credit institutes take into account when deciding on creditworthiness of an individual can directly be accessed through the system; instead of gathering and acquiring them from all sorts of resources including filled out forms from applicants. The credit institute takes out the part of the computation that is responsible for those calculations and hands it over to the system, after it is permitted by the operator to do so. The system invokes that computation with the required data points and afterwards it just sends the result back to the credit institute.</p>
 </section>
 <section id="browser-history" class="level5">
-<h5><span class="header-section-number">7.2.1.0.4</span> Browser History</h5>
+<h5><span class="header-section-number">7.2.3.0.4</span> Browser History</h5>
 <p>A browser plugin, which is connected to the service, keeps track over every called URL. Those data, collected by the operator, could not only be reviewed and analyzed by herself, but also be made available to data consumers.</p>
 </section>
 <section id="movement-profile" class="level5">
-<h5><span class="header-section-number">7.2.1.0.5</span> Movement Profile</h5>
+<h5><span class="header-section-number">7.2.3.0.5</span> Movement Profile</h5>
 <p>Instead of letting third party apps keep track of an individual’s daily movements (e.g. fitness app), an app that is associated with the system, obtains and pushed those location data directly into it. If a third party is now interested in those data, it can apply and eventually get permitted to access those movement data, but with configured resolution the data subject is comfortable with.</p>
 </section>
 </section>
-<section id="architectural-overview" class="level3 unnumbered">
-<h3>Architectural Overview</h3>
+<section id="architectural-overview" class="level3">
+<h3><span class="header-section-number">7.2.4</span> Architectural Overview</h3>
 <p>The architecture design (see Fig. <a href="#fig:spec_arch_simplifier">3</a>) defines three different platforms whereon components of the system might be running. While <em>desktop</em> and <em>mobile</em> platforms are primarily meant to serve as the front end of the system and to present the operator with GUIs, the <em>mobile</em> platform especially might host the <em>Personal Data Storage</em>. The storage of the personal data can be located on every platform. This is enabled by abstracting the storage through the <em>Storage Connector</em> on the <em>server</em> platform.</p>
 <p>That <em>server</em> platform also provides an external API for accessing personal data. Incoming requests from third parties and consumers get then processed by the <em>Permission Manager</em>, which i.a. decides if and how data can be accessed. For every consumer it is a dedicated exposed endpoint provided, that consists of a subdomain (e.g. <code>CONSUMER_ID.system.tld</code>). Other components are i.a. a <em>Code Execution Environment</em>, a <em>PKI</em> that provides and issues certificates and key-pairs to facilitate authenticating at the endpoints. The <em>Persistence Layer</em> is represented by potentially multiple technologies, such as databases or filesystem. A <em>Notification Infrastructure</em> streamlines the different ways and technologies to notify the operator about certain events (e.g. system receives new registration). Probably one of the most important component is the <em>Operator API</em>, through which the operator i.a. is able to configure the system or manage permissions, and the API is granted read/write permissions at the <em>Storage Connector</em>.</p>
 <figure>
 <img src="./assets/figures/spec_arch_simplifierd.png" alt="Figure 3: System Architecture, simplified" id="fig:spec_arch_simplifier" width="453" /><figcaption>Figure 3: System Architecture, simplified</figcaption>
 </figure>
 </section>
-<section id="general-process-description" class="level3 unnumbered">
-<h3>General Process Description</h3>
+<section id="general-process-description" class="level3">
+<h3><span class="header-section-number">7.2.5</span> General Process Description</h3>
 <ol start="0" type="1">
 <li><p><em>Prerequisites: the data subject has an up-and-running system; existing third party aims to access personal data on the system</em></p></li>
 <li><p>Third party has to register at the system to become a data consumer, therefore it has to provide certain information to the operator either via QR-Code, which the operator can scans, or by submitting those information to a unique URL that is upfront generated and provided by the operator to the third party.</p></li>
@@ -1456,23 +1453,23 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li><p>Finally, the query result is returned to the consumer, either directly or self-obtained later on.</p></li>
 </ol>
 </section>
-<section id="relations" class="level3 unnumbered">
-<h3>Relations</h3>
+<section id="relations" class="level3">
+<h3><span class="header-section-number">7.2.6</span> Relations</h3>
 <section id="consumerendpoint-11" class="level5">
-<h5><span class="header-section-number">7.2.1.0.6</span> consumer:endpoint [1:1]</h5>
+<h5><span class="header-section-number">7.2.6.0.1</span> consumer:endpoint [1:1]</h5>
 <p>one entity (consumer) relates to one access point (endpoint), exclusively accessible and authenticated by TLS-based <em>two-way authentication</em></p>
 </section>
 <section id="endpointpermission-profile-1n" class="level5">
-<h5><span class="header-section-number">7.2.1.0.7</span> endpoint:permission-profile [1:n]</h5>
+<h5><span class="header-section-number">7.2.6.0.2</span> endpoint:permission-profile [1:n]</h5>
 <p>zero or more <em>permission profiles</em> are associated to one <em>endpoint</em> and are therefore responsible and included in the query validation procedure</p>
 </section>
 <section id="storage-connectorpersonal-data-storage-1n" class="level5">
-<h5><span class="header-section-number">7.2.1.0.8</span> storage-connector:personal-data-storage [1:n]</h5>
+<h5><span class="header-section-number">7.2.6.0.3</span> storage-connector:personal-data-storage [1:n]</h5>
 <p>the <em>Storage Connector</em> MUST be able to access at least one or more <em>Personal Data Storage</em>, regardless of its location (platform)</p>
 </section>
 </section>
-<section id="depending-technologies-and-standards" class="level3 unnumbered">
-<h3>Depending Technologies and Standards</h3>
+<section id="depending-technologies-and-standards" class="level3">
+<h3><span class="header-section-number">7.2.7</span> Depending Technologies and Standards</h3>
 <ol type="a">
 <li>HTTP (<a href="https://tools.ietf.org/html/rfc2616">RFC 2616</a>, <a href="https://tools.ietf.org/html/rfc7540">RFC 7540</a>)</li>
 <li>TLS (<a href="https://tools.ietf.org/html/rfc5246">RFC 5246</a></li>
@@ -1494,8 +1491,8 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <li>Swift, Java</li>
 </ul>
 </section>
-<section id="prerequisites" class="level3 unnumbered">
-<h3>Prerequisites</h3>
+<section id="prerequisites" class="level3">
+<h3><span class="header-section-number">7.2.8</span> Prerequisites</h3>
 <ol type="a">
 <li>DNS-registered Domain</li>
 <li>publicly reachable server (e.g public IP or dynamic DNS)</li>
@@ -1649,12 +1646,12 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <section id="security" class="level2">
 <h2><span class="header-section-number">7.4</span> Security</h2>
 <p>The following aspects are required measures in order to improve and ensure the overall sufficient security level of the system. Configurations mentioned below MAY change prospectively due to issues or vulnerabilities emerging in the future.</p>
-<section id="transport" class="level3 unnumbered">
-<h3>Transport</h3>
+<section id="transport" class="level3">
+<h3><span class="header-section-number">7.4.2</span> Transport</h3>
 <p>All communication from and towards the system as well as internal communication between components located on different platforms MUST be established with <em>HTTP over TLS</em>. Thus, external third parties are only allowed to communicate with the system on port <code>443</code>, whereas internal communication runs through port <code>4223</code>. Port <code>80</code> MUST return HTTP Error <code>403 Forbidden</code> and all other ports SHOULD be dropped or blocked.</p>
 <p>The key-pair, used in TLS to agree on a mutual symmetric key, MUST be based on either the <em>RSA</em> or <em>DSA</em> cipher suite, although <em>RSA</em> SHOULD be preferred. All created keys MUST have a length of at least <code>4096</code> bits. Those ciphers for TLS, that support <em>Perfect Forward Secrecy</em> SHOULD be preferred, but ciphers that are not supported by <code>TLSv1.2</code> MUST be avoided. All endpoint and other dedicated entry points MUST provide their own generated Diffie-Hellman groups with a minimal length of <code>4096</code> bits.</p>
 <p>For web-based GUIs <em>TLS session resumption</em> SHOULD be activated, but for <em>endpoints</em> it MUST be deactivated. Web-based GUIs MUST NOT depend on external resources. All involved assets MUST be stored in the system and thus get served by the <em>web server</em>. This required behaviour is enforced by setting the <em>Content Security Policy (CSP)</em> in HTTP headers. The <em>web server</em> MUST facilitate a web socket connection for web-based GUIs. If a browser does not support this natively, a fallback SHALL be provided by the GUI. Furthermore, those GUIs SHOULD be served with HTTP/2.</p>
-<p>The subsequent examples show two Nginx configuration for the <em>web server</em>, implementing the previous specifications.</p>
+<p>The subsequent examples show two Nginx configurations for the <em>web server</em> component, implementing the specifications from above.</p>
 <p><strong><span id="spec_code-01_nginx-config-web-gui">Code 01: web server configuration for a web-based GUI (excerpt)</span>:</strong></p>
 <div class="sourceCode"><table class="sourceCode ngix numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -1783,16 +1780,16 @@ server {
     add_header Strict-Transport-Security &quot;max-age=15768000&quot; always;
 }</code></pre></td></tr></table></div>
 </section>
-<section id="authentication-1" class="level3 unnumbered">
-<h3>Authentication</h3>
+<section id="authentication-1" class="level3">
+<h3><span class="header-section-number">7.4.3</span> Authentication</h3>
 <p>The following two authentication technologies MUST be supported by the system. 2-Factor authentication as an enhancement of the operator authentication procedure is OPTIONAL and can be implemented either by email or with a mobile platform, if it is part of the system.</p>
-<section id="transport-layer-security" class="level5">
-<h5><span class="header-section-number">7.4.1.0.1</span> Transport Layer Security</h5>
+<section id="transport-layer-security" class="level4">
+<h4><span class="header-section-number">7.4.3.1</span> Transport Layer Security</h4>
 <p>Before the first consumer tries to register on the system, the system MUST generate a key-pair and sign it by itself. With the resulting certificate the system becomes a private Certificate Authority primarily responsible for signing certificates that are required for every endpoint, and maybe even for connections between mobile and server platforms. The key-pair for a specific endpoint is then used to issue a certificate based on the <em>Certificate Signing Request (CSR)</em>, supplied by the consumer, who is associated to that very endpoint. The certified certificate and the endpoint’s certificate MUST then be transferred back to the consumer on a secure channel, which the consumer is responsible to provide (e.g. HTTP over TLS certified by trusted public CA, or by a self-signed certificate provided with the registration).</p>
 <p>In order to use TLS for bidirectional authentication, not only the client (consumer) MUST be able to verify the server’s (endpoint) certificate, also the server MUST do the same for the consumer. This procedure is known as <em>two-way authentication</em>, which is part of the TLS connection establishing. If the connection failed to establish, the authentications has failed, and vice versa has the consumer successfully authenticated to the system.</p>
 </section>
-<section id="json-web-token-jwt" class="level5">
-<h5><span class="header-section-number">7.4.1.0.2</span> JSON Web Token (JWT)</h5>
+<section id="json-web-token-jwt" class="level4">
+<h4><span class="header-section-number">7.4.3.2</span> JSON Web Token (JWT)</h4>
 <p>When creating a JWT, the <code>&quot;alg&quot;</code> in the header MUST NOT be set to <code>&quot;none&quot;</code>. A JWT MAY be encrypted (JWE). JWTs MUST be created by the <em>Operator API</em>. Validation MAY be performed by <em>Operator API</em> or <em>Web server</em>. Secrets and keys for that purpose are stored in the <em>Persistence Layer</em>. As long as the token is not encrypted, every token MUST associate its own secret key for the HMAC computation.</p>
 <p>When authenticating, the JWT MUST be provided either as HTTP header (<code>Authorization: Bearer $JWT</code>) or as a query parameter indicated by the key <code>t</code>. If the operator fails to connect to the system before the token’s expiration date has been exceeded, the operator is REQUIRED to login again. The token MUST be renewed, but at least after half of the validity period is reached. The period, in which the token is valid, SHOULD be 24 hours but MUST NOT exceed 48 hours.</p>
 <p>The following claims are REQUIRED:</p>
@@ -1814,16 +1811,16 @@ server {
 </section>
 </section>
 <section id="system-architecture" class="level3">
-<h3><span class="header-section-number">7.4.2</span> System Architecture</h3>
+<h3><span class="header-section-number">7.4.4</span> System Architecture</h3>
 <p>The centralized version of the system architecture places every component into the server platform. Even the web-based management tool, which later is fetched onto front end platforms, initially is stored there. This means, all the operator’s personal data is located somewhere in the ‘cloud’, probably out of reach, and potentially vulnerable to unauthorized access. Whereas the distributed approach allows for example to re-locate the <em>Personal Data Store</em> component to a mobile platform, which as well might be used by the operator to manage the system. The general approach of a more distributed deployment of components SHOULD reduces the vulnerability for certain scenarios and makes it harder for entities to compromise (parts of) the system. As long as all requirements are met and every component is completely functional and thus the system as a whole, any component MAY be located on whatever platform is sufficient.</p>
 <p>A second approach to gain not only portability, but also to increase the overall level of security is to isolate components [and their process(es)] from the surrounding platform environment. This enables explicit and controlled allocation of resources, such as memory, CPU usage or network and filesystem access. This concept MUST be implemented by either using the process isolation features provided by the host environment, namely <em>cgroups</em>, <em>namespaces</em> and <em>systemd-nspawn</em>, or by putting components into application containers. The latter is RECOMMENDED and MUST respect all <em>Open Container</em> Specifications. An orchestration software MAY be useful to manage all containers.</p>
 </section>
 <section id="supervised-code-execution-sce" class="level3">
-<h3><span class="header-section-number">7.4.3</span> Supervised Code Execution <em>(SCE)</em></h3>
+<h3><span class="header-section-number">7.4.5</span> Supervised Code Execution <em>(SCE)</em></h3>
 <p>When running programs on the server platform provided by consumers, it is REQUIRED to solely execute them after putting them into an application container (see <a href="#system-architecture">System Architecture</a>). This implies to provision the container first and then invoke it by providing the requested data points as arguments. The container MUST NOT be allowed to access the host’s filesystem or network. Before running the container with the actual data, it MUST be executed several times with generated test data. If the program is provided as source code, it MUST be automatically inspected and reviewed. If one of those test layers result insufficiently, processing the access request MUST abort and return with a failure information.</p>
 </section>
 <section id="system-monitoring" class="level3">
-<h3><span class="header-section-number">7.4.4</span> System Monitoring</h3>
+<h3><span class="header-section-number">7.4.6</span> System Monitoring</h3>
 <p>The <em>Tracker</em> component MUST ensure that the following information are being persisted <em>(required fields for those information are defined in <a href="#data-and-types">Data and Types</a>)</em>:</p>
 <ul>
 <li>Access Requests (regardless of its success)</li>
@@ -2001,7 +1998,10 @@ server {
 <ul>
 <li><em>yes</em>, proceed with configured method for checking reliability
 <ul>
-<li><code>null</code></li>
+<li><code>null</code>
+<ol type="1">
+<li>abort reliability verification and move on to the next step</li>
+</ol></li>
 <li><code>'qes'</code>
 <ol type="1">
 <li>notify operator that a signing procedure, involving her <em>eID</em> card, is required</li>
@@ -2097,8 +2097,8 @@ server {
 <section id="data-types" class="level2">
 <h2><span class="header-section-number">7.6</span> Data &amp; Types</h2>
 <p>The system is aware of two different classes of data - personal data and system data. The latter is stored within the <em>Persistence Layer</em> and represents the current state of the system, whereas all the personal data, that reflects the Digital Identity of the operator, is maintained and also provided by the <em>Personal Data Store</em>.</p>
-<section id="personal-data" class="level3 unnumbered">
-<h3>Personal Data</h3>
+<section id="personal-data" class="level3">
+<h3><span class="header-section-number">7.6.2</span> Personal Data</h3>
 <p>The <em>PDS</em> is portable and can be placed on any of the platform types supported by the system, whereas data queries typically originate in a server platform. In order to provide such flexibility, and unless editing personal data happens on the same platform instance on which the data is also stored, access to the <em>PDS</em> MUST be abstracted. This design approach can be implemented by utilizing GraphQL’s native architecture, which is - aside from its generic graph-structured query language - primarily characterized by its separation of validation and execution. The execution layer requires adapters for every database system the PDS has to support, while the validation is agnostic regarding the query origin. That is, the underlying database system can be swapped, or various database systems can run side by side. A universal query languages has also the advantages of being effortless re-applicable to a different storage system and being able to revert every data change. Therefore it is REQUIRED to store every writing query chronologically, next to the current state of the personal data.</p>
 <p><em>Additional requirement(s) are:</em></p>
 <ol type="a">
@@ -2120,8 +2120,8 @@ server {
 <li>consume behaviors (e.g. watchlist, music playlist)</li>
 </ul>
 </section>
-<section id="system-data" class="level3 unnumbered">
-<h3>System Data</h3>
+<section id="system-data" class="level3">
+<h3><span class="header-section-number">7.6.3</span> System Data</h3>
 <p>The <em>PL</em> consists of multiple storage technologies and MUST be placed on a trusted platform type - a server. At least two technologies MUST be supported; the platform’s filesystem, which SHOULD be accessible by other components on the same platform, and a document-oriented storage system that provides high flexibility through a schema-free approach and MUST be shared as well among several components. It is OPTIONAL, if the <em>Tracker</em> uses the same storage system, multiple ones or a completely different storing mechanism. Regardless, they are all unified under the <em>Persistence Layer</em> component.</p>
 <p><em>Additional requirement(s) are:</em></p>
 <ol type="a">
@@ -2129,7 +2129,7 @@ server {
 </ol>
 </section>
 <section id="structure-types-of-personal-data" class="level3">
-<h3><span class="header-section-number">7.6.2</span> Structure &amp; Types of Personal Data</h3>
+<h3><span class="header-section-number">7.6.4</span> Structure &amp; Types of Personal Data</h3>
 <p>The type system, on which all personal data is based on, MUST be compatible with the type system provided by GraphQL. The subsequent definitions represent the least set of features that a type system for personal data MUST acknowledge in any implementation.</p>
 <dl>
 <dt><code>[primitive]</code></dt>
@@ -2140,8 +2140,8 @@ server {
 </dd>
 </dl>
 <p>The <em>Storage Connector</em> MUST support a basic set of <code>primitives</code> and <code>structs</code> right from the start, in order to reduce the effort when making first steps with the system. The following types are initially REQUIRED:</p>
-<section id="primitives" class="level4">
-<h4><span class="header-section-number">7.6.2.1</span> Primitives:</h4>
+<section id="primitives" class="level4 unnumbered">
+<h4>Primitives:</h4>
 <ul>
 <li><code>ID</code></li>
 <li><code>Date</code></li>
@@ -2151,8 +2151,8 @@ server {
 <li><code>URL</code></li>
 </ul>
 </section>
-<section id="structs" class="level4">
-<h4><span class="header-section-number">7.6.2.2</span> Structs:</h4>
+<section id="structs" class="level4 unnumbered">
+<h4>Structs:</h4>
 <ul>
 <li><code>Position</code></li>
 <li><code>File</code></li>
@@ -2170,13 +2170,13 @@ server {
 <p>Other <em>structs</em>, that might become needful over time, can either be created and modeled by the operator herself or are developed and provided by community members and other third parties, so that unsupported types just need to be imported into the system.</p>
 </section>
 </section>
-<section id="data-models-for-system-data" class="level3 unnumbered">
-<h3>Data Models for System Data</h3>
+<section id="data-models-for-system-data" class="level3">
+<h3><span class="header-section-number">7.6.5</span> Data Models for System Data</h3>
 <p>Aside from personal data, whose structure is adjustable by the <em>data subject</em> to suit her needs, the system itself REQUIRES some data models as well in order to provide i.a. mechanisms for managing the process of accessing data. Those models are outlined below.</p>
 <p>The types that MUST be supported by the <em>PL</em> are similar to the <em>primitives</em> available in the Query Language, but somewhat more rudimentary: <code>String</code>, <code>Boolean</code>, <code>Number</code>, and <code>null</code>. Everything beyond this depends on the technologies that are being used.</p>
 <p><em>NOTICE: Required fields are implicit and therefore not marked as such. Any other notation is explicit, though. The indicated value types are minimum viable; if supported, a more precise one SHOULD be used.</em></p>
 <section id="endpoint" class="level4">
-<h4><span class="header-section-number">7.6.2.3</span> Endpoint</h4>
+<h4><span class="header-section-number">7.6.5.1</span> Endpoint</h4>
 <ul>
 <li><code>name: String</code> - full valid subdomain name</li>
 <li><code>consumer: String || Object</code> - consumer information || name
@@ -2191,7 +2191,7 @@ server {
 </ul>
 </section>
 <section id="permission-profile" class="level4">
-<h4><span class="header-section-number">7.6.2.4</span> Permission Profile</h4>
+<h4><span class="header-section-number">7.6.5.2</span> Permission Profile</h4>
 <ul>
 <li><code>data: [String]</code> - [MUST if <code>query == undefined</code>] list of permitted data endpoints</li>
 <li><code>query: Object || String</code> - [MUST if <code>data == undefined</code>] query, representing permitted data</li>
@@ -2215,7 +2215,7 @@ server {
 </ul>
 </section>
 <section id="notification" class="level4">
-<h4><span class="header-section-number">7.6.2.5</span> Notification</h4>
+<h4><span class="header-section-number">7.6.5.3</span> Notification</h4>
 <p><em>NOTICE: MUST be encrypted, if is sent via Push Notification Service</em></p>
 <ul>
 <li><code>oid: String</code> - identifier of what this notification has triggered</li>
@@ -2225,7 +2225,7 @@ server {
 </ul>
 </section>
 <section id="tracker-2" class="level4">
-<h4><span class="header-section-number">7.6.2.6</span> Tracker</h4>
+<h4><span class="header-section-number">7.6.5.4</span> Tracker</h4>
 <p><em>Collection:</em> <code>registrations</code></p>
 <ul>
 <li><code>id: String</code> - identifier of this document</li>
@@ -2278,8 +2278,8 @@ server {
 <li><code>expiresAt: Number</code> - date of expiration</li>
 </ul>
 </section>
-<section id="system-configurations-and-defaults__" class="level4">
-<h4><span class="header-section-number">7.6.2.7</span> System Configurations and Defaults__</h4>
+<section id="system-configurations-and-defaults" class="level4">
+<h4><span class="header-section-number">7.6.5.5</span> System Configurations and Defaults</h4>
 <a name="tbl:spec_system-default-config"></a>
 <table>
 <caption>Table 4: Global System Configurations and their default values </caption>
@@ -2391,59 +2391,58 @@ server {
 <h2><span class="header-section-number">7.7</span> Interfaces</h2>
 <section id="graphical-user-interfaces-guis" class="level3">
 <h3><span class="header-section-number">7.7.2</span> Graphical User Interfaces (GUIs)</h3>
-<p>The primary GUI of the system is the operator’s <em>Management Tool</em>, which is used to administrate the system, to control and manage data access and to maintain personal data. The tool MAY be available on mobile platforms, but at least MUST be provided for <em>desktop</em> platforms. The following lists show briefly, which features the tool provides to the operator.</p>
+<p>The primary GUI of the system is the operator’s <em>Management Tool</em>, which is used to administrate the system, to control and manage data access and to maintain personal data. The tool MAY be available on mobile platforms, but at least it MUST be provided for <em>desktop</em> platforms. The following lists show briefly, which features the tool provides to the operator.</p>
 <section id="functionality-that-must-be-provided" class="level4">
 <h4><span class="header-section-number">7.7.2.1</span> Functionality, that MUST be provided:</h4>
 <ul>
-<li>operator authentication</li>
-<li>manage consumers and their entry point(s)</li>
-<li>manage permission profiles</li>
-<li>review registrations and permission requests</li>
-<li>maintain personal data</li>
-<li>responsive screen adaption</li>
-<li>low-latency view rendering</li>
-<li>change system settings</li>
-<li>provide notifications</li>
-<li>register new front end platforms to the system</li>
+<li>Operator authentication</li>
+<li>Managing consumers and their entry point(s)</li>
+<li>Managing permission profiles</li>
+<li>Reviewing registrations and permission requests</li>
+<li>Maintenance of personal data</li>
+<li>Responsive screen adaption</li>
+<li>Low-latency view rendering</li>
+<li>Changing system settings</li>
+<li>Notifications</li>
+<li>Registration of new front end platforms to the system</li>
 </ul>
 </section>
 <section id="functionality-that-should-be-available" class="level4">
 <h4><span class="header-section-number">7.7.2.2</span> Functionality, that SHOULD be available:</h4>
 <ul>
-<li>import personal data</li>
-<li>view access history</li>
-<li>review access requests</li>
-<li>backup mechanisms</li>
-<li>filter mechanisms for permission profiles, access history</li>
-<li>create &amp; manage templates for permission profiles</li>
+<li>Personal data import</li>
+<li>History of access requests</li>
+<li>Reviewing permission requests</li>
+<li>Mechanisms to make backups</li>
+<li>Filter mechanisms for permission profiles, access history</li>
+<li>Creating &amp; Managing templates for permission profiles</li>
 <li>QR-Code scanning (mobile platform only)</li>
 </ul>
 </section>
 <section id="functionality-that-may-be-supported" class="level4">
 <h4><span class="header-section-number">7.7.2.3</span> Functionality, that MAY be supported:</h4>
 <ul>
-<li>revert changes of permission profiles</li>
-<li>system monitoring and statistics</li>
-<li>export personal data</li>
-<li>utilize <em>accordion</em> pattern (re)viewing data structures</li>
-<li>model new data structures</li>
-<li>migrate <em>PDS</em> to another platform</li>
+<li>Reverting changes in permission profiles</li>
+<li>System monitoring and statistics</li>
+<li>Personal data export</li>
+<li>Utilization of the <em>accordion</em> pattern for (re)viewing data structures</li>
+<li>Modeling new data structures</li>
+<li>Migration of the <em>PDS</em> to another platform</li>
 </ul>
 </section>
 </section>
 <section id="application-programming-interface-apis" class="level3">
 <h3><span class="header-section-number">7.7.3</span> Application Programming Interface (APIs)</h3>
-<p>The lists of GUI features implicitly define what the <em>Operator API</em> must be capable of, whereas interactions originated by third parties and data consumers are described below. These descriptions show the behavior of all major API endpoints, that are required to access personal data hosted by the system. The payload MUST be transferred with HTTP requests, secured by TLS, as <em>POST</em> method, unless otherwise outlined. It MUST be serialized in JSON and constitutes the complete request body. In order to send data in certain formats (e.g. PEM-formatted file content or binary streams) as a string values as part of a URLs or JSON, <em>bas64url</em> MUST be used to encode such data. Furthermore, it is to be noted, that request are asynchronous and MAY take several hours up to a few days to get answered.</p>
-<p><em>NOTICE: If the representation of the data that is requested for access defined as a list of strings (<code>[String]</code>), then the response has the same structure. Same apply to the data query in a string-representation (<code>String</code>).</em></p>
+<p>The lists of GUI features implicitly define what the <em>Operator API</em> must be capable of, whereas interactions originated by third parties and data consumers are described below. These descriptions show the behavior of all major API endpoints, that are required to access personal data, hosted by the system. The payload MUST be transmitted with HTTP requests, secured by TLS, declared as <em>POST</em> method, unless otherwise outlined. It MUST be serialized in JSON and constitutes the complete request body. In order to send data originating from certain formats (e.g. PEM-formatted file content or binary streams) as string values being part of a URLs or JSON, <em>bas64url</em> MUST be used to encode such data. Furthermore, it is to be noted, that request are asynchronous and MAY take several hours up to a few days to get answered.</p>
 <section id="spec_api_registration-request" class="level5">
 <h5><span class="header-section-number">7.7.3.0.1</span> Registration Request</h5>
-<p>MUST be handed over to the system in order to get acknowledged as a <em>data consumer</em>. It can either be submitted via HTTP to the system, if the Operator has provided a URL, or encoded as a QR-Code presented on web page, which is served via HTTPS by the requester, ready to get scanned with the operator’s mobile device.</p>
+<p>MUST be handed over to the system in order to get acknowledged as a <em>data consumer</em>. It can either be submitted via HTTP to the system, if the operator has provided a URL, or encoded as a QR-Code presented on web page, served via HTTPS by the requester, ready to get scanned with the operator’s mobile device.</p>
 <p><em>Parameter(s):</em></p>
 <ul>
 <li><code>csr: String</code> - certificate signing request</li>
 <li><code>cb: String</code> - callback URL (REQUIRES https)</li>
 <li><code>cert: String</code> - [OPTIONAL] certificate for callback URL, if not publicly trusted</li>
-<li><code>desires: [String] || String</code> - [OPTIONAL] list of endpoint selectors or query string (see <a href="#spec_api_permission-request">Registration Request</a>)</li>
+<li><code>desires: [String] || String</code> - [OPTIONAL] list of data point selectors or query string (see <a href="#spec_api_permission-request">Registration Request</a>)</li>
 </ul>
 <p><em>Request:</em> <code>https://system.tld/register/$uniqueRndValue</code></p>
 <div class="sourceCode"><table class="sourceCode json numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -2494,7 +2493,7 @@ server {
 15
 16
 </pre></td><td class="sourceCode"><pre><code class="sourceCode json"><span class="fu">{</span>
-    <span class="dt">&quot;endpoint&quot;</span><span class="fu">:</span> <span class="st">&quot;https://$consumerId.system.tld&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;endpoint&quot;</span><span class="fu">:</span> <span class="st">&quot;https://$endpointId.system.tld&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;cert&quot;</span><span class="fu">:</span> <span class="st">&quot;$base64UrlEncodedCert&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;permissions&quot;</span><span class="fu">:</span> <span class="fu">{</span>
         <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;expires-on-date&quot;</span><span class="fu">,</span>
@@ -2512,12 +2511,13 @@ server {
 </section>
 <section id="spec_api_permission-request" class="level5">
 <h5><span class="header-section-number">7.7.3.0.2</span> Permission Request</h5>
-<p>MUST create a new <em>permission profile</em> and thus MAY enable the data consumer to access personal data. In return the consumer is provided with all information that are required to request data access based on this permission request.</p>
+<p>MUST create a new <em>permission profile</em> and thus MAY enable the data consumer to access personal data. In return, the consumer is provided with all information that are required to request data access based on the permissions requested herewith.</p>
+<p><em>NOTICE: If the representation of the data, that is requested for access, is defined as a list of strings (<code>[String]</code>), then the response MUST show a similar structure; the same applies to the data query in a string-representation (<code>String</code>).</em></p>
 <p><em>Parameter(s):</em></p>
 <ul>
-<li><code>desires: [String] || String</code> - list of endpoint selectors or query string, representing what data is requested to get access to</li>
+<li><code>desires: [String] || String</code> - list of data point selectors or query string, representing what data is requested to get access to</li>
 </ul>
-<p><em>Request:</em> <code>https://$consumerId.system.tld/pr</code></p>
+<p><em>Request:</em> <code>https://$endpointId.system.tld/pr</code></p>
 <div class="sourceCode"><table class="sourceCode json numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -2544,17 +2544,17 @@ server {
 <p><em>Parameter(s):</em></p>
 <ul>
 <li><code>query: String</code> - data query representing the data that is requested to be accessed</li>
-<li><code>type: String</code> - access type: <code>fwd</code> or <code>sce</code></li>
+<li><code>type: String</code> - [OPTIONAL] access type: <code>fwd</code> or <code>sce</code></li>
 <li><code>program: Object</code> - [MUST if <code>type == 'sec'</code>]
 <ul>
 <li><code>mimeType: String</code> - MIME-Type (see <a href="https://tools.ietf.org/html/rfc2046">RFC 2046</a>)</li>
 <li><code>extension: String</code> - file extension</li>
 <li><code>file: String</code> - base64url-encoded file content</li>
 </ul></li>
-<li><code>reliable: Boolean</code> - indicates whether the consumer expects a proof of data reliability or not</li>
-<li><code>respond: String</code> - <code>push</code> (returns immediately with information where to obtain the result) or <code>keepalive</code> (keep connection open until response is computed)</li>
+<li><code>reliable: Boolean</code> - [OPTIONAL] indicates whether the consumer expects a proof of data reliability or not</li>
+<li><code>respond: String</code> - [OPTIONAL] <code>push</code> (returns immediately with information where to obtain the result) or <code>keepalive</code> (keep connection open until response is computed)</li>
 </ul>
-<p><em>Request:</em> <code>https://$consumerId.system.tld/ar</code></p>
+<p><em>Request:</em> <code>https://$endpointId.system.tld/ar</code></p>
 <div class="sourceCode"><table class="sourceCode json numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -2567,23 +2567,23 @@ server {
     <span class="dt">&quot;respond&quot;</span><span class="fu">:</span> <span class="st">&quot;keepalive&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;query&quot;</span><span class="fu">:</span> <span class="st">&quot;{profile{firstname,lastname}}&quot;</span>
 <span class="fu">}</span></code></pre></td></tr></table></div>
-<p><em>Response:</em></p>
+<p><em>Response: [if <code>respond == 'push'</code>]</em></p>
 <ul>
 <li><code>pickup: String</code> - URL where to find the actual response</li>
-<li><code>duration: Number</code> - time in seconds until result SHOULD be available</li>
+<li><code>duration: Number</code> - estimated time in seconds until response SHOULD be available</li>
 </ul>
 <div class="sourceCode"><table class="sourceCode json numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
 </pre></td><td class="sourceCode"><pre><code class="sourceCode json"><span class="fu">{</span>
-    <span class="dt">&quot;pickup&quot;</span><span class="fu">:</span> <span class="st">&quot;https://$consumerId.system.tld/ar/$procedureId&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;pickup&quot;</span><span class="fu">:</span> <span class="st">&quot;https://$endpointId.system.tld/ar/$procedureId&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;duration&quot;</span><span class="fu">:</span> <span class="dv">43200</span><span class="fu">,</span>
 <span class="fu">}</span></code></pre></td></tr></table></div>
-<p><em>Request:</em> <code>https://$consumerId.system.tld/ar/$procedureId</code> <em>Response:</em></p>
+<p><em>Request:</em> <code>https://$endpointId.system.tld/ar/$procedureId</code> <em>Response:</em></p>
 <ul>
 <li><code>expiresAt: Number</code> - date when data becomes outdated</li>
-<li><code>proof: String</code> - certificate that indicates verified data reliability</li>
+<li><code>proof: String</code> - [OPTIONAL] certificate that indicates verified data reliability</li>
 <li><code>data: Object || String</code> - if valid JSON, then Object, otherwise base64url-encoded string</li>
 </ul>
 <div class="sourceCode"><table class="sourceCode json numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -2611,25 +2611,25 @@ server {
 </section>
 <section id="recommendations-resources" class="level2">
 <h2><span class="header-section-number">7.8</span> Recommendations &amp; Resources</h2>
-<p>This section provide additional information on hosting and operating such a system as well as further resources, that MAY be worth knowing. Moreover, it contains advices that are recommended to consider when implementing (parts of) this specification.</p>
-<section id="host-environments-recommendations" class="level4">
-<h4><span class="header-section-number">7.8.1.1</span> Host Environment(s) Recommendations</h4>
+<p>This section provides additional information on hosting and operating such a system, as well as further resources that MAY be worth knowing. Moreover, it contains advices that are recommended to consider when implementing (parts of) this specification.</p>
+<section id="host-environments-recommendations" class="level4 unnumbered">
+<h4>Host Environment(s) Recommendations</h4>
 <ul>
 <li><p>Depending on the technologies that are being used for the implementations, the environment specifications MAY vary. Although, it SHOULD be feasible to expect at least around <em>2</em> cores, <em>4GB</em> of memory and <em>60GB</em> of storage.</p></li>
-<li><p>Unless server components are running in containers, it is not recommended to run other applications on the same environment side by side.</p></li>
-<li><p>a vendor, who hosts for multiple data subjects, one system instances, SHOULD NOT locate all of them in one environment, but rather deploy a separate virtualization of an operating system for every instance.</p></li>
-<li><p>the host environment (for the components) SHOULD install measures for detecting security violations and breaches</p></li>
+<li><p>Unless server components are running in containers, it is not recommended to run other applications in the same environment side by side.</p></li>
+<li><p>A vendor, who hosts for multiple data subjects, one system instances each, SHOULD NOT locate all of them in one environment, but rather deploy another operating system virtualization for every instance, or separate them physically on different machines.</p></li>
+<li><p>The host environment (for the system’s server components) SHOULD offer measures for detecting security violations and breaches.</p></li>
 </ul>
 </section>
-<section id="recommendations-to-third-parties" class="level4">
-<h4><span class="header-section-number">7.8.1.2</span> Recommendations To Third Parties</h4>
+<section id="recommendations-to-third-parties" class="level4 unnumbered">
+<h4>Recommendations To Third Parties</h4>
 <ul>
-<li><p>If data consumers accessing data from more than one system instances representing different individuals, it MAY considerable to use another key-pair and certificate for any of those instances, and maybe even unique endpoints.</p></li>
+<li><p>If data consumers accessing data from more than one system instances representing different individuals, it MAY be considerable to use different key-pairs and certificates for all the instances, and probably even unique endpoints.</p></li>
 <li><p>Data consumers SHOULD also provide a full-featured <em>endpoint</em> based on a subdomain, thereby a bidirectional communication flow can be established, instead of the workaround based on callback URLs.</p></li>
 </ul>
 </section>
-<section id="software-recommendations" class="level4">
-<h4><span class="header-section-number">7.8.1.3</span> Software Recommendations</h4>
+<section id="software-recommendations" class="level4 unnumbered">
+<h4>Software Recommendations</h4>
 <ul>
 <li>letsencrypt (ACME implementation)</li>
 <li>nginx (web server and load balancer)</li>
@@ -2642,8 +2642,8 @@ server {
 <li>Prometheus (database system optimized for time series data)</li>
 </ul>
 </section>
-<section id="resources" class="level4">
-<h4><span class="header-section-number">7.8.1.4</span> Resources</h4>
+<section id="resources" class="level4 unnumbered">
+<h4>Resources</h4>
 <ul>
 <li><a href="https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices">SSL and TLS Deployment Best Practices</a></li>
 <li><a href="https://wiki.mozilla.org/Security/Server_Side_TLS">Security/Server Side TLS</a></li>

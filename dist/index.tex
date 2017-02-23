@@ -136,7 +136,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{2}
+\setcounter{secnumdepth}{3}
 
 % set default figure placement to htbp
 \makeatletter
@@ -196,7 +196,7 @@
 % HEADINGS
 \usepackage{sectsty}
 \usepackage[normalem]{ulem}
-\sectionfont{\rmfamily\mdseries\Large}
+\sectionfont{\rmfamily\mdseries\Large\raggedright}
 % \subsectionfont{\rmfamily\mdseries\scshape\large}
 % \sectionfont{\rmfamily\mdseries\Large}
 % \subsectionfont{\rmfamily\mdseries\scshape\normalsize}
@@ -206,6 +206,8 @@
 % adjust spacng before and after level 4 headline
 \usepackage{titlesec}
 \titlespacing*{\subsubsection}{0pt}{12pt plus 4pt minus 0pt}{0pt plus 0pt minus 0pt}
+%\usepackage{sectsty}
+
 % added 20170222 <--
 
 % Set figure legends and captions to be smaller sized sans serif font
@@ -609,8 +611,9 @@ very useful, but show a certain potential to become more relevant when
 new technologies and business models will occur, that are followed by
 new desires for data.
 
-\subsubsection{Ordering a product on the
+\subsubsection*{Ordering a product on the
 web}\label{ordering-a-product-on-the-web}
+\addcontentsline{toc}{subsubsection}{Ordering a product on the web}
 
 The data subject searches through the web to find a new toaster because
 her old one recently broke. After some clicks and reviews, she finds her
@@ -677,8 +680,9 @@ second notification asking the data subject for permission to proceed.
 After a successful payment transfer, the shipment would have been
 initiated.
 
-\subsubsection{Interacting with a social
+\subsubsection*{Interacting with a social
 network}\label{interacting-with-a-social-network}
+\addcontentsline{toc}{subsubsection}{Interacting with a social network}
 
 The first entry to a social network requires either a URL to the data
 subject's \emph{PDaaS}, which has uniquely been generated for that
@@ -706,8 +710,10 @@ itself only stores references to all these content objects. Whether it
 is an image, a post, or comment on somebody else's post, the actual
 content to be displayed is fetched from the corresponding \emph{PDaaS}.
 
-\subsubsection{Applying for a loan and checking
+\subsubsection*{Applying for a loan and checking
 creditworthiness}\label{applying-for-a-loan-and-checking-creditworthiness}
+\addcontentsline{toc}{subsubsection}{Applying for a loan and checking
+creditworthiness}
 
 The data subject would like to buy an apartment. In order to finance the
 acquisition, she needs funding which, in her case, is based on a loan.
@@ -746,8 +752,10 @@ to run it. The \emph{PDaaS} server will provide an isolated runtime in
 which the software can be executed. After that process is finished, the
 result is sent back to the credit institute's infrastructure.
 
-\subsubsection{Maintain and provide its own medical
+\subsubsection*{Maintain and provide its own medical
 record}\label{maintain-and-provide-its-own-medical-record}
+\addcontentsline{toc}{subsubsection}{Maintain and provide its own
+medical record}
 
 Some time ago on a hiking trip, in a moment of carelessness the data
 subject accidently broke her leg. She went to a hospital and straight
@@ -792,8 +800,9 @@ ones she prepared minutes ago. A moment later the pharmacist comes back
 with her drugs, which she then pays in cash. The transaction is done and
 the data subject leaves the store.
 
-\subsubsection{Vehicle data and
+\subsubsection*{Vehicle data and
 mobility}\label{vehicle-data-and-mobility}
+\addcontentsline{toc}{subsubsection}{Vehicle data and mobility}
 
 Let's assume a car has no hardware on board to establish a wireless wide
 area connection to an outside access node. One is only able to connect
@@ -1646,19 +1655,11 @@ around \emph{remote code execution}, briefly described in
 of the user stories in the first chapter}. It abstracts the concept of a
 data request to a more human-understandable level: a simple question.
 This question consists of two representations: (A) a human-readable
-question of a third party, and
-
-\begin{enumerate}
-\def\labelenumi{(\Alph{enumi})}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  a code-based representation of that question, which gets executed in a
-  sandbox on the data subjects's \emph{PDS} system with the required
-  data as arguments. The data, used as arguments, is implicitly defined
-  trough (A). The output of that execution represents both answer and
-  response.
-\end{enumerate}
+question of a third party, and (B) a code-based representation of that
+question, which gets executed in a sandbox on the data subjects's
+\emph{PDS} system with the required data as arguments. The data, used as
+arguments, is implicitly defined trough (A). The output of that
+execution represents both answer and response.
 
 Aside from all the research projects done within the academic context,
 applications with a commercial interest have also started to occur in a
@@ -2291,7 +2292,8 @@ overview about priorities (can/could, may/might, should, must/have to).
 Other chapters may contain references to specific requirements listed
 below.
 
-\subsubsection{Architecture \& Design:}\label{architecture-design}
+\subsubsection*{Architecture \& Design:}\label{architecture-design}
+\addcontentsline{toc}{subsubsection}{Architecture \& Design:}
 
 \textbf{\emph{\protect\hypertarget{sa01}{}{S.A.01}} - Accessibility \&
 Compatibility}\\
@@ -2350,7 +2352,8 @@ To elaborate on \protect\hyperlink{sa01}{S.A.01} and
 all communication between components has to happen on HTTPS, in case
 they don't run in the same environment.
 
-\subsubsection{Persistence:}\label{persistence}
+\subsubsection*{Persistence:}\label{persistence}
+\addcontentsline{toc}{subsubsection}{Persistence:}
 
 \textbf{\emph{\protect\hypertarget{sp01}{}{S.P.01}} - Data Outflow}\\
 Data may leave the system only if it's absolutely necessary and no other
@@ -2408,7 +2411,8 @@ adjustments must have no impact on the actual stored data. That is,
 adjustments have to be made after the data is fetched but before it is
 further processed.
 
-\subsubsection{Interfaces:}\label{interfaces}
+\subsubsection*{Interfaces:}\label{interfaces}
+\addcontentsline{toc}{subsubsection}{Interfaces:}
 
 \textbf{\emph{\protect\hypertarget{si01}{}{S.I.01}} - Documentation}\\
 The interfaces from all components have to be documented and well
@@ -2440,8 +2444,9 @@ When components communicate between each other or interactions with the
 system from the outside take place, all data send back and forth should
 be serialized/structured in a JSON or JSON-like structure.
 
-\subsubsection{Graphical User
+\subsubsection*{Graphical User
 Interface:}\label{graphical-user-interface}
+\addcontentsline{toc}{subsubsection}{Graphical User Interface:}
 
 \textbf{\emph{\protect\hypertarget{pviu01}{}{P.VIU.01}} - Responsive
 user interface}\\
@@ -2475,7 +2480,8 @@ eventually stopping certain access and data usage. Such tool should have
 filter, search and sort capabilities. It is built upon and therefore
 requires the \protect\hyperlink{pb01}{access logging} functionality.
 
-\subsubsection{Interactions:}\label{interactions}
+\subsubsection*{Interactions:}\label{interactions}
+\addcontentsline{toc}{subsubsection}{Interactions:}
 
 \textbf{\emph{\protect\hypertarget{pi01}{}{P.I.01}} - Effort}\\
 Common interactions for use cases such as changing \emph{profile data},
@@ -2543,7 +2549,8 @@ profiles} and \emph{permission rules} in order to (A) apply a set of
 configurations in advance before a \emph{permission request} arrives and
 (B) reduce recurring redundant configurations and interactions.
 
-\subsubsection{Behaviour:}\label{behaviour}
+\subsubsection*{Behaviour:}\label{behaviour}
+\addcontentsline{toc}{subsubsection}{Behaviour:}
 
 \textbf{\emph{\protect\hypertarget{pb01}{}{P.B.01}} - Access Logging}\\
 All interactions and changes in the persistence layer should be logged.
@@ -3967,7 +3974,8 @@ highlights all major components, including information about which
 platforms they could be in, as well as further details about their major
 task(s), underlying technologies, and relation(s) to each other.
 
-\subsubsection{Web server}\label{web-server}
+\subsubsection*{Web server}\label{web-server}
+\addcontentsline{toc}{subsubsection}{Web server}
 
 \emph{Platform:} Server
 
@@ -4013,7 +4021,8 @@ task(s), underlying technologies, and relation(s) to each other.
   WebSockets
 \end{itemize}
 
-\subsubsection{Permission Manager}\label{permission-manager}
+\subsubsection*{Permission Manager}\label{permission-manager}
+\addcontentsline{toc}{subsubsection}{Permission Manager}
 
 \emph{Platform:} Server
 
@@ -4055,7 +4064,8 @@ task(s), underlying technologies, and relation(s) to each other.
   any modern language/framework capable of parallel computing
 \end{itemize}
 
-\subsubsection{PKI}\label{pki}
+\subsubsection*{PKI}\label{pki}
+\addcontentsline{toc}{subsubsection}{PKI}
 
 \emph{Platform:} Server
 
@@ -4089,7 +4099,8 @@ task(s), underlying technologies, and relation(s) to each other.
   ACME {[}\protect\hyperlink{ref-web_spec_acme}{143}{]} (Let's Encrypt)
 \end{itemize}
 
-\subsubsection{Storage Connector}\label{storage-connector}
+\subsubsection*{Storage Connector}\label{storage-connector}
+\addcontentsline{toc}{subsubsection}{Storage Connector}
 
 \emph{Platform:} Server
 
@@ -4119,7 +4130,8 @@ task(s), underlying technologies, and relation(s) to each other.
   driver for used database
 \end{itemize}
 
-\subsubsection{Operator API}\label{operator-api}
+\subsubsection*{Operator API}\label{operator-api}
+\addcontentsline{toc}{subsubsection}{Operator API}
 
 \emph{Platform:} Server
 
@@ -4163,8 +4175,9 @@ task(s), underlying technologies, and relation(s) to each other.
   JWT
 \end{itemize}
 
-\subsubsection{Code Execution
+\subsubsection*{Code Execution
 Environment}\label{code-execution-environment}
+\addcontentsline{toc}{subsubsection}{Code Execution Environment}
 
 \emph{Platform:} Server
 
@@ -4204,7 +4217,8 @@ Environment}\label{code-execution-environment}
   Container (OCI)
 \end{itemize}
 
-\subsubsection{Tracker}\label{tracker}
+\subsubsection*{Tracker}\label{tracker}
+\addcontentsline{toc}{subsubsection}{Tracker}
 
 \emph{Platform:} Server
 
@@ -4236,7 +4250,8 @@ Environment}\label{code-execution-environment}
   any modern language/framework capable of parallel computing
 \end{itemize}
 
-\subsubsection{Personal Data Storage}\label{personal-data-storage}
+\subsubsection*{Personal Data Storage}\label{personal-data-storage}
+\addcontentsline{toc}{subsubsection}{Personal Data Storage}
 
 \emph{Platform:} Server, Mobile
 
@@ -4266,7 +4281,8 @@ Environment}\label{code-execution-environment}
   depending on host environment
 \end{itemize}
 
-\subsubsection{Persistence Layer}\label{persistence-layer}
+\subsubsection*{Persistence Layer}\label{persistence-layer}
+\addcontentsline{toc}{subsubsection}{Persistence Layer}
 
 \emph{Platform:} Server
 
@@ -4303,8 +4319,9 @@ Environment}\label{code-execution-environment}
   Filesystem
 \end{itemize}
 
-\subsubsection{Notification
+\subsubsection*{Notification
 Infrastructure}\label{notification-infrastructure}
+\addcontentsline{toc}{subsubsection}{Notification Infrastructure}
 
 \emph{Platform:} Server
 
@@ -4335,7 +4352,8 @@ Infrastructure}\label{notification-infrastructure}
   mobile device manufacturer's Push Notification server for mobile apps
 \end{itemize}
 
-\subsubsection{User Interface}\label{user-interface}
+\subsubsection*{User Interface}\label{user-interface}
+\addcontentsline{toc}{subsubsection}{User Interface}
 
 \emph{Platform:} Desktop, Mobile
 
@@ -5000,8 +5018,7 @@ standards and open technologies as possible for all the different
 aspects and components. So that by recognizing common practices its
 implementation and integration can be made as effortless as possible.
 
-\subsection*{Key Features}\label{key-features}
-\addcontentsline{toc}{subsection}{Key Features}
+\subsection{Key Features}\label{key-features}
 
 \textbf{Perspective: \emph{Operator}}
 
@@ -5038,9 +5055,8 @@ implementation and integration can be made as effortless as possible.
   distributed computing
 \end{itemize}
 
-\subsection*{\texorpdfstring{Scenarios
+\subsection{\texorpdfstring{Scenarios
 \emph{(Excerpt)}}{Scenarios (Excerpt)}}\label{scenarios-excerpt}
-\addcontentsline{toc}{subsection}{Scenarios \emph{(Excerpt)}}
 
 \paragraph{Online Purchase}\label{online-purchase}
 
@@ -5092,8 +5108,7 @@ party is now interested in those data, it can apply and eventually get
 permitted to access those movement data, but with configured resolution
 the data subject is comfortable with.
 
-\subsection*{Architectural Overview}\label{architectural-overview}
-\addcontentsline{toc}{subsection}{Architectural Overview}
+\subsection{Architectural Overview}\label{architectural-overview}
 
 The architecture design (see Fig. \ref{fig:spec_arch_simplifier})
 defines three different platforms whereon components of the system might
@@ -5128,9 +5143,8 @@ read/write permissions at the \emph{Storage Connector}.
 simplified\label{fig:spec_arch_simplifier}}
 \end{figure}
 
-\subsection*{General Process
+\subsection{General Process
 Description}\label{general-process-description}
-\addcontentsline{toc}{subsection}{General Process Description}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -5171,8 +5185,7 @@ Description}\label{general-process-description}
   or self-obtained later on.
 \end{enumerate}
 
-\subsection*{Relations}\label{relations}
-\addcontentsline{toc}{subsection}{Relations}
+\subsection{Relations}\label{relations}
 
 \paragraph{consumer:endpoint {[}1:1{]}}\label{consumerendpoint-11}
 
@@ -5193,9 +5206,8 @@ validation procedure
 the \emph{Storage Connector} MUST be able to access at least one or more
 \emph{Personal Data Storage}, regardless of its location (platform)
 
-\subsection*{Depending Technologies and
+\subsection{Depending Technologies and
 Standards}\label{depending-technologies-and-standards}
-\addcontentsline{toc}{subsection}{Depending Technologies and Standards}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -5243,8 +5255,7 @@ Standards}\label{depending-technologies-and-standards}
   Swift, Java
 \end{itemize}
 
-\subsection*{Prerequisites}\label{prerequisites}
-\addcontentsline{toc}{subsection}{Prerequisites}
+\subsection{Prerequisites}\label{prerequisites}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -5530,8 +5541,7 @@ ensure the overall sufficient security level of the system.
 Configurations mentioned below MAY change prospectively due to issues or
 vulnerabilities emerging in the future.
 
-\subsection*{Transport}\label{transport}
-\addcontentsline{toc}{subsection}{Transport}
+\subsection{Transport}\label{transport}
 
 All communication from and towards the system as well as internal
 communication between components located on different platforms MUST be
@@ -5560,8 +5570,8 @@ socket connection for web-based GUIs. If a browser does not support this
 natively, a fallback SHALL be provided by the GUI. Furthermore, those
 GUIs SHOULD be served with HTTP/2.
 
-The subsequent examples show two Nginx configuration for the \emph{web
-server}, implementing the previous specifications.
+The subsequent examples show two Nginx configurations for the \emph{web
+server} component, implementing the specifications from above.
 
 \textbf{\protect\hypertarget{spec_code-01_nginx-config-web-gui}{}{Code
 01: web server configuration for a web-based GUI (excerpt)}:}
@@ -5643,15 +5653,14 @@ server}, implementing the previous specifications.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Authentication}\label{authentication-1}
-\addcontentsline{toc}{subsection}{Authentication}
+\subsection{Authentication}\label{authentication-1}
 
 The following two authentication technologies MUST be supported by the
 system. 2-Factor authentication as an enhancement of the operator
 authentication procedure is OPTIONAL and can be implemented either by
 email or with a mobile platform, if it is part of the system.
 
-\paragraph{Transport Layer Security}\label{transport-layer-security}
+\subsubsection{Transport Layer Security}\label{transport-layer-security}
 
 Before the first consumer tries to register on the system, the system
 MUST generate a key-pair and sign it by itself. With the resulting
@@ -5675,7 +5684,7 @@ the TLS connection establishing. If the connection failed to establish,
 the authentications has failed, and vice versa has the consumer
 successfully authenticated to the system.
 
-\paragraph{JSON Web Token (JWT)}\label{json-web-token-jwt}
+\subsubsection{JSON Web Token (JWT)}\label{json-web-token-jwt}
 
 When creating a JWT, the \texttt{"alg"} in the header MUST NOT be set to
 \texttt{"none"}. A JWT MAY be encrypted (JWE). JWTs MUST be created by
@@ -6204,6 +6213,13 @@ originating data consumer.}
       \tightlist
       \item
         \texttt{null}
+
+        \begin{enumerate}
+        \def\labelenumiii{\arabic{enumiii})}
+        \tightlist
+        \item
+          abort reliability verification and move on to the next step
+        \end{enumerate}
       \item
         \texttt{\textquotesingle{}qes\textquotesingle{}}
 
@@ -6414,8 +6430,7 @@ and represents the current state of the system, whereas all the personal
 data, that reflects the Digital Identity of the operator, is maintained
 and also provided by the \emph{Personal Data Store}.
 
-\subsection*{Personal Data}\label{personal-data}
-\addcontentsline{toc}{subsection}{Personal Data}
+\subsection{Personal Data}\label{personal-data}
 
 The \emph{PDS} is portable and can be placed on any of the platform
 types supported by the system, whereas data queries typically originate
@@ -6472,8 +6487,7 @@ chronologically, next to the current state of the personal data.
   consume behaviors (e.g.~watchlist, music playlist)
 \end{itemize}
 
-\subsection*{System Data}\label{system-data}
-\addcontentsline{toc}{subsection}{System Data}
+\subsection{System Data}\label{system-data}
 
 The \emph{PL} consists of multiple storage technologies and MUST be
 placed on a trusted platform type - a server. At least two technologies
@@ -6521,7 +6535,8 @@ The \emph{Storage Connector} MUST support a basic set of
 to reduce the effort when making first steps with the system. The
 following types are initially REQUIRED:
 
-\subsubsection{Primitives:}\label{primitives}
+\subsubsection*{Primitives:}\label{primitives}
+\addcontentsline{toc}{subsubsection}{Primitives:}
 
 \begin{itemize}
 \tightlist
@@ -6539,7 +6554,8 @@ following types are initially REQUIRED:
   \texttt{URL}
 \end{itemize}
 
-\subsubsection{Structs:}\label{structs}
+\subsubsection*{Structs:}\label{structs}
+\addcontentsline{toc}{subsubsection}{Structs:}
 
 \begin{itemize}
 \tightlist
@@ -6574,9 +6590,8 @@ created and modeled by the operator herself or are developed and
 provided by community members and other third parties, so that
 unsupported types just need to be imported into the system.
 
-\subsection*{Data Models for System
+\subsection{Data Models for System
 Data}\label{data-models-for-system-data}
-\addcontentsline{toc}{subsection}{Data Models for System Data}
 
 Aside from personal data, whose structure is adjustable by the
 \emph{data subject} to suit her needs, the system itself REQUIRES some
@@ -6822,7 +6837,7 @@ Service}
 \end{itemize}
 
 \subsubsection{System Configurations and
-Defaults\_\_}\label{system-configurations-and-defaults__}
+Defaults}\label{system-configurations-and-defaults}
 
 \begin{longtable}[]{@{}llcl@{}}
 \caption{Global System Configurations and their default values
@@ -6878,7 +6893,7 @@ checking data reliability\tabularnewline
 The primary GUI of the system is the operator's \emph{Management Tool},
 which is used to administrate the system, to control and manage data
 access and to maintain personal data. The tool MAY be available on
-mobile platforms, but at least MUST be provided for \emph{desktop}
+mobile platforms, but at least it MUST be provided for \emph{desktop}
 platforms. The following lists show briefly, which features the tool
 provides to the operator.
 
@@ -6888,25 +6903,25 @@ provided:}\label{functionality-that-must-be-provided}
 \begin{itemize}
 \tightlist
 \item
-  operator authentication
+  Operator authentication
 \item
-  manage consumers and their entry point(s)
+  Managing consumers and their entry point(s)
 \item
-  manage permission profiles
+  Managing permission profiles
 \item
-  review registrations and permission requests
+  Reviewing registrations and permission requests
 \item
-  maintain personal data
+  Maintenance of personal data
 \item
-  responsive screen adaption
+  Responsive screen adaption
 \item
-  low-latency view rendering
+  Low-latency view rendering
 \item
-  change system settings
+  Changing system settings
 \item
-  provide notifications
+  Notifications
 \item
-  register new front end platforms to the system
+  Registration of new front end platforms to the system
 \end{itemize}
 
 \subsubsection{Functionality, that SHOULD be
@@ -6915,17 +6930,17 @@ available:}\label{functionality-that-should-be-available}
 \begin{itemize}
 \tightlist
 \item
-  import personal data
+  Personal data import
 \item
-  view access history
+  History of access requests
 \item
-  review access requests
+  Reviewing permission requests
 \item
-  backup mechanisms
+  Mechanisms to make backups
 \item
-  filter mechanisms for permission profiles, access history
+  Filter mechanisms for permission profiles, access history
 \item
-  create \& manage templates for permission profiles
+  Creating \& Managing templates for permission profiles
 \item
   QR-Code scanning (mobile platform only)
 \end{itemize}
@@ -6936,17 +6951,18 @@ supported:}\label{functionality-that-may-be-supported}
 \begin{itemize}
 \tightlist
 \item
-  revert changes of permission profiles
+  Reverting changes in permission profiles
 \item
-  system monitoring and statistics
+  System monitoring and statistics
 \item
-  export personal data
+  Personal data export
 \item
-  utilize \emph{accordion} pattern (re)viewing data structures
+  Utilization of the \emph{accordion} pattern for (re)viewing data
+  structures
 \item
-  model new data structures
+  Modeling new data structures
 \item
-  migrate \emph{PDS} to another platform
+  Migration of the \emph{PDS} to another platform
 \end{itemize}
 
 \subsection{Application Programming Interface
@@ -6955,28 +6971,24 @@ supported:}\label{functionality-that-may-be-supported}
 The lists of GUI features implicitly define what the \emph{Operator API}
 must be capable of, whereas interactions originated by third parties and
 data consumers are described below. These descriptions show the behavior
-of all major API endpoints, that are required to access personal data
-hosted by the system. The payload MUST be transferred with HTTP
-requests, secured by TLS, as \emph{POST} method, unless otherwise
-outlined. It MUST be serialized in JSON and constitutes the complete
-request body. In order to send data in certain formats
-(e.g.~PEM-formatted file content or binary streams) as a string values
-as part of a URLs or JSON, \emph{bas64url} MUST be used to encode such
-data. Furthermore, it is to be noted, that request are asynchronous and
-MAY take several hours up to a few days to get answered.
-
-\emph{NOTICE: If the representation of the data that is requested for
-access defined as a list of strings (\texttt{{[}String{]}}), then the
-response has the same structure. Same apply to the data query in a
-string-representation (\texttt{String}).}
+of all major API endpoints, that are required to access personal data,
+hosted by the system. The payload MUST be transmitted with HTTP
+requests, secured by TLS, declared as \emph{POST} method, unless
+otherwise outlined. It MUST be serialized in JSON and constitutes the
+complete request body. In order to send data originating from certain
+formats (e.g.~PEM-formatted file content or binary streams) as string
+values being part of a URLs or JSON, \emph{bas64url} MUST be used to
+encode such data. Furthermore, it is to be noted, that request are
+asynchronous and MAY take several hours up to a few days to get
+answered.
 
 \paragraph{Registration Request}\label{spec_api_registration-request}
 
 MUST be handed over to the system in order to get acknowledged as a
 \emph{data consumer}. It can either be submitted via HTTP to the system,
-if the Operator has provided a URL, or encoded as a QR-Code presented on
-web page, which is served via HTTPS by the requester, ready to get
-scanned with the operator's mobile device.
+if the operator has provided a URL, or encoded as a QR-Code presented on
+web page, served via HTTPS by the requester, ready to get scanned with
+the operator's mobile device.
 
 \emph{Parameter(s):}
 
@@ -6991,7 +7003,7 @@ scanned with the operator's mobile device.
   if not publicly trusted
 \item
   \texttt{desires:\ {[}String{]}\ \textbar{}\textbar{}\ String} -
-  {[}OPTIONAL{]} list of endpoint selectors or query string (see
+  {[}OPTIONAL{]} list of data point selectors or query string (see
   \protect\hyperlink{spec_api_permission-request}{Registration Request})
 \end{itemize}
 
@@ -7043,7 +7055,7 @@ scanned with the operator's mobile device.
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
 \FunctionTok{\{}
-    \DataTypeTok{"endpoint"}\FunctionTok{:} \StringTok{"https://$consumerId.system.tld"}\FunctionTok{,}
+    \DataTypeTok{"endpoint"}\FunctionTok{:} \StringTok{"https://$endpointId.system.tld"}\FunctionTok{,}
     \DataTypeTok{"cert"}\FunctionTok{:} \StringTok{"$base64UrlEncodedCert"}\FunctionTok{,}
     \DataTypeTok{"permissions"}\FunctionTok{:} \FunctionTok{\{}
         \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"expires-on-date"}\FunctionTok{,}
@@ -7065,9 +7077,14 @@ scanned with the operator's mobile device.
 Request}\label{spec_api_permission-request}}
 
 MUST create a new \emph{permission profile} and thus MAY enable the data
-consumer to access personal data. In return the consumer is provided
+consumer to access personal data. In return, the consumer is provided
 with all information that are required to request data access based on
-this permission request.
+the permissions requested herewith.
+
+\emph{NOTICE: If the representation of the data, that is requested for
+access, is defined as a list of strings (\texttt{{[}String{]}}), then
+the response MUST show a similar structure; the same applies to the data
+query in a string-representation (\texttt{String}).}
 
 \emph{Parameter(s):}
 
@@ -7075,11 +7092,11 @@ this permission request.
 \tightlist
 \item
   \texttt{desires:\ {[}String{]}\ \textbar{}\textbar{}\ String} - list
-  of endpoint selectors or query string, representing what data is
+  of data point selectors or query string, representing what data is
   requested to get access to
 \end{itemize}
 
-\emph{Request:} \texttt{https://\$consumerId.system.tld/pr}
+\emph{Request:} \texttt{https://\$endpointId.system.tld/pr}
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
@@ -7124,7 +7141,8 @@ not refuse to let through.
   \texttt{query:\ String} - data query representing the data that is
   requested to be accessed
 \item
-  \texttt{type:\ String} - access type: \texttt{fwd} or \texttt{sce}
+  \texttt{type:\ String} - {[}OPTIONAL{]} access type: \texttt{fwd} or
+  \texttt{sce}
 \item
   \texttt{program:\ Object} - {[}MUST if
   \texttt{type\ ==\ \textquotesingle{}sec\textquotesingle{}}{]}
@@ -7140,15 +7158,15 @@ not refuse to let through.
     \texttt{file:\ String} - base64url-encoded file content
   \end{itemize}
 \item
-  \texttt{reliable:\ Boolean} - indicates whether the consumer expects a
-  proof of data reliability or not
+  \texttt{reliable:\ Boolean} - {[}OPTIONAL{]} indicates whether the
+  consumer expects a proof of data reliability or not
 \item
-  \texttt{respond:\ String} - \texttt{push} (returns immediately with
-  information where to obtain the result) or \texttt{keepalive} (keep
-  connection open until response is computed)
+  \texttt{respond:\ String} - {[}OPTIONAL{]} \texttt{push} (returns
+  immediately with information where to obtain the result) or
+  \texttt{keepalive} (keep connection open until response is computed)
 \end{itemize}
 
-\emph{Request:} \texttt{https://\$consumerId.system.tld/ar}
+\emph{Request:} \texttt{https://\$endpointId.system.tld/ar}
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
@@ -7161,28 +7179,29 @@ not refuse to let through.
 \end{Highlighting}
 \end{Shaded}
 
-\emph{Response:}
+\emph{Response: {[}if
+\texttt{respond\ ==\ \textquotesingle{}push\textquotesingle{}}{]}}
 
 \begin{itemize}
 \tightlist
 \item
   \texttt{pickup:\ String} - URL where to find the actual response
 \item
-  \texttt{duration:\ Number} - time in seconds until result SHOULD be
-  available
+  \texttt{duration:\ Number} - estimated time in seconds until response
+  SHOULD be available
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
 \FunctionTok{\{}
-    \DataTypeTok{"pickup"}\FunctionTok{:} \StringTok{"https://$consumerId.system.tld/ar/$procedureId"}\FunctionTok{,}
+    \DataTypeTok{"pickup"}\FunctionTok{:} \StringTok{"https://$endpointId.system.tld/ar/$procedureId"}\FunctionTok{,}
     \DataTypeTok{"duration"}\FunctionTok{:} \DecValTok{43200}\FunctionTok{,}
 \FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
 \emph{Request:}
-\texttt{https://\$consumerId.system.tld/ar/\$procedureId}
+\texttt{https://\$endpointId.system.tld/ar/\$procedureId}
 \emph{Response:}
 
 \begin{itemize}
@@ -7190,8 +7209,8 @@ not refuse to let through.
 \item
   \texttt{expiresAt:\ Number} - date when data becomes outdated
 \item
-  \texttt{proof:\ String} - certificate that indicates verified data
-  reliability
+  \texttt{proof:\ String} - {[}OPTIONAL{]} certificate that indicates
+  verified data reliability
 \item
   \texttt{data:\ Object\ \textbar{}\textbar{}\ String} - if valid JSON,
   then Object, otherwise base64url-encoded string
@@ -7214,13 +7233,15 @@ not refuse to let through.
 
 \section{Recommendations \& Resources}\label{recommendations-resources}
 
-This section provide additional information on hosting and operating
-such a system as well as further resources, that MAY be worth knowing.
+This section provides additional information on hosting and operating
+such a system, as well as further resources that MAY be worth knowing.
 Moreover, it contains advices that are recommended to consider when
 implementing (parts of) this specification.
 
-\subsubsection{Host Environment(s)
+\subsubsection*{Host Environment(s)
 Recommendations}\label{host-environments-recommendations}
+\addcontentsline{toc}{subsubsection}{Host Environment(s)
+Recommendations}
 
 \begin{itemize}
 \item
@@ -7230,33 +7251,37 @@ Recommendations}\label{host-environments-recommendations}
   \emph{4GB} of memory and \emph{60GB} of storage.
 \item
   Unless server components are running in containers, it is not
-  recommended to run other applications on the same environment side by
+  recommended to run other applications in the same environment side by
   side.
 \item
-  a vendor, who hosts for multiple data subjects, one system instances,
-  SHOULD NOT locate all of them in one environment, but rather deploy a
-  separate virtualization of an operating system for every instance.
+  A vendor, who hosts for multiple data subjects, one system instances
+  each, SHOULD NOT locate all of them in one environment, but rather
+  deploy another operating system virtualization for every instance, or
+  separate them physically on different machines.
 \item
-  the host environment (for the components) SHOULD install measures for
-  detecting security violations and breaches
+  The host environment (for the system's server components) SHOULD offer
+  measures for detecting security violations and breaches.
 \end{itemize}
 
-\subsubsection{Recommendations To Third
+\subsubsection*{Recommendations To Third
 Parties}\label{recommendations-to-third-parties}
+\addcontentsline{toc}{subsubsection}{Recommendations To Third Parties}
 
 \begin{itemize}
 \item
   If data consumers accessing data from more than one system instances
-  representing different individuals, it MAY considerable to use another
-  key-pair and certificate for any of those instances, and maybe even
-  unique endpoints.
+  representing different individuals, it MAY be considerable to use
+  different key-pairs and certificates for all the instances, and
+  probably even unique endpoints.
 \item
   Data consumers SHOULD also provide a full-featured \emph{endpoint}
   based on a subdomain, thereby a bidirectional communication flow can
   be established, instead of the workaround based on callback URLs.
 \end{itemize}
 
-\subsubsection{Software Recommendations}\label{software-recommendations}
+\subsubsection*{Software
+Recommendations}\label{software-recommendations}
+\addcontentsline{toc}{subsubsection}{Software Recommendations}
 
 \begin{itemize}
 \tightlist
@@ -7280,7 +7305,8 @@ Parties}\label{recommendations-to-third-parties}
   Prometheus (database system optimized for time series data)
 \end{itemize}
 
-\subsubsection{Resources}\label{resources}
+\subsubsection*{Resources}\label{resources}
+\addcontentsline{toc}{subsubsection}{Resources}
 
 \begin{itemize}
 \tightlist

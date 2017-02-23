@@ -11,7 +11,7 @@ Other chapters may contain references to specific requirements listed below.
 
 
 
-#### Architecture & Design:
+#### Architecture & Design: {-}
 
 __*[S.A.01]{#sa01}* - Accessibility & Compatibility__\
 Since the internet is one of the most widely used infrastructures for data transfer and 
@@ -58,7 +58,7 @@ communication between components has to happen on HTTPS, in case they don't run 
 environment.
 
 
-#### Persistence:
+#### Persistence: {-}
 
 __*[S.P.01]{#sp01}* - Data Outflow__\
 Data may leave the system only if it's absolutely necessary and no other option exists to retain the 
@@ -102,7 +102,7 @@ data. That is, adjustments have to be made after the data is fetched but before 
 processed.
 
 
-#### Interfaces:
+#### Interfaces: {-}
 
 __*[S.I.01]{#si01}* - Documentation__\
 The interfaces from all components have to be documented and well specified so that the components 
@@ -128,7 +128,7 @@ place, all data send back and forth should be serialized/structured in a JSON or
 structure.
 
 
-#### Graphical User Interface:
+#### Graphical User Interface: {-}
 
 __*[P.VIU.01]{#pviu01}* - Responsive user interface__\
 The graphical user interface has to be responsive to the available space, in order to acknowledge
@@ -154,7 +154,7 @@ stopping certain access and data usage. Such tool should have filter, search and
 It is built upon and therefore requires the [access logging](#pb01) functionality.
 
 
-#### Interactions:
+#### Interactions: {-}
     
 __*[P.I.01]{#pi01}* - Effort__\
 Common interactions for use cases such as changing *profile data*, importing datasets or managing
@@ -203,7 +203,7 @@ order to (A) apply a set of configurations in advance before a *permission reque
 reduce recurring redundant configurations and interactions.
 
 
-#### Behaviour:
+#### Behaviour: {-}
 
 __*[P.B.01]{#pb01}* - Access Logging__\
 All interactions and changes in the persistence layer should be logged. All data requests must be 

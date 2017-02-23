@@ -22,7 +22,7 @@ its implementation and integration can be made as effortless as possible.
 
 
 
-### Key Features {-}
+### Key Features
 
 __Perspective: *Operator*__
 
@@ -44,7 +44,7 @@ __Perspective: *Consumers*__
 
 
 
-### Scenarios *(Excerpt)* {-}
+### Scenarios *(Excerpt)*
 
 ##### Online Purchase
 
@@ -92,7 +92,7 @@ to access those movement data, but with configured resolution the data subject i
 
 
 
-### Architectural Overview {-}
+### Architectural Overview
 
 The architecture design (see Fig. @fig:spec_arch_simplifier) defines three different platforms 
 whereon components of the system might be running. While *desktop* and *mobile* platforms are 
@@ -117,7 +117,7 @@ is granted read/write permissions at the *Storage Connector*.
 
 
 
-### General Process Description {-}
+### General Process Description
 
 0.  *Prerequisites: the data subject has an up-and-running system; existing third party aims to 
     access personal data on the system*
@@ -149,7 +149,7 @@ is granted read/write permissions at the *Storage Connector*.
 
 
 
-### Relations {-}
+### Relations
 
 ##### consumer:endpoint [1:1]
 one entity (consumer) relates to one access point (endpoint), exclusively accessible and 
@@ -165,7 +165,7 @@ regardless of its location (platform)
 
 
 
-### Depending Technologies and Standards {-}
+### Depending Technologies and Standards
 
 a)  HTTP ([RFC 2616](https://tools.ietf.org/html/rfc2616), [RFC 7540](https://tools.ietf.org/html/rfc7540))
 b)  TLS ([RFC 5246](https://tools.ietf.org/html/rfc5246)
@@ -185,7 +185,7 @@ i)  ACME ([Draft 05](https://ietf-wg-acme.github.io/acme/))
 
 
 
-### Prerequisites {-}
+### Prerequisites
 
 a)  DNS-registered Domain
 b)  publicly reachable server (e.g public IP or dynamic DNS)
