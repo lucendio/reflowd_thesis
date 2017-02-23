@@ -197,15 +197,16 @@
 \usepackage{sectsty}
 \usepackage[normalem]{ulem}
 \sectionfont{\rmfamily\mdseries\Large}
-\subsectionfont{\rmfamily\mdseries\scshape\large}
-\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
-
-\usepackage{titlesec}
-\titlespacing*{\subsubsection}{0pt}{12pt plus 4pt minus 0pt}{0pt plus 0pt minus 0pt}
-
+% \subsectionfont{\rmfamily\mdseries\scshape\large}
 % \sectionfont{\rmfamily\mdseries\Large}
 % \subsectionfont{\rmfamily\mdseries\scshape\normalsize}
-% \subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
+
+% added 20170222 -->
+% adjust spacng before and after level 4 headline
+\usepackage{titlesec}
+\titlespacing*{\subsubsection}{0pt}{12pt plus 4pt minus 0pt}{0pt plus 0pt minus 0pt}
+% added 20170222 <--
 
 % Set figure legends and captions to be smaller sized sans serif font
 \usepackage[font={footnotesize,sf}]{caption}
@@ -623,15 +624,15 @@ that online shop before. Then she proceeds to checkout so that she can
 place her order. The shop-interface asks her to either insert her
 credentials, proceed without registration or sign-in, or allow the shop
 to obtain all required data on its own by either scanning a QR-Code
-displayed below or insert a URI to her \emph{Personal Data as a
+displayed below or insert a URL to her \emph{Personal Data as a
 Service}. She opens up the management panel of her \emph{PDaaS} in a new
 browser window and authenticates herself to the system. Afterwards she
 creates a new entry in a list of \emph{data consumers} who already get
 permitted to access certain characteristics of her personal data. As a
-result, she gets prompted with a URI, which she inserts as the shop
+result, she gets prompted with a URL, which she inserts as the shop
 interface requests her to do, only after she has convinced herself that
 the data exchange with the shop is based on a secure connection (HTTPS).
-Moving on to the next step after submitting the URI, the data subject is
+Moving on to the next step after submitting the URL, the data subject is
 asked to decide how she would like to pay. The choices are: credit card,
 invoice, online payment or bank transfer. She chooses the last one,
 submits her selection and thereby completes the order process. She goes
@@ -679,7 +680,7 @@ initiated.
 \subsubsection{Interacting with a social
 network}\label{interacting-with-a-social-network}
 
-The first entry to a social network requires either a URI to the data
+The first entry to a social network requires either a URL to the data
 subject's \emph{PDaaS}, which has uniquely been generated for that
 purpose, or a QR-Code provided by the social network. The data subject
 receives a notification on her mobile device send from her \emph{PDaaS},
@@ -1856,20 +1857,21 @@ passed from one component to the other. This is a common use case for a
 \textbf{\protect\hypertarget{def--jwt}{}{JSON Web Token}} \emph{(JWT)}
 {[}\protect\hyperlink{ref-web_spec_json-web-token}{94}{]}. A \emph{JWT},
 as it's name implies, is, syntactically speaking, formatted as
-\emph{JSON}, but URI-safe encoded into \emph{Base64} before it gets
-transferred. The token itself contains the state. Here is where the use
-of \emph{HTTP} comes in handy because the token can be stored within the
-HTTP header and therefore can be passed through all communication
-points, where the data can then be extracted and verified. Such a token
-typically consists of three parts: (A) information about itself, (B) a
-payload, which can be arbitrary data such as user or state information,
-and (C) a signature; all separated with a period. Additional standards
-define encryption \emph{(JWE\footnote{JSON Web Encryption, Internet
-  Engineering Task Force RFC 7516
-  {[}\protect\hyperlink{ref-web_spec_json-web-encryption}{95}{]}})} to
+\emph{JSON}, but URL-safe encoded into Base64, which is called
+\emph{base64url} {[}\protect\hyperlink{ref-web_spec_base64url}{95}{]},
+before it gets transferred. The token itself contains the state. Here is
+where the use of \emph{HTTP} comes in handy because the token can be
+stored within the HTTP header and therefore can be passed through all
+communication points, where the data can then be extracted and verified.
+Such a token typically consists of three parts: (A) information about
+itself, (B) a payload, which can be arbitrary data such as user or state
+information, and (C) a signature; all separated with a period.
+Additional standards define encryption \emph{(JWE\footnote{JSON Web
+  Encryption, Internet Engineering Task Force RFC 7516
+  {[}\protect\hyperlink{ref-web_spec_json-web-encryption}{96}{]}})} to
 ensure confidentiality, and signatures \emph{(JWS\footnote{JSON Web
   Signature, Internet Engineering Task Force RFC 7515
-  {[}\protect\hyperlink{ref-web_spec_json-web-signature}{96}{]}})} to
+  {[}\protect\hyperlink{ref-web_spec_json-web-signature}{97}{]}})} to
 preserve integrity of it's contents. Using a \emph{JWT} for
 authentication purposes is described as \emph{stateless authentication},
 because the verifying entity doesn't need to be aware of session IDs nor
@@ -1894,7 +1896,7 @@ need to switch to a private medium (e.g meet physically and exchange) or
 have to use a procedure in which the entire key is not exposed at any
 single point in time to others. This procedure is called
 \textbf{Diffie-Hellman-Key-Exchange}
-{[}\protect\hyperlink{ref-paper_1976_d-h-key-exchange}{97}{]} and is
+{[}\protect\hyperlink{ref-paper_1976_d-h-key-exchange}{98}{]} and is
 based on mathematical laws of modulo operations when prime numbers are
 involved. It is designed with the goal to agree on a \emph{secret} while
 at the same time using a non-private channel. The data exchanged during
@@ -1902,7 +1904,7 @@ the process alone cannot be used to exploit the secret. Such behaviour
 is similar to the concepts of
 \textbf{\protect\hypertarget{def--asym-crypto}{}{Asymmetrical
 Cryptography}} \emph{(or public-key cryptography)}
-{[}\protect\hyperlink{ref-book_2014_chapter-9-1-public-key-crypto}{98}{]},
+{[}\protect\hyperlink{ref-book_2014_chapter-9-1-public-key-crypto}{99}{]},
 which is underpinned by a \emph{key-pair}; one key is \emph{public} and
 the other one is \emph{private}. One of the keys is used to
 \emph{encrypt} the data, and only the other one can be used for
@@ -1911,7 +1913,7 @@ digital signatures (encrypted fingerprints from data), the result would
 provide integrity and authentication.
 
 Putting \emph{HTTP} on top of the \emph{Transport Layer Security (TLS)}
-{[}\protect\hyperlink{ref-web_spec_tls}{99}{]} results in
+{[}\protect\hyperlink{ref-web_spec_tls}{100}{]} results in
 \textbf{\protect\hypertarget{def--https}{}{HTTPS}}. TLS provides
 encryption during data transport, which reduces the vulnerability to
 \emph{man-in-the-middle} attacks and thus ensures not only
@@ -1922,7 +1924,7 @@ other side and, depending on the integration, it could even be used for
 authentication purposes. Though relying on those cryptographic concepts
 requires additional infrastructure. Such an infrastructure is known as
 \emph{Public Key Infrastructure (PKI)}
-{[}\protect\hyperlink{ref-book_2014_chapter-14-5-pki}{100}{]}. It
+{[}\protect\hyperlink{ref-book_2014_chapter-14-5-pki}{101}{]}. It
 manages and provides keys and certificates for a dedicated scope of
 entities in a directory, including information related to the owners of
 these key and certificates. A Certificate Authority (or \emph{CA}), as
@@ -1933,17 +1935,17 @@ and probably one of the largest. It is based on the widely used
 IETF\footnote{Internet Engineering Task Force; non-profit organisation
   that develops and releases standards mainly related to the Internet
   protocol suite} standard \emph{X.509}
-{[}\protect\hyperlink{ref-web_spec_x509}{101}{]}.
+{[}\protect\hyperlink{ref-web_spec_x509}{102}{]}.
 
 \textbf{REST(ful)}\footnote{\emph{Representational State Transfer},
   introduces by Roy Fielding in his doctoral dissertation
-  {[}\protect\hyperlink{ref-web_spec_rest}{102}{]}} is a common set of
+  {[}\protect\hyperlink{ref-web_spec_rest}{103}{]}} is a common set of
 principles to design web resources and their interaction. It primarily
 defines server-client communication in a more generic and therefore
-interoperable way. Aside from hierarchically structured URIs, which can
+interoperable way. Aside from hierarchically structured URLs, which can
 reflect semantic relations or hierarchical order between data points, it
 involves a rudimentary vocabulary\footnote{HTTP Methods or Verbs
-  {[}\protect\hyperlink{ref-web_spec_http-methods}{103}{]} (e.g.~GET,
+  {[}\protect\hyperlink{ref-web_spec_http-methods}{104}{]} (e.g.~GET,
   OPTIONS, PUT, DELETE)} for HTTP requests to provide basic
 CRUD-operations\footnote{Create, Read, Update, Delete} across
 distributed systems. The entire request needs to contain everything that
@@ -1956,7 +1958,7 @@ interaction is also very common. This concept can also be understood as
 a proxy to the actual business logic in the back end.
 
 The \emph{QL} in \textbf{\protect\hypertarget{def--graphql}{}{GraphQL}}
-{[}\protect\hyperlink{ref-web_spec_graphql}{104}{]} stands for
+{[}\protect\hyperlink{ref-web_spec_graphql}{105}{]} stands for
 \emph{query language}. Developed by Facebook Inc., its goal is to
 abstract multiple data sources into a unified API or resource, so that
 different storage technologies are seamlessly queryable without using
@@ -1982,18 +1984,18 @@ build vocabularies, and write rules for handling data''}
 syntax, schemas, formats, access control and integrations for several
 scopes and contexts. Among others, the following three technologies are
 essential for the \emph{Semantic Web}. RDF\footnote{Resource Description
-  Framework {[}\protect\hyperlink{ref-web_w3c-tr_rdf}{105}{]}} basically
+  Framework {[}\protect\hyperlink{ref-web_w3c-tr_rdf}{106}{]}} basically
 defines the syntax. OWL\footnote{Web Ontology Language
-  {[}\protect\hyperlink{ref-web_w3c-tr_owl}{106}{]}} provides the
+  {[}\protect\hyperlink{ref-web_w3c-tr_owl}{107}{]}} provides the
 guidelines on how the semantics and schemas (vocabulary) should be
 defined and with \protect\hypertarget{def--sparql}{}{SPARQL}
-{[}\protect\hyperlink{ref-web_w3c-tr_sparql}{107}{]}, the query
+{[}\protect\hyperlink{ref-web_w3c-tr_sparql}{108}{]}, the query
 language, data can be retrieved. One can not help but picture the web as
 a database of queryable data with URIs that are embedded in arbitrary
 websites. Imagine a person's email address, which is available under a
 specific domain (preferably owned by that person) - or to be more
 precise, a URI \emph{(WebID)
-{[}\protect\hyperlink{ref-web_w3c-draft_webid}{108}{]}} - and provided
+{[}\protect\hyperlink{ref-web_w3c-draft_webid}{109}{]}} - and provided
 in a certain syntax \emph{(RDF)}, tagged with the semantic \emph{(OWL)}
 of a email address, all together embedded in an imprint of a website.
 This information can then be queried \emph{(SPARQL)}, if the unique
@@ -2005,14 +2007,14 @@ then creating new instances of the same data that might only valid at
 that point in time - in short, preventing redundant work and outdated
 data. Related to the \emph{Semantic Web} is the a project called
 \textbf{Solid}.\footnote{social linked data
-  {[}\protect\hyperlink{ref-web_spec_solid}{109}{]}} Backed by the
+  {[}\protect\hyperlink{ref-web_spec_solid}{110}{]}} Backed by the
 \emph{WebAccessControl}
-{[}\protect\hyperlink{ref-web_2016_wiki_webaccesscontrol}{110}{]} system
+{[}\protect\hyperlink{ref-web_2016_wiki_webaccesscontrol}{111}{]} system
 and based on the \emph{Linked Data} principles including the standards
 just mentioned, the project focuses on decentralization and personal
 data management while developing a specification around this. A
 reference implementation called \emph{databox}
-{[}\protect\hyperlink{ref-web_2016_demo_databox}{111}{]} follows the
+{[}\protect\hyperlink{ref-web_2016_demo_databox}{112}{]} follows the
 specification process.
 
 The concept of an application (or software)
@@ -2023,11 +2025,11 @@ abstraction. A container bundles just those software dependencies
 program is able to run properly. The actual separation from the host
 system is done, aside from other technologies, with the help of two
 features provided by the Linux kernel. \emph{Cgroups},\footnote{control
-  groups {[}\protect\hyperlink{ref-web_2015_cgroup-doc}{112}{]}} which
+  groups {[}\protect\hyperlink{ref-web_2015_cgroup-doc}{113}{]}} which
 defines or restricts how much of the existing resources can be used by a
 group of processes (e.g.~CPU, memory or network). Whereas
 \emph{namespaces}
-{[}\protect\hyperlink{ref-web_2016_kernel-namespace}{113}{]} defines or
+{[}\protect\hyperlink{ref-web_2016_kernel-namespace}{114}{]} defines or
 restricts what parts of the system can be accessed or seen by a process
 (e.g.~filesystem, user, other processes). The idea of encapsulating
 programs from the operating system-level is not new. Technologies, such
@@ -2040,13 +2042,13 @@ other backgrounds couldn't and weren't very interested, at least until
 \emph{Docker} and \emph{rkt} emerged. After some years of separated
 work, both authors, and others, recently joined forces in the \emph{Open
 Container Initiative}
-{[}\protect\hyperlink{ref-web_2016_open-container-initiative}{114}{]},
+{[}\protect\hyperlink{ref-web_2016_open-container-initiative}{115}{]},
 which promises to harmonize the diverged landscape and start building
 common ground to ensure a higher interoperability. That, in turn,
 started to raise the demand for sophisticated orchestration. It also
 marks the initial draft of specifications for runtime
-{[}\protect\hyperlink{ref-web_oci-spec_runtime}{115}{]} and image
-{[}\protect\hyperlink{ref-web_oci-spec_image}{116}{]} definition for
+{[}\protect\hyperlink{ref-web_oci-spec_runtime}{116}{]} and image
+{[}\protect\hyperlink{ref-web_oci-spec_image}{117}{]} definition for
 \emph{application container}, which are still under heavy development.
 This concept of \emph{containerization} also has the side-effect of
 making the application platform-agnostic, because it allows a certain
@@ -2070,9 +2072,9 @@ also in Germany in 2010. The so called \emph{nPA}\footnote{in german so
   called \emph{elektronische Personalausweis (nPA)}} has been an
 important step towards an operational \emph{e-government}. Aside from
 minor flaws
-{[}\protect\hyperlink{ref-web_2013_npa-sicherheitsdefizit}{117}{]} and
+{[}\protect\hyperlink{ref-web_2013_npa-sicherheitsdefizit}{118}{]} and
 disadvantages
-{[}\protect\hyperlink{ref-web_2014_test-qes-support-in-npa}{118}{]} an
+{[}\protect\hyperlink{ref-web_2014_test-qes-support-in-npa}{119}{]} an
 \emph{eID card} might come along with, the question here is, how can
 such technology be usefully integrated in this project and is it
 plausible to do so. As an official document, the card has one major
@@ -2100,12 +2102,12 @@ only readable by the owner of the keys's private part.
 Related to that topic, another technology emerging as part of the
 \emph{e-government} development, is the german
 \textbf{\protect\hypertarget{def--de-mail}{}{De-Mail}}
-{[}\protect\hyperlink{ref-web_2017_about-de-mail}{119}{]}. It's an
+{[}\protect\hyperlink{ref-web_2017_about-de-mail}{120}{]}. It's an
 eMail-Service that is meant to provide infrastructure and mechanisms to
 exchange legally binding electronic documents. One would expect a
 \emph{public key cryptography}-based implementation from sender all the
 way over to the recipient
-{[}\protect\hyperlink{ref-statement_2013_de-mail}{120}{]}; maybe even
+{[}\protect\hyperlink{ref-statement_2013_de-mail}{121}{]}; maybe even
 with taking advantage of the \emph{nPA's} capability to create
 \emph{QES}, which refers to the ability of using the \emph{nPA} to sign
 arbitrary data. Instead, the creators of the corresponding law decided
@@ -2116,7 +2118,7 @@ and finally that this described implementation results in a legally
 binding document by definition of that law. The different levels of
 mistakes made in conception and legislation are outlined in a statement
 from CCC\footnote{Chaos Computer Club e.V.}-members
-{[}\protect\hyperlink{ref-statement_2013_de-mail}{120}{]}, who have been
+{[}\protect\hyperlink{ref-statement_2013_de-mail}{121}{]}, who have been
 consulted as official experts during the development of that law.
 
 \hypertarget{core-principles}{\chapter{Core
@@ -2165,7 +2167,7 @@ to literally carry all her personal data with her.
 If an instance of such a system \emph{(PDaaS)} is going to be the
 digital counterpart of an individuals identity or her \emph{``personal
 agent''}
-{[}\protect\hyperlink{ref-book_2015_ethical-it-innovation}{121}{]}, then
+{[}\protect\hyperlink{ref-book_2015_ethical-it-innovation}{122}{]}, then
 everyone who relies on the information that agent provides must also be
 able to trust the source from where that data originates and vice versa;
 the \emph{operator} too need to verify the authenticity of the
@@ -2210,7 +2212,7 @@ leaving the system. It allows the execution of a small program within a
 locally defined environment, computing only a fraction of a larger
 computation initiated by the \emph{data consumer} beforehand; similar to
 a distributed Map-Reduce concept
-{[}\protect\hyperlink{ref-paper_2004_distributed-mapreduce}{122}{]}. The
+{[}\protect\hyperlink{ref-paper_2004_distributed-mapreduce}{123}{]}. The
 opposite, but also conceivable, approach would be to provide either some
 software to the \emph{data consumer}, which is required in order to
 access the contents of a response, or a runtime environment that queries
@@ -2380,7 +2382,7 @@ by a graphical user interface or with the help of other import
 mechanisms. The latter could be enabled by (A) supporting the upload of
 files that containing supported formats, (B) data APIs restricted to the
 operator or (C) defining an external resource reachable via http (e.g.
-\emph{RESTful URI}) in order to (semi-)automate further ongoing data
+\emph{RESTful URL}) in order to (semi-)automate further ongoing data
 imports from multiple data resources (e.g.~IoT, browser plugin).
 Additionally, it might be possible in the future to allow \emph{data
 consumers} create data to flow back into the operator's system, after
@@ -2508,7 +2510,7 @@ Notifications do not necessarily require a reaction by the operator.
 A process involving data transaction must be always initiated by the
 data subjects. So, before a \emph{data consumer} is able to access data,
 first the \emph{operator} needs to \emph{invite} that specific third
-party by either telling him (per URI) where to register or asking him to
+party by either telling him (per URL) where to register or asking him to
 provide all information required for a registration process upfront
 encoded in QR-Code. Both solutions need a secure channel for transport,
 which refers to \emph{TLS}. The latter has to be ensured by the applying
@@ -2611,7 +2613,7 @@ client has to verify the server's identity by checking the certificate.
 If the server insists, the client has to provide a certificate as well,
 which the server then tries to verify. Only if the outcome is positive,
 the connection establishment succeeds. According to the specification
-{[}\protect\hyperlink{ref-web_spec_tls-12_client-auth}{123}{]} it is
+{[}\protect\hyperlink{ref-web_spec_tls-12_client-auth}{124}{]} it is
 still optional though.
 
 \emph{HTTP}, as a comprehensive and flexible protocol, enables the use
@@ -2636,18 +2638,18 @@ provided with all session-related data hold by the server. This is
 typically done in a HTTP header, whether as \emph{Basic Auth} value, a
 \emph{Cookie}, which is domain-specific, or in some other custom header.
 Since the \emph{two-way authentication} (or \emph{mutual authentication}
-{[}\protect\hyperlink{ref-web_2017_wikipedia_mutual-auth}{124}{]}) is
+{[}\protect\hyperlink{ref-web_2017_wikipedia_mutual-auth}{125}{]}) is
 performed based on files containing keys and certificates, which are
 typically not very fluctuant in its contents or state, this procedure is
 categorized as stateless. Order or origin of incoming requests have no
 impact on the result of the actual authentication process. The same
 applies to TLS features such as \emph{Session {[}ID, Ticket{]}
 Resumption}
-{[}\protect\hyperlink{ref-book_2013_networking-101_tls-session-resumption}{125}{]},
+{[}\protect\hyperlink{ref-book_2013_networking-101_tls-session-resumption}{126}{]},
 therefore they are left aside, because they serve the sole purpose of
 performance optimization. Similar to the \emph{Session Ticket
 Resumption}
-{[}\protect\hyperlink{ref-web_spec_tls-session-ticket-resumption}{126}{]}
+{[}\protect\hyperlink{ref-web_spec_tls-session-ticket-resumption}{127}{]}
 a web token, namely the \protect\hyperlink{def--jwt}{JSON Web Token},
 also moves the state towards the client, but that's about all they have
 in common. A \emph{JWT} carries everything with it that's worth knowing,
@@ -2697,11 +2699,11 @@ communicate with the RFID-chip. Both scenarios (A+B) require the
 provide \emph{nPA}-based online authentication \emph{(eID-Service)},
 which is defined as a non-sovereign \emph{(``nicht hoheitlich'')}
 feature, it has to comply with several requirements
-{[}\protect\hyperlink{ref-web_bsi-spec_eid}{127}{]} starting with
+{[}\protect\hyperlink{ref-web_bsi-spec_eid}{128}{]} starting with
 applying for a permission to send a certificate signing request to a
 BerCA.\footnote{(german) Berechtigungszertifikate-Anbieter} This request
 is sent from an \emph{eID-Server}
-{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{128}{]} in order to
+{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{129}{]} in order to
 get a public key signed, which has been previously generated on
 dedicated and certified hardware. This hardware is requested by the
 officials as part of a \emph{eID-Server}. The key pair - re-generated
@@ -2794,7 +2796,7 @@ interaction caused by recurring events.
 
 Computations based on asymmetric cryptography are usually slower than
 the ones based on symmetric cryptography
-{[}\protect\hyperlink{ref-book_2014_chapter-10-5-asym-random-number-gen}{129}{]},
+{[}\protect\hyperlink{ref-book_2014_chapter-10-5-asym-random-number-gen}{130}{]},
 but since there are no timing constraints when interacting with the
 \emph{PDaaS}, regardless of whether it's external communication with
 \emph{data consumers} or internal between components, parameters for
@@ -3035,22 +3037,22 @@ registration}\label{part-one-consumer-registration}
 \def\labelenumi{\arabic{enumi})}
 \setcounter{enumi}{-1}
 \item
-  The \emph{operator} creates a new, unique URI in the system
+  The \emph{operator} creates a new, unique URL in the system
 \item
   \textbf{Prepare registration}; the \emph{operator} has to tell the
   third party where and how to register as a \emph{data consumer} by
-  handing over a URI uniquely associated to the current registration
+  handing over a URL uniquely associated to the current registration
   process. Several things need to be noted here. First, the operator
   `pulls' consumers into the system. This is the only way for a consumer
   to establish a relation. If consumers were able initiate this process
   on their own without the operator's involvement, it would be much
   harder for the system to detect spam or fraudulent requests. Second,
-  handing over the URI must be done over a secure channel.
+  handing over the URL must be done over a secure channel.
 \item
   \textbf{Send registration attempt}; the third party then makes the
   actual attempt to register as a \emph{data consumer} by providing
   required information. With this information, some kind of feedback
-  channel (e.g.~URI) has to be included so that the system can get back
+  channel (e.g.~URL) has to be included so that the system can get back
   to that third party. They also may contain a first \emph{permission
   request}.
 \end{enumerate}
@@ -3111,7 +3113,7 @@ This approach would shortcut and hence simplify the process.*
   the requester by proceeding with one of the two following options.
   Either the system responds with the current status of the process and
   where the \emph{consumer} will/can find the demanded data, or the
-  \emph{consumer} includes a callback URI, which the system has to
+  \emph{consumer} includes a callback URL, which the system has to
   invoke with the demanded response.
 \end{enumerate}
 
@@ -3233,7 +3235,7 @@ It is up to \emph{data consumers} to decide which data they are
 requesting to access, but how do they know what data can be requested?
 The only option is to expose information about data availability
 (\protect\hyperlink{si02}{S.I.02}), which can be done in a variety of
-ways. First, that information can be made publicly available via URI,
+ways. First, that information can be made publicly available via URL,
 providing a Machine-readable format so that information can be processed
 automatically by consumers. It is also feasible to restrict that access
 to registered \emph{consumers} only, in order to prevent that
@@ -3244,7 +3246,7 @@ access to such availability information on an individual consumer-basis
 or system-wide, and furthermore, to set default configurations for this
 behaviour. Depending on those configurations a request might fail, thus
 the requester needs to be provided with meaningful errors. Http error
-codes {[}\protect\hyperlink{ref-web_spec_http-error-codes}{130}{]} might
+codes {[}\protect\hyperlink{ref-web_spec_http-error-codes}{131}{]} might
 be a sufficient fit for this purpose.
 
 An already standardized way to implement authorization is the
@@ -3262,8 +3264,8 @@ third party apps). Aside from not fitting into such scenarios it would
 also make the proposed process undesirably more complicated. Although
 the proposal includes user interactions like selecting and confirming
 requested permissions. According to the documentations
-{[}\protect\hyperlink{ref-web_spec_oauth-1a_client-reg}{131}{]}
-{[}\protect\hyperlink{ref-web_spec_oauth-2_client-reg}{132}{]}, both
+{[}\protect\hyperlink{ref-web_spec_oauth-1a_client-reg}{132}{]}
+{[}\protect\hyperlink{ref-web_spec_oauth-2_client-reg}{133}{]}, both
 OAuth versions (1.0a and 2) require the client (here \emph{data
 consumer}) to register to the authorization server upfront (to obtain a
 \texttt{client\_id}), before initializing the authorization process.
@@ -3346,8 +3348,8 @@ after authenticating with the provided credentials. OAuth only provides
 a framework for how to authorize third parties to access external
 resources, leaving the procedure of how to actually verify those access
 attempts up to its implementers
-{[}\protect\hyperlink{ref-web_spec_oauth-1a_access-verification}{133}{]}
-{[}\protect\hyperlink{ref-web_spec_oauth-2_access-verification}{134}{]}.
+{[}\protect\hyperlink{ref-web_spec_oauth-1a_access-verification}{134}{]}
+{[}\protect\hyperlink{ref-web_spec_oauth-2_access-verification}{135}{]}.
 In the context of this project OAuth does not comply with the rest of
 the design aspects.
 
@@ -3463,7 +3465,7 @@ Both query languages share a comprehensive understanding of a
 type-system that encourages the creation of all kinds of data types.
 While in GraphQL common schemas still need to be created, SPARQL already
 provides a reasonable amount of vocabulary
-{[}\protect\hyperlink{ref-web_w3c-tr_rdf-schemas}{135}{]}. However, when
+{[}\protect\hyperlink{ref-web_w3c-tr_rdf-schemas}{136}{]}. However, when
 comparing the results of both languages, some distinctions appear. While
 in GraphQL the characteristics of graph-structured data remain, SPARQL's
 output is missing a certain level of depth. The reason for that
@@ -3490,11 +3492,11 @@ few. As a result, the ones that are widely used might then become de
 facto standards. Moreover, it's also possible that several data types
 will emerge, that are based on common standards, for example
 \emph{medical record}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_ehr}{136}{]},
+{[}\protect\hyperlink{ref-web_spec_data-schemas_ehr}{137}{]},
 \emph{point of interest}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_poi}{137}{]} or
+{[}\protect\hyperlink{ref-web_spec_data-schemas_poi}{138}{]} or
 \emph{bank transfer}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_bank-transfer}{138}{]}.
+{[}\protect\hyperlink{ref-web_spec_data-schemas_bank-transfer}{139}{]}.
 With that approach those data types can be viewed as something like a
 plugin or add-on to the \emph{PDaaS} ecosystem.
 
@@ -3677,8 +3679,8 @@ relevant (sub-)categories of data}}
 The available \emph{primitives} mainly depend on those who are supported
 by the query language itself. In this case, all \emph{primitives}
 mentioned above are supported by \emph{SPARQL}
-{[}\protect\hyperlink{ref-web_spec_xml_types}{139}{]} and \emph{GraphQL}
-{[}\protect\hyperlink{ref-web_spec_graphql_types}{140}{]}. When choosing
+{[}\protect\hyperlink{ref-web_spec_xml_types}{140}{]} and \emph{GraphQL}
+{[}\protect\hyperlink{ref-web_spec_graphql_types}{141}{]}. When choosing
 a database system it has to be ensured that either the system already
 supports the required \emph{primitives} or they can be emulated somehow
 with minimal drawbacks. When modelling relations between data points,
@@ -3914,7 +3916,7 @@ system's interfaces from a user point of view.
 The foundation of this project is a server-client Architecture, which is
 chosen for (A) providing availability (\protect\hyperlink{sa05}{S.A.05})
 and (B) separating concerns
-{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{141}{]}.
+{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{142}{]}.
 Such a distributed system provides various locations to place these
 concerns, which are, in fact, different environments with different
 properties. Those combinations of locations and environments are herein
@@ -4084,7 +4086,7 @@ task(s), underlying technologies, and relation(s) to each other.
 \item
   X.509
 \item
-  ACME {[}\protect\hyperlink{ref-web_spec_acme}{142}{]} (Let's Encrypt)
+  ACME {[}\protect\hyperlink{ref-web_spec_acme}{143}{]} (Let's Encrypt)
 \end{itemize}
 
 \subsubsection{Storage Connector}\label{storage-connector}
@@ -4491,7 +4493,7 @@ the accessibility to those service owners. Whereas users get the benefit
 of just using one account for all their apps - a universal key so to
 say, but only one exemplar. So the downside here is, in reality only a
 handful of third parties
-{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{143}{]}
+{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{144}{]}
 provide those authentication services.\\
 OpenID is designed with a very specific type of scenarios in mind,
 namely the one just described - bringing decentralization to the market
@@ -4540,7 +4542,7 @@ the primary division into components can be leveraged.
 
 The range of environment systems for \emph{server} platforms is highly
 diverse but the main shares
-{[}\protect\hyperlink{ref-web_2017_wikipedia_os-market-share}{144}{]}
+{[}\protect\hyperlink{ref-web_2017_wikipedia_os-market-share}{145}{]}
 belong to either the UNIX or LINUX family, even though almost every
 platform is POSIX-compliant.\footnote{Portable Operating System
   Interface; a collection of standards released by the IEEE Computer
@@ -4575,7 +4577,7 @@ effectively means it's the only dependency the \emph{PDaaS} would have,
 regardless of how its components are implemented. They just have to be
 \emph{`containerizable'} - by satisfying the
 \emph{\protect\hyperlink{def--container}{container image specification}}
-{[}\protect\hyperlink{ref-web_oci-spec_image}{116}{]}. This concept can
+{[}\protect\hyperlink{ref-web_oci-spec_image}{117}{]}. This concept can
 also be utilized for the
 \emph{\protect\hyperlink{supervised-data-access}{supervised code
 execution}} (\protect\hyperlink{sa01}{S.A.01}) mentioned before without
@@ -4680,6 +4682,44 @@ less overhead compared to \emph{virtualization} and is generally a
 lightweight approach. Although additional abstraction might also
 introduce new problems instead of solving them.
 
+\section{Attack Scenarios}\label{attack-scenarios}
+
+\begin{itemize}
+\item
+  measurements, already touched on:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    container encapsulation
+  \item
+    distributed system, especially relocating PDS (onto mobile)
+  \end{itemize}
+\item
+  SCE is considered a weakness
+\item
+  single point of failure (data-wise),
+
+  \begin{itemize}
+  \tightlist
+  \item
+    but considering what data users already put into their social
+    networks (or: thE social network: fb), they/it has already become a
+    de facto data silo and is thus a single point of failure. If that
+    service breaks or get down, the data from all users might be lost or
+    worse (stolen). The aspect of data decentralization achieved by
+    individual data stores can be valued as positive.
+  \end{itemize}
+\item
+  what about token stealing when using jwt?
+\item
+  future work: add/activate an intrusion detection system
+\item
+  PDS is on mobile platform and server platform is corrupted: storage
+  connector must queue requests and regularly provide the server with a
+  JWT, triggered by the operator when interacting with the mobile app.
+\end{itemize}
+
 \section{User Interfaces}\label{user-interfaces}
 
 Designing graphical user interfaces is beyond the scope of this work and
@@ -4702,19 +4742,19 @@ line interfaces (CLI)}, available mainly in command line environments or
 shells, still provide a certain level of interactivity. A running
 program can pause in order to prompt the user with an input request. If
 an input is made and submitted, the program then proceeds. The group of
-interfaces whose interactions can be fully automated can be called
-\emph{application programming interfaces (API)}. Depending on the
-transport technologies, it's not unusual that \emph{API} interactions
-consist of just one action causing one reaction. Non-graphical
-interfaces enable interactions on a lower level. Even though they
-provide more functionality and can be more time efficient, they are more
-rudimentary and often less secure. While \emph{GUIs} are normally meant
-for end users to interact with applications on a more sophisticated
-level, \emph{CLIs} are used during development, for automation, or for
-server environment administration; probably remotely since they are
-typically headless. Whereas \emph{APIs}, documented by their providers,
-enable software developers to program automated requests against those
-interfaces.
+interfaces whose interactions can be programed and thereby fully
+automated can be called \emph{application programming interfaces (API)}.
+Depending on the transport technologies, it's not unusual that
+\emph{API} interactions consist of just one action causing one reaction.
+Non-graphical interfaces enable interactions on a lower level. Even
+though they provide more functionality and can be more time efficient,
+they are more rudimentary and often less secure. While \emph{GUIs} are
+normally meant for end users to interact with applications on a more
+sophisticated level, \emph{CLIs} are used during development, for
+automation, or for server environment administration; probably remotely
+since they are typically headless. Whereas \emph{APIs}, documented by
+their providers, enable software developers to program automated
+requests against those interfaces.
 
 Table \ref{tbl:ui-features} provides a list of features and associates
 the different types of user interfaces mentioned before, which indicates
@@ -4784,7 +4824,7 @@ especially hard to solve because of the problem of how to display
 graph-based and nested data structures in such a way that reviewing and
 also manipulating them is easy, even on the small screen of a mobile
 phone? One approach could be to utilize the \emph{accordion} pattern
-{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{145}{]} for
+{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{146}{]} for
 edges and start nesting them in order to represent subsequent data
 structure. The interaction then might look like tree-structured
 navigation; moving alongside relations just by expanding and folding in
@@ -4846,7 +4886,8 @@ This chapter holds the first draft of what might become an open
 specification. As for now it has therefore no claim of completeness,
 continuity or accuracy. Frequent changes are to be expected. The
 contents is based on and a result of all previous discussions and
-developed solutions. Hence parts of the contents might reoccurring.
+developed solutions. Hence, parts of the contents can be expected to
+reoccur.
 
 \subsection*{Introduction}\label{introduction-1}
 \addcontentsline{toc}{subsection}{Introduction}
@@ -4888,7 +4929,6 @@ while bullet list items are exclusive (logical \emph{or}).
 \addcontentsline{toc}{subsection}{Terminology}
 
 \begin{description}
-\tightlist
 \item[\protect\hypertarget{spec_term_system}{}{(The) System}:]
 refers to either the overall concept or the implementation of this
 specification
@@ -5067,9 +5107,9 @@ through the \emph{Storage Connector} on the \emph{server} platform.
 That \emph{server} platform also provides an external API for accessing
 personal data. Incoming requests from third parties and consumers get
 then processed by the \emph{Permission Manager}, which i.a. decides if
-and how data can be accessed. Every consumer has its dedicated exposed
-endpoint consisting of a subdomain (e.g.
-\texttt{CONSUMER\_ID.system.tld}). Further components are i.a. a
+and how data can be accessed. For every consumer it is a dedicated
+exposed endpoint provided, that consists of a subdomain (e.g.
+\texttt{CONSUMER\_ID.system.tld}). Other components are i.a. a
 \emph{Code Execution Environment}, a \emph{PKI} that provides and issues
 certificates and key-pairs to facilitate authenticating at the
 endpoints. The \emph{Persistence Layer} is represented by potentially
@@ -5102,15 +5142,15 @@ Description}\label{general-process-description}
   Third party has to register at the system to become a data consumer,
   therefore it has to provide certain information to the operator either
   via QR-Code, which the operator can scans, or by submitting those
-  information to a unique URI that is upfront generated and provided by
+  information to a unique URL that is upfront generated and provided by
   the operator to the third party.
 \item
-  Consumer reviews the registration. On a positive outcome a new
+  Operator reviews the registration. On a positive outcome a new
   endpoint gets defined and, depending on the content of the
   registration request, a permission profile is optionally created and
   configured by the operator. If the outcome instead is negative, an
   error message is prepared. In any case, afterwards the third party is
-  informed about the outcome via callback URI, and optionally provided
+  informed about the outcome via callback URL, and optionally provided
   with additional information that are required for further
   interactions.
 \item
@@ -5479,7 +5519,7 @@ accessible only by the operator to control the system
 \item
   offer all relevant features provided by the Operator API
 \item
-  scan third party registrations via QR-Codes or generate URI to submit
+  scan third party registrations via QR-Codes or generate URL to submit
   registration
 \end{enumerate}
 
@@ -5794,7 +5834,7 @@ authenticate by presenting its certificate signed by the system.}
 \item
   key-pair and CSR (on the consumer-side)
 \item
-  unique URI created by \emph{data subject} with the help of the
+  unique URL created by \emph{data subject} with the help of the
   system's management tool
 \end{itemize}
 
@@ -5803,7 +5843,7 @@ authenticate by presenting its certificate signed by the system.}
 \setcounter{enumi}{-1}
 \item
   {[}OPTIONAL{]} \emph{data subject} provides \emph{third party} with
-  unique URI
+  unique URL
 \item
   \emph{third party} creates registration request that includes
 
@@ -5814,14 +5854,14 @@ authenticate by presenting its certificate signed by the system.}
   \item
     X.509 based Certificate Signing Request (CSR)
   \item
-    callback URI via HTTPS as feedback channel
+    callback URL via HTTPS as feedback channel
   \item
     {[}OPTIONAL{]} information about what data points are wanted to be
     accessible
   \end{itemize}
 \item
   depending on (0), \emph{third party} provides \emph{data subject} with
-  registration request either as QR-Code or via HTTPS by given URI
+  registration request either as QR-Code or via HTTPS by given URL
 \item
   {[}OPTIONAL{]} \emph{data subject} gets notified about new
   registration request (REQUIRED if no mobile platform is associated to
@@ -5845,7 +5885,7 @@ authenticate by presenting its certificate signed by the system.}
       \tightlist
       \item
         create new entry in \texttt{endpoints} (PL) by providing
-        registration information (csr, info, callback URI etc.),
+        registration information (csr, info, callback URL etc.),
       \item
         generate consumer identifier
       \item
@@ -5870,11 +5910,11 @@ authenticate by presenting its certificate signed by the system.}
       {[}OPTIONAL{]} if registration contains information on what data
       is requested to get permission to access, those information MUST
       be processed as described in
-      \protect\hyperlink{-permission-request}{Permission Request}
+      \protect\hyperlink{permission-request}{Permission Request}
     \item
       respond issued third party certificate, endpoint's certificate and
       {[}OPTIONAL{]} result(s) of the
-      \protect\hyperlink{-permission-request}{Permission Request}
+      \protect\hyperlink{permission-request}{Permission Request}
       procedure
     \end{enumerate}
   \item
@@ -5905,13 +5945,13 @@ authenticate by presenting its certificate signed by the system.}
     \item
       form proper error identifier and message
     \item
-      add unique URI to submit a new registration
+      add unique URL to submit a new registration
     \item
       respond error
     \end{enumerate}
   \end{itemize}
 \item
-  assemble and submit response via provided callback URI
+  assemble and submit response via provided callback URL
 \item
   \emph{third party} is informed about the decision via callback channel
   and proceeds responded data accordingly
@@ -5958,7 +5998,8 @@ authenticate by presenting its certificate signed by the system.}
   \protect\hyperlink{-permission-request}{Permission Request}
 \end{itemize}
 
-\paragraph{Permission Request}\label{permission-request}
+\hypertarget{permission-request}{\paragraph{Permission
+Request}\label{permission-request}}
 
 \emph{In order for a data consumer to access data that is provided by
 the system, he MUST first request those permission(s).}
@@ -6156,19 +6197,40 @@ originating data consumer.}
     \begin{itemize}
     \tightlist
     \item
-      \emph{yes}
+      \emph{yes}, proceed with configured method for checking
+      reliability
 
-      \begin{enumerate}
-      \def\labelenumiii{\arabic{enumiii})}
+      \begin{itemize}
       \tightlist
       \item
-        check if certificate is not expired
+        \texttt{null}
       \item
-        compare fingerprint in certificate with calculated fingerprint
-        *) if either fails and \texttt{notfyIfNotReliable\ ==\ true},
-        pause and await operator's decision, otherwise move on to next
-        step
-      \end{enumerate}
+        \texttt{\textquotesingle{}qes\textquotesingle{}}
+
+        \begin{enumerate}
+        \def\labelenumiii{\arabic{enumiii})}
+        \tightlist
+        \item
+          notify operator that a signing procedure, involving her
+          \emph{eID} card, is required
+        \item
+          go through signing procedure and return certificate
+        \end{enumerate}
+      \item
+        \texttt{\textquotesingle{}gov\textquotesingle{}}
+
+        \begin{enumerate}
+        \def\labelenumiii{\arabic{enumiii})}
+        \tightlist
+        \item
+          check if certificate is not expired
+        \item
+          compare fingerprint in certificate with calculated fingerprint
+          *) if either fails and \texttt{notfyIfNotReliable\ ==\ true},
+          pause and await operator's decision, otherwise move on to next
+          step
+        \end{enumerate}
+      \end{itemize}
     \item
       \emph{no}, then move on to next step
     \end{itemize}
@@ -6558,9 +6620,12 @@ are minimum viable; if supported, a more precise one SHOULD be used.}
 \item
   \texttt{ccert:\ String} - consumer's certificate (filesystem path or
   file content)
+\item
+  \texttt{createdAt:\ Number} - date of creation of this endpoint
 \end{itemize}
 
-\subsubsection{Permission Profile}\label{permission-profile}
+\hypertarget{permission-profile}{\subsubsection{Permission
+Profile}\label{permission-profile}}
 
 \begin{itemize}
 \tightlist
@@ -6727,6 +6792,33 @@ Service}
 \item
   \texttt{reason:\ String} - why has the verification failed (e.g.~error
   or refused message)
+\item
+  \texttt{ts:\ Number} - date of failure
+\end{itemize}
+
+\emph{Collection:} \texttt{tokens}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{id:\ String} - identifier of this document
+\item
+  \texttt{type:\ String} - purpose/audience of the token (values:
+  \texttt{operator} or \texttt{collector})
+\item
+  \texttt{secret:\ String} - secret that is used to encrypt the token
+\item
+  \texttt{algorithm:\ String} - which algorithm is used to encrypt the
+  token
+\item
+  \texttt{deviceId:\ String} - unique identifier of the authorized
+  device
+\item
+  \texttt{createdAt:\ Number} - date of creation
+\item
+  \texttt{renewedAt:\ Number} - date of last renewal
+\item
+  \texttt{expiresAt:\ Number} - date of expiration
 \end{itemize}
 
 \subsubsection{System Configurations and
@@ -6753,6 +6845,8 @@ access response in sec.\tabularnewline
 \texttt{accessType} & String &
 \texttt{\textquotesingle{}sce\textquotesingle{}} & see \emph{Permission
 Profile} above\tabularnewline
+\texttt{programMaxSize} & Number & \texttt{20480} & size of program for
+SCE (in Kbyte)\tabularnewline
 \texttt{notifyInGui} & Boolean & \texttt{true} & notify in management
 tool\tabularnewline
 \texttt{notifyByMail} & Boolean & \texttt{true} & notify via
@@ -6769,140 +6863,397 @@ violations of access rules\tabularnewline
 \emph{Tracker} recognizes anomaly\tabularnewline
 \texttt{notifyOnError} & Boolean & \texttt{false} & notify on unexpected
 errors in system\tabularnewline
-\texttt{notifyOnError} & Boolean & \texttt{false} & notify on unexpected
-errors in system\tabularnewline
 \texttt{notfyIfNotReliable} & Boolean & \texttt{false} & notify on
 failed reliability check\tabularnewline
+\texttt{reliabilityCheckMethod} & String & \texttt{null} & method of
+checking data reliability\tabularnewline
 \bottomrule
 \end{longtable}
 
 \section{Interfaces}\label{interfaces-1}
 
-\begin{itemize}
-\tightlist
-\item
-  graphical user interfaces
+\subsection{Graphical User Interfaces
+(GUIs)}\label{graphical-user-interfaces-guis}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    management tool: web and mobile
-  \item
-    platform types
-  \item
-    feature list
-  \end{itemize}
-\item
-  registration
-\item
-  Operator APIs
-\item
-  for data consumers
+The primary GUI of the system is the operator's \emph{Management Tool},
+which is used to administrate the system, to control and manage data
+access and to maintain personal data. The tool MAY be available on
+mobile platforms, but at least MUST be provided for \emph{desktop}
+platforms. The following lists show briefly, which features the tool
+provides to the operator.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    permission requests
-  \item
-    access request
-  \end{itemize}
-\end{itemize}
-
-\textbf{Registration Request}
+\subsubsection{Functionality, that MUST be
+provided:}\label{functionality-that-must-be-provided}
 
 \begin{itemize}
 \tightlist
 \item
-  contains certificate signing request
+  operator authentication
 \item
-  {[}OPTIONAL{]} contains \emph{permission request}
+  manage consumers and their entry point(s)
+\item
+  manage permission profiles
+\item
+  review registrations and permission requests
+\item
+  maintain personal data
+\item
+  responsive screen adaption
+\item
+  low-latency view rendering
+\item
+  change system settings
+\item
+  provide notifications
+\item
+  register new front end platforms to the system
 \end{itemize}
+
+\subsubsection{Functionality, that SHOULD be
+available:}\label{functionality-that-should-be-available}
+
+\begin{itemize}
+\tightlist
+\item
+  import personal data
+\item
+  view access history
+\item
+  review access requests
+\item
+  backup mechanisms
+\item
+  filter mechanisms for permission profiles, access history
+\item
+  create \& manage templates for permission profiles
+\item
+  QR-Code scanning (mobile platform only)
+\end{itemize}
+
+\subsubsection{Functionality, that MAY be
+supported:}\label{functionality-that-may-be-supported}
+
+\begin{itemize}
+\tightlist
+\item
+  revert changes of permission profiles
+\item
+  system monitoring and statistics
+\item
+  export personal data
+\item
+  utilize \emph{accordion} pattern (re)viewing data structures
+\item
+  model new data structures
+\item
+  migrate \emph{PDS} to another platform
+\end{itemize}
+
+\subsection{Application Programming Interface
+(APIs)}\label{application-programming-interface-apis}
+
+The lists of GUI features implicitly define what the \emph{Operator API}
+must be capable of, whereas interactions originated by third parties and
+data consumers are described below. These descriptions show the behavior
+of all major API endpoints, that are required to access personal data
+hosted by the system. The payload MUST be transferred with HTTP
+requests, secured by TLS, as \emph{POST} method, unless otherwise
+outlined. It MUST be serialized in JSON and constitutes the complete
+request body. In order to send data in certain formats
+(e.g.~PEM-formatted file content or binary streams) as a string values
+as part of a URLs or JSON, \emph{bas64url} MUST be used to encode such
+data. Furthermore, it is to be noted, that request are asynchronous and
+MAY take several hours up to a few days to get answered.
+
+\emph{NOTICE: If the representation of the data that is requested for
+access defined as a list of strings (\texttt{{[}String{]}}), then the
+response has the same structure. Same apply to the data query in a
+string-representation (\texttt{String}).}
+
+\paragraph{Registration Request}\label{spec_api_registration-request}
+
+MUST be handed over to the system in order to get acknowledged as a
+\emph{data consumer}. It can either be submitted via HTTP to the system,
+if the Operator has provided a URL, or encoded as a QR-Code presented on
+web page, which is served via HTTPS by the requester, ready to get
+scanned with the operator's mobile device.
+
+\emph{Parameter(s):}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{csr:\ String} - certificate signing request
+\item
+  \texttt{cb:\ String} - callback URL (REQUIRES https)
+\item
+  \texttt{cert:\ String} - {[}OPTIONAL{]} certificate for callback URL,
+  if not publicly trusted
+\item
+  \texttt{desires:\ {[}String{]}\ \textbar{}\textbar{}\ String} -
+  {[}OPTIONAL{]} list of endpoint selectors or query string (see
+  \protect\hyperlink{spec_api_permission-request}{Registration Request})
+\end{itemize}
+
+\emph{Request:} \texttt{https://system.tld/register/\$uniqueRndValue}
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
 \FunctionTok{\{}
-    \DataTypeTok{"csr"}\FunctionTok{:} \StringTok{"TODO"}\FunctionTok{,}
-    \DataTypeTok{"cb"}\FunctionTok{:} \StringTok{"TODO"}\FunctionTok{,}
-    \DataTypeTok{"access"}\FunctionTok{:} \OtherTok{[}
-        \StringTok{"profile.lastname"}
+    \DataTypeTok{"csr"}\FunctionTok{:} \StringTok{"$base64UrlEncodedCsr"}\FunctionTok{,}
+    \DataTypeTok{"cb"}\FunctionTok{:} \StringTok{"https://third-party.tld/callbacks/$procedureIdentifier"}\FunctionTok{,}
+    \DataTypeTok{"desires"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"profile.lastname"}\OtherTok{,}
+        \StringTok{"profile.firstname"}\OtherTok{,}
+        \StringTok{"finance.bankAccounts"}
     \OtherTok{]}
 \FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Permission Request}
+\emph{Response:}
 
 \begin{itemize}
 \tightlist
 \item
-  creates new \emph{permission profile}
+  \texttt{endpoint:\ String} - URL of the consumer-specific endpoint
 \item
-  \texttt{https://example-consumer.pdaas.tld/pr}
+  \texttt{cert:\ String} - certificate of the consumer-specific endpoint
+\item
+  \texttt{type:\ String} - permission type (see
+  \protect\hyperlink{permission-profile}{Permission Profile})
+\item
+  \texttt{expiration:\ Number} - {[}MUST if type ==
+  \texttt{expires-on-date\textquotesingle{}}{]} date of expiration
+\item
+  \texttt{interval:\ Object}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{value:\ Number} - time value
+  \item
+    \texttt{unit:\ String} - unit of time value
+  \end{itemize}
+\item
+  \texttt{grants:\ {[}String{]}} - list of data points allowed to be
+  accessed
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
 \FunctionTok{\{}
-    \DataTypeTok{"callbackUri"}\FunctionTok{:} \StringTok{""}\FunctionTok{,}
-    \DataTypeTok{"dataPoints"}\FunctionTok{:} \OtherTok{[}
-        \StringTok{"profile.lastname"}
-    \OtherTok{]}
+    \DataTypeTok{"endpoint"}\FunctionTok{:} \StringTok{"https://$consumerId.system.tld"}\FunctionTok{,}
+    \DataTypeTok{"cert"}\FunctionTok{:} \StringTok{"$base64UrlEncodedCert"}\FunctionTok{,}
+    \DataTypeTok{"permissions"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"expires-on-date"}\FunctionTok{,}
+        \DataTypeTok{"expiration"}\FunctionTok{:} \ErrorTok{$twoWeeksFormNow}\FunctionTok{,}
+        \DataTypeTok{"interval"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"value"}\FunctionTok{:} \DecValTok{1}\FunctionTok{,}
+            \DataTypeTok{"unit"}\FunctionTok{:} \StringTok{"daily"}
+        \FunctionTok{\}}
+        \StringTok{"datapoints"}\ErrorTok{:} \OtherTok{[}
+            \StringTok{"profile.lastname"}\OtherTok{,}
+            \StringTok{"profile.firstname"}
+        \OtherTok{]}
+    \FunctionTok{\}}
 \FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Access Request}
+\hypertarget{spec_api_permission-request}{\paragraph{Permission
+Request}\label{spec_api_permission-request}}
+
+MUST create a new \emph{permission profile} and thus MAY enable the data
+consumer to access personal data. In return the consumer is provided
+with all information that are required to request data access based on
+this permission request.
+
+\emph{Parameter(s):}
 
 \begin{itemize}
 \tightlist
 \item
-  obtains actual data
+  \texttt{desires:\ {[}String{]}\ \textbar{}\textbar{}\ String} - list
+  of endpoint selectors or query string, representing what data is
+  requested to get access to
+\end{itemize}
+
+\emph{Request:} \texttt{https://\$consumerId.system.tld/pr}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\FunctionTok{\{}
+    \DataTypeTok{"desires"}\FunctionTok{:} \StringTok{"\{profile\{firstname,lastname\},finance\{bankAccounts\}\}"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\emph{Response:}
+
+\begin{itemize}
+\tightlist
 \item
-  if \texttt{keepalive} is set \texttt{true}, the connections lasts
-  until response computation has finished, otherwise the response
-  contains a URI unique to this current request including an estimation
-  when response will be available under that URI; connection can still
-  timeout, which is defined by the system
+  \texttt{type:\ String} - permission type (see
+  \protect\hyperlink{permission-profile}{Permission Profile})
 \item
-  in case of plain forwarding, add an expiration date
-\item
-  \texttt{https://example-consumer.pdaas.tld/ar}
+  \texttt{grants:\ String} - data query representing the data points
+  allowed to be accessed
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
 \FunctionTok{\{}
-    \DataTypeTok{"query"}\FunctionTok{:} \StringTok{"TODO"}
+    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"one-time-only"}\FunctionTok{,}
+    \DataTypeTok{"grants"}\FunctionTok{:} \StringTok{"\{profile\{firstname,lastname\}\}"}
 \FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-\emph{Requirements:}
+\paragraph{Access Request}\label{spec_api_access-request}
+
+leads to the actual data access, if the
+\emph{\protect\hyperlink{access-verification}{Access Verification}} does
+not refuse to let through.
+
+\emph{Parameter(s):}
 
 \begin{itemize}
 \tightlist
 \item
-  query has to match exactly one corresponding \emph{permission profile}
+  \texttt{query:\ String} - data query representing the data that is
+  requested to be accessed
+\item
+  \texttt{type:\ String} - access type: \texttt{fwd} or \texttt{sce}
+\item
+  \texttt{program:\ Object} - {[}MUST if
+  \texttt{type\ ==\ \textquotesingle{}sec\textquotesingle{}}{]}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{mimeType:\ String} - MIME-Type (see
+    \href{https://tools.ietf.org/html/rfc2046}{RFC 2046})
+  \item
+    \texttt{extension:\ String} - file extension
+  \item
+    \texttt{file:\ String} - base64url-encoded file content
+  \end{itemize}
+\item
+  \texttt{reliable:\ Boolean} - indicates whether the consumer expects a
+  proof of data reliability or not
+\item
+  \texttt{respond:\ String} - \texttt{push} (returns immediately with
+  information where to obtain the result) or \texttt{keepalive} (keep
+  connection open until response is computed)
 \end{itemize}
 
-\emph{Response}
+\emph{Request:} \texttt{https://\$consumerId.system.tld/ar}
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
 \FunctionTok{\{}
-    \DataTypeTok{"expiresAt"}\FunctionTok{:} \ErrorTok{Date}
+    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"fwd"}\FunctionTok{,}
+    \DataTypeTok{"reliable"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"respond"}\FunctionTok{:} \StringTok{"keepalive"}\FunctionTok{,}
+    \DataTypeTok{"query"}\FunctionTok{:} \StringTok{"\{profile\{firstname,lastname\}\}"}
 \FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-\section{Recommendations}\label{recommendations}
-
-\subsubsection{Host Environment(s)}\label{host-environments}
+\emph{Response:}
 
 \begin{itemize}
 \tightlist
 \item
-  Setup/Hardware
+  \texttt{pickup:\ String} - URL where to find the actual response
+\item
+  \texttt{duration:\ Number} - time in seconds until result SHOULD be
+  available
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\FunctionTok{\{}
+    \DataTypeTok{"pickup"}\FunctionTok{:} \StringTok{"https://$consumerId.system.tld/ar/$procedureId"}\FunctionTok{,}
+    \DataTypeTok{"duration"}\FunctionTok{:} \DecValTok{43200}\FunctionTok{,}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\emph{Request:}
+\texttt{https://\$consumerId.system.tld/ar/\$procedureId}
+\emph{Response:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{expiresAt:\ Number} - date when data becomes outdated
+\item
+  \texttt{proof:\ String} - certificate that indicates verified data
+  reliability
+\item
+  \texttt{data:\ Object\ \textbar{}\textbar{}\ String} - if valid JSON,
+  then Object, otherwise base64url-encoded string
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[numbers=left,,]
+\FunctionTok{\{}
+    \DataTypeTok{"expiresAt"}\FunctionTok{:} \ErrorTok{$oneMonthFromNow}\FunctionTok{,}
+    \DataTypeTok{"proof"}\FunctionTok{:} \StringTok{"$reliabilityVerificationCertificate"}\FunctionTok{,}
+    \DataTypeTok{"data"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"profile"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"firstname"}\FunctionTok{:} \StringTok{"Jane"}\FunctionTok{,}
+            \DataTypeTok{"lastname"}\FunctionTok{:} \StringTok{"Doe"}
+        \FunctionTok{\}}
+    \FunctionTok{\}}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Recommendations \& Resources}\label{recommendations-resources}
+
+This section provide additional information on hosting and operating
+such a system as well as further resources, that MAY be worth knowing.
+Moreover, it contains advices that are recommended to consider when
+implementing (parts of) this specification.
+
+\subsubsection{Host Environment(s)
+Recommendations}\label{host-environments-recommendations}
+
+\begin{itemize}
+\item
+  Depending on the technologies that are being used for the
+  implementations, the environment specifications MAY vary. Although, it
+  SHOULD be feasible to expect at least around \emph{2} cores,
+  \emph{4GB} of memory and \emph{60GB} of storage.
+\item
+  Unless server components are running in containers, it is not
+  recommended to run other applications on the same environment side by
+  side.
+\item
+  a vendor, who hosts for multiple data subjects, one system instances,
+  SHOULD NOT locate all of them in one environment, but rather deploy a
+  separate virtualization of an operating system for every instance.
+\item
+  the host environment (for the components) SHOULD install measures for
+  detecting security violations and breaches
+\end{itemize}
+
+\subsubsection{Recommendations To Third
+Parties}\label{recommendations-to-third-parties}
+
+\begin{itemize}
+\item
+  If data consumers accessing data from more than one system instances
+  representing different individuals, it MAY considerable to use another
+  key-pair and certificate for any of those instances, and maybe even
+  unique endpoints.
+\item
+  Data consumers SHOULD also provide a full-featured \emph{endpoint}
+  based on a subdomain, thereby a bidirectional communication flow can
+  be established, instead of the workaround based on callback URLs.
 \end{itemize}
 
 \subsubsection{Software Recommendations}\label{software-recommendations}
@@ -6910,23 +7261,23 @@ failed reliability check\tabularnewline
 \begin{itemize}
 \tightlist
 \item
-  letsencrypt
+  letsencrypt (ACME implementation)
 \item
-  nginx
+  nginx (web server and load balancer)
 \item
-  systemd
+  systemd (process management)
 \item
-  rkt
+  rkt (OCI implementation)
 \item
-  Kubernetes
+  Kubernetes (container orchestration
 \item
-  LibreSSL
+  LibreSSL (cryptographic software library)
 \item
-  CouchDB
+  CouchDB (document-oriented database system focusing on real-time)
 \item
-  RethinkDB
+  RethinkDB (graph-structured database system)
 \item
-  Prometheus
+  Prometheus (database system optimized for time series data)
 \end{itemize}
 
 \subsubsection{Resources}\label{resources}
@@ -7073,36 +7424,10 @@ beginning
 \item
   even though \emph{OAuth} don't find it's way into this project,
   working through the standard inspired here and there a solution, for
-  example using a URI as a feedback channel or TODO.
+  example using a URL as a feedback channel or TODO.
 \item
   refer to the scenarios at the beginning by saying that with the
   \emph{PDaaS} one is able to implement all of them
-\end{itemize}
-
-\section{Attack Scenarios}\label{attack-scenarios}
-
-\begin{itemize}
-\item
-  single point of failure (data-wise),
-
-  \begin{itemize}
-  \tightlist
-  \item
-    but considering what data users already put into their social
-    networks (or: thE social network: fb), they/it has already become a
-    de facto data silo and is thus a single point of failure. If that
-    service breaks or get down, the data from all users might be lost or
-    worse (stolen). The aspect of data decentralization achieved by
-    individual data stores can be valued as positive.
-  \end{itemize}
-\item
-  what about token stealing when using jwt?
-\item
-  future work: add/activate an intrusion detection system
-\item
-  PDS is on mobile platform and server platform is corrupted: storage
-  connector must queue requests and regularly provide the server with a
-  JWT, triggered by the operator when interacting with the mobile app.
 \end{itemize}
 
 \section{Future Work}\label{future-work}
@@ -7295,7 +7620,7 @@ Result of Code 03 in JSON}:}
 
 \emph{NOTICE: schema notation is based on the rules underpinning the
 schema definition provided by the SimpleSchema project
-{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{146}{]}.}
+{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{147}{]}.}
 
 \textbf{\protect\hypertarget{code-05_struct_profile}{}{Code 05: Struct -
 Profile (example)}}
@@ -7841,194 +8166,200 @@ URL
 \textsc{Jones, Michael}: \emph{JSON web token (JWT)}. URL
 \url{https://tools.ietf.org/html/rfc7519}. - retrieved 2016-12-17
 
+\hypertarget{ref-web_spec_base64url}{}
+{[}95{]} \textsc{Joseffsson, J.}: \emph{The base16, base32, and base64
+data encodings}. URL
+\url{https://tools.ietf.org/html/rfc4648\#section-5}. - retrieved
+2017-02-22
+
 \hypertarget{ref-web_spec_json-web-encryption}{}
-{[}95{]} \textsc{Hildebrand, Joe}\,; \textsc{Jones, Michael}: \emph{JSON
+{[}96{]} \textsc{Hildebrand, Joe}\,; \textsc{Jones, Michael}: \emph{JSON
 web encryption (JWE)}. URL \url{https://tools.ietf.org/html/rfc7516}. -
 retrieved 2016-12-17
 
 \hypertarget{ref-web_spec_json-web-signature}{}
-{[}96{]} \textsc{Bradley, John}\,; \textsc{Sakimura, Nat}\,;
+{[}97{]} \textsc{Bradley, John}\,; \textsc{Sakimura, Nat}\,;
 \textsc{Jones, Michael}: \emph{JSON web signature (JWS)}. URL
 \url{https://tools.ietf.org/html/rfc7515}. - retrieved 2016-12-17
 
 \hypertarget{ref-paper_1976_d-h-key-exchange}{}
-{[}97{]} \textsc{Diffie, Whitfield}\,; \textsc{Hellman, Martin}: New
+{[}98{]} \textsc{Diffie, Whitfield}\,; \textsc{Hellman, Martin}: New
 directions in cryptography. In: \emph{IEEE transactions on Information
 Theory} vol. 22 (1976), Nr.~6, pp.~644--654
 
 \hypertarget{ref-book_2014_chapter-9-1-public-key-crypto}{}
-{[}98{]} \textsc{Stallings, William}: 9.1 principles of public-key
+{[}99{]} \textsc{Stallings, William}: 9.1 principles of public-key
 cryptosystems. In: \emph{Cryptography and network security: Principles
 and practice}. Seventh edition. ed. Boston~: Pearson, 2014
 ---~ISBN~978-0-13-335469-0, pp.~256--264
 
 \hypertarget{ref-web_spec_tls}{}
-{[}99{]} \textsc{Dierks, Tim}\,; \textsc{Rescorla, E.}: \emph{The
+{[}100{]} \textsc{Dierks, Tim}\,; \textsc{Rescorla, E.}: \emph{The
 transport layer security (TLS) protocol version 1.2}. URL
 \url{https://tools.ietf.org/html/rfc5246}. - retrieved 2016-12-17
 
 \hypertarget{ref-book_2014_chapter-14-5-pki}{}
-{[}100{]} \textsc{Stallings, William}: 10.5 pseudorandom number
+{[}101{]} \textsc{Stallings, William}: 10.5 pseudorandom number
 generation based on an asymmetric cipher. In: \emph{Cryptography and
 network security: Principles and practice}. Seventh edition. ed.
 Boston~: Pearson, 2014 ---~ISBN~978-0-13-335469-0, pp.~443--445
 
 \hypertarget{ref-web_spec_x509}{}
-{[}101{]} \textsc{Cooper, Dave}\,; \textsc{Santesson, S.}\,;
+{[}102{]} \textsc{Cooper, Dave}\,; \textsc{Santesson, S.}\,;
 \textsc{Farrell, S.}\,; \textsc{Boeyen, S.}\,; \textsc{Housley, W.,
 \textnormal{R. andPolk}}: \emph{Internet x.509 public key infrastructure
 certificate and certificate revocation list (CRL) profile}. URL
 \url{https://tools.ietf.org/html/rfc5280}. - retrieved 2017-01-11
 
 \hypertarget{ref-web_spec_rest}{}
-{[}102{]} \textsc{Fielding, Thomas}: Representational state transfer
+{[}103{]} \textsc{Fielding, Thomas}: Representational state transfer
 (REST). In: \emph{Architectural styles and the design of network-based
 software architectures}~: University of California, Irvine, 2000,
 pp.~76--106
 
 \hypertarget{ref-web_spec_http-methods}{}
-{[}103{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
+{[}104{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
 \textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
 \textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{HTTP
 methods}. URL \url{https://tools.ietf.org/html/rfc2616\#section-9}. -
 retrieved 2016-12-18
 
 \hypertarget{ref-web_spec_graphql}{}
-{[}104{]} \emph{GraphQL}. URL \url{https://facebook.github.io/graphql/}.
+{[}105{]} \emph{GraphQL}. URL \url{https://facebook.github.io/graphql/}.
 - retrieved 2016-12-17
 
 \hypertarget{ref-web_w3c-tr_rdf}{}
-{[}105{]} \textsc{Beckett, Dave}\,; \textsc{McBride, Brian}:
+{[}106{]} \textsc{Beckett, Dave}\,; \textsc{McBride, Brian}:
 \emph{RDF/XML syntax specification (revised)}. URL
 \url{https://www.w3.org/TR/REC-rdf-syntax/}. - retrieved 2016-12-19
 
 \hypertarget{ref-web_w3c-tr_owl}{}
-{[}106{]} \textsc{W3C OWL Working Group}: \emph{OWL 2 web ontology
+{[}107{]} \textsc{W3C OWL Working Group}: \emph{OWL 2 web ontology
 language document overview (second edition)}. URL
 \url{https://www.w3.org/TR/owl2-overview/}. - retrieved 2016-12-19
 
 \hypertarget{ref-web_w3c-tr_sparql}{}
-{[}107{]} \textsc{Harris, Steve}\,; \textsc{Seaborne, Andy}\,;
+{[}108{]} \textsc{Harris, Steve}\,; \textsc{Seaborne, Andy}\,;
 \textsc{Prud'hommeaux, Eric}: \emph{SPARQL 1.1 query language}. URL
 \url{https://www.w3.org/TR/sparql11-query/}. - retrieved 2016-12-19
 
 \hypertarget{ref-web_w3c-draft_webid}{}
-{[}108{]} \emph{WebID specifications}. URL
+{[}109{]} \emph{WebID specifications}. URL
 \url{https://www.w3.org/2005/Incubator/webid/spec/}. - retrieved
 2016-12-19
 
 \hypertarget{ref-web_spec_solid}{}
-{[}109{]} \emph{Solid specification}. URL
+{[}110{]} \emph{Solid specification}. URL
 \url{https://github.com/solid/solid-spec}. - retrieved 2016-12-17
 
 \hypertarget{ref-web_2016_wiki_webaccesscontrol}{}
-{[}110{]} \emph{WebAccessControl - w3c wiki}. URL
+{[}111{]} \emph{WebAccessControl - w3c wiki}. URL
 \url{https://www.w3.org/wiki/WebAccessControl}. - retrieved 2016-12-19
 
 \hypertarget{ref-web_2016_demo_databox}{}
-{[}111{]} \emph{Databox.me}. URL \url{https://databox.me/}. - retrieved
+{[}112{]} \emph{Databox.me}. URL \url{https://databox.me/}. - retrieved
 2016-12-19
 
 \hypertarget{ref-web_2015_cgroup-doc}{}
-{[}112{]} \textsc{Heo, Tejun}: \emph{Control group (v2) documentation}.
+{[}113{]} \textsc{Heo, Tejun}: \emph{Control group (v2) documentation}.
 URL \url{https://www.kernel.org/doc/Documentation/cgroup-v2.txt}. -
 retrieved 2016-12-20
 
 \hypertarget{ref-web_2016_kernel-namespace}{}
-{[}113{]} \emph{Overview of linux namespaces}. URL
+{[}114{]} \emph{Overview of linux namespaces}. URL
 \url{http://man7.org/linux/man-pages/man7/namespaces.7.html}. -
 retrieved 2016-12-20
 
 \hypertarget{ref-web_2016_open-container-initiative}{}
-{[}114{]} \emph{Open container initiative}. URL
+{[}115{]} \emph{Open container initiative}. URL
 \url{https://www.opencontainers.org/}. - retrieved 2016-12-20
 
 \hypertarget{ref-web_oci-spec_runtime}{}
-{[}115{]} \emph{Container runtime specification (v1.0.0-rc3)}. URL
+{[}116{]} \emph{Container runtime specification (v1.0.0-rc3)}. URL
 \url{https://github.com/opencontainers/runtime-spec/tree/v1.0.0-rc3}. -
 retrieved 2016-12-20
 
 \hypertarget{ref-web_oci-spec_image}{}
-{[}116{]} \emph{Container image specification (v1.0.0-rc3)}. URL
+{[}117{]} \emph{Container image specification (v1.0.0-rc3)}. URL
 \url{https://github.com/opencontainers/image-spec/tree/v1.0.0-rc3}. -
 retrieved 2016-12-20
 
 \hypertarget{ref-web_2013_npa-sicherheitsdefizit}{}
-{[}117{]} \emph{Basisleser weiterhin kritische schwachstelle des
+{[}118{]} \emph{Basisleser weiterhin kritische schwachstelle des
 elektronischen / neuen personalausweises. Netzpolitik.org}. URL
 \url{https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/}.
 - retrieved 2017-01-05
 
 \hypertarget{ref-web_2014_test-qes-support-in-npa}{}
-{[}118{]} \textsc{Stiemerling, Oliver}: \emph{Qualifizierte
+{[}119{]} \textsc{Stiemerling, Oliver}: \emph{Qualifizierte
 elektronische signatur mit dem neuen personalausweis -- oder: QES mit
 nPA, ein selbstversuch. CR-online.de blog}. URL
 \url{http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/}.
 - retrieved 2017-01-05
 
 \hypertarget{ref-web_2017_about-de-mail}{}
-{[}119{]} \textsc{Bundesregierung für Informationstechnik, Der
+{[}120{]} \textsc{Bundesregierung für Informationstechnik, Der
 Bundesbeauftragte der}: \emph{IT-beauftragter der bundesregierung
 de-mail}. URL
 \url{http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html}.
 - retrieved 2017-01-06
 
 \hypertarget{ref-statement_2013_de-mail}{}
-{[}120{]} \textsc{Neumann, Linus}: Stellungnahme zum elektronischen
+{[}121{]} \textsc{Neumann, Linus}: Stellungnahme zum elektronischen
 rechtsverkehr.
 
 \hypertarget{ref-book_2015_ethical-it-innovation}{}
-{[}121{]} \textsc{Spiekermann, Sarah}: \emph{Ethical IT Innovation: A
+{[}122{]} \textsc{Spiekermann, Sarah}: \emph{Ethical IT Innovation: A
 Value-Based System Design Approach}~: CRC Press; Taylor \& Francis
 Group, LLC, 2015 --~scale ---~ISBN~978-1-4822-2635-5
 
 \hypertarget{ref-paper_2004_distributed-mapreduce}{}
-{[}122{]} \textsc{Dean, Eeffrey}\,; \textsc{Ghemawat, Sanjay}:
+{[}123{]} \textsc{Dean, Eeffrey}\,; \textsc{Ghemawat, Sanjay}:
 MapRednce: Simplified data processing on large clusters (2004)
 
 \hypertarget{ref-web_spec_tls-12_client-auth}{}
-{[}123{]} \textsc{Dierks, Tim}: \emph{The transport layer security (TLS)
+{[}124{]} \textsc{Dierks, Tim}: \emph{The transport layer security (TLS)
 protocol version 1.2}. URL
 \url{https://tools.ietf.org/html/rfc5246\#section-7.4.6}. - retrieved
 2017-01-09
 
 \hypertarget{ref-web_2017_wikipedia_mutual-auth}{}
-{[}124{]} \emph{Mutual authentication}. URL
+{[}125{]} \emph{Mutual authentication}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Mutual_authentication\&oldid=737409981}.
 - retrieved 2017-01-10. ---~Page Version ID: 737409981
 
 \hypertarget{ref-book_2013_networking-101_tls-session-resumption}{}
-{[}125{]} \emph{Networking 101: Transport layer security (TLS) - high
+{[}126{]} \emph{Networking 101: Transport layer security (TLS) - high
 performance browser networking (o'Reilly). High performance browser
 networking}. URL
 \url{https://hpbn.co/transport-layer-security-tls/\#tls-session-resumption}.
 - retrieved 2017-01-12
 
 \hypertarget{ref-web_spec_tls-session-ticket-resumption}{}
-{[}126{]} \textsc{Joseph Salowey, P. Eronen, \textnormal{H. Zhou}}:
+{[}127{]} \textsc{Joseph Salowey, P. Eronen, \textnormal{H. Zhou}}:
 \emph{Transport layer security (TLS) session resumption without
 server-side state}. URL \url{https://tools.ietf.org/html/rfc5077}. -
 retrieved 2017-01-12
 
 \hypertarget{ref-web_bsi-spec_eid}{}
-{[}127{]} \emph{BSI - technische richtlinien des BSI - BSI TR-03130
+{[}128{]} \emph{BSI - technische richtlinien des BSI - BSI TR-03130
 eID-server}. URL
 \url{https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html}.
 - retrieved 2017-01-06
 
 \hypertarget{ref-web_2017_npa-eid-server}{}
-{[}128{]} \emph{Personalausweisportal - eID-server}. URL
+{[}129{]} \emph{Personalausweisportal - eID-server}. URL
 \url{https://personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html}.
 - retrieved 2017-01-06
 
 \hypertarget{ref-book_2014_chapter-10-5-asym-random-number-gen}{}
-{[}129{]} \textsc{Stallings, William}: 9.1 public-key infrastructure.
+{[}130{]} \textsc{Stallings, William}: 9.1 public-key infrastructure.
 In: \emph{Cryptography and network security: Principles and practice}.
 Seventh edition. ed. Boston~: Pearson, 2014 ---~ISBN~978-0-13-335469-0,
 p.~307
 
 \hypertarget{ref-web_spec_http-error-codes}{}
-{[}130{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
+{[}131{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
 \textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
 \textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{Hypertext
 transfer protocol -- HTTP/1.1}. URL
@@ -8036,85 +8367,85 @@ transfer protocol -- HTTP/1.1}. URL
 2017-01-20
 
 \hypertarget{ref-web_spec_oauth-1a_client-reg}{}
-{[}131{]} \emph{OAuth core 1.0a}. URL
+{[}132{]} \emph{OAuth core 1.0a}. URL
 \url{https://oauth.net/core/1.0a/\#rfc.section.4.2}. - retrieved
 2016-11-01
 
 \hypertarget{ref-web_spec_oauth-2_client-reg}{}
-{[}132{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+{[}133{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
 framework}. URL \url{https://tools.ietf.org/html/rfc6749\#section-2}. -
 retrieved 2016-11-01
 
 \hypertarget{ref-web_spec_oauth-1a_access-verification}{}
-{[}133{]} \emph{OAuth core 1.0a}. URL
+{[}134{]} \emph{OAuth core 1.0a}. URL
 \url{https://oauth.net/core/1.0a/\#rfc.section.7}. - retrieved
 2016-11-01
 
 \hypertarget{ref-web_spec_oauth-2_access-verification}{}
-{[}134{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+{[}135{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
 framework}. URL \url{https://tools.ietf.org/html/rfc6749\#section-7}. -
 retrieved 2016-11-01
 
 \hypertarget{ref-web_w3c-tr_rdf-schemas}{}
-{[}135{]} \textsc{Brickley, Dan}\,; \textsc{Guha, R.V.}: \emph{RDF
+{[}136{]} \textsc{Brickley, Dan}\,; \textsc{Guha, R.V.}: \emph{RDF
 schema 1.1}. URL \url{https://www.w3.org/TR/rdf-schema/}. - retrieved
 2017-02-12
 
 \hypertarget{ref-web_spec_data-schemas_ehr}{}
-{[}136{]} \textsc{Foundation}: \emph{OpenEHR - EHR information model}.
+{[}137{]} \textsc{Foundation}: \emph{OpenEHR - EHR information model}.
 URL \url{http://www.openehr.org/releases/RM/latest/docs/ehr/ehr.html}. -
 retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_data-schemas_poi}{}
-{[}137{]} \textsc{W3C}: \emph{Points of interest core}. URL
+{[}138{]} \textsc{W3C}: \emph{Points of interest core}. URL
 \url{https://www.w3.org/TR/poi-core/}. - retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_data-schemas_bank-transfer}{}
-{[}138{]} \textsc{Authority, ISO 20022 Registration}: \emph{ISO 20022 -
+{[}139{]} \textsc{Authority, ISO 20022 Registration}: \emph{ISO 20022 -
 universal financial industry message scheme}. URL
 \url{https://www.iso20022.org/}. - retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_xml_types}{}
-{[}139{]} \textsc{W3C}: \emph{XML schema part 2: Datatypes second
+{[}140{]} \textsc{W3C}: \emph{XML schema part 2: Datatypes second
 edition}. URL
 \url{https://www.w3.org/TR/xmlschema-2/\#built-in-primitive-datatypes}.
 - retrieved 2017-01-29
 
 \hypertarget{ref-web_spec_graphql_types}{}
-{[}140{]} \textsc{Facebook, Inc.}: \emph{GraphQL Specification}. URL
+{[}141{]} \textsc{Facebook, Inc.}: \emph{GraphQL Specification}. URL
 \url{https://facebook.github.io/graphql/\#sec-Input-Values}. - retrieved
 2017-01-29
 
 \hypertarget{ref-web_2016_wikipedia_separation-of-concerns}{}
-{[}141{]} \emph{Separation of concerns}. URL
+{[}142{]} \emph{Separation of concerns}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Separation_of_concerns\&oldid=747272729}.
 - retrieved 2017-01-24. ---~Page Version ID: 747272729
 
 \hypertarget{ref-web_spec_acme}{}
-{[}142{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
+{[}143{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
 \textsc{Hoffman-Andrews, Jacob}: \emph{Automatic certificate management
 environment (ACME)}. URL
 \url{https://tools.ietf.org/html/draft-ietf-acme-acme-04}. - retrieved
 2017-01-11
 
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}143{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
+{[}144{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
 success -- by the numbers}. URL
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 - retrieved 2016-12-16
 
 \hypertarget{ref-web_2017_wikipedia_os-market-share}{}
-{[}144{]} \emph{Usage share of operating systems}. URL
+{[}145{]} \emph{Usage share of operating systems}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Usage_share_of_operating_systems\&oldid=764383522\#Public_servers_on_the_Internet}.
 - retrieved 2017-02-12. ---~Page Version ID: 764383522
 
 \hypertarget{ref-web_2016_wikipedia_accordion-gui}{}
-{[}145{]} \emph{Accordion (GUI)}. URL
+{[}146{]} \emph{Accordion (GUI)}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Accordion_(GUI)\&oldid=758084292}.
 - retrieved 2017-02-01. ---~Page Version ID: 758084292
 
 \hypertarget{ref-web_2017_repo_node-simple-schema}{}
-{[}146{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
+{[}147{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
 \url{https://github.com/aldeed/node-simple-schema}. - retrieved
 2017-01-29
 

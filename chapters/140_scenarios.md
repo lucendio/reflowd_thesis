@@ -21,13 +21,13 @@ the toasters, so she heads towards the original web shop entry. Finally she puts
 shopping cart, despite the fact that she never bought something from that online shop before. Then 
 she proceeds to checkout so that she can place her order. The shop-interface asks her to either 
 insert her credentials, proceed without registration or sign-in, or allow the shop to obtain all 
-required data on its own by either scanning a QR-Code displayed below or insert a URI to her 
+required data on its own by either scanning a QR-Code displayed below or insert a URL to her 
 *Personal Data as a Service*. She opens up the management panel of her *PDaaS* in a new browser 
 window and authenticates herself to the system. Afterwards she creates a new entry in a list of 
 *data consumers* who already get permitted to access certain characteristics of her personal data. 
-As a result, she gets prompted with a URI, which she inserts as the shop interface requests her to 
+As a result, she gets prompted with a URL, which she inserts as the shop interface requests her to 
 do, only after she has convinced herself that the data exchange with the shop is based on a secure 
-connection (HTTPS). Moving on to the next step after submitting the URI, the data subject is asked 
+connection (HTTPS). Moving on to the next step after submitting the URL, the data subject is asked 
 to decide how she would like to pay. The choices are: credit card, invoice, online payment or bank 
 transfer. She chooses the last one, submits her selection and thereby completes the order process.
 She goes back to the kitchen. After some time, a push notification appears on her mobile device. 
@@ -64,7 +64,7 @@ the shipment would have been initiated.
 
 #### Interacting with a social network
 
-The first entry to a social network requires either a URI to the data subject's *PDaaS*, which has 
+The first entry to a social network requires either a URL to the data subject's *PDaaS*, which has 
 uniquely been generated for that purpose, or a QR-Code provided by the social network. The data 
 subject receives a notification on her mobile device send from her *PDaaS*, revealing what data that 
 network wants to access and maybe even why. If her mobile device is currently not at hand, she can 

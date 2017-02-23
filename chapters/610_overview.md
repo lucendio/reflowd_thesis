@@ -103,8 +103,8 @@ data can be located on every platform. This is enabled by abstracting the storag
 
 That *server* platform also provides an external API for accessing personal data. Incoming requests 
 from third parties and consumers get then processed by the *Permission Manager*, which i.a. decides
-if and how data can be accessed. Every consumer has its dedicated exposed endpoint consisting of a 
-subdomain (e.g. `CONSUMER_ID.system.tld`). Further components are i.a. a 
+if and how data can be accessed. For every consumer it is a dedicated exposed endpoint provided, 
+that consists of a subdomain (e.g. `CONSUMER_ID.system.tld`). Other components are i.a. a 
 *Code Execution Environment*, a *PKI* that provides and issues certificates and key-pairs to 
 facilitate authenticating at the endpoints. The *Persistence Layer* is represented by potentially 
 multiple technologies, such as databases or filesystem. A *Notification Infrastructure* streamlines 
@@ -124,14 +124,14 @@ is granted read/write permissions at the *Storage Connector*.
 
 1.  Third party has to register at the system to become a data consumer, therefore it has to provide 
     certain information to the operator either via QR-Code, which the operator can scans, or by 
-    submitting those information to a unique URI that is upfront generated and provided by the 
+    submitting those information to a unique URL that is upfront generated and provided by the 
     operator to the third party.
     
-2.  Consumer reviews the registration. On a positive outcome a new endpoint gets defined and, 
+2.  Operator reviews the registration. On a positive outcome a new endpoint gets defined and, 
     depending on the content of the registration request, a permission profile is optionally 
     created and configured by the operator. If the outcome instead is negative, an error message is 
     prepared. In any case, afterwards the third party is informed about the outcome via callback 
-    URI, and optionally provided with additional information that are required for further 
+    URL, and optionally provided with additional information that are required for further 
     interactions.
     
 3.  After the consumer has set up a client according to the documentation and the information he has

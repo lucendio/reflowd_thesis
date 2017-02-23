@@ -18,7 +18,7 @@ interact with. Instead, the primary medium is text, regardless if it's human-rea
 But *command line interfaces (CLI)*, available mainly in command line environments or shells, still 
 provide a certain level of interactivity. A running program can pause in order to prompt the user 
 with an input request. If an input is made and submitted, the program then proceeds. The group of 
-interfaces whose interactions can be fully automated can be called 
+interfaces whose interactions can be programed and thereby fully automated can be called 
 *application programming interfaces (API)*. Depending on the transport technologies, it's not 
 unusual that *API* interactions consist of just one action causing one reaction. 
 Non-graphical interfaces enable interactions on a lower level. Even though they provide more 

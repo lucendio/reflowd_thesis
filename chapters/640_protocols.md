@@ -15,19 +15,19 @@ it MUST authenticate by presenting its certificate signed by the system.*
 *Preconditions:*
 +   secure channel;  QR-Code (by *third party*), HTTPS (by *data subject*)
 +   key-pair and CSR (on the consumer-side)
-+   unique URI created by *data subject* with the help of the system's management tool 
++   unique URL created by *data subject* with the help of the system's management tool 
 
 
-0.  [OPTIONAL] *data subject* provides *third party* with unique URI 
+0.  [OPTIONAL] *data subject* provides *third party* with unique URL
 
 1.  *third party* creates registration request that includes
     -   information about itself and reasons for registration attempt
     -   X.509 based Certificate Signing Request (CSR)
-    -   callback URI via HTTPS as feedback channel
+    -   callback URL via HTTPS as feedback channel
     -   [OPTIONAL] information about what data points are wanted to be accessible 
 
 2.  depending on (0), *third party* provides *data subject* with registration request either as 
-    QR-Code or via HTTPS by given URI 
+    QR-Code or via HTTPS by given URL 
     
 3. [OPTIONAL] *data subject* gets notified about new registration request (REQUIRED if no mobile 
     platform is associated to the system) 
@@ -36,7 +36,7 @@ it MUST authenticate by presenting its certificate signed by the system.*
     +   *Accept*
         1)  create new *endpoint* 
             -   create new entry in `endpoints` (PL) by providing registration information (csr, 
-                info, callback URI etc.),
+                info, callback URL etc.),
             -   generate consumer identifier 
             -   register new subdomain in *web server* with consumer identifier 
                 (e.g. `CONSUMER_ID.system.tld`)
@@ -47,9 +47,9 @@ it MUST authenticate by presenting its certificate signed by the system.*
                 the related entry within `endpoints`
         3)  [OPTIONAL] if registration contains information on what data is requested to get 
             permission to access, those information MUST be processed as described in 
-            [Permission Request](#-permission-request)
+            [Permission Request](#permission-request)
         4)  respond issued third party certificate, endpoint's certificate and
-            [OPTIONAL] result(s) of the [Permission Request](#-permission-request) procedure
+            [OPTIONAL] result(s) of the [Permission Request](#permission-request) procedure
     
     +   *Refuse*
         1)  *data subject* SHOULD provide reason or MUST fall back to default reason
@@ -59,10 +59,10 @@ it MUST authenticate by presenting its certificate signed by the system.*
         *   subsequent processes decide on their own what error message and how much information is 
             provided to the third party
         1)  form proper error identifier and message
-        2)  add unique URI to submit a new registration
+        2)  add unique URL to submit a new registration
         3)  respond error
 
-5.  assemble and submit response via provided callback URI
+5.  assemble and submit response via provided callback URL
     
 6.  *third party* is informed about the decision via callback channel and proceeds responded data
     accordingly
@@ -171,11 +171,17 @@ originating data consumer.*
 4.  [OPTIONAL and if reliable == `true`] verify and indicate data reliability
     1)  check, if data point(s) in obtained data are in group of data points whose reliability can 
         be verified
-        +   *yes*
-            1)  check if certificate is not expired 
-            2)  compare fingerprint in certificate with calculated fingerprint
-            *)  if either fails and `notfyIfNotReliable == true`, pause and await operator's 
-                decision, otherwise move on to next step
+        +   *yes*, proceed with configured method for checking reliability
+            -   `null`
+            -   `'qes'`
+                1)  notify operator that a signing procedure, involving her *eID* card, is required
+                2)  go through signing procedure and return certificate
+            -   `'gov'`
+                1)  check if certificate is not expired 
+                2)  compare fingerprint in certificate with calculated fingerprint
+                *)  if either fails and `notfyIfNotReliable == true`, pause and await operator's 
+                    decision, otherwise move on to next step
+            
         +   *no*, then move on to next step
 
 5.  adjust data precision 

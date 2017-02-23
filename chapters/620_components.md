@@ -127,4 +127,4 @@ operator to control the system
 
 a)  based on either web technologies or native technologies that are supported by mobile platforms
 b)  offer all relevant features provided by the Operator API 
-c)  scan third party registrations via QR-Codes or generate URI to submit registration
+c)  scan third party registrations via QR-Codes or generate URL to submit registration

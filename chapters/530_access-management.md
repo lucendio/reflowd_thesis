@@ -14,18 +14,18 @@ assembled in order to meet the specified [requirements](#requirements).
  
 ### Part One: consumer registration {-}
 
-0)  The *operator* creates a new, unique URI in the system
+0)  The *operator* creates a new, unique URL in the system
 
 1)  __Prepare registration__; the *operator* has to tell the third party where and how to register 
-as a *data consumer* by handing over a URI uniquely associated to the current registration process. 
+as a *data consumer* by handing over a URL uniquely associated to the current registration process. 
 Several things need to be noted here. First, the operator 'pulls' consumers into the system. This 
 is the only way for a consumer to establish a relation. If consumers were able initiate this process 
 on their own without the operator's involvement, it would be much harder for the system to detect 
-spam or fraudulent requests. Second, handing over the URI must be done over a secure channel.
+spam or fraudulent requests. Second, handing over the URL must be done over a secure channel.
 
 2)  __Send registration attempt__; the third party then makes the actual attempt to register as a 
 *data consumer* by providing required information. With this information, some kind of feedback 
-channel (e.g. URI)  has to be included so that the system can get back to that third party. They 
+channel (e.g. URL)  has to be included so that the system can get back to that third party. They 
 also may contain a first *permission request*. 
 
 *NOTICE: the two initial steps can be skipped if the third party would rather present the 
@@ -66,7 +66,7 @@ below).
 3)  __Respond to consumer__; hand over the computed response back to the requester by proceeding 
 with one of the two following options. Either the system responds with the current status of the 
 process and where the *consumer* will/can find the demanded data, or the *consumer* includes a 
-callback URI, which the system has to invoke with the demanded response.
+callback URL, which the system has to invoke with the demanded response.
 
 
 With respect to the requirements ([S.P.01](#sp01)), personal data should not leak into the outside. 
@@ -151,7 +151,7 @@ receive their credentials or a notification to get started.
 It is up to *data consumers* to decide which data they are requesting to access, but how do they 
 know what data can be requested? The only option is to expose information about data availability
 ([S.I.02](#si02)), which can be done in a variety of ways. First, that information can be made 
-publicly available via URI, providing a Machine-readable format so that information can be processed 
+publicly available via URL, providing a Machine-readable format so that information can be processed 
 automatically by consumers. It is also feasible to restrict that access to registered *consumers* 
 only, in order to prevent that information from being crawled. They could be valuable as meta data 
 and therefore used in undesired processing that could raise privacy concerns. It is imaginable to 

@@ -81,7 +81,7 @@ Primarily the operator is the one who has permissions to add, change, or remove 
 either by using the appropriate forms provided by a graphical user interface or with the help of 
 other import mechanisms. The latter could be enabled by (A) supporting the upload of files that 
 containing supported formats, (B) data APIs restricted to the operator or (C) defining an external 
-resource reachable via http (e.g. *RESTful URI*) in order to (semi-)automate further ongoing data 
+resource reachable via http (e.g. *RESTful URL*) in order to (semi-)automate further ongoing data 
 imports from multiple data resources (e.g. IoT, browser plugin).
 Additionally, it might be possible in the future to allow *data consumers* create data to flow
 back into the operator's system, after she is certain that this data is valid and useful for her.
@@ -181,7 +181,7 @@ necessarily require a reaction by the operator.
 __*[P.I.04]{#pi04}* - Permission Request & Review__\
 A process involving data transaction must be always initiated by the data subjects. So, before a 
 *data consumer* is able to access data, first the *operator* needs to *invite* that specific third 
-party by either telling him (per URI) where to register or asking him to provide all information 
+party by either telling him (per URL) where to register or asking him to provide all information 
 required for a registration process upfront encoded in QR-Code. Both solutions need a secure channel
 for transport, which refers to *TLS*. The latter has to be ensured by the applying third party 
 alone, whereas the first option requires the *PDaaS* to provide a TLS-supporting endpoint as well.

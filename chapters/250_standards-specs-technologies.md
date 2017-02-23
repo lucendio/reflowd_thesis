@@ -72,7 +72,8 @@ state, either the architecture needs to be changed so that the state is no longe
 component, or the state needs to be embedded into the process communication so that it is passed 
 from one component to the other. This is a common use case for a __[JSON Web Token]{#def--jwt}__ 
 *(JWT)* [@web_spec_json-web-token]. A *JWT*, as it's name implies, is, syntactically speaking, 
-formatted as *JSON*, but URI-safe encoded into *Base64* before it gets transferred.
+formatted as *JSON*, but URL-safe encoded into Base64, which is called *base64url* 
+[@web_spec_base64url], before it gets transferred.
 The token itself contains the state. Here is where the use of *HTTP* comes in handy because the 
 token can be stored within the HTTP header and therefore can be passed through all communication 
 points, where the data can then be extracted and verified. Such a token typically consists of three 
@@ -125,7 +126,7 @@ probably one of the largest. It is based on the widely used IETF [^abbr_ietf] st
 
 __REST(ful)__ [^abbr_rest] is a common set of principles to design web resources and their 
 interaction. It primarily defines server-client communication in a more generic and therefore 
-interoperable way. Aside from hierarchically structured URIs, which can reflect semantic relations 
+interoperable way. Aside from hierarchically structured URLs, which can reflect semantic relations 
 or hierarchical order between data points, it involves a rudimentary vocabulary [^http_methods] for 
 HTTP requests to provide basic CRUD-operations [^abbr_crud] across distributed systems. The entire 
 request needs to contain everything that is required to be processed on the REST-server, e.g. state 

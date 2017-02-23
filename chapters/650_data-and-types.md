@@ -146,6 +146,7 @@ SHOULD be used.*
 +   `crt: String`                   -   endpoint's certificate (filesystem path or file content)
 +   `key: String`                   -   endpoint's private key (filesystem path or file content)
 +   `ccert: String`                 -   consumer's certificate (filesystem path or file content)
++   `createdAt: Number`             -   date of creation of this endpoint
 
 
 #### Permission Profile
@@ -218,6 +219,18 @@ SHOULD be used.*
 +   `id: String`            -   identifier of this document 
 +   `requestId: String`     -   reference to `access-request` ID
 +   `reason: String`        -   why has the verification failed (e.g. error or refused message)
++   `ts: Number`            -   date of failure
+ 
+ *Collection:* `tokens`
++   `id: String`            -   identifier of this document
++   `type: String`          -   purpose/audience of the token (values: `operator` or `collector`)
++   `secret: String`        -   secret that is used to encrypt the token
++   `algorithm: String`     -   which algorithm is used to encrypt the token
++   `deviceId: String`      -   unique identifier of the authorized device
++   `createdAt: Number`     -   date of creation
++   `renewedAt: Number`     -   date of last renewal
++   `expiresAt: Number`     -   date of expiration
+   
 
 
 #### System Configurations and Defaults__
@@ -228,6 +241,7 @@ SHOULD be used.*
 | `accessResponseMethod`  | String    | `'push'`          | see *Collection:* `access-requests`    |
 | `accessResponseTimeout` | Number    | `120`             | timeout of access response in sec.     |
 | `accessType`            | String    | `'sce'`           | see *Permission Profile* above         |
+| `programMaxSize`        | Number    | `20480`           | size of program for SCE (in Kbyte)     |
 | `notifyInGui`           | Boolean   | `true`            | notify in management tool              |
 | `notifyByMail`          | Boolean   | `true`            | notify via email                       |
 | `notifyOnRegistration`  | Boolean   | `true`            | notify on incoming registration        |
@@ -236,7 +250,7 @@ SHOULD be used.*
 | `notifyOnViolation`     | Boolean   | `true`            | notify on violations of access rules   |
 | `notifyOnAnomaly`       | Boolean   | `true`            | notify if *Tracker* recognizes anomaly |
 | `notifyOnError`         | Boolean   | `false`           | notify on unexpected errors in system  |
-| `notifyOnError`         | Boolean   | `false`           | notify on unexpected errors in system  |
 | `notfyIfNotReliable`    | Boolean   | `false`           | notify on failed reliability check     |
+| `reliabilityCheckMethod`| String    | `null`            | method of checking data reliability    |
 
 Table: Global System Configurations and their default values {#tbl:spec_system-default-config} 
