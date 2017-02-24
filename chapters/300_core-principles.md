@@ -37,9 +37,9 @@ third parties at any point in time and also to literally carry all her personal 
 ## Identity Verification
 
 If an instance of such a system *(PDaaS)* is going to be the digital counterpart of an individuals 
-identity or her *"personal agent"* [@book_2015_ethical-it-innovation], then everyone who relies on 
-the information that agent provides must also be able to trust the source from where that data 
-originates and vice versa; the *operator* too need to verify the authenticity of the requesting
+identity or her *"personal agent"* [@book_2015_ethical-it-innovation, p. 46], then everyone who 
+relies on the information that agent provides must also be able to trust the source from where that 
+data originates and vice versa; the *operator* too need to verify the authenticity of the requesting
 source; regardless of whether it's during initial registration or further *access attempts*.
 Based on these mechanisms, the system can also provide an authentication services that third parties 
 might utilize to outsource the authentication of its owner, including enabling additional security 

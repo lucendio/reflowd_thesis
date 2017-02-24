@@ -44,7 +44,7 @@ using signatures. Whereas *Version 2.0* [@web_spec_oauth-2], labeled as a framew
 and thus passes on the responsibility for confidentiality to the transport layer below. It also 
 supports additional process flows for scenarios involving specific platforms such as 
 *"web applications, desktop applications, mobile phones, and living room devices"* 
-[@web_2016_oauth-2].
+[@web_2016_oauth-2, para. 1].
 
 With __OpenID__ on the other hand, the authenticity of a requesting user gets verified by design. 
 An in-depth description of the whole process can be found in the protocol's same-titled 
@@ -151,9 +151,9 @@ executing queries.
 The term __[Semantic Web]{#def--semantic-web}__ bundles a conglomerate of standards released by the 
 W3C [^abbr_w3c]. It is based on an idea called *web of linked data*, which aims to *"enable people 
 to create data stores on the Web, build vocabularies, and write rules for handling data"* 
-[web_2016_w3c_semantic-web-activity]. The standards address syntax, schemas, formats, access control 
-and integrations for several scopes and contexts. Among others, the following three technologies are 
-essential for the *Semantic Web*.
+[@web_2016_w3c_semantic-web-activity, para. 1]. The standards address syntax, schemas, formats, 
+access control and integrations for several scopes and contexts. Among others, the following three 
+technologies are essential for the *Semantic Web*.
 RDF [^abbr_rdf] basically defines the syntax. OWL [^abbr_owl] provides the guidelines on how the 
 semantics and schemas (vocabulary) should be defined and with [SPARQL]{#def--sparql} 
 [@web_w3c-tr_sparql], the query language, data can be retrieved.

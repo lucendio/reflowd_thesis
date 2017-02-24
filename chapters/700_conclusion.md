@@ -3,6 +3,28 @@ Conclusion
 
 
 
+Even though the *Right to privacy* is a fundamental right, stated by numerous national 
+constitutions and confirmed by court decisions, saying that
+ 
+>   Given the context of modern data processing, the protection of individuals against unlimited 
+>   collection, storage, use and transfer of their personal data is subsumed under the general right 
+>   of personality governed by [...] the Basic Law. [...] this fundamental right guarantees in 
+>   principle the power of individuals to make their own decisions as regards the disclosure and use 
+>   of their personal data [@court-decision_1983_census-act-germany, p. 3].
+ 
+It is demonstrated in [Chapter 2 - Fundamentals](#fundamentals), that these legislation has has not 
+fond much recognition nowadays. Secret agencies simply ignore them and private organisation are 
+usually out of jurisdiction.
+But since it still is valid law, individuals, as stated above, have the right to protect their 
+personal data. A web service, controlled only by themselves, might help with that. Representing her
+digital counterpart, it should encourage the data subject to effortlessly maintain all her personal 
+data but also making them explicitly and selectively available to third parties, while carrying them 
+around, stored in her mobile device. Such tool enables the data owner to keep track of her data and 
+where it goes, while at the same time trying to be as secure as possible. The specification for such 
+a service has been subject of this work. 
+
+
+
 ## Ethical & Social Impact (TODO: or "Relevance")
 
 +   Regarding involving an official party to verify data reliability:

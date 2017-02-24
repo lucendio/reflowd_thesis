@@ -55,10 +55,10 @@ grown to the largest and most influential one in this research field. It has tra
 umbrella and hub for all kinds of projects and research related to that topic 
 [@web_2016_projectvrm_development-work], whether it's frameworks or standards, services offering 
 (e.g. privacy protection), reference implementations, applications, software or hardware components. 
-*VRM* became more and more a synonym for a set of principles [@web_2016_projectvrm_principles], 
-for example *"Customers must have control of data they generate and gather. [They] must be able to 
-assert their own terms of engagement."* These principles can be found in various forms across much 
-work done in this area of research.
+*VRM* became more and more a synonym for a set of principles, for example *"Customers must have 
+control of data they generate and gather. [They] must be able to assert their own terms of 
+engagement."* [@web_2016_projectvrm_principles, para. 3-4] These principles can be found in various 
+forms across much work done in this area of research.
 
 Another work of research worth mentioning, because of the foundational work it has done, is the 
 european funded project called *Trusted Architecture for Securely Shared Service* (TAS3)
@@ -116,8 +116,8 @@ private companies like *PricewaterhouseCoopers AG*, *Volkswagen AG*, *thyssenkru
 The project unifies both, research and commercial interests and runs over a time period of three 
 years until the third quarter of 2018. It aims *"[...] to facilitate the secure exchange and easy 
 linkage of data in business ecosystems"*, where at the same time *"[...] ensuring digital 
-sovereignty of data owners"* [@whitepaper_2016_industrial-data-space]. It will be interesting to 
-see how these two related but distinct objectives come together in the future. Based on the white 
+sovereignty of data owners"* [@whitepaper_2016_industrial-data-space, p. 4]. It will be interesting
+to see how these two related but distinct objectives come together in the future. Based on the white 
 paper, the project's focus mainly seems to lie in enabling and standardizing the way companies 
 collect, exchange and aggregate data with each other across process chains to ensure high 
 interoperability and accessibility.

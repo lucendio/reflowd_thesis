@@ -2,14 +2,26 @@
 
 
 
++   impersonate, identity theft
+
++   man-in-the-middle attacks:
+    transport way secured, and if the endpoint certificate is provided to the third party, before is
+    is requested during connection establishment (because at that point connection is still 
+    unencrypted), it can be detected if that cert is not the original one
+
 
 +   measurements, already touched on:
     -   container encapsulation
     -   distributed system, especially relocating PDS (onto mobile)
     
     
++   The general mindset for this project is to rather use long proven libraries and technologies  
+    instead of using own implementations of cryptographic concepts and algorithms.
     
-+   SCE is considered a weakness
+    
++   SCE is considered a weakness, but
+
++   open source development: vulnerabilities can easy be disclosed and immediately get addressed
 
 
 

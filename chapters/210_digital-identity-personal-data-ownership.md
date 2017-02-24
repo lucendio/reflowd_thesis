@@ -40,10 +40,10 @@ defined as the total amount of data that is part of either an individual's *Digi
 *[Digital Footprint](#terminologies--digital-footprint)*. On the one hand, this includes all 
 intellectual property (e.g. posts, images, videos or comments) ever created, and all kinds of 
 tracking data, interaction monitoring and metadata, that is used to manually or automatically enrich 
-content (e.g.geo-location attached to a tweet as meta information). Moreover, it refers to data that 
-is captured by someone or something from within the individual's private living space or property.
-*Personal data* is basically understood as every data point reflecting the individual as such and 
-her personality - partially or as a whole.
+content (e.g. geo-location attached to a tweet as meta information). Moreover, it refers to data 
+that is captured by someone or something from within the individual's private living space or 
+property. *Personal data* is basically understood as every data point reflecting the individual as 
+such and her personality - partially or as a whole.
 
 The european "Data Protection Regulations", on the other hand, defines 
 *[Personal Data]{#def--personal-data-as-of-legis}* as follows:
@@ -53,7 +53,7 @@ The european "Data Protection Regulations", on the other hand, defines
 >   indirectly, in particular by reference to an identifier such as a name, an identification 
 >   number, location data, an online identifier or to one or more factors specific to the physical, 
 >   physiological, genetic, mental, economic, cultural or social identity of that natural person;
->   [@regulation_2016_eu_general-data-protection-regulation_definition]
+>   [@regulation_2016_eu_general-data-protection-regulation_definition, para. 4]
     
 In contrast, the U.S.A. has little to no legislation defining *personal data* and thereby protecting
 the individual's privacy. There is at least no explicit federal law addressing such areas 
@@ -71,7 +71,7 @@ definition of *Personal Data*:
 >   generally available to the public through lawful means, and are linked, or as a practical matter 
 >   linkable by the covered entity, to a specific individual, or linked to a device that is 
 >   associated with or routinely used by an individual, including but not limited to [...]
->   [@bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition]
+>   [@bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition, sec. 4a1].
 
 At the end a list of concrete data points follows. Examples include email or postal address, name, 
 social security number and so on.
@@ -86,8 +86,8 @@ wants *Personally Identifiable Information* (alias *Personal Data*) to be unders
 >   [...] any information that is linked or linkable to an individual. [...] information is 
 >   “linked” or “linkable” to an individual if it can be used on its own, in context, or in 
 >   combination to identify an individual or to logically associate with other information about a 
->   specific individual. 
->   [@rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information]
+>   specific individual
+>   [@rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information, sec. 60-61].
 
 Despite minor difference in details, the FCC has a serious idea of what is included in 
 *personal data* and to whom they belong. Although the FCC's legal participation might be somewhat 
@@ -124,7 +124,7 @@ level and impact of the infringement in addition to what the law itself says, th
 revisiting its wrong-doings in order to improve, might have to compensate affected individuals, pay 
 a fine, or have its license revoked.
 
-Not only privacy laws, but every legal jurisdiction has it's limitations - such as its territorial 
+Not only privacy laws, but every legal jurisdiction has its limitations - such as its territorial 
 nature - which makes it an inappropriate tool for addressing existing issues and strengthening 
 individuals' privacy and rights in a global context like the *world wide web*. 
 Whereas the EU has approved extensive regulations, mentioned above, that are supposed to provide 
@@ -160,40 +160,37 @@ general characteristics that data has.
 The european "Data Protection Regulations" mentioned before contain only one occurrence of the word 
 *ownership*, and it's not even related to the context of *personal data* or the *data subject*. It 
 merely states that *"Natural persons should have control of their own personal data"* 
-[@regulation_2016_eu_general-data-protection-regulation_ownership]. 
+[@regulation_2016_eu_general-data-protection-regulation_ownership, sec. 7]. 
 Whereas Commissioner J. Rosenworcel of the FCC wants *"consumers [...] to [...] take some ownership 
 of what is done with their personal information."* 
-[@rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership] Despite those two exceptions, 
-elaborations on *data ownership* are almost non-existant in current legislation. Instead, the 
-question is typically addressed in *Terms of Service (ToS)* provided by *data consumers*, which an 
-individual might have to accept in order to establish a (legal) relationship with its author. The 
-individual should keep in mind, that *Terms of Services* can change over time; not necessarily to 
-the users advantage. The contents of a *ToS* must not violate any applicable or related law, 
-otherwise the terms might not be legally recognized.
-Taking for example the following excerpts from different *Terms of Services*:
+[@rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership, p. 207] Despite those two
+exceptions, elaborations on *data ownership* are almost non-existant in current legislation. 
+Instead, the question is typically addressed in *Terms of Service (ToS)* provided by 
+*data consumers*, which an individual might have to accept in order to establish a (legal) 
+relationship with its author. The individual should keep in mind, that *Terms of Services* can 
+change over time; not necessarily to the users advantage. The contents of a *ToS* must not violate 
+any applicable or related law, otherwise the terms might not be legally recognized. Taking for 
+example the following excerpts from different *Terms of Services*:
  
 >   You own all of the content and information you post on Facebook, and you can control how 
->   it is shared [...]. (under "2. Sharing Your Content and Information", by Facebook
->   [@web_2016_facebook_terms-of-service])
+>   it is shared [...] [@web_2016_facebook_terms-of-service, para. 2.]. 
 
 >   You retain your rights to any Content you submit, post or display on or through the Services. 
->   What’s yours is yours — you own your Content. (under "3. Content on the Services", by Twitter
->   [@web_2016_twitter_terms-of-service])
+>   What’s yours is yours — you own your Content [@web_2016_twitter_terms-of-service, para. 3]. 
 
 >   Some of our Services allow you to upload, submit, store, send or receive content. You retain 
 >   ownership of any intellectual property rights that you hold in that content. In short, what 
->   belongs to you stays yours. (under "Your Content in our Services", by Google 
->   [@web_2016_google_terms-of-service])
+>   belongs to you stays yours. ([@web_2016_google_terms-of-service], under "Your Content in our 
+>   Services")
 
 >   Except for material we may license to you, Apple does not claim ownership of the materials 
->   and/or Content you submit or make available on the Service (under "H. Content Submitted 
->   or Made Available by You on the Service", by Apple [@web_2016_apple-icloud_terms-of-service])
+>   and/or Content you submit or make available on the Service [@web_2016_apple-icloud_terms-of-service, para. 5H]
 
 All those statements are essentially superceded by a subsequent statement within each *ToS*, stating 
 that the user grants the author a worldwide license to do almost any imaginable thing with her data. 
 In case of Apple for example, if the user is *"submitting or posting [...] Content on areas of the 
 Service that are accessible by the public or other users with whom [the user] consent to share [...] 
-Content"* [@web_2016_apple-icloud_terms-of-service].
+Content"* [@web_2016_apple-icloud_terms-of-service, para. H1].
 It is worth to be noted though, that every *ToS* only refers to the content created by the 
 *data subject* instead of all her personal data. As mentioned above, personal information are not 
 the subject of intellectual property, but still play an important role in data analytics. Which is 

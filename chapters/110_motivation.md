@@ -16,7 +16,8 @@ related to these individuals. In other words, searching for causation where in b
 might find correlations. This is also known as *discrimination*, which
 
 >   [...] refers to unfair or unequal treatment of people based on membership to a category or a
->   minority, without regard to individual merit. [@paper_2008_discrimination-aware-data-mining]
+>   minority, without regard to individual merit 
+>   [@paper_2008_discrimination-aware-data-mining, p. 1]. 
 
 When interacting directly with each other, discrimination of human beings is a serious issue 
 in our society, but also when humans leverage computers and algorithms to uncover formerly 
@@ -29,7 +30,7 @@ The described phenomenon is originally referred to as *Bias in computer systems*
 [@paper_1996_bias-in-computer-systems]. What at first seems like machines going rouge on 
 humans is, in fact, the *cognitive bias* [@wikipedia_2016_cognitive-bias] of human nature, modeled 
 into machine executable language and built to reveal the patterns their creators were looking for.
-The *"Inheritance of humanness"* [@web_2016_big-data-is-people], so to say.
+The *"Inheritance of humanness"* [@web_2016_big-data-is-people, sec. 2], so to say.
 
 In addition to the identity-defining data mentioned before, humans have the habit to create more and 
 more data on a daily basis, both pro-actively (e.g by writing a post) and passively (e.g by allowing 
