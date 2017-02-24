@@ -74,7 +74,7 @@ d)  administrate restricted access for *data contributors*
 ##### Code Execution Environment *(CEE)*
 provides isolated runtime (sandbox) for supervised code execution
   
-a)  invoke software provided by data consumers with required data points
+a)  invoke software provided by data consumers with required data items
 b)  restrict access to the host environment
 c)  provision runtimes
 d)  perform test runs and code review

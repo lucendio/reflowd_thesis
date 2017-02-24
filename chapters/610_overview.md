@@ -6,7 +6,7 @@ The overall purpose of this specification is to provide detailed instructions to
 that on the one side encourages an individual to manage and maintain all the data relating to her 
 in one place, and on the other side that enables third parties to access such data if they are 
 permitted by the individual to do so, preferably through supervised code execution instead of just 
-handing over the raw data points.
+handing over the raw data items.
 The result is a one-to-many relation between the data owner - the individual - and all those who 
 might require some data to for example proceed a purchase initiated by the operator or make a proper 
 decision on her medical treatment. 
@@ -73,7 +73,7 @@ can directly be accessed through the system; instead of gathering and acquiring 
 sorts of resources including filled out forms from applicants. The credit institute takes out the 
 part of the computation that is responsible for those calculations and hands it over to the system, 
 after it is permitted by the operator to do so. The system invokes that computation with the 
-required data points and afterwards it just sends the result back to the credit institute.
+required data items and afterwards it just sends the result back to the credit institute.
 
 
 ##### Browser History

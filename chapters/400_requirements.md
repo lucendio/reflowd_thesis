@@ -73,7 +73,7 @@ should be utilized to also embed semantics.
 __*[S.P.03]{#sp03}* - Schema and Structure__\
 The operator can create new data types (based on a schema) in order to extend the capabilities of
 the data API. Structures and schemas can change over time ([S.P.04](#sp04)). 
-Every dataset and data point has to relate to a corresponding type, whether it's a simple type 
+Every dataset and data item has to relate to a corresponding type, whether it's a simple type 
 (string, integer, boolean, etc.) or a structured composition based on a schema.
 
 __*[S.P.04]{#sp04}* - Write__\

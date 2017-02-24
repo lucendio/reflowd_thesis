@@ -24,7 +24,7 @@ it MUST authenticate by presenting its certificate signed by the system.*
     -   information about itself and reasons for registration attempt
     -   X.509 based Certificate Signing Request (CSR)
     -   callback URL via HTTPS as feedback channel
-    -   [OPTIONAL] information about what data points are wanted to be accessible 
+    -   [OPTIONAL] information about what data items are wanted to be accessible 
 
 2.  depending on (0), *third party* provides *data subject* with registration request either as 
     QR-Code or via HTTPS by given URL 
@@ -91,7 +91,7 @@ those permission(s).*
 
 *Preconditions:*
 +   third party must be registered as *data consumer* to the system
-+   *consumer* must know very precisely what data points he wishes to access 
++   *consumer* must know very precisely what data items he wishes to access 
 
 
 1.  *consumer* creates permission request and submits it to his dedicated *endpoint* provided by the
@@ -105,7 +105,7 @@ those permission(s).*
             template/draft, importing configurations from an existing profile, or filling out an 
             empty, or pre-filled with provided information, profile. 
             When saving the new profile, it gets associated to the requester's *endpoint*
-        3)  respond what data points are permitted to access, how often, and how long this 
+        3)  respond what data items are permitted to access, how often, and how long this 
             permission lasts
     
     +   *Refused*
@@ -134,15 +134,15 @@ those permission(s).*
 *Result(s):*
 +   *consumer* is aware of what data he is allowed to access
 +   *consumer* is able to access data
-+   *operator* holds documentation about who has access to which of her data points
++   *operator* holds documentation about who has access to which of her data items
 +   *operator* it able to regulate access permission for the *consumer* at any point in time
 
 
 
 ##### Access Request
 *After requesting permission to access data and getting these granted, a consumer actually access
-data points by either getting them forwarded or providing a program, that gets invoked
-with the data points as arguments. The result of that invocation is then send back to the 
+data items by either getting them forwarded or providing a program, that gets invoked
+with the data items as arguments. The result of that invocation is then send back to the 
 originating data consumer.*
 
 *Preconditions:*
@@ -169,7 +169,7 @@ originating data consumer.*
 3.  obtain data from *PDS*
 
 4.  [OPTIONAL and if reliable == `true`] verify and indicate data reliability
-    1)  check, if data point(s) in obtained data are in group of data points whose reliability can 
+    1)  check, if data item(s) in obtained data are in group of data items whose reliability can 
         be verified
         +   *yes*, proceed with configured method for checking reliability
             -   `null`
@@ -227,23 +227,23 @@ and data gets obtained from the PDS.*
 1.  gather all *permission profiles* relating to the given endpoint
 
 2.  find all profiles, that
-    a)  address at least one requested data point and
+    a)  address at least one requested data item and
     b)  have a valid *permission type* at that moment
 
 3.  check resulting subset and if ...
     +   it's empty
         1)  return with a negative result (`false`)
     
-    +   not all requested data points are addressed among those profiles
+    +   not all requested data items are addressed among those profiles
         1)  pause processing
-        2)  notify operator and ask for decision on whether access to unregulated data points is 
+        2)  notify operator and ask for decision on whether access to unregulated data items is 
             allowed or denied
-        3)  after missing data points got acknowledged by operator, go back to (2.)
+        3)  after missing data items got acknowledged by operator, go back to (2.)
     
-    +   all requested data points are addressed among those profiles and ... 
+    +   all requested data items are addressed among those profiles and ... 
         -   at least one is not allowed to access (counting also `refused` profiles)
             1)  return with a negative result (`false`) and [OPTIONAL] include information on 
-                which data points are affected
+                which data items are affected
             2)  inform operator about this incident
     
         -   all are allowed to access 

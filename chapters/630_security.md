@@ -191,7 +191,7 @@ by putting components into application containers. The latter is RECOMMENDED and
 When running programs on the server platform provided by consumers, it is REQUIRED to solely execute 
 them after putting them into an application container (see 
 [System Architecture](#system-architecture)). This implies to provision the container first and then 
-invoke it by providing the requested data points as arguments. The container MUST NOT be allowed to 
+invoke it by providing the requested data items as arguments. The container MUST NOT be allowed to 
 access the host's filesystem or network. Before running the container with the actual data, it MUST
 be executed several times with generated test data. If the program is provided as source code, it
 MUST be automatically inspected and reviewed. If one of those test layers result insufficiently, 

@@ -6,7 +6,7 @@ The core task of a *PDaaS* is providing data, *personal data*, which is the digi
 an individual, a person. One party creates the data, another one obtains and processes it. Thus, 
 both need to agree, or at least need to know, how that data looks like, how is it structured, and 
 what their semantics are. The following section is intended to discuss different technologies used 
-to create queries that obtain desired data points. Further on, it describes some basic data types 
+to create queries that obtain desired data items. Further on, it describes some basic data types 
 and schemas, that might be useful in the context of *personal data* and also for previously 
 introduced [scenarios](#scenarios).  
 
@@ -21,8 +21,8 @@ for example, a mobile app.
 
 Possible technologies are, for example, *[GraphQL](#def--graphql)* or the *[SPARQL](#def--sparql)*, 
 which is part of the *[Semantic Web Suite](#def--semantic-web)*. Both are query languages 
-underpinned by the concept of a graph. This means, relations between data points are embedded within 
-the data structure itself. That means, in terms of a graph, relations are *edges* and data points 
+underpinned by the concept of a graph. This means, relations between data items are embedded within 
+the data structure itself. That means, in terms of a graph, relations are *edges* and data items 
 are *nodes*. As a consequence, the structure of a query itself reappears in its result, which means 
 the originator of that query knows exactly what to expect for the response. Therefore it's not 
 necessary to provide any additional information about how to handle and interpret the response data. 
@@ -58,15 +58,15 @@ SPARQL already provides a reasonable amount of vocabulary [@web_w3c-tr_rdf-schem
 comparing the results of both languages, some distinctions appear. While in GraphQL the 
 characteristics of graph-structured data remain, SPARQL's output is missing a certain level of 
 depth. The reason for that originates in the design of the query language and its syntax. SPARQL is 
-able to notice implicit relations between data points, though its query language is not capable of 
+able to notice implicit relations between data items, though its query language is not capable of 
 grabbing and presenting them. Thus the result ([Code 02](#code-02_sparql-query-results)) only 
 consists of two dimensions.
 
 It is crucial for the *PDaaS* to provide the *data subject* with abilities to create her own data 
-types and schemas ([S.P.03](#sp03)). Thereby she is enabled to serve data points according to her 
+types and schemas ([S.P.03](#sp03)). Thereby she is enabled to serve data items according to her 
 own needs and terms. In order to interact with their customers or users, *data consumers* might as 
 well develop and provide schemas for their requests. This can help *data subjects* to speed up the 
-process of permission granting and to more easily understand what data points are affected. Data 
+process of permission granting and to more easily understand what data items are affected. Data 
 types and schemas are the key to validate incoming and outgoing data. If data violates the 
 underlying schema or no appropriate schema exists, the data transfer fails. 
 Other missing data types could be developed by a community, because not every *data subject* might 
@@ -160,7 +160,7 @@ The available *primitives* mainly depend on those who are supported by the query
 In this case, all *primitives* mentioned above are supported by *SPARQL* [@web_spec_xml_types] and 
 *GraphQL* [@web_spec_graphql_types]. When choosing a database system it has to be ensured that 
 either the system already supports the required *primitives* or they can be emulated somehow with 
-minimal drawbacks. When modelling relations between data points, one can use, for example, keys 
+minimal drawbacks. When modelling relations between data items, one can use, for example, keys 
 (or identifiers) to make references, or additional syntactical tools like *lists* (or arrays) and 
 maps (or objects). Those tools facilitate readability so that relations are almost intuitively 
 observable, hence they should be enforced. Whereas another known concept in data modelling, 
@@ -247,7 +247,7 @@ any case, both *PL* and *PDS*, have to be able to store files of any kind, which
 instance, to support the scenario of medical records. File size restriction should be mandatory 
 though, because the *PDaaS* has no intention to replace existing *file hosting* solutions. 
 
-Being able to undo changes to certain data points or to review the change-history of those data can 
+Being able to undo changes to certain data items or to review the change-history of those data can 
 be very useful; not only when those changes were persisted mistakenly. This behaviour might not be 
 necessary for all data, especially when it comes to application configuration or logs. Also, not 
 every *operator* might require these features. Because of this and because database systems with no 

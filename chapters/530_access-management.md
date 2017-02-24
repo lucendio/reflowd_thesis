@@ -100,7 +100,7 @@ The concept of authorizing a data consumer for the ability to access personal da
 trivial. During (or after) the *registration*, consumers have to provide detailed information about 
 their intentions so that the operator is confident about the required permissions when reviewing 
 them. The created *permission profile* reflects the result of that review. Such a permission profile 
-defines what data points are permitted to access, how often they can be accessed, how long those 
+defines what data items are permitted to access, how often they can be accessed, how long those 
 permissions last and when responded data expires. The latter is defined as *permission type* and is
 either one of the following:
 
@@ -119,11 +119,11 @@ profile* has been deleted
 profiles at any point in time.*
 
 Among other information, an access request contains the *data query* that shows very precisely what 
-data points are affected by that request. So if an *access request* arrives at the *PDaaS*, assuming 
+data items are affected by that request. So if an *access request* arrives at the *PDaaS*, assuming 
 the *data consumer* has been authenticated sufficiently, the system (0) searches for a permission 
-profile that corresponds to the *data consumer* and the requested data points. If it fails to find 
+profile that corresponds to the *data consumer* and the requested data items. If it fails to find 
 one, the access request is refused. But if it does, then it checks (1) if the permission type 
-suffices at that moment and (2) if the query only contains data points that are enabled in the 
+suffices at that moment and (2) if the query only contains data items that are enabled in the 
 profile as well. Here, the order matters because it is imaginable that the operation behind (1) is 
 less complex then operation (2). Running (1) before (2) can result in a faster response-time, if 
 operation (1) already results negative. If all operations have a positive result, access is granted.

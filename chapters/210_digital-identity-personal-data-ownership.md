@@ -13,7 +13,7 @@ characteristics. The individual to whom those data relates to, is the owner of t
 *Digital Identity*.
 From a technical standpoint, a *Digital Identity* is essentially a collection of characteristics, 
 attributes and time series data (e.g. interaction logs or bank transfer history). Based on a subset 
-of those attribute values, a unique fingerprint can be easily generated. Depending on the data point 
+of those attribute values, a unique fingerprint can be easily generated. Depending on the data item 
 and complexity of its value, such a fingerprint could require either a single, unique identifier on 
 its own (e.g. social security number) or only a few. Hence, it doesn't take a complete set of 
 attributes including all its values, but rather just a fraction of a *Digital Identity* in order to 
@@ -42,7 +42,7 @@ intellectual property (e.g. posts, images, videos or comments) ever created, and
 tracking data, interaction monitoring and metadata, that is used to manually or automatically enrich 
 content (e.g. geo-location attached to a tweet as meta information). Moreover, it refers to data 
 that is captured by someone or something from within the individual's private living space or 
-property. *Personal data* is basically understood as every data point reflecting the individual as 
+property. *Personal data* is basically understood as every data item reflecting the individual as 
 such and her personality - partially or as a whole.
 
 The european "Data Protection Regulations", on the other hand, defines 
@@ -73,7 +73,7 @@ definition of *Personal Data*:
 >   associated with or routinely used by an individual, including but not limited to [...]
 >   [@bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition, sec. 4a1].
 
-At the end a list of concrete data points follows. Examples include email or postal address, name, 
+At the end a list of concrete data items follows. Examples include email or postal address, name, 
 social security number and so on.
 
 Aside from government legislation, several third-party organisations in the U.S. are also allowed to 
@@ -94,12 +94,12 @@ Despite minor difference in details, the FCC has a serious idea of what is inclu
 debatable regarding limitation to certain topics, the "Communications Act" as a U.S. federal law 
 qualifies the FCC to regulate and legislate within its boundaries.
 
-Having a common understanding on what data points belong to a person is the foundation of defining 
+Having a common understanding on what data items belong to a person is the foundation of defining 
 a set rules on how to handle *Personal Data* appropriately. Hence, every business operating within 
 the EU is required [^eu-data-protection-regulation_informing-data-subject] to provide its users with 
 a *Privacy Policy*, while in the U.S. for example, as mentioned above, only infrequently and 
 depending on the class of data or context users, must inform its users about how their data get 
-processed and what data points are involved [@web_2016_privacy-policies-are-mandatory-by-law].
+processed and what data items are involved [@web_2016_privacy-policies-are-mandatory-by-law].
 A user typically agrees on a *Privacy Policy* by starting to interact with the author's business or
 platform. Thus every *Privacy Policy* is required to be publicly accessible. For instance, not in a 
 restricted area after logging in, but before creating an account. The following example is taken 

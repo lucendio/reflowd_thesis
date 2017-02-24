@@ -48,10 +48,10 @@ underlying commercial dependency somehow involves personal data
 [@book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining]
 [@web_2013_big-data-collection-collides-with-privacy-concerns], whether this data is mandatory in 
 that process or additionally obtained to,for example, measure and analyze customer behaviour. 
-Common data points involved in big data analytics start with gender, age, residency or income, goes 
+Common data items involved in big data analytics start with gender, age, residency or income, goes 
 on with time series events like changing current geo-location or web search history and continues 
 all the way up to health data and self-created content like posts, images, or videos.
-Depending on the data point though, those data might not be easy to collect. In general, most 
+Depending on the data item though, those data might not be easy to collect. In general, most 
 businesses obtain data from within their own platforms. Some data might even be in the customer's 
 range of control (e.g. customer or profile data), but most of the data is created during direct 
 (content creation, inputs) or indirect (transactions, meta information) interaction with the
@@ -79,7 +79,7 @@ designated place where they are finally stored and probably never removed, waiti
 some day.
 
 Within *Big Data Communities* sometimes the *big* is misinterpreted as, regardless of what the 
-problem is that needs to be solved, speculatively gathering as many data points as possible with
+problem is that needs to be solved, speculatively gathering as many data items as possible with
 the hope that, in the future, those data might become valuable. 
 This mindset is reflected by the oft-cited concept of the three *Vs* (Volume, Velocity, Variety) 
 [@report_2001_3d-data-management-controlling-data-volume-velocity-and-variety]. It is not entirely 

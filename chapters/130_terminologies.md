@@ -21,8 +21,8 @@ differently, for example with an enclosed license.
 
 [Profile Data]{#terminologies--profile-data}:
 
-: A collection of data points reflecting an individual's inherent information and other basic 
-predominantly static data points (no sets), which, in conjunction, uniquely relate to that 
+: A collection of data items reflecting an individual's inherent information and other basic 
+predominantly static data items (no sets), which, in conjunction, uniquely relate to that 
 individual.
 
 
@@ -70,7 +70,7 @@ those corpora to other organisations. [@report_2014_data-brokers]
 Permission Request:
 
 : A formalized attempt made by a third party to request permissions in order to access certain data 
-points on the *PDaaS*. The request has to include all the data points to which access is being 
+points on the *PDaaS*. The request has to include all the data items to which access is being 
 demanded, as well as sufficient information about the purpose. It requires the third party to 
 already being registered as *data consumer*.
 
@@ -78,7 +78,7 @@ already being registered as *data consumer*.
 Access Request:
 
 : An attempt to actually access data provided by a *PDaaS*. The request primarily consists of a 
-query, that defines what data points are tried to be accessed. The access is only permitted if
+query, that defines what data items are tried to be accessed. The access is only permitted if
 the query matches against the *permission profiles*.
 
 

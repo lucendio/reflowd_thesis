@@ -127,7 +127,7 @@ consumers. After she finds the entry for this clinic, she flips her phone to sho
 the corresponding QR-Code, which the receptionist scans immediately. However the receptionist was 
 not able to see any data on the screen, because the access has already expired. The data subject 
 only permitted access for the estimated time of recovery, which is already over. That's why she now 
-gets a notification asking to re-grant some access. While going through the data points the 
+gets a notification asking to re-grant some access. While going through the data items the 
 clinic-system has requested, she notices that her address is incorrect. Last month she moved into a 
 bigger apartment across the street. She must have forgotten to change that data. She immediately 
 corrects the address, right before saving the *permission profile* for the clinic-system. She also 
@@ -135,7 +135,7 @@ includes access to all the data originating from the time after her accident. A 
 receptionist confirms now being able to see all necessary data. 
 The data subject takes a seat in the waiting room. While passing time, she decides to take a deeper 
 look into her list of data consumers. Some of them she couldn't even remember and for others she was 
-surprised by which data points she had granted access to. She starts to restrict certain 
+surprised by which data items she had granted access to. She starts to restrict certain 
 permissions, as she desires. She even removes some of the entries entirely. The appointment with her 
 doctor went great. The doctor even had to review the x-ray images in order to make an adequate 
 differential diagnosis. 

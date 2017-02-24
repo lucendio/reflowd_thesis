@@ -127,7 +127,7 @@ probably one of the largest. It is based on the widely used IETF [^abbr_ietf] st
 __REST(ful)__ [^abbr_rest] is a common set of principles to design web resources and their 
 interaction. It primarily defines server-client communication in a more generic and therefore 
 interoperable way. Aside from hierarchically structured URLs, which can reflect semantic relations 
-or hierarchical order between data points, it involves a rudimentary vocabulary [^http_methods] for 
+or hierarchical order between data items, it involves a rudimentary vocabulary [^http_methods] for 
 HTTP requests to provide basic CRUD-operations [^abbr_crud] across distributed systems. The entire 
 request needs to contain everything that is required to be processed on the REST-server, e.g. state 
 information and possibly authentication parameters. 
@@ -140,7 +140,7 @@ The *QL* in __[GraphQL]{#def--graphql}__ [@web_spec_graphql] stands for *query l
 by Facebook Inc., its goal is to abstract multiple data sources into a unified API or resource, so 
 that different storage technologies are seamlessly queryable without using it's native *QL*. The 
 result is provided in JSON format, which naturally supports graph-like data structures. This is 
-utilized in GraphQL and implicitly embraced through its purpose of abstraction. Data points that
+utilized in GraphQL and implicitly embraced through its purpose of abstraction. Data items that
 might be somehow related but stored in different locations, can be obtained so that both end up in 
 the same object through which they are related or indirectly linked to each other. The shape of a 
 query is later mirrored by the result. GraphQL is not only an abstraction towards a more generic 
@@ -165,7 +165,7 @@ together embedded in an imprint of a website. This information can then be queri
 the unique identifier of that person *(URI)* is known. 
 While defining the standards, a main focus was to design a syntax that is at the same time valid 
 markup. The vision behind this: embracing the concept of a single source of truth (per entity) and 
-embedding or linking data points rather then creating new instances of the same data that might only
+embedding or linking data items rather then creating new instances of the same data that might only
 valid at that point in time - in short, preventing redundant work and outdated data.
 Related to the *Semantic Web* is the a project called __Solid__ [^abbr_solid]. Backed by the 
 *WebAccessControl* [@web_2016_wiki_webaccesscontrol] system and based on the *Linked Data* 

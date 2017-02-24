@@ -8,7 +8,7 @@ eventually offered in return. For example, more adequate recommendations and fit
 or more helpful therapies and more secure environments. 
 Gathering and processing data is essentially just mathematics and computer technologies. How those 
 tools are utilized and what purposed they serve is within the decision of their developers. 
-However, what data points are used and how they get processed should be determined by the data 
+However, what data items are used and how they get processed should be determined by the data 
 creators. Thereby allowing them an  influence on the results of these processes and thus on 
 decisions made upon them which impact their lives.
 

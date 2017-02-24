@@ -74,13 +74,13 @@ structures in such a way that reviewing and also manipulating them is easy, even
 of a mobile phone? One approach could be to utilize the *accordion* pattern 
 [@web_2016_wikipedia_accordion-gui] for edges and start nesting them in order to represent 
 subsequent data structure. The interaction then might look like tree-structured navigation; moving
-alongside relations just by expanding and folding in data points. 
+alongside relations just by expanding and folding in data items. 
 
 Since other parts of the system have to provide the mechanisms for increasing or reducing the 
 precision of data due to privacy protection, the challenge here is to find the right design concepts 
 for the data subject to facilitate those adjustments. 
 Precision adjustments can be achieved by either changing the sampling rate in a dataset containing a 
-series of data points, or by rounding values to a certain extent. Examples are cutting fractional 
+series of data items, or by rounding values to a certain extent. Examples are cutting fractional 
 digits of the latitude and longitude values in a position, or removing all position information 
 obtained between every quarter from a full day tracking period. Whether data subjects can choose 
 from an abstracted precision grading (e.g. *high*, *mid*, and *low*) or they set specific type or 

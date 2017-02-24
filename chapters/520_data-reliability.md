@@ -28,7 +28,7 @@ provided level of reliability. It involves the party, that also runs the first s
 result of that audit. The result of that evaluation then gets included in the response.
 
 The following proposed methods vary in the provided level of reliability as well as in the amount of 
-effort to support them and in the possible impact to their surrounding systems. Not all data points 
+effort to support them and in the possible impact to their surrounding systems. Not all data items 
 are necessary to test for reliability. Profile data for example are more likely to be tested, 
 whereas consumption lists or location histories are more difficult to verify, because currently 
 there is no reliable way to verify the origin of those datasets, and they are also not a primary 
@@ -43,7 +43,7 @@ response.
 An electronic ID card can serve as an authentication token for the *operator*, but it can also be 
 utilized to verify the reliability of certain data. Using the german implementation *(nPA)* as an 
 example, the *eID* feature would provide access to the owner's basic profile data, which can then
-be used to match against those data points that are both, held by that *nPA* and going to be used 
+be used to match against those data items that are both, held by that *nPA* and going to be used 
 to create the response originating in the *PDaaS* persistence layer. If the result of that matching 
 procedure is positive, the related data then gets signed with a *QES* courtesy of the 
 *data subject's* *nPA*. That signature also gets included in the response, so that the recipient can 
@@ -68,7 +68,7 @@ certificate is then served as part of a response, which enabled the *data consum
 data's reliability on its own. This is done by hashing the data in question, decrypting the hash 
 embedded in the certificate and matching one against the other. If they are equal, the data has not 
 changed since the party's review and is therefore reliable. 
-Although if data has changed in the *PDaaS* and data points  that are also included in this 
+Although if data has changed in the *PDaaS* and data items that are also included in this 
 verification process are affected, then a new certificate needs to be issued, because the contained 
 hash is now invalid.
 

@@ -72,7 +72,7 @@ mobile device.
 +   `cb: String`                    -   callback URL (REQUIRES https)
 +   `cert: String`                  -   [OPTIONAL] certificate for callback URL, if not publicly 
                                         trusted
-+   `desires: [String] || String`   -   [OPTIONAL] list of data point selectors or query string (see 
++   `desires: [String] || String`   -   [OPTIONAL] list of data item selectors or query string (see 
                                         [Registration Request](#spec_api_permission-request))
 
 *Request:* `https://system.tld/register/$uniqueRndValue`
@@ -98,7 +98,7 @@ mobile device.
 +   `interval: Object`
     -   `value: Number`     -   time value
     -   `unit: String`      -   unit of time value
-+   `grants: [String]`      -   list of data points allowed to be accessed
++   `grants: [String]`      -   list of data items allowed to be accessed
 
 ``` {.json .numberLines}
 {
@@ -130,7 +130,7 @@ strings (`[String]`), then the response MUST show a similar structure; the same 
 query in a string-representation (`String`).*
    
 *Parameter(s):*
-+   `desires: [String] || String`    -  list of data point selectors or query string, representing 
++   `desires: [String] || String`    -  list of data items selectors or query string, representing 
                                         what data is requested to get access to
    
 *Request:* `https://$endpointId.system.tld/pr`
@@ -144,7 +144,7 @@ query in a string-representation (`String`).*
 *Response:* 
 
 +   `type: String`          -   permission type (see [Permission Profile](#permission-profile))
-+   `grants: String`        -   data query representing the data points allowed to be accessed
++   `grants: String`        -   data query representing the data items allowed to be accessed
 
 ``` {.json .numberLines}
 {
