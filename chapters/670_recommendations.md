@@ -3,7 +3,8 @@
 
 
 This section provides additional information on hosting and operating such a system, as well as 
-further resources that MAY be worth knowing. Moreover, it contains advice to consider when implementing (parts of) this specification.
+further resources that MAY be worth knowing. Moreover, it contains advice to consider when 
+implementing (parts of) this specification.
 
 
 
@@ -28,8 +29,8 @@ further resources that MAY be worth knowing. Moreover, it contains advice to con
 #### Recommendations To Third Parties {-}
 
 +   If data consumers are accessing data from more than one system instance, representing different 
-    individuals, it MAY be wise to use different key-pairs and certificates for all
-    instances, and probably even unique endpoints.
+    individuals, it MAY be wise to use different key-pairs and certificates for all instances, and 
+    probably even unique endpoints.
     
 +   Data consumers SHOULD also provide a full-featured *endpoint* based on a subdomain, thereby a 
     bidirectional communication flow can be established, instead of the workaround based on callback 
