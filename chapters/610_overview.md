@@ -2,23 +2,23 @@
 
 
 
-The overall purpose of this specification is to provide detailed instructions for building a web service
-that, on the one hand, encourages an individual to manage and maintain all the data relating to her 
-in one place, and on the other hand, enables third parties to access such data if they are 
+The overall purpose of this specification is to provide detailed instructions for building a web 
+service that, on the one hand, encourages an individual to manage and maintain all the data relating 
+to her in one place, and on the other hand, enables third parties to access such data if they are 
 permitted by the individual to do so, preferably through supervised code execution instead of just 
 handing over the raw data items.
 The result is a one-to-many relation between the data owner - the individual - and all those who 
-might require some data to, for example, process a purchase initiated by the operator or make a proper 
-decision on her medical treatment. 
+might require some data to, for example, process a purchase initiated by the operator or make a 
+proper decision on her medical treatment. 
 
-The system architecture is designed with flexibility and portability in mind while still 
-preserving simplicity and security. The result supports running some components on different 
-platforms in a distributed way. Therefore the operator is able to operate the system while being on 
-the move and can literally carry all her personal data along.
+The system architecture is designed with flexibility and portability in mind while still preserving 
+simplicity and security. The result supports running some components on different platforms in a 
+distributed way. Therefore the operator is able to operate the system while being on the move and 
+can literally carry all her personal data along.
 
 The design of this specification tries to leverage as many existing standards and open technologies 
-as possible for every aspect and component. By recognizing common practices, 
-its implementation and integration can be made as effortless as possible. 
+as possible for every aspect and component. By recognizing common practices, its implementation and 
+integration can be made as effortless as possible. 
 
 
 
@@ -51,7 +51,8 @@ __Perspective: *Consumers*__
 In order to proceed with checkout, a shop requires some personal data from the user, such as 
 shipping address, email, and payment information. Either the shop is already a data consumer, then
 it would access the system in the background to check if any data has changed, or the shop has to 
-register as a consumer first. After the registration process has been initiated, if needed, the user is forwarded to complete the checkout. 
+register as a consumer first. After the registration process has been initiated, if needed, the user 
+is forwarded to complete the checkout. 
 After reviewing the registration and the data that are attempted to be accessed, the user is 
 informed via email that the order has been processed and the shipment has started.
 
@@ -96,8 +97,8 @@ to access those movement data, but at a resolution the data subject is comfortab
 The architecture design (see Fig. @fig:spec_arch_simplifier) defines three different platforms 
 where components of the system could run. While *desktop* and *mobile* platforms are 
 primarily meant to serve as the front end of the system and to present the operator with GUIs, the 
-*mobile* platform in particular might host the *Personal Data Storage*. The storage of the personal 
-data can be located on every platform. This is enabled by abstracting the storage through the 
+*mobile* platform in particular might host the *Personal Data Storage*. However, that data storage 
+can be located on any platform. This is enabled by abstracting the storage through the 
 *Storage Connector* on the *server* platform.
 
 That *server* platform also provides an external API for accessing personal data. Incoming requests 
