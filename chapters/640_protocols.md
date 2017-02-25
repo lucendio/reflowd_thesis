@@ -110,8 +110,8 @@ those permission(s).*
     
     +   *Refused*
         1)  applying the provided information as is, the system creates and stores a permission 
-            profile after everything, which is still associated with the requester's *endpoint* but flagged as 
-            `refused`
+            profile after everything, which is still associated with the requester's *endpoint* 
+            but flagged as `refused`
         2)  respond [OPTIONAL] with reason
         
     +   *Failure*
