@@ -5,9 +5,9 @@
 ### Graphical User Interfaces (GUIs)
 
 The primary GUI of the system is the operator's *Management Tool*, which is used to administrate
-the system, to control and manage data access and to maintain personal data. The tool MAY be 
-available on mobile platforms, but at least it MUST be provided for *desktop* platforms. The 
-following lists show briefly, which features the tool provides to the operator. 
+the system, to control and manage data access, and to maintain personal data. The tool MAY be 
+available on mobile platforms, but MUST at least be provided for *desktop* platforms. The following 
+lists show briefly, which features the tool provides to the operator. 
 
 
 #### Functionality, that MUST be provided:
@@ -50,20 +50,20 @@ following lists show briefly, which features the tool provides to the operator.
 
 The lists of GUI features implicitly define what the *Operator API* must be capable of, whereas 
 interactions originated by third parties and data consumers are described below. These descriptions
-show the behavior of all major API endpoints, that are required to access personal data, hosted by
-the system. 
+show the behavior of all major API endpoints that are required to access personal data, which is 
+hosted by the system. 
 The payload MUST be transmitted with HTTP requests, secured by TLS, declared as *POST* method, 
-unless otherwise outlined. It MUST be serialized in JSON and constitutes the complete request body. 
-In order to send data originating from certain formats (e.g. PEM-formatted file content or binary 
-streams) as string values being part of a URLs or JSON, *bas64url* MUST be used to encode such data. 
-Furthermore, it is to be noted, that request are asynchronous and MAY take several hours up to a few 
-days to get answered.
+unless otherwise outlined. It MUST be serialized in JSON and constitute the complete request body. 
+When sending data originating from certain formats (e.g. PEM-formatted file content or binary 
+streams) as string values that are a part of a URL or JSON, *bas64url* MUST be used for encoding. 
+Furthermore, it is to be noted, that requests are asynchronous and MAY take several hours up to a 
+few days to be answered.
 
 
 ##### Registration Request {#spec_api_registration-request}
-MUST be handed over to the system in order to get acknowledged as a *data consumer*. It can either 
+MUST be handed over to the system in order to be acknowledged as a *data consumer*. It can either 
 be submitted via HTTP to the system, if the operator has provided a URL, or encoded as a QR-Code 
-presented on web page, served via HTTPS by the requester, ready to get scanned with the operator's 
+presented on web page, served via HTTPS by the requester, ready to be scanned with the operator's 
 mobile device. 
 
 
@@ -122,12 +122,12 @@ mobile device.
 
 ##### Permission Request {#spec_api_permission-request}
 MUST create a new *permission profile* and thus MAY enable the data consumer to access personal 
-data. In return, the consumer is provided with all information that are required to request data 
+data. In return, the consumer is provided with all information that is required to request data 
 access based on the permissions requested herewith.
 
-*NOTICE: If the representation of the data, that is requested for access, is defined as a list of 
+*NOTICE: If the representation of the data to which access is requested is defined as a list of 
 strings (`[String]`), then the response MUST show a similar structure; the same applies to the data 
-query in a string-representation (`String`).*
+query for string-representations (`String`).*
    
 *Parameter(s):*
 +   `desires: [String] || String`    -  list of data items selectors or query string, representing 
@@ -157,7 +157,7 @@ query in a string-representation (`String`).*
 
 ##### Access Request {#spec_api_access-request}
 leads to the actual data access, if the *[Access Verification](#access-verification)* does not 
-refuse to let through.
+reject access.
 
 *Parameter(s):*
 +   `query: String`             -   data query representing the data that is requested to be 
@@ -198,7 +198,7 @@ refuse to let through.
 *Request:* `https://$endpointId.system.tld/ar/$procedureId`
 *Response:*
 
-+   `expiresAt: Number`         -   date when data becomes outdated
++   `expiresAt: Number`         -   date when data become outdated
 +   `proof: String`             -   [OPTIONAL] certificate that indicates verified data reliability
 +   `data: Object || String`    -   if valid JSON, then Object, otherwise base64url-encoded string 
 
