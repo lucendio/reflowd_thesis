@@ -5,13 +5,13 @@
 ##### Web server 
 an interface to (or proxy for) server components
 
-a)  process incoming traffic originating by operator, consumer and third parties
+a)  process incoming traffic originating by operator, consumer, and third parties
 b)  all other server components are reachable only through this component
 c)  serve web-based front ends
 d)  perform all TLS-based authentications
-e)  do load balancing, if necessary
+e)  perform load balancing, if necessary
 f)  pass through notification for web-based Management Tools that are connected via Web Sockets
-g)  rule-based traffic management leveraging network characteristics and alike  
+g)  rule-based traffic management leveraging network characteristics and similar  
 
 
 ##### Permission Manager *(PM)*
@@ -19,7 +19,7 @@ processes incoming requests from third parties or consumers
 
 a)  parse requests and proceed accordingly
 b)  examine and check queries that are aiming to access personal data
-c)  queue requests, if further processing is blocked 
+c)  queue requests if further processing is blocked 
 d)  notify operator about new registration attempts
 e)  create and manage permission profiles
 f)  read personal data through *Storage Connector*
@@ -64,7 +64,7 @@ provides all functionalities an operator must be capable of
 
 a)  perform all JWT-based authentications
 b)  read and write personal data through *Storage Connector*
-c)  configure, maintain and monitor system
+c)  configure, maintain, and monitor system
 d)  provide access history
 d)  manage data structs
 e)  can control *Permission Manager*
@@ -79,7 +79,7 @@ b)  restrict access to the host environment
 c)  provision runtimes
 d)  perform test runs and code review
 e)  monitor runtime during invocation
-f)  hand over results back to *Permission Manager*
+f)  hand results back to *Permission Manager*
 g)  archive software in *Persistence Layer*
 
 
@@ -93,7 +93,7 @@ d)  pattern recognition and anomaly detection
 
 
 ##### Persistence Layer *(PL)*
-combines multiple technologies to represent and hold the current systems state  
+combines multiple technologies to represent and hold the current system state  
 
 a)  store:
     +   system related data
