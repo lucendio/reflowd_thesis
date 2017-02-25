@@ -6,8 +6,8 @@
 
 The primary GUI of the system is the operator's *Management Tool*, which is used to administrate
 the system, to control and manage data access, and to maintain personal data. The tool MAY be 
-available on mobile platforms, but MUST at least be provided for *desktop* platforms. The 
-following lists show briefly, which features the tool provides to the operator. 
+available on mobile platforms, but MUST at least be provided for *desktop* platforms. The following 
+lists show briefly, which features the tool provides to the operator. 
 
 
 #### Functionality, that MUST be provided:
@@ -50,14 +50,14 @@ following lists show briefly, which features the tool provides to the operator.
 
 The lists of GUI features implicitly define what the *Operator API* must be capable of, whereas 
 interactions originated by third parties and data consumers are described below. These descriptions
-show the behavior of all major API endpoints that are required to access personal data, whihc is hosted by
-the system. 
+show the behavior of all major API endpoints that are required to access personal data, which is 
+hosted by the system. 
 The payload MUST be transmitted with HTTP requests, secured by TLS, declared as *POST* method, 
 unless otherwise outlined. It MUST be serialized in JSON and constitute the complete request body. 
 When sending data originating from certain formats (e.g. PEM-formatted file content or binary 
 streams) as string values that are a part of a URL or JSON, *bas64url* MUST be used for encoding. 
-Furthermore, it is to be noted, that requests are asynchronous and MAY take several hours up to a few 
-days to be answered.
+Furthermore, it is to be noted, that requests are asynchronous and MAY take several hours up to a 
+few days to be answered.
 
 
 ##### Registration Request {#spec_api_registration-request}
