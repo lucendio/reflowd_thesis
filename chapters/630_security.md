@@ -26,9 +26,10 @@ of `4096` bits.
 For web-based GUIs *TLS session resumption* SHOULD be activated, but for *endpoints* it MUST be 
 deactivated. Web-based GUIs MUST NOT depend on external resources. All involved assets MUST be 
 stored in the system and thus get served by the *web server*. This required behaviour is enforced by 
-setting the *Content Security Policy (CSP)* in HTTP headers. The *web server* MUST facilitate a web 
-socket connection for web-based GUIs. If a browser does not support this natively, a fallback SHALL 
-be provided by the GUI. Furthermore, those GUIs SHOULD be served with HTTP/2.
+setting the *Content Security Policy (CSP)* in HTTP headers, which also eliminates the risk of 
+Cross-site scripting (XSS) attacks. The *web server* MUST facilitate a web socket connection for 
+web-based GUIs. If a browser does not support this natively, a fallback SHALL be provided by the 
+GUI. Furthermore, those GUIs SHOULD be served with HTTP/2.
 
 The subsequent examples show two Nginx configurations for the *web server* component, implementing 
 the specifications from above.

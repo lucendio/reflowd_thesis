@@ -2,22 +2,22 @@
 
 
 
-The overall purpose of this specification is to provide detailed instructions to build a web service
-that on the one side encourages an individual to manage and maintain all the data relating to her 
-in one place, and on the other side that enables third parties to access such data if they are 
+The overall purpose of this specification is to provide detailed instructions for building a web service
+that, on the one hand, encourages an individual to manage and maintain all the data relating to her 
+in one place, and on the other hand, enables third parties to access such data if they are 
 permitted by the individual to do so, preferably through supervised code execution instead of just 
 handing over the raw data items.
 The result is a one-to-many relation between the data owner - the individual - and all those who 
-might require some data to for example proceed a purchase initiated by the operator or make a proper 
+might require some data to, for example, process a purchase initiated by the operator or make a proper 
 decision on her medical treatment. 
 
-The system architecture is designed while keeping flexibility and portability in mind but still 
-preserving simplicity and security. The result supports to run some components on different 
+The system architecture is designed with flexibility and portability in mind while still 
+preserving simplicity and security. The result supports running some components on different 
 platforms in a distributed way. Therefore the operator is able to operate the system while being on 
-the move, and can literally carry all her personal data along.
+the move and can literally carry all her personal data along.
 
-The design of this specification tries to leverage as much existing standards and open technologies 
-as possible for all the different aspects and components. So that by recognizing common practices 
+The design of this specification tries to leverage as many existing standards and open technologies 
+as possible for every aspect and component. By recognizing common practices, 
 its implementation and integration can be made as effortless as possible. 
 
 
@@ -30,7 +30,7 @@ __Perspective: *Operator*__
 +   maintain all personal data in one place
 +   real-time information and notification
 +   taking her personal data with her
-+   collect and analyse her own personal data
++   collect and analyze her own personal data
 +   trust through open development and open source
 +   commercialize data access on her own
 
@@ -39,7 +39,7 @@ __Perspective: *Consumers*__
 
 +   reliable single source of latest data about an individual
 +   access only those data that are actually required and thus reduce 'noise'
-+   access data that never were been collectible before
++   access data that have never been collectible before
 +   distributed computing
 
 
@@ -48,69 +48,68 @@ __Perspective: *Consumers*__
 
 ##### Online Purchase
 
-In order to proceed with the checkout, the shop requires some personal from the user, such as 
-shipping address, email and payment information. Either the shop is already a data consumer, then
+In order to proceed with checkout, a shop requires some personal data from the user, such as 
+shipping address, email, and payment information. Either the shop is already a data consumer, then
 it would access the system in the background to check if any data has changed, or the shop has to 
-register as a consumer first. After the registration process has been initiated, and if not already 
-has happened the user is then forwarded to complete the checkout. 
-After reviewing the registration and the data that are attempted to get accessed, the use is 
-informed via email that the order has been proceeded and the shipment has started.
+register as a consumer first. After the registration process has been initiated, if needed, the user is forwarded to complete the checkout. 
+After reviewing the registration and the data that are attempted to be accessed, the user is 
+informed via email that the order has been processed and the shipment has started.
 
 
 ##### Social Network
 
 Instead of storing personal data by itself, a social network, after registering and being permitted
-to, can request and display data about a user, whenever other users try to access them. 
-Created content such as posts, comments, images or videos can be stored in the system as well. The 
-social network then just holds references to all the content, so that it can obtain and forward 
-information on how to request those data, for example with a one-time url.
+to, can request and display data about a user whenever other users try to access them. 
+Created content such as posts, comments, images, or videos can be stored in the system as well. The 
+social network then just holds references to all the content so that it can obtain and forward 
+information on how to request those data, for example, with a one-time url.
 
 
 ##### Apply for a Loan
 
 The data that credit institutes take into account when deciding on creditworthiness of an individual
-can directly be accessed through the system; instead of gathering and acquiring them from all 
-sorts of resources including filled out forms from applicants. The credit institute takes out the 
-part of the computation that is responsible for those calculations and hands it over to the system, 
+can be directly accessed through the system; instead of gathering and acquiring them from all 
+sorts of resources, including filled out forms from applicants. The credit institute takes out the 
+part of the computation that is responsible for those calculations and hands it over to the system 
 after it is permitted by the operator to do so. The system invokes that computation with the 
-required data items and afterwards it just sends the result back to the credit institute.
+required data items and sends the result back to the credit institute.
 
 
 ##### Browser History
 
-A browser plugin, which is connected to the service, keeps track over every called URL. Those data, 
-collected by the operator, could not only be reviewed and analyzed by herself, but also be made 
+A browser plugin, which is connected to the service, keeps track of every called URL. Those data, 
+collected by the operator, can not only be reviewed and analyzed by herself, but also be made 
 available to data consumers.
 
 
 ##### Movement Profile
 
 Instead of letting third party apps keep track of an individual's daily movements (e.g. fitness 
-app), an app that is associated with the system, obtains and pushed those location data directly 
+app), an app that is associated with the system, obtains and pushes those location data directly 
 into it. If a third party is now interested in those data, it can apply and eventually get permitted 
-to access those movement data, but with configured resolution the data subject is comfortable with.
+to access those movement data, but at a resolution the data subject is comfortable with.
 
 
 
 ### Architectural Overview
 
 The architecture design (see Fig. @fig:spec_arch_simplifier) defines three different platforms 
-whereon components of the system might be running. While *desktop* and *mobile* platforms are 
+where components of the system could run. While *desktop* and *mobile* platforms are 
 primarily meant to serve as the front end of the system and to present the operator with GUIs, the 
-*mobile* platform especially might host the *Personal Data Storage*. The storage of the personal 
+*mobile* platform in particular might host the *Personal Data Storage*. The storage of the personal 
 data can be located on every platform. This is enabled by abstracting the storage through the 
 *Storage Connector* on the *server* platform.
 
 That *server* platform also provides an external API for accessing personal data. Incoming requests 
-from third parties and consumers get then processed by the *Permission Manager*, which i.a. decides
-if and how data can be accessed. For every consumer it is a dedicated exposed endpoint provided, 
+from third parties and consumers are then processed by the *Permission Manager*, which i.a. decides
+if and how data can be accessed. For every consumer a dedicated exposed endpoint is provided 
 that consists of a subdomain (e.g. `CONSUMER_ID.system.tld`). Other components are i.a. a 
 *Code Execution Environment*, a *PKI* that provides and issues certificates and key-pairs to 
-facilitate authenticating at the endpoints. The *Persistence Layer* is represented by potentially 
+facilitate authentication at the endpoints. The *Persistence Layer* is represented by potentially 
 multiple technologies, such as databases or filesystem. A *Notification Infrastructure* streamlines 
 the different ways and technologies to notify the operator about certain events (e.g. system 
-receives new registration). Probably one of the most important component is the *Operator API*, 
-through which the operator i.a. is able to configure the system or manage permissions, and the API 
+receives new registration). Probably one of the most important components is the *Operator API*, 
+through which the operator i.a. is able to configure the system or manage permissions and the API 
 is granted read/write permissions at the *Storage Connector*.
 
 ![System Architecture, simplified](./assets/figures/spec_arch_simplifierd.png){#fig:spec_arch_simplifier width=12cm}
@@ -124,14 +123,14 @@ is granted read/write permissions at the *Storage Connector*.
 
 1.  Third party has to register at the system to become a data consumer, therefore it has to provide 
     certain information to the operator either via QR-Code, which the operator can scans, or by 
-    submitting those information to a unique URL that is upfront generated and provided by the 
+    submitting those information to a unique URL that is generated upfront and provided by the 
     operator to the third party.
     
 2.  Operator reviews the registration. On a positive outcome a new endpoint gets defined and, 
     depending on the content of the registration request, a permission profile is optionally 
     created and configured by the operator. If the outcome instead is negative, an error message is 
-    prepared. In any case, afterwards the third party is informed about the outcome via callback 
-    URL, and optionally provided with additional information that are required for further 
+    prepared. In any case, the third party is then informed about the outcome via callback 
+    URL and optionally provided with additional information that is required for further 
     interactions.
     
 3.  After the consumer has set up a client according to the documentation and the information he has
