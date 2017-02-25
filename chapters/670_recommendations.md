@@ -3,8 +3,8 @@
 
 
 This section provides additional information on hosting and operating such a system, as well as 
-further resources that MAY be worth knowing. Moreover, it contains advices that are recommended to 
-consider when implementing (parts of) this specification.
+further resources that MAY be worth knowing. Moreover, it contains advice to consider when 
+implementing (parts of) this specification.
 
 
 
@@ -17,7 +17,7 @@ consider when implementing (parts of) this specification.
 +   Unless server components are running in containers, it is not recommended to run other 
     applications in the same environment side by side.
 
-+   A vendor, who hosts for multiple data subjects, one system instances each, SHOULD NOT locate all 
++   A vendor, who hosts for multiple data subjects, one system instance each, SHOULD NOT locate all 
     of them in one environment, but rather deploy another operating system virtualization for every 
     instance, or separate them physically on different machines.
     
@@ -28,9 +28,9 @@ consider when implementing (parts of) this specification.
 
 #### Recommendations To Third Parties {-}
 
-+   If data consumers accessing data from more than one system instances representing different 
-    individuals, it MAY be considerable to use different key-pairs and certificates for all the
-    instances, and probably even unique endpoints.
++   If data consumers are accessing data from more than one system instance, representing different 
+    individuals, it MAY be wise to use different key-pairs and certificates for all instances, and 
+    probably even unique endpoints.
     
 +   Data consumers SHOULD also provide a full-featured *endpoint* based on a subdomain, thereby a 
     bidirectional communication flow can be established, instead of the workaround based on callback 
