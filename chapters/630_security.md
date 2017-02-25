@@ -2,9 +2,9 @@
 
 
 
-The following aspects are required measures in order to improve and ensure the overall sufficient 
-security level of the system. Configurations mentioned below MAY change prospectively due to issues 
-or vulnerabilities emerging in the future. 
+The following measures are required in order to improve upon and ensure a sufficient level of 
+security. Configurations mentioned below MAY change due to issues or vulnerabilities emerging in the 
+future. 
 
 
 
@@ -19,7 +19,7 @@ other ports SHOULD be dropped or blocked.
 The key-pair, used in TLS to agree on a mutual symmetric key, MUST be based on either the *RSA* or 
 *DSA* cipher suite, although *RSA* SHOULD be preferred. All created keys MUST have a length of at 
 least `4096` bits. Those ciphers for TLS, that support *Perfect Forward Secrecy* SHOULD be 
-preferred, but ciphers that are not supported by `TLSv1.2` MUST be avoided. All endpoint and other 
+preferred, but ciphers that are not supported by `TLSv1.2` MUST be avoided. All endpoints and other 
 dedicated entry points MUST provide their own generated Diffie-Hellman groups with a minimal length 
 of `4096` bits.
 
@@ -27,7 +27,7 @@ For web-based GUIs *TLS session resumption* SHOULD be activated, but for *endpoi
 deactivated. Web-based GUIs MUST NOT depend on external resources. All involved assets MUST be 
 stored in the system and thus get served by the *web server*. This required behaviour is enforced by 
 setting the *Content Security Policy (CSP)* in HTTP headers, which also eliminates the risk of 
-Cross-site scripting (XSS) attacks. The *web server* MUST facilitate a web socket connection for 
+Cross-site scripting (XSS) attacks. The *web server* MUST facilitate a web socket connection for
 web-based GUIs. If a browser does not support this natively, a fallback SHALL be provided by the 
 GUI. Furthermore, those GUIs SHOULD be served with HTTP/2.
 
@@ -117,20 +117,20 @@ implemented either by email or with a mobile platform, if it is part of the syst
 #### Transport Layer Security
 
 Before the first consumer tries to register on the system, the system MUST generate a key-pair and 
-sign it by itself. With the resulting certificate the system becomes a private Certificate Authority
-primarily responsible for signing certificates that are required for every endpoint, and maybe even 
-for connections between mobile and server platforms.
+sign it by itself. With the resulting certificate, the system becomes a private Certificate 
+Authority primarily responsible for signing certificates that are required for every endpoint and 
+maybe even for connections between mobile and server platforms.
 The key-pair for a specific endpoint is then used to issue a certificate based on the 
-*Certificate Signing Request (CSR)*, supplied by the consumer, who is associated to that very 
+*Certificate Signing Request (CSR)* supplied by the consumer who is associated to that very 
 endpoint. The certified certificate and the endpoint's certificate MUST then be transferred back to 
 the consumer on a secure channel, which the consumer is responsible to provide (e.g. HTTP over TLS 
 certified by trusted public CA, or by a self-signed certificate provided with the registration). 
 
 In order to use TLS for bidirectional authentication, not only the client (consumer) MUST be able to 
-verify the server's (endpoint) certificate, also the server MUST do the same for the consumer. This 
-procedure is known as *two-way authentication*, which is part of the TLS connection establishing.
-If the connection failed to establish, the authentications has failed, and vice versa has the 
-consumer successfully authenticated to the system.
+verify the server's (endpoint) certificate, but also the server MUST do the same for the consumer. 
+This procedure is known as *two-way authentication*, which is part of the TLS connection 
+establishment. If the connection failed to establish, the authentication has failed. If the 
+connection is successfully established, the consumer is successfully authenticated to the system.
 
 
 #### JSON Web Token (JWT)
@@ -143,7 +143,7 @@ the token is not encrypted, every token MUST associate its own secret key for th
 When authenticating, the JWT MUST be provided either as HTTP header (`Authorization: Bearer $JWT`)
 or as a query parameter indicated by the key `t`. If the operator fails to connect to the system 
 before the token's expiration date has been exceeded, the operator is REQUIRED to login again. The 
-token MUST be renewed, but at least after half of the validity period is reached. The period, in 
+token MUST be renewed, but after at least half of the validity period is reached. The period, in 
 which the token is valid, SHOULD be 24 hours but MUST NOT exceed 48 hours.
 
 The following claims are REQUIRED:
@@ -166,59 +166,59 @@ One of the following algorithms is REQUIRED (for the `"alg"` header):
 
 ### System Architecture
 
-The centralized version of the system architecture places every component into the server platform. 
-Even the web-based management tool, which later is fetched onto front end platforms, initially is 
-stored there. This means, all the operator's personal data is located somewhere in the 'cloud', 
+The centralized version of the system architecture places every component on the server platform. 
+Even the web-based management tool, which later is sent to front end platforms, is initially stored 
+there. This means that all the operator's personal data is located somewhere in the 'cloud', 
 probably out of reach, and potentially vulnerable to unauthorized access. Whereas the distributed 
-approach allows for example to re-locate the *Personal Data Store* component to a mobile platform,
-which as well might be used by the operator to manage the system. The general approach of a more 
-distributed deployment of components SHOULD reduces the vulnerability for certain scenarios and 
+approach allows, for example, the relocation of the *Personal Data Store* component to a mobile 
+platform, which could also be used by the operator to manage the system. The general approach of a 
+more distributed deployment of components SHOULD reduce the vulnerability for certain scenarios and 
 makes it harder for entities to compromise (parts of) the system. 
-As long as all requirements are met and every component is completely functional and thus the system 
-as a whole, any component MAY be located on whatever platform is sufficient.
+As long as all requirements are met and every component is completely functional, and thus the 
+system as a whole, any component MAY be located on whatever platform is sufficient.
 
-A second approach to gain not only portability, but also to increase the overall level of 
-security is to isolate components [and their process(es)] from the surrounding platform environment. 
-This enables explicit and controlled allocation of resources, such as memory, CPU usage or network
-and filesystem access. This concept MUST be implemented by either using the process isolation 
-features provided by the host environment, namely *cgroups*, *namespaces* and *systemd-nspawn*, or 
-by putting components into application containers. The latter is RECOMMENDED and MUST respect all 
+A second approach to gain not only portability, but also to increase the overall level of security 
+is to isolate components [and their process(es)] from the surrounding platform environment. This 
+enables explicit and controlled allocation of resources, such as memory, CPU usage or network and 
+filesystem access. This concept MUST be implemented by either using the process isolation features 
+provided by the host environment, namely *cgroups*, *namespaces*, and *systemd-nspawn*, or by 
+putting components into application containers. The latter is RECOMMENDED and MUST respect all 
 *Open Container* Specifications. An orchestration software MAY be useful to manage all containers. 
 
 
 
 ### Supervised Code Execution *(SCE)*
 
-When running programs on the server platform provided by consumers, it is REQUIRED to solely execute 
-them after putting them into an application container (see 
-[System Architecture](#system-architecture)). This implies to provision the container first and then 
-invoke it by providing the requested data items as arguments. The container MUST NOT be allowed to 
-access the host's filesystem or network. Before running the container with the actual data, it MUST
-be executed several times with generated test data. If the program is provided as source code, it
-MUST be automatically inspected and reviewed. If one of those test layers result insufficiently, 
-processing the access request MUST abort and return with a failure information.
+When running programs on the server platform provided by consumers, it is REQUIRED to execute 
+them only after putting them into an application container (see 
+[System Architecture](#system-architecture)). This implies that the container is provisioned first, 
+and then invoked by providing the requested data items as arguments. The container MUST NOT be 
+allowed to access the host's filesystem or network. Before running the container with the actual 
+data, it MUST be executed several times with generated test data. If the program is provided as 
+source code, it MUST be automatically inspected and reviewed. If one of those test layers results 
+are insufficient, processing the access request MUST abort and return with failure information.
 
 
 
 ### System Monitoring
 
-The *Tracker* component MUST ensure that the following information are being persisted *(required 
-fields for those information are defined in [Data and Types](#data-and-types))*:
+The *Tracker* component MUST ensure that the following information is being persisted *(required 
+fields for this information is defined in [Data and Types](#data-and-types))*:
 
 +   Access Requests (regardless of its success)
 +   failed Access Verifications
 +   Registrations of consumers (regardless of its success)
 +   Results of operator Authentications
-+   Permission Profile creation, manipulation and deletion
++   Permission Profile creation, manipulation, and deletion
 +   SCE (regardless of its success)
 +   any third party request attempt arriving at the web server
 +   Server Resources (continually)
  
-To make sure, that these data is collected, other components MUST provide the *Tracker* with such 
+To make sure that these data are collected, other components MUST provide the *Tracker* with such 
 information. Therefore, components such as *Operator API*, *Permission Manager* and *Web server*, 
 MUST push information towards the *Tracker*. 
 By performing pattern recognition & anomaly detection, the *Tracker* is then able to recognize 
-abnormal behaviour or occurrence, for example by monitoring the IP of an access request origin, 
+abnormal behaviour or occurrences, for example, by monitoring the IP of an access request origin, 
 which normally should not change very often. Such data MAY also help to prevent spam requests. If 
 the *Tracker* finds suspicious patterns, the operator MUST be notified via email and push 
 notification.   
