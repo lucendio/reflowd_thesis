@@ -123,7 +123,7 @@ the CA's certificate to verify the *PDaaS* certificate. The other way is to let 
 and sign a public key by itself. Before *consumers* are presented with the self-signed certificate 
 of the *PDaaS* during the initiation of the TLS connection, they already have to be aware of that 
 certificate. That is, *consumers* need to be provided with that certificate on a private channel
-upfront. Otherwise the process would still be vulnerable to man-in-the-middle-attacks. 
+upfront. Otherwise the process would still be vulnerable to man-in-the-middle attacks. 
 
 In summary, if a public-key-based connection, performing a *two-way authentication*, establishes 
 successfully, it implies that the identity originating the request is valid and the integrity of the 

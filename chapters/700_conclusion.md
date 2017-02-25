@@ -132,6 +132,11 @@ all of them
 
 ## Summary
 
++   In the sole opinion of the author the here proposed concept is fare from being the ultimate 
+solution, but it is in any regards an improvement of the current situation. is definately has its 
+weaknesses and needs further development, which are worth to invest in order ro reach its goals.
+
+
 +   main focus 
 +   unique features
 +   technology stack & standards
