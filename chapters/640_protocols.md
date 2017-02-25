@@ -46,21 +46,21 @@ it MUST authenticate by presenting its certificate signed by the system.*
             -   process CSR accordingly, sign it with the subdomain's certificate and store it in 
                 the related entry within `endpoints`
         3)  [OPTIONAL] if registration contains information on what data is requested to get 
-            permission to access, those information MUST be processed as described in 
+            permission to access, that information MUST be processed as described in 
             [Permission Request](#permission-request)
         4)  respond issued third party certificate, endpoint's certificate and
             [OPTIONAL] result(s) of the [Permission Request](#permission-request) procedure
     
     +   *Refuse*
         1)  *data subject* SHOULD provide reason or MUST fall back to default reason
-        2)  respond reason
+        2)  respond with reason
         
     +   *Failure*
         *   subsequent processes decide on their own what error message and how much information is 
             provided to the third party
         1)  form proper error identifier and message
         2)  add unique URL to submit a new registration
-        3)  respond error
+        3)  respond with error
 
 5.  assemble and submit response via provided callback URL
     
@@ -105,18 +105,18 @@ those permission(s).*
             template/draft, importing configurations from an existing profile, or filling out an 
             empty, or pre-filled with provided information, profile. 
             When saving the new profile, it gets associated to the requester's *endpoint*
-        3)  respond what data items are permitted to access, how often, and how long this 
+        3)  respond which data items are permitted to be accessed, how often, and how long this 
             permission lasts
     
     +   *Refused*
         1)  applying the provided information as is, the system creates and stores a permission 
-            profile after all, still associated with the requester's *endpoint* but flagged as 
-            `refused`
-        2)  respond [OPTIONAL] a reason
+            profile after everything, which is still associated with the requester's *endpoint* 
+            but flagged as `refused`
+        2)  respond [OPTIONAL] with reason
         
     +   *Failure*
         1)  form proper error identifier and message based on the error that has occurred
-        2)  respond error
+        2)  respond with error
 
 5.  assemble and submit response to *consumer*
 
@@ -140,14 +140,14 @@ those permission(s).*
 
 
 ##### Access Request
-*After requesting permission to access data and getting these granted, a consumer actually access
-data items by either getting them forwarded or providing a program, that gets invoked
-with the data items as arguments. The result of that invocation is then send back to the 
+*After requesting permission to access data and having this granted, a consumer actually access
+data items by either getting them forwarded or by providing a program that is invoked
+with the data items as arguments. The result of that invocation is then sent back to the 
 originating data consumer.*
 
 *Preconditions:*
 +   successfully requested permission
-+   [OPTIONAL] program, that has to be invoked
++   [OPTIONAL] program to be invoked
 
 
 1.  after successfully authenticated, *consumer* submits access request, containing
@@ -157,19 +157,19 @@ originating data consumer.*
     +   [OPTIONAL] program (source or binary)
  
 2.  *Permission Manager* tries to verify the access (see 
-    [Access Verification](#access-verification)) and resulting to
+    [Access Verification](#access-verification)) with the following possible results
     +   *allowed*
-        1)  depending on defined response method either keep session open until timeout limit 
+        1)  depending on defined response method, either keep session open until timeout limit 
             exceeds, or respond with unique process identifier and [OPTION] estimated duration
     
     +   *denied*
         1)  abort processing access request
-        2)  respond default denial notice or [OPTIONAL] message from *Access Verification*
+        2)  respond with default denial notice or [OPTIONAL] message from *Access Verification*
         
 3.  obtain data from *PDS*
 
 4.  [OPTIONAL and if reliable == `true`] verify and indicate data reliability
-    1)  check, if data item(s) in obtained data are in group of data items whose reliability can 
+    1)  check if data item(s) in obtained data are in group of data items whose reliability can 
         be verified
         +   *yes*, proceed with configured method for checking reliability
             -   `null`
@@ -199,7 +199,7 @@ originating data consumer.*
         1)  inspect and review code, if available
         2)  provision container runtime with dependencies and provided program
         3)  run multiple tests with generated test data
-        *)  if threshold of failed tests exceeds, abort and pass error message on to response 
+        *)  if threshold of failed tests is exceeded, abort and pass error message on to response 
             handler
         4)  run with real data
         5)  forward result to response handler
@@ -208,15 +208,15 @@ originating data consumer.*
 
 
 *Result(s):*
-+   in case of *supervised execution* no actual personal data has left the system
-+   if *consumer* would have been not permitted to access data, it would not have happened
++   in case of *supervised execution*, no actual personal data has left the system
++   if *consumer* would have been denied access to data, they would not be accessed
 
 
 
 ##### Access Verification
-*When an access request is received, it first MUST be verified if that access is even permitted 
-according to the permission profiles and the presented data query before the request is proceeded 
-and data gets obtained from the PDS.*
+*When an access request is received, first it MUST be verified if that access is even permitted 
+according to the permission profiles and the presented data query, before the request is processed 
+and data is obtained from the PDS.*
 
 *Preconditions:*
 +   query string
@@ -226,7 +226,7 @@ and data gets obtained from the PDS.*
 
 1.  gather all *permission profiles* relating to the given endpoint
 
-2.  find all profiles, that
+2.  find all profiles that
     a)  address at least one requested data item and
     b)  have a valid *permission type* at that moment
 
@@ -238,10 +238,10 @@ and data gets obtained from the PDS.*
         1)  pause processing
         2)  notify operator and ask for decision on whether access to unregulated data items is 
             allowed or denied
-        3)  after missing data items got acknowledged by operator, go back to (2.)
+        3)  after missing data items are acknowledged by operator, go back to (2.)
     
     +   all requested data items are addressed among those profiles and ... 
-        -   at least one is not allowed to access (counting also `refused` profiles)
+        -   at least one is not allowed to access (including `refused` profiles)
             1)  return with a negative result (`false`) and [OPTIONAL] include information on 
                 which data items are affected
             2)  inform operator about this incident
