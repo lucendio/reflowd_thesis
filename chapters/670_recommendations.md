@@ -49,6 +49,7 @@ consider when implementing (parts of) this specification.
 +   CouchDB (document-oriented database system focusing on real-time)
 +   RethinkDB (graph-structured database system)
 +   Prometheus (database system optimized for time series data)
++   Container Linux (open-source lightweight operating system, by CoreOS)
 
 
 
