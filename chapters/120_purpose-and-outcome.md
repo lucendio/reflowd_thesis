@@ -28,10 +28,10 @@ This way of addressing the described dilemma about personal data analysis is not
 when studies were conducted, for example, about recent developments in the industry (e.g targeted 
 ads) and the user's concerns about privacy 
 [@study_2004_architecture-for-privacy-sensitive-ubiquitous-computing]. At that time, the term 
-*Vendor Relationship Management(VRM)* was first used within the context of user-centric personal 
+*Vendor Relationship Management (VRM)* was first used within the context of user-centric personal 
 data management, which then also led into the *ProjectVRM* [@web_2010_projectvrm_about] started by 
-the *Berkman Klein Center for Internet & Society at Harvard University*. 
-A great amount of effort has gone into this area of research since then. While commercial 
+the *Berkman Klein Center for Internet & Society* at *Harvard University*. 
+A great amount of effort has gone into this area of research since then. In parallel, commercial 
 products and business models try to solve some of the problems related to this. For instance, 
 with concepts like the *Personal Data Store (PDS)* 
 [@paper_2013_the-personal-data-store-approach-to-personal-data-security_2013] or an implementation
@@ -44,7 +44,7 @@ The research work done for this thesis constitutes the foundation for an *Open S
 which is a manual for implementing a concept called *Personal Data as a Service*, henceforth called 
 *PDaaS*. Examining important topics like the architecture, where data can 
 be stored, how to obtain data from the exposed API or what requirements have to be met by a user 
-interface for personal data management, is part of this work. By the time this document has been 
+interface for personal data management, is the main part of this work. By the time this document has been 
 submitted, most of the core issues should have already been addressed and can thus be outlined in a 
 first draft of the specification. 
 Only then can the task of actually implementing certain components begin. The reason for that is, 
@@ -56,8 +56,7 @@ encouraged and might even help to spot flaws or perhaps trigger improvements of 
 
 To create confidence in this project and in the software built upon it, 
 it's vital to make all development processes fully transparent and encourage people to get involved.
-For this reason all related software and documents [@repo_2016_pdaas-spec] are open source from day 
-one.
+For this reason all related software and documents [@repo_2016_pdaas-spec] are open source from the beginning.
 
 In summary, this document lays the ground work and is intended to be the initial step in a 
 development process fabricating a tool to manage personal data. The tool is controlled and 
