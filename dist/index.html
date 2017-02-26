@@ -171,7 +171,7 @@
 <h2><span class="header-section-number">2.3</span> Purpose &amp; Outcome</h2>
 <p>At first glance, it might not be considered harmful to provide one’s own personal data to third parties, at least from an individual’s perspective, because free or improved services are eventually offered in return. For example, more adequate recommendations and fitting advertisement, or more helpful therapies and more secure environments. Gathering and processing data is essentially just mathematics and computer technologies. How those tools are utilized and what purposed they serve is within the decision of their developers. However, what data items are used and how they get processed should be determined by the data creators. Thereby allowing them an influence on the results of these processes and thus on decisions made upon them which impact their lives.</p>
 <p>To address the described issue, the initial idea here is to (1) equip individuals with the ability to control and maintain their entire data distribution, in order to (2) reduce the amount of <em>potentially discriminatory</em> <span class="citation" data-cites="paper_2008_discrimination-aware-data-mining">[<a href="#ref-paper_2008_discrimination-aware-data-mining">2</a>]</span> attributes that could leak into arbitrary computations. For that, people need a reliable and trustworthy tool, which helps them to manage all their <em>personal data</em> and provides an interface for third parties to access their data, but on their own terms. The parties that would be responsible for such a tool would likely have the most accurate and reliable one-stop resource to an individuals’ <em>personal data</em> at hand, while simultaneously being urged to respect their privacy. This approach comes along also with some downsides related to security and potential data loss. Elaborating on these issues and discussing potential solutions is part of the <a href="#design-discussion">design process</a>.</p>
-<p>This way of addressing the described dilemma about personal data analysis is not new (see <a href="#related-work">Related Work</a>). Early work done in this field can be dated back to the Mid-2000s when studies were conducted, for example, about recent developments in the industry (e.g targeted ads) and the user’s concerns about privacy <span class="citation" data-cites="study_2004_architecture-for-privacy-sensitive-ubiquitous-computing">[<a href="#ref-study_2004_architecture-for-privacy-sensitive-ubiquitous-computing">8</a>]</span>. At that time, the term <em>Vendor Relationship Management(VRM)</em> was first used within the context of user-centric personal data management, which then also led into the <em>ProjectVRM</em> <span class="citation" data-cites="web_2010_projectvrm_about">[<a href="#ref-web_2010_projectvrm_about">9</a>]</span> started by the <em>Berkman Klein Center for Internet &amp; Society at Harvard University</em>. A great amount of effort has gone into this area of research since then. While commercial products and business models try to solve some of the problems related to this. For instance, with concepts like the <em>Personal Data Store (PDS)</em> <span class="citation" data-cites="paper_2013_the-personal-data-store-approach-to-personal-data-security_2013">[<a href="#ref-paper_2013_the-personal-data-store-approach-to-personal-data-security_2013">10</a>]</span> or an implementation of the <em>MyData</em> concept <span class="citation" data-cites="whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing">[<a href="#ref-whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing">11</a>]</span> called <em>Meeco</em> <span class="citation" data-cites="web_2016_meeco-how-it-works">[<a href="#ref-web_2016_meeco-how-it-works">12</a>]</span>, which are all be covered in detail in the following chapter.</p>
+<p>This way of addressing the described dilemma about personal data analysis is not new (see <a href="#related-work">Related Work</a>). Early work done in this field can be dated back to the Mid-2000s when studies were conducted, for example, about recent developments in the industry (e.g targeted ads) and the user’s concerns about privacy <span class="citation" data-cites="study_2004_architecture-for-privacy-sensitive-ubiquitous-computing">[<a href="#ref-study_2004_architecture-for-privacy-sensitive-ubiquitous-computing">8</a>]</span>. At that time, the term <em>Vendor Relationship Management (VRM)</em> was first used within the context of user-centric personal data management, which then also led into the <em>ProjectVRM</em> <span class="citation" data-cites="web_2010_projectvrm_about">[<a href="#ref-web_2010_projectvrm_about">9</a>]</span> started by the <em>Berkman Klein Center for Internet &amp; Society</em> at <em>Harvard University</em>. A great amount of effort has gone into this area of research since then. In parallel, commercial products and business models try to solve some of the problems related to this. For instance, with concepts like the <em>Personal Data Store (PDS)</em> <span class="citation" data-cites="paper_2013_the-personal-data-store-approach-to-personal-data-security_2013">[<a href="#ref-paper_2013_the-personal-data-store-approach-to-personal-data-security_2013">10</a>]</span> or an implementation of the <em>MyData</em> concept <span class="citation" data-cites="whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing">[<a href="#ref-whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing">11</a>]</span> called <em>Meeco</em> <span class="citation" data-cites="web_2016_meeco-how-it-works">[<a href="#ref-web_2016_meeco-how-it-works">12</a>]</span>, which are all be covered in detail in the following chapter.</p>
 <p>The research work done for this thesis constitutes the foundation for an <em>Open Specification</em>, which is a manual for implementing a concept called <em>Personal Data as a Service</em>, henceforth called <em>PDaaS</em>. Examining important topics like the architecture, where data can be stored, how to obtain data from the exposed API or what requirements have to be met by a user interface for personal data management, is part of this work. By the time this document has been submitted, most of the core issues should have already been addressed and can thus be outlined in a first draft of the specification. Only then can the task of actually implementing certain components begin. The reason for that is, when sensitive subjects, especially things like people’s privacy, are at risk, all aspects in question deserve careful consideration, so they can be addressed properly. That is, adequate effort must be put primarily into the theoretical work. However, that does not mean writing code to test theories and ideas isn’t allowed during the development and specification process. It is encouraged and might even help to spot flaws or perhaps trigger improvements of the specification.</p>
 <p>To create confidence in this project and in the software built upon it, it’s vital to make all development processes fully transparent and encourage people to get involved. For this reason all related software and documents <span class="citation" data-cites="repo_2016_pdaas-spec">[<a href="#ref-repo_2016_pdaas-spec">13</a>]</span> are open source from day one.</p>
 <p>In summary, this document lays the ground work and is intended to be the initial step in a development process fabricating a tool to manage personal data. The tool is controlled and administrated by the individual to whom the personal data belongs. It enables her to get a more precise understanding of what data is accessed by whom and how this might affect her privacy.</p>
@@ -180,43 +180,43 @@
 <h2><span class="header-section-number">2.4</span> Terminologies</h2>
 <dl>
 <dt>Web Service:</dt>
-<dd><p>A service, that is accessible by electronic devices over the internet. This makes it almost effortless to use a service which would otherwise be out of reach. Interactions with a service usually happen through enriched websites or other web-compatible applications and interfaces.</p>
+<dd><p>A service, that is accessible by electronic devices over the internet. This makes it almost effortless to use a service which would otherwise be out of reach or unavailable. Interactions with a service usually happen through enriched websites or other web-compatible applications and interfaces.</p>
 </dd>
 <dt>Open Specification:</dt>
-<dd><p>A specification is a formal and very detailed way of describing a technology, its internals, and behaviour from external perspectives. It provides guidance for implementations to ensure a minimum level of interoperability. Structured in a formalized document it might become a <em>technical standard</em>. <em>Open</em> in this case means at first nothing, but it’s accessible for anyone without restrictions. When it comes to the intellectual value itself, that might be handled differently, for example with an enclosed license.</p>
+<dd><p>A specification is a formal and very detailed way of describing a technology, its internals, and behaviour from external perspectives. It provides guidance for possible implementations to ensure a minimum viable level of interoperability. Structured in a formalized document and widely adopted it might become a <em>technical standard</em>. <em>Open</em> in this case means that its accessible for everyone without restrictions. When it comes to the intellectual value itself, that might be handled differently, for example with an enclosed license.</p>
 </dd>
 <dt><span id="terminologies--profile-data">Profile Data</span>:</dt>
 <dd><p>A collection of data items reflecting an individual’s inherent information and other basic predominantly static data items (no sets), which, in conjunction, uniquely relate to that individual.</p>
 </dd>
 <dt><span id="terminologies--digital-footprint">Digital Footprint</span>:</dt>
-<dd><p>Refers to data that is related to an individual. It is distinguished between an active footprint, which involves data and information about an individual who chose to share them publicly, and a passive footprint, which includes all data about an individual collected by third parties without the individual’s knowledge.</p>
-</dd>
-<dt>Personal Data as a Service (PDaaS):</dt>
-<dd><p>A web service that is controlled, owned, and maybe even hosted by an individual. It provides access to the data subject’s personal data and offers maintainability as well as permission management for those data. It can be seen as her personal agent; sometimes also referred to as <em>the system</em>.</p>
+<dd><p>Refers to data that is related to an individual. It is distinguished between an active footprint, which involves data and information about an individual who chose to share them publicly, and a passive footprint, which includes all data about an individual that is collected by third parties without the individual’s knowledge.</p>
 </dd>
 <dt>Data Subject:</dt>
-<dd><p>An individual who first and foremost is the owner of all of her personal data; sometimes referred to as <em>owner</em>.</p>
+<dd><p>An individual who first and foremost is the owner of all of her personal data; sometimes referred to as (data) owner.</p>
+</dd>
+<dt>Personal Data as a Service (PDaaS):</dt>
+<dd><p>A <em>web service</em> that is controlled, owned, and maybe even hosted by an individual. It provides access to the <em>data subject’s</em> personal data and offers permission management as well as maintainability for those data. It can be seen as her personal agent; sometimes also referred to as the system.</p>
 </dd>
 <dt><span id="terminologies--operator">Operator</span>:</dt>
-<dd><p>A <em>data subject</em> that uses a <em>PDaaS</em> to control (and probably host) her personal data; sometimes referred to as <em>data controller</em> or <em>data owner</em>.</p>
+<dd><p>A <em>data subject</em> that uses a <em>PDaaS</em> to control (and probably host) her personal data; sometimes referred to as data controller or data owner.</p>
 </dd>
 <dt><span id="terminologies--consumer">(Data) Consumer</span>:</dt>
-<dd><p>Third party who requests permission or is already allowed to access the <em>operator’s</em> <em>personal data</em> through her <em>PDaaS</em>; sometimes referred to as <em>(data) collector</em> or vendor.</p>
+<dd><p>Third party who requests permission or is already allowed to access parts the <em>operator’s</em> personal data through her <em>PDaaS</em>; sometimes referred to as (data) collector or vendor.</p>
 </dd>
 <dt><span id="terminologies--data-broker">Data Broker</span>:</dt>
-<dd><p>Third party with commercial interests in collecting, aggregating and analyzing information/data about humans from any possible resource in order to combine and enrich the data, to finally license those corpora to other organisations. <span class="citation" data-cites="report_2014_data-brokers">[<a href="#ref-report_2014_data-brokers">14</a>]</span></p>
+<dd><p>Third party with commercial interests in collecting, aggregating and analyzing information about humans from any possible resource in order to combine and enrich that data, to finally license those corpora to other organisations <span class="citation" data-cites="report_2014_data-brokers">[<a href="#ref-report_2014_data-brokers">14</a>]</span>.</p>
 </dd>
 <dt>Permission Request:</dt>
-<dd><p>A formalized attempt made by a third party to request permissions in order to access certain data points on the <em>PDaaS</em>. The request has to include all the data items to which access is being demanded, as well as sufficient information about the purpose. It requires the third party to already being registered as <em>data consumer</em>.</p>
-</dd>
-<dt>Access Request:</dt>
-<dd><p>An attempt to actually access data provided by a <em>PDaaS</em>. The request primarily consists of a query, that defines what data items are tried to be accessed. The access is only permitted if the query matches against the <em>permission profiles</em>.</p>
+<dd><p>A formalized attempt made by a third party to request permissions in order to access certain data items on the <em>PDaaS</em>. The request has to include all the data items to which access is being demanded, as well as sufficient information about its underlying purpose. It requires the third party to already being registered as <em>data consumer</em>.</p>
 </dd>
 <dt>Permission Profile:</dt>
 <dd><p>A set of access rules and configuration tied to a <em>data consumer</em>. It determines what data is accessible by the related <em>data consumer</em> and for how long. The profile is the result of a reviewed and granted <em>permission request</em>.</p>
 </dd>
+<dt>Access Request:</dt>
+<dd><p>An attempt to actually access data provided by a <em>PDaaS</em>. The request primarily consists of a query, that defines what data items are tried to be accessed. The access is only permitted if the query matches against the <em>permission profiles</em>.</p>
+</dd>
 <dt>Endpoint:</dt>
-<dd><p>An endpoint is defined as part of a URI that is uniquely associated with a single <em>data consumer</em>. Usually it’s the first part of a URI (e.g. domain incl. subdomains), whereas following parts indicating different resources that might be available within that endpoint. It can also be viewed as group of resources whose access is restricted.</p>
+<dd><p>An endpoint is defined as part of a URI that is uniquely associated with a single <em>data consumer</em>. In this case it’s the part of a URI referring to the host (domain incl. subdomains), whereas subsequent parts indicating different resources that might be available within that endpoint. It can also be viewed as group of resources whose access is restricted.</p>
 </dd>
 </dl>
 </section>
@@ -529,7 +529,7 @@ Real time communication might be essential for time-critical data transaction. H
 <p><em>HTTP</em>, as a comprehensive and flexible protocol, enables the use of several technologies for server-client authentication purposes. Some of them are built-in, others can simply be implemented on top of it. Within the scope of this work, those technologies are categorized as the following types: (A) stateful and (B) stateless authentication. The first one (A) includes, for example, <em>Basic access Authentication</em> (or <em>Basic Auth</em>) and authentications based on <em>Cookies</em>. Whereas the <em>two-way authentication</em> in TLS mentioned above and <a href="#def--jwt">authentication based on web-token</a> are associated with the latter (B). <em>Basic Auth</em> is natively provided by the <em>http-agent</em> and requires, in its original form <em>(user:password)</em>, some sort of state on the server; at least when the system has to provide multitenancy. If instead just a general access restriction for certain requests would suffice, no state is required. One of the most common implementations of user-specific states is a <em>session</em> on the server, that contains one or more values representing the state and a unique identifier, with which an entity can be associated. A client has to provide that session ID in order to be provided with all session-related data hold by the server. This is typically done in a HTTP header, whether as <em>Basic Auth</em> value, a <em>Cookie</em>, which is domain-specific, or in some other custom header. Since the <em>two-way authentication</em> (or <em>mutual authentication</em> <span class="citation" data-cites="web_2017_wikipedia_mutual-auth">[<a href="#ref-web_2017_wikipedia_mutual-auth">126</a>]</span>) is performed based on files containing keys and certificates, which are typically not very fluctuant in its contents or state, this procedure is categorized as stateless. Order or origin of incoming requests have no impact on the result of the actual authentication process. The same applies to TLS features such as <em>Session [ID, Ticket] Resumption</em> <span class="citation" data-cites="book_2013_networking-101_tls-session-resumption">[<a href="#ref-book_2013_networking-101_tls-session-resumption">127</a>]</span>, therefore they are left aside, because they serve the sole purpose of performance optimization. Similar to the <em>Session Ticket Resumption</em> <span class="citation" data-cites="web_spec_tls-session-ticket-resumption">[<a href="#ref-web_spec_tls-session-ticket-resumption">128</a>]</span> a web token, namely the <a href="#def--jwt">JSON Web Token</a>, also moves the state towards the client, but that’s about all they have in common. A <em>JWT</em> carries everything with it that’s worth knowing, including possible states, and if necessary the token is symmetrical encrypted by the server. That is, only the server is able to see the actual data contained by JWT and therefore reacting accordingly.</p>
 <p>Keeping track of one or multiple states on the server and maintaining the synchronization of involved data between server and client is expensive and far from trivial, because this pattern requires the server to be aware of all current states (sessions) and has to have them accessible at all times. The additional resources required for such an approach are referred to as being expensive. It also means that requests, ultimately resulting in responses that contain contents, might depend on preceding requests and their incoming order. Furthermore those session data have to be in a consistent state in order to be safely stored from time to time. Otherwise, if the server fails to run at some point, data only existing in the memory would be gone with no chance to be recovered. With stateless authentication, none of those aspects applies. Certificates and keys as well as web tokens are both carrying all necessary information with them. Thus, considering those disadvantages, <em>public key cryptography</em> and web tokens are the preferred technologies for all authentication processes.</p>
 <p>Except for <em>two-way authentication</em>, all authentication technologies mentioned above require an initial step from the client to obtain some sort of token that is used to authenticate all subsequent requests. This step is commonly known as <em>login</em> or <em>sign in</em> and requires the authorizing entity to provide some credentials consisting of at least two parts. One part, that uniquely relates to the entity but doesn’t have to be private, and another part that only the entity knows or has. Typically that’s a username or email address and a password or some other secret bit sequence (e.g. stored on and provided by a USB stick). An <em><a href="#def--eid-card">eID card</a></em> could possibly be used as secret (or unique object) as well. Suitable use cases are (A) to let the <em>operator</em> login to the <em>PDaaS</em> management tool or (B) to approve or authorize <em>access requests</em>. How the actual login process (A) would look like partially depends on the <em>eID card</em>’s implementation, but in general this use case would make sense. When considering the german implementation <em>(nPA)</em> for example, accessing the management tool via desktop requires a card reader, preferably with an integrated hardware keypad. Whereas authenticating to the tool with a mobile device could be achieved with the card’s RFID-capabilities, as long as the device used is able to communicate with the RFID-chip. Both scenarios (A+B) require the <em>nPA</em> to have the <em>eID</em> feature enabled. If a service wants to provide <em>nPA</em>-based online authentication <em>(eID-Service)</em>, which is defined as a non-sovereign <em>(“nicht hoheitlich”)</em> feature, it has to comply with several requirements <span class="citation" data-cites="web_bsi-spec_eid">[<a href="#ref-web_bsi-spec_eid">129</a>]</span> starting with applying for a permission to send a certificate signing request to a BerCA.<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> This request is sent from an <em>eID-Server</em> <span class="citation" data-cites="web_2017_npa-eid-server">[<a href="#ref-web_2017_npa-eid-server">130</a>]</span> in order to get a public key signed, which has been previously generated on dedicated and certified hardware. This hardware is requested by the officials as part of a <em>eID-Server</em>. The key pair - re-generated and re-signed every three days - is needed to establish a connection to the <em>nPA</em>, which is then used to authenticate the owner of that <em>eID card</em>. The described procedure appears to be highly expensive (regarding effort, hardware costs etc.), especially because every single <em>operator</em> would need to go through the whole process in order to support this authentication method; not mentioning the uncertainty of the official’s decision on the permission application. Another approach could be to integrate an external authentication provider supporting the <em>nPA</em>, which would not only add an additional dependency, but also weaken the system. Both scenarios are fairly similar, insofar as they would use the same mechanism to initially authenticate to the system, but with different intentions.</p>
-<p>Because of its simplicity, the concept of web tokens is fairly straightforward to implement into the <em>PDaaS</em>. But since web tokens ensure integrity and optional confidentiality only of their own carriage, not for the entire HTTP payload, the two requirements need to be addressed separately. Serving HTTP over <em>TLS</em> solves that issue though. For connections that use a web token, it should be sufficient to rely on the public PKI that drives the internet with <em>HTTP</em> over <em>TLS</em>. All information required for the actual authentication are provided by the token itself. However, the situation is different if <em>two-way authentication</em> is used instead. In this case, the system has to provide its own <em>PKI</em> including a Certificate Authority that issues certificates for <em>data consumers</em>, because not only the <em>endpoints</em> on the <em>PDaaS</em> (server) need to be certified, all <em>data consumers</em> (clients) need to present a certificate as well. Only the <em>PDaaS</em> verifies and thus determines (supervised by the <em>operator</em>) who is authorized to get access to the system. Hence the <em>PKI</em> needs to be self-contained and private in order to function independently so that only invited parties can be involved. Referring to the statement mentioned above, <em>data consumers</em> also have to be able to verify the identity of the <em>PDaaS</em>, in order to prevent man-in-the-middle attacks. Addressing this issue basically means, <em>data consumers</em> have to verify the certificate presented by the <em>PDaaS</em>. This can be done in two ways. One way is by a certificate having been installed on the <em>PDaaS</em> that is certified and therefore trusted by a trustworthy public CA, as mentioned above. Then <em>consumers</em> use the CA’s certificate to verify the <em>PDaaS</em> certificate. The other way is to let the <em>PDaaS</em> create and sign a public key by itself. Before <em>consumers</em> are presented with the self-signed certificate of the <em>PDaaS</em> during the initiation of the TLS connection, they already have to be aware of that certificate. That is, <em>consumers</em> need to be provided with that certificate on a private channel upfront. Otherwise the process would still be vulnerable to man-in-the-middle-attacks.</p>
+<p>Because of its simplicity, the concept of web tokens is fairly straightforward to implement into the <em>PDaaS</em>. But since web tokens ensure integrity and optional confidentiality only of their own carriage, not for the entire HTTP payload, the two requirements need to be addressed separately. Serving HTTP over <em>TLS</em> solves that issue though. For connections that use a web token, it should be sufficient to rely on the public PKI that drives the internet with <em>HTTP</em> over <em>TLS</em>. All information required for the actual authentication are provided by the token itself. However, the situation is different if <em>two-way authentication</em> is used instead. In this case, the system has to provide its own <em>PKI</em> including a Certificate Authority that issues certificates for <em>data consumers</em>, because not only the <em>endpoints</em> on the <em>PDaaS</em> (server) need to be certified, all <em>data consumers</em> (clients) need to present a certificate as well. Only the <em>PDaaS</em> verifies and thus determines (supervised by the <em>operator</em>) who is authorized to get access to the system. Hence the <em>PKI</em> needs to be self-contained and private in order to function independently so that only invited parties can be involved. Referring to the statement mentioned above, <em>data consumers</em> also have to be able to verify the identity of the <em>PDaaS</em>, in order to prevent man-in-the-middle attacks. Addressing this issue basically means, <em>data consumers</em> have to verify the certificate presented by the <em>PDaaS</em>. This can be done in two ways. One way is by a certificate having been installed on the <em>PDaaS</em> that is certified and therefore trusted by a trustworthy public CA, as mentioned above. Then <em>consumers</em> use the CA’s certificate to verify the <em>PDaaS</em> certificate. The other way is to let the <em>PDaaS</em> create and sign a public key by itself. Before <em>consumers</em> are presented with the self-signed certificate of the <em>PDaaS</em> during the initiation of the TLS connection, they already have to be aware of that certificate. That is, <em>consumers</em> need to be provided with that certificate on a private channel upfront. Otherwise the process would still be vulnerable to man-in-the-middle attacks.</p>
 <p>In summary, if a public-key-based connection, performing a <em>two-way authentication</em>, establishes successfully, it implies that the identity originating the request is valid and the integrity of the containing data is given. Whereas on a token-based authentication every incoming request has to carry the token so that the system can verify and associate the request with an account. Furthermore data is not automatically encrypted and thus integrity is not preserved.</p>
 <p>An advantage of token-based authentication over TLS-based <em>two-way authentication</em> is that the token can be used on multiple clients at the same time. Or an account that a token is associated with, can actually have more than one token. Whereas during the asymmetric cryptography-based <em>two-way authentication</em> the client’s private key is required, which results in 1:1 relation. So if it’s likely that a <em>operator</em> has several clients, regardless of why, the same private key has to be on those clients. A private key typically should not leave its current system or exist in multiple systems at the same time in order to prevent exposure, which any action of duplication implies. To reduce those risks, it’s common practice to generate a private key at the location where it is going to be used.</p>
 <p>OpenID, an open standard for decentralized user authentication, also uses subdomains as unique identifiers to associate with entities that need to be authenticated, similar to the approach proposed in this work. But since it originates in a very distinct scenario it is also very related and therefore restricted to that. Trying to adopt the standard might result in various adjustments to this project leading to an implementation that shares not much compliance, which is not the intention of a standard.</p>
@@ -556,12 +556,10 @@ The following method describes a modification of (3). This method involves no ma
 <p>Only one method per request should be used to verify data reliability, because every method can imply a different level of confidence. As described above, the response sent back to the <em>data consumer</em> has to indicate the method used. Based on that, the <em>data consumer</em> is then able to evaluate that level of confidence and can act accordingly (e.g. verify a signature).</p>
 <p>Expanding those verification procedures is reasonable, but to keep it simple for now this aspect won’t receive further attention, since the current requirements are sufficiently met. It will be left to future work, however.</p>
 <p><em><strong>Conclusions:</strong></em> The signing procedure as part of local verification method involves private key and certificate storage on the operator’s <em>eID card</em>. Every time the <em>PDaaS</em> verifies data reliability that method has to be performed. Thus the <em>operator</em> is forced to interact wit the <em>PDaaS</em>. Otherwise, the operator’s private key needs to be stored somewhere within the <em>PDaaS</em>. No matter where or how, this would potentially expose a highly confidential part of a cryptographic procedure. Not only would this reduce the overall security level of the system, it also makes every task this method is involved in vulnerable to certain attacks. Aside from that, it’s highly unlikely that an <em>eID card</em> would allow extraction of the private keys it contains. This all results in increased inconvenience which is inevitable for this proposed method. The <em>Local Verification and signing</em> method has the same dependencies mentioned in the discussion about requirements for using the (german) <em>eID card</em> as an authentication token. And since it was rejected because of those dependencies and because of the inconvenience mentioned before, that verification method ultimately is not going to be supported in the specification.</p>
-<p>The <em>Remote Verification and signing (3)</em> method would require the external party to be an official authority, because no other entity has (A) the data in question (primarily profile data), which makes them (B) legally binding; and they are commonly trusted. The same goes for The <em>Recurring Certification (4)</em>, but while the <em>Remote Verification and signing</em> method introduces a very strong dependency to that external party, the <em>Recurring Certification</em><br />
-offers a simple, loosely linked dependency. Whose design would make it possible to obtain such a certificate manually, but also automatically. Nevertheless, both provide a trustworthy certification.</p>
+<p>The <em>Remote Verification and signing (3)</em> method would require the external party to be an official authority, because no other entity has (A) the data in question (primarily profile data), which makes them (B) legally binding; and they are commonly trusted. The same goes for The <em>Recurring Certification (4)</em>, but while the <em>Remote Verification and signing</em> method introduces a very strong dependency to that external party, the <em>Recurring Certification</em> offers a simple, loosely linked dependency. Whose design would make it possible to obtain such a certificate manually, but also automatically. Nevertheless, both provide a trustworthy certification.</p>
 <p>Finally, the first method, <em>Local Verification by matching (1)</em>, which just performs a matching of two datasets against each other. Those datasets are obtained from the same <em>PDaaS</em> storage, but at different times; right before the request finally is sent on, though. The primary purpose of addressing the issue of data reliability rests on the <em>data consumer’s</em> concern of accessing data that is intentionally tampered with (e.g. by the <em>data subject</em>), since integrity during transport is already ensured. In this light, even if the whole system would be compromised, which in that case might need more urgent addressing then ensuring data reliability, it won’t mitigate the fact that the <em>operator</em> is the only one able to change data. Hence it provides the lowest level of reliability.</p>
 <p>Certain fields of application of a <em>PDaaS</em> as a data resource might already impose constraints about the level of reliability and maybe even how it can be provided. Violation of relevant legislation or other rules might prevent the <em>PDaaS</em> from being put in use. Others - depending on their guidelines and business model - don’t rely on a certain level of confidence. In general, <em>data consumers</em> are expected to already have a basic confidence in a <em>PDaaS</em> and in the data originating there. Regardless of that, providing an indication on the authenticity of data is valued as a first and important step towards a fully working feature. All of the proposed verification methods have some downsides, though, the <em>Recurring Certification</em> method would be the least invasive and therewith an adequate choice.</p>
-<p>A primary goal for the <em>PDaaS</em> is to preserve all data owned by the <em>data subject</em> and giving her control over where the data might go; not providing sufficient proof for the data authenticity.<br />
-Although it is still important to provide <em>data consumers</em> with an information about the level of reliability, it is up to them how to rate that information and how to act on that.</p>
+<p>A primary goal for the <em>PDaaS</em> is to preserve all data owned by the <em>data subject</em> and giving her control over where the data might go; not providing sufficient proof for the data authenticity. Although it is still important to provide <em>data consumers</em> with an information about the level of reliability, it is up to them how to rate that information and how to act on that.</p>
 </section>
 <section id="access-management" class="level2">
 <h2><span class="header-section-number">6.4</span> Access Management</h2>
@@ -1198,48 +1196,15 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 </section>
 <section id="attack-scenarios" class="level2">
 <h2><span class="header-section-number">6.8</span> Attack Scenarios</h2>
-<ul>
-<li>briefly mentioned in previous sections:
-<ul>
-<li>HTTPS for man-in-the-middle: confidentiality, integrity</li>
-<li>certified HTTPS: authenticity</li>
-<li>operator’s auth token theft</li>
-<li>security level over time expense: expensive settings for crypto procedures are favoured</li>
-</ul></li>
-<li>motivations:
-<ul>
-<li>extrinsic:
-<ul>
-<li>impersonate, identity theft</li>
-<li>unrestrictedly extract data</li>
-<li>vicious data change to harm the physical counterpart</li>
-</ul></li>
-<li>intrinsic:
-<ul>
-<li>data loss caused system or human failure</li>
-</ul></li>
-</ul></li>
-<li></li>
-<li><p>man-in-the-middle attacks / identity checking: transport way secured, and if the endpoint certificate is provided to the third party, before is is requested during connection establishment (because at that point connection is still unencrypted), it can be detected if that cert is not the original one</p></li>
-<li><p>operator login, token stealing –&gt; short token expiration time –&gt; 2-factor-auth with mobile</p></li>
-<li>measurements, already touched on:
-<ul>
-<li>container encapsulation</li>
-<li>distributed system, especially relocating PDS (onto mobile)</li>
-</ul></li>
-<li><p>The general mindset for this project is to rather use long proven libraries and technologies<br />
-instead of using own implementations of cryptographic concepts and algorithms.</p></li>
-<li><p>SCE is considered a weakness, but</p></li>
-<li><p>open source development: vulnerabilities can easy be disclosed and immediately get addressed</p></li>
-<li>single point of failure (data-wise),
-<ul>
-<li>but considering what data users already put into their social networks (or: thE social network: fb), they/it has already become a de facto data silo and is thus a single point of failure. If that service breaks or get down, the data from all users might be lost or worse (stolen). The aspect of data decentralization achieved by individual data stores can be valued as positive.</li>
-</ul></li>
-<li><p>what about token stealing when using jwt?</p></li>
-<li><p>future work: add/activate an intrusion detection system</p></li>
-<li><p>PDS is on mobile platform and server platform is corrupted: storage connector must queue requests and regularly provide the server with a JWT, triggered by the operator when interacting with the mobile app.</p></li>
-</ul>
-<p>It is a balance act between security and convenience. Not every security measure or mechanism can only be simplified, but can not be abstracted without violating its initial purpose.</p>
+<p>If only briefly, previous sections already mentioned a few potential attack types and vulnerabilities of the system, such as man-in-the-middle attacks that are possible during connection establishment and data transfer, or session hijacking which can be done by stealing the JWT used to authenticate privileged entities to the system. Attack vectors causing those and other scenarios as well as possible and feasible counter-measures are discussed in detail within this section.</p>
+<p>Initially however, it is to identify what motivation(s) would drive such attacks. The first and probably the most dangerous one appears to be <em>Digital Identity Theft</em>. Thereby the attacker impersonates the individual that was originally associated to the system. Then data consumers, though, have the misleading impression, that everything the intruder does with the <em>PDaaS</em> still happens on behave of the data owner herself. Such control can be abused for vicious data changes to harm the physical counterpart or the access can simply be exploited to unopposedly extract the individual’s personal data. The more data the system contains and the more purposes it serves, the more power can be gained by controlling it. Those motivations are extrinsically driven by third parties, whereas intrinsic and mostly unintended damage can be caused by system or human failure, which may lead, for example, to data loss or irrecoverable system access.</p>
+<p>As the name states, in a man-in-the-middle attack the transferred content of a communication is intercepted and possibly tampered with, while the participants not noticing any of that. A common solution here is to encrypt and sign the content before transferring it. For HTTP communication this is implemented by the <em>Transport Layer Security (TLS)</em>. The crux here is to move from an unencrypted to an encrypted connection. This upgrade procedure involves the <em>Diffie-Hellman-Key-Exchange</em> to agree on a pre-shared key and certification based on <em>asymmetrical cryptography</em> for authentication. The procedure starts i.a. with the server-role presenting the client-role with its certificate <em>while the connection is still insecure</em>. This is essential, because the connection is still insecure, a man-in-the-middle attack is possible at that time. In order to prevent that and to ensure the trustworthiness of that certificate, the client has to verify the certificate. This is done by using an installed certificate from a trustful public CA, that has issued and therefore trusted the server’s certificate, to examine its chain of trust. But since HTTPS connections between data consumers and the system rather use certificates that are issued by the system itself instead of relying on CA-certified certificates, there is no chain of commonly trusted entities, that can verify the presented certificates. So in order to still trust those certificates, even though they are sent on a insecure channel during the connection establishment, they have to be handed over in private sometime before. This is defined in the registration process, where the consumer either presents a QR-Code served via publicly certified HTTPS, which he is responsible for but can easily verified by the data subject, or submits the registration request including the CSR to a URL provided by the data subject that is also reachable only by publicly certified HTTPS. The server then issues the certificate and sends it - alongside with its own certificate - back to the consumer via publicly certified HTTPS, too. The consumer is able to trust the server certificate and can even pin it to detect fictitious certificates he might get presented with. This approach enables not only confidentiality and integrity of the data exchanged between consumer and data subject, but by enforcing <em>two-way authentication</em> authenticity of the respective opposite is provides to both parties as well. While other HTTP connections via TLS may still rely on certificates signed by publicly trusted CAs, regular key change and certificate renewal has therefor to be ensured.</p>
+<p>Another aspect of the system, that could be vulnerable to certain attacks, is the authentication mechanism used by the data subject to log into her management tool. A JSON Web Token, also containing all session information, serves as the key. As mentioned before, such connections are forced to be established only by TLS. So from this perspective the JWT is no less or more secure than any other type of credentials. Though, this doesn’t prevent the token from being usable to the attacker once it is stolen. A short expiration date, equally to a session timeout, and token invalidation cycle, which is the same as forced logout, can reduce the potential harm an incident like this may cause. Furthermore the integration of 2-factor authentication hardens the authentication procedure. But in order to not introduce another dependency, namely an external service providing such functionality, 2-factor authentication is only supported, when a mobile device is associated to the <em>PDaaS</em>. Further precautions can be taken by preventing attackers from getting in the near of such token, referring to <em>cross-site scripting (XSS)</em>, to which web-based graphical interfaces are vulnerable to. Approaching this issue means to abandon external resources providing parts of the interface and instead store all content on the server platform and serve it with the system’s own web server. Even if that means an increased load time caused by the browser constrains of how content is loaded, which isn’t an issue in HTTPS/2 anymore.</p>
+<p>The approach of running consumer-provided programs locally in order to prevent personal data from leaving the system represents a key part in this work, but it also raises major security concerns. To address those concerns such a program is executed in an application container, which encapsulates the runtime from the host environment and allows to restrict resource access, such as network, filesystem or computing power, to the required minimum. This concept, previously introduced as <em>Supervised Code Execution</em> forms a containment layer preventing security breaches towards the host environment, which ultimately means a great security enhancement. Nevertheless, it makes involved components and dependencies vulnerable for almost any security flaw that they might carry in. Therefore it is vital to keep all related software up to date, which probably means enabling automated update mechanisms. That again introduces yet another type of attack vectors, which can be depressed by only using signed and trusted software and resources.</p>
+<p>When it comes to personal data, existing social networks and other great platforms, founded on user-generated content have already become de facto data silos, and thus a single point of failure. A more decentralized approach, for example the here proposed concept would result in, diminishes the impact of potential security breaches, those platforms may experience. While from an global perspective this can be valued as a step in the right direction, from the perspective of a data subject instead, a <em>PDaaS</em> instance still represents a single point of failure as well. But in order to provide most control over the own personal data, this design choice appears to be the logical consequence. Besides that, several system components are highly portable, so that more sensitive parts, like the <em>Personal Data Store</em>, can be relocated away from the server platform into the data owner’s mobile device. In this case, for example a JWT issued by the <em>PSD</em> can be used to authenticate the access to personal data.</p>
+<p>However, those measures are still no guarantee for a comprehensive security protection. The only way is to continuously improve the system and provide mechanisms to securely recover from any type of incident. Not least that’s why a complete open (source) development is enforced from the start, because vulnerabilities can easy be disclosed and hence addressed immediately.</p>
+<p><em><strong>Conclusions:</strong></em> Securing data transport and storage are the two pivotal aspects to focus on. Choosing self-singed certificates over publicly trusted CAs in order to not only encrypt but also reasonably authenticate the consumer-system communication requires to make sure that the preliminary transfer of the certificates is not compromised, so that both parties can safely rely on them. Settings for any cryptographic procedure regarding their expense have to be chosen in favour of increasing the level of security instead of reducing resources and cost. The general mindset for this project is to rather utilize long proven libraries and technologies instead of using own implementations for cryptographic concepts and algorithms. Nevertheless, ongoing reviewing and re-evaluation of those dependencies as well as the software itself is mandatory.</p>
+<p>As a future enhancement it is planned to integrate an <em>intrusion detection system</em> into the server platform’s host environment, even though all server components are recommended to be encapsulated by containers. Monitoring transactions and events on the application-level is already part of the system architecture, facilitated by the <em>Tracker</em> component. Furthermore it is considered to apply full storage encryption to the <em>Personal Data Storage</em>, which would result in major security improvements. Therefore, when the personal data is located on the server, it should stay secure, even if the system is compromised. In return, the system might lose convenience in user interaction. It essentially comes down to an act of balance between security and convenience. Not much security measure or mechanism can be simplified or abstracted while not violating other (general) values at the same time. Key is to find the right compromise for the right motive.</p>
 </section>
 <section id="user-interfaces" class="level2">
 <h2><span class="header-section-number">6.9</span> User Interfaces</h2>
@@ -1415,9 +1380,9 @@ instead of using own implementations of cryptographic concepts and algorithms.</
 </section>
 <section id="overview" class="level2">
 <h2><span class="header-section-number">7.2</span> Overview</h2>
-<p>The overall purpose of this specification is to provide detailed instructions to build a web service that on the one side encourages an individual to manage and maintain all the data relating to her in one place, and on the other side that enables third parties to access such data if they are permitted by the individual to do so, preferably through supervised code execution instead of just handing over the raw data items. The result is a one-to-many relation between the data owner - the individual - and all those who might require some data to for example proceed a purchase initiated by the operator or make a proper decision on her medical treatment.</p>
-<p>The system architecture is designed while keeping flexibility and portability in mind but still preserving simplicity and security. The result supports to run some components on different platforms in a distributed way. Therefore the operator is able to operate the system while being on the move, and can literally carry all her personal data along.</p>
-<p>The design of this specification tries to leverage as much existing standards and open technologies as possible for all the different aspects and components. So that by recognizing common practices its implementation and integration can be made as effortless as possible.</p>
+<p>The overall purpose of this specification is to provide detailed instructions for building a web service that, on the one hand, encourages an individual to manage and maintain all the data relating to her in one place, and on the other hand, enables third parties to access such data if they are permitted by the individual to do so, preferably through supervised code execution instead of just handing over the raw data items. The result is a one-to-many relation between the data owner - the individual - and all those who might require some data to, for example, process a purchase initiated by the operator or make a proper decision on her medical treatment.</p>
+<p>The system architecture is designed with flexibility and portability in mind while still preserving simplicity and security. The result supports running some components on different platforms in a distributed way. Therefore the operator is able to operate the system while being on the move and can literally carry all her personal data along.</p>
+<p>The design of this specification tries to leverage as many existing standards and open technologies as possible for every aspect and component. By recognizing common practices, its implementation and integration can be made as effortless as possible.</p>
 <section id="key-features" class="level3">
 <h3><span class="header-section-number">7.2.2</span> Key Features</h3>
 <p><strong>Perspective: <em>Operator</em></strong></p>
@@ -1426,7 +1391,7 @@ instead of using own implementations of cryptographic concepts and algorithms.</
 <li>maintain all personal data in one place</li>
 <li>real-time information and notification</li>
 <li>taking her personal data with her</li>
-<li>collect and analyse her own personal data</li>
+<li>collect and analyze her own personal data</li>
 <li>trust through open development and open source</li>
 <li>commercialize data access on her own</li>
 </ul>
@@ -1434,7 +1399,7 @@ instead of using own implementations of cryptographic concepts and algorithms.</
 <ul>
 <li>reliable single source of latest data about an individual</li>
 <li>access only those data that are actually required and thus reduce ‘noise’</li>
-<li>access data that never were been collectible before</li>
+<li>access data that have never been collectible before</li>
 <li>distributed computing</li>
 </ul>
 </section>
@@ -1442,29 +1407,29 @@ instead of using own implementations of cryptographic concepts and algorithms.</
 <h3><span class="header-section-number">7.2.3</span> Scenarios <em>(Excerpt)</em></h3>
 <section id="online-purchase" class="level5">
 <h5><span class="header-section-number">7.2.3.0.1</span> Online Purchase</h5>
-<p>In order to proceed with the checkout, the shop requires some personal from the user, such as shipping address, email and payment information. Either the shop is already a data consumer, then it would access the system in the background to check if any data has changed, or the shop has to register as a consumer first. After the registration process has been initiated, and if not already has happened the user is then forwarded to complete the checkout. After reviewing the registration and the data that are attempted to get accessed, the use is informed via email that the order has been proceeded and the shipment has started.</p>
+<p>In order to proceed with checkout, a shop requires some personal data from the user, such as shipping address, email, and payment information. Either the shop is already a data consumer, then it would access the system in the background to check if any data has changed, or the shop has to register as a consumer first. After the registration process has been initiated, if needed, the user is forwarded to complete the checkout. After reviewing the registration and the data that are attempted to be accessed, the user is informed via email that the order has been processed and the shipment has started.</p>
 </section>
 <section id="social-network" class="level5">
 <h5><span class="header-section-number">7.2.3.0.2</span> Social Network</h5>
-<p>Instead of storing personal data by itself, a social network, after registering and being permitted to, can request and display data about a user, whenever other users try to access them. Created content such as posts, comments, images or videos can be stored in the system as well. The social network then just holds references to all the content, so that it can obtain and forward information on how to request those data, for example with a one-time url.</p>
+<p>Instead of storing personal data by itself, a social network, after registering and being permitted to, can request and display data about a user whenever other users try to access them. Created content such as posts, comments, images, or videos can be stored in the system as well. The social network then just holds references to all the content so that it can obtain and forward information on how to request those data, for example, with a one-time url.</p>
 </section>
 <section id="apply-for-a-loan" class="level5">
 <h5><span class="header-section-number">7.2.3.0.3</span> Apply for a Loan</h5>
-<p>The data that credit institutes take into account when deciding on creditworthiness of an individual can directly be accessed through the system; instead of gathering and acquiring them from all sorts of resources including filled out forms from applicants. The credit institute takes out the part of the computation that is responsible for those calculations and hands it over to the system, after it is permitted by the operator to do so. The system invokes that computation with the required data items and afterwards it just sends the result back to the credit institute.</p>
+<p>The data that credit institutes take into account when deciding on creditworthiness of an individual can be directly accessed through the system; instead of gathering and acquiring them from all sorts of resources, including filled out forms from applicants. The credit institute takes out the part of the computation that is responsible for those calculations and hands it over to the system after it is permitted by the operator to do so. The system invokes that computation with the required data items and sends the result back to the credit institute.</p>
 </section>
 <section id="browser-history" class="level5">
 <h5><span class="header-section-number">7.2.3.0.4</span> Browser History</h5>
-<p>A browser plugin, which is connected to the service, keeps track over every called URL. Those data, collected by the operator, could not only be reviewed and analyzed by herself, but also be made available to data consumers.</p>
+<p>A browser plugin, which is connected to the service, keeps track of every called URL. Those data, collected by the operator, can not only be reviewed and analyzed by herself, but also be made available to data consumers.</p>
 </section>
 <section id="movement-profile" class="level5">
 <h5><span class="header-section-number">7.2.3.0.5</span> Movement Profile</h5>
-<p>Instead of letting third party apps keep track of an individual’s daily movements (e.g. fitness app), an app that is associated with the system, obtains and pushed those location data directly into it. If a third party is now interested in those data, it can apply and eventually get permitted to access those movement data, but with configured resolution the data subject is comfortable with.</p>
+<p>Instead of letting third party apps keep track of an individual’s daily movements (e.g. fitness app), an app that is associated with the system, obtains and pushes those location data directly into it. If a third party is now interested in those data, it can apply and eventually get permitted to access those movement data, but at a resolution the data subject is comfortable with.</p>
 </section>
 </section>
 <section id="architectural-overview" class="level3">
 <h3><span class="header-section-number">7.2.4</span> Architectural Overview</h3>
-<p>The architecture design (see Fig. <a href="#fig:spec_arch_simplifier">3</a>) defines three different platforms whereon components of the system might be running. While <em>desktop</em> and <em>mobile</em> platforms are primarily meant to serve as the front end of the system and to present the operator with GUIs, the <em>mobile</em> platform especially might host the <em>Personal Data Storage</em>. The storage of the personal data can be located on every platform. This is enabled by abstracting the storage through the <em>Storage Connector</em> on the <em>server</em> platform.</p>
-<p>That <em>server</em> platform also provides an external API for accessing personal data. Incoming requests from third parties and consumers get then processed by the <em>Permission Manager</em>, which i.a. decides if and how data can be accessed. For every consumer it is a dedicated exposed endpoint provided, that consists of a subdomain (e.g. <code>CONSUMER_ID.system.tld</code>). Other components are i.a. a <em>Code Execution Environment</em>, a <em>PKI</em> that provides and issues certificates and key-pairs to facilitate authenticating at the endpoints. The <em>Persistence Layer</em> is represented by potentially multiple technologies, such as databases or filesystem. A <em>Notification Infrastructure</em> streamlines the different ways and technologies to notify the operator about certain events (e.g. system receives new registration). Probably one of the most important component is the <em>Operator API</em>, through which the operator i.a. is able to configure the system or manage permissions, and the API is granted read/write permissions at the <em>Storage Connector</em>.</p>
+<p>The architecture design (see Fig. <a href="#fig:spec_arch_simplifier">3</a>) defines three different platforms where components of the system could run. While <em>desktop</em> and <em>mobile</em> platforms are primarily meant to serve as the front end of the system and to present the operator with GUIs, the <em>mobile</em> platform in particular might host the <em>Personal Data Storage</em>. However, that data storage can be located on any platform. This is enabled by abstracting the storage through the <em>Storage Connector</em> on the <em>server</em> platform.</p>
+<p>That <em>server</em> platform also provides an external API for accessing personal data. Incoming requests from third parties and consumers are then processed by the <em>Permission Manager</em>, which i.a. decides if and how data can be accessed. For every consumer a dedicated exposed endpoint is provided that consists of a subdomain (e.g. <code>CONSUMER_ID.system.tld</code>). Other components are i.a. a <em>Code Execution Environment</em>, a <em>PKI</em> that provides and issues certificates and key-pairs to facilitate authentication at the endpoints. The <em>Persistence Layer</em> is represented by potentially multiple technologies, such as databases or filesystem. A <em>Notification Infrastructure</em> streamlines the different ways and technologies to notify the operator about certain events (e.g. system receives new registration). Probably one of the most important components is the <em>Operator API</em>, through which the operator i.a. is able to configure the system or manage permissions and the API is granted read/write permissions at the <em>Storage Connector</em>.</p>
 <figure>
 <img src="./assets/figures/spec_arch_simplifierd.png" alt="Figure 3: System Architecture, simplified" id="fig:spec_arch_simplifier" width="453" /><figcaption>Figure 3: System Architecture, simplified</figcaption>
 </figure>
@@ -1473,8 +1438,8 @@ instead of using own implementations of cryptographic concepts and algorithms.</
 <h3><span class="header-section-number">7.2.5</span> General Process Description</h3>
 <ol start="0" type="1">
 <li><p><em>Prerequisites: the data subject has an up-and-running system; existing third party aims to access personal data on the system</em></p></li>
-<li><p>Third party has to register at the system to become a data consumer, therefore it has to provide certain information to the operator either via QR-Code, which the operator can scans, or by submitting those information to a unique URL that is upfront generated and provided by the operator to the third party.</p></li>
-<li><p>Operator reviews the registration. On a positive outcome a new endpoint gets defined and, depending on the content of the registration request, a permission profile is optionally created and configured by the operator. If the outcome instead is negative, an error message is prepared. In any case, afterwards the third party is informed about the outcome via callback URL, and optionally provided with additional information that are required for further interactions.</p></li>
+<li><p>Third party has to register at the system to become a data consumer, therefore it has to provide certain information to the operator either via QR-Code, which the operator can scans, or by submitting those information to a unique URL that is generated upfront and provided by the operator to the third party.</p></li>
+<li><p>Operator reviews the registration. On a positive outcome a new endpoint gets defined and, depending on the content of the registration request, a permission profile is optionally created and configured by the operator. If the outcome instead is negative, an error message is prepared. In any case, the third party is then informed about the outcome via callback URL and optionally provided with additional information that is required for further interactions.</p></li>
 <li><p>After the consumer has set up a client according to the documentation and the information he has been provided with, and after he successfully authenticates to the system, he then submits a query to the dedicated endpoint.</p></li>
 <li><p>The incoming query is parsed and validated against all associated <em>permission profiles</em>. If the query passes, the request is processed according to configurations and depending on the determined <em>access type</em> (e.g. supervised code execution or plain forwarding). The response to the consumer either contains information about when and where the result can be obtained, or the actual result is included directly.</p></li>
 <li><p>Finally, the query result is returned to the consumer, either directly or self-obtained later on.</p></li>
@@ -1533,13 +1498,13 @@ instead of using own implementations of cryptographic concepts and algorithms.</
 <h5><span class="header-section-number">7.3.1.0.1</span> Web server</h5>
 <p>an interface to (or proxy for) server components</p>
 <ol type="a">
-<li>process incoming traffic originating by operator, consumer and third parties</li>
+<li>process incoming traffic originating by operator, consumer, and third parties</li>
 <li>all other server components are reachable only through this component</li>
 <li>serve web-based front ends</li>
 <li>perform all TLS-based authentications</li>
-<li>do load balancing, if necessary</li>
+<li>perform load balancing, if necessary</li>
 <li>pass through notification for web-based Management Tools that are connected via Web Sockets</li>
-<li>rule-based traffic management leveraging network characteristics and alike</li>
+<li>rule-based traffic management leveraging network characteristics and similar</li>
 </ol>
 </section>
 <section id="permission-manager-pm" class="level5">
@@ -1548,7 +1513,7 @@ instead of using own implementations of cryptographic concepts and algorithms.</
 <ol type="a">
 <li>parse requests and proceed accordingly</li>
 <li>examine and check queries that are aiming to access personal data</li>
-<li>queue requests, if further processing is blocked</li>
+<li>queue requests if further processing is blocked</li>
 <li>notify operator about new registration attempts</li>
 <li>create and manage permission profiles</li>
 <li>read personal data through <em>Storage Connector</em></li>
@@ -1596,7 +1561,7 @@ instead of using own implementations of cryptographic concepts and algorithms.</
 <ol type="a">
 <li>perform all JWT-based authentications</li>
 <li>read and write personal data through <em>Storage Connector</em></li>
-<li>configure, maintain and monitor system</li>
+<li>configure, maintain, and monitor system</li>
 <li>provide access history</li>
 <li>manage data structs</li>
 <li>can control <em>Permission Manager</em></li>
@@ -1612,7 +1577,7 @@ instead of using own implementations of cryptographic concepts and algorithms.</
 <li>provision runtimes</li>
 <li>perform test runs and code review</li>
 <li>monitor runtime during invocation</li>
-<li>hand over results back to <em>Permission Manager</em></li>
+<li>hand results back to <em>Permission Manager</em></li>
 <li>archive software in <em>Persistence Layer</em></li>
 </ol>
 </section>
@@ -1628,7 +1593,7 @@ instead of using own implementations of cryptographic concepts and algorithms.</
 </section>
 <section id="persistence-layer-pl" class="level5">
 <h5><span class="header-section-number">7.3.1.0.9</span> Persistence Layer <em>(PL)</em></h5>
-<p>combines multiple technologies to represent and hold the current systems state</p>
+<p>combines multiple technologies to represent and hold the current system state</p>
 <ol type="a">
 <li>store:
 <ul>
@@ -1672,12 +1637,12 @@ instead of using own implementations of cryptographic concepts and algorithms.</
 </section>
 <section id="security" class="level2">
 <h2><span class="header-section-number">7.4</span> Security</h2>
-<p>The following aspects are required measures in order to improve and ensure the overall sufficient security level of the system. Configurations mentioned below MAY change prospectively due to issues or vulnerabilities emerging in the future.</p>
+<p>The following measures are required in order to improve upon and ensure a sufficient level of security. Configurations mentioned below MAY change due to issues or vulnerabilities emerging in the future.</p>
 <section id="transport" class="level3">
 <h3><span class="header-section-number">7.4.2</span> Transport</h3>
 <p>All communication from and towards the system as well as internal communication between components located on different platforms MUST be established with <em>HTTP over TLS</em>. Thus, external third parties are only allowed to communicate with the system on port <code>443</code>, whereas internal communication runs through port <code>4223</code>. Port <code>80</code> MUST return HTTP Error <code>403 Forbidden</code> and all other ports SHOULD be dropped or blocked.</p>
-<p>The key-pair, used in TLS to agree on a mutual symmetric key, MUST be based on either the <em>RSA</em> or <em>DSA</em> cipher suite, although <em>RSA</em> SHOULD be preferred. All created keys MUST have a length of at least <code>4096</code> bits. Those ciphers for TLS, that support <em>Perfect Forward Secrecy</em> SHOULD be preferred, but ciphers that are not supported by <code>TLSv1.2</code> MUST be avoided. All endpoint and other dedicated entry points MUST provide their own generated Diffie-Hellman groups with a minimal length of <code>4096</code> bits.</p>
-<p>For web-based GUIs <em>TLS session resumption</em> SHOULD be activated, but for <em>endpoints</em> it MUST be deactivated. Web-based GUIs MUST NOT depend on external resources. All involved assets MUST be stored in the system and thus get served by the <em>web server</em>. This required behaviour is enforced by setting the <em>Content Security Policy (CSP)</em> in HTTP headers. The <em>web server</em> MUST facilitate a web socket connection for web-based GUIs. If a browser does not support this natively, a fallback SHALL be provided by the GUI. Furthermore, those GUIs SHOULD be served with HTTP/2.</p>
+<p>The key-pair, used in TLS to agree on a mutual symmetric key, MUST be based on either the <em>RSA</em> or <em>DSA</em> cipher suite, although <em>RSA</em> SHOULD be preferred. All created keys MUST have a length of at least <code>4096</code> bits. Those ciphers for TLS, that support <em>Perfect Forward Secrecy</em> SHOULD be preferred, but ciphers that are not supported by <code>TLSv1.2</code> MUST be avoided. All endpoints and other dedicated entry points MUST provide their own generated Diffie-Hellman groups with a minimal length of <code>4096</code> bits.</p>
+<p>For web-based GUIs <em>TLS session resumption</em> SHOULD be activated, but for <em>endpoints</em> it MUST be deactivated. Web-based GUIs MUST NOT depend on external resources. All involved assets MUST be stored in the system and thus get served by the <em>web server</em>. This required behaviour is enforced by setting the <em>Content Security Policy (CSP)</em> in HTTP headers, which also eliminates the risk of Cross-site scripting (XSS) attacks. The <em>web server</em> MUST facilitate a web socket connection for web-based GUIs. If a browser does not support this natively, a fallback SHALL be provided by the GUI. Furthermore, those GUIs SHOULD be served with HTTP/2.</p>
 <p>The subsequent examples show two Nginx configurations for the <em>web server</em> component, implementing the specifications from above.</p>
 <p><strong><span id="spec_code-01_nginx-config-web-gui">Code 01: web server configuration for a web-based GUI (excerpt)</span>:</strong></p>
 <div class="sourceCode"><table class="sourceCode ngix numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -1812,13 +1777,13 @@ server {
 <p>The following two authentication technologies MUST be supported by the system. 2-Factor authentication as an enhancement of the operator authentication procedure is OPTIONAL and can be implemented either by email or with a mobile platform, if it is part of the system.</p>
 <section id="transport-layer-security" class="level4">
 <h4><span class="header-section-number">7.4.3.1</span> Transport Layer Security</h4>
-<p>Before the first consumer tries to register on the system, the system MUST generate a key-pair and sign it by itself. With the resulting certificate the system becomes a private Certificate Authority primarily responsible for signing certificates that are required for every endpoint, and maybe even for connections between mobile and server platforms. The key-pair for a specific endpoint is then used to issue a certificate based on the <em>Certificate Signing Request (CSR)</em>, supplied by the consumer, who is associated to that very endpoint. The certified certificate and the endpoint’s certificate MUST then be transferred back to the consumer on a secure channel, which the consumer is responsible to provide (e.g. HTTP over TLS certified by trusted public CA, or by a self-signed certificate provided with the registration).</p>
-<p>In order to use TLS for bidirectional authentication, not only the client (consumer) MUST be able to verify the server’s (endpoint) certificate, also the server MUST do the same for the consumer. This procedure is known as <em>two-way authentication</em>, which is part of the TLS connection establishing. If the connection failed to establish, the authentications has failed, and vice versa has the consumer successfully authenticated to the system.</p>
+<p>Before the first consumer tries to register on the system, the system MUST generate a key-pair and sign it by itself. With the resulting certificate, the system becomes a private Certificate Authority primarily responsible for signing certificates that are required for every endpoint and maybe even for connections between mobile and server platforms. The key-pair for a specific endpoint is then used to issue a certificate based on the <em>Certificate Signing Request (CSR)</em> supplied by the consumer who is associated to that very endpoint. The certified certificate and the endpoint’s certificate MUST then be transferred back to the consumer on a secure channel, which the consumer is responsible to provide (e.g. HTTP over TLS certified by trusted public CA, or by a self-signed certificate provided with the registration).</p>
+<p>In order to use TLS for bidirectional authentication, not only the client (consumer) MUST be able to verify the server’s (endpoint) certificate, but also the server MUST do the same for the consumer. This procedure is known as <em>two-way authentication</em>, which is part of the TLS connection establishment. If the connection failed to establish, the authentication has failed. If the connection is successfully established, the consumer is successfully authenticated to the system.</p>
 </section>
 <section id="json-web-token-jwt" class="level4">
 <h4><span class="header-section-number">7.4.3.2</span> JSON Web Token (JWT)</h4>
 <p>When creating a JWT, the <code>&quot;alg&quot;</code> in the header MUST NOT be set to <code>&quot;none&quot;</code>. A JWT MAY be encrypted (JWE). JWTs MUST be created by the <em>Operator API</em>. Validation MAY be performed by <em>Operator API</em> or <em>Web server</em>. Secrets and keys for that purpose are stored in the <em>Persistence Layer</em>. As long as the token is not encrypted, every token MUST associate its own secret key for the HMAC computation.</p>
-<p>When authenticating, the JWT MUST be provided either as HTTP header (<code>Authorization: Bearer $JWT</code>) or as a query parameter indicated by the key <code>t</code>. If the operator fails to connect to the system before the token’s expiration date has been exceeded, the operator is REQUIRED to login again. The token MUST be renewed, but at least after half of the validity period is reached. The period, in which the token is valid, SHOULD be 24 hours but MUST NOT exceed 48 hours.</p>
+<p>When authenticating, the JWT MUST be provided either as HTTP header (<code>Authorization: Bearer $JWT</code>) or as a query parameter indicated by the key <code>t</code>. If the operator fails to connect to the system before the token’s expiration date has been exceeded, the operator is REQUIRED to login again. The token MUST be renewed, but after at least half of the validity period is reached. The period, in which the token is valid, SHOULD be 24 hours but MUST NOT exceed 48 hours.</p>
 <p>The following claims are REQUIRED:</p>
 <ul>
 <li><code>&quot;iss&quot;</code> (Issuer) - domain from which the front end component obtains its data</li>
@@ -1839,27 +1804,27 @@ server {
 </section>
 <section id="system-architecture" class="level3">
 <h3><span class="header-section-number">7.4.4</span> System Architecture</h3>
-<p>The centralized version of the system architecture places every component into the server platform. Even the web-based management tool, which later is fetched onto front end platforms, initially is stored there. This means, all the operator’s personal data is located somewhere in the ‘cloud’, probably out of reach, and potentially vulnerable to unauthorized access. Whereas the distributed approach allows for example to re-locate the <em>Personal Data Store</em> component to a mobile platform, which as well might be used by the operator to manage the system. The general approach of a more distributed deployment of components SHOULD reduces the vulnerability for certain scenarios and makes it harder for entities to compromise (parts of) the system. As long as all requirements are met and every component is completely functional and thus the system as a whole, any component MAY be located on whatever platform is sufficient.</p>
-<p>A second approach to gain not only portability, but also to increase the overall level of security is to isolate components [and their process(es)] from the surrounding platform environment. This enables explicit and controlled allocation of resources, such as memory, CPU usage or network and filesystem access. This concept MUST be implemented by either using the process isolation features provided by the host environment, namely <em>cgroups</em>, <em>namespaces</em> and <em>systemd-nspawn</em>, or by putting components into application containers. The latter is RECOMMENDED and MUST respect all <em>Open Container</em> Specifications. An orchestration software MAY be useful to manage all containers.</p>
+<p>The centralized version of the system architecture places every component on the server platform. Even the web-based management tool, which later is sent to front end platforms, is initially stored there. This means that all the operator’s personal data is located somewhere in the ‘cloud’, probably out of reach, and potentially vulnerable to unauthorized access. Whereas the distributed approach allows, for example, the relocation of the <em>Personal Data Store</em> component to a mobile platform, which could also be used by the operator to manage the system. The general approach of a more distributed deployment of components SHOULD reduce the vulnerability for certain scenarios and makes it harder for entities to compromise (parts of) the system. As long as all requirements are met and every component is completely functional, and thus the system as a whole, any component MAY be located on whatever platform is sufficient.</p>
+<p>A second approach to gain not only portability, but also to increase the overall level of security is to isolate components [and their process(es)] from the surrounding platform environment. This enables explicit and controlled allocation of resources, such as memory, CPU usage or network and filesystem access. This concept MUST be implemented by either using the process isolation features provided by the host environment, namely <em>cgroups</em>, <em>namespaces</em>, and <em>systemd-nspawn</em>, or by putting components into application containers. The latter is RECOMMENDED and MUST respect all <em>Open Container</em> Specifications. An orchestration software MAY be useful to manage all containers.</p>
 </section>
 <section id="supervised-code-execution-sce" class="level3">
 <h3><span class="header-section-number">7.4.5</span> Supervised Code Execution <em>(SCE)</em></h3>
-<p>When running programs on the server platform provided by consumers, it is REQUIRED to solely execute them after putting them into an application container (see <a href="#system-architecture">System Architecture</a>). This implies to provision the container first and then invoke it by providing the requested data items as arguments. The container MUST NOT be allowed to access the host’s filesystem or network. Before running the container with the actual data, it MUST be executed several times with generated test data. If the program is provided as source code, it MUST be automatically inspected and reviewed. If one of those test layers result insufficiently, processing the access request MUST abort and return with a failure information.</p>
+<p>When running programs on the server platform provided by consumers, it is REQUIRED to execute them only after putting them into an application container (see <a href="#system-architecture">System Architecture</a>). This implies that the container is provisioned first, and then invoked by providing the requested data items as arguments. The container MUST NOT be allowed to access the host’s filesystem or network. Before running the container with the actual data, it MUST be executed several times with generated test data. If the program is provided as source code, it MUST be automatically inspected and reviewed. If one of those test layers results are insufficient, processing the access request MUST abort and return with failure information.</p>
 </section>
 <section id="system-monitoring" class="level3">
 <h3><span class="header-section-number">7.4.6</span> System Monitoring</h3>
-<p>The <em>Tracker</em> component MUST ensure that the following information are being persisted <em>(required fields for those information are defined in <a href="#data-and-types">Data and Types</a>)</em>:</p>
+<p>The <em>Tracker</em> component MUST ensure that the following information is being persisted <em>(required fields for this information is defined in <a href="#data-and-types">Data and Types</a>)</em>:</p>
 <ul>
 <li>Access Requests (regardless of its success)</li>
 <li>failed Access Verifications</li>
 <li>Registrations of consumers (regardless of its success)</li>
 <li>Results of operator Authentications</li>
-<li>Permission Profile creation, manipulation and deletion</li>
+<li>Permission Profile creation, manipulation, and deletion</li>
 <li>SCE (regardless of its success)</li>
 <li>any third party request attempt arriving at the web server</li>
 <li>Server Resources (continually)</li>
 </ul>
-<p>To make sure, that these data is collected, other components MUST provide the <em>Tracker</em> with such information. Therefore, components such as <em>Operator API</em>, <em>Permission Manager</em> and <em>Web server</em>, MUST push information towards the <em>Tracker</em>. By performing pattern recognition &amp; anomaly detection, the <em>Tracker</em> is then able to recognize abnormal behaviour or occurrence, for example by monitoring the IP of an access request origin, which normally should not change very often. Such data MAY also help to prevent spam requests. If the <em>Tracker</em> finds suspicious patterns, the operator MUST be notified via email and push notification.</p>
+<p>To make sure that these data are collected, other components MUST provide the <em>Tracker</em> with such information. Therefore, components such as <em>Operator API</em>, <em>Permission Manager</em> and <em>Web server</em>, MUST push information towards the <em>Tracker</em>. By performing pattern recognition &amp; anomaly detection, the <em>Tracker</em> is then able to recognize abnormal behaviour or occurrences, for example, by monitoring the IP of an access request origin, which normally should not change very often. Such data MAY also help to prevent spam requests. If the <em>Tracker</em> finds suspicious patterns, the operator MUST be notified via email and push notification.</p>
 </section>
 </section>
 <section id="protocols" class="level2">
@@ -1900,13 +1865,13 @@ server {
 <li>generate new key-pair and certificate for registered subdomain (CN: <code>CONSUMER_ID.system.tld</code>) and sign it with the system’s root certificate</li>
 <li>process CSR accordingly, sign it with the subdomain’s certificate and store it in the related entry within <code>endpoints</code></li>
 </ul></li>
-<li>[OPTIONAL] if registration contains information on what data is requested to get permission to access, those information MUST be processed as described in <a href="#permission-request">Permission Request</a></li>
+<li>[OPTIONAL] if registration contains information on what data is requested to get permission to access, that information MUST be processed as described in <a href="#permission-request">Permission Request</a></li>
 <li>respond issued third party certificate, endpoint’s certificate and [OPTIONAL] result(s) of the <a href="#permission-request">Permission Request</a> procedure</li>
 </ol></li>
 <li><em>Refuse</em>
 <ol type="1">
 <li><em>data subject</em> SHOULD provide reason or MUST fall back to default reason</li>
-<li>respond reason</li>
+<li>respond with reason</li>
 </ol></li>
 <li><em>Failure</em>
 <ul>
@@ -1915,7 +1880,7 @@ server {
 <ol type="1">
 <li>form proper error identifier and message</li>
 <li>add unique URL to submit a new registration</li>
-<li>respond error</li>
+<li>respond with error</li>
 </ol></li>
 </ul></li>
 <li><p>assemble and submit response via provided callback URL</p></li>
@@ -1955,17 +1920,17 @@ server {
 <li><em>Accept</em>
 <ol type="1">
 <li><em>operator</em> creates new <em>Permission Profile</em> by either applying a prepared template/draft, importing configurations from an existing profile, or filling out an empty, or pre-filled with provided information, profile. When saving the new profile, it gets associated to the requester’s <em>endpoint</em></li>
-<li>respond what data items are permitted to access, how often, and how long this permission lasts</li>
+<li>respond which data items are permitted to be accessed, how often, and how long this permission lasts</li>
 </ol></li>
 <li><em>Refused</em>
 <ol type="1">
-<li>applying the provided information as is, the system creates and stores a permission profile after all, still associated with the requester’s <em>endpoint</em> but flagged as <code>refused</code></li>
-<li>respond [OPTIONAL] a reason</li>
+<li>applying the provided information as is, the system creates and stores a permission profile after everything, which is still associated with the requester’s <em>endpoint</em> but flagged as <code>refused</code></li>
+<li>respond [OPTIONAL] with reason</li>
 </ol></li>
 <li><em>Failure</em>
 <ol type="1">
 <li>form proper error identifier and message based on the error that has occurred</li>
-<li>respond error</li>
+<li>respond with error</li>
 </ol></li>
 </ul></li>
 <li><p>assemble and submit response to <em>consumer</em></p></li>
@@ -1992,11 +1957,11 @@ server {
 </section>
 <section id="access-request" class="level5">
 <h5><span class="header-section-number">7.5.1.0.3</span> Access Request</h5>
-<p><em>After requesting permission to access data and getting these granted, a consumer actually access data items by either getting them forwarded or providing a program, that gets invoked with the data items as arguments. The result of that invocation is then send back to the originating data consumer.</em></p>
+<p><em>After requesting permission to access data and having this granted, a consumer actually access data items by either getting them forwarded or by providing a program that is invoked with the data items as arguments. The result of that invocation is then sent back to the originating data consumer.</em></p>
 <p><em>Preconditions:</em></p>
 <ul>
 <li>successfully requested permission</li>
-<li>[OPTIONAL] program, that has to be invoked</li>
+<li>[OPTIONAL] program to be invoked</li>
 </ul>
 <ol type="1">
 <li>after successfully authenticated, <em>consumer</em> submits access request, containing
@@ -2006,22 +1971,22 @@ server {
 <li>[OPTIONAL] response method (<code>keepalive</code> or <code>push</code>)</li>
 <li>[OPTIONAL] program (source or binary)</li>
 </ul></li>
-<li><em>Permission Manager</em> tries to verify the access (see <a href="#access-verification">Access Verification</a>) and resulting to
+<li><em>Permission Manager</em> tries to verify the access (see <a href="#access-verification">Access Verification</a>) with the following possible results
 <ul>
 <li><em>allowed</em>
 <ol type="1">
-<li>depending on defined response method either keep session open until timeout limit exceeds, or respond with unique process identifier and [OPTION] estimated duration</li>
+<li>depending on defined response method, either keep session open until timeout limit exceeds, or respond with unique process identifier and [OPTION] estimated duration</li>
 </ol></li>
 <li><em>denied</em>
 <ol type="1">
 <li>abort processing access request</li>
-<li>respond default denial notice or [OPTIONAL] message from <em>Access Verification</em></li>
+<li>respond with default denial notice or [OPTIONAL] message from <em>Access Verification</em></li>
 </ol></li>
 </ul></li>
 <li><p>obtain data from <em>PDS</em></p></li>
 <li>[OPTIONAL and if reliable == <code>true</code>] verify and indicate data reliability
 <ol type="1">
-<li>check, if data item(s) in obtained data are in group of data items whose reliability can be verified
+<li>check if data item(s) in obtained data are in group of data items whose reliability can be verified
 <ul>
 <li><em>yes</em>, proceed with configured method for checking reliability
 <ul>
@@ -2059,7 +2024,7 @@ server {
 <li>copy program into <em>PL</em></li>
 <li>inspect and review code, if available</li>
 <li>provision container runtime with dependencies and provided program</li>
-<li>run multiple tests with generated test data *) if threshold of failed tests exceeds, abort and pass error message on to response handler</li>
+<li>run multiple tests with generated test data *) if threshold of failed tests is exceeded, abort and pass error message on to response handler</li>
 <li>run with real data</li>
 <li>forward result to response handler</li>
 </ol></li>
@@ -2068,13 +2033,13 @@ server {
 </ol>
 <p><em>Result(s):</em></p>
 <ul>
-<li>in case of <em>supervised execution</em> no actual personal data has left the system</li>
-<li>if <em>consumer</em> would have been not permitted to access data, it would not have happened</li>
+<li>in case of <em>supervised execution</em>, no actual personal data has left the system</li>
+<li>if <em>consumer</em> would have been denied access to data, they would not be accessed</li>
 </ul>
 </section>
 <section id="access-verification" class="level5">
 <h5><span class="header-section-number">7.5.1.0.4</span> Access Verification</h5>
-<p><em>When an access request is received, it first MUST be verified if that access is even permitted according to the permission profiles and the presented data query before the request is proceeded and data gets obtained from the PDS.</em></p>
+<p><em>When an access request is received, first it MUST be verified if that access is even permitted according to the permission profiles and the presented data query, before the request is processed and data is obtained from the PDS.</em></p>
 <p><em>Preconditions:</em></p>
 <ul>
 <li>query string</li>
@@ -2083,7 +2048,7 @@ server {
 </ul>
 <ol type="1">
 <li><p>gather all <em>permission profiles</em> relating to the given endpoint</p></li>
-<li>find all profiles, that
+<li>find all profiles that
 <ol type="a">
 <li>address at least one requested data item and</li>
 <li>have a valid <em>permission type</em> at that moment</li>
@@ -2098,11 +2063,11 @@ server {
 <ol type="1">
 <li>pause processing</li>
 <li>notify operator and ask for decision on whether access to unregulated data items is allowed or denied</li>
-<li>after missing data items got acknowledged by operator, go back to (2.)</li>
+<li>after missing data items are acknowledged by operator, go back to (2.)</li>
 </ol></li>
 <li>all requested data items are addressed among those profiles and …
 <ul>
-<li>at least one is not allowed to access (counting also <code>refused</code> profiles)
+<li>at least one is not allowed to access (including <code>refused</code> profiles)
 <ol type="1">
 <li>return with a negative result (<code>false</code>) and [OPTIONAL] include information on which data items are affected</li>
 <li>inform operator about this incident</li>
@@ -2418,7 +2383,7 @@ server {
 <h2><span class="header-section-number">7.7</span> Interfaces</h2>
 <section id="graphical-user-interfaces-guis" class="level3">
 <h3><span class="header-section-number">7.7.2</span> Graphical User Interfaces (GUIs)</h3>
-<p>The primary GUI of the system is the operator’s <em>Management Tool</em>, which is used to administrate the system, to control and manage data access and to maintain personal data. The tool MAY be available on mobile platforms, but at least it MUST be provided for <em>desktop</em> platforms. The following lists show briefly, which features the tool provides to the operator.</p>
+<p>The primary GUI of the system is the operator’s <em>Management Tool</em>, which is used to administrate the system, to control and manage data access, and to maintain personal data. The tool MAY be available on mobile platforms, but MUST at least be provided for <em>desktop</em> platforms. The following lists show briefly, which features the tool provides to the operator.</p>
 <section id="functionality-that-must-be-provided" class="level4">
 <h4><span class="header-section-number">7.7.2.1</span> Functionality, that MUST be provided:</h4>
 <ul>
@@ -2460,10 +2425,10 @@ server {
 </section>
 <section id="application-programming-interface-apis" class="level3">
 <h3><span class="header-section-number">7.7.3</span> Application Programming Interface (APIs)</h3>
-<p>The lists of GUI features implicitly define what the <em>Operator API</em> must be capable of, whereas interactions originated by third parties and data consumers are described below. These descriptions show the behavior of all major API endpoints, that are required to access personal data, hosted by the system. The payload MUST be transmitted with HTTP requests, secured by TLS, declared as <em>POST</em> method, unless otherwise outlined. It MUST be serialized in JSON and constitutes the complete request body. In order to send data originating from certain formats (e.g. PEM-formatted file content or binary streams) as string values being part of a URLs or JSON, <em>bas64url</em> MUST be used to encode such data. Furthermore, it is to be noted, that request are asynchronous and MAY take several hours up to a few days to get answered.</p>
+<p>The lists of GUI features implicitly define what the <em>Operator API</em> must be capable of, whereas interactions originated by third parties and data consumers are described below. These descriptions show the behavior of all major API endpoints that are required to access personal data, which is hosted by the system. The payload MUST be transmitted with HTTP requests, secured by TLS, declared as <em>POST</em> method, unless otherwise outlined. It MUST be serialized in JSON and constitute the complete request body. When sending data originating from certain formats (e.g. PEM-formatted file content or binary streams) as string values that are a part of a URL or JSON, <em>bas64url</em> MUST be used for encoding. Furthermore, it is to be noted, that requests are asynchronous and MAY take several hours up to a few days to be answered.</p>
 <section id="spec_api_registration-request" class="level5">
 <h5><span class="header-section-number">7.7.3.0.1</span> Registration Request</h5>
-<p>MUST be handed over to the system in order to get acknowledged as a <em>data consumer</em>. It can either be submitted via HTTP to the system, if the operator has provided a URL, or encoded as a QR-Code presented on web page, served via HTTPS by the requester, ready to get scanned with the operator’s mobile device.</p>
+<p>MUST be handed over to the system in order to be acknowledged as a <em>data consumer</em>. It can either be submitted via HTTP to the system, if the operator has provided a URL, or encoded as a QR-Code presented on web page, served via HTTPS by the requester, ready to be scanned with the operator’s mobile device.</p>
 <p><em>Parameter(s):</em></p>
 <ul>
 <li><code>csr: String</code> - certificate signing request</li>
@@ -2538,8 +2503,8 @@ server {
 </section>
 <section id="spec_api_permission-request" class="level5">
 <h5><span class="header-section-number">7.7.3.0.2</span> Permission Request</h5>
-<p>MUST create a new <em>permission profile</em> and thus MAY enable the data consumer to access personal data. In return, the consumer is provided with all information that are required to request data access based on the permissions requested herewith.</p>
-<p><em>NOTICE: If the representation of the data, that is requested for access, is defined as a list of strings (<code>[String]</code>), then the response MUST show a similar structure; the same applies to the data query in a string-representation (<code>String</code>).</em></p>
+<p>MUST create a new <em>permission profile</em> and thus MAY enable the data consumer to access personal data. In return, the consumer is provided with all information that is required to request data access based on the permissions requested herewith.</p>
+<p><em>NOTICE: If the representation of the data to which access is requested is defined as a list of strings (<code>[String]</code>), then the response MUST show a similar structure; the same applies to the data query for string-representations (<code>String</code>).</em></p>
 <p><em>Parameter(s):</em></p>
 <ul>
 <li><code>desires: [String] || String</code> - list of data items selectors or query string, representing what data is requested to get access to</li>
@@ -2567,7 +2532,7 @@ server {
 </section>
 <section id="spec_api_access-request" class="level5">
 <h5><span class="header-section-number">7.7.3.0.3</span> Access Request</h5>
-<p>leads to the actual data access, if the <em><a href="#access-verification">Access Verification</a></em> does not refuse to let through.</p>
+<p>leads to the actual data access, if the <em><a href="#access-verification">Access Verification</a></em> does not reject access.</p>
 <p><em>Parameter(s):</em></p>
 <ul>
 <li><code>query: String</code> - data query representing the data that is requested to be accessed</li>
@@ -2609,7 +2574,7 @@ server {
 <span class="fu">}</span></code></pre></td></tr></table></div>
 <p><em>Request:</em> <code>https://$endpointId.system.tld/ar/$procedureId</code> <em>Response:</em></p>
 <ul>
-<li><code>expiresAt: Number</code> - date when data becomes outdated</li>
+<li><code>expiresAt: Number</code> - date when data become outdated</li>
 <li><code>proof: String</code> - [OPTIONAL] certificate that indicates verified data reliability</li>
 <li><code>data: Object || String</code> - if valid JSON, then Object, otherwise base64url-encoded string</li>
 </ul>
@@ -2638,20 +2603,20 @@ server {
 </section>
 <section id="recommendations-resources" class="level2">
 <h2><span class="header-section-number">7.8</span> Recommendations &amp; Resources</h2>
-<p>This section provides additional information on hosting and operating such a system, as well as further resources that MAY be worth knowing. Moreover, it contains advices that are recommended to consider when implementing (parts of) this specification.</p>
+<p>This section provides additional information on hosting and operating such a system, as well as further resources that MAY be worth knowing. Moreover, it contains advice to consider when implementing (parts of) this specification.</p>
 <section id="host-environments-recommendations" class="level4 unnumbered">
 <h4>Host Environment(s) Recommendations</h4>
 <ul>
 <li><p>Depending on the technologies that are being used for the implementations, the environment specifications MAY vary. Although, it SHOULD be feasible to expect at least around <em>2</em> cores, <em>4GB</em> of memory and <em>60GB</em> of storage.</p></li>
 <li><p>Unless server components are running in containers, it is not recommended to run other applications in the same environment side by side.</p></li>
-<li><p>A vendor, who hosts for multiple data subjects, one system instances each, SHOULD NOT locate all of them in one environment, but rather deploy another operating system virtualization for every instance, or separate them physically on different machines.</p></li>
+<li><p>A vendor, who hosts for multiple data subjects, one system instance each, SHOULD NOT locate all of them in one environment, but rather deploy another operating system virtualization for every instance, or separate them physically on different machines.</p></li>
 <li><p>The host environment (for the system’s server components) SHOULD offer measures for detecting security violations and breaches.</p></li>
 </ul>
 </section>
 <section id="recommendations-to-third-parties" class="level4 unnumbered">
 <h4>Recommendations To Third Parties</h4>
 <ul>
-<li><p>If data consumers accessing data from more than one system instances representing different individuals, it MAY be considerable to use different key-pairs and certificates for all the instances, and probably even unique endpoints.</p></li>
+<li><p>If data consumers are accessing data from more than one system instance, representing different individuals, it MAY be wise to use different key-pairs and certificates for all instances, and probably even unique endpoints.</p></li>
 <li><p>Data consumers SHOULD also provide a full-featured <em>endpoint</em> based on a subdomain, thereby a bidirectional communication flow can be established, instead of the workaround based on callback URLs.</p></li>
 </ul>
 </section>
@@ -2667,6 +2632,7 @@ server {
 <li>CouchDB (document-oriented database system focusing on real-time)</li>
 <li>RethinkDB (graph-structured database system)</li>
 <li>Prometheus (database system optimized for time series data)</li>
+<li>Container Linux (open-source lightweight operating system, by CoreOS)</li>
 </ul>
 </section>
 <section id="resources" class="level4 unnumbered">
@@ -2753,11 +2719,12 @@ server {
 <section id="summary" class="level2">
 <h2><span class="header-section-number">8.8</span> Summary</h2>
 <ul>
+<li><p>In the sole opinion of the author the here proposed concept is fare from being the ultimate solution, but it is in any regards an improvement of the current situation. is definately has its weaknesses and needs further development, which are worth to invest in order ro reach its goals.</p></li>
 <li>main focus</li>
 <li>unique features</li>
 <li>technology stack &amp; standards</li>
 <li>resources</li>
-<li>the tool might be not a bulletproof vest, but</li>
+<li><p>the tool might be not a bulletproof vest, but</p></li>
 </ul>
 <p>The work will be continued.</p>
 </section>
@@ -3038,6 +3005,15 @@ query <span class="op">{</span>
 </section>
 <section id="references" class="level1 unnumbered">
 <h1>References</h1>
+<ul>
+<li>briefly mentioned in previous sections:
+<ul>
+<li>HTTPS for man-in-the-middle: confidentiality, integrity</li>
+<li>certified HTTPS: authenticity</li>
+<li>operator’s auth token theft</li>
+</ul></li>
+</ul>
+<p>but ,</p>
 <div id="refs" class="references">
 <div id="ref-web_2016_privacy-international-about-big-data">
 <p>[1] <em>Big data privacy international</em>. URL <a href="https://www.privacyinternational.org/node/8" class="uri">https://www.privacyinternational.org/node/8</a>. - retrieved 2016-11-15</p>

@@ -101,7 +101,7 @@ The *Remote Verification and signing (3)* method would require the external part
 authority, because no other entity has (A) the data in question (primarily profile data), which
 makes them (B) legally binding; and they are commonly trusted. 
 The same goes for The *Recurring Certification (4)*, but while the *Remote Verification and signing* 
-method introduces a very strong dependency to that external party, the *Recurring Certification*  
+method introduces a very strong dependency to that external party, the *Recurring Certification*
 offers a simple, loosely linked dependency. Whose design would make it possible to obtain such a 
 certificate manually, but also automatically. Nevertheless, both provide a trustworthy 
 certification. 
@@ -128,6 +128,6 @@ downsides, though, the *Recurring Certification* method would be the least invas
 an adequate choice.
 
 A primary goal for the *PDaaS* is to preserve all data owned by the *data subject* and giving her
-control over where the data might go; not providing sufficient proof for the data authenticity.  
+control over where the data might go; not providing sufficient proof for the data authenticity.
 Although it is still important to provide *data consumers* with an information about the level of 
 reliability, it is up to them how to rate that information and how to act on that.

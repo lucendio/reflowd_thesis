@@ -221,4 +221,4 @@ By performing pattern recognition & anomaly detection, the *Tracker* is then abl
 abnormal behaviour or occurrences, for example, by monitoring the IP of an access request origin, 
 which normally should not change very often. Such data MAY also help to prevent spam requests. If 
 the *Tracker* finds suspicious patterns, the operator MUST be notified via email and push 
-notification.   
+notification.

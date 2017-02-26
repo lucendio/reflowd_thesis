@@ -93,7 +93,7 @@ d)  pattern recognition and anomaly detection
 
 
 ##### Persistence Layer *(PL)*
-combines multiple technologies to represent and hold the current system state  
+combines multiple technologies to represent and hold the current system state
 
 a)  store:
     +   system related data

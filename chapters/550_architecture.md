@@ -330,7 +330,7 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 bringing decentralization to the market of authentication services - which differs from the ones 
 addressed by the *PDaaS*; at least when it comes to *data consumer* interactions. The *PDaaS* has 
 the ability to become the digital representation of its *operator*, therefore it can and should also 
-be used to authenticate that individual against external parties.  
+be used to authenticate that individual against external parties.
 
 
 

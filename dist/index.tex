@@ -475,15 +475,15 @@ Work}). Early work done in this field can be dated back to the Mid-2000s
 when studies were conducted, for example, about recent developments in
 the industry (e.g targeted ads) and the user's concerns about privacy
 {[}\protect\hyperlink{ref-study_2004_architecture-for-privacy-sensitive-ubiquitous-computing}{8}{]}.
-At that time, the term \emph{Vendor Relationship Management(VRM)} was
+At that time, the term \emph{Vendor Relationship Management (VRM)} was
 first used within the context of user-centric personal data management,
 which then also led into the \emph{ProjectVRM}
 {[}\protect\hyperlink{ref-web_2010_projectvrm_about}{9}{]} started by
-the \emph{Berkman Klein Center for Internet \& Society at Harvard
+the \emph{Berkman Klein Center for Internet \& Society} at \emph{Harvard
 University}. A great amount of effort has gone into this area of
-research since then. While commercial products and business models try
-to solve some of the problems related to this. For instance, with
-concepts like the \emph{Personal Data Store (PDS)}
+research since then. In parallel, commercial products and business
+models try to solve some of the problems related to this. For instance,
+with concepts like the \emph{Personal Data Store (PDS)}
 {[}\protect\hyperlink{ref-paper_2013_the-personal-data-store-approach-to-personal-data-security_2013}{10}{]}
 or an implementation of the \emph{MyData} concept
 {[}\protect\hyperlink{ref-whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing}{11}{]}
@@ -529,17 +529,18 @@ might affect her privacy.
 \item[Web Service:]
 A service, that is accessible by electronic devices over the internet.
 This makes it almost effortless to use a service which would otherwise
-be out of reach. Interactions with a service usually happen through
-enriched websites or other web-compatible applications and interfaces.
+be out of reach or unavailable. Interactions with a service usually
+happen through enriched websites or other web-compatible applications
+and interfaces.
 \item[Open Specification:]
 A specification is a formal and very detailed way of describing a
 technology, its internals, and behaviour from external perspectives. It
-provides guidance for implementations to ensure a minimum level of
-interoperability. Structured in a formalized document it might become a
-\emph{technical standard}. \emph{Open} in this case means at first
-nothing, but it's accessible for anyone without restrictions. When it
-comes to the intellectual value itself, that might be handled
-differently, for example with an enclosed license.
+provides guidance for possible implementations to ensure a minimum
+viable level of interoperability. Structured in a formalized document
+and widely adopted it might become a \emph{technical standard}.
+\emph{Open} in this case means that its accessible for everyone without
+restrictions. When it comes to the intellectual value itself, that might
+be handled differently, for example with an enclosed license.
 \item[\protect\hypertarget{terminologies--profile-data}{}{Profile
 Data}:]
 A collection of data items reflecting an individual's inherent
@@ -550,53 +551,54 @@ Footprint}:]
 Refers to data that is related to an individual. It is distinguished
 between an active footprint, which involves data and information about
 an individual who chose to share them publicly, and a passive footprint,
-which includes all data about an individual collected by third parties
-without the individual's knowledge.
-\item[Personal Data as a Service (PDaaS):]
-A web service that is controlled, owned, and maybe even hosted by an
-individual. It provides access to the data subject's personal data and
-offers maintainability as well as permission management for those data.
-It can be seen as her personal agent; sometimes also referred to as
-\emph{the system}.
+which includes all data about an individual that is collected by third
+parties without the individual's knowledge.
 \item[Data Subject:]
 An individual who first and foremost is the owner of all of her personal
-data; sometimes referred to as \emph{owner}.
+data; sometimes referred to as (data) owner.
+\item[Personal Data as a Service (PDaaS):]
+A \emph{web service} that is controlled, owned, and maybe even hosted by
+an individual. It provides access to the \emph{data subject's} personal
+data and offers permission management as well as maintainability for
+those data. It can be seen as her personal agent; sometimes also
+referred to as the system.
 \item[\protect\hypertarget{terminologies--operator}{}{Operator}:]
 A \emph{data subject} that uses a \emph{PDaaS} to control (and probably
-host) her personal data; sometimes referred to as \emph{data controller}
-or \emph{data owner}.
+host) her personal data; sometimes referred to as data controller or
+data owner.
 \item[\protect\hypertarget{terminologies--consumer}{}{(Data) Consumer}:]
-Third party who requests permission or is already allowed to access the
-\emph{operator's} \emph{personal data} through her \emph{PDaaS};
-sometimes referred to as \emph{(data) collector} or vendor.
+Third party who requests permission or is already allowed to access
+parts the \emph{operator's} personal data through her \emph{PDaaS};
+sometimes referred to as (data) collector or vendor.
 \item[\protect\hypertarget{terminologies--data-broker}{}{Data Broker}:]
 Third party with commercial interests in collecting, aggregating and
-analyzing information/data about humans from any possible resource in
-order to combine and enrich the data, to finally license those corpora
-to other organisations.
-{[}\protect\hyperlink{ref-report_2014_data-brokers}{14}{]}
+analyzing information about humans from any possible resource in order
+to combine and enrich that data, to finally license those corpora to
+other organisations
+{[}\protect\hyperlink{ref-report_2014_data-brokers}{14}{]}.
 \item[Permission Request:]
 A formalized attempt made by a third party to request permissions in
-order to access certain data points on the \emph{PDaaS}. The request has
+order to access certain data items on the \emph{PDaaS}. The request has
 to include all the data items to which access is being demanded, as well
-as sufficient information about the purpose. It requires the third party
-to already being registered as \emph{data consumer}.
-\item[Access Request:]
-An attempt to actually access data provided by a \emph{PDaaS}. The
-request primarily consists of a query, that defines what data items are
-tried to be accessed. The access is only permitted if the query matches
-against the \emph{permission profiles}.
+as sufficient information about its underlying purpose. It requires the
+third party to already being registered as \emph{data consumer}.
 \item[Permission Profile:]
 A set of access rules and configuration tied to a \emph{data consumer}.
 It determines what data is accessible by the related \emph{data
 consumer} and for how long. The profile is the result of a reviewed and
 granted \emph{permission request}.
+\item[Access Request:]
+An attempt to actually access data provided by a \emph{PDaaS}. The
+request primarily consists of a query, that defines what data items are
+tried to be accessed. The access is only permitted if the query matches
+against the \emph{permission profiles}.
 \item[Endpoint:]
 An endpoint is defined as part of a URI that is uniquely associated with
-a single \emph{data consumer}. Usually it's the first part of a URI
-(e.g.~domain incl. subdomains), whereas following parts indicating
-different resources that might be available within that endpoint. It can
-also be viewed as group of resources whose access is restricted.
+a single \emph{data consumer}. In this case it's the part of a URI
+referring to the host (domain incl. subdomains), whereas subsequent
+parts indicating different resources that might be available within that
+endpoint. It can also be viewed as group of resources whose access is
+restricted.
 \end{description}
 
 \hypertarget{scenarios}{\section{Scenarios}\label{scenarios}}
@@ -2762,7 +2764,7 @@ presented with the self-signed certificate of the \emph{PDaaS} during
 the initiation of the TLS connection, they already have to be aware of
 that certificate. That is, \emph{consumers} need to be provided with
 that certificate on a private channel upfront. Otherwise the process
-would still be vulnerable to man-in-the-middle-attacks.
+would still be vulnerable to man-in-the-middle attacks.
 
 In summary, if a public-key-based connection, performing a \emph{two-way
 authentication}, establishes successfully, it implies that the identity
@@ -2987,10 +2989,10 @@ external party to be an official authority, because no other entity has
 legally binding; and they are commonly trusted. The same goes for The
 \emph{Recurring Certification (4)}, but while the \emph{Remote
 Verification and signing} method introduces a very strong dependency to
-that external party, the \emph{Recurring Certification}\\
-offers a simple, loosely linked dependency. Whose design would make it
-possible to obtain such a certificate manually, but also automatically.
-Nevertheless, both provide a trustworthy certification.
+that external party, the \emph{Recurring Certification} offers a simple,
+loosely linked dependency. Whose design would make it possible to obtain
+such a certificate manually, but also automatically. Nevertheless, both
+provide a trustworthy certification.
 
 Finally, the first method, \emph{Local Verification by matching (1)},
 which just performs a matching of two datasets against each other. Those
@@ -3020,10 +3022,10 @@ invasive and therewith an adequate choice.
 
 A primary goal for the \emph{PDaaS} is to preserve all data owned by the
 \emph{data subject} and giving her control over where the data might go;
-not providing sufficient proof for the data authenticity.\\
-Although it is still important to provide \emph{data consumers} with an
-information about the level of reliability, it is up to them how to rate
-that information and how to act on that.
+not providing sufficient proof for the data authenticity. Although it is
+still important to provide \emph{data consumers} with an information
+about the level of reliability, it is up to them how to rate that
+information and how to act on that.
 
 \section{Access Management}\label{access-management}
 
@@ -4705,104 +4707,161 @@ introduce new problems instead of solving them.
 
 \section{Attack Scenarios}\label{attack-scenarios}
 
-\begin{itemize}
-\item
-  briefly mentioned in previous sections:
+If only briefly, previous sections already mentioned a few potential
+attack types and vulnerabilities of the system, such as
+man-in-the-middle attacks that are possible during connection
+establishment and data transfer, or session hijacking which can be done
+by stealing the JWT used to authenticate privileged entities to the
+system. Attack vectors causing those and other scenarios as well as
+possible and feasible counter-measures are discussed in detail within
+this section.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    HTTPS for man-in-the-middle: confidentiality, integrity
-  \item
-    certified HTTPS: authenticity
-  \item
-    operator's auth token theft
-  \item
-    security level over time expense: expensive settings for crypto
-    procedures are favoured
-  \end{itemize}
-\item
-  motivations:
+Initially however, it is to identify what motivation(s) would drive such
+attacks. The first and probably the most dangerous one appears to be
+\emph{Digital Identity Theft}. Thereby the attacker impersonates the
+individual that was originally associated to the system. Then data
+consumers, though, have the misleading impression, that everything the
+intruder does with the \emph{PDaaS} still happens on behave of the data
+owner herself. Such control can be abused for vicious data changes to
+harm the physical counterpart or the access can simply be exploited to
+unopposedly extract the individual's personal data. The more data the
+system contains and the more purposes it serves, the more power can be
+gained by controlling it. Those motivations are extrinsically driven by
+third parties, whereas intrinsic and mostly unintended damage can be
+caused by system or human failure, which may lead, for example, to data
+loss or irrecoverable system access.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    extrinsic:
+As the name states, in a man-in-the-middle attack the transferred
+content of a communication is intercepted and possibly tampered with,
+while the participants not noticing any of that. A common solution here
+is to encrypt and sign the content before transferring it. For HTTP
+communication this is implemented by the \emph{Transport Layer Security
+(TLS)}. The crux here is to move from an unencrypted to an encrypted
+connection. This upgrade procedure involves the
+\emph{Diffie-Hellman-Key-Exchange} to agree on a pre-shared key and
+certification based on \emph{asymmetrical cryptography} for
+authentication. The procedure starts i.a. with the server-role
+presenting the client-role with its certificate \emph{while the
+connection is still insecure}. This is essential, because the connection
+is still insecure, a man-in-the-middle attack is possible at that time.
+In order to prevent that and to ensure the trustworthiness of that
+certificate, the client has to verify the certificate. This is done by
+using an installed certificate from a trustful public CA, that has
+issued and therefore trusted the server's certificate, to examine its
+chain of trust. But since HTTPS connections between data consumers and
+the system rather use certificates that are issued by the system itself
+instead of relying on CA-certified certificates, there is no chain of
+commonly trusted entities, that can verify the presented certificates.
+So in order to still trust those certificates, even though they are sent
+on a insecure channel during the connection establishment, they have to
+be handed over in private sometime before. This is defined in the
+registration process, where the consumer either presents a QR-Code
+served via publicly certified HTTPS, which he is responsible for but can
+easily verified by the data subject, or submits the registration request
+including the CSR to a URL provided by the data subject that is also
+reachable only by publicly certified HTTPS. The server then issues the
+certificate and sends it - alongside with its own certificate - back to
+the consumer via publicly certified HTTPS, too. The consumer is able to
+trust the server certificate and can even pin it to detect fictitious
+certificates he might get presented with. This approach enables not only
+confidentiality and integrity of the data exchanged between consumer and
+data subject, but by enforcing \emph{two-way authentication}
+authenticity of the respective opposite is provides to both parties as
+well. While other HTTP connections via TLS may still rely on
+certificates signed by publicly trusted CAs, regular key change and
+certificate renewal has therefor to be ensured.
 
-    \begin{itemize}
-    \tightlist
-    \item
-      impersonate, identity theft
-    \item
-      unrestrictedly extract data
-    \item
-      vicious data change to harm the physical counterpart
-    \end{itemize}
-  \item
-    intrinsic:
+Another aspect of the system, that could be vulnerable to certain
+attacks, is the authentication mechanism used by the data subject to log
+into her management tool. A JSON Web Token, also containing all session
+information, serves as the key. As mentioned before, such connections
+are forced to be established only by TLS. So from this perspective the
+JWT is no less or more secure than any other type of credentials.
+Though, this doesn't prevent the token from being usable to the attacker
+once it is stolen. A short expiration date, equally to a session
+timeout, and token invalidation cycle, which is the same as forced
+logout, can reduce the potential harm an incident like this may cause.
+Furthermore the integration of 2-factor authentication hardens the
+authentication procedure. But in order to not introduce another
+dependency, namely an external service providing such functionality,
+2-factor authentication is only supported, when a mobile device is
+associated to the \emph{PDaaS}. Further precautions can be taken by
+preventing attackers from getting in the near of such token, referring
+to \emph{cross-site scripting (XSS)}, to which web-based graphical
+interfaces are vulnerable to. Approaching this issue means to abandon
+external resources providing parts of the interface and instead store
+all content on the server platform and serve it with the system's own
+web server. Even if that means an increased load time caused by the
+browser constrains of how content is loaded, which isn't an issue in
+HTTPS/2 anymore.
 
-    \begin{itemize}
-    \tightlist
-    \item
-      data loss caused system or human failure
-    \end{itemize}
-  \end{itemize}
-\item
-\item
-  man-in-the-middle attacks / identity checking: transport way secured,
-  and if the endpoint certificate is provided to the third party, before
-  is is requested during connection establishment (because at that point
-  connection is still unencrypted), it can be detected if that cert is
-  not the original one
-\item
-  operator login, token stealing --\textgreater{} short token expiration
-  time --\textgreater{} 2-factor-auth with mobile
-\item
-  measurements, already touched on:
+The approach of running consumer-provided programs locally in order to
+prevent personal data from leaving the system represents a key part in
+this work, but it also raises major security concerns. To address those
+concerns such a program is executed in an application container, which
+encapsulates the runtime from the host environment and allows to
+restrict resource access, such as network, filesystem or computing
+power, to the required minimum. This concept, previously introduced as
+\emph{Supervised Code Execution} forms a containment layer preventing
+security breaches towards the host environment, which ultimately means a
+great security enhancement. Nevertheless, it makes involved components
+and dependencies vulnerable for almost any security flaw that they might
+carry in. Therefore it is vital to keep all related software up to date,
+which probably means enabling automated update mechanisms. That again
+introduces yet another type of attack vectors, which can be depressed by
+only using signed and trusted software and resources.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    container encapsulation
-  \item
-    distributed system, especially relocating PDS (onto mobile)
-  \end{itemize}
-\item
-  The general mindset for this project is to rather use long proven
-  libraries and technologies\\
-  instead of using own implementations of cryptographic concepts and
-  algorithms.
-\item
-  SCE is considered a weakness, but
-\item
-  open source development: vulnerabilities can easy be disclosed and
-  immediately get addressed
-\item
-  single point of failure (data-wise),
+When it comes to personal data, existing social networks and other great
+platforms, founded on user-generated content have already become de
+facto data silos, and thus a single point of failure. A more
+decentralized approach, for example the here proposed concept would
+result in, diminishes the impact of potential security breaches, those
+platforms may experience. While from an global perspective this can be
+valued as a step in the right direction, from the perspective of a data
+subject instead, a \emph{PDaaS} instance still represents a single point
+of failure as well. But in order to provide most control over the own
+personal data, this design choice appears to be the logical consequence.
+Besides that, several system components are highly portable, so that
+more sensitive parts, like the \emph{Personal Data Store}, can be
+relocated away from the server platform into the data owner's mobile
+device. In this case, for example a JWT issued by the \emph{PSD} can be
+used to authenticate the access to personal data.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    but considering what data users already put into their social
-    networks (or: thE social network: fb), they/it has already become a
-    de facto data silo and is thus a single point of failure. If that
-    service breaks or get down, the data from all users might be lost or
-    worse (stolen). The aspect of data decentralization achieved by
-    individual data stores can be valued as positive.
-  \end{itemize}
-\item
-  what about token stealing when using jwt?
-\item
-  future work: add/activate an intrusion detection system
-\item
-  PDS is on mobile platform and server platform is corrupted: storage
-  connector must queue requests and regularly provide the server with a
-  JWT, triggered by the operator when interacting with the mobile app.
-\end{itemize}
+However, those measures are still no guarantee for a comprehensive
+security protection. The only way is to continuously improve the system
+and provide mechanisms to securely recover from any type of incident.
+Not least that's why a complete open (source) development is enforced
+from the start, because vulnerabilities can easy be disclosed and hence
+addressed immediately.
 
-It is a balance act between security and convenience. Not every security
-measure or mechanism can only be simplified, but can not be abstracted
-without violating its initial purpose.
+\emph{\textbf{Conclusions:}} Securing data transport and storage are the
+two pivotal aspects to focus on. Choosing self-singed certificates over
+publicly trusted CAs in order to not only encrypt but also reasonably
+authenticate the consumer-system communication requires to make sure
+that the preliminary transfer of the certificates is not compromised, so
+that both parties can safely rely on them. Settings for any
+cryptographic procedure regarding their expense have to be chosen in
+favour of increasing the level of security instead of reducing resources
+and cost. The general mindset for this project is to rather utilize long
+proven libraries and technologies instead of using own implementations
+for cryptographic concepts and algorithms. Nevertheless, ongoing
+reviewing and re-evaluation of those dependencies as well as the
+software itself is mandatory.
+
+As a future enhancement it is planned to integrate an \emph{intrusion
+detection system} into the server platform's host environment, even
+though all server components are recommended to be encapsulated by
+containers. Monitoring transactions and events on the application-level
+is already part of the system architecture, facilitated by the
+\emph{Tracker} component. Furthermore it is considered to apply full
+storage encryption to the \emph{Personal Data Storage}, which would
+result in major security improvements. Therefore, when the personal data
+is located on the server, it should stay secure, even if the system is
+compromised. In return, the system might lose convenience in user
+interaction. It essentially comes down to an act of balance between
+security and convenience. Not much security measure or mechanism can be
+simplified or abstracted while not violating other (general) values at
+the same time. Key is to find the right compromise for the right motive.
 
 \section{User Interfaces}\label{user-interfaces}
 
@@ -5062,27 +5121,26 @@ defines the method of how the access to personal data is provided
 \section{Overview}\label{overview}
 
 The overall purpose of this specification is to provide detailed
-instructions to build a web service that on the one side encourages an
-individual to manage and maintain all the data relating to her in one
-place, and on the other side that enables third parties to access such
-data if they are permitted by the individual to do so, preferably
+instructions for building a web service that, on the one hand,
+encourages an individual to manage and maintain all the data relating to
+her in one place, and on the other hand, enables third parties to access
+such data if they are permitted by the individual to do so, preferably
 through supervised code execution instead of just handing over the raw
 data items. The result is a one-to-many relation between the data owner
-- the individual - and all those who might require some data to for
-example proceed a purchase initiated by the operator or make a proper
+- the individual - and all those who might require some data to, for
+example, process a purchase initiated by the operator or make a proper
 decision on her medical treatment.
 
-The system architecture is designed while keeping flexibility and
-portability in mind but still preserving simplicity and security. The
-result supports to run some components on different platforms in a
-distributed way. Therefore the operator is able to operate the system
-while being on the move, and can literally carry all her personal data
-along.
+The system architecture is designed with flexibility and portability in
+mind while still preserving simplicity and security. The result supports
+running some components on different platforms in a distributed way.
+Therefore the operator is able to operate the system while being on the
+move and can literally carry all her personal data along.
 
-The design of this specification tries to leverage as much existing
-standards and open technologies as possible for all the different
-aspects and components. So that by recognizing common practices its
-implementation and integration can be made as effortless as possible.
+The design of this specification tries to leverage as many existing
+standards and open technologies as possible for every aspect and
+component. By recognizing common practices, its implementation and
+integration can be made as effortless as possible.
 
 \subsection{Key Features}\label{key-features}
 
@@ -5099,7 +5157,7 @@ implementation and integration can be made as effortless as possible.
 \item
   taking her personal data with her
 \item
-  collect and analyse her own personal data
+  collect and analyze her own personal data
 \item
   trust through open development and open source
 \item
@@ -5116,7 +5174,7 @@ implementation and integration can be made as effortless as possible.
   access only those data that are actually required and thus reduce
   `noise'
 \item
-  access data that never were been collectible before
+  access data that have never been collectible before
 \item
   distributed computing
 \end{itemize}
@@ -5126,81 +5184,80 @@ implementation and integration can be made as effortless as possible.
 
 \paragraph{Online Purchase}\label{online-purchase}
 
-In order to proceed with the checkout, the shop requires some personal
-from the user, such as shipping address, email and payment information.
+In order to proceed with checkout, a shop requires some personal data
+from the user, such as shipping address, email, and payment information.
 Either the shop is already a data consumer, then it would access the
 system in the background to check if any data has changed, or the shop
 has to register as a consumer first. After the registration process has
-been initiated, and if not already has happened the user is then
-forwarded to complete the checkout. After reviewing the registration and
-the data that are attempted to get accessed, the use is informed via
-email that the order has been proceeded and the shipment has started.
+been initiated, if needed, the user is forwarded to complete the
+checkout. After reviewing the registration and the data that are
+attempted to be accessed, the user is informed via email that the order
+has been processed and the shipment has started.
 
 \paragraph{Social Network}\label{social-network}
 
 Instead of storing personal data by itself, a social network, after
 registering and being permitted to, can request and display data about a
-user, whenever other users try to access them. Created content such as
-posts, comments, images or videos can be stored in the system as well.
-The social network then just holds references to all the content, so
-that it can obtain and forward information on how to request those data,
-for example with a one-time url.
+user whenever other users try to access them. Created content such as
+posts, comments, images, or videos can be stored in the system as well.
+The social network then just holds references to all the content so that
+it can obtain and forward information on how to request those data, for
+example, with a one-time url.
 
 \paragraph{Apply for a Loan}\label{apply-for-a-loan}
 
 The data that credit institutes take into account when deciding on
-creditworthiness of an individual can directly be accessed through the
+creditworthiness of an individual can be directly accessed through the
 system; instead of gathering and acquiring them from all sorts of
-resources including filled out forms from applicants. The credit
+resources, including filled out forms from applicants. The credit
 institute takes out the part of the computation that is responsible for
-those calculations and hands it over to the system, after it is
-permitted by the operator to do so. The system invokes that computation
-with the required data items and afterwards it just sends the result
-back to the credit institute.
+those calculations and hands it over to the system after it is permitted
+by the operator to do so. The system invokes that computation with the
+required data items and sends the result back to the credit institute.
 
 \paragraph{Browser History}\label{browser-history}
 
-A browser plugin, which is connected to the service, keeps track over
-every called URL. Those data, collected by the operator, could not only
-be reviewed and analyzed by herself, but also be made available to data
+A browser plugin, which is connected to the service, keeps track of
+every called URL. Those data, collected by the operator, can not only be
+reviewed and analyzed by herself, but also be made available to data
 consumers.
 
 \paragraph{Movement Profile}\label{movement-profile}
 
 Instead of letting third party apps keep track of an individual's daily
 movements (e.g.~fitness app), an app that is associated with the system,
-obtains and pushed those location data directly into it. If a third
+obtains and pushes those location data directly into it. If a third
 party is now interested in those data, it can apply and eventually get
-permitted to access those movement data, but with configured resolution
-the data subject is comfortable with.
+permitted to access those movement data, but at a resolution the data
+subject is comfortable with.
 
 \subsection{Architectural Overview}\label{architectural-overview}
 
 The architecture design (see Fig. \ref{fig:spec_arch_simplifier})
-defines three different platforms whereon components of the system might
-be running. While \emph{desktop} and \emph{mobile} platforms are
-primarily meant to serve as the front end of the system and to present
-the operator with GUIs, the \emph{mobile} platform especially might host
-the \emph{Personal Data Storage}. The storage of the personal data can
-be located on every platform. This is enabled by abstracting the storage
+defines three different platforms where components of the system could
+run. While \emph{desktop} and \emph{mobile} platforms are primarily
+meant to serve as the front end of the system and to present the
+operator with GUIs, the \emph{mobile} platform in particular might host
+the \emph{Personal Data Storage}. However, that data storage can be
+located on any platform. This is enabled by abstracting the storage
 through the \emph{Storage Connector} on the \emph{server} platform.
 
 That \emph{server} platform also provides an external API for accessing
-personal data. Incoming requests from third parties and consumers get
+personal data. Incoming requests from third parties and consumers are
 then processed by the \emph{Permission Manager}, which i.a. decides if
-and how data can be accessed. For every consumer it is a dedicated
-exposed endpoint provided, that consists of a subdomain (e.g.
+and how data can be accessed. For every consumer a dedicated exposed
+endpoint is provided that consists of a subdomain (e.g.
 \texttt{CONSUMER\_ID.system.tld}). Other components are i.a. a
 \emph{Code Execution Environment}, a \emph{PKI} that provides and issues
-certificates and key-pairs to facilitate authenticating at the
+certificates and key-pairs to facilitate authentication at the
 endpoints. The \emph{Persistence Layer} is represented by potentially
 multiple technologies, such as databases or filesystem. A
 \emph{Notification Infrastructure} streamlines the different ways and
 technologies to notify the operator about certain events (e.g.~system
-receives new registration). Probably one of the most important component
-is the \emph{Operator API}, through which the operator i.a. is able to
-configure the system or manage permissions, and the API is granted
-read/write permissions at the \emph{Storage Connector}.
+receives new registration). Probably one of the most important
+components is the \emph{Operator API}, through which the operator i.a.
+is able to configure the system or manage permissions and the API is
+granted read/write permissions at the \emph{Storage Connector}.
 
 \begin{figure}
 \centering
@@ -5222,17 +5279,16 @@ Description}\label{general-process-description}
   Third party has to register at the system to become a data consumer,
   therefore it has to provide certain information to the operator either
   via QR-Code, which the operator can scans, or by submitting those
-  information to a unique URL that is upfront generated and provided by
+  information to a unique URL that is generated upfront and provided by
   the operator to the third party.
 \item
   Operator reviews the registration. On a positive outcome a new
   endpoint gets defined and, depending on the content of the
   registration request, a permission profile is optionally created and
   configured by the operator. If the outcome instead is negative, an
-  error message is prepared. In any case, afterwards the third party is
-  informed about the outcome via callback URL, and optionally provided
-  with additional information that are required for further
-  interactions.
+  error message is prepared. In any case, the third party is then
+  informed about the outcome via callback URL and optionally provided
+  with additional information that is required for further interactions.
 \item
   After the consumer has set up a client according to the documentation
   and the information he has been provided with, and after he
@@ -5344,7 +5400,7 @@ an interface to (or proxy for) server components
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  process incoming traffic originating by operator, consumer and third
+  process incoming traffic originating by operator, consumer, and third
   parties
 \item
   all other server components are reachable only through this component
@@ -5353,13 +5409,13 @@ an interface to (or proxy for) server components
 \item
   perform all TLS-based authentications
 \item
-  do load balancing, if necessary
+  perform load balancing, if necessary
 \item
   pass through notification for web-based Management Tools that are
   connected via Web Sockets
 \item
   rule-based traffic management leveraging network characteristics and
-  alike
+  similar
 \end{enumerate}
 
 \paragraph{\texorpdfstring{Permission Manager
@@ -5375,7 +5431,7 @@ processes incoming requests from third parties or consumers
 \item
   examine and check queries that are aiming to access personal data
 \item
-  queue requests, if further processing is blocked
+  queue requests if further processing is blocked
 \item
   notify operator about new registration attempts
 \item
@@ -5464,7 +5520,7 @@ provides all functionalities an operator must be capable of
 \item
   read and write personal data through \emph{Storage Connector}
 \item
-  configure, maintain and monitor system
+  configure, maintain, and monitor system
 \item
   provide access history
 \item
@@ -5494,7 +5550,7 @@ provides isolated runtime (sandbox) for supervised code execution
 \item
   monitor runtime during invocation
 \item
-  hand over results back to \emph{Permission Manager}
+  hand results back to \emph{Permission Manager}
 \item
   archive software in \emph{Persistence Layer}
 \end{enumerate}
@@ -5519,7 +5575,7 @@ logs events and transactions occurring in the system
 \paragraph{\texorpdfstring{Persistence Layer
 \emph{(PL)}}{Persistence Layer (PL)}}\label{persistence-layer-pl}
 
-combines multiple technologies to represent and hold the current systems
+combines multiple technologies to represent and hold the current system
 state
 
 \begin{enumerate}
@@ -5602,10 +5658,9 @@ accessible only by the operator to control the system
 
 \section{Security}\label{security}
 
-The following aspects are required measures in order to improve and
-ensure the overall sufficient security level of the system.
-Configurations mentioned below MAY change prospectively due to issues or
-vulnerabilities emerging in the future.
+The following measures are required in order to improve upon and ensure
+a sufficient level of security. Configurations mentioned below MAY
+change due to issues or vulnerabilities emerging in the future.
 
 \subsection{Transport}\label{transport}
 
@@ -5622,7 +5677,7 @@ based on either the \emph{RSA} or \emph{DSA} cipher suite, although
 \emph{RSA} SHOULD be preferred. All created keys MUST have a length of
 at least \texttt{4096} bits. Those ciphers for TLS, that support
 \emph{Perfect Forward Secrecy} SHOULD be preferred, but ciphers that are
-not supported by \texttt{TLSv1.2} MUST be avoided. All endpoint and
+not supported by \texttt{TLSv1.2} MUST be avoided. All endpoints and
 other dedicated entry points MUST provide their own generated
 Diffie-Hellman groups with a minimal length of \texttt{4096} bits.
 
@@ -5631,7 +5686,8 @@ but for \emph{endpoints} it MUST be deactivated. Web-based GUIs MUST NOT
 depend on external resources. All involved assets MUST be stored in the
 system and thus get served by the \emph{web server}. This required
 behaviour is enforced by setting the \emph{Content Security Policy
-(CSP)} in HTTP headers. The \emph{web server} MUST facilitate a web
+(CSP)} in HTTP headers, which also eliminates the risk of Cross-site
+scripting (XSS) attacks. The \emph{web server} MUST facilitate a web
 socket connection for web-based GUIs. If a browser does not support this
 natively, a fallback SHALL be provided by the GUI. Furthermore, those
 GUIs SHOULD be served with HTTP/2.
@@ -5730,12 +5786,12 @@ email or with a mobile platform, if it is part of the system.
 
 Before the first consumer tries to register on the system, the system
 MUST generate a key-pair and sign it by itself. With the resulting
-certificate the system becomes a private Certificate Authority primarily
-responsible for signing certificates that are required for every
-endpoint, and maybe even for connections between mobile and server
+certificate, the system becomes a private Certificate Authority
+primarily responsible for signing certificates that are required for
+every endpoint and maybe even for connections between mobile and server
 platforms. The key-pair for a specific endpoint is then used to issue a
-certificate based on the \emph{Certificate Signing Request (CSR)},
-supplied by the consumer, who is associated to that very endpoint. The
+certificate based on the \emph{Certificate Signing Request (CSR)}
+supplied by the consumer who is associated to that very endpoint. The
 certified certificate and the endpoint's certificate MUST then be
 transferred back to the consumer on a secure channel, which the consumer
 is responsible to provide (e.g.~HTTP over TLS certified by trusted
@@ -5744,11 +5800,11 @@ registration).
 
 In order to use TLS for bidirectional authentication, not only the
 client (consumer) MUST be able to verify the server's (endpoint)
-certificate, also the server MUST do the same for the consumer. This
+certificate, but also the server MUST do the same for the consumer. This
 procedure is known as \emph{two-way authentication}, which is part of
-the TLS connection establishing. If the connection failed to establish,
-the authentications has failed, and vice versa has the consumer
-successfully authenticated to the system.
+the TLS connection establishment. If the connection failed to establish,
+the authentication has failed. If the connection is successfully
+established, the consumer is successfully authenticated to the system.
 
 \subsubsection{JSON Web Token (JWT)}\label{json-web-token-jwt}
 
@@ -5763,9 +5819,10 @@ When authenticating, the JWT MUST be provided either as HTTP header
 (\texttt{Authorization:\ Bearer\ \$JWT}) or as a query parameter
 indicated by the key \texttt{t}. If the operator fails to connect to the
 system before the token's expiration date has been exceeded, the
-operator is REQUIRED to login again. The token MUST be renewed, but at
-least after half of the validity period is reached. The period, in which
-the token is valid, SHOULD be 24 hours but MUST NOT exceed 48 hours.
+operator is REQUIRED to login again. The token MUST be renewed, but
+after at least half of the validity period is reached. The period, in
+which the token is valid, SHOULD be 24 hours but MUST NOT exceed 48
+hours.
 
 The following claims are REQUIRED:
 
@@ -5807,18 +5864,18 @@ header):
 Architecture}\label{system-architecture}}
 
 The centralized version of the system architecture places every
-component into the server platform. Even the web-based management tool,
-which later is fetched onto front end platforms, initially is stored
-there. This means, all the operator's personal data is located somewhere
-in the `cloud', probably out of reach, and potentially vulnerable to
-unauthorized access. Whereas the distributed approach allows for example
-to re-locate the \emph{Personal Data Store} component to a mobile
-platform, which as well might be used by the operator to manage the
+component on the server platform. Even the web-based management tool,
+which later is sent to front end platforms, is initially stored there.
+This means that all the operator's personal data is located somewhere in
+the `cloud', probably out of reach, and potentially vulnerable to
+unauthorized access. Whereas the distributed approach allows, for
+example, the relocation of the \emph{Personal Data Store} component to a
+mobile platform, which could also be used by the operator to manage the
 system. The general approach of a more distributed deployment of
-components SHOULD reduces the vulnerability for certain scenarios and
+components SHOULD reduce the vulnerability for certain scenarios and
 makes it harder for entities to compromise (parts of) the system. As
 long as all requirements are met and every component is completely
-functional and thus the system as a whole, any component MAY be located
+functional, and thus the system as a whole, any component MAY be located
 on whatever platform is sufficient.
 
 A second approach to gain not only portability, but also to increase the
@@ -5827,7 +5884,7 @@ process(es){]} from the surrounding platform environment. This enables
 explicit and controlled allocation of resources, such as memory, CPU
 usage or network and filesystem access. This concept MUST be implemented
 by either using the process isolation features provided by the host
-environment, namely \emph{cgroups}, \emph{namespaces} and
+environment, namely \emph{cgroups}, \emph{namespaces}, and
 \emph{systemd-nspawn}, or by putting components into application
 containers. The latter is RECOMMENDED and MUST respect all \emph{Open
 Container} Specifications. An orchestration software MAY be useful to
@@ -5837,22 +5894,22 @@ manage all containers.
 \emph{(SCE)}}{Supervised Code Execution (SCE)}}\label{supervised-code-execution-sce}
 
 When running programs on the server platform provided by consumers, it
-is REQUIRED to solely execute them after putting them into an
-application container (see
-\protect\hyperlink{system-architecture}{System Architecture}). This
-implies to provision the container first and then invoke it by providing
-the requested data items as arguments. The container MUST NOT be allowed
-to access the host's filesystem or network. Before running the container
-with the actual data, it MUST be executed several times with generated
-test data. If the program is provided as source code, it MUST be
-automatically inspected and reviewed. If one of those test layers result
-insufficiently, processing the access request MUST abort and return with
-a failure information.
+is REQUIRED to execute them only after putting them into an application
+container (see \protect\hyperlink{system-architecture}{System
+Architecture}). This implies that the container is provisioned first,
+and then invoked by providing the requested data items as arguments. The
+container MUST NOT be allowed to access the host's filesystem or
+network. Before running the container with the actual data, it MUST be
+executed several times with generated test data. If the program is
+provided as source code, it MUST be automatically inspected and
+reviewed. If one of those test layers results are insufficient,
+processing the access request MUST abort and return with failure
+information.
 
 \subsection{System Monitoring}\label{system-monitoring}
 
 The \emph{Tracker} component MUST ensure that the following information
-are being persisted \emph{(required fields for those information are
+is being persisted \emph{(required fields for this information is
 defined in \protect\hyperlink{data-and-types}{Data and Types})}:
 
 \begin{itemize}
@@ -5866,7 +5923,7 @@ defined in \protect\hyperlink{data-and-types}{Data and Types})}:
 \item
   Results of operator Authentications
 \item
-  Permission Profile creation, manipulation and deletion
+  Permission Profile creation, manipulation, and deletion
 \item
   SCE (regardless of its success)
 \item
@@ -5875,12 +5932,12 @@ defined in \protect\hyperlink{data-and-types}{Data and Types})}:
   Server Resources (continually)
 \end{itemize}
 
-To make sure, that these data is collected, other components MUST
+To make sure that these data are collected, other components MUST
 provide the \emph{Tracker} with such information. Therefore, components
 such as \emph{Operator API}, \emph{Permission Manager} and \emph{Web
 server}, MUST push information towards the \emph{Tracker}. By performing
 pattern recognition \& anomaly detection, the \emph{Tracker} is then
-able to recognize abnormal behaviour or occurrence, for example by
+able to recognize abnormal behaviour or occurrences, for example, by
 monitoring the IP of an access request origin, which normally should not
 change very often. Such data MAY also help to prevent spam requests. If
 the \emph{Tracker} finds suspicious patterns, the operator MUST be
@@ -5983,8 +6040,8 @@ authenticate by presenting its certificate signed by the system.}
       \end{itemize}
     \item
       {[}OPTIONAL{]} if registration contains information on what data
-      is requested to get permission to access, those information MUST
-      be processed as described in
+      is requested to get permission to access, that information MUST be
+      processed as described in
       \protect\hyperlink{permission-request}{Permission Request}
     \item
       respond issued third party certificate, endpoint's certificate and
@@ -6002,7 +6059,7 @@ authenticate by presenting its certificate signed by the system.}
       \emph{data subject} SHOULD provide reason or MUST fall back to
       default reason
     \item
-      respond reason
+      respond with reason
     \end{enumerate}
   \item
     \emph{Failure}
@@ -6022,7 +6079,7 @@ authenticate by presenting its certificate signed by the system.}
     \item
       add unique URL to submit a new registration
     \item
-      respond error
+      respond with error
     \end{enumerate}
   \end{itemize}
 \item
@@ -6115,8 +6172,8 @@ the system, he MUST first request those permission(s).}
       provided information, profile. When saving the new profile, it
       gets associated to the requester's \emph{endpoint}
     \item
-      respond what data items are permitted to access, how often, and
-      how long this permission lasts
+      respond which data items are permitted to be accessed, how often,
+      and how long this permission lasts
     \end{enumerate}
   \item
     \emph{Refused}
@@ -6126,10 +6183,11 @@ the system, he MUST first request those permission(s).}
     \tightlist
     \item
       applying the provided information as is, the system creates and
-      stores a permission profile after all, still associated with the
-      requester's \emph{endpoint} but flagged as \texttt{refused}
+      stores a permission profile after everything, which is still
+      associated with the requester's \emph{endpoint} but flagged as
+      \texttt{refused}
     \item
-      respond {[}OPTIONAL{]} a reason
+      respond {[}OPTIONAL{]} with reason
     \end{enumerate}
   \item
     \emph{Failure}
@@ -6141,7 +6199,7 @@ the system, he MUST first request those permission(s).}
       form proper error identifier and message based on the error that
       has occurred
     \item
-      respond error
+      respond with error
     \end{enumerate}
   \end{itemize}
 \item
@@ -6192,10 +6250,10 @@ the system, he MUST first request those permission(s).}
 
 \paragraph{Access Request}\label{access-request}
 
-\emph{After requesting permission to access data and getting these
+\emph{After requesting permission to access data and having this
 granted, a consumer actually access data items by either getting them
-forwarded or providing a program, that gets invoked with the data items
-as arguments. The result of that invocation is then send back to the
+forwarded or by providing a program that is invoked with the data items
+as arguments. The result of that invocation is then sent back to the
 originating data consumer.}
 
 \emph{Preconditions:}
@@ -6205,7 +6263,7 @@ originating data consumer.}
 \item
   successfully requested permission
 \item
-  {[}OPTIONAL{]} program, that has to be invoked
+  {[}OPTIONAL{]} program to be invoked
 \end{itemize}
 
 \begin{enumerate}
@@ -6227,8 +6285,8 @@ originating data consumer.}
   \end{itemize}
 \item
   \emph{Permission Manager} tries to verify the access (see
-  \protect\hyperlink{access-verification}{Access Verification}) and
-  resulting to
+  \protect\hyperlink{access-verification}{Access Verification}) with the
+  following possible results
 
   \begin{itemize}
   \tightlist
@@ -6239,7 +6297,7 @@ originating data consumer.}
     \def\labelenumii{\arabic{enumii})}
     \tightlist
     \item
-      depending on defined response method either keep session open
+      depending on defined response method, either keep session open
       until timeout limit exceeds, or respond with unique process
       identifier and {[}OPTION{]} estimated duration
     \end{enumerate}
@@ -6252,7 +6310,7 @@ originating data consumer.}
     \item
       abort processing access request
     \item
-      respond default denial notice or {[}OPTIONAL{]} message from
+      respond with default denial notice or {[}OPTIONAL{]} message from
       \emph{Access Verification}
     \end{enumerate}
   \end{itemize}
@@ -6266,7 +6324,7 @@ originating data consumer.}
   \def\labelenumii{\arabic{enumii})}
   \tightlist
   \item
-    check, if data item(s) in obtained data are in group of data items
+    check if data item(s) in obtained data are in group of data items
     whose reliability can be verified
 
     \begin{itemize}
@@ -6357,8 +6415,8 @@ originating data consumer.}
       provision container runtime with dependencies and provided program
     \item
       run multiple tests with generated test data *) if threshold of
-      failed tests exceeds, abort and pass error message on to response
-      handler
+      failed tests is exceeded, abort and pass error message on to
+      response handler
     \item
       run with real data
     \item
@@ -6374,19 +6432,19 @@ originating data consumer.}
 \begin{itemize}
 \tightlist
 \item
-  in case of \emph{supervised execution} no actual personal data has
+  in case of \emph{supervised execution}, no actual personal data has
   left the system
 \item
-  if \emph{consumer} would have been not permitted to access data, it
-  would not have happened
+  if \emph{consumer} would have been denied access to data, they would
+  not be accessed
 \end{itemize}
 
 \hypertarget{access-verification}{\paragraph{Access
 Verification}\label{access-verification}}
 
-\emph{When an access request is received, it first MUST be verified if
+\emph{When an access request is received, first it MUST be verified if
 that access is even permitted according to the permission profiles and
-the presented data query before the request is proceeded and data gets
+the presented data query, before the request is processed and data is
 obtained from the PDS.}
 
 \emph{Preconditions:}
@@ -6406,7 +6464,7 @@ obtained from the PDS.}
 \item
   gather all \emph{permission profiles} relating to the given endpoint
 \item
-  find all profiles, that
+  find all profiles that
 
   \begin{enumerate}
   \def\labelenumii{\alph{enumii})}
@@ -6442,7 +6500,7 @@ obtained from the PDS.}
       notify operator and ask for decision on whether access to
       unregulated data items is allowed or denied
     \item
-      after missing data items got acknowledged by operator, go back to
+      after missing data items are acknowledged by operator, go back to
       (2.)
     \end{enumerate}
   \item
@@ -6452,8 +6510,8 @@ obtained from the PDS.}
     \begin{itemize}
     \tightlist
     \item
-      at least one is not allowed to access (counting also
-      \texttt{refused} profiles)
+      at least one is not allowed to access (including \texttt{refused}
+      profiles)
 
       \begin{enumerate}
       \def\labelenumii{\arabic{enumii})}
@@ -6958,8 +7016,8 @@ checking data reliability\tabularnewline
 
 The primary GUI of the system is the operator's \emph{Management Tool},
 which is used to administrate the system, to control and manage data
-access and to maintain personal data. The tool MAY be available on
-mobile platforms, but at least it MUST be provided for \emph{desktop}
+access, and to maintain personal data. The tool MAY be available on
+mobile platforms, but MUST at least be provided for \emph{desktop}
 platforms. The following lists show briefly, which features the tool
 provides to the operator.
 
@@ -7037,23 +7095,22 @@ supported:}\label{functionality-that-may-be-supported}
 The lists of GUI features implicitly define what the \emph{Operator API}
 must be capable of, whereas interactions originated by third parties and
 data consumers are described below. These descriptions show the behavior
-of all major API endpoints, that are required to access personal data,
-hosted by the system. The payload MUST be transmitted with HTTP
+of all major API endpoints that are required to access personal data,
+which is hosted by the system. The payload MUST be transmitted with HTTP
 requests, secured by TLS, declared as \emph{POST} method, unless
-otherwise outlined. It MUST be serialized in JSON and constitutes the
-complete request body. In order to send data originating from certain
+otherwise outlined. It MUST be serialized in JSON and constitute the
+complete request body. When sending data originating from certain
 formats (e.g.~PEM-formatted file content or binary streams) as string
-values being part of a URLs or JSON, \emph{bas64url} MUST be used to
-encode such data. Furthermore, it is to be noted, that request are
-asynchronous and MAY take several hours up to a few days to get
-answered.
+values that are a part of a URL or JSON, \emph{bas64url} MUST be used
+for encoding. Furthermore, it is to be noted, that requests are
+asynchronous and MAY take several hours up to a few days to be answered.
 
 \paragraph{Registration Request}\label{spec_api_registration-request}
 
-MUST be handed over to the system in order to get acknowledged as a
+MUST be handed over to the system in order to be acknowledged as a
 \emph{data consumer}. It can either be submitted via HTTP to the system,
 if the operator has provided a URL, or encoded as a QR-Code presented on
-web page, served via HTTPS by the requester, ready to get scanned with
+web page, served via HTTPS by the requester, ready to be scanned with
 the operator's mobile device.
 
 \emph{Parameter(s):}
@@ -7144,13 +7201,13 @@ Request}\label{spec_api_permission-request}}
 
 MUST create a new \emph{permission profile} and thus MAY enable the data
 consumer to access personal data. In return, the consumer is provided
-with all information that are required to request data access based on
+with all information that is required to request data access based on
 the permissions requested herewith.
 
-\emph{NOTICE: If the representation of the data, that is requested for
-access, is defined as a list of strings (\texttt{{[}String{]}}), then
+\emph{NOTICE: If the representation of the data to which access is
+requested is defined as a list of strings (\texttt{{[}String{]}}), then
 the response MUST show a similar structure; the same applies to the data
-query in a string-representation (\texttt{String}).}
+query for string-representations (\texttt{String}).}
 
 \emph{Parameter(s):}
 
@@ -7197,7 +7254,7 @@ query in a string-representation (\texttt{String}).}
 
 leads to the actual data access, if the
 \emph{\protect\hyperlink{access-verification}{Access Verification}} does
-not refuse to let through.
+not reject access.
 
 \emph{Parameter(s):}
 
@@ -7273,7 +7330,7 @@ not refuse to let through.
 \begin{itemize}
 \tightlist
 \item
-  \texttt{expiresAt:\ Number} - date when data becomes outdated
+  \texttt{expiresAt:\ Number} - date when data become outdated
 \item
   \texttt{proof:\ String} - {[}OPTIONAL{]} certificate that indicates
   verified data reliability
@@ -7301,8 +7358,8 @@ not refuse to let through.
 
 This section provides additional information on hosting and operating
 such a system, as well as further resources that MAY be worth knowing.
-Moreover, it contains advices that are recommended to consider when
-implementing (parts of) this specification.
+Moreover, it contains advice to consider when implementing (parts of)
+this specification.
 
 \subsubsection*{Host Environment(s)
 Recommendations}\label{host-environments-recommendations}
@@ -7320,7 +7377,7 @@ Recommendations}
   recommended to run other applications in the same environment side by
   side.
 \item
-  A vendor, who hosts for multiple data subjects, one system instances
+  A vendor, who hosts for multiple data subjects, one system instance
   each, SHOULD NOT locate all of them in one environment, but rather
   deploy another operating system virtualization for every instance, or
   separate them physically on different machines.
@@ -7335,10 +7392,10 @@ Parties}\label{recommendations-to-third-parties}
 
 \begin{itemize}
 \item
-  If data consumers accessing data from more than one system instances
-  representing different individuals, it MAY be considerable to use
-  different key-pairs and certificates for all the instances, and
-  probably even unique endpoints.
+  If data consumers are accessing data from more than one system
+  instance, representing different individuals, it MAY be wise to use
+  different key-pairs and certificates for all instances, and probably
+  even unique endpoints.
 \item
   Data consumers SHOULD also provide a full-featured \emph{endpoint}
   based on a subdomain, thereby a bidirectional communication flow can
@@ -7369,6 +7426,8 @@ Recommendations}\label{software-recommendations}
   RethinkDB (graph-structured database system)
 \item
   Prometheus (database system optimized for time series data)
+\item
+  Container Linux (open-source lightweight operating system, by CoreOS)
 \end{itemize}
 
 \subsubsection*{Resources}\label{resources}
@@ -7580,7 +7639,12 @@ beginning
 \section{Summary}\label{summary}
 
 \begin{itemize}
-\tightlist
+\item
+  In the sole opinion of the author the here proposed concept is fare
+  from being the ultimate solution, but it is in any regards an
+  improvement of the current situation. is definately has its weaknesses
+  and needs further development, which are worth to invest in order ro
+  reach its goals.
 \item
   main focus
 \item
@@ -7798,6 +7862,24 @@ Position (example)}}
 
 \chapter*{References}\label{references}
 \addcontentsline{toc}{chapter}{References}
+
+\begin{itemize}
+\tightlist
+\item
+  briefly mentioned in previous sections:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    HTTPS for man-in-the-middle: confidentiality, integrity
+  \item
+    certified HTTPS: authenticity
+  \item
+    operator's auth token theft
+  \end{itemize}
+\end{itemize}
+
+but ,
 
 \hypertarget{refs}{}
 \hypertarget{ref-web_2016_privacy-international-about-big-data}{}

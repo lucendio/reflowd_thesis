@@ -45,7 +45,7 @@ real-time information, it adds the *time* component as an additional level of co
 problem.
 
 The impact on the society of the first group of examples might be questionable and it is doubtful if 
-proper applications even exist.  However, an adjustment of perspective reveals additional categories 
+proper applications even exist. However, an adjustment of perspective reveals additional categories 
 of scenarios, for example:
 
 (D) Planning and managing human resources for special occasions with big crowds, such as huge events 

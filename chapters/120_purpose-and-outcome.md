@@ -9,7 +9,7 @@ helpful therapies and more secure environments.
 Gathering and processing data is essentially just mathematics and computer technologies. How those 
 tools are utilized and what purposed they serve is within the decision of their developers. However, 
 what data items are used and how they get processed should be determined by the data creators. 
-Thereby allowing them an  influence on the results of these processes and thus on decisions made 
+Thereby allowing them an influence on the results of these processes and thus on decisions made 
 upon them which impact their lives.
 
 To address the described issue, the initial idea here is to (1) equip individuals with the ability 

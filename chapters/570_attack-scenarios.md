@@ -37,7 +37,7 @@ But since HTTPS connections between data consumers and the system rather use cer
 issued by the system itself instead of relying on CA-certified certificates, there is no chain of 
 commonly trusted entities, that can verify the presented certificates. So in order to still trust
 those certificates, even though they are sent on a insecure channel during the connection 
-establishment, they have to be handed over in private sometime before. This is defined in the  
+establishment, they have to be handed over in private sometime before. This is defined in the
 registration process, where the consumer either presents a QR-Code served via publicly certified 
 HTTPS, which he is responsible for but can easily verified by the data subject, or submits the 
 registration request including the CSR to a URL provided by the data subject that is also reachable 

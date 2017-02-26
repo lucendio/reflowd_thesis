@@ -84,7 +84,7 @@ term; hence refers to both of them.
 
 [primitive]
 
-: most basic or atomic data type; defined as either *String*, *Boolean*, *Integer*,  *Float* or 
+: most basic or atomic data type; defined as either *String*, *Boolean*, *Integer*, *Float* or 
   *Nil (null)*
 
 

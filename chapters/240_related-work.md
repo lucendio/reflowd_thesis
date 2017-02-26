@@ -26,7 +26,7 @@ greater amount of resources is invested in these areas
 [@web_2016_industries-intention-to-invest-in-big-data]. 
 
 The initial motivation for this project can be understood as a counter-movement away from all the 
-data silos in the cloud,  returning to a focus on privacy, the individual, and her digital alter 
+data silos in the cloud, returning to a focus on privacy, the individual, and her digital alter 
 ego.
 
 From simple middleware-solutions to full-fledged software-based platforms through to embedded

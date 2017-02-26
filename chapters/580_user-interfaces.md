@@ -63,7 +63,7 @@ notifications ([P.I.03](#pi03), [P.B.02](#pb02)) on mobile platforms, whereas th
 added to *desktop* platforms by providing WebSocket-based connections. 
 Since screen sizes can vary - in particular on *mobile* platforms - the *GUI* is required to be 
 highly responsive and has to adapt ([P.VIU.01](#pviu01)) to various screen sizes. Given the 
-capabilities of the  management tool, an inaccurate or error-prone rendered *GUI* can quickly cause 
+capabilities of the management tool, an inaccurate or error-prone rendered *GUI* can quickly cause
 unintended incidents. Thus, the main focus must be to ensure a very robust and low-latency interface 
 rendering.
 
