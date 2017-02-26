@@ -24,7 +24,7 @@ in our society, but also when humans leverage computers and algorithms to uncove
 unnoticed information in order to inform their decision making. For example, when qualifying for a 
 loan, hiring employees, investigating crimes or renting flats. The decision to approve or deny is 
 based on computed data about the individuals in question
-[@book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge], which is merely 
+[@book_2015_ethical-it-innovation, chap. 5.6], which is merely 
 discrimination on a much larger scale and with less effort (almost parenthetically). 
 The described phenomenon is originally referred to as *Bias in computer systems*
 [@paper_1996_bias-in-computer-systems]. What at first seems like machines going rouge on 

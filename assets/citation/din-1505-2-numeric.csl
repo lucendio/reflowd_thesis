@@ -176,12 +176,6 @@
       <text variable="medium"/>
     </group>
   </macro>
-  <macro name="scale">
-    <group>
-      <text term="scale"/>
-      <text prefix=" " variable="scale"/>
-    </group>
-  </macro>
   <macro name="recipient-show">
     <choose>
       <if type="personal_communication">
@@ -257,7 +251,6 @@
           <date prefix=", " variable="issued" form="numeric" date-parts="year"/>
           <!-- " (1. Gesamttitel mit Zählung)"
             " (2. Gesamttitel mit Zählung)" -->
-          <text prefix=" &#8211;&#160;" macro="scale"/>
           <text prefix=". &#8212;&#160;" variable="note"/>
           <text prefix=" &#8212;&#160;ISBN&#160;" variable="ISBN"/>
         </if>

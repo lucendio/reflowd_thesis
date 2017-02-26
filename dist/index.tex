@@ -403,10 +403,10 @@ order to inform their decision making. For example, when qualifying for
 a loan, hiring employees, investigating crimes or renting flats. The
 decision to approve or deny is based on computed data about the
 individuals in question
-{[}\protect\hyperlink{ref-book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge}{3}{]},
-which is merely discrimination on a much larger scale and with less
-effort (almost parenthetically). The described phenomenon is originally
-referred to as \emph{Bias in computer systems}
+{[}\protect\hyperlink{ref-book_2015_ethical-it-innovation}{3}, Chap.
+5.6{]}, which is merely discrimination on a much larger scale and with
+less effort (almost parenthetically). The described phenomenon is
+originally referred to as \emph{Bias in computer systems}
 {[}\protect\hyperlink{ref-paper_1996_bias-in-computer-systems}{4}{]}.
 What at first seems like machines going rouge on humans is, in fact, the
 \emph{cognitive bias}
@@ -2172,13 +2172,12 @@ to literally carry all her personal data with her.
 
 If an instance of such a system \emph{(PDaaS)} is going to be the
 digital counterpart of an individuals identity or her \emph{``personal
-agent''}
-{[}\protect\hyperlink{ref-book_2015_ethical-it-innovation}{123}, p.
-46{]}, then everyone who relies on the information that agent provides
-must also be able to trust the source from where that data originates
-and vice versa; the \emph{operator} too need to verify the authenticity
-of the requesting source; regardless of whether it's during initial
-registration or further \emph{access attempts}. Based on these
+agent''} {[}\protect\hyperlink{ref-book_2015_ethical-it-innovation}{3},
+p. 46{]}, then everyone who relies on the information that agent
+provides must also be able to trust the source from where that data
+originates and vice versa; the \emph{operator} too need to verify the
+authenticity of the requesting source; regardless of whether it's during
+initial registration or further \emph{access attempts}. Based on these
 mechanisms, the system can also provide an authentication services that
 third parties might utilize to outsource the authentication of its
 owner, including enabling additional security factor steps.
@@ -2218,7 +2217,7 @@ leaving the system. It allows the execution of a small program within a
 locally defined environment, computing only a fraction of a larger
 computation initiated by the \emph{data consumer} beforehand; similar to
 a distributed Map-Reduce concept
-{[}\protect\hyperlink{ref-paper_2004_distributed-mapreduce}{124}{]}. The
+{[}\protect\hyperlink{ref-paper_2004_distributed-mapreduce}{123}{]}. The
 opposite, but also conceivable, approach would be to provide either some
 software to the \emph{data consumer}, which is required in order to
 access the contents of a response, or a runtime environment that queries
@@ -2625,7 +2624,7 @@ client has to verify the server's identity by checking the certificate.
 If the server insists, the client has to provide a certificate as well,
 which the server then tries to verify. Only if the outcome is positive,
 the connection establishment succeeds. According to the specification
-{[}\protect\hyperlink{ref-web_spec_tls-12_client-auth}{125}{]} it is
+{[}\protect\hyperlink{ref-web_spec_tls-12_client-auth}{124}{]} it is
 still optional though.
 
 \emph{HTTP}, as a comprehensive and flexible protocol, enables the use
@@ -2650,18 +2649,18 @@ provided with all session-related data hold by the server. This is
 typically done in a HTTP header, whether as \emph{Basic Auth} value, a
 \emph{Cookie}, which is domain-specific, or in some other custom header.
 Since the \emph{two-way authentication} (or \emph{mutual authentication}
-{[}\protect\hyperlink{ref-web_2017_wikipedia_mutual-auth}{126}{]}) is
+{[}\protect\hyperlink{ref-web_2017_wikipedia_mutual-auth}{125}{]}) is
 performed based on files containing keys and certificates, which are
 typically not very fluctuant in its contents or state, this procedure is
 categorized as stateless. Order or origin of incoming requests have no
 impact on the result of the actual authentication process. The same
 applies to TLS features such as \emph{Session {[}ID, Ticket{]}
 Resumption}
-{[}\protect\hyperlink{ref-book_2013_networking-101_tls-session-resumption}{127}{]},
+{[}\protect\hyperlink{ref-book_2013_networking-101_tls-session-resumption}{126}{]},
 therefore they are left aside, because they serve the sole purpose of
 performance optimization. Similar to the \emph{Session Ticket
 Resumption}
-{[}\protect\hyperlink{ref-web_spec_tls-session-ticket-resumption}{128}{]}
+{[}\protect\hyperlink{ref-web_spec_tls-session-ticket-resumption}{127}{]}
 a web token, namely the \protect\hyperlink{def--jwt}{JSON Web Token},
 also moves the state towards the client, but that's about all they have
 in common. A \emph{JWT} carries everything with it that's worth knowing,
@@ -2711,11 +2710,11 @@ communicate with the RFID-chip. Both scenarios (A+B) require the
 provide \emph{nPA}-based online authentication \emph{(eID-Service)},
 which is defined as a non-sovereign \emph{(``nicht hoheitlich'')}
 feature, it has to comply with several requirements
-{[}\protect\hyperlink{ref-web_bsi-spec_eid}{129}{]} starting with
+{[}\protect\hyperlink{ref-web_bsi-spec_eid}{128}{]} starting with
 applying for a permission to send a certificate signing request to a
 BerCA.\footnote{(german) Berechtigungszertifikate-Anbieter} This request
 is sent from an \emph{eID-Server}
-{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{130}{]} in order to
+{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{129}{]} in order to
 get a public key signed, which has been previously generated on
 dedicated and certified hardware. This hardware is requested by the
 officials as part of a \emph{eID-Server}. The key pair - re-generated
@@ -2808,7 +2807,7 @@ interaction caused by recurring events.
 
 Computations based on asymmetric cryptography are usually slower than
 the ones based on symmetric cryptography
-{[}\protect\hyperlink{ref-book_2014_chapter-10-5-asym-random-number-gen}{131}{]},
+{[}\protect\hyperlink{ref-book_2014_chapter-10-5-asym-random-number-gen}{130}{]},
 but since there are no timing constraints when interacting with the
 \emph{PDaaS}, regardless of whether it's external communication with
 \emph{data consumers} or internal between components, parameters for
@@ -3258,7 +3257,7 @@ access to such availability information on an individual consumer-basis
 or system-wide, and furthermore, to set default configurations for this
 behaviour. Depending on those configurations a request might fail, thus
 the requester needs to be provided with meaningful errors. Http error
-codes {[}\protect\hyperlink{ref-web_spec_http-error-codes}{132}{]} might
+codes {[}\protect\hyperlink{ref-web_spec_http-error-codes}{131}{]} might
 be a sufficient fit for this purpose.
 
 An already standardized way to implement authorization is the
@@ -3276,8 +3275,8 @@ third party apps). Aside from not fitting into such scenarios it would
 also make the proposed process undesirably more complicated. Although
 the proposal includes user interactions like selecting and confirming
 requested permissions. According to the documentations
-{[}\protect\hyperlink{ref-web_spec_oauth-1a_client-reg}{133}{]}
-{[}\protect\hyperlink{ref-web_spec_oauth-2_client-reg}{134}{]}, both
+{[}\protect\hyperlink{ref-web_spec_oauth-1a_client-reg}{132}{]}
+{[}\protect\hyperlink{ref-web_spec_oauth-2_client-reg}{133}{]}, both
 OAuth versions (1.0a and 2) require the client (here \emph{data
 consumer}) to register to the authorization server upfront (to obtain a
 \texttt{client\_id}), before initializing the authorization process.
@@ -3360,8 +3359,8 @@ after authenticating with the provided credentials. OAuth only provides
 a framework for how to authorize third parties to access external
 resources, leaving the procedure of how to actually verify those access
 attempts up to its implementers
-{[}\protect\hyperlink{ref-web_spec_oauth-1a_access-verification}{135}{]}
-{[}\protect\hyperlink{ref-web_spec_oauth-2_access-verification}{136}{]}.
+{[}\protect\hyperlink{ref-web_spec_oauth-1a_access-verification}{134}{]}
+{[}\protect\hyperlink{ref-web_spec_oauth-2_access-verification}{135}{]}.
 In the context of this project OAuth does not comply with the rest of
 the design aspects.
 
@@ -3477,7 +3476,7 @@ Both query languages share a comprehensive understanding of a
 type-system that encourages the creation of all kinds of data types.
 While in GraphQL common schemas still need to be created, SPARQL already
 provides a reasonable amount of vocabulary
-{[}\protect\hyperlink{ref-web_w3c-tr_rdf-schemas}{137}{]}. However, when
+{[}\protect\hyperlink{ref-web_w3c-tr_rdf-schemas}{136}{]}. However, when
 comparing the results of both languages, some distinctions appear. While
 in GraphQL the characteristics of graph-structured data remain, SPARQL's
 output is missing a certain level of depth. The reason for that
@@ -3504,11 +3503,11 @@ few. As a result, the ones that are widely used might then become de
 facto standards. Moreover, it's also possible that several data types
 will emerge, that are based on common standards, for example
 \emph{medical record}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_ehr}{138}{]},
+{[}\protect\hyperlink{ref-web_spec_data-schemas_ehr}{137}{]},
 \emph{point of interest}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_poi}{139}{]} or
+{[}\protect\hyperlink{ref-web_spec_data-schemas_poi}{138}{]} or
 \emph{bank transfer}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_bank-transfer}{140}{]}.
+{[}\protect\hyperlink{ref-web_spec_data-schemas_bank-transfer}{139}{]}.
 With that approach those data types can be viewed as something like a
 plugin or add-on to the \emph{PDaaS} ecosystem.
 
@@ -3691,8 +3690,8 @@ relevant (sub-)categories of data}}
 The available \emph{primitives} mainly depend on those who are supported
 by the query language itself. In this case, all \emph{primitives}
 mentioned above are supported by \emph{SPARQL}
-{[}\protect\hyperlink{ref-web_spec_xml_types}{141}{]} and \emph{GraphQL}
-{[}\protect\hyperlink{ref-web_spec_graphql_types}{142}{]}. When choosing
+{[}\protect\hyperlink{ref-web_spec_xml_types}{140}{]} and \emph{GraphQL}
+{[}\protect\hyperlink{ref-web_spec_graphql_types}{141}{]}. When choosing
 a database system it has to be ensured that either the system already
 supports the required \emph{primitives} or they can be emulated somehow
 with minimal drawbacks. When modelling relations between data items, one
@@ -3928,7 +3927,7 @@ system's interfaces from a user point of view.
 The foundation of this project is a server-client Architecture, which is
 chosen for (A) providing availability (\protect\hyperlink{sa05}{S.A.05})
 and (B) separating concerns
-{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{143}{]}.
+{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{142}{]}.
 Such a distributed system provides various locations to place these
 concerns, which are, in fact, different environments with different
 properties. Those combinations of locations and environments are herein
@@ -4101,7 +4100,7 @@ task(s), underlying technologies, and relation(s) to each other.
 \item
   X.509
 \item
-  ACME {[}\protect\hyperlink{ref-web_spec_acme}{144}{]} (Let's Encrypt)
+  ACME {[}\protect\hyperlink{ref-web_spec_acme}{143}{]} (Let's Encrypt)
 \end{itemize}
 
 \subsubsection*{Storage Connector}\label{storage-connector}
@@ -4516,7 +4515,7 @@ the accessibility to those service owners. Whereas users get the benefit
 of just using one account for all their apps - a universal key so to
 say, but only one exemplar. So the downside here is, in reality only a
 handful of third parties
-{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{145}{]}
+{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{144}{]}
 provide those authentication services.\\
 OpenID is designed with a very specific type of scenarios in mind,
 namely the one just described - bringing decentralization to the market
@@ -4565,7 +4564,7 @@ the primary division into components can be leveraged.
 
 The range of environment systems for \emph{server} platforms is highly
 diverse but the main shares
-{[}\protect\hyperlink{ref-web_2017_wikipedia_os-market-share}{146}{]}
+{[}\protect\hyperlink{ref-web_2017_wikipedia_os-market-share}{145}{]}
 belong to either the UNIX or LINUX family, even though almost every
 platform is POSIX-compliant.\footnote{Portable Operating System
   Interface; a collection of standards released by the IEEE Computer
@@ -4967,7 +4966,7 @@ especially hard to solve because of the problem of how to display
 graph-based and nested data structures in such a way that reviewing and
 also manipulating them is easy, even on the small screen of a mobile
 phone? One approach could be to utilize the \emph{accordion} pattern
-{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{147}{]} for
+{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{146}{]} for
 edges and start nesting them in order to represent subsequent data
 structure. The interaction then might look like tree-structured
 navigation; moving alongside relations just by expanding and folding in
@@ -7463,7 +7462,7 @@ governed by {[}\ldots{}{]} the Basic Law. {[}\ldots{}{]} this
 fundamental right guarantees in principle the power of individuals to
 make their own decisions as regards the disclosure and use of their
 personal data
-{[}\protect\hyperlink{ref-court-decision_1983_census-act-germany}{148},
+{[}\protect\hyperlink{ref-court-decision_1983_census-act-germany}{147},
 p. 3{]}.
 \end{quote}
 
@@ -7806,7 +7805,7 @@ Result of Code 03 in JSON}:}
 
 \emph{NOTICE: schema notation is based on the rules underpinning the
 schema definition provided by the SimpleSchema project
-{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{149}{]}.}
+{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{148}{]}.}
 
 \textbf{\protect\hypertarget{code-05_struct_profile}{}{Code 05: Struct -
 Profile (example)}}
@@ -7893,10 +7892,10 @@ but ,
 \emph{Proceedings of the 14th ACM SIGKDD international conference on
 Knowledge discovery and data mining}~: ACM, 2008, pp.~560--568
 
-\hypertarget{ref-book_2015_ethical-it-innovation_ethical-uses-of-information-and-knowledge}{}
+\hypertarget{ref-book_2015_ethical-it-innovation}{}
 {[}3{]} \textsc{Spiekermann, Sarah}: \emph{Ethical IT Innovation: A
 Value-Based System Design Approach}~: CRC Press; Taylor \& Francis
-Group, LLC, 2015 --~scale ---~ISBN~978-1-4822-2635-5
+Group, LLC, 2015 ---~ISBN~978-1-4822-2635-5
 
 \hypertarget{ref-paper_1996_bias-in-computer-systems}{}
 {[}4{]} \textsc{Friedman, Batya}\,; \textsc{Nissenbaum, Helen}: Bias in
@@ -7954,7 +7953,7 @@ a service (pdaas). GitHub}. URL
 
 \hypertarget{ref-report_2014_data-brokers}{}
 {[}14{]} \textsc{USA, Federal Trade Commission}: \emph{Data brokers},
-2014 --~scale
+2014
 
 \hypertarget{ref-whitepaper_2012_the-value-of-our-digital-identity_definition}{}
 {[}15{]} \textsc{Rose, John}\,; \textsc{Rehse, Olaf}\,; \textsc{Röber,
@@ -7963,7 +7962,7 @@ Björn}: The value of our digital identity. In: \emph{Boston Cons. Gr}
 
 \hypertarget{ref-regulation_2016_eu_general-data-protection-regulation_definition}{}
 {[}16{]} Regulation (EU) 2016/679 --- General data protection
-regulation, 2016 --~scale
+regulation, 2016
 
 \hypertarget{ref-web_2016_wikipedia_information-privacy-law_us}{}
 {[}17{]} \textsc{Wikipedia}: \emph{Information privacy law}. URL
@@ -7984,17 +7983,16 @@ privacy bill of rights act'' draft. TechCrunch}. URL
 \hypertarget{ref-bill-draft_2015_us_consumer-privacy-bill-of-rights-act_definition}{}
 {[}20{]} Consumer privacy bill of rights act (cpbora) --- Administration
 discussion draft: Consumer privacy bill of rights act of 2015, 2015
---~scale
 
 \hypertarget{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_sensitive-types-of-data}{}
-{[}21{]} FCC 16-148 --- Report and order, 2016 --~scale. ---~In the
-Matter of Protecting the Privacy of Customers of Broadband and Other
+{[}21{]} FCC 16-148 --- Report and order, 2016. ---~In the Matter of
+Protecting the Privacy of Customers of Broadband and Other
 Telecommunications Services
 
 \hypertarget{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information}{}
-{[}22{]} FCC 16-39 --- Notice of proposed rulemaking, 2016 --~scale.
----~In the Matter of Protecting the Privacy of Customers of Broadband
-and Other Telecommunications Services
+{[}22{]} FCC 16-39 --- Notice of proposed rulemaking, 2016. ---~In the
+Matter of Protecting the Privacy of Customers of Broadband and Other
+Telecommunications Services
 
 \hypertarget{ref-web_2016_privacy-policies-are-mandatory-by-law}{}
 {[}23{]} \emph{Privacy policies are mandatory by law}. URL
@@ -8029,16 +8027,16 @@ kritisieren privacy shield und kündigen umfassende prüfung an}. URL
 
 \hypertarget{ref-book_1987_private-ownership_definition}{}
 {[}29{]} \textsc{Grunebaum, J.O.}: \emph{Private ownership},
-\emph{Problems of philosophy}~: Routledge \& Kegan Paul, 1987 --~scale
+\emph{Problems of philosophy}~: Routledge \& Kegan Paul, 1987
 ---~ISBN~9780710207067
 
 \hypertarget{ref-regulation_2016_eu_general-data-protection-regulation_ownership}{}
 {[}30{]} Regulation (EU) 2016/679 --- General data protection
-regulation, 2016 --~scale
+regulation, 2016
 
 \hypertarget{ref-rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership}{}
-{[}31{]} FCC 16-148 --- Report and order, 2016 --~scale. ---~In the
-Matter of Protecting the Privacy of Customers of Broadband and Other
+{[}31{]} FCC 16-148 --- Report and order, 2016. ---~In the Matter of
+Protecting the Privacy of Customers of Broadband and Other
 Telecommunications Services
 
 \hypertarget{ref-web_2016_facebook_terms-of-service}{}
@@ -8106,8 +8104,10 @@ data used in analytics. Agroknow blog}. URL
 \url{http://blog.agroknow.com/?p=4690}. - retrieved 2017-02-08
 
 \hypertarget{ref-book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining}{}
-{[}44{]} \textsc{Zaïane, Osmar R}: \emph{Principles of knowledge
-discovery in databases}, 1999 --~scale
+{[}44{]} \textsc{Zaïane, Osmar R}: Chapter 1: Introduction to data
+mining. In: \emph{Principles of knowledge discovery in databases}~:
+Department of Computing Science, University of Alberta, 1999. ---~CMPUT
+690, pp.~1--2
 
 \hypertarget{ref-web_2013_big-data-collection-collides-with-privacy-concerns}{}
 {[}45{]} \emph{Big data collection collides with privacy concerns,
@@ -8128,7 +8128,7 @@ what you shouldn't ignore. WIRED}. URL
 
 \hypertarget{ref-report_2001_3d-data-management-controlling-data-volume-velocity-and-variety}{}
 {[}48{]} \textsc{Laney, Douglas}: \emph{3D data management: Controlling
-data volume, velocity, and variety}~: META Group, 2001 --~scale
+data volume, velocity, and variety}~: META Group, 2001
 
 \hypertarget{ref-paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data}{}
 {[}49{]} \textsc{Hilbert, Martin}: Big data for development: A review of
@@ -8219,7 +8219,7 @@ Report
 
 \hypertarget{ref-video_2016_corporate-surveillance-digital-tracking-big-data-privacy}{}
 {[}64{]} \textsc{Christl, Wolfie}: \emph{Corporate surveillance, digital
-tracking, big data \& privacy}, 2016 --~scale
+tracking, big data \& privacy}, 2016
 
 \hypertarget{ref-paper_1965_moors-law}{}
 {[}65{]} \textsc{Moore, Gordon E.}: Cramming more components onto
@@ -8227,7 +8227,7 @@ integrated circuits. In: \emph{Electronics} vol. 38 (1965), p.~4
 
 \hypertarget{ref-podcast_2015_cre-neuronale-netze}{}
 {[}66{]} \textsc{Pritlove, Tim}\,; \textsc{Schöneberg, Ulf}:
-\emph{Neuronale netze}, 2015 --~scale
+\emph{Neuronale netze}, 2015
 
 \hypertarget{ref-web_2016_industries-intention-to-invest-in-big-data}{}
 {[}67{]} \textsc{Columbus, Louis}: \emph{51\% of enterprises intend to
@@ -8251,8 +8251,7 @@ retrieved 2016-12-09
 
 \hypertarget{ref-graphic_2011_architecture_components-of-organization-domain}{}
 {[}71{]} \textsc{The TAS3 Consortium}: \emph{TAS3 architecture - figure
-2.2: Major components of organization domain.}, 2011 --~scale. ---~v
-2.24
+2.2: Major components of organization domain.}, 2011. ---~v 2.24
 
 \hypertarget{ref-web_kantara-initiative}{}
 {[}72{]} \emph{Kantara initiative -- join. innovate. trust.} URL
@@ -8292,7 +8291,7 @@ openPDS: Protecting the privacy of metadata through SafeAnswers. In:
 
 \hypertarget{ref-slides_2015_meeco-case-study}{}
 {[}79{]} \textsc{Page, Mike}: Online adver\textgreater{}sing -- booming
-or broken?, 2015 --~scale
+or broken?, 2015
 
 \hypertarget{ref-web_industrial-data-space}{}
 {[}80{]} \emph{The principles. Industrial data space e.V.} URL
@@ -8506,68 +8505,67 @@ nPA, ein selbstversuch. CR-online.de blog}. URL
 - retrieved 2017-01-05
 
 \hypertarget{ref-web_2017_about-de-mail}{}
-{[}121{]} \textsc{Bundesregierung für Informationstechnik, Der
-Bundesbeauftragte der}: \emph{IT-beauftragter der bundesregierung
-de-mail}. URL
+{[}121{]} \textsc{Der Bundesbeauftragte der Bundesregierung für
+Informationstechnik}: \emph{De-mail -- einfach verschlüsselt und
+nachweisbar}. URL
 \url{http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html}.
 - retrieved 2017-01-06
 
 \hypertarget{ref-statement_2013_de-mail}{}
-{[}122{]} \textsc{Neumann, Linus}: Stellungnahme zum elektronischen
-rechtsverkehr.
-
-\hypertarget{ref-book_2015_ethical-it-innovation}{}
-{[}123{]} \textsc{Spiekermann, Sarah}: \emph{Ethical IT Innovation: A
-Value-Based System Design Approach}~: CRC Press; Taylor \& Francis
-Group, LLC, 2015 --~scale ---~ISBN~978-1-4822-2635-5
+{[}122{]} \textsc{Linus Neumann (Press Spokespersion, Chaos Computer
+Club)}: \emph{Stellungnahme zum elektronischen rechtsverkehr}. URL
+\url{https://ccc.de/system/uploads/128/original/demail_april2013.pdf}
 
 \hypertarget{ref-paper_2004_distributed-mapreduce}{}
-{[}124{]} \textsc{Dean, Eeffrey}\,; \textsc{Ghemawat, Sanjay}:
-MapRednce: Simplified data processing on large clusters (2004)
+{[}123{]} \textsc{Dean, Jeffrey}\,; \textsc{Ghemawat, Sanjay}:
+MapReduce: Simplified data processing on large clusters. In:
+\emph{Proceedings of the 6th conference on symposium on opearting
+systems design \& implementation - volume 6}, \emph{OSDI'04}. Berkeley,
+CA, USA~: USENIX Association, 2004, pp.~10--10
 
 \hypertarget{ref-web_spec_tls-12_client-auth}{}
-{[}125{]} \textsc{Dierks, Tim}: \emph{The transport layer security (TLS)
+{[}124{]} \textsc{Dierks, Tim}: \emph{The transport layer security (TLS)
 protocol version 1.2}. URL
 \url{https://tools.ietf.org/html/rfc5246\#section-7.4.6}. - retrieved
 2017-01-09
 
 \hypertarget{ref-web_2017_wikipedia_mutual-auth}{}
-{[}126{]} \emph{Mutual authentication}. URL
+{[}125{]} \emph{Mutual authentication}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Mutual_authentication\&oldid=737409981}.
 - retrieved 2017-01-10. ---~Page Version ID: 737409981
 
 \hypertarget{ref-book_2013_networking-101_tls-session-resumption}{}
-{[}127{]} \emph{Networking 101: Transport layer security (TLS) - high
+{[}126{]} \emph{Networking 101: Transport layer security (TLS) - high
 performance browser networking (o'Reilly). High performance browser
 networking}. URL
 \url{https://hpbn.co/transport-layer-security-tls/\#tls-session-resumption}.
 - retrieved 2017-01-12
 
 \hypertarget{ref-web_spec_tls-session-ticket-resumption}{}
-{[}128{]} \textsc{Joseph Salowey, P. Eronen, \textnormal{H. Zhou}}:
+{[}127{]} \textsc{Joseph Salowey, P. Eronen, \textnormal{H. Zhou}}:
 \emph{Transport layer security (TLS) session resumption without
 server-side state}. URL \url{https://tools.ietf.org/html/rfc5077}. -
 retrieved 2017-01-12
 
 \hypertarget{ref-web_bsi-spec_eid}{}
-{[}129{]} \emph{BSI - technische richtlinien des BSI - BSI TR-03130
+{[}128{]} \emph{BSI - technische richtlinien des BSI - BSI TR-03130
 eID-server}. URL
 \url{https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html}.
 - retrieved 2017-01-06
 
 \hypertarget{ref-web_2017_npa-eid-server}{}
-{[}130{]} \emph{Personalausweisportal - eID-server}. URL
+{[}129{]} \emph{Personalausweisportal - eID-server}. URL
 \url{https://personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html}.
 - retrieved 2017-01-06
 
 \hypertarget{ref-book_2014_chapter-10-5-asym-random-number-gen}{}
-{[}131{]} \textsc{Stallings, William}: 9.1 public-key infrastructure.
+{[}130{]} \textsc{Stallings, William}: 9.1 public-key infrastructure.
 In: \emph{Cryptography and network security: Principles and practice}.
 Seventh edition. ed. Boston~: Pearson, 2014 ---~ISBN~978-0-13-335469-0,
 p.~307
 
 \hypertarget{ref-web_spec_http-error-codes}{}
-{[}132{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
+{[}131{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
 \textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
 \textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{Hypertext
 transfer protocol -- HTTP/1.1}. URL
@@ -8575,92 +8573,92 @@ transfer protocol -- HTTP/1.1}. URL
 2017-01-20
 
 \hypertarget{ref-web_spec_oauth-1a_client-reg}{}
-{[}133{]} \emph{OAuth core 1.0a}. URL
+{[}132{]} \emph{OAuth core 1.0a}. URL
 \url{https://oauth.net/core/1.0a/\#rfc.section.4.2}. - retrieved
 2016-11-01
 
 \hypertarget{ref-web_spec_oauth-2_client-reg}{}
-{[}134{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+{[}133{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
 framework}. URL \url{https://tools.ietf.org/html/rfc6749\#section-2}. -
 retrieved 2016-11-01
 
 \hypertarget{ref-web_spec_oauth-1a_access-verification}{}
-{[}135{]} \emph{OAuth core 1.0a}. URL
+{[}134{]} \emph{OAuth core 1.0a}. URL
 \url{https://oauth.net/core/1.0a/\#rfc.section.7}. - retrieved
 2016-11-01
 
 \hypertarget{ref-web_spec_oauth-2_access-verification}{}
-{[}136{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+{[}135{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
 framework}. URL \url{https://tools.ietf.org/html/rfc6749\#section-7}. -
 retrieved 2016-11-01
 
 \hypertarget{ref-web_w3c-tr_rdf-schemas}{}
-{[}137{]} \textsc{Brickley, Dan}\,; \textsc{Guha, R.V.}: \emph{RDF
+{[}136{]} \textsc{Brickley, Dan}\,; \textsc{Guha, R.V.}: \emph{RDF
 schema 1.1}. URL \url{https://www.w3.org/TR/rdf-schema/}. - retrieved
 2017-02-12
 
 \hypertarget{ref-web_spec_data-schemas_ehr}{}
-{[}138{]} \textsc{Foundation}: \emph{OpenEHR - EHR information model}.
+{[}137{]} \textsc{Foundation}: \emph{OpenEHR - EHR information model}.
 URL \url{http://www.openehr.org/releases/RM/latest/docs/ehr/ehr.html}. -
 retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_data-schemas_poi}{}
-{[}139{]} \textsc{W3C}: \emph{Points of interest core}. URL
+{[}138{]} \textsc{W3C}: \emph{Points of interest core}. URL
 \url{https://www.w3.org/TR/poi-core/}. - retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_data-schemas_bank-transfer}{}
-{[}140{]} \textsc{Authority, ISO 20022 Registration}: \emph{ISO 20022 -
+{[}139{]} \textsc{Authority, ISO 20022 Registration}: \emph{ISO 20022 -
 universal financial industry message scheme}. URL
 \url{https://www.iso20022.org/}. - retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_xml_types}{}
-{[}141{]} \textsc{W3C}: \emph{XML schema part 2: Datatypes second
+{[}140{]} \textsc{W3C}: \emph{XML schema part 2: Datatypes second
 edition}. URL
 \url{https://www.w3.org/TR/xmlschema-2/\#built-in-primitive-datatypes}.
 - retrieved 2017-01-29
 
 \hypertarget{ref-web_spec_graphql_types}{}
-{[}142{]} \textsc{Facebook, Inc.}: \emph{GraphQL Specification}. URL
+{[}141{]} \textsc{Facebook, Inc.}: \emph{GraphQL Specification}. URL
 \url{https://facebook.github.io/graphql/\#sec-Input-Values}. - retrieved
 2017-01-29
 
 \hypertarget{ref-web_2016_wikipedia_separation-of-concerns}{}
-{[}143{]} \emph{Separation of concerns}. URL
+{[}142{]} \emph{Separation of concerns}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Separation_of_concerns\&oldid=747272729}.
 - retrieved 2017-01-24. ---~Page Version ID: 747272729
 
 \hypertarget{ref-web_spec_acme}{}
-{[}144{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
+{[}143{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
 \textsc{Hoffman-Andrews, Jacob}: \emph{Automatic certificate management
 environment (ACME)}. URL
 \url{https://tools.ietf.org/html/draft-ietf-acme-acme-04}. - retrieved
 2017-01-11
 
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}145{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
+{[}144{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
 success -- by the numbers}. URL
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 - retrieved 2016-12-16
 
 \hypertarget{ref-web_2017_wikipedia_os-market-share}{}
-{[}146{]} \emph{Usage share of operating systems}. URL
+{[}145{]} \emph{Usage share of operating systems}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Usage_share_of_operating_systems\&oldid=764383522\#Public_servers_on_the_Internet}.
 - retrieved 2017-02-12. ---~Page Version ID: 764383522
 
 \hypertarget{ref-web_2016_wikipedia_accordion-gui}{}
-{[}147{]} \emph{Accordion (GUI)}. URL
+{[}146{]} \emph{Accordion (GUI)}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Accordion_(GUI)\&oldid=758084292}.
 - retrieved 2017-02-01. ---~Page Version ID: 758084292
 
 \hypertarget{ref-court-decision_1983_census-act-germany}{}
-{[}148{]} \textsc{self-organizing}\,; \textsc{group)}: Census act,
+{[}147{]} \textsc{self-organizing}\,; \textsc{group)}: Census act,
 BVerfGE 65, 1 --- English translation of essential parts of the german
 ``volkszählungsurteil'' from 15 december 1983, which established in
 germany the basic right on informational self-determination~: German
-Konrad-Adenauer-Stiftung, 2013 --~scale. ---~1. Headnote
+Konrad-Adenauer-Stiftung, 2013. ---~1. Headnote
 
 \hypertarget{ref-web_2017_repo_node-simple-schema}{}
-{[}149{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
+{[}148{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
 \url{https://github.com/aldeed/node-simple-schema}. - retrieved
 2017-01-29
 
