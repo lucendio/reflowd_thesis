@@ -83,6 +83,14 @@ of contents
 [ ]   (!) change name to full before final render 
 
 
+### final steps (after content freeze)
+
+1.  searching for internal refs and add section/chapter number, cause it's not automated
+2.  checking line length (especially chap 1)
+3.  add forced line breaks (within paragraphs) where it might improve readability
+4.  check page breaks in rendered version
+
+
 ### On date of submission
 
 +   3 physical copies on paper

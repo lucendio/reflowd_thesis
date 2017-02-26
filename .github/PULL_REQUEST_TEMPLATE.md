@@ -14,7 +14,7 @@ type: content || phrasing || grammar or spelling || design or layout
 [MUST]
 
 
-Resources (links)
+### Resources (links)
 
 [MAY]
 

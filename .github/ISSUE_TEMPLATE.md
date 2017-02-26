@@ -6,7 +6,7 @@ ref: $FULL_FILE_NAME or $FILE_ID (first 3 digits) from `./chapters/*`,
      $LOC_FROM - $LOC_TO || $PAGE_NUMBER (pdf)
 
 
-### Reason (if not obvious)? 
+### Subject/Reason (if not obvious)? 
 
 [MAY]
 
