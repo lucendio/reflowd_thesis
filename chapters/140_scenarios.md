@@ -9,6 +9,10 @@ internet, while others might at the moment not seem to be very useful, but show 
 to become more relevant when new technologies and business models will occur, that are followed by 
 new desires for data.
 
+*NOTICE: The subsequent phrasing is intentionally written in colloquial language in order to 
+facilitate comprehensibility and to convey a pictorial idea of what it would look like to use such 
+technology in everyday situation.*
+
 
 
 #### Ordering a product on the web {-}
