@@ -40,6 +40,8 @@ rendered into (HTML) tables. JSON and RDF are also supported. The reason for per
 in the example instead of just one is because the result would otherwise have returned multiple 
 'rows' with redundant data if more then one bank account supported online payment; the bank account 
 data would be different, but the profile information would be repeated.
+The same phenomenon occurs when requesting a *RESTful* API to obtain that information, because the 
+returned data structure is defined by the responder, not the requester.
 
 The GraphQL query syntax ([Code 03](#code-03_graphql-query)) compared with its result 
 ([Code 04](#code-04_graphql-query-result)) shows a remarkable resemblance. 
@@ -190,8 +192,8 @@ includes for example:
 The list revels that not only a database system is needed to satisfy the requirements, but the 
 environments filesystem might need to be utilized as well.
 This leads to the question of what requirements a database system has to satisfy. But first, it is 
-pivotal to distinguish between the needs of a *personal data storage (PDS)* and a general 
-*persistence layer (PL)* for the system's backend.
+pivotal to distinguish between the needs of a *Personal Data Storage (PDS)* and a general 
+*Persistence Layer (PL)* for the system's backend.
 
 
 | Characteristic                               | Personal Data Storage | Persistence Layer |
@@ -292,8 +294,10 @@ validation, which is much harder to do for *SPARQL*, because its syntax is more 
 some shorthands, therefore the possibilities are far too numerous. In general *SPARQL's* syntax is 
 harder to comprehend compared to *GraphQL*. And even though the result of both languages is 
 formatted in JSON, only *GraphQL* preserves all the relations in the output, which are already 
-embedded in the query syntax. 
-As a result, *GraphQL* (and its implementations) is the query language of choice for this project.
+embedded in the query syntax, whereas a *SPARQL*-based or RESTful API requires multiple round trips 
+and addition effort to merge the data into the desired format.
+As a result, *GraphQL* (and its implementations) is the query language of choice for this project, 
+which is going to serve as the data API for consumers, too.
 
 When it comes to creating new structs, engaging a user community can compensate the lack of certain
 types. Examples for a potential starting point of *PDaaS*-supported data types were showed before.

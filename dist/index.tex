@@ -614,12 +614,12 @@ new desires for data.
 
 \emph{NOTICE: The subsequent phrasing is intentionally written in
 colloquial language in order to facilitate comprehensibility and to
-convey a pictorial/illustrative idea of what it would look like to use
-such technology in everyday situation.}
+convey a pictorial idea of what it would look like to use such
+technology in everyday situation.}
 
 \subsubsection*{Ordering a product on the
-web}\label{ordering-a-product-on-the-web}
-\addcontentsline{toc}{subsubsection}{Ordering a product on the web}
+internet}\label{ordering-a-product-on-the-internet}
+\addcontentsline{toc}{subsubsection}{Ordering a product on the internet}
 
 The data subject searches through the web to find a new toaster because
 her old one recently broke. After some clicks and reviews, she finds her
@@ -1771,18 +1771,82 @@ the required effort to integrate with third parties or other APIs. The
 following section describes potentially used technologies and outlines
 the purposes they might serve and why.
 
+When transferring data over a potential non-private channel, several
+features might be desired in order to provide trust in those data. One
+important aspect might be that no one else except sender and receiver
+are able to know and see what the actual data are. \textbf{Symmetrical
+Cryptography} is used to achieve this. It states that the sender
+encrypts the data with the help of a key and the receiver decrypts the
+data with that same key. That is, sender and receiver, both need to know
+that particular key, and everyone who is not allowed to access that
+information must not be in possession of that key. To agree on a key
+without compromising the key during that process, both entities either
+need to switch to a private medium (e.g meet physically and exchange) or
+have to use a procedure in which the entire key is not exposed to others
+at any single point in time. This procedure is called
+\textbf{Diffie-Hellman-Key-Exchange}
+{[}\protect\hyperlink{ref-paper_1976_d-h-key-exchange}{82}{]} and is
+based on the mathematical discrete logarithm problem. It allows to
+parties to to agree on a common \emph{secret} while using a non-private
+channel. The data exchanged during the process alone cannot be used to
+exploit the secret. The possibility to securely communicate on a
+non-private channel is also one of the strengths of
+\textbf{\protect\hypertarget{def--asym-crypto}{}{Asymmetrical
+Cryptography}} \emph{(or public-key cryptography)}
+{[}\protect\hyperlink{ref-book_2014_chapter-9-1-public-key-crypto}{83}{]},
+which is underpinned by a \emph{key-pair} for every communication
+participant; one key is \emph{public} and the other one must be kept
+strictly \emph{private}. One of the keys is used to \emph{encrypt} the
+data, and only the other key of the pair can be used for
+\emph{decrypting} the cipher. The scenario defines the role of each key
+and when to use them. If this technique is combined with the concept of
+digital signatures (encrypted fingerprints from data), the result
+provides integrity and authentication.
+
 \textbf{\protect\hypertarget{def--http}{}{HTTP}}
-{[}\protect\hyperlink{ref-web_spec_http1}{82}{]}, the well known
-stateless `transport layer' for, among other things, the \emph{World
-Wide Web}. It most likely will fulfill the same purpose in the context
-of this work, because it implements a server-client pattern in its very
-core. Whether internal components, locally on the same host or as part
-of a distributed system, talk to each other or data consumers interact
-with the system, this protocol transfers the data that needs to be
-exchanged. The relevance and uses cases of features introduced with
-Version 2 {[}\protect\hyperlink{ref-web_spec_http2}{83}{]} of the
-protocol are not yet explored. Unlike \emph{HTTP}, \textbf{WebSockets}
-{[}\protect\hyperlink{ref-web_spec_websockets}{84}{]} provide the
+{[}\protect\hyperlink{ref-web_spec_http1}{84}{]}, commonly known as part
+of the \emph{Application Layer} in the OSI-Model
+{[}\protect\hyperlink{ref-web_2017_wikipedia_osi-model}{85}{]}, is one
+of key technologies the \emph{World Wide Web} is based on. This
+stateless protocol is mainly used to transfer any media type reliably
+between internet endpoints. It most likely will fulfill the same purpose
+in the context of this work, because it implements a server-client
+pattern in its very core. Whether internal components, locally on the
+same host or as part of a distributed system, talk to each other or data
+consumers interact with the system, this protocol transfers the data
+that needs to be exchanged. The relevance and use cases of features
+introduced with Version 2
+{[}\protect\hyperlink{ref-web_spec_http2}{86}{]} of the protocol are not
+yet explored.
+
+Putting \emph{HTTP} on top of the \textbf{Transport Layer Security
+(TLS)} protocol {[}\protect\hyperlink{ref-web_spec_tls}{87}{]} results
+in \emph{\protect\hypertarget{def--https}{}{HTTPS}}. TLS provides
+encryption during data transport, which reduces the vulnerability to
+\emph{man-in-the-middle} attacks and thus ensures not only
+confidentiality, but data integrity too. \emph{Asymmetric cryptography}
+is the foundation for the connection establishment, hence \emph{TLS}
+also allows to verify the relation between the identity of the
+communicating party and the presented certificate. Depending on the
+integration, it could even be used to authenticate that party. Though
+relying on those cryptographic concepts requires additional
+infrastructure. Such an infrastructure is known as \emph{Public Key
+Infrastructure (PKI)}
+{[}\protect\hyperlink{ref-book_2014_chapter-14-5-pki}{88}{]}. It manages
+and provides keys and certificates for a dedicated scope of entities in
+a directory, including information related to their owners. \emph{PKI}s
+are based on a hierarchical chain of trust, where a \emph{Certificate
+Authority (CA)}, as part of that infrastructure, issues, maintains and
+revokes digital certificates. The infrastructure that is needed to
+provide secure HTTP connections for the internet is one of those
+\emph{PKI}s - a public one and probably one of the largest. It is based
+on the widely used IETF\footnote{Internet Engineering Task Force;
+  non-profit organisation that develops and releases standards mainly
+  related to the Internet protocol suite} standard \emph{X.509}
+{[}\protect\hyperlink{ref-web_spec_x509}{89}{]}.
+
+Unlike \emph{HTTP}, \textbf{WebSockets}
+{[}\protect\hyperlink{ref-web_spec_websockets}{90}{]} provide the
 concept of ongoing bidirectional connections on top of TCP, though
 connection establishment utilizes the same principles known for HTTP(S).
 This combination still allows TLS while benefiting from high efficiency
@@ -1791,16 +1855,116 @@ responses, while at the same time avoiding HTTP's long-polling
 abilities. It is conceivable to use \emph{WebSockets} for communicate
 between components or even with external parties.
 
+While the transport of email-based communication is also underpinned by
+\emph{TLS}, the emails themselves still exist in plain text at all time.
+Utilizing end-to-end encryption for communication is another example of
+applying \emph{public-key cryptography}. A \emph{public key server} that
+follows, unlike a \emph{PKI}, a more decentralized and liberal approach
+called \textbf{web of trust}. In which all entities (user; senders and
+recipients) are signing each other's public keys. The more users have
+signed a public key, the higher the level of trust is on that key and
+therefore on the entity who the signed key-pair belongs to. Public keys
+are simply uploaded by its owners to those key servers mentioned before.
+If someone want to write an email to others, all public keys relating
+the recipients must be obtained from these public server, so that the
+email can then be encrypted with those keys and are therefore only
+readable by the owner of the keys's private part.
+
+In the past years different countries around the world started to
+introduce information technology to the day-to-day processes,
+interactions and communications between public services and their
+citizens. Processes like changing residence information or filing tax
+reports, are all summarized since then under the name
+\emph{E-government}.\footnote{Electronic government} One of those
+developments is the so called \textbf{Electronic ID
+Card}\{\#def--eid-card\}, hereinafter called \emph{eID card}. Equipped
+with storage, logic and interfaces for wireless communication, those
+\emph{eID cards} can be used to store certain information and digital
+keys, or to authenticate the owner electronically to a third party
+without being physically present. Such an \emph{eID card} was introduced
+also in Germany in 2010. The so called \emph{nPA}\footnote{in german so
+  called \emph{elektronische Personalausweis (nPA)}} has been an
+important step towards an operational \emph{e-government}. Aside from
+minor flaws
+{[}\protect\hyperlink{ref-web_2013_npa-sicherheitsdefizit}{91}{]} and
+disadvantages
+{[}\protect\hyperlink{ref-web_2014_test-qes-support-in-npa}{92}{]} an
+\emph{eID card} might come along with, the question here is, how can
+such technology be usefully integrated in this project and is it
+plausible to do so. As an official document, the card has one major
+advantage over inherent, self-configured or generated secrets like
+passwords, fingerprints or TANs.\footnote{Transaction authentication
+  number} It is \emph{signed} by design, which means, by creating this
+document and handing it over to the related citizen, the third party (or
+\emph{`authority'}) - in this case the government - has verified the
+authenticity of that individual.
+
+Another technology emerging as part of the \emph{e-government}
+development, is the german
+\textbf{\protect\hypertarget{def--de-mail}{}{De-Mail}}
+{[}\protect\hyperlink{ref-web_2017_about-de-mail}{93}{]}. It's an email
+service that is meant to provide infrastructure and mechanisms to
+exchange legally binding electronic documents. One would expect a
+\emph{public key cryptography}-based implementation from sender all the
+way over to the recipient that would provide end-to-end encrypted
+communication {[}\protect\hyperlink{ref-statement_2013_de-mail}{94}{]};
+maybe even with taking advantage of the \emph{nPA's} capability to
+create \emph{Qualified Electronic Signatures (QES)}
+{[}\protect\hyperlink{ref-paper_2013-keymanangement-fuer-qes-mit-npa}{95}{]},
+which refers to the ability of using the \emph{nPA} to sign arbitrary
+data. Instead, the creators of the corresponding law decided that it's
+sufficient to prove the author's identity based on its credentials when
+handing over the email to the server, and that it's reasonable to let
+the provider sign the document on the email server, and finally that
+this described implementation results in a legally binding document by
+definition of that law. The different levels of mistakes made in
+conception and legislation are outlined in a statement from the
+CCC\footnote{Chaos Computer Club e.V.}
+{[}\protect\hyperlink{ref-statement_2013_de-mail}{94}{]}, who has been
+consulted during the development of that law.
+
 \textbf{JSON}\footnote{The JavaScript Object Notation (JSON) Data
   Interchange Format; ECMA Standard\\
-  {[}\protect\hyperlink{ref-web_spec_json}{85}{]} and Internet
+  {[}\protect\hyperlink{ref-web_spec_json}{96}{]} and Internet
   Engineering Task Force RFC 7159
-  {[}\protect\hyperlink{ref-web_rfc_json}{86}{]}} is an alternative data
-serialization format to XML, heavily used in web contexts to transfer
-data via \emph{HTTP}, whose syntax is inspired by the JavaScript
-object-literal notation. Like XML, its structuring mechanisms allow i.a.
-type preservation and nesting, which enable the representation of more
-complex data structures, including relations.
+  {[}\protect\hyperlink{ref-web_rfc_json}{97}{]}} is an alternative to
+the data serialization format XML, whose syntax is inspired by the
+JavaScript object-literal notation. It's heavily used in web contexts to
+transfer data via \emph{HTTP}. Like XML, its structuring mechanisms
+allow i.a. type preservation and nesting, which enable the
+representation of more complex data structures, including relations.
+
+If, due to being part of a distributed software, some components are
+required to not maintain any state, either the architecture needs to be
+changed so that the state is no longer needed in that component, or the
+state needs to be embedded into the process communication so that it's
+passed from one component to the other. This is a common use case for a
+\textbf{\protect\hypertarget{def--jwt}{}{JSON Web Token (JWT)}}
+{[}\protect\hyperlink{ref-web_spec_json-web-token}{98}{]}. A \emph{JWT}
+is formatted as \emph{JSON}, but URL-safe encoded with \emph{base64url}
+{[}\protect\hyperlink{ref-web_spec_base64url}{99}{]}, a version of the
+widely used \emph{Base64} encoding, before it gets transferred. The
+token itself contains the state. Here is where the use of \emph{HTTP}
+comes in handy because the token can be stored within the HTTP header
+and therefore can be passed through all communication points, where the
+data can then be extracted and verified. Such a token typically consists
+of three parts: (A) information about itself, (B) a payload, which can
+be arbitrary data such as user or state information, and (C) a
+signature; all separated with a period. Additional standards define
+encryption \emph{(JWE\footnote{JSON Web Encryption, Internet Engineering
+  Task Force RFC 7516
+  {[}\protect\hyperlink{ref-web_spec_json-web-encryption}{100}{]}})} to
+ensure confidentiality, and signatures \emph{(JWS\footnote{JSON Web
+  Signature, Internet Engineering Task Force RFC 7515
+  {[}\protect\hyperlink{ref-web_spec_json-web-signature}{101}{]}})} to
+preserve integrity of it's contents. Using a \emph{JWT} for
+authentication purposes is described as \emph{stateless authentication},
+because the verifying entity doesn't need to be aware of session IDs nor
+any other information about a session. So, instead of the backend
+interface being burdened to check a state on every incoming request in
+order to verify permissions, which required to maintain a state in the
+first place, it just needs to decrypt the token and proceed according to
+the contained information.
 
 The open standard \textbf{\protect\hypertarget{def--oauth}{}{OAuth}}
 defines a process flow for authorizing third parties to access
@@ -1810,29 +1974,30 @@ of a previously generated token. However, generating and supplying such
 tokens can be initiated in a variety of ways depending on the underlying
 architecture and design, for example, with the user entering her
 credentials (\texttt{grant\_type=authorization\_code}). This design
-seems to result \emph{OAuth} in being misleadingly - but intentionally -
-integrated as an authentication service
-{[}\protect\hyperlink{ref-web_2012_problem-with-oauth-for-authentication}{87}{]}
+seems to misleadingly encourage developers to integrate \emph{OAuth} as
+an authentication service
+{[}\protect\hyperlink{ref-web_2012_problem-with-oauth-for-authentication}{102}{]}
 rather then an authorization service, whether as an alternative or as an
 addition to existing in-house solutions. In doing so, the application
 authors pass the responsibility on to the OAuth-supporting data
 providers. OAuth \emph{version 1.0a}
-{[}\protect\hyperlink{ref-web_spec_oauth-1a}{88}{]}, which is rather
+{[}\protect\hyperlink{ref-web_spec_oauth-1a}{103}{]}, which is rather
 considered a protocol, provides confidentiality by encrypting data
 before it gets transferred, and integrity of transferred data by using
 signatures. Whereas \emph{Version 2.0}
-{[}\protect\hyperlink{ref-web_spec_oauth-2}{89}{]}, labeled as a
+{[}\protect\hyperlink{ref-web_spec_oauth-2}{104}{]}, labeled as a
 framework, requires \emph{TLS} and thus passes on the responsibility for
 confidentiality to the transport layer below. It also supports
 additional process flows for scenarios involving specific platforms such
 as \emph{``web applications, desktop applications, mobile phones, and
-living room devices''} {[}\protect\hyperlink{ref-web_2016_oauth-2}{90},
+living room devices''} {[}\protect\hyperlink{ref-web_2016_oauth-2}{105},
 Para. 1{]}.
 
-With \textbf{OpenID} on the other hand, the authenticity of a requesting
-user gets verified by design. An in-depth description of the whole
-process can be found in the protocol's same-titled specifications
-{[}\protect\hyperlink{ref-web_spec_openid-spec-index}{91}{]}. With
+\textbf{OpenID} on the other hand, as another open standard, is
+explicitly designed to validate the authenticity of a requesting user.
+An in-depth description of the whole process can be found in the
+protocol's same-titled specifications
+{[}\protect\hyperlink{ref-web_spec_openid-spec-index}{106}{]}. With
 decentralization in mind, the protocols's nature encourages to design a
 distributed application architecture, similar to the idea behind a
 \emph{microservice}, but without owning all services involved -
@@ -1847,132 +2012,90 @@ with another identity provider, to authenticate with the application.
 The extension \emph{OpenID Attribute Exchange} allows the importing of
 additional profile data, similar to what OAuth is meant to be used for.
 \emph{OpenID Connect}
-{[}\protect\hyperlink{ref-web_spec_openid-connect-1}{92}{]} is the third
-iteration of the OpenID technology. While facebook, for example, uses
-OAuth also for authentication (known as pseudo-authentication
-{[}\protect\hyperlink{ref-web_2017_wikipedia_openid-vs-pseudo-oauth}{93}{]})
+{[}\protect\hyperlink{ref-web_spec_openid-connect-1}{107}{]} is the
+third iteration of the OpenID technology. While facebook, for example,
+uses OAuth also for authentication (known as pseudo-authentication
+{[}\protect\hyperlink{ref-web_2017_wikipedia_openid-vs-pseudo-oauth}{108}{]})
 instead of just authorising entities, \emph{OpenID connect} on the other
 hand, provides authentication in an additional layer built upon
 \emph{OAuth2.0} and \emph{JWT}. Previous versions of OpenID have
 provided the concept of extension in order to add functionality such as
 accessing profile information. This ability is now part of the core
 facilitated by OAuth, so that a user's identity can share certain data
-with third parties via REST interface.
+with third parties via \emph{REST} interface.
 
-If, due to being part of a distributed software, some components are
-required to not maintain any state, either the architecture needs to be
-changed so that the state is no longer needed in that component, or the
-state needs to be embedded into the process communication so that it is
-passed from one component to the other. This is a common use case for a
-\textbf{\protect\hypertarget{def--jwt}{}{JSON Web Token}} \emph{(JWT)}
-{[}\protect\hyperlink{ref-web_spec_json-web-token}{94}{]}. A \emph{JWT},
-as it's name implies, is, syntactically speaking, formatted as
-\emph{JSON}, but URL-safe encoded into Base64, which is called
-\emph{base64url} {[}\protect\hyperlink{ref-web_spec_base64url}{95}{]},
-before it gets transferred. The token itself contains the state. Here is
-where the use of \emph{HTTP} comes in handy because the token can be
-stored within the HTTP header and therefore can be passed through all
-communication points, where the data can then be extracted and verified.
-Such a token typically consists of three parts: (A) information about
-itself, (B) a payload, which can be arbitrary data such as user or state
-information, and (C) a signature; all separated with a period.
-Additional standards define encryption \emph{(JWE\footnote{JSON Web
-  Encryption, Internet Engineering Task Force RFC 7516
-  {[}\protect\hyperlink{ref-web_spec_json-web-encryption}{96}{]}})} to
-ensure confidentiality, and signatures \emph{(JWS\footnote{JSON Web
-  Signature, Internet Engineering Task Force RFC 7515
-  {[}\protect\hyperlink{ref-web_spec_json-web-signature}{97}{]}})} to
-preserve integrity of it's contents. Using a \emph{JWT} for
-authentication purposes is described as \emph{stateless authentication},
-because the verifying entity doesn't need to be aware of session IDs nor
-any other information about a session. So, instead of the backend
-interface being burdened to check a state (e.g.
-\texttt{isLoggedIn(sessionId)} or \texttt{isAuthorized(sessionId)}) on
-every incoming request in order to verify permissions, which required to
-maintain a state in the first place, it just needs decrypt the token and
-proceed according to the contained information.
-
-When transferring data over a potential non-private channel, several
-features might be desired in order to provide trust in those data. One
-important aspect might be that no one else except sender and receiver
-are able to know and see what the actual data are. \textbf{Symmetrical
-Cryptography} is used to achieve this. It states that the sender
-encrypts the data with the help of a key and the receiver decrypts the
-data with that same key. That is, sender and receiver, both need to know
-that particular key, and everyone who is not allowed to access that
-information must not be in possession of that key. To agree on a key
-without compromising the key during that process, both entities either
-need to switch to a private medium (e.g meet physically and exchange) or
-have to use a procedure in which the entire key is not exposed at any
-single point in time to others. This procedure is called
-\textbf{Diffie-Hellman-Key-Exchange}
-{[}\protect\hyperlink{ref-paper_1976_d-h-key-exchange}{98}{]} and is
-based on mathematical laws of modulo operations when prime numbers are
-involved. It is designed with the goal to agree on a \emph{secret} while
-at the same time using a non-private channel. The data exchanged during
-the process alone cannot be used to exploit the secret. Such behaviour
-is similar to the concepts of
-\textbf{\protect\hypertarget{def--asym-crypto}{}{Asymmetrical
-Cryptography}} \emph{(or public-key cryptography)}
-{[}\protect\hyperlink{ref-book_2014_chapter-9-1-public-key-crypto}{99}{]},
-which is underpinned by a \emph{key-pair}; one key is \emph{public} and
-the other one is \emph{private}. One of the keys is used to
-\emph{encrypt} the data, and only the other one can be used for
-\emph{decrypting} the cipher. If this is combined with the concept of
-digital signatures (encrypted fingerprints from data), the result would
-provide integrity and authentication.
-
-Putting \emph{HTTP} on top of the \emph{Transport Layer Security (TLS)}
-{[}\protect\hyperlink{ref-web_spec_tls}{100}{]} results in
-\textbf{\protect\hypertarget{def--https}{}{HTTPS}}. TLS provides
-encryption during data transport, which reduces the vulnerability to
-\emph{man-in-the-middle} attacks and thus ensures not only
-confidentiality, but data integrity too. \emph{Asymmetric cryptography}
-is the foundation for the connection establishment, hence \emph{TLS}
-also allows us to verify integrity of the entity on the the connection's
-other side and, depending on the integration, it could even be used for
-authentication purposes. Though relying on those cryptographic concepts
-requires additional infrastructure. Such an infrastructure is known as
-\emph{Public Key Infrastructure (PKI)}
-{[}\protect\hyperlink{ref-book_2014_chapter-14-5-pki}{101}{]}. It
-manages and provides keys and certificates for a dedicated scope of
-entities in a directory, including information related to the owners of
-these key and certificates. A Certificate Authority (or \emph{CA}), as
-part of that infrastructure, issues, maintains and revokes digital
-certificates. The infrastructure that is needed to provide secure HTTP
-connections for the internet is one of those \emph{PKI}s - a public one
-and probably one of the largest. It is based on the widely used
-IETF\footnote{Internet Engineering Task Force; non-profit organisation
-  that develops and releases standards mainly related to the Internet
-  protocol suite} standard \emph{X.509}
-{[}\protect\hyperlink{ref-web_spec_x509}{102}{]}.
-
-\textbf{REST(ful)}\footnote{\emph{Representational State Transfer},
+The concept, known as \emph{Representational State Transfer}, or
+\textbf{REST},\footnote{\emph{Representational State Transfer},
   introduces by Roy Fielding in his doctoral dissertation
-  {[}\protect\hyperlink{ref-web_spec_rest}{103}{]}} is a common set of
-principles to design web resources and their interaction. It primarily
-defines server-client communication in a more generic and therefore
-interoperable way. Aside from hierarchically structured URLs, which can
-reflect semantic relations or hierarchical order between data items, it
-involves a rudimentary vocabulary\footnote{HTTP Methods or Verbs
-  {[}\protect\hyperlink{ref-web_spec_http-methods}{104}{]} (e.g.~GET,
-  OPTIONS, PUT, DELETE)} for HTTP requests to provide basic
+  {[}\protect\hyperlink{ref-web_spec_rest}{109}{]}} refers to a common
+set of principles on how to design web resources and their interaction.
+It primarily defines server-client communication in a more generic and
+therefore interoperable way. Aside from hierarchically structured URLs,
+which can reflect semantic relations or hierarchical order between data
+items, it involves a rudimentary vocabulary\footnote{HTTP Methods or
+  Verbs {[}\protect\hyperlink{ref-web_spec_http-methods}{110}{]}
+  (e.g.~GET, OPTIONS, PUT, DELETE)} for HTTP requests to provide basic
 CRUD-operations\footnote{Create, Read, Update, Delete} across
 distributed systems. The entire request needs to contain everything that
-is required to be processed on the REST-server, e.g.~state information
-and possibly authentication parameters. A restful API typically has the
-purpose of exposing certain features provided through the platform or
-service to third parties in order to synergistically integrate with
-them. But utilizing these principals for all internal server-client
-interaction is also very common. This concept can also be understood as
-a proxy to the actual business logic in the back end.
+is required to be processed on the REST-server, for example state
+information and possibly authentication parameters. A restful API
+typically has the purpose of exposing certain features provided through
+the platform or service to third parties in order to synergistically
+integrate with them. But utilizing these principals for all internal
+server-client interaction is also very common. This concept can also be
+understood as a proxy to the actual business logic in the back end.
 
-The \emph{QL} in \textbf{\protect\hypertarget{def--graphql}{}{GraphQL}}
-{[}\protect\hyperlink{ref-web_spec_graphql}{105}{]} stands for
-\emph{query language}. Developed by Facebook Inc., its goal is to
-abstract multiple data sources into a unified API or resource, so that
-different storage technologies are seamlessly queryable without using
-it's native \emph{QL}. The result is provided in JSON format, which
+The concept of an application (or software)
+\textbf{\protect\hypertarget{def--container}{}{container}} is about
+encapsulating runtime environments by introducing an additional layer of
+abstraction. A container bundles just those software dependencies
+(e.g.~binaries) that are absolutely necessary so that the enclosed
+program is able to run properly. The actual separation from the host
+system is done, aside from other technologies, with the help of two
+features provided by the Linux kernel. \emph{Cgroups},\footnote{control
+  groups {[}\protect\hyperlink{ref-web_2015_cgroup-doc}{111}{]}} which
+defines or restricts how much of the existing resources can be used by a
+group of processes (e.g.~CPU, memory or network). Whereas
+\emph{namespaces}
+{[}\protect\hyperlink{ref-web_2016_kernel-namespace}{112}{]} defines or
+restricts what parts of the system can be accessed or seen by a process
+(e.g.~filesystem, user, other processes). The idea of encapsulating
+programs from the operating system-level is not new. Technologies, such
+as \emph{\href{https://libvirt.org/}{libvirt}},
+\emph{\href{https://wiki.archlinux.org/index.php/Systemd-nspawn}{systemd-nspawn}},
+\emph{\href{https://www.freebsd.org/doc/handbook/jails.html}{Jails}}, or
+\emph{hypervisors} (e.g. \href{https://www.vmware.com/}{VMware},
+\href{https://www.linux-kvm.org}{KVM},
+\href{https://www.virtualbox.org/}{VirtualBox}) have been used for
+years, but some of them were usually too cumbersome and never reached a
+great level of convenience, so that only people with expertise have been
+able to handle systems built upon virtualization, whereas people with
+other backgrounds couldn't and weren't very interested, at least until
+\emph{\href{https://www.docker.com/}{Docker}} and
+\emph{\href{https://coreos.com/rkt}{rkt}} emerged. After some years of
+separated work, both authors, and others, recently joined forces in the
+\emph{Open Container Initiative}
+{[}\protect\hyperlink{ref-web_2016_open-container-initiative}{113}{]},
+which promises to harmonize the diverged landscape and start building
+common ground to ensure a higher interoperability. That, in turn,
+started to raise the demand for sophisticated orchestration. It also
+marks the initial draft of specifications for runtime
+{[}\protect\hyperlink{ref-web_oci-spec_runtime}{114}{]} and image
+{[}\protect\hyperlink{ref-web_oci-spec_image}{115}{]} definition for
+\emph{application container}, which are still under heavy development.
+This concept of \emph{containerization} also has the side-effect of
+making the application platform-agnostic, because it allows a certain
+set of software to run on a system which might otherwise not support
+that software (e.g.~mobile devices); it just requires the runtime to be
+supported.
+
+The \emph{query language (QL)}
+\textbf{\protect\hypertarget{def--graphql}{}{GraphQL}}
+{[}\protect\hyperlink{ref-web_spec_graphql}{116}{]}, developed by
+Facebook Inc., abstracts multiple data sources into an unified API or
+resource. The additional abstraction layer allows different storage
+technologies to be seamlessly queryable without using their native
+\emph{query language}. The result is provided in JSON format, which
 naturally supports graph-like data structures. This is utilized in
 GraphQL and implicitly embraced through its purpose of abstraction. Data
 items that might be somehow related but stored in different locations,
@@ -1990,23 +2113,23 @@ Web}} bundles a conglomerate of standards released by the W3C.\footnote{World
   for the web} It is based on an idea called \emph{web of linked data},
 which aims to \emph{``enable people to create data stores on the Web,
 build vocabularies, and write rules for handling data''}
-{[}\protect\hyperlink{ref-web_2016_w3c_semantic-web-activity}{106},
+{[}\protect\hyperlink{ref-web_2016_w3c_semantic-web-activity}{117},
 Para. 1{]}. The standards address syntax, schemas, formats, access
 control and integrations for several scopes and contexts. Among others,
 the following three technologies are essential for the \emph{Semantic
 Web}. RDF\footnote{Resource Description Framework
-  {[}\protect\hyperlink{ref-web_w3c-tr_rdf}{107}{]}} basically defines
+  {[}\protect\hyperlink{ref-web_w3c-tr_rdf}{118}{]}} basically defines
 the syntax. OWL\footnote{Web Ontology Language
-  {[}\protect\hyperlink{ref-web_w3c-tr_owl}{108}{]}} provides the
+  {[}\protect\hyperlink{ref-web_w3c-tr_owl}{119}{]}} provides the
 guidelines on how the semantics and schemas (vocabulary) should be
 defined and with \protect\hypertarget{def--sparql}{}{SPARQL}
-{[}\protect\hyperlink{ref-web_w3c-tr_sparql}{109}{]}, the query
+{[}\protect\hyperlink{ref-web_w3c-tr_sparql}{120}{]}, the query
 language, data can be retrieved. One can not help but picture the web as
 a database of queryable data with URIs that are embedded in arbitrary
 websites. Imagine a person's email address, which is available under a
 specific domain (preferably owned by that person) - or to be more
 precise, a URI \emph{(WebID)
-{[}\protect\hyperlink{ref-web_w3c-draft_webid}{110}{]}} - and provided
+{[}\protect\hyperlink{ref-web_w3c-draft_webid}{121}{]}} - and provided
 in a certain syntax \emph{(RDF)}, tagged with the semantic \emph{(OWL)}
 of a email address, all together embedded in an imprint of a website.
 This information can then be queried \emph{(SPARQL)}, if the unique
@@ -2018,119 +2141,15 @@ then creating new instances of the same data that might only valid at
 that point in time - in short, preventing redundant work and outdated
 data. Related to the \emph{Semantic Web} is the a project called
 \textbf{Solid}.\footnote{social linked data
-  {[}\protect\hyperlink{ref-web_spec_solid}{111}{]}} Backed by the
+  {[}\protect\hyperlink{ref-web_spec_solid}{122}{]}} Backed by the
 \emph{WebAccessControl}
-{[}\protect\hyperlink{ref-web_2016_wiki_webaccesscontrol}{112}{]} system
+{[}\protect\hyperlink{ref-web_2016_wiki_webaccesscontrol}{123}{]} system
 and based on the \emph{Linked Data} principles including the standards
 just mentioned, the project focuses on decentralization and personal
 data management while developing a specification around this. A
 reference implementation called \emph{databox}
-{[}\protect\hyperlink{ref-web_2016_demo_databox}{113}{]} follows the
+{[}\protect\hyperlink{ref-web_2016_demo_databox}{124}{]} follows the
 specification process.
-
-The concept of an application (or software)
-\textbf{\protect\hypertarget{def--container}{}{container}} is about
-encapsulating runtime environments by introducing an additional layer of
-abstraction. A container bundles just those software dependencies
-(e.g.~binaries) that are absolutely necessary so that the enclosed
-program is able to run properly. The actual separation from the host
-system is done, aside from other technologies, with the help of two
-features provided by the Linux kernel. \emph{Cgroups},\footnote{control
-  groups {[}\protect\hyperlink{ref-web_2015_cgroup-doc}{114}{]}} which
-defines or restricts how much of the existing resources can be used by a
-group of processes (e.g.~CPU, memory or network). Whereas
-\emph{namespaces}
-{[}\protect\hyperlink{ref-web_2016_kernel-namespace}{115}{]} defines or
-restricts what parts of the system can be accessed or seen by a process
-(e.g.~filesystem, user, other processes). The idea of encapsulating
-programs from the operating system-level is not new. Technologies, such
-as \emph{libvirt}, \emph{systemd-nspawn}, \emph{jails}, or
-\emph{hypervisors} (e.g.~VMware, KVM, virtualbox) have been used for
-years, but some of them were usually too cumbersome and never reached a
-great level of convenience, so that only people with expertise have been
-able to handle systems built upon virtualization, whereas people with
-other backgrounds couldn't and weren't very interested, at least until
-\emph{Docker} and \emph{rkt} emerged. After some years of separated
-work, both authors, and others, recently joined forces in the \emph{Open
-Container Initiative}
-{[}\protect\hyperlink{ref-web_2016_open-container-initiative}{116}{]},
-which promises to harmonize the diverged landscape and start building
-common ground to ensure a higher interoperability. That, in turn,
-started to raise the demand for sophisticated orchestration. It also
-marks the initial draft of specifications for runtime
-{[}\protect\hyperlink{ref-web_oci-spec_runtime}{117}{]} and image
-{[}\protect\hyperlink{ref-web_oci-spec_image}{118}{]} definition for
-\emph{application container}, which are still under heavy development.
-This concept of \emph{containerization} also has the side-effect of
-making the application platform-agnostic, because it allows a certain
-set of software to run on a system which might otherwise not support
-that software (e.g.~mobile devices); it just requires the runtime to be
-supported.
-
-In the past years different countries around the world started to
-introduce \emph{information technology} to the day-to-day processes,
-interactions and communications between public services and their
-citizens. Processes like changing residence information or filing tax
-reports, are all summarized since then under the name
-\emph{E-government}.\footnote{Electronic government} One of those
-developments is the so called \textbf{Electronic ID
-Card}\{\#def--eid-card\}, hereinafter called \emph{eID card}. Equipped
-with storage, logic and interfaces for wireless communication, those
-\emph{eID cards} can be used to store certain information and digital
-keys, or to authenticate the owner electronically to a third party
-without being physically present. Such an \emph{eID card} was introduced
-also in Germany in 2010. The so called \emph{nPA}\footnote{in german so
-  called \emph{elektronische Personalausweis (nPA)}} has been an
-important step towards an operational \emph{e-government}. Aside from
-minor flaws
-{[}\protect\hyperlink{ref-web_2013_npa-sicherheitsdefizit}{119}{]} and
-disadvantages
-{[}\protect\hyperlink{ref-web_2014_test-qes-support-in-npa}{120}{]} an
-\emph{eID card} might come along with, the question here is, how can
-such technology be usefully integrated in this project and is it
-plausible to do so. As an official document, the card has one major
-advantage over inherent, self-configured or generated secrets like
-passwords, fingerprints or TANs.\footnote{Transaction authentication
-  number} It is \emph{signed} by design, which means, by creating this
-document and handing it over to the related citizen, the third party (or
-\emph{`authority'}) - in this case the government - has verified the
-authenticity of that individual.
-
-When communicating via email it's already common to encrypt the
-transport channel, but using \emph{asymmetric cryptography} for
-encrypting emails end-to-end is rather unusual. The equivalent to a
-\emph{PKI} would be basically a \emph{public key server} that follows a
-concept called \emph{web of trust}. In which all entities (user; senders
-and recipients) are signing each other's public keys. The more users
-have signed a public key, the higher the level of trust is on that key
-and therefore on the entity who the signed key-pair belongs to. Public
-keys are simply uploaded by its owners to those key servers mentioned
-before. If someone want to write an email to others, all public keys
-relating the recipients must be obtained from these public server, so
-that the email can then be encrypted with those keys and are therefore
-only readable by the owner of the keys's private part.
-
-Related to that topic, another technology emerging as part of the
-\emph{e-government} development, is the german
-\textbf{\protect\hypertarget{def--de-mail}{}{De-Mail}}
-{[}\protect\hyperlink{ref-web_2017_about-de-mail}{121}{]}. It's an
-eMail-Service that is meant to provide infrastructure and mechanisms to
-exchange legally binding electronic documents. One would expect a
-\emph{public key cryptography}-based implementation from sender all the
-way over to the recipient
-{[}\protect\hyperlink{ref-statement_2013_de-mail}{122}{]}; maybe even
-with taking advantage of the \emph{nPA's} capability to create
-\emph{QES}, which refers to the ability of using the \emph{nPA} to sign
-arbitrary data. Instead, the creators of the corresponding law decided
-that it's sufficient to prove the author's identity based on its
-credentials when handing over the email to the server, and that it's
-reasonable to let the provider sign the document on the email server,
-and finally that this described implementation results in a legally
-binding document by definition of that law. The different levels of
-mistakes made in conception and legislation are outlined in a statement
-from CCC\footnote{Chaos Computer Club e.V.}-members
-{[}\protect\hyperlink{ref-statement_2013_de-mail}{122}{]}, who have been
-consulted as official experts during the development of that law.
 
 \hypertarget{core-principles}{\chapter{Core
 Principles}\label{core-principles}}
@@ -2222,7 +2241,7 @@ leaving the system. It allows the execution of a small program within a
 locally defined environment, computing only a fraction of a larger
 computation initiated by the \emph{data consumer} beforehand; similar to
 a distributed Map-Reduce concept
-{[}\protect\hyperlink{ref-paper_2004_distributed-mapreduce}{123}{]}. The
+{[}\protect\hyperlink{ref-paper_2004_distributed-mapreduce}{125}{]}. The
 opposite, but also conceivable, approach would be to provide either some
 software to the \emph{data consumer}, which is required in order to
 access the contents of a response, or a runtime environment that queries
@@ -2629,7 +2648,7 @@ client has to verify the server's identity by checking the certificate.
 If the server insists, the client has to provide a certificate as well,
 which the server then tries to verify. Only if the outcome is positive,
 the connection establishment succeeds. According to the specification
-{[}\protect\hyperlink{ref-web_spec_tls-12_client-auth}{124}{]} it is
+{[}\protect\hyperlink{ref-web_spec_tls-12_client-auth}{126}{]} it is
 still optional though.
 
 \emph{HTTP}, as a comprehensive and flexible protocol, enables the use
@@ -2654,18 +2673,18 @@ provided with all session-related data hold by the server. This is
 typically done in a HTTP header, whether as \emph{Basic Auth} value, a
 \emph{Cookie}, which is domain-specific, or in some other custom header.
 Since the \emph{two-way authentication} (or \emph{mutual authentication}
-{[}\protect\hyperlink{ref-web_2017_wikipedia_mutual-auth}{125}{]}) is
+{[}\protect\hyperlink{ref-web_2017_wikipedia_mutual-auth}{127}{]}) is
 performed based on files containing keys and certificates, which are
 typically not very fluctuant in its contents or state, this procedure is
 categorized as stateless. Order or origin of incoming requests have no
 impact on the result of the actual authentication process. The same
 applies to TLS features such as \emph{Session {[}ID, Ticket{]}
 Resumption}
-{[}\protect\hyperlink{ref-book_2013_networking-101_tls-session-resumption}{126}{]},
+{[}\protect\hyperlink{ref-book_2013_networking-101_tls-session-resumption}{128}{]},
 therefore they are left aside, because they serve the sole purpose of
 performance optimization. Similar to the \emph{Session Ticket
 Resumption}
-{[}\protect\hyperlink{ref-web_spec_tls-session-ticket-resumption}{127}{]}
+{[}\protect\hyperlink{ref-web_spec_tls-session-ticket-resumption}{129}{]}
 a web token, namely the \protect\hyperlink{def--jwt}{JSON Web Token},
 also moves the state towards the client, but that's about all they have
 in common. A \emph{JWT} carries everything with it that's worth knowing,
@@ -2715,11 +2734,11 @@ communicate with the RFID-chip. Both scenarios (A+B) require the
 provide \emph{nPA}-based online authentication \emph{(eID-Service)},
 which is defined as a non-sovereign \emph{(``nicht hoheitlich'')}
 feature, it has to comply with several requirements
-{[}\protect\hyperlink{ref-web_bsi-spec_eid}{128}{]} starting with
+{[}\protect\hyperlink{ref-web_bsi-spec_eid}{130}{]} starting with
 applying for a permission to send a certificate signing request to a
 BerCA.\footnote{(german) Berechtigungszertifikate-Anbieter} This request
 is sent from an \emph{eID-Server}
-{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{129}{]} in order to
+{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{131}{]} in order to
 get a public key signed, which has been previously generated on
 dedicated and certified hardware. This hardware is requested by the
 officials as part of a \emph{eID-Server}. The key pair - re-generated
@@ -2812,7 +2831,7 @@ interaction caused by recurring events.
 
 Computations based on asymmetric cryptography are usually slower than
 the ones based on symmetric cryptography
-{[}\protect\hyperlink{ref-book_2014_chapter-10-5-asym-random-number-gen}{130}{]},
+{[}\protect\hyperlink{ref-book_2014_chapter-10-5-asym-random-number-gen}{132}{]},
 but since there are no timing constraints when interacting with the
 \emph{PDaaS}, regardless of whether it's external communication with
 \emph{data consumers} or internal between components, parameters for
@@ -3262,7 +3281,7 @@ access to such availability information on an individual consumer-basis
 or system-wide, and furthermore, to set default configurations for this
 behaviour. Depending on those configurations a request might fail, thus
 the requester needs to be provided with meaningful errors. Http error
-codes {[}\protect\hyperlink{ref-web_spec_http-error-codes}{131}{]} might
+codes {[}\protect\hyperlink{ref-web_spec_http-error-codes}{133}{]} might
 be a sufficient fit for this purpose.
 
 An already standardized way to implement authorization is the
@@ -3280,8 +3299,8 @@ third party apps). Aside from not fitting into such scenarios it would
 also make the proposed process undesirably more complicated. Although
 the proposal includes user interactions like selecting and confirming
 requested permissions. According to the documentations
-{[}\protect\hyperlink{ref-web_spec_oauth-1a_client-reg}{132}{]}
-{[}\protect\hyperlink{ref-web_spec_oauth-2_client-reg}{133}{]}, both
+{[}\protect\hyperlink{ref-web_spec_oauth-1a_client-reg}{134}{]}
+{[}\protect\hyperlink{ref-web_spec_oauth-2_client-reg}{135}{]}, both
 OAuth versions (1.0a and 2) require the client (here \emph{data
 consumer}) to register to the authorization server upfront (to obtain a
 \texttt{client\_id}), before initializing the authorization process.
@@ -3364,8 +3383,8 @@ after authenticating with the provided credentials. OAuth only provides
 a framework for how to authorize third parties to access external
 resources, leaving the procedure of how to actually verify those access
 attempts up to its implementers
-{[}\protect\hyperlink{ref-web_spec_oauth-1a_access-verification}{134}{]}
-{[}\protect\hyperlink{ref-web_spec_oauth-2_access-verification}{135}{]}.
+{[}\protect\hyperlink{ref-web_spec_oauth-1a_access-verification}{136}{]}
+{[}\protect\hyperlink{ref-web_spec_oauth-2_access-verification}{137}{]}.
 In the context of this project OAuth does not comply with the rest of
 the design aspects.
 
@@ -3461,6 +3480,9 @@ performing two queries in the example instead of just one is because the
 result would otherwise have returned multiple `rows' with redundant data
 if more then one bank account supported online payment; the bank account
 data would be different, but the profile information would be repeated.
+The same phenomenon occurs when requesting a \emph{RESTful} API to
+obtain that information, because the returned data structure is defined
+by the responder, not the requester.
 
 The GraphQL query syntax (\protect\hyperlink{code-03_graphql-query}{Code
 03}) compared with its result
@@ -3481,7 +3503,7 @@ Both query languages share a comprehensive understanding of a
 type-system that encourages the creation of all kinds of data types.
 While in GraphQL common schemas still need to be created, SPARQL already
 provides a reasonable amount of vocabulary
-{[}\protect\hyperlink{ref-web_w3c-tr_rdf-schemas}{136}{]}. However, when
+{[}\protect\hyperlink{ref-web_w3c-tr_rdf-schemas}{138}{]}. However, when
 comparing the results of both languages, some distinctions appear. While
 in GraphQL the characteristics of graph-structured data remain, SPARQL's
 output is missing a certain level of depth. The reason for that
@@ -3508,11 +3530,11 @@ few. As a result, the ones that are widely used might then become de
 facto standards. Moreover, it's also possible that several data types
 will emerge, that are based on common standards, for example
 \emph{medical record}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_ehr}{137}{]},
+{[}\protect\hyperlink{ref-web_spec_data-schemas_ehr}{139}{]},
 \emph{point of interest}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_poi}{138}{]} or
+{[}\protect\hyperlink{ref-web_spec_data-schemas_poi}{140}{]} or
 \emph{bank transfer}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_bank-transfer}{139}{]}.
+{[}\protect\hyperlink{ref-web_spec_data-schemas_bank-transfer}{141}{]}.
 With that approach those data types can be viewed as something like a
 plugin or add-on to the \emph{PDaaS} ecosystem.
 
@@ -3695,8 +3717,8 @@ relevant (sub-)categories of data}}
 The available \emph{primitives} mainly depend on those who are supported
 by the query language itself. In this case, all \emph{primitives}
 mentioned above are supported by \emph{SPARQL}
-{[}\protect\hyperlink{ref-web_spec_xml_types}{140}{]} and \emph{GraphQL}
-{[}\protect\hyperlink{ref-web_spec_graphql_types}{141}{]}. When choosing
+{[}\protect\hyperlink{ref-web_spec_xml_types}{142}{]} and \emph{GraphQL}
+{[}\protect\hyperlink{ref-web_spec_graphql_types}{143}{]}. When choosing
 a database system it has to be ensured that either the system already
 supports the required \emph{primitives} or they can be emulated somehow
 with minimal drawbacks. When modelling relations between data items, one
@@ -3759,8 +3781,8 @@ The list revels that not only a database system is needed to satisfy the
 requirements, but the environments filesystem might need to be utilized
 as well. This leads to the question of what requirements a database
 system has to satisfy. But first, it is pivotal to distinguish between
-the needs of a \emph{personal data storage (PDS)} and a general
-\emph{persistence layer (PL)} for the system's backend.
+the needs of a \emph{Personal Data Storage (PDS)} and a general
+\emph{Persistence Layer (PL)} for the system's backend.
 
 \begin{longtable}[]{@{}lcc@{}}
 \caption{selection of characteristics that a database system has to
@@ -3907,9 +3929,12 @@ shorthands, therefore the possibilities are far too numerous. In general
 \emph{SPARQL's} syntax is harder to comprehend compared to
 \emph{GraphQL}. And even though the result of both languages is
 formatted in JSON, only \emph{GraphQL} preserves all the relations in
-the output, which are already embedded in the query syntax. As a result,
+the output, which are already embedded in the query syntax, whereas a
+\emph{SPARQL}-based or RESTful API requires multiple round trips and
+addition effort to merge the data into the desired format. As a result,
 \emph{GraphQL} (and its implementations) is the query language of choice
-for this project.
+for this project, which is going to serve as the data API for consumers,
+too.
 
 When it comes to creating new structs, engaging a user community can
 compensate the lack of certain types. Examples for a potential starting
@@ -3932,7 +3957,7 @@ system's interfaces from a user point of view.
 The foundation of this project is a server-client Architecture, which is
 chosen for (A) providing availability (\protect\hyperlink{sa05}{S.A.05})
 and (B) separating concerns
-{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{142}{]}.
+{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{144}{]}.
 Such a distributed system provides various locations to place these
 concerns, which are, in fact, different environments with different
 properties. Those combinations of locations and environments are herein
@@ -4105,7 +4130,7 @@ task(s), underlying technologies, and relation(s) to each other.
 \item
   X.509
 \item
-  ACME {[}\protect\hyperlink{ref-web_spec_acme}{143}{]} (Let's Encrypt)
+  ACME {[}\protect\hyperlink{ref-web_spec_acme}{145}{]} (Let's Encrypt)
 \end{itemize}
 
 \subsubsection*{Storage Connector}\label{storage-connector}
@@ -4508,7 +4533,13 @@ which \emph{access requests} and \emph{permission requests} are coming
 in and the public one, that is used for when consumers apply for
 registration. The other one is a small group of endpoints required for
 all tools the \emph{operator} might need; from data API or notification
-to authentication and web-based user interface.
+to authentication and web-based user interface. Furthermore, it might be
+considerable to partially apply the principles of a RESTful design. At
+the same time this makes the API potentially more complicated and
+insufficient, since the \emph{Operator API} does not follow the concept
+of resources. Instead, it requires a rather functional design, which
+makes for example \emph{Remote Procedure Calls} or a
+\emph{Publish-Subscribe} pattern more appropriate to use.
 
 Considering the rapid growth of emerging website and applications, which
 all require user registration, users are getting tired of creating new
@@ -4520,7 +4551,7 @@ the accessibility to those service owners. Whereas users get the benefit
 of just using one account for all their apps - a universal key so to
 say, but only one exemplar. So the downside here is, in reality only a
 handful of third parties
-{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{144}{]}
+{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{146}{]}
 provide those authentication services.\\
 OpenID is designed with a very specific type of scenarios in mind,
 namely the one just described - bringing decentralization to the market
@@ -4569,7 +4600,7 @@ the primary division into components can be leveraged.
 
 The range of environment systems for \emph{server} platforms is highly
 diverse but the main shares
-{[}\protect\hyperlink{ref-web_2017_wikipedia_os-market-share}{145}{]}
+{[}\protect\hyperlink{ref-web_2017_wikipedia_os-market-share}{147}{]}
 belong to either the UNIX or LINUX family, even though almost every
 platform is POSIX-compliant.\footnote{Portable Operating System
   Interface; a collection of standards released by the IEEE Computer
@@ -4604,7 +4635,7 @@ effectively means it's the only dependency the \emph{PDaaS} would have,
 regardless of how its components are implemented. They just have to be
 \emph{`containerizable'} - by satisfying the
 \emph{\protect\hyperlink{def--container}{container image specification}}
-{[}\protect\hyperlink{ref-web_oci-spec_image}{118}{]}. This concept can
+{[}\protect\hyperlink{ref-web_oci-spec_image}{115}{]}. This concept can
 also be utilized for the
 \emph{\protect\hyperlink{supervised-data-access}{supervised code
 execution}} (\protect\hyperlink{sa01}{S.A.01}) mentioned before without
@@ -4971,7 +5002,7 @@ especially hard to solve because of the problem of how to display
 graph-based and nested data structures in such a way that reviewing and
 also manipulating them is easy, even on the small screen of a mobile
 phone? One approach could be to utilize the \emph{accordion} pattern
-{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{146}{]} for
+{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{148}{]} for
 edges and start nesting them in order to represent subsequent data
 structure. The interaction then might look like tree-structured
 navigation; moving alongside relations just by expanding and folding in
@@ -5261,7 +5292,10 @@ technologies to notify the operator about certain events (e.g.~system
 receives new registration). Probably one of the most important
 components is the \emph{Operator API}, through which the operator i.a.
 is able to configure the system or manage permissions and the API is
-granted read/write permissions at the \emph{Storage Connector}.
+granted read/write permissions at the \emph{Storage Connector}. The
+\emph{Operator API} MAY partially be designed RESTful, but accessing
+data MUST solely consist of the query language provided by
+\emph{GraphQL}.
 
 \begin{figure}
 \centering
@@ -7467,7 +7501,7 @@ governed by {[}\ldots{}{]} the Basic Law. {[}\ldots{}{]} this
 fundamental right guarantees in principle the power of individuals to
 make their own decisions as regards the disclosure and use of their
 personal data
-{[}\protect\hyperlink{ref-court-decision_1983_census-act-germany}{147},
+{[}\protect\hyperlink{ref-court-decision_1983_census-act-germany}{149},
 p. 3{]}.
 \end{quote}
 
@@ -7810,7 +7844,7 @@ Result of Code 03 in JSON}:}
 
 \emph{NOTICE: schema notation is based on the rules underpinning the
 schema definition provided by the SimpleSchema project
-{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{148}{]}.}
+{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{150}{]}.}
 
 \textbf{\protect\hypertarget{code-05_struct_profile}{}{Code 05: Struct -
 Profile (example)}}
@@ -8321,268 +8355,277 @@ Sören}\,; \textsc{Cirullies, Jan}\,; \textsc{Prof. Dr. Jürjens, Jan}\,;
 \textsc{Menz, Nadja}\,; \textsc{Schon, Jochen}\,; \textsc{Dr. Wenzel,
 Sven}: Industrial data space - digital sovereignity over data.
 
+\hypertarget{ref-paper_1976_d-h-key-exchange}{}
+{[}82{]} \textsc{Diffie, Whitfield}\,; \textsc{Hellman, Martin}: New
+directions in cryptography. In: \emph{IEEE transactions on Information
+Theory} vol. 22 (1976), Nr.~6, pp.~644--654
+
+\hypertarget{ref-book_2014_chapter-9-1-public-key-crypto}{}
+{[}83{]} \textsc{Stallings, William}: 9.1 principles of public-key
+cryptosystems. In: \emph{Cryptography and network security: Principles
+and practice}. Seventh edition. ed. Boston~: Pearson, 2014
+---~ISBN~978-0-13-335469-0, pp.~256--264
+
 \hypertarget{ref-web_spec_http1}{}
-{[}82{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
+{[}84{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
 \textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
 \textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{Hypertext
 transfer protocol -- HTTP/1.1}. URL
 \url{https://tools.ietf.org/html/rfc2616}. - retrieved 2016-12-17
 
+\hypertarget{ref-web_2017_wikipedia_osi-model}{}
+{[}85{]} OSI model. \emph{Wikipedia}.
+
 \hypertarget{ref-web_spec_http2}{}
-{[}83{]} \textsc{Belshe, Mike}\,; \textsc{Thomson, Martin}\,;
+{[}86{]} \textsc{Belshe, Mike}\,; \textsc{Thomson, Martin}\,;
 \textsc{Peon, Roberto}: \emph{Hypertext transfer protocol version 2
 (HTTP/2)}. URL \url{https://tools.ietf.org/html/rfc7540}. - retrieved
 2016-12-17
 
-\hypertarget{ref-web_spec_websockets}{}
-{[}84{]} \textsc{Fette, Ian}\,; \textsc{Melnikov, A.}: \emph{The
-WebSocket protocol}. URL \url{https://tools.ietf.org/html/rfc6455}. -
-retrieved 2016-12-17
-
-\hypertarget{ref-web_spec_json}{}
-{[}85{]} \textsc{Crockford, Douglas}: The JSON data interchange format.
-
-\hypertarget{ref-web_rfc_json}{}
-{[}86{]} \textsc{Bray, T.}: \emph{The JavaScript object notation (JSON)
-data interchange format}. URL \url{https://tools.ietf.org/html/rfc7159}.
-- retrieved 2016-12-17
-
-\hypertarget{ref-web_2012_problem-with-oauth-for-authentication}{}
-{[}87{]} \textsc{Bradley, John}: \emph{The problem with OAuth for
-authentication.} URL
-\url{http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html}.
-- retrieved 2016-12-17
-
-\hypertarget{ref-web_spec_oauth-1a}{}
-{[}88{]} \emph{OAuth core 1.0a}. URL \url{https://oauth.net/core/1.0a/}.
-- retrieved 2016-12-18
-
-\hypertarget{ref-web_spec_oauth-2}{}
-{[}89{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
-framework}. URL \url{https://tools.ietf.org/html/rfc6749}. - retrieved
-2016-12-18
-
-\hypertarget{ref-web_2016_oauth-2}{}
-{[}90{]} \textsc{WG, IETF OAuth}: \emph{OAuth 2.0}. URL
-\url{https://oauth.net/2/}. - retrieved 2016-12-16
-
-\hypertarget{ref-web_spec_openid-spec-index}{}
-{[}91{]} \emph{Specifications \& developer information OpenID}. URL
-\url{https://openid.net/developers/specs/}. - retrieved 2017-02-10
-
-\hypertarget{ref-web_spec_openid-connect-1}{}
-{[}92{]} \emph{OpenID connect core 1.0 incorporating errata set 1}. URL
-\url{https://openid.net/specs/openid-connect-core-1_0.html}. - retrieved
-2016-12-17
-
-\hypertarget{ref-web_2017_wikipedia_openid-vs-pseudo-oauth}{}
-{[}93{]} \emph{OpenID - openid vs. pseudo-authentication using oauth}.
-URL
-\url{https://en.wikipedia.org/w/index.php?title=OpenID\&oldid=763047614\#OpenID_vs._pseudo-authentication_using_OAuth}.
-- retrieved 2017-02-10. ---~Page Version ID: 763047614
-
-\hypertarget{ref-web_spec_json-web-token}{}
-{[}94{]} \textsc{Bradley, John}\,; \textsc{Sakimura, Nat}\,;
-\textsc{Jones, Michael}: \emph{JSON web token (JWT)}. URL
-\url{https://tools.ietf.org/html/rfc7519}. - retrieved 2016-12-17
-
-\hypertarget{ref-web_spec_base64url}{}
-{[}95{]} \textsc{Joseffsson, J.}: \emph{The base16, base32, and base64
-data encodings}. URL
-\url{https://tools.ietf.org/html/rfc4648\#section-5}. - retrieved
-2017-02-22
-
-\hypertarget{ref-web_spec_json-web-encryption}{}
-{[}96{]} \textsc{Hildebrand, Joe}\,; \textsc{Jones, Michael}: \emph{JSON
-web encryption (JWE)}. URL \url{https://tools.ietf.org/html/rfc7516}. -
-retrieved 2016-12-17
-
-\hypertarget{ref-web_spec_json-web-signature}{}
-{[}97{]} \textsc{Bradley, John}\,; \textsc{Sakimura, Nat}\,;
-\textsc{Jones, Michael}: \emph{JSON web signature (JWS)}. URL
-\url{https://tools.ietf.org/html/rfc7515}. - retrieved 2016-12-17
-
-\hypertarget{ref-paper_1976_d-h-key-exchange}{}
-{[}98{]} \textsc{Diffie, Whitfield}\,; \textsc{Hellman, Martin}: New
-directions in cryptography. In: \emph{IEEE transactions on Information
-Theory} vol. 22 (1976), Nr.~6, pp.~644--654
-
-\hypertarget{ref-book_2014_chapter-9-1-public-key-crypto}{}
-{[}99{]} \textsc{Stallings, William}: 9.1 principles of public-key
-cryptosystems. In: \emph{Cryptography and network security: Principles
-and practice}. Seventh edition. ed. Boston~: Pearson, 2014
----~ISBN~978-0-13-335469-0, pp.~256--264
-
 \hypertarget{ref-web_spec_tls}{}
-{[}100{]} \textsc{Dierks, Tim}\,; \textsc{Rescorla, E.}: \emph{The
+{[}87{]} \textsc{Dierks, Tim}\,; \textsc{Rescorla, E.}: \emph{The
 transport layer security (TLS) protocol version 1.2}. URL
 \url{https://tools.ietf.org/html/rfc5246}. - retrieved 2016-12-17
 
 \hypertarget{ref-book_2014_chapter-14-5-pki}{}
-{[}101{]} \textsc{Stallings, William}: 10.5 pseudorandom number
+{[}88{]} \textsc{Stallings, William}: 10.5 pseudorandom number
 generation based on an asymmetric cipher. In: \emph{Cryptography and
 network security: Principles and practice}. Seventh edition. ed.
 Boston~: Pearson, 2014 ---~ISBN~978-0-13-335469-0, pp.~443--445
 
 \hypertarget{ref-web_spec_x509}{}
-{[}102{]} \textsc{Cooper, Dave}\,; \textsc{Santesson, S.}\,;
+{[}89{]} \textsc{Cooper, Dave}\,; \textsc{Santesson, S.}\,;
 \textsc{Farrell, S.}\,; \textsc{Boeyen, S.}\,; \textsc{Housley, W.,
 \textnormal{R. andPolk}}: \emph{Internet x.509 public key infrastructure
 certificate and certificate revocation list (CRL) profile}. URL
 \url{https://tools.ietf.org/html/rfc5280}. - retrieved 2017-01-11
 
-\hypertarget{ref-web_spec_rest}{}
-{[}103{]} \textsc{Fielding, Thomas}: Representational state transfer
-(REST). In: \emph{Architectural styles and the design of network-based
-software architectures}~: University of California, Irvine, 2000,
-pp.~76--106
-
-\hypertarget{ref-web_spec_http-methods}{}
-{[}104{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
-\textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
-\textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{HTTP
-methods}. URL \url{https://tools.ietf.org/html/rfc2616\#section-9}. -
-retrieved 2016-12-18
-
-\hypertarget{ref-web_spec_graphql}{}
-{[}105{]} \emph{GraphQL}. URL \url{https://facebook.github.io/graphql/}.
-- retrieved 2016-12-17
-
-\hypertarget{ref-web_2016_w3c_semantic-web-activity}{}
-{[}106{]} \emph{Semantic web - w3c}. URL
-\url{https://www.w3.org/standards/semanticweb/}. - retrieved 2017-02-10
-
-\hypertarget{ref-web_w3c-tr_rdf}{}
-{[}107{]} \textsc{Beckett, Dave}\,; \textsc{McBride, Brian}:
-\emph{RDF/XML syntax specification (revised)}. URL
-\url{https://www.w3.org/TR/REC-rdf-syntax/}. - retrieved 2016-12-19
-
-\hypertarget{ref-web_w3c-tr_owl}{}
-{[}108{]} \textsc{W3C OWL Working Group}: \emph{OWL 2 web ontology
-language document overview (second edition)}. URL
-\url{https://www.w3.org/TR/owl2-overview/}. - retrieved 2016-12-19
-
-\hypertarget{ref-web_w3c-tr_sparql}{}
-{[}109{]} \textsc{Harris, Steve}\,; \textsc{Seaborne, Andy}\,;
-\textsc{Prud'hommeaux, Eric}: \emph{SPARQL 1.1 query language}. URL
-\url{https://www.w3.org/TR/sparql11-query/}. - retrieved 2016-12-19
-
-\hypertarget{ref-web_w3c-draft_webid}{}
-{[}110{]} \emph{WebID specifications}. URL
-\url{https://www.w3.org/2005/Incubator/webid/spec/}. - retrieved
-2016-12-19
-
-\hypertarget{ref-web_spec_solid}{}
-{[}111{]} \emph{Solid specification}. URL
-\url{https://github.com/solid/solid-spec}. - retrieved 2016-12-17
-
-\hypertarget{ref-web_2016_wiki_webaccesscontrol}{}
-{[}112{]} \emph{WebAccessControl - w3c wiki}. URL
-\url{https://www.w3.org/wiki/WebAccessControl}. - retrieved 2016-12-19
-
-\hypertarget{ref-web_2016_demo_databox}{}
-{[}113{]} \emph{Databox.me}. URL \url{https://databox.me/}. - retrieved
-2016-12-19
-
-\hypertarget{ref-web_2015_cgroup-doc}{}
-{[}114{]} \textsc{Heo, Tejun}: \emph{Control group (v2) documentation}.
-URL \url{https://www.kernel.org/doc/Documentation/cgroup-v2.txt}. -
-retrieved 2016-12-20
-
-\hypertarget{ref-web_2016_kernel-namespace}{}
-{[}115{]} \emph{Overview of linux namespaces}. URL
-\url{http://man7.org/linux/man-pages/man7/namespaces.7.html}. -
-retrieved 2016-12-20
-
-\hypertarget{ref-web_2016_open-container-initiative}{}
-{[}116{]} \emph{Open container initiative}. URL
-\url{https://www.opencontainers.org/}. - retrieved 2016-12-20
-
-\hypertarget{ref-web_oci-spec_runtime}{}
-{[}117{]} \emph{Container runtime specification (v1.0.0-rc3)}. URL
-\url{https://github.com/opencontainers/runtime-spec/tree/v1.0.0-rc3}. -
-retrieved 2016-12-20
-
-\hypertarget{ref-web_oci-spec_image}{}
-{[}118{]} \emph{Container image specification (v1.0.0-rc3)}. URL
-\url{https://github.com/opencontainers/image-spec/tree/v1.0.0-rc3}. -
-retrieved 2016-12-20
+\hypertarget{ref-web_spec_websockets}{}
+{[}90{]} \textsc{Fette, Ian}\,; \textsc{Melnikov, A.}: \emph{The
+WebSocket protocol}. URL \url{https://tools.ietf.org/html/rfc6455}. -
+retrieved 2016-12-17
 
 \hypertarget{ref-web_2013_npa-sicherheitsdefizit}{}
-{[}119{]} \emph{Basisleser weiterhin kritische schwachstelle des
+{[}91{]} \emph{Basisleser weiterhin kritische schwachstelle des
 elektronischen / neuen personalausweises. Netzpolitik.org}. URL
 \url{https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/}.
 - retrieved 2017-01-05
 
 \hypertarget{ref-web_2014_test-qes-support-in-npa}{}
-{[}120{]} \textsc{Stiemerling, Oliver}: \emph{Qualifizierte
-elektronische signatur mit dem neuen personalausweis -- oder: QES mit
-nPA, ein selbstversuch. CR-online.de blog}. URL
+{[}92{]} \textsc{Stiemerling, Oliver}: \emph{Qualifizierte elektronische
+signatur mit dem neuen personalausweis -- oder: QES mit nPA, ein
+selbstversuch. CR-online.de blog}. URL
 \url{http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/}.
 - retrieved 2017-01-05
 
 \hypertarget{ref-web_2017_about-de-mail}{}
-{[}121{]} \textsc{Der Bundesbeauftragte der Bundesregierung für
+{[}93{]} \textsc{Der Bundesbeauftragte der Bundesregierung für
 Informationstechnik}: \emph{De-mail -- einfach verschlüsselt und
 nachweisbar}. URL
 \url{http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html}.
 - retrieved 2017-01-06
 
 \hypertarget{ref-statement_2013_de-mail}{}
-{[}122{]} \textsc{Linus Neumann (Press Spokespersion, Chaos Computer
+{[}94{]} \textsc{Linus Neumann (Press Spokespersion, Chaos Computer
 Club)}: \emph{Stellungnahme zum elektronischen rechtsverkehr}. URL
 \url{https://ccc.de/system/uploads/128/original/demail_april2013.pdf}
 
+\hypertarget{ref-paper_2013-keymanangement-fuer-qes-mit-npa}{}
+{[}95{]} \textsc{Nguyen, Kim}\,; \textsc{Schwarz, Carsten}: Innovatives
+key management für die qualifizierte elektronische signatur mit dem
+neuen personalausweis. In: \emph{Datenschutz und Datensicherheit-DuD}
+vol. 37 (2013), Nr.~8, pp.~502--506
+
+\hypertarget{ref-web_spec_json}{}
+{[}96{]} \textsc{Crockford, Douglas}: The JSON data interchange format.
+
+\hypertarget{ref-web_rfc_json}{}
+{[}97{]} \textsc{Bray, T.}: \emph{The JavaScript object notation (JSON)
+data interchange format}. URL \url{https://tools.ietf.org/html/rfc7159}.
+- retrieved 2016-12-17
+
+\hypertarget{ref-web_spec_json-web-token}{}
+{[}98{]} \textsc{Bradley, John}\,; \textsc{Sakimura, Nat}\,;
+\textsc{Jones, Michael}: \emph{JSON web token (JWT)}. URL
+\url{https://tools.ietf.org/html/rfc7519}. - retrieved 2016-12-17
+
+\hypertarget{ref-web_spec_base64url}{}
+{[}99{]} \textsc{Joseffsson, J.}: \emph{The base16, base32, and base64
+data encodings}. URL
+\url{https://tools.ietf.org/html/rfc4648\#section-5}. - retrieved
+2017-02-22
+
+\hypertarget{ref-web_spec_json-web-encryption}{}
+{[}100{]} \textsc{Hildebrand, Joe}\,; \textsc{Jones, Michael}:
+\emph{JSON web encryption (JWE)}. URL
+\url{https://tools.ietf.org/html/rfc7516}. - retrieved 2016-12-17
+
+\hypertarget{ref-web_spec_json-web-signature}{}
+{[}101{]} \textsc{Bradley, John}\,; \textsc{Sakimura, Nat}\,;
+\textsc{Jones, Michael}: \emph{JSON web signature (JWS)}. URL
+\url{https://tools.ietf.org/html/rfc7515}. - retrieved 2016-12-17
+
+\hypertarget{ref-web_2012_problem-with-oauth-for-authentication}{}
+{[}102{]} \textsc{Bradley, John}: \emph{The problem with OAuth for
+authentication.} URL
+\url{http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html}.
+- retrieved 2016-12-17
+
+\hypertarget{ref-web_spec_oauth-1a}{}
+{[}103{]} \emph{OAuth core 1.0a}. URL
+\url{https://oauth.net/core/1.0a/}. - retrieved 2016-12-18
+
+\hypertarget{ref-web_spec_oauth-2}{}
+{[}104{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+framework}. URL \url{https://tools.ietf.org/html/rfc6749}. - retrieved
+2016-12-18
+
+\hypertarget{ref-web_2016_oauth-2}{}
+{[}105{]} \textsc{WG, IETF OAuth}: \emph{OAuth 2.0}. URL
+\url{https://oauth.net/2/}. - retrieved 2016-12-16
+
+\hypertarget{ref-web_spec_openid-spec-index}{}
+{[}106{]} \emph{Specifications \& developer information OpenID}. URL
+\url{https://openid.net/developers/specs/}. - retrieved 2017-02-10
+
+\hypertarget{ref-web_spec_openid-connect-1}{}
+{[}107{]} \emph{OpenID connect core 1.0 incorporating errata set 1}. URL
+\url{https://openid.net/specs/openid-connect-core-1_0.html}. - retrieved
+2016-12-17
+
+\hypertarget{ref-web_2017_wikipedia_openid-vs-pseudo-oauth}{}
+{[}108{]} \emph{OpenID - openid vs. pseudo-authentication using oauth}.
+URL
+\url{https://en.wikipedia.org/w/index.php?title=OpenID\&oldid=763047614\#OpenID_vs._pseudo-authentication_using_OAuth}.
+- retrieved 2017-02-10. ---~Page Version ID: 763047614
+
+\hypertarget{ref-web_spec_rest}{}
+{[}109{]} \textsc{Fielding, Thomas}: Representational state transfer
+(REST). In: \emph{Architectural styles and the design of network-based
+software architectures}~: University of California, Irvine, 2000,
+pp.~76--106
+
+\hypertarget{ref-web_spec_http-methods}{}
+{[}110{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
+\textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
+\textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{HTTP
+methods}. URL \url{https://tools.ietf.org/html/rfc2616\#section-9}. -
+retrieved 2016-12-18
+
+\hypertarget{ref-web_2015_cgroup-doc}{}
+{[}111{]} \textsc{Heo, Tejun}: \emph{Control group (v2) documentation}.
+URL \url{https://www.kernel.org/doc/Documentation/cgroup-v2.txt}. -
+retrieved 2016-12-20
+
+\hypertarget{ref-web_2016_kernel-namespace}{}
+{[}112{]} \emph{Overview of linux namespaces}. URL
+\url{http://man7.org/linux/man-pages/man7/namespaces.7.html}. -
+retrieved 2016-12-20
+
+\hypertarget{ref-web_2016_open-container-initiative}{}
+{[}113{]} \emph{Open container initiative}. URL
+\url{https://www.opencontainers.org/}. - retrieved 2016-12-20
+
+\hypertarget{ref-web_oci-spec_runtime}{}
+{[}114{]} \emph{Container runtime specification (v1.0.0-rc3)}. URL
+\url{https://github.com/opencontainers/runtime-spec/tree/v1.0.0-rc3}. -
+retrieved 2016-12-20
+
+\hypertarget{ref-web_oci-spec_image}{}
+{[}115{]} \emph{Container image specification (v1.0.0-rc3)}. URL
+\url{https://github.com/opencontainers/image-spec/tree/v1.0.0-rc3}. -
+retrieved 2016-12-20
+
+\hypertarget{ref-web_spec_graphql}{}
+{[}116{]} \emph{GraphQL}. URL \url{https://facebook.github.io/graphql/}.
+- retrieved 2016-12-17
+
+\hypertarget{ref-web_2016_w3c_semantic-web-activity}{}
+{[}117{]} \emph{Semantic web - w3c}. URL
+\url{https://www.w3.org/standards/semanticweb/}. - retrieved 2017-02-10
+
+\hypertarget{ref-web_w3c-tr_rdf}{}
+{[}118{]} \textsc{Beckett, Dave}\,; \textsc{McBride, Brian}:
+\emph{RDF/XML syntax specification (revised)}. URL
+\url{https://www.w3.org/TR/REC-rdf-syntax/}. - retrieved 2016-12-19
+
+\hypertarget{ref-web_w3c-tr_owl}{}
+{[}119{]} \textsc{W3C OWL Working Group}: \emph{OWL 2 web ontology
+language document overview (second edition)}. URL
+\url{https://www.w3.org/TR/owl2-overview/}. - retrieved 2016-12-19
+
+\hypertarget{ref-web_w3c-tr_sparql}{}
+{[}120{]} \textsc{Harris, Steve}\,; \textsc{Seaborne, Andy}\,;
+\textsc{Prud'hommeaux, Eric}: \emph{SPARQL 1.1 query language}. URL
+\url{https://www.w3.org/TR/sparql11-query/}. - retrieved 2016-12-19
+
+\hypertarget{ref-web_w3c-draft_webid}{}
+{[}121{]} \emph{WebID specifications}. URL
+\url{https://www.w3.org/2005/Incubator/webid/spec/}. - retrieved
+2016-12-19
+
+\hypertarget{ref-web_spec_solid}{}
+{[}122{]} \emph{Solid specification}. URL
+\url{https://github.com/solid/solid-spec}. - retrieved 2016-12-17
+
+\hypertarget{ref-web_2016_wiki_webaccesscontrol}{}
+{[}123{]} \emph{WebAccessControl - w3c wiki}. URL
+\url{https://www.w3.org/wiki/WebAccessControl}. - retrieved 2016-12-19
+
+\hypertarget{ref-web_2016_demo_databox}{}
+{[}124{]} \emph{Databox.me}. URL \url{https://databox.me/}. - retrieved
+2016-12-19
+
 \hypertarget{ref-paper_2004_distributed-mapreduce}{}
-{[}123{]} \textsc{Dean, Jeffrey}\,; \textsc{Ghemawat, Sanjay}:
+{[}125{]} \textsc{Dean, Jeffrey}\,; \textsc{Ghemawat, Sanjay}:
 MapReduce: Simplified data processing on large clusters. In:
 \emph{Proceedings of the 6th conference on symposium on opearting
 systems design \& implementation - volume 6}, \emph{OSDI'04}. Berkeley,
 CA, USA~: USENIX Association, 2004, pp.~10--10
 
 \hypertarget{ref-web_spec_tls-12_client-auth}{}
-{[}124{]} \textsc{Dierks, Tim}: \emph{The transport layer security (TLS)
+{[}126{]} \textsc{Dierks, Tim}: \emph{The transport layer security (TLS)
 protocol version 1.2}. URL
 \url{https://tools.ietf.org/html/rfc5246\#section-7.4.6}. - retrieved
 2017-01-09
 
 \hypertarget{ref-web_2017_wikipedia_mutual-auth}{}
-{[}125{]} \emph{Mutual authentication}. URL
+{[}127{]} \emph{Mutual authentication}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Mutual_authentication\&oldid=737409981}.
 - retrieved 2017-01-10. ---~Page Version ID: 737409981
 
 \hypertarget{ref-book_2013_networking-101_tls-session-resumption}{}
-{[}126{]} \emph{Networking 101: Transport layer security (TLS) - high
+{[}128{]} \emph{Networking 101: Transport layer security (TLS) - high
 performance browser networking (o'Reilly). High performance browser
 networking}. URL
 \url{https://hpbn.co/transport-layer-security-tls/\#tls-session-resumption}.
 - retrieved 2017-01-12
 
 \hypertarget{ref-web_spec_tls-session-ticket-resumption}{}
-{[}127{]} \textsc{Joseph Salowey, P. Eronen, \textnormal{H. Zhou}}:
+{[}129{]} \textsc{Joseph Salowey, P. Eronen, \textnormal{H. Zhou}}:
 \emph{Transport layer security (TLS) session resumption without
 server-side state}. URL \url{https://tools.ietf.org/html/rfc5077}. -
 retrieved 2017-01-12
 
 \hypertarget{ref-web_bsi-spec_eid}{}
-{[}128{]} \emph{BSI - technische richtlinien des BSI - BSI TR-03130
+{[}130{]} \emph{BSI - technische richtlinien des BSI - BSI TR-03130
 eID-server}. URL
 \url{https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html}.
 - retrieved 2017-01-06
 
 \hypertarget{ref-web_2017_npa-eid-server}{}
-{[}129{]} \emph{Personalausweisportal - eID-server}. URL
+{[}131{]} \emph{Personalausweisportal - eID-server}. URL
 \url{https://personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html}.
 - retrieved 2017-01-06
 
 \hypertarget{ref-book_2014_chapter-10-5-asym-random-number-gen}{}
-{[}130{]} \textsc{Stallings, William}: 9.1 public-key infrastructure.
+{[}132{]} \textsc{Stallings, William}: 9.1 public-key infrastructure.
 In: \emph{Cryptography and network security: Principles and practice}.
 Seventh edition. ed. Boston~: Pearson, 2014 ---~ISBN~978-0-13-335469-0,
 p.~307
 
 \hypertarget{ref-web_spec_http-error-codes}{}
-{[}131{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
+{[}133{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
 \textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
 \textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{Hypertext
 transfer protocol -- HTTP/1.1}. URL
@@ -8590,92 +8633,92 @@ transfer protocol -- HTTP/1.1}. URL
 2017-01-20
 
 \hypertarget{ref-web_spec_oauth-1a_client-reg}{}
-{[}132{]} \emph{OAuth core 1.0a}. URL
+{[}134{]} \emph{OAuth core 1.0a}. URL
 \url{https://oauth.net/core/1.0a/\#rfc.section.4.2}. - retrieved
 2016-11-01
 
 \hypertarget{ref-web_spec_oauth-2_client-reg}{}
-{[}133{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+{[}135{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
 framework}. URL \url{https://tools.ietf.org/html/rfc6749\#section-2}. -
 retrieved 2016-11-01
 
 \hypertarget{ref-web_spec_oauth-1a_access-verification}{}
-{[}134{]} \emph{OAuth core 1.0a}. URL
+{[}136{]} \emph{OAuth core 1.0a}. URL
 \url{https://oauth.net/core/1.0a/\#rfc.section.7}. - retrieved
 2016-11-01
 
 \hypertarget{ref-web_spec_oauth-2_access-verification}{}
-{[}135{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+{[}137{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
 framework}. URL \url{https://tools.ietf.org/html/rfc6749\#section-7}. -
 retrieved 2016-11-01
 
 \hypertarget{ref-web_w3c-tr_rdf-schemas}{}
-{[}136{]} \textsc{Brickley, Dan}\,; \textsc{Guha, R.V.}: \emph{RDF
+{[}138{]} \textsc{Brickley, Dan}\,; \textsc{Guha, R.V.}: \emph{RDF
 schema 1.1}. URL \url{https://www.w3.org/TR/rdf-schema/}. - retrieved
 2017-02-12
 
 \hypertarget{ref-web_spec_data-schemas_ehr}{}
-{[}137{]} \textsc{Foundation}: \emph{OpenEHR - EHR information model}.
+{[}139{]} \textsc{Foundation}: \emph{OpenEHR - EHR information model}.
 URL \url{http://www.openehr.org/releases/RM/latest/docs/ehr/ehr.html}. -
 retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_data-schemas_poi}{}
-{[}138{]} \textsc{W3C}: \emph{Points of interest core}. URL
+{[}140{]} \textsc{W3C}: \emph{Points of interest core}. URL
 \url{https://www.w3.org/TR/poi-core/}. - retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_data-schemas_bank-transfer}{}
-{[}139{]} \textsc{Authority, ISO 20022 Registration}: \emph{ISO 20022 -
+{[}141{]} \textsc{Authority, ISO 20022 Registration}: \emph{ISO 20022 -
 universal financial industry message scheme}. URL
 \url{https://www.iso20022.org/}. - retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_xml_types}{}
-{[}140{]} \textsc{W3C}: \emph{XML schema part 2: Datatypes second
+{[}142{]} \textsc{W3C}: \emph{XML schema part 2: Datatypes second
 edition}. URL
 \url{https://www.w3.org/TR/xmlschema-2/\#built-in-primitive-datatypes}.
 - retrieved 2017-01-29
 
 \hypertarget{ref-web_spec_graphql_types}{}
-{[}141{]} \textsc{Facebook, Inc.}: \emph{GraphQL Specification}. URL
+{[}143{]} \textsc{Facebook, Inc.}: \emph{GraphQL Specification}. URL
 \url{https://facebook.github.io/graphql/\#sec-Input-Values}. - retrieved
 2017-01-29
 
 \hypertarget{ref-web_2016_wikipedia_separation-of-concerns}{}
-{[}142{]} \emph{Separation of concerns}. URL
+{[}144{]} \emph{Separation of concerns}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Separation_of_concerns\&oldid=747272729}.
 - retrieved 2017-01-24. ---~Page Version ID: 747272729
 
 \hypertarget{ref-web_spec_acme}{}
-{[}143{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
+{[}145{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
 \textsc{Hoffman-Andrews, Jacob}: \emph{Automatic certificate management
 environment (ACME)}. URL
 \url{https://tools.ietf.org/html/draft-ietf-acme-acme-04}. - retrieved
 2017-01-11
 
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}144{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
+{[}146{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
 success -- by the numbers}. URL
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 - retrieved 2016-12-16
 
 \hypertarget{ref-web_2017_wikipedia_os-market-share}{}
-{[}145{]} \emph{Usage share of operating systems}. URL
+{[}147{]} \emph{Usage share of operating systems}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Usage_share_of_operating_systems\&oldid=764383522\#Public_servers_on_the_Internet}.
 - retrieved 2017-02-12. ---~Page Version ID: 764383522
 
 \hypertarget{ref-web_2016_wikipedia_accordion-gui}{}
-{[}146{]} \emph{Accordion (GUI)}. URL
+{[}148{]} \emph{Accordion (GUI)}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Accordion_(GUI)\&oldid=758084292}.
 - retrieved 2017-02-01. ---~Page Version ID: 758084292
 
 \hypertarget{ref-court-decision_1983_census-act-germany}{}
-{[}147{]} \textsc{self-organizing}\,; \textsc{group)}: Census act,
+{[}149{]} \textsc{self-organizing}\,; \textsc{group)}: Census act,
 BVerfGE 65, 1 --- English translation of essential parts of the german
 ``volkszählungsurteil'' from 15 december 1983, which established in
 germany the basic right on informational self-determination~: German
 Konrad-Adenauer-Stiftung, 2013. ---~1. Headnote
 
 \hypertarget{ref-web_2017_repo_node-simple-schema}{}
-{[}148{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
+{[}150{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
 \url{https://github.com/aldeed/node-simple-schema}. - retrieved
 2017-01-29
 

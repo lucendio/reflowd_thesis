@@ -15,7 +15,7 @@ technology in everyday situation.*
 
 
 
-#### Ordering a product on the web {-}
+#### Ordering a product on the internet {-}
  
 The data subject searches through the web to find a new toaster because her old one recently broke.
 After some clicks and reviews, she finds her soon-to-become latest member of the household's 
