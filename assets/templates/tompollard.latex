@@ -255,8 +255,12 @@ $endif$
 \date{$date$}
 
 \begin{document}
+$if(titlepage)$
+$titlepage$
+$else$
 $if(title)$
 \maketitle
+$endif$
 $endif$
 $if(abstract)$
 \begin{abstract}

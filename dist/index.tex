@@ -292,7 +292,7 @@
 \date{\today}
 
 \begin{document}
-\maketitle
+\input{./assets/pages/titlepage.tex}
 \begin{abstract}
 Often data is referred to as \emph{the oil of the 21st century}. But
 recovering petroleum or coal is governed by certain rules and
@@ -7505,24 +7505,82 @@ personal data
 p. 3{]}.
 \end{quote}
 
-It is demonstrated in \protect\hyperlink{fundamentals}{Chapter 2 -
-Fundamentals}, that these legislation has has not fond much recognition
-nowadays. Secret agencies simply ignore them and private organisation
+It is demonstrated in \emph{\protect\hyperlink{fundamentals}{Chapter 2 -
+Fundamentals}}, that these legislation encounters not much recognition
+nowadays. Secret agencies simply ignore them and private organisations
 are usually out of jurisdiction. But since it still is valid law,
-individuals, as stated above, have the right to protect their personal
-data. A web service, controlled only by themselves, might help with
-that. Representing her digital counterpart, it should encourage the data
-subject to effortlessly maintain all her personal data but also making
-them explicitly and selectively available to third parties, while
-carrying them around, stored in her mobile device. Such tool enables the
-data owner to keep track of her data and where it goes, while at the
-same time trying to be as secure as possible. The specification for such
-a service has been subject of this work.
+individuals have not only a reasonable desire, but as stated above, the
+right to protect their personal data. A web service, controlled only by
+themselves, can facilitate to move into this direction. Representing her
+digital counterpart, it encourages the data subject to effortlessly
+maintain all her personal data. Furthermore, making them explicitly and
+selectively available to third parties, while carrying them around,
+stored in her mobile device. This software enables the data owner to
+keep track of her data flows, while at the same time trying to be as
+secure as possible. The specification for such a service has been
+subject to this work.
 
-\section{\texorpdfstring{Ethical \& Social Impact (TODO: or
-``Relevance'')}{Ethical \& Social Impact (TODO: or Relevance)}}\label{ethical-social-impact-todo-or-relevance}
+\section{Ethical \& Social Relevance}\label{ethical-social-relevance}
+
+In \emph{Chapter 2} - \emph{(Personal Data in the context of the Big
+Data
+Movement){[}\#personal-data-in-the-context-of-the-big-data-movement{]}}
+and \emph{(Personal Data as a
+Product){[}\#personal-data-as-a-product{]}} it is described what impact
+personal data has in today's society and especially the economy. Data as
+a commercial good has lead to humans becoming the product. Those actors,
+who collect, analyze and interpret personal date, using algorithms to
+unwind invisible information that might help to figure out people's
+motives and patterns in order to forecast their behaviour, with the
+purpose of improving their services to ultimately increase revenue. Here
+it is often failed to notice, that correlation is by far no proof of
+causation. Furthermore, those algorithms naturally inherit the bias of
+their creators. This in conjunction leads to privacy violations and
+worse, discrimination.
+
+These `side effects' are not acceptable in a society where tolerance and
+solidarity are desirable values. Hence, we, as individuals, have to move
+away from being the product and start to become self-determined again.
+The answer to what platform do we want for a global community, like the
+one envisioned by Mr.~Zuckerberg
+{[}\protect\hyperlink{ref-web_2017_facebook_building-global-community}{150}{]},
+must not be \emph{facebook}. Instead the answer should be founded on
+openness and neutrality, and is accessible to everyone and owned by
+everyone - like where the internet originates from, \emph{``an Internet
+of People''}
+{[}\protect\hyperlink{ref-web_2017_encouraging-individual-sovereignty}{151},
+Sec. 5{]}.
+
+While trying to prevent our personal data from being read by men in the
+middle during transfer (HTTPS), we have missed to cut out the middle-men
+between our data and those who are utilizing them.
+
+to counter massive and unimpeded data collection to minimize
+discrimination, which is not really effective to address the problem in
+this way. as mentioned before, bias, causing discrimination, is
+naturally inherited and therefore needs to be acknowledged by raising
+awareness and teach everyone involved about these issues and how to
+avoid them, for example by reducing questionable data items, consider
+the consequences of their interpretation, or keep indirect correlations
+in mind
+
+large scale
 
 \begin{itemize}
+\tightlist
+\item
+  give back the data subject to control the level of privacy she is
+  willing to share
+\end{itemize}
+
+\section{Target group perspectives}\label{target-group-perspectives}
+
+\begin{itemize}
+\item
+  User: would I use this stuff? The underpinning technical details and
+  how it works is not my concern and non of my interests. I want this
+  stuff work and being reliable. it its simple to use. and maybe even
+  easy to setup (server n stuff), then the hell, I would!
 \item
   Regarding involving an official party to verify data reliability: The
   actual question would be, is the \emph{data subject} certain, that she
@@ -7535,40 +7593,6 @@ a service has been subject of this work.
   consumers} might have a big impact for the \emph{data subject's} life.
   For example a housing loan won't be granted or a medical treatment has
   been refused.
-\item
-  give back the data subject to control the level of privacy she is
-  willing to share
-\item
-  (formally placed in 230) At the end it all comes down to understanding
-  the human being and why she behaves as she does. The challenge is not
-  only to compute certain motives but rather concluding to the right
-  ones. When analyzing computed results with the corresponding data
-  models and trying to conclude, it is important to keep in mind, that
-  correlation is by far no proof of causation.
-\end{itemize}
-
-\section{Business Models \&
-Monetisation}\label{business-models-monetisation}
-
-\begin{itemize}
-\tightlist
-\item
-  possible resulting direct or indirect business models
-\item
-  data subject might want to sell her data, only under her conditions.
-  therefor some kind of infrastructure and process is required (such as
-  payment transfer, data anonymization, market place to offer data)
-\end{itemize}
-
-\section{Target group perspectives}\label{target-group-perspectives}
-
-\begin{itemize}
-\tightlist
-\item
-  User: would I use this stuff? The underpinning technical details and
-  how it works is not my concern and non of my interests. I want this
-  stuff work and being reliable. it its simple to use. and maybe even
-  easy to setup (server n stuff), then the hell, I would!
 \item
   Dev:
 
@@ -7593,8 +7617,18 @@ Monetisation}\label{business-models-monetisation}
   \end{itemize}
 \end{itemize}
 
-TODO: make a reference or involve the research mentioned at the
-beginning
+\section{Business Models \&
+Monetization}\label{business-models-monetization}
+
+\begin{itemize}
+\tightlist
+\item
+  possible resulting direct or indirect business models
+\item
+  data subject might want to sell her data, only under her conditions.
+  therefor some kind of infrastructure and process is required (such as
+  payment transfer, data anonymization, market place to offer data)
+\end{itemize}
 
 \section{Challenges}\label{challenges}
 
@@ -7650,6 +7684,9 @@ beginning
 \end{itemize}
 
 \section{Future Work}\label{future-work}
+
+TODO: make a reference or involve the research mentioned at the
+beginning
 
 \begin{itemize}
 \item
@@ -7844,7 +7881,7 @@ Result of Code 03 in JSON}:}
 
 \emph{NOTICE: schema notation is based on the rules underpinning the
 schema definition provided by the SimpleSchema project
-{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{150}{]}.}
+{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{152}{]}.}
 
 \textbf{\protect\hypertarget{code-05_struct_profile}{}{Code 05: Struct -
 Profile (example)}}
@@ -8717,8 +8754,20 @@ BVerfGE 65, 1 --- English translation of essential parts of the german
 germany the basic right on informational self-determination~: German
 Konrad-Adenauer-Stiftung, 2013. ---~1. Headnote
 
+\hypertarget{ref-web_2017_facebook_building-global-community}{}
+{[}150{]} \textsc{Zuckerberg, Mark}: \emph{Building global community}.
+URL
+\url{https://www.facebook.com/notes/mark-zuckerberg/building-global-community/10154544292806634}.
+- retrieved 2017-02-27
+
+\hypertarget{ref-web_2017_encouraging-individual-sovereignty}{}
+{[}151{]} \textsc{Balkan, Aral}: \emph{Encouraging individual
+sovereignty and a healthy commons}. URL
+\url{https://ar.al/notes/encouraging-individual-sovereignty-and-a-healthy-commons/}.
+- retrieved 2017-02-27
+
 \hypertarget{ref-web_2017_repo_node-simple-schema}{}
-{[}150{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
+{[}152{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
 \url{https://github.com/aldeed/node-simple-schema}. - retrieved
 2017-01-29
 

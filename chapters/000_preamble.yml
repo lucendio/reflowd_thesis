@@ -1,6 +1,7 @@
 ---
 title:  'Open Specification of a user-controlled Web Service for Personal Data'
 subtitle: 'Master Thesis'
+titlepage: '\input{./assets/pages/titlepage.tex}'
 author:
     -   'G. Jahn'
 #institute: 'HTW, Institute 4 - Computer Science, Communication and Economic'

@@ -12,21 +12,75 @@ constitutions and confirmed by court decisions, saying that
 >   principle the power of individuals to make their own decisions as regards the disclosure and use 
 >   of their personal data [@court-decision_1983_census-act-germany, p. 3].
  
-It is demonstrated in [Chapter 2 - Fundamentals](#fundamentals), that these legislation has has not 
-fond much recognition nowadays. Secret agencies simply ignore them and private organisation are 
+It is demonstrated in *[Chapter 2 - Fundamentals](#fundamentals)*, that these legislation encounters
+not much recognition nowadays. Secret agencies simply ignore them and private organisations are 
 usually out of jurisdiction.
-But since it still is valid law, individuals, as stated above, have the right to protect their 
-personal data. A web service, controlled only by themselves, might help with that. Representing her
-digital counterpart, it should encourage the data subject to effortlessly maintain all her personal 
-data but also making them explicitly and selectively available to third parties, while carrying them 
-around, stored in her mobile device. Such tool enables the data owner to keep track of her data and 
-where it goes, while at the same time trying to be as secure as possible. The specification for such 
-a service has been subject of this work. 
+But since it still is valid law, individuals have not only a reasonable desire, but as stated above, 
+the right to protect their personal data. A web service, controlled only by themselves, can 
+facilitate to move into this direction. Representing her digital counterpart, it encourages the 
+data subject to effortlessly maintain all her personal data. Furthermore, making them explicitly and 
+selectively available to third parties, while carrying them around, stored in her mobile device. 
+This software enables the data owner to keep track of her data flows, while at the same time trying 
+to be as secure as possible. The specification for such a service has been subject to this work. 
 
 
 
-## Ethical & Social Impact (TODO: or "Relevance")
+## Ethical & Social Relevance
 
+In *Chapter 2* - 
+*(Personal Data in the context of the Big Data Movement)[#personal-data-in-the-context-of-the-big-data-movement]*
+and 
+*(Personal Data as a Product)[#personal-data-as-a-product]*
+it is described what impact personal data has in today's society and especially the economy. Data as
+a commercial good has lead to humans becoming the product. Those actors, who collect, analyze and 
+interpret personal date, using algorithms to unwind invisible information that might help to figure
+out people's motives and patterns in order to forecast their behaviour, with the purpose of 
+improving their services to ultimately increase revenue. Here it is often failed to notice, that 
+correlation is by far no proof of causation. Furthermore, those algorithms naturally inherit the 
+bias of their creators. This in conjunction leads to privacy violations and worse, discrimination. 
+
+These 'side effects' are not acceptable in a society where tolerance and solidarity are desirable
+values. Hence, we, as individuals, have to move away from being the product and start to become 
+self-determined again. The answer to what platform do we want for a global community, like the one 
+envisioned by Mr. Zuckerberg [@web_2017_facebook_building-global-community], must not be *facebook*.
+Instead the answer should be founded on openness and neutrality, and is accessible to everyone and 
+owned by everyone - like where the internet originates from, *"an Internet of People"* 
+[@web_2017_encouraging-individual-sovereignty, sec. 5].
+
+While trying to prevent our personal data from being read by men in the middle during transfer 
+(HTTPS), we have missed to cut out the middle-men between our data and those who are utilizing them.
+
+to counter massive and unimpeded data collection
+to minimize discrimination, which is not really effective to address the problem in this way. as
+mentioned before, bias, causing discrimination, is naturally inherited and therefore needs to be
+acknowledged by raising awareness and teach everyone involved about these issues and how to avoid 
+them, for example by reducing questionable data items, consider the consequences of their interpretation,
+or keep indirect correlations in mind
+
+
+
+
+
+
+
+
+
+
+large scale
+ 
+
++   give back the data subject to control the level of privacy she is willing to share
+
+
+
+
+
+## Target group perspectives
+ 
++   User: would I use this stuff? The underpinning technical details and how it works is not my 
+    concern and non of my interests. I want this stuff work and being reliable. it its simple to 
+    use. and maybe even easy to setup (server n stuff), then the hell, I would!
+    
 +   Regarding involving an official party to verify data reliability:
 The actual question would be, is the *data subject* certain, that she really wants to hand over 
 those capabilities to official authorities? Depending on which *data consumers*, what task their
@@ -35,29 +89,9 @@ might become a powerful *'digital reflection'* and starts to get seen as a real 
 representation of herself. Then the decisions made by *data consumers* might have a big impact for
 the *data subject's* life. For example a housing loan won't be granted or a medical treatment has 
 been refused.
-
-+   give back the data subject to control the level of privacy she is willing to share
-
-+   (formally placed in 230) At the end it all comes down to understanding the human being and why she behaves as she does. 
-    The challenge is not only to compute certain motives but rather concluding to the right ones. 
-    When analyzing computed results with the corresponding data models and trying to conclude, 
-    it is important to keep in mind, that correlation is by far no proof of causation.
-
-
-## Business Models & Monetisation
-
-+   possible resulting direct or indirect business models
-+   data subject might want to sell her data, only under her conditions. therefor some kind of 
-    infrastructure and process is required (such as payment transfer, data anonymization, market
-    place to offer data)
     
     
     
-## Target group perspectives
- 
-+   User: would I use this stuff? The underpinning technical details and how it works is not my 
-    concern and non of my interests. I want this stuff work and being reliable. it its simple to 
-    use. and maybe even easy to setup (server n stuff), then the hell, I would!
 +   Dev:    
     -   spec implementer
     -   integrater in consumer:
@@ -68,7 +102,16 @@ been refused.
     
 
 
-TODO: make a reference or involve the research mentioned at the beginning
+
+
+
+
+## Business Models & Monetization
+
++   possible resulting direct or indirect business models
++   data subject might want to sell her data, only under her conditions. therefor some kind of 
+    infrastructure and process is required (such as payment transfer, data anonymization, market
+    place to offer data)
 
 
 
@@ -104,6 +147,7 @@ to the *PDaaS*).
 automated
 
 
+
 ## Solutions
 
 +   even though *OAuth* don't find it's way into this project, working through the standard inspired
@@ -114,8 +158,9 @@ all of them
 
 
 
-
 ## Future Work
+
+TODO: make a reference or involve the research mentioned at the beginning
 
 +   maybe enable the tool to play the role of an own OpenID provider?
 +   going one step further and train machine (predictor) by our self with our own data (https://www.technologyreview.com/s/514356/stephen-wolfram-on-personal-analytics/)

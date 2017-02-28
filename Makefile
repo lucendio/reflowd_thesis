@@ -162,6 +162,7 @@ pdf:
 	"$(CONTENTS_DIR)/"*.md
 
 
+doa:
 	@pandoc \
 		$(CONTENTS_DIR)/declaration-of-authorship.draft \
 		\
