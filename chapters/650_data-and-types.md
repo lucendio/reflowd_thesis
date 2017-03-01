@@ -12,17 +12,17 @@ by the *Personal Data Store*.
 ### Personal Data
 
 The *PDS* is portable and can be placed on any of the platform types supported by the system, 
-whereas data queries typically originate from a server platform. In order to provide such flexibility, 
-and unless editing personal data happens on the same platform instance on which the data is also 
-stored, access to the *PDS* MUST be abstracted. This design approach can be implemented by utilizing
-GraphQL's native architecture, which is - aside from its generic graph-structured query language - 
-primarily characterized by its separation of validation and execution. The execution layer requires
-adapters for every database system the PDS has to support, while the validation is agnostic 
-regarding the query origin. In other words, the underlying database system can be swapped, or various 
-database systems can run side by side. A universal query language also has the advantage of 
-being effortlessly re-applicable to a different storage system and being able to revert every data 
-change. Therefore it is REQUIRED to store every write query chronologically, next to the current 
-state of the personal data.
+whereas data queries typically originate from a server platform. In order to provide such 
+flexibility, and unless editing personal data happens on the same platform instance on which the 
+data is also stored, access to the *PDS* MUST be abstracted. This design approach can be implemented 
+by utilizing GraphQL's native architecture, which is - aside from its generic graph-structured query 
+language - primarily characterized by its separation of validation and execution. The execution 
+layer requires adapters for every database system the PDS has to support, while the validation is 
+agnostic regarding the query origin. In other words, the underlying database system can be swapped, 
+or various database systems can run side by side. A universal query language also has the advantage 
+of being effortlessly re-applicable to a different storage system and being able to revert every 
+data change. Therefore it is REQUIRED to store every write query chronologically, next to the 
+current state of the personal data.
 
 
 *Additional requirement(s) are:*
@@ -52,7 +52,7 @@ b)  store and fetch binary data
 The *PL* consists of multiple storage technologies and MUST be placed on a trusted platform type - 
 a server. At least two technologies MUST be supported: the platform's filesystem, which SHOULD be 
 accessible by other components on the same platform, and a document-oriented storage system that 
-provides high flexibility through a schema-free approach and MUST be also be shared among several 
+provides high flexibility through a schema-free approach and MUST also be shared among several 
 components. It is OPTIONAL, if the *Tracker* uses the same storage system, multiple ones or a 
 completely different storing mechanism. Regardless, they are all unified under the 
 *Persistence Layer* component.
@@ -124,8 +124,8 @@ that unsupported types just need to be imported into the system.
 ### Data Models for System Data
 
 Aside from personal data, whose structure is adjustable by the *data subject* to suit her needs, the 
-system itself REQUIRES some data models too, in order to provide i.a. mechanisms for managing 
-the process of accessing data. Those models are outlined below.
+system itself REQUIRES some data models too, in order to provide i.a. mechanisms for managing the 
+process of accessing data. Those models are outlined below.
 
 The types that MUST be supported by the *PL* are similar to the *primitives* available in the Query 
 Language, but somewhat more rudimentary: `String`, `Boolean`, `Number`, and `null`. Everything 
@@ -133,8 +133,8 @@ beyond this depends on the technologies that are being used.
 
 
 *NOTICE: Required fields are implicit and therefore not marked as such. Any other notation is 
-explicit, though. The minimum viable types are indicated; if supported, a more precise one 
-SHOULD be used.*
+explicit, though. The minimum viable types are indicated; if supported, a more precise one SHOULD 
+be used.*
 
 
 #### Endpoint
@@ -251,6 +251,6 @@ SHOULD be used.*
 | `notifyOnAnomaly`        | Boolean   | `true`           | notify if *Tracker* recognizes anomaly |
 | `notifyOnError`          | Boolean   | `false`          | notify on unexpected errors in system  |
 | `notfyIfNotReliable`     | Boolean   | `false`          | notify on failed reliability check     |
-| `reliabilityCheckMethod` | String    | `null`           | method of checking data reliability    |
+| `reliabilityCheckMethod` | String    | `null`           | method to check data reliability       |
 
 Table: Global System Configurations and their default values {#tbl:spec_system-default-config} 
