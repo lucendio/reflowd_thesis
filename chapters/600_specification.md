@@ -4,22 +4,23 @@ Specification *(Draft)*
 \hfill\                                                                              *Version 0.1.0*
 
 
-This chapter holds the first draft of what might become an open specification. Therefore, it has no claim of completeness, continuity or accuracy at this time. Frequent changes are to be expected.
-The contents is based on, and a result of, all previous discussions and developed solutions. Hence,
-some of the contents can be expected to reoccur.
+This chapter holds the first draft of what might become an open specification. Therefore, it has no 
+claim of completeness, continuity or accuracy at this time. Frequent changes are to be expected. The 
+contents is based on, and a result of, all previous discussions and developed solutions. Hence, some 
+of the contents can be expected to reoccur.
 
 
 
 ### Introduction {-}
 
 This specification describes a system with the purpose of controlling the personal data of a single 
-entity. By 'entity', a person, or an individual, is primarly meant. This individual manages
-all data relating to her in an online platform operated by her, which exposes a service making 
-those data selectively accessible to third parties that might be interested. Meanwhile,
-the system tries to ensure that no personal data ever leaves the system. 
-The overall flexibility and portability of the system enables the individual to store her data on a mobile phone,
-for example, so that she is able to carry all her personal data along while maintaining 
-the accessibility of her data at all times.
+entity. By 'entity', a person, or an individual, is primarily meant. This individual manages all 
+data relating to her in an online platform operated by her, which exposes a service making those 
+data selectively accessible to third parties that might be interested. Meanwhile, the system tries 
+to ensure that no personal data ever leaves the system. 
+The overall flexibility and portability of the system enables the individual to store her data on a 
+mobile phone, for example, so that she is able to carry all her personal data along while providing 
+the access to her data at all times.
 
 
 
@@ -27,16 +28,16 @@ the accessibility of her data at all times.
 
 The requirements notation used in this document originates in the 
 [RFC 2119](https://tools.ietf.org/html/rfc2119) and shall be interpreted as described there. 
-This applies to the following keywords, recognizable by capital letters: MUST, MUST NOT, 
-REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and OPTIONAL.
+This applies to the following keywords, recognizable by capital letters: MUST, MUST NOT, REQUIRED, 
+SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and OPTIONAL.
 
 Values and words presented in a `fixed-width font` need to be understood as names and must therefore
 be used as is. If one of those starts with a `$` (Dollar) character, a variable is indicated, which 
 means implementations must replace this variable with an actual value. 
 
-Lists that are numbered indicate an order which must be followed. Lists that start 
-with a character (upper or lower case) have no claim to its order. Their items are inclusive 
-(logical *and*) whereas bullet list items are exclusive (logical *or*). 
+Lists that are numbered indicate an order which must be followed. Lists that start with a character 
+(upper or lower case) have no claim to its order. Their items are inclusive (logical *and*) whereas 
+bullet list items are exclusive (logical *or*). 
 
 
 
@@ -103,8 +104,8 @@ with a character (upper or lower case) have no claim to its order. Their items a
 
 [Permission Profile]{#spec_term_permission-profile}:
 
-: set of access rules and configurations tied to an *endpoint* that define, for example, how long, how often, and
-  which personal data are accessible by a related *data consumer*
+: set of access rules and configurations tied to an *endpoint* that define, for example, how long, 
+  how often, and which personal data are accessible by a related *data consumer*
 
 
 [Access Type]{#spec_term_access-type}:
