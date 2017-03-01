@@ -49,6 +49,13 @@ owned by everyone - like where the internet originates from, *"an Internet of Pe
 
 While trying to prevent our personal data from being read by men in the middle during transfer 
 (HTTPS), we have missed to cut out the middle-men between our data and those who are utilizing them.
+Thus, in order to re-enable every individual, so that they can fully decide on their own what level 
+of privacy they are willing to share and under what conditions other parties are permitted to 
+access their personal data, 
+
+Thereby this software can contribute in helping to reclaim the internet as the platform for a 
+global community - our society.
+ 
 
 to counter massive and unimpeded data collection
 to minimize discrimination, which is not really effective to address the problem in this way. as
@@ -58,6 +65,12 @@ them, for example by reducing questionable data items, consider the consequences
 or keep indirect correlations in mind
 
 
+Depending on which *data consumers*, what task their
+are entrusted with and what motivation the *data subject* has has in mind to do so, the *PDaaS* 
+might become a powerful *'digital reflection'* and starts to get seen as a real and reliable 
+representation of herself. Then the decisions made by *data consumers* might have a big impact for
+the *data subject's* life. For example a housing loan won't be granted or a medical treatment has 
+been refused.
 
 
 
@@ -65,13 +78,85 @@ or keep indirect correlations in mind
 
 
 
+## Challenges & Solutions
 
-large scale
- 
+As touched on before, the motivation and basic idea for this work was in order to overcome 
+discrimination and privacy violation experienced by data owners and caused through large scale data 
+collection, to prevent data from being collected in the fist place. This turns out to be a major
+challenge, because third parties still required personal data, at least for basic processes such as 
+ordering or payment (e.g address), and therefore raw data needs to be transmitted, which is, by the 
+nature of information technology, a process where data is duplicated. Thus, the definition of 
+ownership, at least on a technical level, cannot be applied anymore 
+(see *[Chapter 2 - Digital Identity, Personal Data and Ownership](#def--ownership)*).
+Where legislation has already failed to address the issues mentioned above, technology as well has
+its limitations. Although, certain scenarios, such as check creditworthiness or calculating 
+recommendation, are able - from a conceptional perspective - to support *Supervised Code Execution*, 
+which allows the data to remain only within the system. However, just being able to control access 
+or at least having an overview who has access to what data, is already an improvement considering 
+the current situation.
 
-+   give back the data subject to control the level of privacy she is willing to share
+The *PDaaS* may be valued as the digital representation of a human being. Hence, third parties, who
+are interacting with the digital self, want to be able to trust and rely, and maybe even verify, 
+that the received or accessed data actually relates to the represented individual.
+Several approaches have been discussed in *[Chapter 5 - Data Reliability](#data-reliability)*. As a
+result, a, however implemented, signing procedure, involving the administration or official 
+documents *(eID-card)*, was stated a feasible solution. Although, both require additional but a 
+diverging level of effort for the data owner, the QES-based eID-card version is not widely used and
+the *Recurring Certification* performed by the administration is just a theoretical concept.
+However, the question, is an individual willing to depend on the government well-disposition, may 
+remain. Since for both solutions a public key infrastructure to verify the signatures is mandatory,
+a more liberal and open approach like the *web-of-trust* could be a valuable alternative solution.
+
+Retaining integrity of the personal data, that's being stored, and also maintaining those, becomes 
+rather complex when introducing flexibility. That is, allowing the owner to change underlying
+data *structs* at any has the consequence of running a data migration in the background after every 
+structure change, regardless of where the *Personal Data Storage* is located at that moment. In
+order to simplify the process, one solution can be to create a new database next to the existing 
+one, execute the write history and adjust the affected data items according to the new type 
+structure on the fly during the mirroring process.
+
+While reviewing the different scenarios described in [Chapter 1](#scenarios) and comparing them with 
+the established capabilities of the *PDaaS*, it can be observed that the developed system is able to 
+provide a reasonable foundation for all of them. Even though it requires the willingness of all 
+sorts of third parties to integrate with the proposed specification and a rethinking and change of 
+perspective of how personal data is obtained and utilized until now. It is questionable, though, how 
+the industry might respond to such fundamental changes, but this is secondary issue, though. First, 
+it must be focused on increasing the adoption rate of data subjects. Problems and benefits, as 
+mentioned in the *[Ethical & Social Relevance](ethical-social-relevance)*, must be outlined. It is
+vital to create a trustworthy and easy-to-use system, which can be archived through public 
+development and an active and healthy community. Ultimately the result has to provide a great user 
+experiences, which primarily refers to installation and setup as well as data management and a 
+seamless mobile integration, which outlines the benefit of *'carry your data with you'*. If the 
+acceptance has reached a critical minimum, *data subject* might be able to demand potential 
+*data consumers* to start adapting the specification, if they want to be able to access their 
+personal data.
 
 
+
+## Business Models & Monetization
+
+An imaginable opportunity for a viable business model can be to provide commercial services around 
+the proposed system. Developing an implementation of the specification may have yield into 
+expertise, that qualifies for example to offer hosting for *PDaaS* instances. And yet another
+business can be focused on a specific market or user group, such as the *health care* sector. Here, 
+domain-specific requirements may need further adjustments and customization, which can easier be 
+addressed, if the authors have control over the entire stack, referring to hardware and 
+host environment. Following the specification ensures interoperability so that the *data subject*
+is still able to use its own *PDaaS* with minor effort, for example, by install a additional set of
+data types relating to that context.
+
+while driving the overall development forward and contributing back to the ecosystem.
+
+Even though source code and development and public 
+
+
+Another way of monetization, that does not relate to
+
+
++   possible resulting direct or indirect business models
++   data subject might want to sell her data, only under her conditions. therefor some kind of 
+    infrastructure and process is required (such as payment transfer, data anonymization, market
+    place to offer data)
 
 
 
@@ -81,17 +166,7 @@ large scale
     concern and non of my interests. I want this stuff work and being reliable. it its simple to 
     use. and maybe even easy to setup (server n stuff), then the hell, I would!
     
-+   Regarding involving an official party to verify data reliability:
-The actual question would be, is the *data subject* certain, that she really wants to hand over 
-those capabilities to official authorities? Depending on which *data consumers*, what task their
-are entrusted with and what motivation the *data subject* has has in mind to do so, the *PDaaS* 
-might become a powerful *'digital reflection'* and starts to get seen as a real and reliable 
-representation of herself. Then the decisions made by *data consumers* might have a big impact for
-the *data subject's* life. For example a housing loan won't be granted or a medical treatment has 
-been refused.
-    
-    
-    
+
 +   Dev:    
     -   spec implementer
     -   integrater in consumer:
@@ -99,62 +174,6 @@ been refused.
     -   what can she do with it:
         adjsut precision of datasets and values to increase privacy
     -   control and get an overview on where her data might flow (and for what purpose)
-    
-
-
-
-
-
-
-## Business Models & Monetization
-
-+   possible resulting direct or indirect business models
-+   data subject might want to sell her data, only under her conditions. therefor some kind of 
-    infrastructure and process is required (such as payment transfer, data anonymization, market
-    place to offer data)
-
-
-
-## Challenges
-
-+   adoption rate of such technology
-
-+   data reliability from the perspective of a *data consumer*
-Since it is almost impossible to ensure complete reliability of all the data a *PDaaS* has stored or
-might me offering, and because it is operated by exactly that individual, and that individual only, 
-all data in question is relates to and is thereby owned by her, it, of cause, makes it not easy for 
-*data consumers* to trust *PDaaS*s as resources for their business processes, but I am certain, that 
-the demand for all different kinds of data exceeds the partial uncertainty of their reliability.
-
-+   personal data leaking
-Preventing personal data from being leaked to the outside, is, especially because of the system's 
-purpose, extremely hard to prevent, if not possible at all. Just by querying data from the storage
-or by physically transferring them from one location to another, it's already copied. It's the
-very nature of digital information technology/systems.
-So this cannot be defeated. It only can be impeded. Interestingly though, is the same approach 
-the media industry for centuries is trying to make copyright infringements more difficult.
-
-+   scenario where the mobile device, or in general the data storage get lost.
-first of all, not much of a problem, because either device backup or since the liberal relation, the 
-system would continue to function, but limited, until a data storage gets part of the system again 
-(TODO: touched on in the data section at the end)
-
-+   during concept development, it appears to become necessary to define another role, for *data 
-contributors* (plugins/clients that are authorized by the *operator* but only allowed to push data 
-to the *PDaaS*).
-
-+   when *structs* currently in use get changes all data have to migrate accordingly and fully 
-automated
-
-
-
-## Solutions
-
-+   even though *OAuth* don't find it's way into this project, working through the standard inspired
-here and there a solution, for example using a URL as a feedback channel or TODO. 
-
-+   refer to the scenarios at the beginning by saying that with the *PDaaS* one is able to implement
-all of them
 
 
 
@@ -162,7 +181,15 @@ all of them
 
 TODO: make a reference or involve the research mentioned at the beginning
 
+
++   during concept development, it appears to become necessary to define another role, for *data 
+contributors* (plugins/clients that are authorized by the *operator* but only allowed to push data 
+to the *PDaaS*).
+
+
 +   maybe enable the tool to play the role of an own OpenID provider?
++   2FA service/provider
+
 +   going one step further and train machine (predictor) by our self with our own data (https://www.technologyreview.com/s/514356/stephen-wolfram-on-personal-analytics/)
 
 +   finalize first draft of the spec with all core aspect included and outlined
@@ -171,15 +198,20 @@ TODO: make a reference or involve the research mentioned at the beginning
 +   touch on parts that were left blank
 +   first supporting platforms
 
+
 +   full encryption of the *data storage*
+
++   In the sole opinion of the author the here proposed concept is fare from being the ultimate 
+solution, but it is in any regards an improvement of the current situation. It definitely has its 
+weaknesses and needs further development, which are worth to invest in order ro reach its goals.
 
 
 
 ## Summary
 
-+   In the sole opinion of the author the here proposed concept is fare from being the ultimate 
-solution, but it is in any regards an improvement of the current situation. is definately has its 
-weaknesses and needs further development, which are worth to invest in order ro reach its goals.
+
+
+Is primarily a transition technology 
 
 
 +   main focus 

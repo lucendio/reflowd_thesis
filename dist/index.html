@@ -136,12 +136,11 @@
                 </ul></li>
                 <li><a href="#conclusion"><span class="toc-section-number">8</span> Conclusion</a><ul>
                 <li><a href="#ethical-social-relevance"><span class="toc-section-number">8.2</span> Ethical &amp; Social Relevance</a></li>
-                <li><a href="#target-group-perspectives"><span class="toc-section-number">8.3</span> Target group perspectives</a></li>
+                <li><a href="#challenges-solutions"><span class="toc-section-number">8.3</span> Challenges &amp; Solutions</a></li>
                 <li><a href="#business-models-monetization"><span class="toc-section-number">8.4</span> Business Models &amp; Monetization</a></li>
-                <li><a href="#challenges"><span class="toc-section-number">8.5</span> Challenges</a></li>
-                <li><a href="#solutions"><span class="toc-section-number">8.6</span> Solutions</a></li>
-                <li><a href="#future-work"><span class="toc-section-number">8.7</span> Future Work</a></li>
-                <li><a href="#summary"><span class="toc-section-number">8.8</span> Summary</a></li>
+                <li><a href="#target-group-perspectives"><span class="toc-section-number">8.5</span> Target group perspectives</a></li>
+                <li><a href="#future-work"><span class="toc-section-number">8.6</span> Future Work</a></li>
+                <li><a href="#summary"><span class="toc-section-number">8.7</span> Summary</a></li>
                 </ul></li>
                 <li><a href="#source-code">Source Code</a></li>
                 <li><a href="#references">References</a></li>
@@ -2659,18 +2658,33 @@ server {
 <h2><span class="header-section-number">8.2</span> Ethical &amp; Social Relevance</h2>
 <p>In <em>Chapter 2</em> - <em>(Personal Data in the context of the Big Data Movement)[#personal-data-in-the-context-of-the-big-data-movement]</em> and <em>(Personal Data as a Product)[#personal-data-as-a-product]</em> it is described what impact personal data has in today’s society and especially the economy. Data as a commercial good has lead to humans becoming the product. Those actors, who collect, analyze and interpret personal date, using algorithms to unwind invisible information that might help to figure out people’s motives and patterns in order to forecast their behaviour, with the purpose of improving their services to ultimately increase revenue. Here it is often failed to notice, that correlation is by far no proof of causation. Furthermore, those algorithms naturally inherit the bias of their creators. This in conjunction leads to privacy violations and worse, discrimination.</p>
 <p>These ‘side effects’ are not acceptable in a society where tolerance and solidarity are desirable values. Hence, we, as individuals, have to move away from being the product and start to become self-determined again. The answer to what platform do we want for a global community, like the one envisioned by Mr. Zuckerberg <span class="citation" data-cites="web_2017_facebook_building-global-community">[<a href="#ref-web_2017_facebook_building-global-community">150</a>]</span>, must not be <em>facebook</em>. Instead the answer should be founded on openness and neutrality, and is accessible to everyone and owned by everyone - like where the internet originates from, <em>“an Internet of People”</em> <span class="citation" data-cites="web_2017_encouraging-individual-sovereignty">[<a href="#ref-web_2017_encouraging-individual-sovereignty">151</a>, Sec. 5]</span>.</p>
-<p>While trying to prevent our personal data from being read by men in the middle during transfer (HTTPS), we have missed to cut out the middle-men between our data and those who are utilizing them.</p>
+<p>While trying to prevent our personal data from being read by men in the middle during transfer (HTTPS), we have missed to cut out the middle-men between our data and those who are utilizing them. Thus, in order to re-enable every individual, so that they can fully decide on their own what level of privacy they are willing to share and under what conditions other parties are permitted to access their personal data,</p>
+<p>Thereby this software can contribute in helping to reclaim the internet as the platform for a global community - our society.</p>
 <p>to counter massive and unimpeded data collection to minimize discrimination, which is not really effective to address the problem in this way. as mentioned before, bias, causing discrimination, is naturally inherited and therefore needs to be acknowledged by raising awareness and teach everyone involved about these issues and how to avoid them, for example by reducing questionable data items, consider the consequences of their interpretation, or keep indirect correlations in mind</p>
-<p>large scale</p>
+<p>Depending on which <em>data consumers</em>, what task their are entrusted with and what motivation the <em>data subject</em> has has in mind to do so, the <em>PDaaS</em> might become a powerful <em>‘digital reflection’</em> and starts to get seen as a real and reliable representation of herself. Then the decisions made by <em>data consumers</em> might have a big impact for the <em>data subject’s</em> life. For example a housing loan won’t be granted or a medical treatment has been refused.</p>
+</section>
+<section id="challenges-solutions" class="level2">
+<h2><span class="header-section-number">8.3</span> Challenges &amp; Solutions</h2>
+<p>As touched on before, the motivation and basic idea for this work was in order to overcome discrimination and privacy violation experienced by data owners and caused through large scale data collection, to prevent data from being collected in the fist place. This turns out to be a major challenge, because third parties still required personal data, at least for basic processes such as ordering or payment (e.g address), and therefore raw data needs to be transmitted, which is, by the nature of information technology, a process where data is duplicated. Thus, the definition of ownership, at least on a technical level, cannot be applied anymore (see <em><a href="#def--ownership">Chapter 2 - Digital Identity, Personal Data and Ownership</a></em>). Where legislation has already failed to address the issues mentioned above, technology as well has its limitations. Although, certain scenarios, such as check creditworthiness or calculating recommendation, are able - from a conceptional perspective - to support <em>Supervised Code Execution</em>, which allows the data to remain only within the system. However, just being able to control access or at least having an overview who has access to what data, is already an improvement considering the current situation.</p>
+<p>The <em>PDaaS</em> may be valued as the digital representation of a human being. Hence, third parties, who are interacting with the digital self, want to be able to trust and rely, and maybe even verify, that the received or accessed data actually relates to the represented individual. Several approaches have been discussed in <em><a href="#data-reliability">Chapter 5 - Data Reliability</a></em>. As a result, a, however implemented, signing procedure, involving the administration or official documents <em>(eID-card)</em>, was stated a feasible solution. Although, both require additional but a diverging level of effort for the data owner, the QES-based eID-card version is not widely used and the <em>Recurring Certification</em> performed by the administration is just a theoretical concept. However, the question, is an individual willing to depend on the government well-disposition, may remain. Since for both solutions a public key infrastructure to verify the signatures is mandatory, a more liberal and open approach like the <em>web-of-trust</em> could be a valuable alternative solution.</p>
+<p>Retaining integrity of the personal data, that’s being stored, and also maintaining those, becomes rather complex when introducing flexibility. That is, allowing the owner to change underlying data <em>structs</em> at any has the consequence of running a data migration in the background after every structure change, regardless of where the <em>Personal Data Storage</em> is located at that moment. In order to simplify the process, one solution can be to create a new database next to the existing one, execute the write history and adjust the affected data items according to the new type structure on the fly during the mirroring process.</p>
+<p>While reviewing the different scenarios described in <a href="#scenarios">Chapter 1</a> and comparing them with the established capabilities of the <em>PDaaS</em>, it can be observed that the developed system is able to provide a reasonable foundation for all of them. Even though it requires the willingness of all sorts of third parties to integrate with the proposed specification and a rethinking and change of perspective of how personal data is obtained and utilized until now. It is questionable, though, how the industry might respond to such fundamental changes, but this is secondary issue, though. First, it must be focused on increasing the adoption rate of data subjects. Problems and benefits, as mentioned in the <em><a href="ethical-social-relevance">Ethical &amp; Social Relevance</a></em>, must be outlined. It is vital to create a trustworthy and easy-to-use system, which can be archived through public development and an active and healthy community. Ultimately the result has to provide a great user experiences, which primarily refers to installation and setup as well as data management and a seamless mobile integration, which outlines the benefit of <em>‘carry your data with you’</em>. If the acceptance has reached a critical minimum, <em>data subject</em> might be able to demand potential <em>data consumers</em> to start adapting the specification, if they want to be able to access their personal data.</p>
+</section>
+<section id="business-models-monetization" class="level2">
+<h2><span class="header-section-number">8.4</span> Business Models &amp; Monetization</h2>
+<p>An imaginable opportunity for a viable business model can be to provide commercial services around the proposed system. Developing an implementation of the specification may have yield into expertise, that qualifies for example to offer hosting for <em>PDaaS</em> instances. And yet another business can be focused on a specific market or user group, such as the <em>health care</em> sector. Here, domain-specific requirements may need further adjustments and customization, which can easier be addressed, if the authors have control over the entire stack, referring to hardware and host environment. Following the specification ensures interoperability so that the <em>data subject</em> is still able to use its own <em>PDaaS</em> with minor effort, for example, by install a additional set of data types relating to that context.</p>
+<p>while driving the overall development forward and contributing back to the ecosystem.</p>
+<p>Even though source code and development and public</p>
+<p>Another way of monetization, that does not relate to</p>
 <ul>
-<li>give back the data subject to control the level of privacy she is willing to share</li>
+<li>possible resulting direct or indirect business models</li>
+<li>data subject might want to sell her data, only under her conditions. therefor some kind of infrastructure and process is required (such as payment transfer, data anonymization, market place to offer data)</li>
 </ul>
 </section>
 <section id="target-group-perspectives" class="level2">
-<h2><span class="header-section-number">8.3</span> Target group perspectives</h2>
+<h2><span class="header-section-number">8.5</span> Target group perspectives</h2>
 <ul>
 <li><p>User: would I use this stuff? The underpinning technical details and how it works is not my concern and non of my interests. I want this stuff work and being reliable. it its simple to use. and maybe even easy to setup (server n stuff), then the hell, I would!</p></li>
-<li><p>Regarding involving an official party to verify data reliability: The actual question would be, is the <em>data subject</em> certain, that she really wants to hand over those capabilities to official authorities? Depending on which <em>data consumers</em>, what task their are entrusted with and what motivation the <em>data subject</em> has has in mind to do so, the <em>PDaaS</em> might become a powerful <em>‘digital reflection’</em> and starts to get seen as a real and reliable representation of herself. Then the decisions made by <em>data consumers</em> might have a big impact for the <em>data subject’s</em> life. For example a housing loan won’t be granted or a medical treatment has been refused.</p></li>
 <li>Dev:
 <ul>
 <li>spec implementer</li>
@@ -2683,36 +2697,13 @@ server {
 </ul></li>
 </ul>
 </section>
-<section id="business-models-monetization" class="level2">
-<h2><span class="header-section-number">8.4</span> Business Models &amp; Monetization</h2>
-<ul>
-<li>possible resulting direct or indirect business models</li>
-<li>data subject might want to sell her data, only under her conditions. therefor some kind of infrastructure and process is required (such as payment transfer, data anonymization, market place to offer data)</li>
-</ul>
-</section>
-<section id="challenges" class="level2">
-<h2><span class="header-section-number">8.5</span> Challenges</h2>
-<ul>
-<li><p>adoption rate of such technology</p></li>
-<li><p>data reliability from the perspective of a <em>data consumer</em> Since it is almost impossible to ensure complete reliability of all the data a <em>PDaaS</em> has stored or might me offering, and because it is operated by exactly that individual, and that individual only, all data in question is relates to and is thereby owned by her, it, of cause, makes it not easy for <em>data consumers</em> to trust <em>PDaaS</em>s as resources for their business processes, but I am certain, that the demand for all different kinds of data exceeds the partial uncertainty of their reliability.</p></li>
-<li><p>personal data leaking Preventing personal data from being leaked to the outside, is, especially because of the system’s purpose, extremely hard to prevent, if not possible at all. Just by querying data from the storage or by physically transferring them from one location to another, it’s already copied. It’s the very nature of digital information technology/systems. So this cannot be defeated. It only can be impeded. Interestingly though, is the same approach the media industry for centuries is trying to make copyright infringements more difficult.</p></li>
-<li><p>scenario where the mobile device, or in general the data storage get lost. first of all, not much of a problem, because either device backup or since the liberal relation, the system would continue to function, but limited, until a data storage gets part of the system again (TODO: touched on in the data section at the end)</p></li>
-<li><p>during concept development, it appears to become necessary to define another role, for <em>data contributors</em> (plugins/clients that are authorized by the <em>operator</em> but only allowed to push data to the <em>PDaaS</em>).</p></li>
-<li><p>when <em>structs</em> currently in use get changes all data have to migrate accordingly and fully automated</p></li>
-</ul>
-</section>
-<section id="solutions" class="level2">
-<h2><span class="header-section-number">8.6</span> Solutions</h2>
-<ul>
-<li><p>even though <em>OAuth</em> don’t find it’s way into this project, working through the standard inspired here and there a solution, for example using a URL as a feedback channel or TODO.</p></li>
-<li><p>refer to the scenarios at the beginning by saying that with the <em>PDaaS</em> one is able to implement all of them</p></li>
-</ul>
-</section>
 <section id="future-work" class="level2">
-<h2><span class="header-section-number">8.7</span> Future Work</h2>
+<h2><span class="header-section-number">8.6</span> Future Work</h2>
 <p>TODO: make a reference or involve the research mentioned at the beginning</p>
 <ul>
+<li><p>during concept development, it appears to become necessary to define another role, for <em>data contributors</em> (plugins/clients that are authorized by the <em>operator</em> but only allowed to push data to the <em>PDaaS</em>).</p></li>
 <li>maybe enable the tool to play the role of an own OpenID provider?</li>
+<li><p>2FA service/provider</p></li>
 <li><p>going one step further and train machine (predictor) by our self with our own data (https://www.technologyreview.com/s/514356/stephen-wolfram-on-personal-analytics/)</p></li>
 <li>finalize first draft of the spec with all core aspect included and outlined</li>
 <li>developing based on that a first prototype to find flaws in the spec. iterate/repeat</li>
@@ -2720,17 +2711,18 @@ server {
 <li>touch on parts that were left blank</li>
 <li><p>first supporting platforms</p></li>
 <li><p>full encryption of the <em>data storage</em></p></li>
+<li><p>In the sole opinion of the author the here proposed concept is fare from being the ultimate solution, but it is in any regards an improvement of the current situation. It definitely has its weaknesses and needs further development, which are worth to invest in order ro reach its goals.</p></li>
 </ul>
 </section>
 <section id="summary" class="level2">
-<h2><span class="header-section-number">8.8</span> Summary</h2>
+<h2><span class="header-section-number">8.7</span> Summary</h2>
+<p>Is primarily a transition technology</p>
 <ul>
-<li><p>In the sole opinion of the author the here proposed concept is fare from being the ultimate solution, but it is in any regards an improvement of the current situation. is definately has its weaknesses and needs further development, which are worth to invest in order ro reach its goals.</p></li>
 <li>main focus</li>
 <li>unique features</li>
 <li>technology stack &amp; standards</li>
 <li>resources</li>
-<li><p>the tool might be not a bulletproof vest, but</p></li>
+<li>the tool might be not a bulletproof vest, but</li>
 </ul>
 <p>The work will be continued.</p>
 </section>
@@ -3011,18 +3003,6 @@ query <span class="op">{</span>
 </section>
 <section id="references" class="level1 unnumbered">
 <h1>References</h1>
-<ul>
-<li>briefly mentioned in previous sections:
-<ul>
-<li>HTTPS for man-in-the-middle: confidentiality, integrity</li>
-<li>certified HTTPS: authenticity</li>
-<li>operator’s auth token theft</li>
-</ul></li>
-</ul>
-<p>but ,</p>
-<p>technically possible, but debatable. I am able to add more text to a figure name with different level of emphasising, e.g.</p>
-<pre><code>![__PDaaS Architecture, centralized composition__ some more text](./assets/figures/pdaas_component-composition_centralized.png){#fig:composition-centralized}</code></pre>
-<p>but then the whole description is in the ToF as well, which is not desired. so either I leave the description as minimalistic as is (with minor changes) and as close to then mentioning in the text or I remove the ToF. I rather prefer the first approach.</p>
 <div id="refs" class="references">
 <div id="ref-web_2016_privacy-international-about-big-data">
 <p>[1] <em>Big data privacy international</em>. URL <a href="https://www.privacyinternational.org/node/8" class="uri">https://www.privacyinternational.org/node/8</a>. - retrieved 2016-11-15</p>
