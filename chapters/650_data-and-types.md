@@ -2,9 +2,9 @@
 
 
 
-The system is aware of two different classes of data - personal data and system data. The latter is
-stored within the *Persistence Layer* and represents the current state of the system, whereas all the 
-personal data, that reflects the Digital Identity of the operator, is maintained and also provided 
+The system is aware of two different classes of data - personal data and system data. The latter are
+stored within the *Persistence Layer* and represent the current state of the system, whereas all the 
+personal data, which reflects the Digital Identity of the operator, is maintained and also provided 
 by the *Personal Data Store*.
 
 
@@ -12,22 +12,22 @@ by the *Personal Data Store*.
 ### Personal Data
 
 The *PDS* is portable and can be placed on any of the platform types supported by the system, 
-whereas data queries typically originate in a server platform. In order to provide such flexibility, 
-and unless editing personal data happens on the same platform instance on which the data is also 
-stored, access to the *PDS* MUST be abstracted. This design approach can be implemented by utilizing
-GraphQL's native architecture, which is - aside from its generic graph-structured query language - 
-primarily characterized by its separation of validation and execution. The execution layer requires
-adapters for every database system the PDS has to support, while the validation is agnostic 
-regarding the query origin. That is, the underlying database system can be swapped, or various 
-database systems can run side by side. A universal query languages has also the advantages of 
-being effortless re-applicable to a different storage system and being able to revert every data 
-change. Therefore it is REQUIRED to store every writing query chronologically, next to the current 
-state of the personal data.
+whereas data queries typically originate from a server platform. In order to provide such 
+flexibility, and unless editing personal data happens on the same platform instance on which the 
+data is also stored, access to the *PDS* MUST be abstracted. This design approach can be implemented 
+by utilizing GraphQL's native architecture, which is - aside from its generic graph-structured query 
+language - primarily characterized by its separation of validation and execution. The execution 
+layer requires adapters for every database system the PDS has to support, while the validation is 
+agnostic regarding the query origin. In other words, the underlying database system can be swapped, 
+or various database systems can run side by side. A universal query language also has the advantage 
+of being effortlessly re-applicable to a different storage system and being able to revert every 
+data change. Therefore it is REQUIRED to store every write query chronologically, next to the 
+current state of the personal data.
 
 
 *Additional requirement(s) are:*
 
-a)  precision of data, accessed by consumers must be adjustable (e.g. cut fractional digits, 
+a)  precision of data accessed by consumers must be adjustable (e.g. cut fractional digits, 
     decrease sampling rate of time series datasets)    
 b)  store and fetch binary data
     
@@ -50,9 +50,9 @@ b)  store and fetch binary data
 ### System Data
 
 The *PL* consists of multiple storage technologies and MUST be placed on a trusted platform type - 
-a server. At least two technologies MUST be supported; the platform's filesystem, which SHOULD be 
+a server. At least two technologies MUST be supported: the platform's filesystem, which SHOULD be 
 accessible by other components on the same platform, and a document-oriented storage system that 
-provides high flexibility through a schema-free approach and MUST be shared as well among several 
+provides high flexibility through a schema-free approach and MUST also be shared among several 
 components. It is OPTIONAL, if the *Tracker* uses the same storage system, multiple ones or a 
 completely different storing mechanism. Regardless, they are all unified under the 
 *Persistence Layer* component.
@@ -66,8 +66,8 @@ a)  configurations and application data (e.g. permission profile) MUST be revers
 
 ### Structure & Types of Personal Data
 
-The type system, on which all personal data is based on, MUST be compatible with the type system
-provided by GraphQL. The subsequent definitions represent the least set of features that a type 
+The type system, on which all personal data is based, MUST be compatible with the type system
+provided by GraphQL. The subsequent definitions represent the minimum feature set that a type 
 system for personal data MUST acknowledge in any implementation.
 
 
@@ -115,8 +115,8 @@ initially REQUIRED:
 +   `Transaction`
 
 
-Other *structs*, that might become needful over time, can either be created and modeled by the 
-operator herself or are developed and provided by community members and other third parties, so 
+Other *structs* that might be needed in the future, can either be created and modeled by the 
+operator herself, or are developed and provided by community members and other third parties, so 
 that unsupported types just need to be imported into the system.
 
 
@@ -124,8 +124,8 @@ that unsupported types just need to be imported into the system.
 ### Data Models for System Data
 
 Aside from personal data, whose structure is adjustable by the *data subject* to suit her needs, the 
-system itself REQUIRES some data models as well in order to provide i.a. mechanisms for managing 
-the process of accessing data. Those models are outlined below.
+system itself REQUIRES some data models too, in order to provide i.a. mechanisms for managing the 
+process of accessing data. Those models are outlined below.
 
 The types that MUST be supported by the *PL* are similar to the *primitives* available in the Query 
 Language, but somewhat more rudimentary: `String`, `Boolean`, `Number`, and `null`. Everything 
@@ -133,8 +133,8 @@ beyond this depends on the technologies that are being used.
 
 
 *NOTICE: Required fields are implicit and therefore not marked as such. Any other notation is 
-explicit, though. The indicated value types are minimum viable; if supported, a more precise one 
-SHOULD be used.*
+explicit, though. The minimum viable types are indicated; if supported, a more precise one SHOULD 
+be used.*
 
 
 #### Endpoint
@@ -251,6 +251,6 @@ SHOULD be used.*
 | `notifyOnAnomaly`        | Boolean   | `true`           | notify if *Tracker* recognizes anomaly |
 | `notifyOnError`          | Boolean   | `false`          | notify on unexpected errors in system  |
 | `notfyIfNotReliable`     | Boolean   | `false`          | notify on failed reliability check     |
-| `reliabilityCheckMethod` | String    | `null`           | method of checking data reliability    |
+| `reliabilityCheckMethod` | String    | `null`           | method to check data reliability       |
 
 Table: Global System Configurations and their default values {#tbl:spec_system-default-config} 
