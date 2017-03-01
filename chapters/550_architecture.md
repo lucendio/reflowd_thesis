@@ -17,6 +17,9 @@ these *platforms*, characteristics such as architectural layer and access possib
 internals are taken into account. The resulting three *platform* types are shown in Table
 @tbl:platforms-characteristics.
 
+Here, *trusted* means that the host environment can be fully accessed and controlled, whereas 
+*private* refers to restricted access to non-shared resources from a component's perspective. 
+
 
 | Type    | trusted | private | controlled by | Layer   | Purpose                               |
 |:--------|:-------:|:-------:|:--------------|:--------|:--------------------------------------|

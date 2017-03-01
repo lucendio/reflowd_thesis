@@ -64,25 +64,31 @@ might depend on preceding requests and their incoming order. Furthermore those s
 be in a consistent state in order to be safely stored from time to time. Otherwise, if the server 
 fails to run at some point, data only existing in the memory would be gone with no chance to be 
 recovered. With stateless authentication, none of those aspects applies. Certificates and keys as 
-well as web tokens are both carrying all necessary information with them. Thus, considering those
-disadvantages, *public key cryptography* and web tokens are the preferred technologies for all
-authentication processes.
+well as web tokens are both carrying all necessary information with them.
+Computations based on asymmetric cryptography are usually slower than the ones based on symmetric
+cryptography [@book_2014_chapter-10-5-asym-random-number-gen], but since there are no timing 
+constraints when interacting with the *PDaaS*, regardless of whether it's external communication 
+with *data consumers* or internal between components, parameters for cryptographic procedures can be 
+as costly as the system resources allow them to be, thus the level of security can be increased.
+So, when considering the disadvantages of stateless authentication, *public key cryptography* and 
+web tokens are the preferred technologies for all authentication processes.
 
 Except for *two-way authentication*, all authentication technologies mentioned above require an 
 initial step from the client to obtain some sort of token that is used to authenticate all 
-subsequent requests. This step is commonly known as *login* or *sign in* and requires the 
-authorizing entity to provide some credentials consisting of at least two parts. One part, that 
+subsequent requests. This step is commonly known as *sign in* and requires the 
+entity to be authenticated to provide some credentials consisting of at least two parts. One part, that 
 uniquely relates to the entity but doesn't have to be private, and another part that only the entity 
 knows or has. Typically that's a username or email address and a password or some other secret bit 
 sequence (e.g. stored on and provided by a USB stick).
 An *[eID card](#def--eid-card)* could possibly be used as secret (or unique object) as well. 
 Suitable use cases are (A) to let the *operator* login to the *PDaaS* management tool or (B) to 
 approve or authorize *access requests*. How the actual login process (A) would look like partially 
-depends on the *eID card*'s implementation, but in general this use case would make sense. When 
-considering the german implementation *(nPA)* for example, accessing the management tool via desktop 
-requires a card reader, preferably with an integrated hardware keypad. Whereas authenticating to the 
-tool with a mobile device could be achieved with the card's RFID-capabilities, as long as the device 
-used is able to communicate with the RFID-chip. 
+depends on the *eID card*'s implementation, but in general both are reasonable scenarios to utilize
+an *eID card*. When considering, for example, the german implementation *(nPA)* for example, 
+accessing the management tool via desktop requires a card reader, preferably with an integrated 
+hardware keypad. Whereas authenticating to the tool with a mobile device could be achieved with the 
+card's RFID-capabilities, as long as the device used is able to communicate with the RFID-chip. This 
+would reduce the interaction duration to a minimum. 
 Both scenarios (A+B) require the *nPA* to have the *eID* feature enabled. If a service wants to 
 provide *nPA*-based online authentication *(eID-Service)*, which is defined as a non-sovereign 
 *("nicht hoheitlich")* feature, it has to comply with several requirements [@web_bsi-spec_eid] 
@@ -148,18 +154,6 @@ and therefore restricted to that. Trying to adopt the standard might result in v
 to this project leading to an implementation that shares not much compliance, which is not the 
 intention of a standard.
 
-The technology *[De-Mail](#def--de-mail)* tries to ensure authenticity of an author's identity by 
-embedding a legal foundation into email-based communication. But instead of providing technically 
-valid authenticity through end-to-end encryption so that a recipient can truly rely on that 
-information, it only goes as far as legal definition and legislation reaches. Thus it has no 
-relevance to this work other than the concept of letting a server sign outgoing data, which might 
-be the only solution to avoid an overhead in user interaction caused by recurring events.
-
-Computations based on asymmetric cryptography are usually slower than the ones based on symmetric
-cryptography [@book_2014_chapter-10-5-asym-random-number-gen], but since there are no timing 
-constraints when interacting with the *PDaaS*, regardless of whether it's external communication 
-with *data consumers* or internal between components, parameters for cryptographic procedures can be 
-as costly as the system resources allow them to be, thus the level of security can be increased.
 
 
 *__Conclusions:__*
@@ -173,9 +167,11 @@ of it. Though, it is worth mentioning, that a JSON Web Token implementation is f
 fully replace the approach of *two-way authentication* and private *PKI*. The disadvantage here 
 would be, whether *data consumers* are able to authenticate themselves or not, a HTTPS connection 
 will establish in any case. At the same time, authenticating the *operator* is also doable on the 
-TLS layer; but this approach is restricted only to trusted environments like native mobile 
-applications, because browser-based applications are not considered trusted and they missing 
-of certain capabilities. Addressing the requirement of *consumers* to verify whether the 
+TLS layer; but this approach is restricted only to environments considered at least *private* like 
+native mobile applications, because browser-based applications are neither *trusted* nor *private* 
+and thus missing certain capabilities in terms of accessing the host environment (see 
+*Chapter 5 - Architecture*).
+Addressing the requirement of *consumers* to verify whether the 
 certificate, presented by the *PDaaS*, can be trusted or not, both solutions, providing a 
 self-signed certificate on a secure channel upfront, or using certificates certified by publicly 
 trusted entities, are legitimate. However, the latter requires a service or an automation that 

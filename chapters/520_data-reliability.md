@@ -2,16 +2,36 @@
 
 
 
-The section [about authentication](#authentication) contained a discussion about how to preserve 
-data integrity - referring to possible man-in-the-middle attacks and alike. Furthermore, it 
-contained a description of how to authenticate the different user roles so that their identities are 
-ensured, although authenticity of the actual data a *PDaaS* provides has yet to be provided. Data 
+Using TLS-based authentication, as discussed in the previous section  
+[about authentication](#authentication) brings also the implicitly advantages of confidentiality and 
+integrity for transferred data. The described techniques are assigned to the different types of 
+motivations to interact with the system and therefore to the roles and their various identities,
+although authenticity of the actual data a *PDaaS* provides has yet to be provided. Data 
 authenticity here refers to authentic and reliable ([S.A.04](#sa04)) data, which means (A) the data 
 really represent the entity that is associated to the originating *PDaaS* and is thus owned by that 
 entity, and (B) the data are true at that moment when the data being accessed are queried from 
 within the system.
 
-Since the *operator* can change the data at any point in time, this property requires a process 
+The verification process of authorship and content integrity in the context of the DE-Mail 
+technology as described in 
+*[Chapter 2 - Standards, Specifications and related Technologies](#standards-specifications-and-related-technologies)*
+can be valued as an negative example. Instead of making *end-to-end encryption* and  
+*Qualified Electronic Signatures (QES)* mandatory, the creators of the corresponding law decided 
+that it's sufficient to prove the author's identity based on its credentials when handing over the 
+DE-Mail to the server, and that it's reasonable to let the provider sign the document on the DE-Mail 
+server, and finally that this described implementation results in a legally binding document by 
+definition of that law. The different levels of mistakes made in conception and legislation are 
+outlined in a statement from the CCC [^abbr_ccc] [@statement_2013_de-mail], who has been consulted 
+during the development of that law.
+As a consequence, DE-Mail as a technology has no relevance to this project. But one aspect that can 
+be noted though, is the concept of letting a server sign outgoing data. While in the case of DE-Mail
+the server is controlled by a potentially not trusted party and is typically multi-tenancy capable,
+the *PDaaS*, including its back end, relates to one individual, who is also in control of the 
+system. Thus, in order to provide a method to consumers, which enables them to verify if the received 
+data is authentic while keeping the overhead for the operator to a minimum, a solution involving a  
+automated signing procedure on the server can be reasonable.
+
+Since the *operator* can change personal data at any point in time, this ability results in mandatory process 
 where a trustworthy third party has to be able somehow to verify the reliability of the data in 
 question. That process, on the other hand, is in direct contrast to the discussion about the 
 [authentication system](#authentication) and why it should be designed to be self-contained. But if

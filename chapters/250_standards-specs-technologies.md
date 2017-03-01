@@ -96,19 +96,19 @@ means, by creating this document and handing it over to the related citizen, the
 (or *'authority'*) - in this case the government - has verified the authenticity of that individual.
 
 Another technology emerging as part of the *e-government* development, is the german 
-__[De-Mail]{#def--de-mail}__ [@web_2017_about-de-mail]. It's an email service that is meant 
-to provide infrastructure and mechanisms to exchange legally binding electronic documents. One would 
-expect a *public key cryptography*-based implementation from sender all the way over to the 
-recipient that would provide end-to-end encrypted communication [@statement_2013_de-mail]; maybe 
-even with taking advantage of the *nPA's* capability to create 
-*Qualified Electronic Signatures (QES)* [@paper_2013-keymanangement-fuer-qes-mit-npa], which refers 
-to the ability of using the *nPA* to sign arbitrary data. Instead, the creators of the corresponding 
-law decided that it's sufficient to prove the author's identity based on its credentials when 
-handing over the email to the server, and that it's reasonable to let the provider sign the document 
-on the email server, and finally that this described implementation results in a legally binding
-document by definition of that law. The different levels of mistakes made in conception and 
-legislation are outlined in a statement from the CCC [^abbr_ccc] [@statement_2013_de-mail], who 
-has been consulted during the development of that law.
+__[De-Mail]{#def--de-mail}__ [@web_2017_about-de-mail]. It's an email service that is meant to 
+provide digital infrastructure and mechanisms to exchange legally binding electronic documents. 
+When registering for an De-Mail account the provider is compelled to verify the identity of the 
+applicant (e.g. government-issued identification document) in order to ensure sender and receiver's 
+authenticity, whereas for sending a De-Mail only the account credentials (identifier, password) are 
+required. A successful authentication is considered sufficient to proof the user's identity. The 
+De-Mail itself is not encrypted at any time, only the transport layer, on top of which the document 
+is transferred, is based on TLS and thereby encrypted. Arrived on the providers De-Mail Server, the 
+only provider signs the De-Mail and then sends it to the server of receiver's provider. That is, 
+only De-Mail providers are able to sign their users De-Mails. It is optional and up to every user to 
+utilize *end-to-end* for complete confidentiality, or *Qualified Electronic Signatures (QES)*
+[@web_2017_wikipedia_qes], which is a capability of the *nPA* and can be used to verify the author's
+identity.
 
 __JSON__ [^abbr_json] is an alternative to the data serialization format XML, whose syntax is 
 inspired by the JavaScript object-literal notation. It's heavily used in web contexts to transfer 
@@ -126,9 +126,11 @@ The token itself contains the state. Here is where the use of *HTTP* comes in ha
 token can be stored within the HTTP header and therefore can be passed through all communication 
 points, where the data can then be extracted and verified. Such a token typically consists of three 
 parts: (A) information about itself, (B) a payload, which can be arbitrary data such as user or 
-state information, and (C) a signature; all separated with a period. Additional standards define 
-encryption *(JWE [^abbr_jwe])* to ensure confidentiality, and signatures *(JWS [^abbr_jws])* to 
-preserve integrity of it's contents.
+state information, and (C) a signature, which effectively is a *hash-based message authentication 
+code (HMAC)* [@web_spec_hmac] preserving the integrity od header and payload. All thrie parts are 
+separated with a period. Additional standards define encryption *(JWE [^abbr_jwe])* to ensure 
+confidentiality, and digital signatures *(JWS [^abbr_jws])* to prevent others then the signer from 
+validating the signature.
 Using a *JWT* for authentication purposes is described as *stateless authentication*, because the 
 verifying entity doesn't need to be aware of session IDs nor any other information about a session. 
 So, instead of the backend interface being burdened to check a state on every incoming request in 
