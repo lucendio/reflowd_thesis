@@ -138,7 +138,7 @@
                 <li><a href="#ethical-social-relevance"><span class="toc-section-number">8.2</span> Ethical &amp; Social Relevance</a></li>
                 <li><a href="#challenges-solutions"><span class="toc-section-number">8.3</span> Challenges &amp; Solutions</a></li>
                 <li><a href="#business-models-monetization"><span class="toc-section-number">8.4</span> Business Models &amp; Monetization</a></li>
-                <li><a href="#target-group-perspectives"><span class="toc-section-number">8.5</span> Target group perspectives</a></li>
+                <li><a href="#target-groups-perspective"><span class="toc-section-number">8.5</span> Target Groups Perspective</a></li>
                 <li><a href="#future-work"><span class="toc-section-number">8.6</span> Future Work</a></li>
                 <li><a href="#summary"><span class="toc-section-number">8.7</span> Summary</a></li>
                 </ul></li>
@@ -1330,16 +1330,16 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <section id="specification-draft" class="level1">
 <h1><span class="header-section-number">7</span> Specification <em>(Draft)</em></h1>
 <p>  <em>Version 0.1.0</em></p>
-<p>This chapter holds the first draft of what might become an open specification. As for now it has therefore no claim of completeness, continuity or accuracy. Frequent changes are to be expected. The contents is based on and a result of all previous discussions and developed solutions. Hence, parts of the contents can be expected to reoccur.</p>
+<p>This chapter holds the first draft of what might become an open specification. Therefore, it has no claim of completeness, continuity or accuracy at this time. Frequent changes are to be expected. The contents is based on, and a result of, all previous discussions and developed solutions. Hence, some of the contents can be expected to reoccur.</p>
 <section id="introduction-1" class="level3 unnumbered">
 <h3>Introduction</h3>
-<p>This specification describes a system with the purpose of controlling the personal data of a single entity. By ‘entity’ it is primarily referred to a person, an individual. This individual manages all data relating to her in an online platform, operated by her, which exposes a service making those data selectively accessible to third parties that might have an interest in them. Meanwhile the system tries to ensure that not personal data ever leaves the system. The overall flexibility and portability of the system enables the individual to store her data for example on a mobile phone so that she is able to carry all her personal data along while the accessibility of the data is ensured at all time.</p>
+<p>This specification describes a system with the purpose of controlling the personal data of a single entity. By ‘entity’, a person, or an individual, is primarily meant. This individual manages all data relating to her in an online platform operated by her, which exposes a service making those data selectively accessible to third parties that might be interested. Meanwhile, the system tries to ensure that no personal data ever leaves the system. The overall flexibility and portability of the system enables the individual to store her data on a mobile phone, for example, so that she is able to carry all her personal data along while providing the access to her data at all times.</p>
 </section>
 <section id="notation-and-conventions" class="level3 unnumbered">
 <h3>Notation and Conventions</h3>
-<p>The requirements notation used in this document originates in the <a href="https://tools.ietf.org/html/rfc2119">RFC 2119</a> and shall be interpreted as described in there. This applies to the following keywords, recognizable through capital letters: MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and OPTIONAL.</p>
-<p>Values and words presented in a <code>fixed-width font</code> need to be understood as names and must therefore be used as is. If one of those starts with a <code>$</code> (Dollar) character, a variable is indicated, which means for implementations, this variable has to be replaced with the actual value.</p>
-<p>Lists that are numbered outline its given order, which must therefore be followed. Lists that start with a character (upper or lower case) have no claim to its order. Their items are inclusive (logical <em>and</em>), while bullet list items are exclusive (logical <em>or</em>).</p>
+<p>The requirements notation used in this document originates in the <a href="https://tools.ietf.org/html/rfc2119">RFC 2119</a> and shall be interpreted as described there. This applies to the following keywords, recognizable by capital letters: MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and OPTIONAL.</p>
+<p>Values and words presented in a <code>fixed-width font</code> need to be understood as names and must therefore be used as is. If one of those starts with a <code>$</code> (Dollar) character, a variable is indicated, which means implementations must replace this variable with an actual value.</p>
+<p>Lists that are numbered indicate an order which must be followed. Lists that start with a character (upper or lower case) have no claim to its order. Their items are inclusive (logical <em>and</em>) whereas bullet list items are exclusive (logical <em>or</em>).</p>
 </section>
 <section id="terminology" class="level3 unnumbered">
 <h3>Terminology</h3>
@@ -1348,37 +1348,37 @@ OpenID is designed with a very specific type of scenarios in mind, namely the on
 <dd><p>refers to either the overall concept or the implementation of this specification</p>
 </dd>
 <dt><span id="spec_term_platform">Platform</span>:</dt>
-<dd><p>combination of environment capabilities and common role characteristics, which can be inherited form its hardware/device properties; possible values: <em>desktop</em>, <em>server</em>, <em>mobile</em></p>
+<dd><p>combination of environment capabilities and common role characteristics, which can be inherited from its hardware/device properties; possible values: <em>desktop</em>, <em>server</em>, <em>mobile</em></p>
 </dd>
 <dt><span id="spec_term_component">Component</span>:</dt>
-<dd><p>independent piece of software that is part of the system and might be capable of running on different platforms, but not at the same time though; serves a unique purpose within the system</p>
+<dd><p>independent piece of software that is part of the system and might be capable of running on different platforms, but not at the same time; serves a unique purpose within the system</p>
 </dd>
 <dt><span id="spec_term_operator">Operator</span>:</dt>
-<dd><p>data subject and owner, not necessarily provider or host though; individual, represented by the system and whose personal data can be accessed through the system; also referred to as <em>data controller</em>, <em>data subject</em> or <em>data owner</em></p>
+<dd><p>data subject and owner, not necessarily provider or host; individual, represented by the system and whose personal data can be accessed through the system; also referred to as <em>data controller</em>, <em>data subject</em>, or <em>data owner</em></p>
 </dd>
 <dt><span id="spec_term_third-party">Third Party</span>:</dt>
 <dd><p>external entity or vendor, who is yet to become registered as a <em>consumer</em> to the system</p>
 </dd>
 <dt><span id="spec_term_consumer">(Data) Consumer</span>:</dt>
-<dd><p>external entity or vendor, who has registered to the system and is therefore permitted to request access to data or even to access data hold by the system</p>
+<dd><p>external entity or vendor, who has registered to the system and is therefore permitted to request access to data or even to access data held by the system</p>
 </dd>
 <dt><span id="spec_term_contributor">(Data) Contributor</span>:</dt>
 <dd><p>external entity, that is authorized by the <em>operator</em> to obtain and push personal data of hers into the system</p>
 </dd>
 <dt><span id="spec_term_personal-data">Personal Data</span>:</dt>
-<dd><p>data, relates to the <em>operator</em>, that is contained in the system and selectively permitted to get accessed by consumes</p>
+<dd><p>data related to the <em>operator</em> that is contained in the system and selectively permitted to be accessed by consumers</p>
 </dd>
 <dt><span id="spec_term_data-broker">Data Broker</span>:</dt>
-<dd><p>entity with commercial interests in collecting, aggregating and analyzing personal data from any possible resource in order to combine and enrich those, to license the result to other entities</p>
+<dd><p>entity with commercial interests in collecting, aggregating and analyzing personal data from any possible resource in order to combine and enrich those and to license the result to other entities</p>
 </dd>
 <dt><span id="spec_term_endpoint">Endpoint</span>:</dt>
 <dd><p>dedicated entry for a specific <em>data consumer</em> to communicate with the system (e.g. access personal data)</p>
 </dd>
 <dt><span id="spec_term_permission-profile">Permission Profile</span>:</dt>
-<dd><p>set of access rules and configurations tied to an <em>endpoint</em>, defining e.g. how long or often and what personal data is accessible by a related <em>data consumer</em></p>
+<dd><p>set of access rules and configurations tied to an <em>endpoint</em> that define, for example, how long, how often, and which personal data are accessible by a related <em>data consumer</em></p>
 </dd>
 <dt><span id="spec_term_access-type">Access Type</span>:</dt>
-<dd><p>defines the method of how the access to personal data is provided</p>
+<dd><p>defines the method by which access to personal data is provided</p>
 </dd>
 </dl>
 </section>
@@ -2092,13 +2092,13 @@ server {
 </section>
 <section id="data-types" class="level2">
 <h2><span class="header-section-number">7.6</span> Data &amp; Types</h2>
-<p>The system is aware of two different classes of data - personal data and system data. The latter is stored within the <em>Persistence Layer</em> and represents the current state of the system, whereas all the personal data, that reflects the Digital Identity of the operator, is maintained and also provided by the <em>Personal Data Store</em>.</p>
+<p>The system is aware of two different classes of data - personal data and system data. The latter are stored within the <em>Persistence Layer</em> and represent the current state of the system, whereas all the personal data, which reflects the Digital Identity of the operator, is maintained and also provided by the <em>Personal Data Store</em>.</p>
 <section id="personal-data" class="level3">
 <h3><span class="header-section-number">7.6.2</span> Personal Data</h3>
-<p>The <em>PDS</em> is portable and can be placed on any of the platform types supported by the system, whereas data queries typically originate in a server platform. In order to provide such flexibility, and unless editing personal data happens on the same platform instance on which the data is also stored, access to the <em>PDS</em> MUST be abstracted. This design approach can be implemented by utilizing GraphQL’s native architecture, which is - aside from its generic graph-structured query language - primarily characterized by its separation of validation and execution. The execution layer requires adapters for every database system the PDS has to support, while the validation is agnostic regarding the query origin. That is, the underlying database system can be swapped, or various database systems can run side by side. A universal query languages has also the advantages of being effortless re-applicable to a different storage system and being able to revert every data change. Therefore it is REQUIRED to store every writing query chronologically, next to the current state of the personal data.</p>
+<p>The <em>PDS</em> is portable and can be placed on any of the platform types supported by the system, whereas data queries typically originate from a server platform. In order to provide such flexibility, and unless editing personal data happens on the same platform instance on which the data is also stored, access to the <em>PDS</em> MUST be abstracted. This design approach can be implemented by utilizing GraphQL’s native architecture, which is - aside from its generic graph-structured query language - primarily characterized by its separation of validation and execution. The execution layer requires adapters for every database system the PDS has to support, while the validation is agnostic regarding the query origin. In other words, the underlying database system can be swapped, or various database systems can run side by side. A universal query language also has the advantage of being effortlessly re-applicable to a different storage system and being able to revert every data change. Therefore it is REQUIRED to store every write query chronologically, next to the current state of the personal data.</p>
 <p><em>Additional requirement(s) are:</em></p>
 <ol type="a">
-<li>precision of data, accessed by consumers must be adjustable (e.g. cut fractional digits, decrease sampling rate of time series datasets)<br />
+<li>precision of data accessed by consumers must be adjustable (e.g. cut fractional digits, decrease sampling rate of time series datasets)<br />
 </li>
 <li>store and fetch binary data</li>
 </ol>
@@ -2118,7 +2118,7 @@ server {
 </section>
 <section id="system-data" class="level3">
 <h3><span class="header-section-number">7.6.3</span> System Data</h3>
-<p>The <em>PL</em> consists of multiple storage technologies and MUST be placed on a trusted platform type - a server. At least two technologies MUST be supported; the platform’s filesystem, which SHOULD be accessible by other components on the same platform, and a document-oriented storage system that provides high flexibility through a schema-free approach and MUST be shared as well among several components. It is OPTIONAL, if the <em>Tracker</em> uses the same storage system, multiple ones or a completely different storing mechanism. Regardless, they are all unified under the <em>Persistence Layer</em> component.</p>
+<p>The <em>PL</em> consists of multiple storage technologies and MUST be placed on a trusted platform type - a server. At least two technologies MUST be supported: the platform’s filesystem, which SHOULD be accessible by other components on the same platform, and a document-oriented storage system that provides high flexibility through a schema-free approach and MUST also be shared among several components. It is OPTIONAL, if the <em>Tracker</em> uses the same storage system, multiple ones or a completely different storing mechanism. Regardless, they are all unified under the <em>Persistence Layer</em> component.</p>
 <p><em>Additional requirement(s) are:</em></p>
 <ol type="a">
 <li>configurations and application data (e.g. permission profile) MUST be reversible</li>
@@ -2126,7 +2126,7 @@ server {
 </section>
 <section id="structure-types-of-personal-data" class="level3">
 <h3><span class="header-section-number">7.6.4</span> Structure &amp; Types of Personal Data</h3>
-<p>The type system, on which all personal data is based on, MUST be compatible with the type system provided by GraphQL. The subsequent definitions represent the least set of features that a type system for personal data MUST acknowledge in any implementation.</p>
+<p>The type system, on which all personal data is based, MUST be compatible with the type system provided by GraphQL. The subsequent definitions represent the minimum feature set that a type system for personal data MUST acknowledge in any implementation.</p>
 <dl>
 <dt><code>[primitive]</code></dt>
 <dd><p>most basic or atomic data type, consisting of just a single value that is either defined as <code>String</code>, <code>Boolean</code>, <code>Integer</code>, <code>Float</code> or <code>null</code>, which are <code>primitives</code> by themselves; <em>(corresponding to GraphQL’s <code>Scalar</code>)</em></p>
@@ -2163,14 +2163,14 @@ server {
 <li><code>Contact</code></li>
 <li><code>Transaction</code></li>
 </ul>
-<p>Other <em>structs</em>, that might become needful over time, can either be created and modeled by the operator herself or are developed and provided by community members and other third parties, so that unsupported types just need to be imported into the system.</p>
+<p>Other <em>structs</em> that might be needed in the future, can either be created and modeled by the operator herself, or are developed and provided by community members and other third parties, so that unsupported types just need to be imported into the system.</p>
 </section>
 </section>
 <section id="data-models-for-system-data" class="level3">
 <h3><span class="header-section-number">7.6.5</span> Data Models for System Data</h3>
-<p>Aside from personal data, whose structure is adjustable by the <em>data subject</em> to suit her needs, the system itself REQUIRES some data models as well in order to provide i.a. mechanisms for managing the process of accessing data. Those models are outlined below.</p>
+<p>Aside from personal data, whose structure is adjustable by the <em>data subject</em> to suit her needs, the system itself REQUIRES some data models too, in order to provide i.a. mechanisms for managing the process of accessing data. Those models are outlined below.</p>
 <p>The types that MUST be supported by the <em>PL</em> are similar to the <em>primitives</em> available in the Query Language, but somewhat more rudimentary: <code>String</code>, <code>Boolean</code>, <code>Number</code>, and <code>null</code>. Everything beyond this depends on the technologies that are being used.</p>
-<p><em>NOTICE: Required fields are implicit and therefore not marked as such. Any other notation is explicit, though. The indicated value types are minimum viable; if supported, a more precise one SHOULD be used.</em></p>
+<p><em>NOTICE: Required fields are implicit and therefore not marked as such. Any other notation is explicit, though. The minimum viable types are indicated; if supported, a more precise one SHOULD be used.</em></p>
 <section id="endpoint" class="level4">
 <h4><span class="header-section-number">7.6.5.1</span> Endpoint</h4>
 <ul>
@@ -2376,7 +2376,7 @@ server {
 <td style="text-align: left;"><code>reliabilityCheckMethod</code></td>
 <td style="text-align: left;">String</td>
 <td style="text-align: center;"><code>null</code></td>
-<td style="text-align: left;">method of checking data reliability</td>
+<td style="text-align: left;">method to check data reliability</td>
 </tr>
 </tbody>
 </table>
@@ -2675,17 +2675,18 @@ server {
 </section>
 <section id="business-models-monetization" class="level2">
 <h2><span class="header-section-number">8.4</span> Business Models &amp; Monetization</h2>
-<p>An imaginable opportunity for a viable business model can be to provide commercial services around the proposed system. Developing an implementation of the specification may have yield into expertise, that qualifies for example to offer hosting for <em>PDaaS</em> instances. And yet another business can be focused on a specific market or user group, such as the <em>health care</em> sector. Here, domain-specific requirements may need further adjustments and customization, which can easier be addressed, if the authors have control over the entire stack, referring to hardware and host environment. Following the specification ensures interoperability so that the <em>data subject</em> is still able to use its own <em>PDaaS</em> with minor effort, for example, by install a additional set of data types relating to that context.</p>
-<p>while driving the overall development forward and contributing back to the ecosystem.</p>
-<p>Even though source code and development and public</p>
-<p>Another way of monetization, that does not relate to</p>
+<p>An imaginable opportunity for a viable business model can be to provide commercial services around the proposed system. Developing and implementing the specification yields into expertise, that may qualify, for example, to provide high-quality hosting of <em>PDaaS</em> instances for end users, or to customize implementations in order to adapt for special scenarios, or to assist with integrations. Even though the underlying technology is open source, history shows the emerging of various successful businesses based on open source technology, such as <a href="https://meteor.com/">Meteor</a>, <a href="https://www.mozilla.org">Mozilla Foundation</a>, <a href="https://www.redhat.com">Red Hat</a>, or <a href="https://wordpress.org/">Wordpress</a>. It allows to drive the development forward and to contribute back to the ecosystem, from which the whole community eventually benefits from, and while following the specification, interoperability remains preserved on all levels.</p>
+<p>As another, very distinct way of monetization is the possibility and willingness of data subjects to sell their personal data under her conditions to third parties. This can mean to actually hand over the raw data, but also to just license the access, which is the business model of data brokers. Of course, this requires further specification, additional infrastructure i.a. for anonymization and payment transfer, and probably a marketplace. But let’s take a step back and reevaluate this idea.<br />
+An negative scenario may result in people trying to make a living by selling all their data to everybody, or worse, having no other option than doing so. In contrast, other people, who don’t want to monetize their digital identity get therefore discriminated. The market is not stable and data become inflationary. On the other hand, a positive scenario may bring more quality data to various studies, so that research results (e.g. medical sector &amp; health care) improve. causes for Issues concerning the society can be revealed and addressed cutting out the current middle-men who collect and monetize personal data, or at least getting a fair revenue share consumers become more consciously and getting aware with dealing with data</p>
+<p>Conclusion:</p>
 <ul>
-<li>possible resulting direct or indirect business models</li>
-<li>data subject might want to sell her data, only under her conditions. therefor some kind of infrastructure and process is required (such as payment transfer, data anonymization, market place to offer data)</li>
+<li>implications like consumers who depend on data but are not able to pay for run dry</li>
+<li>scenarios may need to be restricted by law</li>
+<li>no discrimination if you dont want to play along / no benefitting if you do</li>
 </ul>
 </section>
-<section id="target-group-perspectives" class="level2">
-<h2><span class="header-section-number">8.5</span> Target group perspectives</h2>
+<section id="target-groups-perspective" class="level2">
+<h2><span class="header-section-number">8.5</span> Target Groups Perspective</h2>
 <ul>
 <li><p>User: would I use this stuff? The underpinning technical details and how it works is not my concern and non of my interests. I want this stuff work and being reliable. it its simple to use. and maybe even easy to setup (server n stuff), then the hell, I would!</p></li>
 <li>Dev:

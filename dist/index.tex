@@ -5089,47 +5089,44 @@ being acknowledged.
 \hfill~ \emph{Version 0.1.0}
 
 This chapter holds the first draft of what might become an open
-specification. As for now it has therefore no claim of completeness,
-continuity or accuracy. Frequent changes are to be expected. The
-contents is based on and a result of all previous discussions and
-developed solutions. Hence, parts of the contents can be expected to
-reoccur.
+specification. Therefore, it has no claim of completeness, continuity or
+accuracy at this time. Frequent changes are to be expected. The contents
+is based on, and a result of, all previous discussions and developed
+solutions. Hence, some of the contents can be expected to reoccur.
 
 \subsection*{Introduction}\label{introduction-1}
 \addcontentsline{toc}{subsection}{Introduction}
 
 This specification describes a system with the purpose of controlling
-the personal data of a single entity. By `entity' it is primarily
-referred to a person, an individual. This individual manages all data
-relating to her in an online platform, operated by her, which exposes a
+the personal data of a single entity. By `entity', a person, or an
+individual, is primarily meant. This individual manages all data
+relating to her in an online platform operated by her, which exposes a
 service making those data selectively accessible to third parties that
-might have an interest in them. Meanwhile the system tries to ensure
-that not personal data ever leaves the system. The overall flexibility
-and portability of the system enables the individual to store her data
-for example on a mobile phone so that she is able to carry all her
-personal data along while the accessibility of the data is ensured at
-all time.
+might be interested. Meanwhile, the system tries to ensure that no
+personal data ever leaves the system. The overall flexibility and
+portability of the system enables the individual to store her data on a
+mobile phone, for example, so that she is able to carry all her personal
+data along while providing the access to her data at all times.
 
 \subsection*{Notation and Conventions}\label{notation-and-conventions}
 \addcontentsline{toc}{subsection}{Notation and Conventions}
 
 The requirements notation used in this document originates in the
 \href{https://tools.ietf.org/html/rfc2119}{RFC 2119} and shall be
-interpreted as described in there. This applies to the following
-keywords, recognizable through capital letters: MUST, MUST NOT,
-REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and
-OPTIONAL.
+interpreted as described there. This applies to the following keywords,
+recognizable by capital letters: MUST, MUST NOT, REQUIRED, SHALL, SHALL
+NOT, SHOULD, SHOULD NOT, RECOMMENDED, MAY and OPTIONAL.
 
 Values and words presented in a \texttt{fixed-width\ font} need to be
 understood as names and must therefore be used as is. If one of those
 starts with a \texttt{\$} (Dollar) character, a variable is indicated,
-which means for implementations, this variable has to be replaced with
-the actual value.
+which means implementations must replace this variable with an actual
+value.
 
-Lists that are numbered outline its given order, which must therefore be
-followed. Lists that start with a character (upper or lower case) have
-no claim to its order. Their items are inclusive (logical \emph{and}),
-while bullet list items are exclusive (logical \emph{or}).
+Lists that are numbered indicate an order which must be followed. Lists
+that start with a character (upper or lower case) have no claim to its
+order. Their items are inclusive (logical \emph{and}) whereas bullet
+list items are exclusive (logical \emph{or}).
 
 \subsection*{Terminology}\label{terminology}
 \addcontentsline{toc}{subsection}{Terminology}
@@ -5140,45 +5137,45 @@ refers to either the overall concept or the implementation of this
 specification
 \item[\protect\hypertarget{spec_term_platform}{}{Platform}:]
 combination of environment capabilities and common role characteristics,
-which can be inherited form its hardware/device properties; possible
+which can be inherited from its hardware/device properties; possible
 values: \emph{desktop}, \emph{server}, \emph{mobile}
 \item[\protect\hypertarget{spec_term_component}{}{Component}:]
 independent piece of software that is part of the system and might be
-capable of running on different platforms, but not at the same time
-though; serves a unique purpose within the system
+capable of running on different platforms, but not at the same time;
+serves a unique purpose within the system
 \item[\protect\hypertarget{spec_term_operator}{}{Operator}:]
-data subject and owner, not necessarily provider or host though;
-individual, represented by the system and whose personal data can be
-accessed through the system; also referred to as \emph{data controller},
-\emph{data subject} or \emph{data owner}
+data subject and owner, not necessarily provider or host; individual,
+represented by the system and whose personal data can be accessed
+through the system; also referred to as \emph{data controller},
+\emph{data subject}, or \emph{data owner}
 \item[\protect\hypertarget{spec_term_third-party}{}{Third Party}:]
 external entity or vendor, who is yet to become registered as a
 \emph{consumer} to the system
 \item[\protect\hypertarget{spec_term_consumer}{}{(Data) Consumer}:]
 external entity or vendor, who has registered to the system and is
 therefore permitted to request access to data or even to access data
-hold by the system
+held by the system
 \item[\protect\hypertarget{spec_term_contributor}{}{(Data)
 Contributor}:]
 external entity, that is authorized by the \emph{operator} to obtain and
 push personal data of hers into the system
 \item[\protect\hypertarget{spec_term_personal-data}{}{Personal Data}:]
-data, relates to the \emph{operator}, that is contained in the system
-and selectively permitted to get accessed by consumes
+data related to the \emph{operator} that is contained in the system and
+selectively permitted to be accessed by consumers
 \item[\protect\hypertarget{spec_term_data-broker}{}{Data Broker}:]
 entity with commercial interests in collecting, aggregating and
 analyzing personal data from any possible resource in order to combine
-and enrich those, to license the result to other entities
+and enrich those and to license the result to other entities
 \item[\protect\hypertarget{spec_term_endpoint}{}{Endpoint}:]
 dedicated entry for a specific \emph{data consumer} to communicate with
 the system (e.g.~access personal data)
 \item[\protect\hypertarget{spec_term_permission-profile}{}{Permission
 Profile}:]
-set of access rules and configurations tied to an \emph{endpoint},
-defining e.g.~how long or often and what personal data is accessible by
-a related \emph{data consumer}
+set of access rules and configurations tied to an \emph{endpoint} that
+define, for example, how long, how often, and which personal data are
+accessible by a related \emph{data consumer}
 \item[\protect\hypertarget{spec_term_access-type}{}{Access Type}:]
-defines the method of how the access to personal data is provided
+defines the method by which access to personal data is provided
 \end{description}
 
 \section{Overview}\label{overview}
@@ -6615,16 +6612,16 @@ obtained from the PDS.}
 \section{Data \& Types}\label{data-types}
 
 The system is aware of two different classes of data - personal data and
-system data. The latter is stored within the \emph{Persistence Layer}
-and represents the current state of the system, whereas all the personal
-data, that reflects the Digital Identity of the operator, is maintained
+system data. The latter are stored within the \emph{Persistence Layer}
+and represent the current state of the system, whereas all the personal
+data, which reflects the Digital Identity of the operator, is maintained
 and also provided by the \emph{Personal Data Store}.
 
 \subsection{Personal Data}\label{personal-data}
 
 The \emph{PDS} is portable and can be placed on any of the platform
 types supported by the system, whereas data queries typically originate
-in a server platform. In order to provide such flexibility, and unless
+from a server platform. In order to provide such flexibility, and unless
 editing personal data happens on the same platform instance on which the
 data is also stored, access to the \emph{PDS} MUST be abstracted. This
 design approach can be implemented by utilizing GraphQL's native
@@ -6632,11 +6629,11 @@ architecture, which is - aside from its generic graph-structured query
 language - primarily characterized by its separation of validation and
 execution. The execution layer requires adapters for every database
 system the PDS has to support, while the validation is agnostic
-regarding the query origin. That is, the underlying database system can
-be swapped, or various database systems can run side by side. A
-universal query languages has also the advantages of being effortless
+regarding the query origin. In other words, the underlying database
+system can be swapped, or various database systems can run side by side.
+A universal query language also has the advantage of being effortlessly
 re-applicable to a different storage system and being able to revert
-every data change. Therefore it is REQUIRED to store every writing query
+every data change. Therefore it is REQUIRED to store every write query
 chronologically, next to the current state of the personal data.
 
 \emph{Additional requirement(s) are:}
@@ -6645,7 +6642,7 @@ chronologically, next to the current state of the personal data.
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  precision of data, accessed by consumers must be adjustable (e.g.~cut
+  precision of data accessed by consumers must be adjustable (e.g.~cut
   fractional digits, decrease sampling rate of time series datasets)\\
 \item
   store and fetch binary data
@@ -6681,10 +6678,10 @@ chronologically, next to the current state of the personal data.
 
 The \emph{PL} consists of multiple storage technologies and MUST be
 placed on a trusted platform type - a server. At least two technologies
-MUST be supported; the platform's filesystem, which SHOULD be accessible
+MUST be supported: the platform's filesystem, which SHOULD be accessible
 by other components on the same platform, and a document-oriented
 storage system that provides high flexibility through a schema-free
-approach and MUST be shared as well among several components. It is
+approach and MUST also be shared among several components. It is
 OPTIONAL, if the \emph{Tracker} uses the same storage system, multiple
 ones or a completely different storing mechanism. Regardless, they are
 all unified under the \emph{Persistence Layer} component.
@@ -6702,10 +6699,10 @@ all unified under the \emph{Persistence Layer} component.
 \subsection{Structure \& Types of Personal
 Data}\label{structure-types-of-personal-data}
 
-The type system, on which all personal data is based on, MUST be
-compatible with the type system provided by GraphQL. The subsequent
-definitions represent the least set of features that a type system for
-personal data MUST acknowledge in any implementation.
+The type system, on which all personal data is based, MUST be compatible
+with the type system provided by GraphQL. The subsequent definitions
+represent the minimum feature set that a type system for personal data
+MUST acknowledge in any implementation.
 
 \begin{description}
 \item[\texttt{{[}primitive{]}}]
@@ -6775,8 +6772,8 @@ following types are initially REQUIRED:
   \texttt{Transaction}
 \end{itemize}
 
-Other \emph{structs}, that might become needful over time, can either be
-created and modeled by the operator herself or are developed and
+Other \emph{structs} that might be needed in the future, can either be
+created and modeled by the operator herself, or are developed and
 provided by community members and other third parties, so that
 unsupported types just need to be imported into the system.
 
@@ -6785,7 +6782,7 @@ Data}\label{data-models-for-system-data}
 
 Aside from personal data, whose structure is adjustable by the
 \emph{data subject} to suit her needs, the system itself REQUIRES some
-data models as well in order to provide i.a. mechanisms for managing the
+data models too, in order to provide i.a. mechanisms for managing the
 process of accessing data. Those models are outlined below.
 
 The types that MUST be supported by the \emph{PL} are similar to the
@@ -6795,8 +6792,8 @@ rudimentary: \texttt{String}, \texttt{Boolean}, \texttt{Number}, and
 are being used.
 
 \emph{NOTICE: Required fields are implicit and therefore not marked as
-such. Any other notation is explicit, though. The indicated value types
-are minimum viable; if supported, a more precise one SHOULD be used.}
+such. Any other notation is explicit, though. The minimum viable types
+are indicated; if supported, a more precise one SHOULD be used.}
 
 \subsubsection{Endpoint}\label{endpoint}
 
@@ -7070,8 +7067,8 @@ violations of access rules\tabularnewline
 errors in system\tabularnewline
 \texttt{notfyIfNotReliable} & Boolean & \texttt{false} & notify on
 failed reliability check\tabularnewline
-\texttt{reliabilityCheckMethod} & String & \texttt{null} & method of
-checking data reliability\tabularnewline
+\texttt{reliabilityCheckMethod} & String & \texttt{null} & method to
+check data reliability\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -7683,36 +7680,56 @@ they want to be able to access their personal data.
 Monetization}\label{business-models-monetization}
 
 An imaginable opportunity for a viable business model can be to provide
-commercial services around the proposed system. Developing an
-implementation of the specification may have yield into expertise, that
-qualifies for example to offer hosting for \emph{PDaaS} instances. And
-yet another business can be focused on a specific market or user group,
-such as the \emph{health care} sector. Here, domain-specific
-requirements may need further adjustments and customization, which can
-easier be addressed, if the authors have control over the entire stack,
-referring to hardware and host environment. Following the specification
-ensures interoperability so that the \emph{data subject} is still able
-to use its own \emph{PDaaS} with minor effort, for example, by install a
-additional set of data types relating to that context.
+commercial services around the proposed system. Developing and
+implementing the specification yields into expertise, that may qualify,
+for example, to provide high-quality hosting of \emph{PDaaS} instances
+for end users, or to customize implementations in order to adapt for
+special scenarios, or to assist with integrations. Even though the
+underlying technology is open source, history shows the emerging of
+various successful businesses based on open source technology, such as
+\href{https://meteor.com/}{Meteor},
+\href{https://www.mozilla.org}{Mozilla Foundation},
+\href{https://www.redhat.com}{Red Hat}, or
+\href{https://wordpress.org/}{Wordpress}. It allows to drive the
+development forward and to contribute back to the ecosystem, from which
+the whole community eventually benefits from, and while following the
+specification, interoperability remains preserved on all levels.
 
-while driving the overall development forward and contributing back to
-the ecosystem.
+As another, very distinct way of monetization is the possibility and
+willingness of data subjects to sell their personal data under her
+conditions to third parties. This can mean to actually hand over the raw
+data, but also to just license the access, which is the business model
+of data brokers. Of course, this requires further specification,
+additional infrastructure i.a. for anonymization and payment transfer,
+and probably a marketplace. But let's take a step back and reevaluate
+this idea.\\
+An negative scenario may result in people trying to make a living by
+selling all their data to everybody, or worse, having no other option
+than doing so. In contrast, other people, who don't want to monetize
+their digital identity get therefore discriminated. The market is not
+stable and data become inflationary. On the other hand, a positive
+scenario may bring more quality data to various studies, so that
+research results (e.g.~medical sector \& health care) improve. causes
+for Issues concerning the society can be revealed and addressed cutting
+out the current middle-men who collect and monetize personal data, or at
+least getting a fair revenue share consumers become more consciously and
+getting aware with dealing with data
 
-Even though source code and development and public
-
-Another way of monetization, that does not relate to
+Conclusion:
 
 \begin{itemize}
 \tightlist
 \item
-  possible resulting direct or indirect business models
+  implications like consumers who depend on data but are not able to pay
+  for run dry
 \item
-  data subject might want to sell her data, only under her conditions.
-  therefor some kind of infrastructure and process is required (such as
-  payment transfer, data anonymization, market place to offer data)
+  scenarios may need to be restricted by law
+\item
+  no discrimination if you dont want to play along / no benefitting if
+  you do
 \end{itemize}
 
-\section{Target group perspectives}\label{target-group-perspectives}
+\section{Target Groups Perspective}\label{target-groups-perspective}
 
 \begin{itemize}
 \item

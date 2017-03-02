@@ -136,31 +136,46 @@ personal data.
 ## Business Models & Monetization
 
 An imaginable opportunity for a viable business model can be to provide commercial services around 
-the proposed system. Developing an implementation of the specification may have yield into 
-expertise, that qualifies for example to offer hosting for *PDaaS* instances. And yet another
-business can be focused on a specific market or user group, such as the *health care* sector. Here, 
-domain-specific requirements may need further adjustments and customization, which can easier be 
-addressed, if the authors have control over the entire stack, referring to hardware and 
-host environment. Following the specification ensures interoperability so that the *data subject*
-is still able to use its own *PDaaS* with minor effort, for example, by install a additional set of
-data types relating to that context.
+the proposed system. Developing and implementing the specification yields into expertise, that may 
+qualify, for example, to provide high-quality hosting of *PDaaS* instances for end users, or to 
+customize implementations in order to adapt for special scenarios, or to assist with integrations. 
+Even though the underlying technology is open source, history shows the emerging of various 
+successful businesses based on open source technology, such as 
+[Meteor](https://meteor.com/),
+[Mozilla Foundation](https://www.mozilla.org),
+[Red Hat](https://www.redhat.com), or
+[Wordpress](https://wordpress.org/).
+It allows to drive the development forward and to contribute back to the ecosystem, from which 
+the whole community eventually benefits from, and while following the specification, 
+interoperability remains preserved on all levels.
 
-while driving the overall development forward and contributing back to the ecosystem.
+As another, very distinct way of monetization is the possibility and willingness of data subjects to
+sell their personal data under her conditions to third parties. This can mean to actually hand over 
+the raw data, but also to just license the access, which is the business model of data brokers. Of 
+course, this requires further specification, additional infrastructure i.a. for anonymization and 
+payment transfer, and probably a marketplace.
+But let's take a step back and reevaluate this idea.  
+An negative scenario may result in people trying to make a living by selling all their data to 
+everybody, or worse, having no other option than doing so. In contrast, other people, who don't want 
+to monetize their digital identity get therefore discriminated. The market is not stable and data 
+become inflationary.
+On the other hand, a positive scenario may bring more quality data to various studies, so that 
+research results (e.g. medical sector & health care) improve. causes for Issues concerning the society 
+can be revealed and addressed
+cutting out the current middle-men who collect and monetize personal data, or at least getting a 
+fair revenue share
+consumers become more consciously and getting aware with dealing with data 
 
-Even though source code and development and public 
-
-
-Another way of monetization, that does not relate to
-
-
-+   possible resulting direct or indirect business models
-+   data subject might want to sell her data, only under her conditions. therefor some kind of 
-    infrastructure and process is required (such as payment transfer, data anonymization, market
-    place to offer data)
+Conclusion:
++   implications like consumers who depend on data but are not able to pay for run dry
++   scenarios may need to be restricted by law
++   no discrimination if you dont want to play along / no benefitting if you do
 
 
 
-## Target group perspectives
+
+
+## Target Groups Perspective
  
 +   User: would I use this stuff? The underpinning technical details and how it works is not my 
     concern and non of my interests. I want this stuff work and being reliable. it its simple to 
