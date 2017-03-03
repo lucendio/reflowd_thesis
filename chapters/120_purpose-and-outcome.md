@@ -10,7 +10,7 @@ Gathering and processing data is essentially just mathematics and computer techn
 tools are utilized and what purposed they serve is within the decision of their developers. However, 
 what data items are used and how they get processed should be determined by the data creators. 
 Thereby allowing them an influence on the results of these processes and thus on decisions made 
-upon them which impact their lives.
+upon them that impact their lives.
 
 To address the described issue, the initial idea here is to (1) equip individuals with the ability 
 to control and maintain their entire data distribution, in order to (2) reduce the amount of 
@@ -54,7 +54,7 @@ must be put primarily into the theoretical work. However, that does not mean wri
 theories and ideas isn't allowed during the development and specification process. It is encouraged 
 and might even help to spot flaws or perhaps trigger improvements of the specification.
 
-To create confidence in this project and in the software built upon it, it's vital to make all 
+To create confidence in this project and the software built upon it, it's vital to make all 
 development processes fully transparent and encourage people to get involved. For this reason all 
 related software and documents [@repo_2016_pdaas-spec] are open source from day one.
 
