@@ -76,15 +76,15 @@ web tokens are the preferred technologies for all authentication processes.
 Except for *two-way authentication*, all authentication technologies mentioned above require an 
 initial step from the client to obtain some sort of token that is used to authenticate all 
 subsequent requests. This step is commonly known as *sign in* and requires the 
-entity to be authenticated to provide some credentials consisting of at least two parts. One part, that 
+entity to be authenticated to provide some credentials consisting of at least two parts. One part that 
 uniquely relates to the entity but doesn't have to be private, and another part that only the entity 
 knows or has. Typically that's a username or email address and a password or some other secret bit 
 sequence (e.g. stored on and provided by a USB stick).
 An *[eID card](#def--eid-card)* could possibly be used as secret (or unique object) as well. 
 Suitable use cases are (A) to let the *operator* login to the *PDaaS* management tool or (B) to 
 approve or authorize *access requests*. How the actual login process (A) would look like partially 
-depends on the *eID card*'s implementation, but in general both are reasonable scenarios to utilize
-an *eID card*. When considering, for example, the german implementation *(nPA)* for example, 
+depends on the *eID card*'s implementation, but in general, both are reasonable scenarios to utilize
+an *eID card*. When considering the german implementation *(nPA)*, for example, 
 accessing the management tool via desktop requires a card reader, preferably with an integrated 
 hardware keypad. Whereas authenticating to the tool with a mobile device could be achieved with the 
 card's RFID-capabilities, as long as the device used is able to communicate with the RFID-chip. This 
@@ -167,12 +167,12 @@ of it. Though, it is worth mentioning, that a JSON Web Token implementation is f
 fully replace the approach of *two-way authentication* and private *PKI*. The disadvantage here 
 would be, whether *data consumers* are able to authenticate themselves or not, a HTTPS connection 
 will establish in any case. At the same time, authenticating the *operator* is also doable on the 
-TLS layer; but this approach is restricted only to environments considered at least *private* like 
+TLS layer; but this approach is restricted only to environments considered at least *private*, like 
 native mobile applications, because browser-based applications are neither *trusted* nor *private* 
 and thus missing certain capabilities in terms of accessing the host environment (see 
 *Chapter 5 - Architecture*).
 Addressing the requirement of *consumers* to verify whether the 
-certificate, presented by the *PDaaS*, can be trusted or not, both solutions, providing a 
+certificate presented by the *PDaaS* can be trusted or not, both solutions, providing a 
 self-signed certificate on a secure channel upfront, or using certificates certified by publicly 
 trusted entities, are legitimate. However, the latter requires a service or an automation that 
 provides a new signed certificate whenever a new *data consumer* registers, such dependencies should 

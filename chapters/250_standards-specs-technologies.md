@@ -98,13 +98,13 @@ means, by creating this document and handing it over to the related citizen, the
 Another technology emerging as part of the *e-government* development, is the german 
 __[De-Mail]{#def--de-mail}__ [@web_2017_about-de-mail]. It's an email service that is meant to 
 provide digital infrastructure and mechanisms to exchange legally binding electronic documents. 
-When registering for an De-Mail account the provider is compelled to verify the identity of the 
+When registering for a De-Mail account, the provider is compelled to verify the identity of the 
 applicant (e.g. government-issued identification document) in order to ensure sender and receiver's 
-authenticity, whereas for sending a De-Mail only the account credentials (identifier, password) are 
-required. A successful authentication is considered sufficient to proof the user's identity. The 
-De-Mail itself is not encrypted at any time, only the transport layer, on top of which the document 
-is transferred, is based on TLS and thereby encrypted. Arrived on the providers De-Mail Server, the 
-only provider signs the De-Mail and then sends it to the server of receiver's provider. That is, 
+authenticity, whereas for sending a De-Mail, only the account credentials (identifier, password) are 
+required. A successful authentication is considered sufficient to proove the user's identity. The 
+De-Mail itself is not encrypted at any time, only the transport layer, on which the document 
+is transferred, is based on TLS and thereby encrypted. Upon arrival at the providers De-Mail Server, 
+only the provider signs the De-Mail and then sends it to the server of the receiver's provider. That is, 
 only De-Mail providers are able to sign their users De-Mails. It is optional and up to every user to 
 utilize *end-to-end* for complete confidentiality, or *Qualified Electronic Signatures (QES)*
 [@web_2017_wikipedia_qes], which is a capability of the *nPA* and can be used to verify the author's
