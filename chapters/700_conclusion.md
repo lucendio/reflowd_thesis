@@ -4,7 +4,7 @@ Conclusion
 
 
 Even though the *Right to privacy* is a fundamental right, stated by numerous national 
-constitutions and confirmed by court decisions, saying that
+constitutions and confirmed by court decisions, stating that
  
 >   Given the context of modern data processing, the protection of individuals against unlimited 
 >   collection, storage, use and transfer of their personal data is subsumed under the general right 
@@ -150,37 +150,77 @@ the whole community eventually benefits from, and while following the specificat
 interoperability remains preserved on all levels.
 
 As another, very distinct way of monetization is the possibility and willingness of data subjects to
-sell their personal data under her conditions to third parties. This can mean to actually hand over 
-the raw data, but also to just license the access, which is the business model of data brokers. Of 
-course, this requires further specification, additional infrastructure i.a. for anonymization and 
-payment transfer, and probably a marketplace.
+sell their personal data to third parties, under their conditions. This can mean to actually hand 
+over the raw data, but also to just license the access, which is the business model of data brokers. 
+Of course, this requires further specification, additional infrastructure i.a. for anonymization and 
+payment transfer, and probably a marketplace as well.
 But let's take a step back and reevaluate this idea.  
 An negative scenario may result in people trying to make a living by selling all their data to 
-everybody, or worse, having no other option than doing so. In contrast, other people, who don't want 
-to monetize their digital identity get therefore discriminated. The market is not stable and data 
-become inflationary.
-On the other hand, a positive scenario may bring more quality data to various studies, so that 
-research results (e.g. medical sector & health care) improve. causes for Issues concerning the society 
-can be revealed and addressed
-cutting out the current middle-men who collect and monetize personal data, or at least getting a 
-fair revenue share
-consumers become more consciously and getting aware with dealing with data 
-
-Conclusion:
-+   implications like consumers who depend on data but are not able to pay for run dry
-+   scenarios may need to be restricted by law
-+   no discrimination if you dont want to play along / no benefitting if you do
-
-
+everybody, or worse, having no other option than doing so. In contrast, other individuals, who don't
+want to monetize their digital identity could therefore be discriminated. Or data consumers who 
+previously depended on gratis data, for what ever reason and however obtained, may now run dry, 
+because if people are able to charge for their data, they do it. The market may be not stable and 
+data become inflationary.
+On the other hand, a positive scenario may bring more quality data to various places where they are
+eagerly needed to improve your social co-existence. Studies and research might be able to reveal 
+otherwise hidden solutions (e.g. health care, public sector, government, etc) that could be commonly 
+relevant. Furthermore this approach would cut out the current middle-men whose business model is to
+collect and monetize personal data, or at least it could result in a fair revenue share for data 
+owners. This could also lead to data consumers become more aware. 
+Either way, those are all just excerpts of possible outcomes, and even a mixture between both 
+directions is conceivable. So to conclude, certain scenarios may need to be restricted by law. For 
+example an insurance company should not be allowed to give those members, who permit the company to 
+access their data, an advantage (or discount) over those who don't. This is a simple case of 
+discrimination. In general, if individuals don't want to monetize their personal data, they must not 
+experience any disadvantages. This work originates i.a. in the attempts of preventing this in the 
+first place. It must not create something that encourages discrimination, though. From that point of 
+view, it is questionable to equip data subjects with such capabilities. On the other hand, though, 
+regardless of this work or such feature, such discount offers as described before are already start 
+to happen [web_2015_health-insurance-discount-in-return-of-data] 
+[@web_2016_insurance-discount-in-return-of-data]. 
 
 
 
 ## Target Groups Perspective
+
+*NOTICE: the following perspectives do not necessarily reflect the sole perspective of the author, 
+but should be understood as a general opinions from the respective user type.*
+
+
+For me, as a data subject, privacy is a major concern. With this software I would not only have one
+single place to maintain all my personal and sensitive data while carrying the actual the data with 
+me, but I would also be able to control on a very precise level and under my conditions which vendor 
+has what data on me or can access. I can even collect and submit data to my system, completely 
+automated, whether it's movement data, my browsing history or any other data I am create. And since 
+I have full control over the system I could even analyze the date about me by myself.
+It is not my concern know exactly how the *PDaaS* might work, but it needs to be reliable and I have
+to be able to trust it with my data. A convenient setup and usage is vital, otherwise I would 
+probably not make a great effort to get it up and running. 
+If those demands the *PDaaS* is capable to provide, then of course I would use it, because it gives 
+me freedom of my data.
+
+From a developer's perspective, the most important aspects of an open source project, are in my 
+opinion, a friendly and cooperative community of users and developers, as well as detailed 
+specification and documentation for what's already exist. I must also be a user of that developed 
+software, which generally is a valuable perspective for every developer. As a developer I must be 
+able to conceive the specification as well as the overall architecture and design. That is, the more 
+sophisticated those aspects are, the more effort is required to get involved. The software can still 
+have many components though, but the complexity of the relations between them should be simple and
+explicit. The barriers for participation or contribution must be as low as possible. For example,
+the documentation should provide instructions on how to setup a local development environment.
+
  
-+   User: would I use this stuff? The underpinning technical details and how it works is not my 
-    concern and non of my interests. I want this stuff work and being reliable. it its simple to 
-    use. and maybe even easy to setup (server n stuff), then the hell, I would!
-    
+
+- depending on the question of taste, the spec should either be restrictive or flexible
+- it should definitely be very precise on how the internal interfaces between components as well as 
+  external should look like, and also any part that is security related  
+
+- different implementations based on different languages
+- little external third party dependencies and
+
+
+
+
 
 +   Dev:    
     -   spec implementer
