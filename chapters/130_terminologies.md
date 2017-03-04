@@ -14,10 +14,10 @@ Open Specification:
 
 : A specification is a formal and very detailed way of describing a technology, its internals, and 
   behaviour from external perspectives. It provides guidance for possible implementations to ensure 
-  a minimum viable level of interoperability. Structured in a formalized document and widely adopted, 
-  it might become a *technical standard*. *Open* in this case means that its accessible for everyone 
-  without restrictions. When it comes to the intellectual value itself, that might be handled 
-  differently, for example with an enclosed license.
+  a minimum viable level of interoperability. Structured in a formalized document and widely 
+  adopted, it might become a *technical standard*. *Open* in this case means that its accessible for 
+  everyone without restrictions. When it comes to the intellectual value itself, that might be 
+  handled differently, for example with an enclosed license.
 
 
 [Profile Data]{#terminologies--profile-data}:
