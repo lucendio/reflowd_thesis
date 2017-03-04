@@ -112,7 +112,7 @@ the different ways and technologies to notify the operator about certain events 
 receives new registration). Probably one of the most important components is the *Operator API*, 
 through which the operator i.a. is able to configure the system or manage permissions and the API 
 is granted read/write permissions at the *Storage Connector*. The *Operator API* MAY partially 
-be designed RESTful, but accessing data MUST solely consist of the query language provided by 
+be designed RESTfully, but accessing data MUST solely consist of the query language provided by 
 *GraphQL*.
 
 ![System Architecture, simplified](./assets/figures/spec_arch_simplifierd.png){#fig:spec_arch_simplifier width=12cm}

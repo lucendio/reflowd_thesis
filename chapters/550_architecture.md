@@ -320,10 +320,9 @@ The group of endpoints for *data consumers* mainly consists of those through whi
 and *permission requests* are coming in and the public one, that is used for when consumers apply 
 for registration. The other one is a small group of endpoints required for all tools the *operator* 
 might need; from data API or notification to authentication and web-based user interface. 
-Furthermore, it might be considerable to partially apply the principles of a RESTful design. At the 
-same time this makes the API potentially more complicated and insufficient, since the *Operator API* 
+Furthermore, it might be considered to partially apply the principles of a RESTful design. However, this makes the API potentially more complicated and insufficient, since the *Operator API* 
 does not follow the concept of resources. Instead, it requires a rather functional design, which 
-makes for example *Remote Procedure Calls* or a *Publish-Subscribe* pattern more appropriate to use.
+makes *Remote Procedure Calls* or a *Publish-Subscribe* pattern, for example, more appropriate to use.
 
 Considering the rapid growth of emerging website and applications, which all require user 
 registration, users are getting tired of creating new accounts. Hence they tend to reuse their 
