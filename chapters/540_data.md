@@ -295,7 +295,7 @@ some shorthands, therefore the possibilities are far too numerous. In general *S
 harder to comprehend compared to *GraphQL*. And even though the result of both languages is 
 formatted in JSON, only *GraphQL* preserves all the relations in the output, which are already 
 embedded in the query syntax, whereas a *SPARQL*-based or RESTful API requires multiple round trips 
-and addition effort to merge the data into the desired format.
+and additional effort to merge the data into the desired format.
 As a result, *GraphQL* (and its implementations) is the query language of choice for this project, 
 which is going to serve as the data API for consumers, too.
 
