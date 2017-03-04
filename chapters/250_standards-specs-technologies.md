@@ -201,17 +201,17 @@ group of processes (e.g. CPU, memory or network). Whereas *namespaces* [@web_201
 defines or restricts what parts of the system can be accessed or seen by a process (e.g. filesystem, 
 user, other processes).
 The idea of encapsulating programs from the operating system-level is not new. Technologies, such as 
-*[libvirt](https://libvirt.org/)*, 
+*[libvirt](https://libvirt.org)*, 
 *[systemd-nspawn](https://wiki.archlinux.org/index.php/Systemd-nspawn)*, 
 *[Jails](https://www.freebsd.org/doc/handbook/jails.html)*, 
 or *hypervisors* (e.g. 
-[VMware](https://www.vmware.com/), 
+[VMware](https://www.vmware.com), 
 [KVM](https://www.linux-kvm.org), 
-[VirtualBox](https://www.virtualbox.org/)) 
+[VirtualBox](https://www.virtualbox.org)) 
 have been used for years, but some of them were usually too cumbersome and never reached a great 
 level of convenience, so that only people with expertise have been able to handle systems built upon 
 virtualization, whereas people with other backgrounds couldn't and weren't very interested, at least 
-until *[Docker](https://www.docker.com/)* and *[rkt](https://coreos.com/rkt)* emerged. After some 
+until *[Docker](https://www.docker.com)* and *[rkt](https://coreos.com/rkt)* emerged. After some 
 years of separated work, both authors, and others, 
 recently joined forces in the *Open Container Initiative* [@web_2016_open-container-initiative], 
 which promises to harmonize the diverged landscape and start building common ground to ensure a 
