@@ -101,7 +101,7 @@ provide digital infrastructure and mechanisms to exchange legally binding electr
 When registering for a De-Mail account, the provider is compelled to verify the identity of the 
 applicant (e.g. government-issued identification document) in order to ensure sender and receiver's 
 authenticity, whereas for sending a De-Mail, only the account credentials (identifier, password) are 
-required. A successful authentication is considered sufficient to proove the user's identity. The 
+required. A successful authentication is considered sufficient to prove the user's identity. The 
 De-Mail itself is not encrypted at any time, only the transport layer, on which the document 
 is transferred, is based on TLS and thereby encrypted. Upon arrival at the providers De-Mail Server, 
 only the provider signs the De-Mail and then sends it to the server of the receiver's provider. That is, 

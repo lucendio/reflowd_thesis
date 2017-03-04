@@ -17,7 +17,7 @@ technology as described in
 *[Chapter 2 - Standards, Specifications and related Technologies](#standards-specifications-and-related-technologies)*
 can be valued as a negative example. Instead of making *end-to-end encryption* and  
 *Qualified Electronic Signatures (QES)* mandatory, the creators of the corresponding law decided 
-that it's sufficient to prove the author's identity based on their credentials when handing over the 
+that it's sufficient to prove the author's identity based on his credentials when handing over the 
 DE-Mail to the server, and that it's reasonable to let the provider sign the document on the DE-Mail 
 server, and finally that this described implementation results in a legally binding document by 
 definition of that law. The varying levels of mistakes made in conception and legislation are 
