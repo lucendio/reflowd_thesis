@@ -14,10 +14,10 @@ Open Specification:
 
 : A specification is a formal and very detailed way of describing a technology, its internals, and 
   behaviour from external perspectives. It provides guidance for possible implementations to ensure 
-  a minimum viable level of interoperability. Structured in a formalized document and widely adopted 
-  it might become a *technical standard*. *Open* in this case means that its accessible for everyone 
-  without restrictions. When it comes to the intellectual value itself, that might be handled 
-  differently, for example with an enclosed license.
+  a minimum viable level of interoperability. Structured in a formalized document and widely 
+  adopted, it might become a *technical standard*. *Open* in this case means that its accessible for 
+  everyone without restrictions. When it comes to the intellectual value itself, that might be 
+  handled differently, for example with an enclosed license.
 
 
 [Profile Data]{#terminologies--profile-data}:
@@ -57,7 +57,7 @@ Personal Data as a Service (PDaaS):
 
 [(Data) Consumer]{#terminologies--consumer}:
 
-: Third party who requests permission or is already allowed to access parts the *operator's* 
+: Third party who requests permission or is already allowed to access parts of the *operator's* 
   personal data through her *PDaaS*; sometimes referred to as (data) collector or vendor.
 
 
@@ -73,7 +73,7 @@ Permission Request:
 : A formalized attempt made by a third party to request permissions in order to access certain data 
   items on the *PDaaS*. The request has to include all the data items to which access is being 
   demanded, as well as sufficient information about its underlying purpose. It requires the third 
-  party to already being registered as *data consumer*.
+  party to already be registered as *data consumer*.
 
 
 Permission Profile:
@@ -86,13 +86,13 @@ Permission Profile:
 Access Request:
 
 : An attempt to actually access data provided by a *PDaaS*. The request primarily consists of a 
-  query, that defines what data items are tried to be accessed. The access is only permitted if
+  query that defines what data items are tried to be accessed. The access is only permitted if
   the query matches against the *permission profiles*.
 
 
 Endpoint:
 
 : An endpoint is defined as part of a URI that is uniquely associated with a single *data consumer*. 
-  In this case it's the part of a URI referring to the host (domain incl. subdomains), whereas 
-  subsequent parts indicating different resources that might be available within that endpoint. It 
+  In this case, it's the part of a URI referring to the host (domain incl. subdomains), whereas 
+  subsequent parts indicate different resources that might be available within that endpoint. It 
   can also be viewed as group of resources whose access is restricted. 
