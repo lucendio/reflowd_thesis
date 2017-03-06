@@ -33,7 +33,7 @@ In *Chapter 2* -
 and 
 *[Personal Data as a Product](#personal-data-as-a-product)*
 it is described what impact personal data has in today's society and especially the economy. Data as
-a commercial good has lead to humans become the product. Those actors, who collect, analyze and 
+a commercial good has lead to humans becoming the product. Those actors, who collect, analyze and 
 interpret personal date, using algorithms to unwind invisible information that might help to figure
 out people's motives and patterns in order to forecast their behaviour, with the purpose of 
 improving their services to ultimately increase revenue. Here it is often failed to notice, that 
@@ -55,7 +55,7 @@ While trying to prevent our personal data from being read by men in the middle d
 Thus, every individual must be re-enabled, so that they can fully decide on their own what level of 
 privacy they are willing to share and under what conditions other parties are permitted to access 
 their personal data. 
-The here proposed software can help to counter massive and unimpeded data collection in minimize the 
+The hereby proposed software can help to counter massive and unimpeded data collection in minimize the 
 possibility of discrimination. In this way, though, these issues can be addressed only partially. As 
 mentioned before, bias, causing discrimination, is naturally inherited and therefore needs to be 
 acknowledged by raising awareness and teaching involved authors and developers about these issues 
@@ -211,7 +211,7 @@ typically goes along with finding and addressing flaws in the specification, whi
 process. Mobile components have to follow shortly and additional features such as those just 
 mentioned may come afterwards.
 
-It remains conclusive to say, that the here proposed concept is fare from being the ultimate 
+It remains conclusive to say, that the here proposed concept is far from being the ultimate 
 solution, but it is in any regards an improvement considering the current situation, It definitely 
-has its weaknesses and needs further development, but they are worth to invest in order ro reach the 
+has its weaknesses and needs further development, but they are worth to invest in, in order ro reach the 
 overall goals of increasing privacy and empowering individuals to control their own data.
