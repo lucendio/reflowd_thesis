@@ -5,7 +5,7 @@
 Following the *[Requirements in Chapter 4](#requirements)*, the system has to support two [roles](#sa03). Only one of these roles is 
 assigned to an entity, hence entities that are trying to authenticate to the system might have 
 different intentions depending on the characteristics of those roles. When inheriting the 
-*operator role* an entity gains further capabilities to 
+*operator role*, an entity gains further capabilities to 
 interact with the system, such as data manipulation. Another common scenario for the operator is to
 access the system from different devices in order to review *permission requests* in real time. 
 Whereas a *data consumer* always uses just one 
@@ -38,31 +38,31 @@ stateful and (B) stateless authentication. The first one (A) includes, for examp
 [authentication based on web-token](#def--jwt) are associated with the latter (B).  
 *Basic Auth* is natively provided by the *http-agent* and requires, in its original form, 
 username and password, and a state on the server; at least when the system has to provide 
-multitenancy. If instead just a common access restriction for certain requests would suffice, 
-no state is required, because no user-related data have to be exist on the server. One of the most common implementations of a user-specific state is a *session* 
+multitenancy. If, instead, common access restriction for certain requests would suffice, 
+no state is required, because no user-related data have to exist on the server. One of the most common implementations of a user-specific state is a *session* 
 on the server, that contains one or more values representing the state and a unique identifier, with 
 which an entity can be associated. A client has to provide that session ID in order to be provided 
 with all session-related data hold by the server. This is typically done in a HTTP header, whether 
 as *Basic Auth* value, a *Cookie*, which is domain-specific, or in some other custom header.  
 The *two-way authentication* is performed based on files containing keys and certificates, 
-which are typically not very fluctuant in its contents or state required to get tracked in order to 
+whose contents rarely change and don't typically require their state to be tracked in order to 
 authenticate a user. Therefore this procedure is categorized as stateless. Order or origin of incoming 
 requests have no impact on the result of the actual authentication process. The same applies to TLS 
 features such as *Session ID Resumption* and *Session Ticket Resumption* 
 [@book_2013_networking-101_tls-session-resumption], therefore they are left aside, because they 
 serve the sole purpose of performance optimization. Similar to the *Session Ticket Resumption* 
 [@web_spec_tls-session-ticket-resumption] a web token, namely the [JSON Web Token](#def--jwt), also 
-moves the state towards the client. A *JWT* carries all, for the context relevant information, 
-including possible states, and if necessary the token is 
-symmetrical encrypted by the server. That is, only the server is able to see the actual data 
-contained by JWT and therefore reacting accordingly.
+moves the state towards the client. A *JWT* carries all context relevant information, 
+including possible states, and, if necessary, the token is 
+symmetrically encrypted by the server. That is, only the server is able to see the actual data 
+contained by JWT and therefore react accordingly.
 
 Keeping track of one or multiple states on the server and maintaining the synchronization of 
 involved data between server and client is, in regards to the additional required resources, 
 expensive and far from trivial, because this pattern 
 requires the server to be aware of all current states (sessions) and has to have them accessible at 
 all times. A request might depend on preceding requests and their incoming order, which thus can 
-have an impact on its response. Furthermore those session data have to be stored from time to time. 
+have an impact on its response. Furthermore, those session data have to be stored from time to time. 
 Otherwise, if the server 
 fails to run at some point, data only existing in the memory would be gone with no chance to be 
 recovered. With stateless authentication, none of those aspects applies. Certificates and keys as 
@@ -79,12 +79,12 @@ So, when considering the disadvantages of stateless authentication, *public key 
 web tokens are the preferred technologies for all authentication processes.
 
 Except for *two-way authentication*, the initial step in all authentication technologies, as 
-mentioned before, is a one-time procedure to obtains a token, that is used to authenticate all 
+mentioned before, is a one-time procedure to obtains a token, which is used to authenticate all 
 subsequent requests. This step lasts as long as the token is valid. The reason for such an approach 
-is to increase the convenience, otherwise the user is required to provide credentials on any 
+is to increase convenience. Otherwise, the user is required to provide credentials on any 
 request, which is considered an unacceptable solution. Even though the *two-way authentication* also 
 requires an initial step, that step is different to the one just mentioned. Instead of obtaining a 
-token that proves the possession of the credentials, a certificate is obtained that is used be prove 
+token that proves the possession of the credentials, a certificate is obtained that is used to prove 
 the identity of the communicating partner.  
 The step to obtain a token is commonly known as *sign in* and requires the 
 entity to be authenticated to provide some credentials consisting of at least two parts. One part that 
@@ -95,8 +95,8 @@ An *[eID card](#def--eid-card)* could possibly be used as secret (or private key
 Suitable use cases for such cards are (A) to let the *operator* login to the *PDaaS* management tool 
 or (B) to authorize *access requests*. How the actual login process (A) would look like partially 
 depends on the *eID card*'s implementation, but in general, both are reasonable scenarios to utilize
-an *eID card*. When considering, for example, the german implementation *(nPA)*, authenticating to 
-the management tool either requires a card reader, preferably with an integrated hardware keypad, or 
+an *eID card*. When considering the german implementation *(nPA)* as an example, authenticating to 
+the management tool requires either a card reader, preferably with an integrated hardware keypad, or 
 a device able to communicate with the RFID-chip, which would reduce the interaction duration to a 
 minimum. Both scenarios (A and B) require the *nPA* to have the *eID* feature enabled. If a service wants to 
 provide *nPA*-based online authentication *(eID-Service)*, which is defined as a *non-sovereign* 
@@ -150,14 +150,14 @@ An advantage of token-based authentication over TLS-based *two-way authenticatio
 can be used on multiple clients at the same time. Or an account that a token is associated with, can 
 actually have more than one token. Whereas during the asymmetric cryptography-based 
 *two-way authentication* the client's private key is required, which results in 1:1 relation. So if 
-it's likely that a *operator* has several clients, the same private key has to be 
+it's likely that an *operator* has several clients, the same private key has to be 
 on those clients. A private key typically should not leave its current system or exist in multiple 
 systems at the same time in order to prevent exposure, which any action of duplication implies. To 
 reduce those risks, it's common practice to generate a private key at the location where it is going 
 to be used.
 
 An already existing specification explicitly addressing user authentication is *OpenID*, which could 
-be adapted to integrate operator as well as consumer authentication. But although it utilizes 
+be adapted to integrate operator as well as consumer authentication. Although it utilizes 
 (sub)domains as entity identifiers, which is similar to how the relation between data consumer and
 *PDaaS* in *two-way authentication* works, OpenID is underpinned by another motivation, which 
 is providing decentralized authentications as a service, and that is contrary to the independent and 
@@ -176,11 +176,10 @@ token-based authentication on top of *HTTPS* and public CAs should be suitable f
 between the system and the *operator*, preferably based on *[JSON Web Tokens](#def--jwt)*, because 
 the session state is preserved within the token rather then having the system itself keeping track 
 of it. Furthermore, authenticating the *operator* is also doable on the TLS layer; but this approach
-is on a web platform (browser) rather inconvenient, if even possible, because a client certificate
+on a web platform (browser) rather inconvenient, if possible, because a client certificate
 not only needs to be transferred to the server and probably signed before it and the 
 corresponding private key gets installed manually by the operator. For a mobile platform this 
-approach might be more feasible, because during the application installation, this step can be 
-automated.
+approach might be more feasible because this step can be automated during the application installation.
 Addressing the requirement of *consumers* to verify whether the 
 certificate presented by the *PDaaS* can be trusted or not, both solutions, providing a 
 self-signed certificate on a secure channel upfront, or using certificates certified by publicly 
