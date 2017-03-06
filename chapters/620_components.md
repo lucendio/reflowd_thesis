@@ -122,7 +122,7 @@ b)  data structure and format MUST be known by the system
 
 
 ##### Management Tool (and other GUIs used by the operator)
-a graphical user interface, available for mobile and desktop platforms, accessible only by the 
+a graphical user interface, available for mobile and web platforms, accessible only by the 
 operator to control the system
 
 a)  based on either web technologies or native technologies that are supported by mobile platforms

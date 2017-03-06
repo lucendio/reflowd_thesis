@@ -112,8 +112,8 @@ complexity.
 ## Open Development
 
 When developing an *Open Specification* it is natural to build upon open technologies that are 
-recognized as *open standards* and *open source*; *open* in the sense of 
-*unrestricted accessible by everybody*, not to be confused with free - as in *freedom* - software. 
+recognized as *open standards*, *open source* and *free software*; *open* in the sense of 
+*unrestricted accessible by everybody*, and *free* as in *freedom of use*.
 Advocating such a philosophy allows not only the development of implementations in a collaborative 
 way, but also enables working transparently on the specification itself. Such an open environment 
 makes it possible for anyone who is interested to participate or even to contribute to the project. 

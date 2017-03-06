@@ -13,8 +13,8 @@ Thereby allowing them an influence on the results of these processes and thus on
 upon them that impact their lives.
 
 To address the described issue, the initial idea here is to (1) equip individuals with the ability 
-to control and maintain their entire data distribution, in order to (2) reduce the amount of 
-*potentially discriminatory* [@paper_2008_discrimination-aware-data-mining] attributes that could 
+to control and maintain their entire personal data distribution, in order to (2) reduce the amount 
+of *potentially discriminatory* [@paper_2008_discrimination-aware-data-mining] attributes that could 
 leak into arbitrary computations. For that, people need a reliable and trustworthy tool, which helps 
 them to manage all their *personal data* and provides an interface for third parties to access their 
 data, but on their own terms. The parties that would be responsible for such a tool would likely 

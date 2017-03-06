@@ -9,13 +9,13 @@ while respecting their licenses. Furthermore, enforcing *portability* ([S.A.02](
 more simplified and independent development process that can be organized in a way so that the 
 primary division into components can be leveraged. 
 
-The range of environment systems for *server* platforms is highly diverse but the main shares
+The range of host systems for *server* platforms is highly diverse but the main shares
 [@web_2017_wikipedia_os-market-share] belong to either the UNIX or LINUX family, even though almost 
 every platform is POSIX-compliant [^abbr_posix]. When it comes to *mobile* platforms the market is 
 far less diverse. Native applications are either developed in *Java* (for Google's Android) or in 
-Swift (for Apple's iOS). Whereas the environment systems have nearly no relevance for the *desktop*, 
+Swift (for Apple's iOS). Whereas the host systems have nearly no relevance for *web* platforms, 
 other then the screen size and maybe which browser and version the environment system runs. But 
-that's a situation the user can change if necessary.
+that's a condition the user can change if necessary.
 
 As a result, being able to use certain components on a *server* platform depends on what *server* 
 environment is available and vice versa. In order to decide what implementation of a component is 

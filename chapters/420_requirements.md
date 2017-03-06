@@ -1,12 +1,11 @@
-Requirements
-==========================================
+## Requirements
 
 
 
-Derived from the [Core Principles](#core-principles), the subsequent requirements shall be served as 
-a list of features on the one hand, to get an idea of how the open specification and thus the 
-resulting software might look like, and, on the other hand, to give an overview about priorities 
-(can/could, may/might, should, must/have to). 
+Based on the [Target Groups Perspective](#target-groups-perspective) and other previous work, the 
+subsequent requirements shall be served as a list of features on the one hand, to get an idea of how 
+the open specification and thus the resulting software might look like, and, on the other hand, to 
+give an overview about priorities (can/could, may/might, should, must/have to). 
 Other chapters may contain references to specific requirements listed below.
 
 

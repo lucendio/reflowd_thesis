@@ -2,23 +2,26 @@
 
 
 
-The overall goal for this project is to involve as many standards as possible in order to increase 
-the chances of interoperability and lower the required effort to integrate with third parties or 
-other APIs. The following section describes potentially used technologies and outlines the purposes 
-they might serve and why.
+This project strives to involve well known and commonly used standards, instead of reinventing 
+technologies that are already exist, to acknowledge the work that's been done, and to increase the 
+chances of interoperability and to lower the required effort to integrate with third parties or 
+other APIs. The following section describes briefly potentially used technologies and outlines the 
+purposes they might serve and why.
 
 
 
-When transferring data over a potential non-private channel, several features might be desired in 
-order to provide trust in those data. One important aspect might be that no one else except sender 
-and receiver are able to know and see what the actual data are. __Symmetrical Cryptography__ is used 
-to achieve this. It states that the sender encrypts the data with the help of a key and the receiver 
-decrypts the data with that same key. That is, sender and receiver, both need to know that 
-particular key, and everyone who is not allowed to access that information must not be in possession 
-of that key. To agree on a key without compromising the key during that process, both entities 
+As it is assumed that data is transferred over a non-private channel, several features might be 
+desired in order to provide a trustworthy and secure communication. One important aspect might be 
+that no one else except sender and receiver are able to know and see what the actual data are.
+Utilizing cryptographic technologies can provide such properties.
+__Symmetrical Cryptography__, as one of those, provides a possible solution. It states that sender 
+and receiver arrange a common secret, which is used to encrypt as well as to decrypt the data. 
+Anyone who is not allowed to access that information must not be in possession of the secret. 
+To agree on a secret without compromising it during that process, both entities 
 either need to switch to a private medium (e.g meet physically and exchange) or have to use a 
-procedure in which the entire key is not exposed to others at any single point in time. This 
-procedure is called __Diffie-Hellman-Key-Exchange__ [@paper_1976_d-h-key-exchange] and is based on 
+procedure in which the entire key is not exposed to others at any single point in time. 
+Such a procedure could be, among others, the __Diffie-Hellman-Key-Exchange__ 
+[@paper_1976_d-h-key-exchange] and is based on 
 the mathematical discrete logarithm problem. It allows to parties to to agree on a common *secret* 
 while using a non-private channel. The data exchanged during the process alone cannot be used to 
 exploit the secret.
@@ -27,62 +30,70 @@ __[Asymmetrical Cryptography]{#def--asym-crypto}__
 *(or public-key cryptography)* [@book_2014_chapter-9-1-public-key-crypto], which is underpinned by a 
 *key-pair* for every communication participant; one key is *public* and the other one must be kept
 strictly *private*. 
-One of the keys is used to *encrypt* 
-the data, and only the other key of the pair can be used for *decrypting* the cipher. The scenario
-defines the role of each key and when to use them. If this technique is combined with 
-the concept of digital signatures (encrypted fingerprints from data), the result provides 
-integrity and authentication.
+The *public* key is used to *encrypt* the data, and only the *private* key can be used for 
+*decrypting* the cipher. With __RSA__ [@web_spec_rsa], one of the *cryptographic systems* used in 
+asymmetrical cryptography, it's even possible to switch the roles of the keys, meaning regardless of 
+which key is used to encrypt the data, only the corresponding part is able to decrypt the cipher. If 
+this technique is combined with the concept of digital signatures (encrypted fingerprints from 
+data), the result is a so called certificate, that provides integrity and authentication. It is
+the *public key* attached with owner information and a digital signature of that key.
 
-__[HTTP]{#def--http}__ [@web_spec_http1], commonly known as part of the *Application Layer* in the 
-OSI-Model [@web_2017_wikipedia_osi-model], is one of key technologies the *World Wide Web* is based
+*Hypertext Transfer Protocol (__[HTTP]{#def--http}__)* [@web_spec_http1], commonly known as part of 
+the *Application Layer* in the *Open Systems Interconnection model (OSI model)* 
+[@web_2017_wikipedia_osi-model], is one of key technologies the *World Wide Web* is based
 on. This stateless protocol is mainly used to transfer any media type reliably between internet 
 endpoints. It most likely will fulfill the same purpose in the context of 
-this work, because it implements a server-client pattern in its very core.
+this work, because it implements a server-client pattern in its very core. This results in a 
+communication scenario with a one-to-one relationship.
 Whether internal components, locally on the same host or as part of a distributed system, talk to 
 each other or data consumers interact with the system, this protocol transfers the data that needs 
 to be exchanged. The relevance and use cases of features introduced with Version 2 
 [@web_spec_http2] of the protocol are not yet explored.
 
 Putting *HTTP* on top of the __Transport Layer Security (TLS)__ protocol [@web_spec_tls] results in 
-*[HTTPS]{#def--https}*. 
+secure *HTTP*, also know as *[HTTPS]{#def--https}*. 
 TLS provides encryption during data transport, which reduces the vulnerability to 
 *man-in-the-middle* attacks and thus ensures not only confidentiality, but data integrity too. 
-*Asymmetric cryptography* is the foundation for the connection establishment, hence *TLS* also 
+*Asymmetric cryptography* is the foundation for the connection establishment in *TLS*, hence it also 
 allows to verify the relation between the identity of the communicating party and the presented 
-certificate. Depending on the integration, it could even be used to authenticate that party. 
+certificate. This procedure can be performed by both parties. Depending on the integration, it could even be used to authenticate that party. 
 Though relying on those cryptographic concepts requires additional infrastructure. Such an 
 infrastructure is known as *Public Key Infrastructure (PKI)* [@book_2014_chapter-14-5-pki]. It 
 manages and provides keys and certificates for a dedicated scope of entities in a directory, 
-including information related to their owners. *PKI*s are based on a 
-hierarchical chain of trust, where a *Certificate Authority (CA)*, as part of that infrastructure, 
+including information related to their owners. *PKI*s are commonly utilize a hierarchical chain of 
+trust, although cross signing is possible as well. A *Certificate Authority (CA)*, as part of that infrastructure, 
 issues, maintains and revokes digital certificates. The infrastructure that is needed to provide 
 secure HTTP connections for the internet is one of those *PKI*s - a public one and probably one of 
 the largest. It is based on the widely used IETF [^abbr_ietf] standard *X.509* [@web_spec_x509].
 
 Unlike *HTTP*, __WebSockets__ [@web_spec_websockets] provide the concept of ongoing bidirectional 
-connections on top of TCP, though connection establishment utilizes the same principles known for 
-HTTP(S). This combination still allows TLS while benefiting from high efficiency real-time data 
-exchange or from supporting remotely pending process responses, while at the same time avoiding 
-HTTP's long-polling abilities. It is conceivable to use *WebSockets* for communicate between 
-components or even with external parties.
+connections on top of a TCP [^abbr_tcp] connection, though connection establishment is happening
+via HTTP(S). The result is a connection *upgrade*, which enables both protocols running side by side 
+on the same server port. This makes it also possible to use TLS for encrypting connections.
+So, instead of mimic real-time data exchange and pending remote procedure call responses with 
+long-polling over HTTP, the secure WebSocket protocol (*wss*) provides such patterns. It is 
+conceivable to use *WebSockets* as transport technology to communicate between the system's 
+components of even with external parties.
 
 While the transport of email-based communication is also underpinned by *TLS*, the emails themselves 
-still exist in plain text at all time. Utilizing end-to-end encryption for communication is another 
-example of applying *public-key cryptography*. 
-A *public key server* that follows, unlike a *PKI*, a more decentralized and liberal approach called 
-__web of trust__. In which all entities (user; senders and recipients) are signing each other's 
-public keys. The more users have signed a public key, the higher the level of trust is on that key 
-and therefore on the entity who the signed key-pair belongs to. Public keys are simply uploaded by 
-its owners to those key servers mentioned before. If someone want to write an email to others, all 
-public keys relating the recipients must be obtained from these public server, so that the email can 
-then be encrypted with those keys and are therefore only readable by the owner of the keys's private 
-part.
+still exist in plain text at all time. Utilizing end-to-end encryption for such communication is 
+another example of applying *public-key cryptography*.
+Here, a more decentralized and liberal approach of a *PKI* is enforced. Instead of a *trust chain* 
+structure, public keys are typically signed or cross-signed with no hierarchical order, such as 
+known form the *PKIX (or PKI based on X.509)*. This approach, known as __web of trust__, consists of 
+multiple *public key servers*, in which all entities (user; senders and recipients) are signing each other's 
+public keys. The more users have signed a public key, the higher the level of trust is that the 
+encrypted content can only be read by whom the signed key-pair belongs to. Public keys are simply uploaded by 
+its owners to those key servers mentioned before. If someone wants to write an email to others, for 
+every recipient the relating public key can be obtained from these public servers, so that the email
+is then encrypted with those keys - for every recipient individually. Therefore the email is only 
+readable by the owner of the key's private part.
 
 In the past years different countries around the world started to introduce information technology 
 to the day-to-day processes, interactions and communications between public services and their 
 citizens. Processes like changing residence information or filing tax reports, are all summarized 
 since then under the name *E-government* [^abbr_egov]. One of those developments is the so called 
-__Electronic ID Card__{#def--eid-card}, hereinafter called *eID card*. Equipped with storage, logic 
+__[Electronic ID Card]{#def--eid-card}__, hereinafter called *eID card*. Equipped with storage, logic 
 and interfaces for wireless communication, those *eID cards* can be used to store certain 
 information and digital keys, or to authenticate the owner electronically to a third party without 
 being physically present. Such an *eID card* was introduced also in Germany in 2010. The so called 
@@ -94,6 +105,8 @@ As an official document, the card has one major advantage over inherent, self-co
 generated secrets like passwords, fingerprints or TANs [^abbr_tan]. It is *signed* by design, which 
 means, by creating this document and handing it over to the related citizen, the third party 
 (or *'authority'*) - in this case the government - has verified the authenticity of that individual.
+Although, this procedure does not guarantee that the third party has no copy of the private key, 
+that is stored on the *eID card*.
 
 Another technology emerging as part of the *e-government* development, is the german 
 __[De-Mail]{#def--de-mail}__ [@web_2017_about-de-mail]. It's an email service that is meant to 
@@ -110,46 +123,50 @@ utilize *end-to-end* for complete confidentiality, or *Qualified Electronic Sign
 [@web_2017_wikipedia_qes], which is a capability of the *nPA* and can be used to verify the author's
 identity.
 
-__JSON__ [^abbr_json] is an alternative to the data serialization format XML, whose syntax is 
+__JSON__ [^abbr_json] is an alternative to the *Extensible Markup Language (XML)*, which in this 
+context it is only referred to as another data serialization format. Unlike XML, JSON is more 
+readable. The JSON-syntax is 
 inspired by the JavaScript object-literal notation. It's heavily used in web contexts to transfer 
 data via *HTTP*. Like XML, its structuring mechanisms allow i.a. type preservation and nesting, 
 which enable the representation of more complex data structures, including relations.
 
 If, due to being part of a distributed software, some components are required to not maintain any 
-state, either the architecture needs to be changed so that the state is no longer needed in that 
+state, either that software architecture needs to be changed so that the state is no longer needed in that 
 component, or the state needs to be embedded into the process communication so that it's passed 
 from one component to the other. This is a common use case for a 
 __[JSON Web Token (JWT)]{#def--jwt}__ [@web_spec_json-web-token]. A *JWT* is formatted as *JSON*, 
 but URL-safe encoded with *base64url* [@web_spec_base64url], a version of the widely used *Base64* 
 encoding, before it gets transferred.
 The token itself contains the state. Here is where the use of *HTTP* comes in handy because the 
-token can be stored within the HTTP header and therefore can be passed through all communication 
-points, where the data can then be extracted and verified. Such a token typically consists of three 
-parts: (A) information about itself, (B) a payload, which can be arbitrary data such as user or 
-state information, and (C) a signature, which effectively is a *hash-based message authentication 
-code (HMAC)* [@web_spec_hmac] preserving the integrity od header and payload. All thrie parts are 
-separated with a period. Additional standards define encryption *(JWE [^abbr_jwe])* to ensure 
-confidentiality, and digital signatures *(JWS [^abbr_jws])* to prevent others then the signer from 
-validating the signature.
+token can be stored within the HTTP header, which consists of addition meta information about the 
+HTTP connection and data that is exchanged between client and server. Therefore the token can be 
+passed through all communication points, where the data can then be extracted and verified. Such a 
+token typically consists of three parts: (A) information about itself *(header)*, (B) a *payload*, 
+which can be arbitrary data such as user or state information, and (C) the so called *signature*, 
+which effectively is a *hash-based message authentication code (HMAC)* [@web_spec_hmac] preserving the 
+integrity of header and payload. All three parts are separated with a period. Additional standards define encryption *(JWE [^abbr_jwe])* to ensure 
+confidentiality, and digital signatures *(JWS [^abbr_jws])*, which enables others than the signer to 
+validate the *signature*.
 Using a *JWT* for authentication purposes is described as *stateless authentication*, because the 
 verifying entity doesn't need to be aware of session IDs nor any other information about a session. 
 So, instead of the backend interface being burdened to check a state on every incoming request in 
 order to verify permissions, which required to maintain a state in the first place, it just needs 
 to decrypt the token and proceed according to the contained information.
 
-The open standard __[OAuth]{#def--oauth}__ defines a process flow for authorizing third parties to 
+Furthermore, the open standard __[OAuth]{#def--oauth}__ defines a process flow for authorizing third parties to 
 access externally hosted resources, such as the user's profile image on a social media platform. 
 The authorization validation is done by the help of a previously generated token. However, 
 generating and supplying such tokens can be initiated in a variety of ways depending on the 
-underlying architecture and design, for example, with the user entering her credentials 
-(`grant_type=authorization_code`). This design seems to misleadingly encourage developers to 
+underlying architecture and design, for example, with the user entering her credentials. This design 
+seems to misleadingly encourage developers to 
 integrate *OAuth* as an authentication service
 [@web_2012_problem-with-oauth-for-authentication] rather then an authorization service, whether as
 an alternative or as an addition to existing in-house solutions. In doing so, the application 
 authors pass the responsibility on to the OAuth-supporting data providers. 
 OAuth *version 1.0a* [@web_spec_oauth-1a], which is rather considered a protocol, provides 
 confidentiality by encrypting data before it gets transferred, and integrity of transferred data by 
-using signatures. Whereas *Version 2.0* [@web_spec_oauth-2], labeled as a framework, requires *TLS* 
+using signatures. Whereas *Version 2.0* [@web_spec_oauth-2], labeled as a framework, requires a 
+*TLS* encrypted communication channel
 and thus passes on the responsibility for confidentiality to the transport layer below. It also 
 supports additional process flows for scenarios involving specific platforms such as 
 *"web applications, desktop applications, mobile phones, and living room devices"* 
@@ -160,17 +177,19 @@ authenticity of a requesting user.
 An in-depth description of the whole process can be found in the protocol's same-titled 
 specifications [@web_spec_openid-spec-index]. With decentralization in mind, the protocols's nature 
 encourages to design a distributed application architecture, similar to the idea behind a 
-*microservice*, but without owning all services involved - 
+*microservice* [^desc_microservice], but without owning all services involved - 
 *decentralized authentication as a service* so to say. An application owner doesn't have to write or 
 implement its own user authentication and management system, instead it is sufficient to merely 
 integrate those parts that are needed to support signing in with *OpenID*, which is typically a 
 client interacting with the Identity Provider.
 Equally the user is not required to register an account for every new app, instead she can use her 
-*OpenID*, already created with another identity provider, to authenticate with the application. The 
+*OpenID*, already created with an Identity Provider, to authenticate with the application. The 
 extension *OpenID Attribute Exchange* allows the importing of additional profile data, similar to 
 what OAuth is meant to be used for.
 *OpenID Connect* [@web_spec_openid-connect-1] is the third iteration of the OpenID technology. While 
-facebook, for example, uses OAuth also for authentication (known as pseudo-authentication 
+*facebook login* [@web_docs_facebook-login] (formerly *facebook connect* 
+[@web_2017_wikipedia_facebook-connect]), for example, uses OAuth also for authentication 
+(known as pseudo-authentication 
 [@web_2017_wikipedia_openid-vs-pseudo-oauth]) instead of just authorising entities, *OpenID connect* 
 on the other hand, provides authentication in an additional layer built upon *OAuth2.0* and *JWT*. 
 Previous versions of OpenID have provided the concept of extension in order to add functionality 
@@ -212,7 +231,7 @@ have been used for years, but some of them were usually too cumbersome and never
 level of convenience, so that only people with expertise have been able to handle systems built upon 
 virtualization, whereas people with other backgrounds couldn't and weren't very interested, at least 
 until *[Docker](https://www.docker.com)* and *[rkt](https://coreos.com/rkt)* emerged. After some 
-years of separated work, both authors, and others, 
+years of separated work, both authors, accompanied by additional parties, 
 recently joined forces in the *Open Container Initiative* [@web_2016_open-container-initiative], 
 which promises to harmonize the diverged landscape and start building common ground to ensure a 
 higher interoperability. That, in turn, started to raise the demand for sophisticated orchestration. 
@@ -226,7 +245,7 @@ supported.
 The *query language (QL)* __[GraphQL]{#def--graphql}__ [@web_spec_graphql], developed by Facebook 
 Inc., abstracts multiple data sources into an unified API or resource. The additional abstraction 
 layer allows different storage technologies to be seamlessly queryable without using their native 
-*query language*. The 
+*query languages*. The 
 result is provided in JSON format, which naturally supports graph-like data structures. This is 
 utilized in GraphQL and implicitly embraced through its purpose of abstraction. Data items that
 might be somehow related but stored in different locations, can be obtained so that both end up in 
@@ -245,7 +264,7 @@ technologies are essential for the *Semantic Web*.
 RDF [^abbr_rdf] basically defines the syntax. OWL [^abbr_owl] provides the guidelines on how the 
 semantics and schemas (vocabulary) should be defined and with [SPARQL]{#def--sparql} 
 [@web_w3c-tr_sparql], the query language, data can be retrieved.
-One can not help but picture the web as a database of queryable data with URIs that are embedded 
+The idea of the *Semantic Web* tries to utilize the web as a database of queryable data with URIs that are embedded 
 in arbitrary websites. Imagine a person's email address, which is available under a specific domain 
 (preferably owned by that person) - or to be more precise, a URI *(WebID) [@web_w3c-draft_webid]* - 
 and provided in a certain syntax *(RDF)*, tagged with the semantic *(OWL)* of a email address, all 
@@ -274,6 +293,12 @@ called *databox* [@web_2016_demo_databox] follows the specification process.
     
 [^abbr_ietf]: Internet Engineering Task Force; non-profit organisation that develops and releases 
     standards mainly related to the Internet protocol suite
+    
+[^abbr_tcp]: *Transmission Control Protocol*, provides a reliable host-to-host connection; part of 
+    the Internet Protocol Suite (see RFC 761)
+    
+[^desc_microservice]: a pattern to split a monolithic application into smaller, independent, parts 
+    that are easier to maintain but still communicating with each other  
 
 [^abbr_rest]: *Representational State Transfer*, introduces by Roy Fielding in his doctoral 
     dissertation [@web_spec_rest] 

@@ -10,6 +10,17 @@ author:
 date:   \today
 version: '0.0.1'
 
+keywords:
+    -   'personal data store'
+    -   'personal data as a service'
+    -   'web service architecture'
+    -   'open specification'
+    -   'masters thesis'
+# tags: []
+
+lang: 'en'
+
+
 abstract: >
     Often data is referred to as *the oil of the 21st century*. But recovering petroleum or coal is
     governed by certain rules and legislation, while vast amounts of personal data are harvested
@@ -22,8 +33,8 @@ abstract: >
     these haystacks contain actual identities of human beings including their personalities but
     still getting recklessly monetized.
     To address this issue and reduce the possibility of discrimination, third parties have to be
-    supplied with the least amount of data in order to stay functional. That is, data owners must be
-    in charge of deciding which entity has access to what personal data of theirs.\
+    supplied only with a minimum of data, so they remain. That is, data owners must be in charge of
+    deciding which entity has access to what personal data of theirs.\
 
     This project aims to specify a personal data service that empowers its user to regain full
     control over her personal data. It facilitates the regulation of data flows and provides
@@ -35,56 +46,55 @@ abstract: >
 
 
 acknowledgement: >
-    A rather quiet thought at the beginning, emerged to something that felt right to do, but
-    was still missing a clear outline. It took a while, for both of us, to understand what this work
-    is about and where it would lead. But regardless of that he gave me the space to write about
-    this rather unconventional topic. A great thanks to Prof. Dr. Messer for having all these
-    constructive discussions and not getting tiered of making me rethink my thoughts.\
+    A rather quiet thought at the beginning, emerged to something that felt right to do, but was
+    still missing a clear outline. It took a while, for both of us, to understand what this work is
+    about and where it would lead. But regardless of that he gave me the space to write about this
+    rather unconventional topic. A great thanks to my Supervisor for having all these constructive
+    discussions and for not getting tiered of making me rethink my thoughts.
+    \
 
     \
 
     I challenged myself to write this thesis not in my native language. What at first might sound
     insane turned out to be a huge learning, but I would have never be able to come this fare just
     on my own. Thanks to Jag, a college of mine, who lent me his mother tongue from time to time.
-    Without him would have not be able to reach this level of improvement.
+    Without him I would have not be able to reach this level of improvement/proficiency.
+    \
+
+    \
+
+    Further more, I want to acknowledge all the amazing work that's been done to make the internet
+    such an extraordinary common good. Thanks to everyone for contributing and sharing their
+    knowledge and expertise to the rest of the world.
+    \
+
+    \
 
     Thanks to Bruno and Eugen, great minds, to which I am honored to call them friends, who have
-    helped to review my work, making me change perspectives and rightfully forcing me to question
+    helped to review this work, making me change perspectives and rightfully forcing me to question
     my approaches.
+    \
 
-    And to another great wizard who helped me fighting a widely known markup language to layout this
-    work.
+    And thanks to another great wizard who helped me fighting a widely known markup language to
+    layout this document.
+    \
 
-    Thanks to the internet, the inexhaustible source of knowledge the probably most important
-    achievement of our time, and thanks to everyone who has and still
-    does contribute to.
-
-    I'm thanking my Haekelschmein and my internet provider. TODO
-
-    My other/better half (significant other) for having my back through the whole time, and stand
+    My other/better half (significant other) for having my back through the whole time, withstanding
     the temporary downgrade of some priorities. Everything comes to an end.
+    \
 
-    Finally I want to thank my parents for allowing me to get this fare.
+    Finally I would like to thank my parents for allowing me to get this fare.
 
-
-
-keywords:
-    -   'personal data store'
-    -   'personal data as a service'
-    -   'web service architecture'
-    -   'open specification'
-    -   'masters thesis'
-# tags: []
-
-lang: 'en'
 ...
 
 
 
 \newpage
+\vspace*{\fill}
 \begin{center}
 \thispagestyle{empty}
 \setcounter{page}{0}
-This page intentionally left blank
+*\emph{This page intentionally left blank}*
 \end{center}
+\vspace*{\fill}
 \newpage

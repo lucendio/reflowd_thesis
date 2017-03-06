@@ -308,10 +308,9 @@ against these so called \emph{data subjects}. Such practices cannot be
 accepted because these haystacks contain actual identities of human
 beings including their personalities but still getting recklessly
 monetized. To address this issue and reduce the possibility of
-discrimination, third parties have to be supplied with the least amount
-of data in order to stay functional. That is, data owners must be in
-charge of deciding which entity has access to what personal data of
-theirs.\\
+discrimination, third parties have to be supplied only with a minimum of
+data, so they remain. That is, data owners must be in charge of deciding
+which entity has access to what personal data of theirs.\\
 This project aims to specify a personal data service that empowers its
 user to regain full control over her personal data. It facilitates the
 regulation of data flows and provides detailed information on where the
@@ -331,25 +330,29 @@ A rather quiet thought at the beginning, emerged to something that felt
 right to do, but was still missing a clear outline. It took a while, for
 both of us, to understand what this work is about and where it would
 lead. But regardless of that he gave me the space to write about this
-rather unconventional topic. A great thanks to Prof.~Dr.~Messer for
-having all these constructive discussions and not getting tiered of
-making me rethink my thoughts.\\[2\baselineskip]I challenged myself to
-write this thesis not in my native language. What at first might sound
-insane turned out to be a huge learning, but I would have never be able
-to come this fare just on my own. Thanks to Jag, a college of mine, who
-lent me his mother tongue from time to time. Without him would have not
-be able to reach this level of improvement. Thanks to Bruno and Eugen,
-great minds, to which I am honored to call them friends, who have helped
-to review my work, making me change perspectives and rightfully forcing
-me to question my approaches. And to another great wizard who helped me
-fighting a widely known markup language to layout this work. Thanks to
-the internet, the inexhaustible source of knowledge the probably most
-important achievement of our time, and thanks to everyone who has and
-still does contribute to. I'm thanking my Haekelschmein and my internet
-provider. TODO My other/better half (significant other) for having my
-back through the whole time, and stand the temporary downgrade of some
-priorities. Everything comes to an end. My parents for letting/allowing
-me to get this fare.
+rather unconventional topic. A great thanks to my Supervisor for having
+all these constructive discussions and for not getting tiered of making
+me rethink my thoughts.\\[2\baselineskip]I challenged myself to write
+this thesis not in my native language. What at first might sound insane
+turned out to be a huge learning, but I would have never be able to come
+this fare just on my own. Thanks to Jag, a college of mine, who lent me
+his mother tongue from time to time. Without him I would have not be
+able to reach this level of
+improvement/proficiency.\\[2\baselineskip]Further more, I want to
+acknowledge all the amazing work that's been done to make the internet
+such an extraordinary common good. Thanks to everyone for contributing
+and sharing their knowledge and expertise to the rest of the
+world.\\[2\baselineskip]Thanks to Bruno and Eugen, great minds, to which
+I am honored to call them friends, who have helped to review this work,
+making me change perspectives and rightfully forcing me to question my
+approaches.\\
+And thanks to another great wizard who helped me fighting a widely known
+markup language to layout this document.\\
+My other/better half (significant other) for having my back through the
+whole time, withstanding the temporary downgrade of some priorities.
+Everything comes to an end.\\
+Finally I would like to thank my parents for allowing me to get this
+fare.
 \newpage
 % moved from cover 20170204 <--
 
@@ -381,11 +384,15 @@ me to get this fare.
 % added 20170205 <--
 \newpage
 
+\vspace*{\fill}
+
 \begin{center}
 \thispagestyle{empty}
 \setcounter{page}{0}
-This page intentionally left blank
-\end{center}\newpage
+*\emph{This page intentionally left blank}*
+\end{center}
+
+\vspace*{\fill} \newpage
 
 \chapter{Introduction}\label{introduction}
 
@@ -469,13 +476,13 @@ computer technologies. How those tools are utilized and what purposed
 they serve is within the decision of their developers. However, what
 data items are used and how they get processed should be determined by
 the data creators. Thereby allowing them an influence on the results of
-these processes and thus on decisions made upon them which impact their
+these processes and thus on decisions made upon them that impact their
 lives.
 
 To address the described issue, the initial idea here is to (1) equip
-individuals with the ability to control and maintain their entire data
-distribution, in order to (2) reduce the amount of \emph{potentially
-discriminatory}
+individuals with the ability to control and maintain their entire
+personal data distribution, in order to (2) reduce the amount of
+\emph{potentially discriminatory}
 {[}\protect\hyperlink{ref-paper_2008_discrimination-aware-data-mining}{2}{]}
 attributes that could leak into arbitrary computations. For that, people
 need a reliable and trustworthy tool, which helps them to manage all
@@ -530,7 +537,7 @@ during the development and specification process. It is encouraged and
 might even help to spot flaws or perhaps trigger improvements of the
 specification.
 
-To create confidence in this project and in the software built upon it,
+To create confidence in this project and the software built upon it,
 it's vital to make all development processes fully transparent and
 encourage people to get involved. For this reason all related software
 and documents {[}\protect\hyperlink{ref-repo_2016_pdaas-spec}{13}{]} are
@@ -547,17 +554,16 @@ might affect her privacy.
 
 \begin{description}
 \item[Web Service:]
-A service, that is accessible by electronic devices over the internet.
-This makes it almost effortless to use a service which would otherwise
-be out of reach or unavailable. Interactions with a service usually
-happen through enriched websites or other web-compatible applications
-and interfaces.
+A service, accessible by electronic devices over the internet, which
+would otherwise be out of reach or unavailable (from the current
+location). Interactions with a service usually happen through enriched
+websites or other web-compatible applications and interfaces.
 \item[Open Specification:]
 A specification is a formal and very detailed way of describing a
 technology, its internals, and behaviour from external perspectives. It
 provides guidance for possible implementations to ensure a minimum
 viable level of interoperability. Structured in a formalized document
-and widely adopted it might become a \emph{technical standard}.
+and widely adopted, it might become a \emph{technical standard}.
 \emph{Open} in this case means that its accessible for everyone without
 restrictions. When it comes to the intellectual value itself, that might
 be handled differently, for example with an enclosed license.
@@ -588,7 +594,7 @@ host) her personal data; sometimes referred to as data controller or
 data owner.
 \item[\protect\hypertarget{terminologies--consumer}{}{(Data) Consumer}:]
 Third party who requests permission or is already allowed to access
-parts the \emph{operator's} personal data through her \emph{PDaaS};
+parts of the \emph{operator's} personal data through her \emph{PDaaS};
 sometimes referred to as (data) collector or vendor.
 \item[\protect\hypertarget{terminologies--data-broker}{}{Data Broker}:]
 Third party with commercial interests in collecting, aggregating and
@@ -601,7 +607,7 @@ A formalized attempt made by a third party to request permissions in
 order to access certain data items on the \emph{PDaaS}. The request has
 to include all the data items to which access is being demanded, as well
 as sufficient information about its underlying purpose. It requires the
-third party to already being registered as \emph{data consumer}.
+third party to already be registered as \emph{data consumer}.
 \item[Permission Profile:]
 A set of access rules and configuration tied to a \emph{data consumer}.
 It determines what data is accessible by the related \emph{data
@@ -609,14 +615,14 @@ consumer} and for how long. The profile is the result of a reviewed and
 granted \emph{permission request}.
 \item[Access Request:]
 An attempt to actually access data provided by a \emph{PDaaS}. The
-request primarily consists of a query, that defines what data items are
+request primarily consists of a query that defines what data items are
 tried to be accessed. The access is only permitted if the query matches
 against the \emph{permission profiles}.
 \item[Endpoint:]
 An endpoint is defined as part of a URI that is uniquely associated with
-a single \emph{data consumer}. In this case it's the part of a URI
+a single \emph{data consumer}. In this case, it's the part of a URI
 referring to the host (domain incl. subdomains), whereas subsequent
-parts indicating different resources that might be available within that
+parts indicate different resources that might be available within that
 endpoint. It can also be viewed as group of resources whose access is
 restricted.
 \end{description}
@@ -771,12 +777,12 @@ information about how reliable the data is. However, the actual
 computations and analytics to obtain the score happen within the
 infrastructure of the credit institute. When this process has finished,
 all the personal data that have been transferred must be erased. An
-alternative, though, could prevent the data from leaving the
-\emph{PDaaS}. Therefore, the institute's request won't contain a data
-query. Instead it comes along with some software and information on how
-to run it. The \emph{PDaaS} server will provide an isolated runtime in
-which the software can be executed. After that process is finished, the
-result is sent back to the credit institute's infrastructure.
+alternative, though, that would prevent the data from leaving the
+\emph{PDaaS}, could be if the institute's request won't contain a data
+query, but instead coming along with some software and information on
+how to run it. The \emph{PDaaS} server will provide an isolated runtime
+in which the software can be executed. After that process is finished,
+the result is sent back to the credit institute's infrastructure.
 
 \subsubsection*{Maintain and provide its own medical
 record}\label{maintain-and-provide-its-own-medical-record}
@@ -1483,7 +1489,6 @@ scenarios, for example:
 \item
   Making more accurate diagnostics to improve a patient's therapy
   {[}\protect\hyperlink{ref-the-practice-of-predictive-analytics-in-healthcare_2013}{60}{]}
-  (
 \end{enumerate}
 
 \begin{enumerate}
@@ -1741,22 +1746,21 @@ commercial products regarding the topic of \emph{personal data}:
 \begin{itemize}
 \tightlist
 \item
-  Higgins {[}https://www.eclipse.org/higgins/{]}
+  \href{https://www.eclipse.org/higgins}{Higgins}
 \item
-  Hub-of-All-Things {[}http://hubofallthings.com/what-is-the-hat/{]}
+  \href{http://hubofallthings.com/what-is-the-hat}{Hub-of-All-Things}
 \item
-  ownyourinfo {[}http://www.ownyourinfo.com{]}
+  \href{http://www.ownyourinfo.com}{ownyourinfo}
 \item
-  PAGORA {[}http://www.paoga.com{]}
+  \href{http://www.paoga.com}{PAGORA}
 \item
-  PRIME/PrimeLife {[}https://www.prime-project.eu, http://primelife.
-  ercim.eu/{]}
+  \href{https://www.prime-project.eu}{PRIME}/\href{http://primelife.ercim.eu}{PrimeLife}
 \item
   databox.me (reference implementation of the
   \emph{\href{https://github.com/solid/solid}{Solid framework}})
 \item
-  Polis (greek research project from 2008)
-  {[}http://polis.ee.duth.gr/Polis{]}
+  \href{http://polis.ee.duth.gr/Polis}{Polis} (greek research project
+  from 2008)
 \end{itemize}
 
 \textbf{Organisations}
@@ -1764,10 +1768,10 @@ commercial products regarding the topic of \emph{personal data}:
 \begin{itemize}
 \tightlist
 \item
-  Open Identity Exchange {[}http://openidentityexchange.org/resources
-  /white-papers/{]}
+  \href{http://openidentityexchange.org/resources/white-papers}{Open
+  Identity Exchange}
 \item
-  Qiy Foundation {[}https://www.qiyfoundation.org/{]}
+  \href{https://www.qiyfoundation.org/}{Qiy Foundation}
 \end{itemize}
 
 \textbf{Commercial Products}
@@ -1775,36 +1779,39 @@ commercial products regarding the topic of \emph{personal data}:
 \begin{itemize}
 \tightlist
 \item
-  MyData {[}https://mydatafi.wordpress.com/{]}
+  \href{https://mydatafi.wordpress.com}{MyData}
 \item
-  RESPECT network {[}https://www.respectnetwork.com/{]}
+  \href{https://www.respectnetwork.com}{RESPECT network}
 \item
-  aWise AEGIS {[}http://www.ewise.com/aegis{]}
+  \href{http://www.ewise.com/aegis}{aWise AEGIS}
 \end{itemize}
 
 \hypertarget{standards-specifications-and-related-technologies}{\section{Standards,
 Specifications and related
 Technologies}\label{standards-specifications-and-related-technologies}}
 
-The overall goal for this project is to involve as many standards as
-possible in order to increase the chances of interoperability and lower
-the required effort to integrate with third parties or other APIs. The
-following section describes potentially used technologies and outlines
-the purposes they might serve and why.
+This project strives to involve well known and commonly used standards,
+instead of reinventing technologies that are already exist, to
+acknowledge the work that's been done, and to increase the chances of
+interoperability and to lower the required effort to integrate with
+third parties or other APIs. The following section describes briefly
+potentially used technologies and outlines the purposes they might serve
+and why.
 
-When transferring data over a potential non-private channel, several
-features might be desired in order to provide trust in those data. One
-important aspect might be that no one else except sender and receiver
-are able to know and see what the actual data are. \textbf{Symmetrical
-Cryptography} is used to achieve this. It states that the sender
-encrypts the data with the help of a key and the receiver decrypts the
-data with that same key. That is, sender and receiver, both need to know
-that particular key, and everyone who is not allowed to access that
-information must not be in possession of that key. To agree on a key
-without compromising the key during that process, both entities either
-need to switch to a private medium (e.g meet physically and exchange) or
-have to use a procedure in which the entire key is not exposed to others
-at any single point in time. This procedure is called
+As it is assumed that data is transferred over a non-private channel,
+several features might be desired in order to provide a trustworthy and
+secure communication. One important aspect might be that no one else
+except sender and receiver are able to know and see what the actual data
+are. Utilizing cryptographic technologies can provide such properties.
+\textbf{Symmetrical Cryptography}, as one of those, provides a possible
+solution. It states that sender and receiver arrange a common secret,
+which is used to encrypt as well as to decrypt the data. Anyone who is
+not allowed to access that information must not be in possession of the
+secret. To agree on a secret without compromising it during that
+process, both entities either need to switch to a private medium (e.g
+meet physically and exchange) or have to use a procedure in which the
+entire key is not exposed to others at any single point in time. Such a
+procedure could be, among others, the
 \textbf{Diffie-Hellman-Key-Exchange}
 {[}\protect\hyperlink{ref-paper_1976_d-h-key-exchange}{82}{]} and is
 based on the mathematical discrete logarithm problem. It allows to
@@ -1817,79 +1824,99 @@ Cryptography}} \emph{(or public-key cryptography)}
 {[}\protect\hyperlink{ref-book_2014_chapter-9-1-public-key-crypto}{83}{]},
 which is underpinned by a \emph{key-pair} for every communication
 participant; one key is \emph{public} and the other one must be kept
-strictly \emph{private}. One of the keys is used to \emph{encrypt} the
-data, and only the other key of the pair can be used for
-\emph{decrypting} the cipher. The scenario defines the role of each key
-and when to use them. If this technique is combined with the concept of
-digital signatures (encrypted fingerprints from data), the result
-provides integrity and authentication.
+strictly \emph{private}. The \emph{public} key is used to \emph{encrypt}
+the data, and only the \emph{private} key can be used for
+\emph{decrypting} the cipher. With \textbf{RSA}
+{[}\protect\hyperlink{ref-web_spec_rsa}{84}{]}, one of the
+\emph{cryptographic systems} used in asymmetrical cryptography, it's
+even possible to switch the roles of the keys, meaning regardless of
+which key is used to encrypt the data, only the corresponding part is
+able to decrypt the cipher. If this technique is combined with the
+concept of digital signatures (encrypted fingerprints from data), the
+result is a so called certificate, that provides integrity and
+authentication. It is the \emph{public key} attached with owner
+information and a digital signature of that key.
 
-\textbf{\protect\hypertarget{def--http}{}{HTTP}}
-{[}\protect\hyperlink{ref-web_spec_http1}{84}{]}, commonly known as part
-of the \emph{Application Layer} in the OSI-Model
-{[}\protect\hyperlink{ref-web_2017_wikipedia_osi-model}{85}{]}, is one
+\emph{Hypertext Transfer Protocol
+(\textbf{\protect\hypertarget{def--http}{}{HTTP}})}
+{[}\protect\hyperlink{ref-web_spec_http1}{85}{]}, commonly known as part
+of the \emph{Application Layer} in the \emph{Open Systems
+Interconnection model (OSI model)}
+{[}\protect\hyperlink{ref-web_2017_wikipedia_osi-model}{86}{]}, is one
 of key technologies the \emph{World Wide Web} is based on. This
 stateless protocol is mainly used to transfer any media type reliably
 between internet endpoints. It most likely will fulfill the same purpose
 in the context of this work, because it implements a server-client
-pattern in its very core. Whether internal components, locally on the
+pattern in its very core. This results in a communication scenario with
+a one-to-one relationship. Whether internal components, locally on the
 same host or as part of a distributed system, talk to each other or data
 consumers interact with the system, this protocol transfers the data
 that needs to be exchanged. The relevance and use cases of features
 introduced with Version 2
-{[}\protect\hyperlink{ref-web_spec_http2}{86}{]} of the protocol are not
+{[}\protect\hyperlink{ref-web_spec_http2}{87}{]} of the protocol are not
 yet explored.
 
 Putting \emph{HTTP} on top of the \textbf{Transport Layer Security
-(TLS)} protocol {[}\protect\hyperlink{ref-web_spec_tls}{87}{]} results
-in \emph{\protect\hypertarget{def--https}{}{HTTPS}}. TLS provides
+(TLS)} protocol {[}\protect\hyperlink{ref-web_spec_tls}{88}{]} results
+in secure \emph{HTTP}, also know as
+\emph{\protect\hypertarget{def--https}{}{HTTPS}}. TLS provides
 encryption during data transport, which reduces the vulnerability to
 \emph{man-in-the-middle} attacks and thus ensures not only
 confidentiality, but data integrity too. \emph{Asymmetric cryptography}
-is the foundation for the connection establishment, hence \emph{TLS}
-also allows to verify the relation between the identity of the
-communicating party and the presented certificate. Depending on the
-integration, it could even be used to authenticate that party. Though
-relying on those cryptographic concepts requires additional
-infrastructure. Such an infrastructure is known as \emph{Public Key
-Infrastructure (PKI)}
-{[}\protect\hyperlink{ref-book_2014_chapter-14-5-pki}{88}{]}. It manages
+is the foundation for the connection establishment in \emph{TLS}, hence
+it also allows to verify the relation between the identity of the
+communicating party and the presented certificate. This procedure can be
+performed by both parties. Depending on the integration, it could even
+be used to authenticate that party. Though relying on those
+cryptographic concepts requires additional infrastructure. Such an
+infrastructure is known as \emph{Public Key Infrastructure (PKI)}
+{[}\protect\hyperlink{ref-book_2014_chapter-14-5-pki}{89}{]}. It manages
 and provides keys and certificates for a dedicated scope of entities in
 a directory, including information related to their owners. \emph{PKI}s
-are based on a hierarchical chain of trust, where a \emph{Certificate
-Authority (CA)}, as part of that infrastructure, issues, maintains and
-revokes digital certificates. The infrastructure that is needed to
-provide secure HTTP connections for the internet is one of those
-\emph{PKI}s - a public one and probably one of the largest. It is based
-on the widely used IETF\footnote{Internet Engineering Task Force;
-  non-profit organisation that develops and releases standards mainly
-  related to the Internet protocol suite} standard \emph{X.509}
-{[}\protect\hyperlink{ref-web_spec_x509}{89}{]}.
+are commonly utilize a hierarchical chain of trust, although cross
+signing is possible as well. A \emph{Certificate Authority (CA)}, as
+part of that infrastructure, issues, maintains and revokes digital
+certificates. The infrastructure that is needed to provide secure HTTP
+connections for the internet is one of those \emph{PKI}s - a public one
+and probably one of the largest. It is based on the widely used
+IETF\footnote{Internet Engineering Task Force; non-profit organisation
+  that develops and releases standards mainly related to the Internet
+  protocol suite} standard \emph{X.509}
+{[}\protect\hyperlink{ref-web_spec_x509}{90}{]}.
 
 Unlike \emph{HTTP}, \textbf{WebSockets}
-{[}\protect\hyperlink{ref-web_spec_websockets}{90}{]} provide the
-concept of ongoing bidirectional connections on top of TCP, though
-connection establishment utilizes the same principles known for HTTP(S).
-This combination still allows TLS while benefiting from high efficiency
-real-time data exchange or from supporting remotely pending process
-responses, while at the same time avoiding HTTP's long-polling
-abilities. It is conceivable to use \emph{WebSockets} for communicate
-between components or even with external parties.
+{[}\protect\hyperlink{ref-web_spec_websockets}{91}{]} provide the
+concept of ongoing bidirectional connections on top of a TCP\footnote{\emph{Transmission
+  Control Protocol}, provides a reliable host-to-host connection; part
+  of the Internet Protocol Suite (see RFC 761)} connection, though
+connection establishment is happening via HTTP(S). The result is a
+connection \emph{upgrade}, which enables both protocols running side by
+side on the same server port. This makes it also possible to use TLS for
+encrypting connections. So, instead of mimic real-time data exchange and
+pending remote procedure call responses with long-polling over HTTP, the
+secure WebSocket protocol (\emph{wss}) provides such patterns. It is
+conceivable to use \emph{WebSockets} as transport technology to
+communicate between the system's components of even with external
+parties.
 
 While the transport of email-based communication is also underpinned by
 \emph{TLS}, the emails themselves still exist in plain text at all time.
-Utilizing end-to-end encryption for communication is another example of
-applying \emph{public-key cryptography}. A \emph{public key server} that
-follows, unlike a \emph{PKI}, a more decentralized and liberal approach
-called \textbf{web of trust}. In which all entities (user; senders and
-recipients) are signing each other's public keys. The more users have
-signed a public key, the higher the level of trust is on that key and
-therefore on the entity who the signed key-pair belongs to. Public keys
-are simply uploaded by its owners to those key servers mentioned before.
-If someone want to write an email to others, all public keys relating
-the recipients must be obtained from these public server, so that the
-email can then be encrypted with those keys and are therefore only
-readable by the owner of the keys's private part.
+Utilizing end-to-end encryption for such communication is another
+example of applying \emph{public-key cryptography}. Here, a more
+decentralized and liberal approach of a \emph{PKI} is enforced. Instead
+of a \emph{trust chain} structure, public keys are typically signed or
+cross-signed with no hierarchical order, such as known form the
+\emph{PKIX (or PKI based on X.509)}. This approach, known as \textbf{web
+of trust}, consists of multiple \emph{public key servers}, in which all
+entities (user; senders and recipients) are signing each other's public
+keys. The more users have signed a public key, the higher the level of
+trust is that the encrypted content can only be read by whom the signed
+key-pair belongs to. Public keys are simply uploaded by its owners to
+those key servers mentioned before. If someone wants to write an email
+to others, for every recipient the relating public key can be obtained
+from these public servers, so that the email is then encrypted with
+those keys - for every recipient individually. Therefore the email is
+only readable by the owner of the key's private part.
 
 In the past years different countries around the world started to
 introduce information technology to the day-to-day processes,
@@ -1897,19 +1924,19 @@ interactions and communications between public services and their
 citizens. Processes like changing residence information or filing tax
 reports, are all summarized since then under the name
 \emph{E-government}.\footnote{Electronic government} One of those
-developments is the so called \textbf{Electronic ID
-Card}\{\#def--eid-card\}, hereinafter called \emph{eID card}. Equipped
-with storage, logic and interfaces for wireless communication, those
-\emph{eID cards} can be used to store certain information and digital
-keys, or to authenticate the owner electronically to a third party
-without being physically present. Such an \emph{eID card} was introduced
-also in Germany in 2010. The so called \emph{nPA}\footnote{in german so
-  called \emph{elektronische Personalausweis (nPA)}} has been an
-important step towards an operational \emph{e-government}. Aside from
-minor flaws
-{[}\protect\hyperlink{ref-web_2013_npa-sicherheitsdefizit}{91}{]} and
+developments is the so called
+\textbf{\protect\hypertarget{def--eid-card}{}{Electronic ID Card}},
+hereinafter called \emph{eID card}. Equipped with storage, logic and
+interfaces for wireless communication, those \emph{eID cards} can be
+used to store certain information and digital keys, or to authenticate
+the owner electronically to a third party without being physically
+present. Such an \emph{eID card} was introduced also in Germany in 2010.
+The so called \emph{nPA}\footnote{in german so called
+  \emph{elektronische Personalausweis (nPA)}} has been an important step
+towards an operational \emph{e-government}. Aside from minor flaws
+{[}\protect\hyperlink{ref-web_2013_npa-sicherheitsdefizit}{92}{]} and
 disadvantages
-{[}\protect\hyperlink{ref-web_2014_test-qes-support-in-npa}{92}{]} an
+{[}\protect\hyperlink{ref-web_2014_test-qes-support-in-npa}{93}{]} an
 \emph{eID card} might come along with, the question here is, how can
 such technology be usefully integrated in this project and is it
 plausible to do so. As an official document, the card has one major
@@ -1918,127 +1945,140 @@ passwords, fingerprints or TANs.\footnote{Transaction authentication
   number} It is \emph{signed} by design, which means, by creating this
 document and handing it over to the related citizen, the third party (or
 \emph{`authority'}) - in this case the government - has verified the
-authenticity of that individual.
+authenticity of that individual. Although, this procedure does not
+guarantee that the third party has no copy of the private key, that is
+stored on the \emph{eID card}.
 
 Another technology emerging as part of the \emph{e-government}
 development, is the german
 \textbf{\protect\hypertarget{def--de-mail}{}{De-Mail}}
-{[}\protect\hyperlink{ref-web_2017_about-de-mail}{93}{]}. It's an email
+{[}\protect\hyperlink{ref-web_2017_about-de-mail}{94}{]}. It's an email
 service that is meant to provide digital infrastructure and mechanisms
-to exchange legally binding electronic documents. When registering for
-an De-Mail account the provider is compelled to verify the identity of
-the applicant (e.g.~government-issued identification document) in order
-to ensure sender and receiver's authenticity, whereas for sending a
-De-Mail only the account credentials (identifier, password) are
-required. A successful authentication is considered sufficient to proof
+to exchange legally binding electronic documents. When registering for a
+De-Mail account, the provider is compelled to verify the identity of the
+applicant (e.g.~government-issued identification document) in order to
+ensure sender and receiver's authenticity, whereas for sending a
+De-Mail, only the account credentials (identifier, password) are
+required. A successful authentication is considered sufficient to prove
 the user's identity. The De-Mail itself is not encrypted at any time,
-only the transport layer, on top of which the document is transferred,
-is based on TLS and thereby encrypted. Arrived on the providers De-Mail
-Server, the only provider signs the De-Mail and then sends it to the
-server of receiver's provider. That is, only De-Mail providers are able
-to sign their users De-Mails. It is optional and up to every user to
-utilize \emph{end-to-end} for complete confidentiality, or
+only the transport layer, on which the document is transferred, is based
+on TLS and thereby encrypted. Upon arrival at the providers De-Mail
+Server, only the provider signs the De-Mail and then sends it to the
+server of the receiver's provider. That is, only De-Mail providers are
+able to sign their users De-Mails. It is optional and up to every user
+to utilize \emph{end-to-end} for complete confidentiality, or
 \emph{Qualified Electronic Signatures (QES)}
-{[}\protect\hyperlink{ref-web_2017_wikipedia_qes}{94}{]}, which is a
+{[}\protect\hyperlink{ref-web_2017_wikipedia_qes}{95}{]}, which is a
 capability of the \emph{nPA} and can be used to verify the author's
 identity.
 
 \textbf{JSON}\footnote{The JavaScript Object Notation (JSON) Data
   Interchange Format; ECMA Standard\\
-  {[}\protect\hyperlink{ref-web_spec_json}{95}{]} and Internet
+  {[}\protect\hyperlink{ref-web_spec_json}{96}{]} and Internet
   Engineering Task Force RFC 7159
-  {[}\protect\hyperlink{ref-web_rfc_json}{96}{]}} is an alternative to
-the data serialization format XML, whose syntax is inspired by the
-JavaScript object-literal notation. It's heavily used in web contexts to
-transfer data via \emph{HTTP}. Like XML, its structuring mechanisms
-allow i.a. type preservation and nesting, which enable the
-representation of more complex data structures, including relations.
+  {[}\protect\hyperlink{ref-web_rfc_json}{97}{]}} is an alternative to
+the \emph{Extensible Markup Language (XML)}, which in this context it is
+only referred to as another data serialization format. Unlike XML, JSON
+is more readable. The JSON-syntax is inspired by the JavaScript
+object-literal notation. It's heavily used in web contexts to transfer
+data via \emph{HTTP}. Like XML, its structuring mechanisms allow i.a.
+type preservation and nesting, which enable the representation of more
+complex data structures, including relations.
 
 If, due to being part of a distributed software, some components are
-required to not maintain any state, either the architecture needs to be
-changed so that the state is no longer needed in that component, or the
-state needs to be embedded into the process communication so that it's
-passed from one component to the other. This is a common use case for a
-\textbf{\protect\hypertarget{def--jwt}{}{JSON Web Token (JWT)}}
-{[}\protect\hyperlink{ref-web_spec_json-web-token}{97}{]}. A \emph{JWT}
+required to not maintain any state, either that software architecture
+needs to be changed so that the state is no longer needed in that
+component, or the state needs to be embedded into the process
+communication so that it's passed from one component to the other. This
+is a common use case for a \textbf{\protect\hypertarget{def--jwt}{}{JSON
+Web Token (JWT)}}
+{[}\protect\hyperlink{ref-web_spec_json-web-token}{98}{]}. A \emph{JWT}
 is formatted as \emph{JSON}, but URL-safe encoded with \emph{base64url}
-{[}\protect\hyperlink{ref-web_spec_base64url}{98}{]}, a version of the
+{[}\protect\hyperlink{ref-web_spec_base64url}{99}{]}, a version of the
 widely used \emph{Base64} encoding, before it gets transferred. The
 token itself contains the state. Here is where the use of \emph{HTTP}
-comes in handy because the token can be stored within the HTTP header
-and therefore can be passed through all communication points, where the
-data can then be extracted and verified. Such a token typically consists
-of three parts: (A) information about itself, (B) a payload, which can
-be arbitrary data such as user or state information, and (C) a
-signature, which effectively is a \emph{hash-based message
-authentication code (HMAC)}
-{[}\protect\hyperlink{ref-web_spec_hmac}{99}{]} preserving the integrity
-od header and payload. All thrie parts are separated with a period.
-Additional standards define encryption \emph{(JWE\footnote{JSON Web
-  Encryption, Internet Engineering Task Force RFC 7516
-  {[}\protect\hyperlink{ref-web_spec_json-web-encryption}{100}{]}})} to
+comes in handy because the token can be stored within the HTTP header,
+which consists of addition meta information about the HTTP connection
+and data that is exchanged between client and server. Therefore the
+token can be passed through all communication points, where the data can
+then be extracted and verified. Such a token typically consists of three
+parts: (A) information about itself \emph{(header)}, (B) a
+\emph{payload}, which can be arbitrary data such as user or state
+information, and (C) the so called \emph{signature}, which effectively
+is a \emph{hash-based message authentication code (HMAC)}
+{[}\protect\hyperlink{ref-web_spec_hmac}{100}{]} preserving the
+integrity of header and payload. All three parts are separated with a
+period. Additional standards define encryption \emph{(JWE\footnote{JSON
+  Web Encryption, Internet Engineering Task Force RFC 7516
+  {[}\protect\hyperlink{ref-web_spec_json-web-encryption}{101}{]}})} to
 ensure confidentiality, and digital signatures \emph{(JWS\footnote{JSON
   Web Signature, Internet Engineering Task Force RFC 7515
-  {[}\protect\hyperlink{ref-web_spec_json-web-signature}{101}{]}})} to
-prevent others then the signer from validating the signature. Using a
-\emph{JWT} for authentication purposes is described as \emph{stateless
-authentication}, because the verifying entity doesn't need to be aware
-of session IDs nor any other information about a session. So, instead of
-the backend interface being burdened to check a state on every incoming
-request in order to verify permissions, which required to maintain a
-state in the first place, it just needs to decrypt the token and proceed
-according to the contained information.
+  {[}\protect\hyperlink{ref-web_spec_json-web-signature}{102}{]}})},
+which enables others than the signer to validate the \emph{signature}.
+Using a \emph{JWT} for authentication purposes is described as
+\emph{stateless authentication}, because the verifying entity doesn't
+need to be aware of session IDs nor any other information about a
+session. So, instead of the backend interface being burdened to check a
+state on every incoming request in order to verify permissions, which
+required to maintain a state in the first place, it just needs to
+decrypt the token and proceed according to the contained information.
 
-The open standard \textbf{\protect\hypertarget{def--oauth}{}{OAuth}}
-defines a process flow for authorizing third parties to access
-externally hosted resources, such as the user's profile image on a
-social media platform. The authorization validation is done by the help
-of a previously generated token. However, generating and supplying such
-tokens can be initiated in a variety of ways depending on the underlying
-architecture and design, for example, with the user entering her
-credentials (\texttt{grant\_type=authorization\_code}). This design
-seems to misleadingly encourage developers to integrate \emph{OAuth} as
-an authentication service
-{[}\protect\hyperlink{ref-web_2012_problem-with-oauth-for-authentication}{102}{]}
+Furthermore, the open standard
+\textbf{\protect\hypertarget{def--oauth}{}{OAuth}} defines a process
+flow for authorizing third parties to access externally hosted
+resources, such as the user's profile image on a social media platform.
+The authorization validation is done by the help of a previously
+generated token. However, generating and supplying such tokens can be
+initiated in a variety of ways depending on the underlying architecture
+and design, for example, with the user entering her credentials. This
+design seems to misleadingly encourage developers to integrate
+\emph{OAuth} as an authentication service
+{[}\protect\hyperlink{ref-web_2012_problem-with-oauth-for-authentication}{103}{]}
 rather then an authorization service, whether as an alternative or as an
 addition to existing in-house solutions. In doing so, the application
 authors pass the responsibility on to the OAuth-supporting data
 providers. OAuth \emph{version 1.0a}
-{[}\protect\hyperlink{ref-web_spec_oauth-1a}{103}{]}, which is rather
+{[}\protect\hyperlink{ref-web_spec_oauth-1a}{104}{]}, which is rather
 considered a protocol, provides confidentiality by encrypting data
 before it gets transferred, and integrity of transferred data by using
 signatures. Whereas \emph{Version 2.0}
-{[}\protect\hyperlink{ref-web_spec_oauth-2}{104}{]}, labeled as a
-framework, requires \emph{TLS} and thus passes on the responsibility for
-confidentiality to the transport layer below. It also supports
-additional process flows for scenarios involving specific platforms such
-as \emph{``web applications, desktop applications, mobile phones, and
-living room devices''} {[}\protect\hyperlink{ref-web_2016_oauth-2}{105},
-Para. 1{]}.
+{[}\protect\hyperlink{ref-web_spec_oauth-2}{105}{]}, labeled as a
+framework, requires a \emph{TLS} encrypted communication channel and
+thus passes on the responsibility for confidentiality to the transport
+layer below. It also supports additional process flows for scenarios
+involving specific platforms such as \emph{``web applications, desktop
+applications, mobile phones, and living room devices''}
+{[}\protect\hyperlink{ref-web_2016_oauth-2}{106}, Para. 1{]}.
 
 \textbf{OpenID} on the other hand, as another open standard, is
 explicitly designed to validate the authenticity of a requesting user.
 An in-depth description of the whole process can be found in the
 protocol's same-titled specifications
-{[}\protect\hyperlink{ref-web_spec_openid-spec-index}{106}{]}. With
+{[}\protect\hyperlink{ref-web_spec_openid-spec-index}{107}{]}. With
 decentralization in mind, the protocols's nature encourages to design a
 distributed application architecture, similar to the idea behind a
-\emph{microservice}, but without owning all services involved -
-\emph{decentralized authentication as a service} so to say. An
-application owner doesn't have to write or implement its own user
-authentication and management system, instead it is sufficient to merely
-integrate those parts that are needed to support signing in with
-\emph{OpenID}, which is typically a client interacting with the Identity
-Provider. Equally the user is not required to register an account for
-every new app, instead she can use her \emph{OpenID}, already created
-with another identity provider, to authenticate with the application.
-The extension \emph{OpenID Attribute Exchange} allows the importing of
-additional profile data, similar to what OAuth is meant to be used for.
-\emph{OpenID Connect}
-{[}\protect\hyperlink{ref-web_spec_openid-connect-1}{107}{]} is the
-third iteration of the OpenID technology. While facebook, for example,
-uses OAuth also for authentication (known as pseudo-authentication
-{[}\protect\hyperlink{ref-web_2017_wikipedia_openid-vs-pseudo-oauth}{108}{]})
+\emph{microservice},\footnote{a pattern to split a monolithic
+  application into smaller, independent, parts that are easier to
+  maintain but still communicating with each other} but without owning
+all services involved - \emph{decentralized authentication as a service}
+so to say. An application owner doesn't have to write or implement its
+own user authentication and management system, instead it is sufficient
+to merely integrate those parts that are needed to support signing in
+with \emph{OpenID}, which is typically a client interacting with the
+Identity Provider. Equally the user is not required to register an
+account for every new app, instead she can use her \emph{OpenID},
+already created with an Identity Provider, to authenticate with the
+application. The extension \emph{OpenID Attribute Exchange} allows the
+importing of additional profile data, similar to what OAuth is meant to
+be used for. \emph{OpenID Connect}
+{[}\protect\hyperlink{ref-web_spec_openid-connect-1}{108}{]} is the
+third iteration of the OpenID technology. While \emph{facebook login}
+{[}\protect\hyperlink{ref-web_docs_facebook-login}{109}{]} (formerly
+\emph{facebook connect}
+{[}\protect\hyperlink{ref-web_2017_wikipedia_facebook-connect}{110}{]}),
+for example, uses OAuth also for authentication (known as
+pseudo-authentication
+{[}\protect\hyperlink{ref-web_2017_wikipedia_openid-vs-pseudo-oauth}{111}{]})
 instead of just authorising entities, \emph{OpenID connect} on the other
 hand, provides authentication in an additional layer built upon
 \emph{OAuth2.0} and \emph{JWT}. Previous versions of OpenID have
@@ -2050,13 +2090,13 @@ with third parties via \emph{REST} interface.
 The concept, known as \emph{Representational State Transfer}, or
 \textbf{REST},\footnote{\emph{Representational State Transfer},
   introduces by Roy Fielding in his doctoral dissertation
-  {[}\protect\hyperlink{ref-web_spec_rest}{109}{]}} refers to a common
+  {[}\protect\hyperlink{ref-web_spec_rest}{112}{]}} refers to a common
 set of principles on how to design web resources and their interaction.
 It primarily defines server-client communication in a more generic and
 therefore interoperable way. Aside from hierarchically structured URLs,
 which can reflect semantic relations or hierarchical order between data
 items, it involves a rudimentary vocabulary\footnote{HTTP Methods or
-  Verbs {[}\protect\hyperlink{ref-web_spec_http-methods}{110}{]}
+  Verbs {[}\protect\hyperlink{ref-web_spec_http-methods}{113}{]}
   (e.g.~GET, OPTIONS, PUT, DELETE)} for HTTP requests to provide basic
 CRUD-operations\footnote{Create, Read, Update, Delete} across
 distributed systems. The entire request needs to contain everything that
@@ -2076,11 +2116,11 @@ abstraction. A container bundles just those software dependencies
 program is able to run properly. The actual separation from the host
 system is done, aside from other technologies, with the help of two
 features provided by the Linux kernel. \emph{Cgroups},\footnote{control
-  groups {[}\protect\hyperlink{ref-web_2015_cgroup-doc}{111}{]}} which
+  groups {[}\protect\hyperlink{ref-web_2015_cgroup-doc}{114}{]}} which
 defines or restricts how much of the existing resources can be used by a
 group of processes (e.g.~CPU, memory or network). Whereas
 \emph{namespaces}
-{[}\protect\hyperlink{ref-web_2016_kernel-namespace}{112}{]} defines or
+{[}\protect\hyperlink{ref-web_2016_kernel-namespace}{115}{]} defines or
 restricts what parts of the system can be accessed or seen by a process
 (e.g.~filesystem, user, other processes). The idea of encapsulating
 programs from the operating system-level is not new. Technologies, such
@@ -2096,15 +2136,15 @@ to handle systems built upon virtualization, whereas people with other
 backgrounds couldn't and weren't very interested, at least until
 \emph{\href{https://www.docker.com}{Docker}} and
 \emph{\href{https://coreos.com/rkt}{rkt}} emerged. After some years of
-separated work, both authors, and others, recently joined forces in the
-\emph{Open Container Initiative}
-{[}\protect\hyperlink{ref-web_2016_open-container-initiative}{113}{]},
+separated work, both authors, accompanied by additional parties,
+recently joined forces in the \emph{Open Container Initiative}
+{[}\protect\hyperlink{ref-web_2016_open-container-initiative}{116}{]},
 which promises to harmonize the diverged landscape and start building
 common ground to ensure a higher interoperability. That, in turn,
 started to raise the demand for sophisticated orchestration. It also
 marks the initial draft of specifications for runtime
-{[}\protect\hyperlink{ref-web_oci-spec_runtime}{114}{]} and image
-{[}\protect\hyperlink{ref-web_oci-spec_image}{115}{]} definition for
+{[}\protect\hyperlink{ref-web_oci-spec_runtime}{117}{]} and image
+{[}\protect\hyperlink{ref-web_oci-spec_image}{118}{]} definition for
 \emph{application container}, which are still under heavy development.
 This concept of \emph{containerization} also has the side-effect of
 making the application platform-agnostic, because it allows a certain
@@ -2114,11 +2154,11 @@ supported.
 
 The \emph{query language (QL)}
 \textbf{\protect\hypertarget{def--graphql}{}{GraphQL}}
-{[}\protect\hyperlink{ref-web_spec_graphql}{116}{]}, developed by
+{[}\protect\hyperlink{ref-web_spec_graphql}{119}{]}, developed by
 Facebook Inc., abstracts multiple data sources into an unified API or
 resource. The additional abstraction layer allows different storage
 technologies to be seamlessly queryable without using their native
-\emph{query language}. The result is provided in JSON format, which
+\emph{query languages}. The result is provided in JSON format, which
 naturally supports graph-like data structures. This is utilized in
 GraphQL and implicitly embraced through its purpose of abstraction. Data
 items that might be somehow related but stored in different locations,
@@ -2136,23 +2176,23 @@ Web}} bundles a conglomerate of standards released by the W3C.\footnote{World
   for the web} It is based on an idea called \emph{web of linked data},
 which aims to \emph{``enable people to create data stores on the Web,
 build vocabularies, and write rules for handling data''}
-{[}\protect\hyperlink{ref-web_2016_w3c_semantic-web-activity}{117},
+{[}\protect\hyperlink{ref-web_2016_w3c_semantic-web-activity}{120},
 Para. 1{]}. The standards address syntax, schemas, formats, access
 control and integrations for several scopes and contexts. Among others,
 the following three technologies are essential for the \emph{Semantic
 Web}. RDF\footnote{Resource Description Framework
-  {[}\protect\hyperlink{ref-web_w3c-tr_rdf}{118}{]}} basically defines
+  {[}\protect\hyperlink{ref-web_w3c-tr_rdf}{121}{]}} basically defines
 the syntax. OWL\footnote{Web Ontology Language
-  {[}\protect\hyperlink{ref-web_w3c-tr_owl}{119}{]}} provides the
+  {[}\protect\hyperlink{ref-web_w3c-tr_owl}{122}{]}} provides the
 guidelines on how the semantics and schemas (vocabulary) should be
 defined and with \protect\hypertarget{def--sparql}{}{SPARQL}
-{[}\protect\hyperlink{ref-web_w3c-tr_sparql}{120}{]}, the query
-language, data can be retrieved. One can not help but picture the web as
-a database of queryable data with URIs that are embedded in arbitrary
-websites. Imagine a person's email address, which is available under a
-specific domain (preferably owned by that person) - or to be more
-precise, a URI \emph{(WebID)
-{[}\protect\hyperlink{ref-web_w3c-draft_webid}{121}{]}} - and provided
+{[}\protect\hyperlink{ref-web_w3c-tr_sparql}{123}{]}, the query
+language, data can be retrieved. The idea of the \emph{Semantic Web}
+tries to utilize the web as a database of queryable data with URIs that
+are embedded in arbitrary websites. Imagine a person's email address,
+which is available under a specific domain (preferably owned by that
+person) - or to be more precise, a URI \emph{(WebID)
+{[}\protect\hyperlink{ref-web_w3c-draft_webid}{124}{]}} - and provided
 in a certain syntax \emph{(RDF)}, tagged with the semantic \emph{(OWL)}
 of a email address, all together embedded in an imprint of a website.
 This information can then be queried \emph{(SPARQL)}, if the unique
@@ -2164,14 +2204,14 @@ then creating new instances of the same data that might only valid at
 that point in time - in short, preventing redundant work and outdated
 data. Related to the \emph{Semantic Web} is the a project called
 \textbf{Solid}.\footnote{social linked data
-  {[}\protect\hyperlink{ref-web_spec_solid}{122}{]}} Backed by the
+  {[}\protect\hyperlink{ref-web_spec_solid}{125}{]}} Backed by the
 \emph{WebAccessControl}
-{[}\protect\hyperlink{ref-web_2016_wiki_webaccesscontrol}{123}{]} system
+{[}\protect\hyperlink{ref-web_2016_wiki_webaccesscontrol}{126}{]} system
 and based on the \emph{Linked Data} principles including the standards
 just mentioned, the project focuses on decentralization and personal
 data management while developing a specification around this. A
 reference implementation called \emph{databox}
-{[}\protect\hyperlink{ref-web_2016_demo_databox}{124}{]} follows the
+{[}\protect\hyperlink{ref-web_2016_demo_databox}{127}{]} follows the
 specification process.
 
 \hypertarget{core-principles}{\chapter{Core
@@ -2264,7 +2304,7 @@ leaving the system. It allows the execution of a small program within a
 locally defined environment, computing only a fraction of a larger
 computation initiated by the \emph{data consumer} beforehand; similar to
 a distributed Map-Reduce concept
-{[}\protect\hyperlink{ref-paper_2004_distributed-mapreduce}{125}{]}. The
+{[}\protect\hyperlink{ref-paper_2004_distributed-mapreduce}{128}{]}. The
 opposite, but also conceivable, approach would be to provide either some
 software to the \emph{data consumer}, which is required in order to
 access the contents of a response, or a runtime environment that queries
@@ -2311,12 +2351,12 @@ host environment. This approach yields some valuable features, such as
 \section{Open Development}\label{open-development}
 
 When developing an \emph{Open Specification} it is natural to build upon
-open technologies that are recognized as \emph{open standards} and
-\emph{open source}; \emph{open} in the sense of \emph{unrestricted
-accessible by everybody}, not to be confused with free - as in
-\emph{freedom} - software. Advocating such a philosophy allows not only
-the development of implementations in a collaborative way, but also
-enables working transparently on the specification itself. Such an open
+open technologies that are recognized as \emph{open standards},
+\emph{open source} and \emph{free software}; \emph{open} in the sense of
+\emph{unrestricted accessible by everybody}, and \emph{free} as in
+\emph{freedom of use}. Advocating such a philosophy allows not only the
+development of implementations in a collaborative way, but also enables
+working transparently on the specification itself. Such an open
 environment makes it possible for anyone who is interested to
 participate or even to contribute to the project. Thus, to lower the
 barrier, usable and meaningful documentation is vital. Such an openness
@@ -2333,15 +2373,113 @@ software in order to serve operator's own needs. Enabling an open
 development enables users and contributors working together and
 collectively improve the project in a variety of ways.
 
-\hypertarget{requirements}{\chapter{Requirements}\label{requirements}}
+\chapter{Requirement Analysis}\label{requirement-analysis}
 
 Derived from the \protect\hyperlink{core-principles}{Core Principles},
-the subsequent requirements shall be served as a list of features on the
-one hand, to get an idea of how the open specification and thus the
-resulting software might look like, and, on the other hand, to give an
-overview about priorities (can/could, may/might, should, must/have to).
-Other chapters may contain references to specific requirements listed
-below.
+this chapter, first, describes the perspectives of various target
+groups, and secondly, based on all preceding work, formalizes the
+requirements, which then build the foundation of further discussions.
+
+\hypertarget{target-groups-perspective}{\section{Target Groups
+Perspective}\label{target-groups-perspective}}
+
+The subsequent views of a \emph{data subject}, a software developer, and
+a \emph{data consumer} describe their motivation, why they would or
+would not use the proposed system or participate in creating such
+software, and what circumstances may lead to their decision. Those
+statements are meant as a generalized addition to the
+\protect\hyperlink{scenarios}{\emph{Scenarios} describe in \emph{Chapter
+1}}.
+
+\emph{NOTICE: The following statements are written in first-person
+perspective for stylistic purpose only. They do not necessarily reflect
+the sole perspective of the author, but should be understood as a
+general opinions from the respective user types.}
+
+As a data subject, for me, privacy is a major concern. With this
+software I would not only have one single place to maintain all my
+personal and sensitive data while carrying the actual data with me, but
+I would also be able to control on a very precise level and under my
+conditions which vendor has what data on me or is able to access. I
+myself can even collect and submit data to my system, completely
+automated, whether it's movement data, my browsing history or any other
+data I am creating. And since I have full control over the system I
+could even analyze the date about me myself. It's not my concern in
+particular how exactly the \emph{PDaaS} works, but it needs to be
+reliable and I have to be able to trust it with my data. Furthermore, I
+like to control my \emph{PDaaS} regardless of where I am. If somebody
+wants to access my data, I would like to get informed about that and
+would like to decide on my own how to proceed. A convenient setup and
+usage is vital, otherwise I would probably resign before I got it to
+work. If those demands the \emph{PDaaS} is capable to provide, then I
+would definably like to use it, because it gives me freedom of my data.
+
+From a developer's perspective, the most important aspects of an open
+source project are, in my opinion, a friendly and cooperative community
+combined of users and developers, as well as a detailed specification
+and documentation for what already exists. I also have to be a user of
+the developed software, which, in general, is a valuable perspective for
+every developer. As such I must be able to understand the specification
+as well as the overall architecture and design. That is, the more
+sophisticated these aspects are, the more effort is required to get
+involved. The software can still have many components though, but the
+complexity of the relations between them should be simple and explicit.
+The barriers for participation or contribution must be as low as
+possible. For example, instructions on how to setup a local development
+environment with only little external dependencies can be very helpful
+and time-saving. The specification can either be restrictive or more
+flexible in its description. So, it depends on the developer's personal
+preferences which is preferred. Though, it must describe very precise
+how the internal interfaces between components as well as external
+should look like, in order to enable several people to work on different
+components at the same time. Implementations based on different
+languages can not only increase user adoption but also encourage
+developers from other communities to join. Alternative implementations
+can serve as templates or inspirations of new ones. Those aspects not
+only apply to core developers but also to those who write \emph{consumer
+clients}, which is a library that abstracts the consumer-system-relation
+and should provide effortless integration into the consumer's existing
+infrastructure. Here it is particularly important to provide those who
+are going to integrate the client with detailed instructions and
+documentations to prevent misunderstandings and mistakes during
+integration. If all those aspects, especially detailed and useful
+documentation as well as a helping community, are in place, I as a
+developer and probably many more would gladly like contribute to this
+project.
+
+As a data consumer, it would only be reasonable for me to support
+interoperability with a system that prevents me from collecting data but
+still provides access to it, if my business model is not contrary to
+that behaviour. For example, directly monetizing the collected data
+won't be possible anymore, unless the data subject enables me to do so
+by giving me raw data. If I instead want, for example, to enrich and
+improve my service(s) or product(s), this approach is, to me, as equal
+as storing the data on my own. Furthermore, this strategy may indirectly
+reduce resources and therefore expense, because it's essentially the
+same to the procedure of outsourcing. The amount of effort to integrate
+the required interface must be appropriate. Support from the community
+may become necessary. In order to not violate the constrains for
+\emph{Supervised Code Execution} a detailed description as well as a
+group of different examples should be available. It can get frustrating
+after several attempts, if I am still not be able to get such a
+procedure to work. This again may hamper the adoption progress. The most
+important aspects for me are reliability in any regards as well a trust.
+The possible latency between requesting data and actually obtaining them
+could become an issue. Therefore either, I have to adjust my process
+design so that it's not time-critical or if it's inevitable though, the
+data subject needs to be informed about such constraint, so that she can
+try to adapt to this, or a data resource controlled by the data owner
+might not be an adequate alternative to my current approach.
+
+\hypertarget{requirements}{\section{Requirements}\label{requirements}}
+
+Based on the \protect\hyperlink{target-groups-perspective}{Target Groups
+Perspective} and other previous work, the subsequent requirements shall
+be served as a list of features on the one hand, to get an idea of how
+the open specification and thus the resulting software might look like,
+and, on the other hand, to give an overview about priorities (can/could,
+may/might, should, must/have to). Other chapters may contain references
+to specific requirements listed below.
 
 \subsubsection*{Architecture \& Design:}\label{architecture-design}
 \addcontentsline{toc}{subsubsection}{Architecture \& Design:}
@@ -2625,12 +2763,12 @@ real-time feedback or none.
 \hypertarget{design-discussion}{\chapter{Design
 Discussion}\label{design-discussion}}
 
-The following chapter documents the processes of a variety of design
+The following chapter contains the greater part of the project's
+conceptual work. It documents the processes of a variety of design
 decisions, examines possible issues emerging alongside, and discuses
 different solutions obtained from several perspectives in order to
 evaluate their advantages and disadvantages. Not every issue gets its
-deserved room, but major aspects will be addressed. In short, the
-majority of the project's conceptual work is done below.
+deserved room, but major aspects will be addressed.
 
 The end of every subchapter includes a section containing a summary of
 conclusions based on the prior discussions related to that topic of that
@@ -2638,40 +2776,42 @@ subchapter.
 
 \hypertarget{authentication}{\section{Authentication}\label{authentication}}
 
-First of all, the system has to support two
-\protect\hyperlink{sa03}{roles}. Either one or none of these roles is
-assigned to an entity, hence entities that are trying to authenticate to
-the system might have different intentions depending on the
-characteristics of those roles. The \emph{operator} for example wants to
-review \emph{permission requests} in real time, so accessing the system
-from different devices is a common scenario. When inheriting the
-\emph{operator role} an entity gains further capabilities to interact
-with the system, such as data manipulation. Whereas a \emph{data
-consumer} always uses just one origin and processes requests
-sequentially. Those very distinct groups of scenarios would make it
-possible to apply different authentication mechanisms that don't
-necessarily have a lot in common.
+Following the \emph{\protect\hyperlink{requirements}{Requirements in
+Chapter 4}}, the system has to support two
+\protect\hyperlink{sa03}{roles}. Only one of these roles is assigned to
+an entity, hence entities that are trying to authenticate to the system
+might have different intentions depending on the characteristics of
+those roles. When inheriting the \emph{operator role} an entity gains
+further capabilities to interact with the system, such as data
+manipulation. Another common scenario for the operator is to access the
+system from different devices in order to review \emph{permission
+requests} in real time. Whereas a \emph{data consumer} always uses just
+one origin and processes requests sequentially. Those very distinct
+groups of scenarios would make it possible to apply different
+authentication mechanisms that don't necessarily have a lot in common.
 
 With respect to the requirements (\protect\hyperlink{sa01}{S.A.01}), the
 most appropriate way to communicate with the \emph{PDaaS} over the
 internet would be by using \emph{\protect\hyperlink{def--http}{HTTP}}.
 Thus, to preserve confidentiality on all in- and outgoing data
 (\protect\hyperlink{sp01}{S.P.01}) the most convenient solution in this
-case is to use \emph{HTTP} on top of \emph{TLS}. \emph{TLS} relies i.a.
-on \protect\hyperlink{def--asym-crypto}{asymmetric cryptography}. During
+case is to use \emph{HTTP} on top of the asymmetric cryptography based
+\emph{TLS} (HTTPS). \emph{TLS} relies i.a. on
+\protect\hyperlink{def--asym-crypto}{asymmetric cryptography}. During
 connection establishment, the initial handshake requires a certificate
 issued and signed by a CA, which has to be provided by the server. This
 also ensures a reasonable level of identity authentication, almost
 effortlessly. If the certificate is not installed, it can be installed
 manually on the client. If the certificate is not trusted (e.g.~it is
 self-signed), it can either be ignored or the process fails to establish
-a connection, depending on the server configurations. The identity
+a connection, depending on the client configurations. The identity
 verification in TLS works in both directions, which means not only the
 client has to verify the server's identity by checking the certificate.
 If the server insists, the client has to provide a certificate as well,
 which the server then tries to verify. Only if the outcome is positive,
-the connection establishment succeeds. According to the specification
-{[}\protect\hyperlink{ref-web_spec_tls-12_client-auth}{126}{]} it is
+the connection establishment succeeds. According to the TLS
+specification
+{[}\protect\hyperlink{ref-web_spec_tls-12_client-auth}{129}{]} it is
 still optional though.
 
 \emph{HTTP}, as a comprehensive and flexible protocol, enables the use
@@ -2680,101 +2820,117 @@ of them are built-in, others can simply be implemented on top of it.
 Within the scope of this work, those technologies are categorized as the
 following types: (A) stateful and (B) stateless authentication. The
 first one (A) includes, for example, \emph{Basic access Authentication}
-(or \emph{Basic Auth}) and authentications based on \emph{Cookies}.
-Whereas the \emph{two-way authentication} in TLS mentioned above and
-\protect\hyperlink{def--jwt}{authentication based on web-token} are
-associated with the latter (B). \emph{Basic Auth} is natively provided
-by the \emph{http-agent} and requires, in its original form
-\emph{(user:password)}, some sort of state on the server; at least when
-the system has to provide multitenancy. If instead just a general access
-restriction for certain requests would suffice, no state is required.
-One of the most common implementations of user-specific states is a
-\emph{session} on the server, that contains one or more values
-representing the state and a unique identifier, with which an entity can
-be associated. A client has to provide that session ID in order to be
-provided with all session-related data hold by the server. This is
-typically done in a HTTP header, whether as \emph{Basic Auth} value, a
-\emph{Cookie}, which is domain-specific, or in some other custom header.
-Since the \emph{two-way authentication} (or \emph{mutual authentication}
-{[}\protect\hyperlink{ref-web_2017_wikipedia_mutual-auth}{127}{]}) is
-performed based on files containing keys and certificates, which are
-typically not very fluctuant in its contents or state, this procedure is
-categorized as stateless. Order or origin of incoming requests have no
-impact on the result of the actual authentication process. The same
-applies to TLS features such as \emph{Session {[}ID, Ticket{]}
-Resumption}
-{[}\protect\hyperlink{ref-book_2013_networking-101_tls-session-resumption}{128}{]},
+(or \emph{Basic Auth})
+{[}\protect\hyperlink{ref-web_spec_basic-auth}{130}{]} and
+authentications based on \emph{Cookies}
+{[}\protect\hyperlink{ref-web_spec_cookie}{131}{]}. Whereas the
+\emph{two-way authentication} (or \emph{mutual authentication}
+{[}\protect\hyperlink{ref-web_2017_wikipedia_mutual-auth}{132}{]}) in
+TLS and \protect\hyperlink{def--jwt}{authentication based on web-token}
+are associated with the latter (B).\\
+\emph{Basic Auth} is natively provided by the \emph{http-agent} and
+requires, in its original form, username and password, and a state on
+the server; at least when the system has to provide multitenancy. If
+instead just a common access restriction for certain requests would
+suffice, no state is required, because no user-related data have to be
+exist on the server. One of the most common implementations of a
+user-specific state is a \emph{session} on the server, that contains one
+or more values representing the state and a unique identifier, with
+which an entity can be associated. A client has to provide that session
+ID in order to be provided with all session-related data hold by the
+server. This is typically done in a HTTP header, whether as \emph{Basic
+Auth} value, a \emph{Cookie}, which is domain-specific, or in some other
+custom header.\\
+The \emph{two-way authentication} is performed based on files containing
+keys and certificates, which are typically not very fluctuant in its
+contents or state required to get tracked in order to authenticate a
+user. Therefore this procedure is categorized as stateless. Order or
+origin of incoming requests have no impact on the result of the actual
+authentication process. The same applies to TLS features such as
+\emph{Session ID Resumption} and \emph{Session Ticket Resumption}
+{[}\protect\hyperlink{ref-book_2013_networking-101_tls-session-resumption}{133}{]},
 therefore they are left aside, because they serve the sole purpose of
 performance optimization. Similar to the \emph{Session Ticket
 Resumption}
-{[}\protect\hyperlink{ref-web_spec_tls-session-ticket-resumption}{129}{]}
+{[}\protect\hyperlink{ref-web_spec_tls-session-ticket-resumption}{134}{]}
 a web token, namely the \protect\hyperlink{def--jwt}{JSON Web Token},
-also moves the state towards the client, but that's about all they have
-in common. A \emph{JWT} carries everything with it that's worth knowing,
-including possible states, and if necessary the token is symmetrical
-encrypted by the server. That is, only the server is able to see the
-actual data contained by JWT and therefore reacting accordingly.
+also moves the state towards the client. A \emph{JWT} carries all, for
+the context relevant information, including possible states, and if
+necessary the token is symmetrical encrypted by the server. That is,
+only the server is able to see the actual data contained by JWT and
+therefore reacting accordingly.
 
 Keeping track of one or multiple states on the server and maintaining
-the synchronization of involved data between server and client is
-expensive and far from trivial, because this pattern requires the server
-to be aware of all current states (sessions) and has to have them
-accessible at all times. The additional resources required for such an
-approach are referred to as being expensive. It also means that
-requests, ultimately resulting in responses that contain contents, might
-depend on preceding requests and their incoming order. Furthermore those
-session data have to be in a consistent state in order to be safely
-stored from time to time. Otherwise, if the server fails to run at some
-point, data only existing in the memory would be gone with no chance to
-be recovered. With stateless authentication, none of those aspects
-applies. Certificates and keys as well as web tokens are both carrying
-all necessary information with them. Computations based on asymmetric
-cryptography are usually slower than the ones based on symmetric
+the synchronization of involved data between server and client is, in
+regards to the additional required resources, expensive and far from
+trivial, because this pattern requires the server to be aware of all
+current states (sessions) and has to have them accessible at all times.
+A request might depend on preceding requests and their incoming order,
+which thus can have an impact on its response. Furthermore those session
+data have to be stored from time to time. Otherwise, if the server fails
+to run at some point, data only existing in the memory would be gone
+with no chance to be recovered. With stateless authentication, none of
+those aspects applies. Certificates and keys as well as web tokens are
+both carrying all necessary information with them. Even though stateless
+authentications, similar to stateful complement, require an initial step
+to obtain some sort of token that is used to authenticate all subsequent
+requests, which can be considered a disadvantage.\\
+Another aspect of resources are the computations based on asymmetric
+cryptography, which are usually slower than the ones based on symmetric
 cryptography
-{[}\protect\hyperlink{ref-book_2014_chapter-10-5-asym-random-number-gen}{130}{]},
+{[}\protect\hyperlink{ref-book_2014_chapter-10-5-asym-random-number-gen}{135}{]},
 but since there are no timing constraints when interacting with the
 \emph{PDaaS}, regardless of whether it's external communication with
-\emph{data consumers} or internal between components, parameters for
-cryptographic procedures can be as costly as the system resources allow
-them to be, thus the level of security can be increased. So, when
-considering the disadvantages of stateless authentication, \emph{public
-key cryptography} and web tokens are the preferred technologies for all
+\emph{data consumers} or internal between components, parameters, that
+influence the level of security the underlying cryptographic procedures
+provide, can be as costly as the system resources allow them to be, thus
+the level of security can be increased. So, when considering the
+disadvantages of stateless authentication, \emph{public key
+cryptography} and web tokens are the preferred technologies for all
 authentication processes.
 
-Except for \emph{two-way authentication}, all authentication
-technologies mentioned above require an initial step from the client to
-obtain some sort of token that is used to authenticate all subsequent
-requests. This step is commonly known as \emph{sign in} and requires the
-entity to be authenticated to provide some credentials consisting of at
-least two parts. One part, that uniquely relates to the entity but
-doesn't have to be private, and another part that only the entity knows
-or has. Typically that's a username or email address and a password or
-some other secret bit sequence (e.g.~stored on and provided by a USB
-stick). An \emph{\protect\hyperlink{def--eid-card}{eID card}} could
-possibly be used as secret (or unique object) as well. Suitable use
-cases are (A) to let the \emph{operator} login to the \emph{PDaaS}
-management tool or (B) to approve or authorize \emph{access requests}.
-How the actual login process (A) would look like partially depends on
-the \emph{eID card}'s implementation, but in general both are reasonable
+Except for \emph{two-way authentication}, the initial step in all
+authentication technologies, as mentioned before, is a one-time
+procedure to obtains a token, that is used to authenticate all
+subsequent requests. This step lasts as long as the token is valid. The
+reason for such an approach is to increase the convenience, otherwise
+the user is required to provide credentials on any request, which is
+considered an unacceptable solution. Even though the \emph{two-way
+authentication} also requires an initial step, that step is different to
+the one just mentioned. Instead of obtaining a token that proves the
+possession of the credentials, a certificate is obtained that is used be
+prove the identity of the communicating partner.\\
+The step to obtain a token is commonly known as \emph{sign in} and
+requires the entity to be authenticated to provide some credentials
+consisting of at least two parts. One part that uniquely relates to the
+entity but doesn't have to be private, and another part that only the
+entity knows or has. Typically that's a username or email address and a
+password or some other secret bit sequence (e.g.~stored on and provided
+by a USB stick).\\
+An \emph{\protect\hyperlink{def--eid-card}{eID card}} could possibly be
+used as secret (or private key) as well. Suitable use cases for such
+cards are (A) to let the \emph{operator} login to the \emph{PDaaS}
+management tool or (B) to authorize \emph{access requests}. How the
+actual login process (A) would look like partially depends on the
+\emph{eID card}'s implementation, but in general, both are reasonable
 scenarios to utilize an \emph{eID card}. When considering, for example,
-the german implementation \emph{(nPA)} for example, accessing the
-management tool via desktop requires a card reader, preferably with an
-integrated hardware keypad. Whereas authenticating to the tool with a
-mobile device could be achieved with the card's RFID-capabilities, as
-long as the device used is able to communicate with the RFID-chip. This
-would reduce the interaction duration to a minimum. Both scenarios (A+B)
-require the \emph{nPA} to have the \emph{eID} feature enabled. If a
-service wants to provide \emph{nPA}-based online authentication
-\emph{(eID-Service)}, which is defined as a non-sovereign \emph{(``nicht
-hoheitlich'')} feature, it has to comply with several requirements
-{[}\protect\hyperlink{ref-web_bsi-spec_eid}{131}{]} starting with
+the german implementation \emph{(nPA)}, authenticating to the management
+tool either requires a card reader, preferably with an integrated
+hardware keypad, or a device able to communicate with the RFID-chip,
+which would reduce the interaction duration to a minimum. Both scenarios
+(A and B) require the \emph{nPA} to have the \emph{eID} feature enabled.
+If a service wants to provide \emph{nPA}-based online authentication
+\emph{(eID-Service)}, which is defined as a
+\emph{non-sovereign}\footnote{in ger. ``nicht hoheitlich''} feature, it
+has to comply with several requirements
+{[}\protect\hyperlink{ref-web_bsi-spec_eid}{136}{]} starting with
 applying for a permission to send a certificate signing request to a
 BerCA.\footnote{(german) Berechtigungszertifikate-Anbieter} This request
 is sent from an \emph{eID-Server}
-{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{132}{]} in order to
-get a public key signed, which has been previously generated on
+{[}\protect\hyperlink{ref-web_2017_npa-eid-server}{137}{]} in order to
+get the certificate signed, which has been previously generated on
 dedicated and certified hardware. This hardware is requested by the
-officials as part of a \emph{eID-Server}. The key pair - re-generated
+officials as part of an \emph{eID-Server}. The key pair - re-generated
 and re-signed every three days - is needed to establish a connection to
 the \emph{nPA}, which is then used to authenticate the owner of that
 \emph{eID card}. The described procedure appears to be highly expensive
@@ -2785,21 +2941,19 @@ the official's decision on the permission application. Another approach
 could be to integrate an external authentication provider supporting the
 \emph{nPA}, which would not only add an additional dependency, but also
 weaken the system. Both scenarios are fairly similar, insofar as they
-would use the same mechanism to initially authenticate to the system,
-but with different intentions.
+would use the same mechanism to initially authenticate to the system.
 
-Because of its simplicity, the concept of web tokens is fairly
-straightforward to implement into the \emph{PDaaS}. But since web tokens
-ensure integrity and optional confidentiality only of their own
-carriage, not for the entire HTTP payload, the two requirements need to
-be addressed separately. Serving HTTP over \emph{TLS} solves that issue
-though. For connections that use a web token, it should be sufficient to
-rely on the public PKI that drives the internet with \emph{HTTP} over
-\emph{TLS}. All information required for the actual authentication are
-provided by the token itself. However, the situation is different if
-\emph{two-way authentication} is used instead. In this case, the system
-has to provide its own \emph{PKI} including a Certificate Authority that
-issues certificates for \emph{data consumers}, because not only the
+The concept of web tokens is fairly straightforward to integrate into
+the \emph{PDaaS}. But since web tokens ensure integrity and optional
+confidentiality only of their own carriage, not for the entire HTTP
+payload, the two requirements need to be addressed separately. Serving
+HTTP over \emph{TLS} solves that issue though. For connections that use
+a web token, it should be sufficient to rely on the public HTTPS PKI.
+All information required for the actual authentication are provided by
+the token itself. However, the situation is different if \emph{two-way
+authentication} is used instead. In this case, the system has to provide
+its own \emph{PKI} including a Certificate Authority that issues
+certificates for \emph{data consumers}, because not only the
 \emph{endpoints} on the \emph{PDaaS} (server) need to be certified, all
 \emph{data consumers} (clients) need to present a certificate as well.
 Only the \emph{PDaaS} verifies and thus determines (supervised by the
@@ -2812,23 +2966,26 @@ prevent man-in-the-middle attacks. Addressing this issue basically
 means, \emph{data consumers} have to verify the certificate presented by
 the \emph{PDaaS}. This can be done in two ways. One way is by a
 certificate having been installed on the \emph{PDaaS} that is certified
-and therefore trusted by a trustworthy public CA, as mentioned above.
-Then \emph{consumers} use the CA's certificate to verify the
-\emph{PDaaS} certificate. The other way is to let the \emph{PDaaS}
-create and sign a public key by itself. Before \emph{consumers} are
-presented with the self-signed certificate of the \emph{PDaaS} during
-the initiation of the TLS connection, they already have to be aware of
-that certificate. That is, \emph{consumers} need to be provided with
-that certificate on a private channel upfront. Otherwise the process
-would still be vulnerable to man-in-the-middle attacks.
+by a trustworthy public CA, as mentioned above. Then \emph{consumers}
+use the CA's certificate to verify the \emph{PDaaS} certificate. The
+other way is to let the \emph{PDaaS} create an asymmetric key-pair
+including a certificate and sign it by itself. Before \emph{consumers}
+are presented with the self-signed certificate of the \emph{PDaaS}
+during the initiation of the TLS connection, they already have to be
+aware of that certificate. That is, \emph{consumers} need to be provided
+with that certificate on a private channel upfront. Otherwise the
+process would still be vulnerable to man-in-the-middle attacks.
 
-In summary, if a public-key-based connection, performing a \emph{two-way
-authentication}, establishes successfully, it implies that the identity
-originating the request is valid and the integrity of the containing
-data is given. Whereas on a token-based authentication every incoming
+In summary, if a certificate-based connection, performing a
+\emph{two-way authentication}, establishes successfully, it implies that
+not only the identity of the requested source but also the identity
+originating the request is valid, and through additional features of
+\emph{TLS} also the integrity and confidentiality of the containing data
+is provided. Whereas on a token-based authentication every incoming
 request has to carry the token so that the system can verify and
 associate the request with an account. Furthermore data is not
-automatically encrypted and thus integrity is not preserved.
+automatically encrypted and thus integrity and confidentiality is not
+preserved.
 
 An advantage of token-based authentication over TLS-based \emph{two-way
 authentication} is that the token can be used on multiple clients at the
@@ -2836,50 +2993,51 @@ same time. Or an account that a token is associated with, can actually
 have more than one token. Whereas during the asymmetric
 cryptography-based \emph{two-way authentication} the client's private
 key is required, which results in 1:1 relation. So if it's likely that a
-\emph{operator} has several clients, regardless of why, the same private
-key has to be on those clients. A private key typically should not leave
-its current system or exist in multiple systems at the same time in
-order to prevent exposure, which any action of duplication implies. To
-reduce those risks, it's common practice to generate a private key at
-the location where it is going to be used.
+\emph{operator} has several clients, the same private key has to be on
+those clients. A private key typically should not leave its current
+system or exist in multiple systems at the same time in order to prevent
+exposure, which any action of duplication implies. To reduce those
+risks, it's common practice to generate a private key at the location
+where it is going to be used.
 
-OpenID, an open standard for decentralized user authentication, also
-uses subdomains as unique identifiers to associate with entities that
-need to be authenticated, similar to the approach proposed in this work.
-But since it originates in a very distinct scenario it is also very
-related and therefore restricted to that. Trying to adopt the standard
-might result in various adjustments to this project leading to an
-implementation that shares not much compliance, which is not the
-intention of a standard.
+An already existing specification explicitly addressing user
+authentication is \emph{OpenID}, which could be adapted to integrate
+operator as well as consumer authentication. But although it utilizes
+(sub)domains as entity identifiers, which is similar to how the relation
+between data consumer and \emph{PDaaS} in \emph{two-way authentication}
+works, OpenID is underpinned by another motivation, which is providing
+decentralized authentications as a service, and that is contrary to the
+independent and self-contained model this project follows. Trying to
+adopt the standard might result in various adjustments to this project
+leading to an implementation that shares not much compliance to its
+origin, which is not the intention of a standard.
 
-\emph{\textbf{Conclusions:}} Based on the several requirements and
+\emph{\textbf{Conclusions:}} Based on the several requirements
+(\protect\hyperlink{sa03}{S.A.03}, \protect\hyperlink{sa04}{S.A.04},
+\protect\hyperlink{sa06}{S.A.06}, \protect\hyperlink{pi04}{P.I.04}) and
 distinct advantages of the two authentication mechanisms, it is
-preferred to use asymmetric cryptography in combination with
-\emph{HTTPS} for the communication between the system and \emph{data
-consumers}, where the system provides its own \emph{PKI}. Whereas a
-token-based authentication on top of \emph{HTTPS} and public CAs should
-be suitable for communication between the system and the
+preferred to use \emph{HTTPS} for the communication between the system
+and \emph{data consumers}, where the system provides its own \emph{PKI}.
+Whereas a token-based authentication on top of \emph{HTTPS} and public
+CAs should be suitable for communication between the system and the
 \emph{operator}, preferably based on
 \emph{\protect\hyperlink{def--jwt}{JSON Web Tokens}}, because the
 session state is preserved within the token rather then having the
-system itself keeping track of it. Though, it is worth mentioning, that
-a JSON Web Token implementation is feasible as well to fully replace the
-approach of \emph{two-way authentication} and private \emph{PKI}. The
-disadvantage here would be, whether \emph{data consumers} are able to
-authenticate themselves or not, a HTTPS connection will establish in any
-case. At the same time, authenticating the \emph{operator} is also
-doable on the TLS layer; but this approach is restricted only to
-environments considered at least \emph{private} like native mobile
-applications, because browser-based applications are neither
-\emph{trusted} nor \emph{private} and thus missing certain capabilities
-in terms of accessing the host environment (see \emph{Chapter 5 -
-Architecture}). Addressing the requirement of \emph{consumers} to verify
-whether the certificate, presented by the \emph{PDaaS}, can be trusted
-or not, both solutions, providing a self-signed certificate on a secure
-channel upfront, or using certificates certified by publicly trusted
-entities, are legitimate. However, the latter requires a service or an
-automation that provides a new signed certificate whenever a new
-\emph{data consumer} registers, such dependencies should be kept to an
+system itself keeping track of it. Furthermore, authenticating the
+\emph{operator} is also doable on the TLS layer; but this approach is on
+a web platform (browser) rather inconvenient, if even possible, because
+a client certificate not only needs to be transferred to the server and
+probably signed before it and the corresponding private key gets
+installed manually by the operator. For a mobile platform this approach
+might be more feasible, because during the application installation,
+this step can be automated. Addressing the requirement of
+\emph{consumers} to verify whether the certificate presented by the
+\emph{PDaaS} can be trusted or not, both solutions, providing a
+self-signed certificate on a secure channel upfront, or using
+certificates certified by publicly trusted entities, are legitimate.
+However, the latter requires an automation depending on an external
+service that provides a new signed certificate whenever a new \emph{data
+consumer} registers, such external dependencies should be kept to an
 absolute minimum. To strengthen an authentication procedure, one or more
 factors are often added, such as an \emph{eID card} or one-time
 password. This adds complexity to the procedure and thus increases the
@@ -2893,68 +3051,75 @@ follow-up work on the specification.
 \hypertarget{data-reliability}{\section{Data
 Reliability}\label{data-reliability}}
 
-Using TLS-based authentication, as discussed in the previous section\\
-\protect\hyperlink{authentication}{about authentication} brings also the
-implicitly advantages of confidentiality and integrity for transferred
-data. The described techniques are assigned to the different types of
-motivations to interact with the system and therefore to the roles and
-their various identities, although authenticity of the actual data a
-\emph{PDaaS} provides has yet to be provided. Data authenticity here
-refers to authentic and reliable (\protect\hyperlink{sa04}{S.A.04})
-data, which means (A) the data really represent the entity that is
-associated to the originating \emph{PDaaS} and is thus owned by that
-entity, and (B) the data are true at that moment when the data being
-accessed are queried from within the system.
+Using TLS-based authentication, as discussed in the
+\protect\hyperlink{authentication}{previous section}, brings the
+implicit advantages of confidentiality and integrity of transferred
+data. The techniques described therein are assigned to the different
+types of motivations to interact with the system and therefore to the
+roles and their various identities, although authenticity of the actual
+data a \emph{PDaaS} provides has yet to be provided. Data reliability
+here refers to authentic and reliable data, which means (A) the data
+really represent the entity that is associated to the originating
+\emph{PDaaS} and is thus owned by that entity, and (B) the data are
+truthful at that moment when the data being accessed are queried from
+within the system.
 
-The verification process of authorship and content integrity in the
+The verification process of authorship and content validity in the
 context of the DE-Mail technology as described in
 \emph{\protect\hyperlink{standards-specifications-and-related-technologies}{Chapter
 2 - Standards, Specifications and related Technologies}} can be valued
-as an negative example. Instead of making \emph{end-to-end encryption}
-and\\
-\emph{Qualified Electronic Signatures (QES)} mandatory, the creators of
-the corresponding law decided that it's sufficient to prove the author's
-identity based on its credentials when handing over the DE-Mail to the
-server, and that it's reasonable to let the provider sign the document
-on the DE-Mail server, and finally that this described implementation
-results in a legally binding document by definition of that law. The
-different levels of mistakes made in conception and legislation are
-outlined in a statement from the CCC\footnote{Chaos Computer Club e.V.}
-{[}\protect\hyperlink{ref-statement_2013_de-mail}{133}{]}, who has been
+as a negative example for preserving data reliability. Instead of
+declaring \emph{end-to-end encryption} and \emph{Qualified Electronic
+Signatures (QES)} mandatory, the creators of the corresponding law
+decided that it's sufficient to prove the author's identity based on his
+credentials when handing over the DE-Mail to the server, and that it's
+reasonable to let the provider sign the document on the DE-Mail server,
+and finally that this described implementation results in a legally
+binding document by definition of that law. The varying levels of
+mistakes made in conception and legislation are outlined in a statement
+from the CCC\footnote{Chaos Computer Club e.V.}
+{[}\protect\hyperlink{ref-statement_2013_de-mail}{138}{]}, who has been
 consulted during the development of that law. As a consequence, DE-Mail
-as a technology has no relevance to this project. But one aspect that
-can be noted though, is the concept of letting a server sign outgoing
-data. While in the case of DE-Mail the server is controlled by a
-potentially not trusted party and is typically multi-tenancy capable,
+as a technology has in general no relevance to this project. One aspect
+that can be noted though, is the concept of letting a server sign
+outgoing data. While in the case of DE-Mail the server is controlled by
+a potentially not trusted party and is typically multi-tenancy capable,
 the \emph{PDaaS}, including its back end, relates to one individual, who
 is also in control of the system. Thus, in order to provide a method to
 consumers, which enables them to verify if the received data is
 authentic while keeping the overhead for the operator to a minimum, a
-solution involving a\\
+solution involving an\\
 automated signing procedure on the server can be reasonable.
 
 Since the \emph{operator} can change personal data at any point in time,
-this ability results in mandatory process where a trustworthy third
-party has to be able somehow to verify the reliability of the data in
-question. That process, on the other hand, is in direct contrast to the
-discussion about the \protect\hyperlink{authentication}{authentication
-system} and why it should be designed to be self-contained. But if
-providing information on data reliability is not required, this won't be
-an issue anymore. The information can be defined in a response as an
-optional property. Within the request the \emph{data consumer} has to
-indicate whether the response should contain information about its
-reliability or not. Depending on what data is requested, the
-\emph{PDaaS} then decides to test the reliability. Based on the
-procedures that are available, the data reliability gets verified
-somehow.
+this ability results in a mandatory process where, for example, a
+trustworthy third party verifies the reliability of the data in
+question. Depending on the design, that process can be in direct
+contrast to the discussion about the
+\protect\hyperlink{authentication}{authentication system} and why it
+should be designed in a self-contained way. If it's not required,
+though, to provide information to prove data reliability, this aspect
+won't be an issue. The information about data reliability can be defined
+in a response as an optional property. Within the request the \emph{data
+consumer} has to indicate whether the response should contain these
+information or not. Depending on what data is requested, the
+\emph{PDaaS} then decides whether to provide prove of reliability or
+not. Based on the procedures that are available, the data reliability
+can the be verified by the data consumer verified.
 
-But how should this reliability check look like? It comes down to two
+But how would this reliability check look like? It comes down to two
 general steps. The first is matching the actual data involved in that
-request against a reference dataset. The second is optional, although
-important for the \emph{data consumer} in order to evaluate the
-sufficiency of the provided level of reliability. It involves the party,
-that also runs the first step, to confirm the result of that audit. The
-result of that evaluation then gets included in the response.
+request against a reference dataset. The second step is to hand over the
+information about the audit and its result to the data consumer.
+Depending on what information the consumer is provided with, it can then
+be used to verify that information. The data consumer decides on the
+value of that given information.
+
+optional, although important for the \emph{data consumer} in order to
+evaluate the sufficiency of the provided level of reliability. It
+involves the party, that also runs the first step, to confirm the result
+of that audit. The result of that evaluation then gets included in the
+response.
 
 The following proposed methods vary in the provided level of reliability
 as well as in the amount of effort to support them and in the possible
@@ -2979,44 +3144,47 @@ focus here.
   of certain data. Using the german implementation \emph{(nPA)} as an
   example, the \emph{eID} feature would provide access to the owner's
   basic profile data, which can then be used to match against those data
-  items that are both, held by that \emph{nPA} and going to be used to
-  create the response originating in the \emph{PDaaS} persistence layer.
-  If the result of that matching procedure is positive, the related data
+  items that are both, held by that \emph{nPA} and affected by the
+  \emph{access request} and therefore originated in the \emph{PDaaS}. If
+  the result of that matching procedure is positive, the related data
   then gets signed with a \emph{QES} courtesy of the \emph{data
-  subject's} \emph{nPA}. That signature also gets included in the
-  response, so that the recipient can verify the reliability of the
-  data.
+  subject's} \emph{nPA}. That signature gets included in the response as
+  well.
 \item
   \textbf{Remote Verification and signing}\\
-  Another method involves a third party who also has the same data that
-  need to be tested. The idea is to hand the data in question over to
-  that party, who then tries to match against all those data points
-  available in that context. The party also has the ability to sign
-  data, which is what's happening, if the matching procedure has a
+  Another method involves a trusted third party who also has the same
+  data that need to be proved. The idea is to hand the data in question
+  over to that party, who then tries to match against all those data
+  points available in that context. The party also has the ability to
+  sign data, which is what's happening, if the matching procedure has a
   positive outcome. Signing the whole response, or at least a replicable
-  dataset that contains the data that were initially needed, is
-  required. The party then hands everything back to the \emph{PDaaS} for
-  further processing.
+  dataset that contains the data that were initially requested to
+  access, is required. The party then hands everything back to the
+  \emph{PDaaS} for further processing.
 \item
   \textbf{Recurring Certification}\\
-  The following method describes a modification of (3). This method
-  involves no matching procedure. The external third party, verifies
-  whether the data in question are correct and whether they relate to
-  the \emph{data subject} by either literally looking at the data or by
-  automatically processing and matching against their databases. If that
-  party is satisfied, a certificate will be issued. This certificate
-  contains an expiration date, which implies the consequence of going
-  through this process again in the future, much like an issuing process
-  of a common \emph{Certificate Authority}. This certificate is then
-  served as part of a response, which enabled the \emph{data consumer}
-  to verify the data's reliability on its own. This is done by hashing
-  the data in question, decrypting the hash embedded in the certificate
-  and matching one against the other. If they are equal, the data has
-  not changed since the party's review and is therefore reliable.
-  Although if data has changed in the \emph{PDaaS} and data items that
-  are also included in this verification process are affected, then a
-  new certificate needs to be issued, because the contained hash is now
-  invalid.
+  The following method describes a modification of (3), but instead of
+  signing every data access, the current state of the overall data is
+  certified on a recurring basis. This does not necessarily mean, that
+  during the certification procedure all data items get checked. Instead
+  only those data items are matched to be known reliable by the external
+  third party. This is done by either literally looking at the data or
+  by automatically processing and matching against the own database. If
+  that party is satisfied, a certificate for the corresponding data will
+  be issued. This certificate contains an expiration date, which implies
+  the consequence of going through this process again in the future,
+  much like an issuing process of a common \emph{Certificate Authority}.
+  This certificate is installed on the \emph{PDaaS} and served as part
+  of a response.\\
+  Until this point, the consumer can only decrypt the signature provided
+  in the certificate, which, if its successful, just states that the
+  issuer has verified the truthfulness and relation between the operator
+  and some data stored in the corresponding \emph{PDaaS}. Optionally,
+  and only if the exact data items involved in the certification
+  procedure, are part of the response as well, the consumer is able to
+  completely verify the certificate, and thus the data reliability, by
+  hashing that data on its own and matching the result against the one
+  contained in the certificate.
 \end{enumerate}
 
 Only one method per request should be used to verify data reliability,
@@ -3028,14 +3196,14 @@ then able to evaluate that level of confidence and can act accordingly
 
 Expanding those verification procedures is reasonable, but to keep it
 simple for now this aspect won't receive further attention, since the
-current requirements are sufficiently met. It will be left to future
-work, however.
+current requirement (\protect\hyperlink{sa04}{S.A.04}) is sufficiently
+met. It will be left to future work, however.
 
-\emph{\textbf{Conclusions:}} The signing procedure as part of local
-verification method involves private key and certificate storage on the
+\emph{\textbf{Conclusions:}} A signing procedure as part of local
+verification method involves private key and certificate stored on the
 operator's \emph{eID card}. Every time the \emph{PDaaS} verifies data
-reliability that method has to be performed. Thus the \emph{operator} is
-forced to interact wit the \emph{PDaaS}. Otherwise, the operator's
+reliability that procedure has to be performed. Thus the \emph{operator}
+is forced to interact wit the \emph{PDaaS}. Otherwise, the operator's
 private key needs to be stored somewhere within the \emph{PDaaS}. No
 matter where or how, this would potentially expose a highly confidential
 part of a cryptographic procedure. Not only would this reduce the
@@ -3044,23 +3212,27 @@ method is involved in vulnerable to certain attacks. Aside from that,
 it's highly unlikely that an \emph{eID card} would allow extraction of
 the private keys it contains. This all results in increased
 inconvenience which is inevitable for this proposed method. The
-\emph{Local Verification and signing} method has the same dependencies
-mentioned in the discussion about requirements for using the (german)
-\emph{eID card} as an authentication token. And since it was rejected
-because of those dependencies and because of the inconvenience mentioned
-before, that verification method ultimately is not going to be supported
-in the specification.
+\emph{Local Verification and signing (3)} method has the same
+dependencies mentioned in the previous discussion about requirements for
+using the (german) \emph{eID card} as an authentication token. And since
+it was rejected because of those dependencies and because of the
+inconvenience mentioned before, that verification method ultimately is
+not going to be supported in the specification. Furthermore, the signing
+procedure based on the \emph{QES} can easily be spoofed by the data
+subject regardless of the matching result, because it would proof that
+the \emph{PDaaS} really represents that individual (authorship of the
+response), but not the reliability of that data.
 
 The \emph{Remote Verification and signing (3)} method would require the
 external party to be an official authority, because no other entity has
-(A) the data in question (primarily profile data), which makes them (B)
-legally binding; and they are commonly trusted. The same goes for The
+the data in question (primarily profile data), which makes them legally
+binding; and they are commonly trusted. The same goes for The
 \emph{Recurring Certification (4)}, but while the \emph{Remote
 Verification and signing} method introduces a very strong dependency to
 that external party, the \emph{Recurring Certification} offers a simple,
 loosely linked dependency. Whose design would make it possible to obtain
 such a certificate manually, but also automatically. Nevertheless, both
-provide a trustworthy certification.
+can provide a trustworthy certification.
 
 Finally, the first method, \emph{Local Verification by matching (1)},
 which just performs a matching of two datasets against each other. Those
@@ -3082,15 +3254,15 @@ might prevent the \emph{PDaaS} from being put in use. Others - depending
 on their guidelines and business model - don't rely on a certain level
 of confidence. In general, \emph{data consumers} are expected to already
 have a basic confidence in a \emph{PDaaS} and in the data originating
-there. Regardless of that, providing an indication on the authenticity
-of data is valued as a first and important step towards a fully working
+there. Regardless of that, providing an indication on the reliability of
+data is valued as a first and important step towards a fully working
 feature. All of the proposed verification methods have some downsides,
 though, the \emph{Recurring Certification} method would be the least
 invasive and therewith an adequate choice.
 
 A primary goal for the \emph{PDaaS} is to preserve all data owned by the
 \emph{data subject} and giving her control over where the data might go;
-not providing sufficient proof for the data authenticity. Although it is
+not providing sufficient proof for the data reliability. Although it is
 still important to provide \emph{data consumers} with an information
 about the level of reliability, it is up to them how to rate that
 information and how to act on that.
@@ -3326,7 +3498,7 @@ access to such availability information on an individual consumer-basis
 or system-wide, and furthermore, to set default configurations for this
 behaviour. Depending on those configurations a request might fail, thus
 the requester needs to be provided with meaningful errors. Http error
-codes {[}\protect\hyperlink{ref-web_spec_http-error-codes}{134}{]} might
+codes {[}\protect\hyperlink{ref-web_spec_http-error-codes}{139}{]} might
 be a sufficient fit for this purpose.
 
 An already standardized way to implement authorization is the
@@ -3344,8 +3516,8 @@ third party apps). Aside from not fitting into such scenarios it would
 also make the proposed process undesirably more complicated. Although
 the proposal includes user interactions like selecting and confirming
 requested permissions. According to the documentations
-{[}\protect\hyperlink{ref-web_spec_oauth-1a_client-reg}{135}{]}
-{[}\protect\hyperlink{ref-web_spec_oauth-2_client-reg}{136}{]}, both
+{[}\protect\hyperlink{ref-web_spec_oauth-1a_client-reg}{140}{]}
+{[}\protect\hyperlink{ref-web_spec_oauth-2_client-reg}{141}{]}, both
 OAuth versions (1.0a and 2) require the client (here \emph{data
 consumer}) to register to the authorization server upfront (to obtain a
 \texttt{client\_id}), before initializing the authorization process.
@@ -3428,8 +3600,8 @@ after authenticating with the provided credentials. OAuth only provides
 a framework for how to authorize third parties to access external
 resources, leaving the procedure of how to actually verify those access
 attempts up to its implementers
-{[}\protect\hyperlink{ref-web_spec_oauth-1a_access-verification}{137}{]}
-{[}\protect\hyperlink{ref-web_spec_oauth-2_access-verification}{138}{]}.
+{[}\protect\hyperlink{ref-web_spec_oauth-1a_access-verification}{142}{]}
+{[}\protect\hyperlink{ref-web_spec_oauth-2_access-verification}{143}{]}.
 In the context of this project OAuth does not comply with the rest of
 the design aspects.
 
@@ -3548,7 +3720,7 @@ Both query languages share a comprehensive understanding of a
 type-system that encourages the creation of all kinds of data types.
 While in GraphQL common schemas still need to be created, SPARQL already
 provides a reasonable amount of vocabulary
-{[}\protect\hyperlink{ref-web_w3c-tr_rdf-schemas}{139}{]}. However, when
+{[}\protect\hyperlink{ref-web_w3c-tr_rdf-schemas}{144}{]}. However, when
 comparing the results of both languages, some distinctions appear. While
 in GraphQL the characteristics of graph-structured data remain, SPARQL's
 output is missing a certain level of depth. The reason for that
@@ -3575,11 +3747,11 @@ few. As a result, the ones that are widely used might then become de
 facto standards. Moreover, it's also possible that several data types
 will emerge, that are based on common standards, for example
 \emph{medical record}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_ehr}{140}{]},
+{[}\protect\hyperlink{ref-web_spec_data-schemas_ehr}{145}{]},
 \emph{point of interest}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_poi}{141}{]} or
+{[}\protect\hyperlink{ref-web_spec_data-schemas_poi}{146}{]} or
 \emph{bank transfer}
-{[}\protect\hyperlink{ref-web_spec_data-schemas_bank-transfer}{142}{]}.
+{[}\protect\hyperlink{ref-web_spec_data-schemas_bank-transfer}{147}{]}.
 With that approach those data types can be viewed as something like a
 plugin or add-on to the \emph{PDaaS} ecosystem.
 
@@ -3762,8 +3934,8 @@ relevant (sub-)categories of data}}
 The available \emph{primitives} mainly depend on those who are supported
 by the query language itself. In this case, all \emph{primitives}
 mentioned above are supported by \emph{SPARQL}
-{[}\protect\hyperlink{ref-web_spec_xml_types}{143}{]} and \emph{GraphQL}
-{[}\protect\hyperlink{ref-web_spec_graphql_types}{144}{]}. When choosing
+{[}\protect\hyperlink{ref-web_spec_xml_types}{148}{]} and \emph{GraphQL}
+{[}\protect\hyperlink{ref-web_spec_graphql_types}{149}{]}. When choosing
 a database system it has to be ensured that either the system already
 supports the required \emph{primitives} or they can be emulated somehow
 with minimal drawbacks. When modelling relations between data items, one
@@ -3976,10 +4148,10 @@ shorthands, therefore the possibilities are far too numerous. In general
 formatted in JSON, only \emph{GraphQL} preserves all the relations in
 the output, which are already embedded in the query syntax, whereas a
 \emph{SPARQL}-based or RESTful API requires multiple round trips and
-addition effort to merge the data into the desired format. As a result,
-\emph{GraphQL} (and its implementations) is the query language of choice
-for this project, which is going to serve as the data API for consumers,
-too.
+additional effort to merge the data into the desired format. As a
+result, \emph{GraphQL} (and its implementations) is the query language
+of choice for this project, which is going to serve as the data API for
+consumers, too.
 
 When it comes to creating new structs, engaging a user community can
 compensate the lack of certain types. Examples for a potential starting
@@ -4002,52 +4174,49 @@ system's interfaces from a user point of view.
 The foundation of this project is a server-client Architecture, which is
 chosen for (A) providing availability (\protect\hyperlink{sa05}{S.A.05})
 and (B) separating concerns
-{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{145}{]}.
+{[}\protect\hyperlink{ref-web_2016_wikipedia_separation-of-concerns}{150}{]}.
 Such a distributed system provides various locations to place these
 concerns, which are, in fact, different environments with different
-properties. Those combinations of locations and environments are herein
-after called \emph{platforms}. To further describe these
+properties. Those combinations of locations and environment properties
+are herein after called \emph{platforms}. To further describe these
 \emph{platforms}, characteristics such as architectural layer and access
-possibilities to its internals are taken into account. The resulting
-three \emph{platform} types are shown in Table
-\ref{tbl:platforms-characteristics}.
+possibilities to its host einvironment are taken into account. The
+resulting four \emph{platform} types are shown in Table
+\ref{tbl:platforms-characteristics}. All platform are considered to be
+controlled by the data subject. Here, \emph{trusted} refers to how
+likely it is that the host environment, and maybe even the platform, is
+unintentionally accessed by third parties, whereas \emph{host access}
+describes the possibilities to access the host environment from within
+the platform (e.g.~filesystem to store data).
 
-Here, \emph{trusted} means that the host environment can be fully
-accessed and controlled, whereas \emph{private} refers to restricted
-access to non-shared resources from a component's perspective.
-
-\begin{longtable}[]{@{}lcclll@{}}
-\caption{All platform types where components of the \emph{PDaaS}
+\begin{longtable}[]{@{}lccll@{}}
+\caption{Platform types on which components of the \emph{PDaaS}
 architecture can be placed
 \label{tbl:platforms-characteristics}}\tabularnewline
 \toprule
-Type & trusted & private & controlled by & Layer &
-Purpose\tabularnewline
+Platform Type & trusted & Host Access & Layer & Purpose\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-Type & trusted & private & controlled by & Layer &
-Purpose\tabularnewline
+Platform Type & trusted & Host Access & Layer & Purpose\tabularnewline
 \midrule
 \endhead
-Server & yes & yes & data & back & - business logic\tabularnewline
-\(\ \) & \(\ \) & \(\ \) & subject & end & - third-party
-interfaces\tabularnewline
-\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) & - data
-storage\tabularnewline
-\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \)\tabularnewline
-Desktop & no & no & data & front & - based on web\tabularnewline
-\(\ \) & \(\ \) & \(\ \) & subject & end & \(\ \)
+Server & yes & yes & back & - business logic\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & end & - third-party interfaces\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & \(\ \) & - data storage\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \)\tabularnewline
+Mobile & cond. & yes & front & - based on host-specific
+native\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & end & \(\ \) technologies\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & \(\ \) & - graphical user
+interface\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & \(\ \) & - data storage\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \)\tabularnewline
+Web & no & rest. & front & - browser\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & end & - based on web
 technologies\tabularnewline
-\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \)\tabularnewline
-Mobile & no & cond. & data & front & - typically mobiles\tabularnewline
-\(\ \) & \(\ \) & \(\ \) & subject & end & \(\ \) devices\tabularnewline
-\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) & - based on
-host-specific\tabularnewline
-\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) native
-technologies\tabularnewline
-\(\ \) & \(\ \) & \(\ \) & \(\ \) & \(\ \) & - data
-storage\tabularnewline
+\(\ \) & \(\ \) & \(\ \) & \(\ \) & - graphical user
+interface\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -4077,7 +4246,7 @@ task(s), underlying technologies, and relation(s) to each other.
 \item
   load balancing (if necessary)
 \item
-  desktop notification
+  web notification
 \item
   spam protection
 \end{itemize}
@@ -4089,7 +4258,7 @@ task(s), underlying technologies, and relation(s) to each other.
 \item
   operator, consumers, third parties
 \item
-  any front end platform (Desktop, Mobile)
+  any front end platform (Mobile, Web)
 \end{itemize}
 
 \emph{Technologies:}
@@ -4179,7 +4348,7 @@ task(s), underlying technologies, and relation(s) to each other.
 \item
   X.509
 \item
-  ACME {[}\protect\hyperlink{ref-web_spec_acme}{146}{]} (Let's Encrypt)
+  ACME {[}\protect\hyperlink{ref-web_spec_acme}{151}{]} (Let's Encrypt)
 \end{itemize}
 
 \subsubsection*{Storage Connector}\label{storage-connector}
@@ -4438,7 +4607,7 @@ Infrastructure}\label{notification-infrastructure}
 \subsubsection*{User Interface}\label{user-interface}
 \addcontentsline{toc}{subsubsection}{User Interface}
 
-\emph{Platform:} Desktop, Mobile
+\emph{Platform:} Mobile, Web
 
 \emph{Tasks:}
 
@@ -4502,49 +4671,71 @@ composition\label{fig:composition-distributed}}
 
 The main difference between the two compositions is the non-existence of
 the mobile platform in the centralized approach (Figure
-\ref{fig:composition-centralized}). Although \emph{centralized} only
-refers to the components arrangement on a \emph{server} platform,
-originally consisting of a single process that contains all components
-and is thus is responsible for every task. It is also imaginable that
-all server components are note necessarily placed into one server
-environment, but being distributed over several virtual machines or
-containers, so that they can scale and run more independently. This can
-improve \emph{redundancy} as well.
+\ref{fig:composition-centralized}). Although \emph{centralized} (or
+monolithic) only refers to the components arrangement on a \emph{server}
+platform, originally consisting of a single process that contains all
+components and is thus is responsible for every task. It is also
+imaginable that all server components are note necessarily placed into
+one server environment, but being distributed over several virtual
+machines or containers, so that they can scale and run more
+independently. This can improve \emph{redundancy} as well.
 
-In theory, a possible version of the arrangement would be to move all
-components to either the desktop or the mobile platform. This comes
-along with some downsides and major issues though, that are far from
-trivial to solve. Nevertheless, to not only ensure nearly 100\% uptime
-and discovery in a landscape where NAT\footnote{Network Address
-  Translation; practice of routing traffic between and through distinct
-  networks address spaces by remapping IPs from those different networks
-  onto each other (e.g.~by utilizing ports)} and dynamic IPs are still
-common practice, for mobile platforms as well as on the desktop, all
-components but the user interface need to be implemented natively. From
-a \emph{operator's} perspective that would mean, to have all components
-at hand and therefore full control over the \emph{PDaaS}. It still would
-still raise security concerns, though.
+In theory, it's indeed possible to arrange the components in such a way
+that they are all located on the mobile platform, or even to a desktop
+device, which are henceforth considered equally in their platform
+properties. This comes along with some downsides and major issues
+though, that are far from trivial to solve. Nevertheless, to not only
+ensure nearly 100\% uptime and discovery in a landscape where
+NAT\footnote{Network Address Translation; practice of routing traffic
+  between and through distinct networks address spaces by remapping IPs
+  from those different networks onto each other (e.g.~by utilizing
+  ports)} and dynamic IPs are still common practice, for mobile
+platforms as well as on the desktop, all components but the user
+interface are therefor needed to be implemented natively. From an
+\emph{operator's} perspective that would mean, to have all components at
+hand and therefore full control over the \emph{PDaaS}. It still would
+raise security concerns, though.
 
-Aside from providing the \emph{operator} with a non-stationary and
-instantly accessible interface to her \emph{PDaaS}, involving a
-\emph{mobile platform} primarily has the purpose of enabling the
-\emph{data subject} to carry all her sensitive data along. This is
-considered a major advantage over the centralized approach, were all the
-personal data is located in the \emph{`cloud'}. Depending on the
-perspective, it can either be seen as a \emph{single source of truth} or
-a \emph{single point of failure}. Regardless of that, it introduces the
-demand of a backup or some redundancy concept, which has briefly been
-touched on in the discussion about database system requirements within
-the \protect\hyperlink{data}{section on \emph{data}}. A mobile platform
-as part of the system makes it more easier for the data subject to
-establish a security concept in which the relation between
-\emph{personal data storage} and the rest of the system is much more
-liberated, so that all access attempts only happen under full
+Aside from providing the operator with a non-stationary and instantly
+accessible interface to her \emph{PDaaS}, involving a \emph{mobile}
+platform primarily has the purpose of enabling the data subject to carry
+all her sensitive data along. This is considered a major advantage over
+the centralized approach, were all the personal data is located in the
+\emph{`cloud'}. Depending on the perspective, it can either be seen as a
+\emph{single source of truth} or a \emph{single point of failure}.
+Regardless of that, it introduces the demand of a backup or some
+redundancy concept, which has briefly been touched on in the discussion
+about database system requirements within the
+\protect\hyperlink{data}{section on \emph{data}}. A \emph{mobile}
+platform as part of the system makes it more easier for the data subject
+to establish a security concept in which the relation between
+\emph{Personal Data Storage (PDS)} and the rest of the system is much
+more liberated, so that all access attempts only happen under full
 supervision. It is debatable whether to place the \emph{permission
 profiles} in the \emph{persistence layer} among all other domain-related
 information, put it into the \emph{personal data storage} too, or define
 it as having its own storage component, in order to be flexible in its
 placing.
+
+The process of obtaining personal data determines that the \emph{PDS}
+only is accessed by a component located on the server (\emph{Storage
+Connector}). Now, moving the \emph{PDS} away form the \emph{server}
+makes it more difficult to access. Assuming the host environment
+provides a simple mechanism to configure its firewall and listen on a
+port for incoming connections, which is not very likely, because of
+host-wide security policies, the \emph{Storage Connector} would still
+need the IP form the device, and even then the already mentioned
+practise of NAT and dynamic IPs would require a signaling process,
+through which a connection to the \emph{Storage Connector} is
+established.\\
+Two approaches are proposed to circumvent this issue. Either an ongoing
+bidirectional connection (e.g.~WebSockets) can be utilized to push data
+queries from the \emph{server} platform, or the \emph{Storage Connector}
+queues the queries and informs the operator via Push Notification on
+pending attempts to access the \emph{PDS} located on her mobile device,
+so that she can then actively pull the queries and push the results back
+to the \emph{Storage Connector}. Those are two general distinct
+approaches, details may vary.
 
 Authenticating \emph{consumers} is performed based on TLS by the web
 server and its configured subdomains including their individual keys and
@@ -4583,12 +4774,12 @@ in and the public one, that is used for when consumers apply for
 registration. The other one is a small group of endpoints required for
 all tools the \emph{operator} might need; from data API or notification
 to authentication and web-based user interface. Furthermore, it might be
-considerable to partially apply the principles of a RESTful design. At
-the same time this makes the API potentially more complicated and
+considered to partially apply the principles of a RESTful design.
+However, this makes the API potentially more complicated and
 insufficient, since the \emph{Operator API} does not follow the concept
 of resources. Instead, it requires a rather functional design, which
-makes for example \emph{Remote Procedure Calls} or a
-\emph{Publish-Subscribe} pattern more appropriate to use.
+makes \emph{Remote Procedure Calls} or a \emph{Publish-Subscribe}
+pattern, for example, more appropriate to use.
 
 Considering the rapid growth of emerging website and applications, which
 all require user registration, users are getting tired of creating new
@@ -4600,7 +4791,7 @@ the accessibility to those service owners. Whereas users get the benefit
 of just using one account for all their apps - a universal key so to
 say, but only one exemplar. So the downside here is, in reality only a
 handful of third parties
-{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{147}{]}
+{[}\protect\hyperlink{ref-web_2009-success-of-facebook-connect}{152}{]}
 provide those authentication services.\\
 OpenID is designed with a very specific type of scenarios in mind,
 namely the one just described - bringing decentralization to the market
@@ -4647,19 +4838,19 @@ licenses. Furthermore, enforcing \emph{portability}
 independent development process that can be organized in a way so that
 the primary division into components can be leveraged.
 
-The range of environment systems for \emph{server} platforms is highly
-diverse but the main shares
-{[}\protect\hyperlink{ref-web_2017_wikipedia_os-market-share}{148}{]}
+The range of host systems for \emph{server} platforms is highly diverse
+but the main shares
+{[}\protect\hyperlink{ref-web_2017_wikipedia_os-market-share}{153}{]}
 belong to either the UNIX or LINUX family, even though almost every
 platform is POSIX-compliant.\footnote{Portable Operating System
   Interface; a collection of standards released by the IEEE Computer
   Society to preserve compatibility between operating systems} When it
 comes to \emph{mobile} platforms the market is far less diverse. Native
 applications are either developed in \emph{Java} (for Google's Android)
-or in Swift (for Apple's iOS). Whereas the environment systems have
-nearly no relevance for the \emph{desktop}, other then the screen size
-and maybe which browser and version the environment system runs. But
-that's a situation the user can change if necessary.
+or in Swift (for Apple's iOS). Whereas the host systems have nearly no
+relevance for \emph{web} platforms, other then the screen size and maybe
+which browser and version the environment system runs. But that's a
+condition the user can change if necessary.
 
 As a result, being able to use certain components on a \emph{server}
 platform depends on what \emph{server} environment is available and vice
@@ -4684,7 +4875,7 @@ effectively means it's the only dependency the \emph{PDaaS} would have,
 regardless of how its components are implemented. They just have to be
 \emph{`containerizable'} - by satisfying the
 \emph{\protect\hyperlink{def--container}{container image specification}}
-{[}\protect\hyperlink{ref-web_oci-spec_image}{115}{]}. This concept can
+{[}\protect\hyperlink{ref-web_oci-spec_image}{118}{]}. This concept can
 also be utilized for the
 \emph{\protect\hyperlink{supervised-data-access}{supervised code
 execution}} (\protect\hyperlink{sa01}{S.A.01}) mentioned before without
@@ -4791,34 +4982,33 @@ introduce new problems instead of solving them.
 
 \section{Attack Scenarios}\label{attack-scenarios}
 
-If only briefly, previous sections already mentioned a few potential
-attack types and vulnerabilities of the system, such as
-man-in-the-middle attacks that are possible during connection
-establishment and data transfer, or session hijacking which can be done
-by stealing the JWT used to authenticate privileged entities to the
-system. Attack vectors causing those and other scenarios as well as
-possible and feasible counter-measures are discussed in detail within
-this section.
+Previous sections have already touched upon a few potential attack types
+and vulnerabilities of the system, such as man-in-the-middle attacks
+that are possible during connection establishment and data transfer, and
+session hijacking, which can be done by stealing the JWT used to
+authenticate privileged entities to the system. Attack vectors
+responsible for these and other scenarios as well as possible
+counter-measures are discussed in detail within this section.
 
-Initially however, it is to identify what motivation(s) would drive such
-attacks. The first and probably the most dangerous one appears to be
-\emph{Digital Identity Theft}. Thereby the attacker impersonates the
-individual that was originally associated to the system. Then data
-consumers, though, have the misleading impression, that everything the
-intruder does with the \emph{PDaaS} still happens on behave of the data
-owner herself. Such control can be abused for vicious data changes to
-harm the physical counterpart or the access can simply be exploited to
-unopposedly extract the individual's personal data. The more data the
-system contains and the more purposes it serves, the more power can be
-gained by controlling it. Those motivations are extrinsically driven by
-third parties, whereas intrinsic and mostly unintended damage can be
-caused by system or human failure, which may lead, for example, to data
-loss or irrecoverable system access.
+Before that, however, is to work out what motivation(s) would drive such
+attacks. The first, and probably most dangerous motivation, appears to
+be \emph{Digital Identity Theft}. Meaning that the attacker impersonates
+the individual that was originally associated with the system. Then data
+consumers are misled into believing that everything the intruder does
+with the \emph{PDaaS} is happening on behalf of the data owner herself.
+Such control can be abused for vicious data changes to harm the physical
+counterpart or the access can simply be exploited to unopposedly extract
+the individual's personal data. The more data the system contains and
+the more purposes it serves, the more power that can be gained by
+controlling it. Those motivations are extrinsically driven by third
+parties, whereas intrinsic and mostly unintended damage can be caused by
+system or human failure, which may lead, for example, to data loss or
+irrecoverable system access.
 
-As the name states, in a man-in-the-middle attack the transferred
-content of a communication is intercepted and possibly tampered with,
-while the participants not noticing any of that. A common solution here
-is to encrypt and sign the content before transferring it. For HTTP
+As the name states, in a man-in-the-middle attack, the transferred
+content of a communication is intercepted and possibly tampered with
+while the participants remain unaware. A common solution here is to
+encrypt and sign the content before transferring it. For HTTP
 communication this is implemented by the \emph{Transport Layer Security
 (TLS)}. The crux here is to move from an unencrypted to an encrypted
 connection. This upgrade procedure involves the
@@ -4826,28 +5016,28 @@ connection. This upgrade procedure involves the
 certification based on \emph{asymmetrical cryptography} for
 authentication. The procedure starts i.a. with the server-role
 presenting the client-role with its certificate \emph{while the
-connection is still insecure}. This is essential, because the connection
-is still insecure, a man-in-the-middle attack is possible at that time.
-In order to prevent that and to ensure the trustworthiness of that
-certificate, the client has to verify the certificate. This is done by
-using an installed certificate from a trustful public CA, that has
-issued and therefore trusted the server's certificate, to examine its
-chain of trust. But since HTTPS connections between data consumers and
-the system rather use certificates that are issued by the system itself
-instead of relying on CA-certified certificates, there is no chain of
-commonly trusted entities, that can verify the presented certificates.
-So in order to still trust those certificates, even though they are sent
-on a insecure channel during the connection establishment, they have to
-be handed over in private sometime before. This is defined in the
-registration process, where the consumer either presents a QR-Code
-served via publicly certified HTTPS, which he is responsible for but can
-easily verified by the data subject, or submits the registration request
-including the CSR to a URL provided by the data subject that is also
-reachable only by publicly certified HTTPS. The server then issues the
-certificate and sends it - alongside with its own certificate - back to
-the consumer via publicly certified HTTPS, too. The consumer is able to
-trust the server certificate and can even pin it to detect fictitious
-certificates he might get presented with. This approach enables not only
+connection is still insecure}. At this critical point, because the
+connection is still insecure, which makes a man-in-the-middle attack
+possible. In order to prevent this and to ensure the trustworthiness of
+the certificate, the client has to verify the certificate. This is done
+by using an installed certificate issued by trusted public CA, which has
+therefore trusted the server's certificate, to examine its chain of
+trust. But since HTTPS connections between data consumers and the system
+use certificates that are issued by the system itself instead of relying
+on CA-certified certificates, there is no chain of commonly trusted
+entities that can verify the presented certificates. So, in order to
+still trust those certificates despite being sent on a insecure channel
+during the connection establishment, they have to be handed over in
+private sometime before. This is defined in the registration process,
+where the consumer either presents a QR-Code served via publicly
+certified HTTPS, which he is responsible for but can easily be verified
+by the data subject, or submits the registration request including the
+CSR to a URL provided by the data subject that is also reachable only by
+publicly certified HTTPS. The server then issues the certificate and
+sends it - alongside with its own certificate - back to the consumer
+also via publicly certified HTTPS. The consumer is able to trust the
+server certificate and can even pin it to detect fictitious certificates
+he might get presented with. This approach enables not only
 confidentiality and integrity of the data exchanged between consumer and
 data subject, but by enforcing \emph{two-way authentication}
 authenticity of the respective opposite is provides to both parties as
@@ -4855,82 +5045,91 @@ well. While other HTTP connections via TLS may still rely on
 certificates signed by publicly trusted CAs, regular key change and
 certificate renewal has therefor to be ensured.
 
-Another aspect of the system, that could be vulnerable to certain
-attacks, is the authentication mechanism used by the data subject to log
-into her management tool. A JSON Web Token, also containing all session
-information, serves as the key. As mentioned before, such connections
-are forced to be established only by TLS. So from this perspective the
-JWT is no less or more secure than any other type of credentials.
-Though, this doesn't prevent the token from being usable to the attacker
-once it is stolen. A short expiration date, equally to a session
-timeout, and token invalidation cycle, which is the same as forced
-logout, can reduce the potential harm an incident like this may cause.
-Furthermore the integration of 2-factor authentication hardens the
-authentication procedure. But in order to not introduce another
+Another aspect of the system that could be vulnerable to certain attacks
+is the authentication mechanism used by the data subject to log into her
+management tool. A JSON Web Token, which contains all session
+information, serves as the key. As mentioned before, any connection
+between components is forced to be established only by TLS. So from this
+perspective the JWT is no less or more secure than any other type of
+credentials. However, this doesn't prevent the token from being usable
+to the attacker once it is stolen. A short expiration date, equal to a
+session timeout, and token invalidation cycle, which is the same as
+forced logout, can reduce the potential harm an incident like this may
+cause. Furthermore the integration of 2-factor authentication hardens
+the authentication procedure. But in order to not introduce another
 dependency, namely an external service providing such functionality,
-2-factor authentication is only supported, when a mobile device is
+2-factor authentication is only supported when a mobile device is
 associated to the \emph{PDaaS}. Further precautions can be taken by
-preventing attackers from getting in the near of such token, referring
-to \emph{cross-site scripting (XSS)}, to which web-based graphical
-interfaces are vulnerable to. Approaching this issue means to abandon
-external resources providing parts of the interface and instead store
-all content on the server platform and serve it with the system's own
+preventing attackers from getting close to such token, referring to
+\emph{cross-site scripting (XSS)}, to which web-based graphical
+interfaces are vulnerable. Approaching this issue means to abandon
+external resources providing parts of the interface and storing all
+content on the server platform instead, serving it with the system's own
 web server. Even if that means an increased load time caused by the
-browser constrains of how content is loaded, which isn't an issue in
-HTTPS/2 anymore.
+browser constraints of how content is loaded, this isn't an issue in
+HTTPS/2 anymore. Even though connections are based on TLS, a
+\emph{Replay Attack}\footnote{delaying or repeating transmissions, so
+  that the recipient is deluded with wrong assumptions, for example,
+  being securely authenticated} is still a possible scenario. Using a
+unique identifier for a JWT (\texttt{jti}) is not able to prevent this
+attack, but if suspicious behaviour is detected, it can help to identify
+the related JWT and act accordingly (e.g invalidate token). Depending on
+the implementation, this strategy may ultimately make the server
+stateful. Thus, a more detailed analysis of such scenario is required to
+make an adequate decision on this topic.
 
 The approach of running consumer-provided programs locally in order to
 prevent personal data from leaving the system represents a key part in
 this work, but it also raises major security concerns. To address those
-concerns such a program is executed in an application container, which
-encapsulates the runtime from the host environment and allows to
-restrict resource access, such as network, filesystem or computing
-power, to the required minimum. This concept, previously introduced as
-\emph{Supervised Code Execution} forms a containment layer preventing
-security breaches towards the host environment, which ultimately means a
-great security enhancement. Nevertheless, it makes involved components
-and dependencies vulnerable for almost any security flaw that they might
-carry in. Therefore it is vital to keep all related software up to date,
-which probably means enabling automated update mechanisms. That again
-introduces yet another type of attack vectors, which can be depressed by
-only using signed and trusted software and resources.
+concerns, such a program is executed in an application container, which
+encapsulates the runtime from the host environment and allows the
+restriction of resource access, such as network, filesystem, or
+computing power, to the required minimum. This concept, previously
+introduced as \emph{Supervised Code Execution} forms a containment layer
+preventing security breaches towards the host environment, which
+ultimately means a great security enhancement. Nevertheless, it makes
+involved components and dependencies vulnerable to almost any security
+flaw that they might carry in. Therefore it is vital to keep all related
+software up to date, which probably means enabling automated update
+mechanisms. That again introduces yet another type of attack vector,
+which can be lessened by only using signed and trusted software and
+resources.
 
 When it comes to personal data, existing social networks and other great
-platforms, founded on user-generated content have already become de
-facto data silos, and thus a single point of failure. A more
-decentralized approach, for example the here proposed concept would
-result in, diminishes the impact of potential security breaches, those
-platforms may experience. While from an global perspective this can be
-valued as a step in the right direction, from the perspective of a data
-subject instead, a \emph{PDaaS} instance still represents a single point
-of failure as well. But in order to provide most control over the own
-personal data, this design choice appears to be the logical consequence.
-Besides that, several system components are highly portable, so that
-more sensitive parts, like the \emph{Personal Data Store}, can be
-relocated away from the server platform into the data owner's mobile
-device. In this case, for example a JWT issued by the \emph{PSD} can be
-used to authenticate the access to personal data.
+platforms founded on user-generated content have already become de facto
+data silos, and thus a single point of failure. A more decentralized
+approach, for example, the concept proposed here, diminishes the impact
+of potential security breaches those platforms may experience. While,
+from an global perspective, this can be valued as a step in the right
+direction, from the perspective of a data subject, a \emph{PDaaS}
+instance still represents a single point of failure as well. But in
+order to provide maximum control over her own personal data, this design
+choice appears to be the logical consequence. Additionally, several
+system components are highly portable so that more sensitive parts, like
+the \emph{Personal Data Store}, can be relocated away from the server
+platform into the data owner's mobile device. In this case, a JWT issued
+by the \emph{PSD}, for example, can be used to authenticate the access
+to personal data.
 
-However, those measures are still no guarantee for a comprehensive
-security protection. The only way is to continuously improve the system
-and provide mechanisms to securely recover from any type of incident.
-Not least that's why a complete open (source) development is enforced
-from the start, because vulnerabilities can easy be disclosed and hence
+However, those measures are still no guarantee of comprehensive security
+protection. The only way is to continuously improve the system and
+provide mechanisms to securely recover from any type of incident. This
+is one reason why a complete open (source) development is enforced from
+the start, allowing vulnerabilities to be easily disclosed and hence
 addressed immediately.
 
 \emph{\textbf{Conclusions:}} Securing data transport and storage are the
 two pivotal aspects to focus on. Choosing self-singed certificates over
 publicly trusted CAs in order to not only encrypt but also reasonably
-authenticate the consumer-system communication requires to make sure
-that the preliminary transfer of the certificates is not compromised, so
-that both parties can safely rely on them. Settings for any
-cryptographic procedure regarding their expense have to be chosen in
-favour of increasing the level of security instead of reducing resources
-and cost. The general mindset for this project is to rather utilize long
-proven libraries and technologies instead of using own implementations
-for cryptographic concepts and algorithms. Nevertheless, ongoing
-reviewing and re-evaluation of those dependencies as well as the
-software itself is mandatory.
+authenticate the consumer-system communication needs to make sure that
+the preliminary transfer of the certificates is not compromised, so that
+both parties can safely rely on them. Settings for any cryptographic
+procedure regarding their expense have to be chosen in favour of
+increasing the level of security instead of reducing resources and cost.
+The general mindset for this project is to prefer proven libraries and
+technologies over own implementations for cryptographic concepts and
+algorithms. Nevertheless, ongoing reviewing and re-evaluation of those
+dependencies, as well as the software itself, is mandatory.
 
 As a future enhancement it is planned to integrate an \emph{intrusion
 detection system} into the server platform's host environment, even
@@ -4940,12 +5139,12 @@ is already part of the system architecture, facilitated by the
 \emph{Tracker} component. Furthermore it is considered to apply full
 storage encryption to the \emph{Personal Data Storage}, which would
 result in major security improvements. Therefore, when the personal data
-is located on the server, it should stay secure, even if the system is
-compromised. In return, the system might lose convenience in user
+is located on the server, it should stay secure even if the system is
+compromised. As a result, the system might lose convenience in user
 interaction. It essentially comes down to an act of balance between
-security and convenience. Not much security measure or mechanism can be
-simplified or abstracted while not violating other (general) values at
-the same time. Key is to find the right compromise for the right motive.
+security and convenience. It is hardly possible to simplify or abstract
+security measures without violating other (general) values. The key is
+to find the right compromise for the right motive.
 
 \section{User Interfaces}\label{user-interfaces}
 
@@ -5028,13 +5227,13 @@ run supervised code execution & - & \textbf{X} &
 \bottomrule
 \end{longtable}
 
-The architectural design includes \emph{desktop} and \emph{mobile}
+The architectural design includes \emph{web} and \emph{mobile}
 platforms. While prioritizing a web-based \emph{GUI}, the management
 tool for the \emph{operator} also needs to be natively implemented for
 common mobile systems (\protect\hyperlink{pviu02}{P.VIU.02}); in this
 case Android and iOS. This enables real-time notifications
 (\protect\hyperlink{pi03}{P.I.03}, \protect\hyperlink{pb02}{P.B.02}) on
-mobile platforms, whereas the same feature is added to \emph{desktop}
+mobile platforms, whereas the same feature is added to \emph{web}
 platforms by providing WebSocket-based connections. Since screen sizes
 can vary - in particular on \emph{mobile} platforms - the \emph{GUI} is
 required to be highly responsive and has to adapt
@@ -5051,7 +5250,7 @@ especially hard to solve because of the problem of how to display
 graph-based and nested data structures in such a way that reviewing and
 also manipulating them is easy, even on the small screen of a mobile
 phone? One approach could be to utilize the \emph{accordion} pattern
-{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{149}{]} for
+{[}\protect\hyperlink{ref-web_2016_wikipedia_accordion-gui}{154}{]} for
 edges and start nesting them in order to represent subsequent data
 structure. The interaction then might look like tree-structured
 navigation; moving alongside relations just by expanding and folding in
@@ -5087,17 +5286,17 @@ those interfaces are complete functionality, security precautions and
 restrictions, as well as comprehensive documentation. Visual user
 interfaces also need to provide reliable and adaptive rendering, a
 consistent and encouraging interaction design. \emph{GUIs} need to be
-provided for all \emph{desktop} and \emph{mobile} platforms, primarily
-to provide an efficient user experience for the operator. The operator
-is the only role with permissions to access a \emph{GUI}. Components on
-the \emph{server} platform should provide \emph{CLIs}, at least when no
-other technical option exist to interact with them. Also accessing the
-database from command line could be appreciated at some point. APIs are
-mostly meant for data consumers to interact with the \emph{PDaaS}, and
-perhaps for automated data contribution (based on \emph{operator} role;
-e.g.~browser plugin). \emph{Desktop} platforms might use those
-\emph{APIs} as well. In any case, \emph{APIs} must be separated
-according to the \emph{roles}.
+provided for all front end platforms, primarily to provide an efficient
+user experience for the operator. The operator is the only role with
+permissions to access a \emph{GUI}. Components on the \emph{server}
+platform should provide \emph{CLIs}, at least when no other technical
+option exist to interact with them. Also accessing the database from
+command line could be appreciated at some point. APIs are mostly meant
+for data consumers to interact with the \emph{PDaaS}, and perhaps for
+automated data contribution (based on the \emph{operator} role;
+e.g.~browser plugin). \emph{Web} platforms might use those \emph{APIs}
+as well. In any case, \emph{APIs} must be separated according to the
+\emph{roles}.
 
 These are all vital characteristics whose details need to be addressed
 by the \emph{specification}. Their implementation details are not the
@@ -5159,7 +5358,7 @@ specification
 \item[\protect\hypertarget{spec_term_platform}{}{Platform}:]
 combination of environment capabilities and common role characteristics,
 which can be inherited from its hardware/device properties; possible
-values: \emph{desktop}, \emph{server}, \emph{mobile}
+values: \emph{web}, \emph{server}, \emph{mobile}
 \item[\protect\hypertarget{spec_term_component}{}{Component}:]
 independent piece of software that is part of the system and might be
 capable of running on different platforms, but not at the same time;
@@ -5316,12 +5515,12 @@ subject is comfortable with.
 
 The architecture design (see Fig. \ref{fig:spec_arch_simplifier})
 defines three different platforms where components of the system could
-run. While \emph{desktop} and \emph{mobile} platforms are primarily
-meant to serve as the front end of the system and to present the
-operator with GUIs, the \emph{mobile} platform in particular might host
-the \emph{Personal Data Storage}. However, that data storage can be
-located on any platform. This is enabled by abstracting the storage
-through the \emph{Storage Connector} on the \emph{server} platform.
+run. While \emph{web} and \emph{mobile} platforms are primarily meant to
+serve as the front end of the system and to present the operator with
+GUIs, the \emph{mobile} platform in particular might host the
+\emph{Personal Data Storage}. However, that data storage can be located
+on any platform. This is enabled by abstracting the storage through the
+\emph{Storage Connector} on the \emph{server} platform.
 
 That \emph{server} platform also provides an external API for accessing
 personal data. Incoming requests from third parties and consumers are
@@ -5339,7 +5538,7 @@ receives new registration). Probably one of the most important
 components is the \emph{Operator API}, through which the operator i.a.
 is able to configure the system or manage permissions and the API is
 granted read/write permissions at the \emph{Storage Connector}. The
-\emph{Operator API} MAY partially be designed RESTful, but accessing
+\emph{Operator API} MAY partially be designed RESTfully, but accessing
 data MUST solely consist of the query language provided by
 \emph{GraphQL}.
 
@@ -5724,7 +5923,7 @@ the system
 \paragraph{Management Tool (and other GUIs used by the
 operator)}\label{management-tool-and-other-guis-used-by-the-operator}
 
-a graphical user interface, available for mobile and desktop platforms,
+a graphical user interface, available for mobile and web platforms,
 accessible only by the operator to control the system
 
 \begin{enumerate}
@@ -7101,7 +7300,7 @@ check data reliability\tabularnewline
 The primary GUI of the system is the operator's \emph{Management Tool},
 which is used to administrate the system, to control and manage data
 access, and to maintain personal data. The tool MAY be available on
-mobile platforms, but MUST at least be provided for \emph{desktop}
+mobile platforms, but MUST at least be provided for \emph{web}
 platforms. The following lists show briefly, which features the tool
 provides to the operator.
 
@@ -7547,14 +7746,14 @@ governed by {[}\ldots{}{]} the Basic Law. {[}\ldots{}{]} this
 fundamental right guarantees in principle the power of individuals to
 make their own decisions as regards the disclosure and use of their
 personal data.
-{[}\protect\hyperlink{ref-court-decision_1983_census-act-germany}{150},
+{[}\protect\hyperlink{ref-court-decision_1983_census-act-germany}{155},
 p. 3{]}
 \end{quote}
 
 It is demonstrated in \emph{\protect\hyperlink{fundamentals}{Chapter 2 -
 Fundamentals}}, that these legislation encounter not much recognition
 nowadays. Secret agencies simply ignore or reinterpret
-{[}\protect\hyperlink{ref-web_2016_bnd-weltraumtheorie}{151}{]} them and
+{[}\protect\hyperlink{ref-web_2016_bnd-weltraumtheorie}{156}{]} them and
 private organisations are usually out of jurisdiction. But since it
 still is valid law, individuals have not only a reasonable desire, but
 as stated above, the right to protect their personal data. A web
@@ -7591,12 +7790,12 @@ solidarity are desirable values. Hence, we, as individuals, have to move
 away from being the product and start to become self-determined again.
 The answer to what platform do we want for a global community, like the
 one envisioned by Mr.~Zuckerberg
-{[}\protect\hyperlink{ref-web_2017_facebook_building-global-community}{152}{]},
+{[}\protect\hyperlink{ref-web_2017_facebook_building-global-community}{157}{]},
 must not be \emph{facebook}. Instead the answer should be build on
 openness and neutrality, and on an infrastructure that is accessible to
 everyone and owned by everyone - like the origins of the internet,
 \emph{``an Internet of People''}
-{[}\protect\hyperlink{ref-web_2017_encouraging-individual-sovereignty}{153},
+{[}\protect\hyperlink{ref-web_2017_encouraging-individual-sovereignty}{158},
 Sec. 5{]}. The here proposed software can conduce in reclaiming the
 internet as the platform for a global community - our society.
 
@@ -7748,84 +7947,7 @@ questionable to equip data subjects with such capabilities. On the other
 hand, though, regardless of this work or such feature, such discount
 offers as described before are already start to occur
 {[}web\_2015\_health-insurance-discount-in-return-of-data{]}
-{[}\protect\hyperlink{ref-web_2016_insurance-discount-in-return-of-data}{154}{]}.
-
-\section{Target Groups Perspective}\label{target-groups-perspective}
-
-\emph{NOTICE: the following perspectives do not necessarily reflect the
-sole perspective of the author, but should be understood as a general
-opinions from the respective user type.}
-
-For me, as a data subject, privacy is a major concern. With this
-software I would not only have one single place to maintain all my
-personal and sensitive data while carrying the actual the data with me,
-but I would also be able to control on a very precise level and under my
-conditions which vendor has what data on me or is able to access. Even I
-myself can collect and submit data to my system, completely automated,
-whether it's movement data, my browsing history or any other data I am
-creating. And since I have full control over the system I could even
-analyze the date about me myself. It is not my concern how exactly the
-\emph{PDaaS} might work, but it needs to be reliable and I have to be
-able to trust it with my data. A convenient setup and usage is vital,
-otherwise I would probably give up before I got it up and running. If
-those demands the \emph{PDaaS} is capable to provide, then of course I
-would use it, because it gives me freedom of my data.
-
-From a developer's perspective, the most important aspects of an open
-source project are, in my opinion, a friendly and cooperative community
-combined of users and developers, as well as a detailed specification
-and documentation for what already exists. I must also be a user of the
-developed software, which generally is a valuable perspective for every
-developer. As such I must be able to understand the specification as
-well as the overall architecture and design. That is, the more
-sophisticated those aspects are, the more effort is required to get
-involved. The software can still have many components though, but the
-complexity of the relations between them should be simple and explicit.
-The barriers for participation or contribution must be as low as
-possible. For example, instructions on how to setup a local development
-environment with only little external dependencies can be very helpful
-and time-saving. Depending on the subject, the specification is either
-restrictive or more flexible in its description. So, it depends on the
-developer's personal preferences which is preferred. Though, it must be
-very precise on how the internal interfaces between components as well
-as external should look like, in order to enable several people to work
-on different components at the same time. Implementations based on
-different languages can not only increase user adoption but also
-encourage developer from other communities to join. Alternative
-implementations can serve as templates or inspirations of new ones.
-Those aspects not only apply to core developers but also to those who
-write \emph{consumer clients}, which is a library that abstracts the
-consumer-system relation and should provide effortless integration into
-the consumer's existing infrastructure. Here it is particularly
-important to provide those who are going to integrate the client with
-detailed instructions and documentations to prevent misunderstandings
-and mistakes during integration. If all those aspects, especially
-detailed and useful documentation as well as a helping community, are in
-place, I as a developer would gladly contribute to this project.
-
-As a data consumer, it would only be reasonable for me to support
-interoperability with a system that prevents me from collecting data but
-still provides access to it, if my business model is not contrary to
-that behaviour. For example, directly monetizing that data won't be
-possible anymore, unless the data subject enables me to do so by giving
-me raw data. If I instead want, for example, to enrich and improve my
-service(s) or product(s), this approach is, to me, as equal as storing
-the data on my own. Furthermore, this strategy may indirectly reduce
-resources and therefore expense, because it's essentially the same to an
-outsourcing procedure. The amount of effort to integrate the required
-interface must be appropriate. Support from the community may become
-necessary. In order to not violate the constrains for \emph{Supervised
-Code Execution} a detailed description as well as a group of different
-examples should be available. It can get frustrating after several
-attempts to still not be able to get such a procedure to work. This
-again may hamper the adoption progress. The most important aspects for
-me are reliability in any sense as well a trust. The possible latency
-between requesting data and actually obtaining them could become an
-issue. Therefore either, I have to adapted and design my processes to be
-not time-critical or if it's inevitable though, the data subject needs
-to be informed about such constraint so that she can try to act
-accordingly, or this overall concept of an individual controlled data
-resources may not be an adequate alternative to the current approach.
+{[}\protect\hyperlink{ref-web_2016_insurance-discount-in-return-of-data}{159}{]}.
 
 \section{Future Work}\label{future-work}
 
@@ -7839,7 +7961,7 @@ might have contributed. On the other side, though, for example the
 project \emph{openPDS/SafeAnswers}, of which the specification has in
 part followed similar approaches, is fairly new and matches with the
 latest opinions of experts
-{[}\protect\hyperlink{ref-web_2017_distributed-future-is-personal}{155}{]}.
+{[}\protect\hyperlink{ref-web_2017_distributed-future-is-personal}{160}{]}.
 
 The critique, which the specification is partially able to address, is
 the lack of control of our own personal data while it's being collected.
@@ -7856,7 +7978,7 @@ machine learning, which therefore need to be integrate with the
 The concept of \emph{Supervised Code Execution} can be enhanced by
 migrating the \emph{Personal Data Storage (PDS)} and execution to a
 \emph{Bockchain}-based approach
-{[}\protect\hyperlink{ref-paper_2015_decentralizing-privacy-using-blockchain-to-protect-personal-data}{156}{]}
+{[}\protect\hyperlink{ref-paper_2015_decentralizing-privacy-using-blockchain-to-protect-personal-data}{161}{]}
 as proposed in the \href{http://www.enigma.co}{Enigma} Project. In
 general the idea of encrypting the \emph{PDS} might be a reasonable
 step, which would introduce new challenges as well. Therefore it
@@ -8034,7 +8156,7 @@ Result of Code 03 in JSON}:}
 
 \emph{NOTICE: schema notation is based on the rules underpinning the
 schema definition provided by the SimpleSchema project
-{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{157}{]}.}
+{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{162}{]}.}
 
 \textbf{\protect\hypertarget{code-05_struct_profile}{}{Code 05: Struct -
 Profile (example)}}
@@ -8094,6 +8216,45 @@ Position (example)}}
 \emph{PDaaS} may become a powerful \emph{`digital reflection'} in the
 sense of being seen as a real and reliable representation of the data
 subject, and
+
+cert, a public key attached with owner information and a digital
+signature of that key
+
+This communication scenario refers to a one-to-one relation
+
+Hab mir gerade mal deine Struktur angeguckt. Ich befürchte dein gesamtes
+Kapitel 6 (Spec) gehört so wie es ist in den Anhang. Für nen Kapitel im
+Hauptteil hättest du es anders aufbauen müssen. Und in Kapitel 7
+(Conclusion) bin ich mir nicht sicher, was genau die Abschnitte für
+Business Model \& Monetarization und Target Groups Perspective da zu
+suchen haben. Business Model etc. hätte man evtl. in ein alternativ
+aufgebautes Kapitel 6 als Gedankenexperiment mit einbauen können. Und
+die Target Groups (Zielgruppenanalyse) müsste eigentlich noch in die
+Requirement Analyse also vor der Requirement Spezifikation.
+
+.. Wieso wird von dir der Destkop eigentlich in 5.5 als ¨trusted: no,
+private: no¨ eingstuft, aber das Mobiltelefon mit ¨trusted: no, private:
+cond¨? 21:02 Und der Server bei beidem mit yes? Ich würde beim Desktop
+(Client?) verstehen, wenn beides nen cond. hätte, aber ihn schlechter
+als die mobile Anwendung einzustufen verstehe ich an der Stelle nicht.
+21:05 Aber allein schon, dass ich das Fragen muss, sollte dir zeigen,
+dass an der stelle eine Erklärung fehlt, wie diese Einschátzung zustande
+gekommen ist. 21:08 Und du sprichst sonst immer auch on Web-Application,
+also wieso hier auf einmal von Desktop.
+
+Dann schreib doch Web-Application und nicht Desktop. Ne Web-Application
+kannst du ja schließlich Browserabhängig aber Bebtriebssystemunabhängig
+ausführen und ne Desktop App genau anders herum :D 21:17 Aber dann steht
+immer noch, dass diese Einschätzung so wie sie da steht frei aus der
+Luft gegriffen ist. 21:17 Oder kannst du mir erklären wieso eine
+Web-Anwendung in nem Iron grundsätzlich weniger vertrauen verdient als
+auf einem gerootetem Android 2.4?
+
+TODO: new platform definition
+
+server desktop mobile web
+
+4 Requirement Analysis 4.1 Target Groups Perspective 4.2 Requirements
 
 \hypertarget{refs}{}
 \hypertarget{ref-web_2016_privacy-international-about-big-data}{}
@@ -8530,270 +8691,294 @@ cryptosystems. In: \emph{Cryptography and network security: Principles
 and practice}. Seventh edition. ed. Boston~: Pearson, 2014
 ---~ISBN~978-0-13-335469-0, pp.~256--264
 
+\hypertarget{ref-web_spec_rsa}{}
+{[}84{]} \textsc{K. Moriarty, Ed.}\,; \textsc{Kaliski, B.}\,;
+\textsc{Jonsson, J.}\,; \textsc{Rusch, A.}: \emph{PKCS \#1: RSA
+cryptography specifications version 2.2}. URL
+\url{https://tools.ietf.org/html/rfc8017}. - retrieved 2017-03-04
+
 \hypertarget{ref-web_spec_http1}{}
-{[}84{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
+{[}85{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
 \textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
 \textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{Hypertext
 transfer protocol -- HTTP/1.1}. URL
 \url{https://tools.ietf.org/html/rfc2616}. - retrieved 2016-12-17
 
 \hypertarget{ref-web_2017_wikipedia_osi-model}{}
-{[}85{]} OSI model. \emph{Wikipedia}.
+{[}86{]} OSI model. \emph{Wikipedia}.
 
 \hypertarget{ref-web_spec_http2}{}
-{[}86{]} \textsc{Belshe, Mike}\,; \textsc{Thomson, Martin}\,;
+{[}87{]} \textsc{Belshe, Mike}\,; \textsc{Thomson, Martin}\,;
 \textsc{Peon, Roberto}: \emph{Hypertext transfer protocol version 2
 (HTTP/2)}. URL \url{https://tools.ietf.org/html/rfc7540}. - retrieved
 2016-12-17
 
 \hypertarget{ref-web_spec_tls}{}
-{[}87{]} \textsc{Dierks, Tim}\,; \textsc{Rescorla, E.}: \emph{The
+{[}88{]} \textsc{Dierks, Tim}\,; \textsc{Rescorla, E.}: \emph{The
 transport layer security (TLS) protocol version 1.2}. URL
 \url{https://tools.ietf.org/html/rfc5246}. - retrieved 2016-12-17
 
 \hypertarget{ref-book_2014_chapter-14-5-pki}{}
-{[}88{]} \textsc{Stallings, William}: 10.5 pseudorandom number
+{[}89{]} \textsc{Stallings, William}: 10.5 pseudorandom number
 generation based on an asymmetric cipher. In: \emph{Cryptography and
 network security: Principles and practice}. Seventh edition. ed.
 Boston~: Pearson, 2014 ---~ISBN~978-0-13-335469-0, pp.~443--445
 
 \hypertarget{ref-web_spec_x509}{}
-{[}89{]} \textsc{Cooper, Dave}\,; \textsc{Santesson, S.}\,;
+{[}90{]} \textsc{Cooper, Dave}\,; \textsc{Santesson, S.}\,;
 \textsc{Farrell, S.}\,; \textsc{Boeyen, S.}\,; \textsc{Housley, W.,
 \textnormal{R. andPolk}}: \emph{Internet x.509 public key infrastructure
 certificate and certificate revocation list (CRL) profile}. URL
 \url{https://tools.ietf.org/html/rfc5280}. - retrieved 2017-01-11
 
 \hypertarget{ref-web_spec_websockets}{}
-{[}90{]} \textsc{Fette, Ian}\,; \textsc{Melnikov, A.}: \emph{The
+{[}91{]} \textsc{Fette, Ian}\,; \textsc{Melnikov, A.}: \emph{The
 WebSocket protocol}. URL \url{https://tools.ietf.org/html/rfc6455}. -
 retrieved 2016-12-17
 
 \hypertarget{ref-web_2013_npa-sicherheitsdefizit}{}
-{[}91{]} \textsc{Kleinhans, Jan-Peter}: \emph{Basisleser weiterhin
+{[}92{]} \textsc{Kleinhans, Jan-Peter}: \emph{Basisleser weiterhin
 kritische schwachstelle des elektronischen / neuen personalausweises.
 Netzpolitik.org}. URL
 \url{https://netzpolitik.org/2013/basisleser-weiterhin-kritische-schwachstelle-des-elektronischen-neuen-personalausweises/}.
 - retrieved 2017-01-05
 
 \hypertarget{ref-web_2014_test-qes-support-in-npa}{}
-{[}92{]} \textsc{Stiemerling, Oliver}: \emph{Qualifizierte elektronische
+{[}93{]} \textsc{Stiemerling, Oliver}: \emph{Qualifizierte elektronische
 signatur mit dem neuen personalausweis -- oder: QES mit nPA, ein
 selbstversuch. CR-online.de blog}. URL
 \url{http://www.cr-online.de/blog/2014/08/26/qualifizierte-elektronische-signatur-mit-dem-neuen-personalausweis-oder-qes-mit-npa-ein-selbstversuch/}.
 - retrieved 2017-01-05
 
 \hypertarget{ref-web_2017_about-de-mail}{}
-{[}93{]} \textsc{Der Bundesbeauftragte der Bundesregierung für
+{[}94{]} \textsc{Der Bundesbeauftragte der Bundesregierung für
 Informationstechnik}: \emph{De-mail -- einfach verschlüsselt und
 nachweisbar}. URL
 \url{http://www.cio.bund.de/Web/DE/Innovative-Vorhaben/De-Mail/de_mail_node.html}.
 - retrieved 2017-01-06
 
 \hypertarget{ref-web_2017_wikipedia_qes}{}
-{[}94{]} Qualified electronic signature. \emph{Wikipedia}.
+{[}95{]} Qualified electronic signature. \emph{Wikipedia}.
 
 \hypertarget{ref-web_spec_json}{}
-{[}95{]} \textsc{Crockford, Douglas}: The JSON data interchange format.
+{[}96{]} \textsc{Crockford, Douglas}: The JSON data interchange format.
 
 \hypertarget{ref-web_rfc_json}{}
-{[}96{]} \textsc{Bray, T.}: \emph{The JavaScript object notation (JSON)
+{[}97{]} \textsc{Bray, T.}: \emph{The JavaScript object notation (JSON)
 data interchange format}. URL \url{https://tools.ietf.org/html/rfc7159}.
 - retrieved 2016-12-17
 
 \hypertarget{ref-web_spec_json-web-token}{}
-{[}97{]} \textsc{Bradley, John}\,; \textsc{Sakimura, Nat}\,;
+{[}98{]} \textsc{Bradley, John}\,; \textsc{Sakimura, Nat}\,;
 \textsc{Jones, Michael}: \emph{JSON web token (JWT)}. URL
 \url{https://tools.ietf.org/html/rfc7519}. - retrieved 2016-12-17
 
 \hypertarget{ref-web_spec_base64url}{}
-{[}98{]} \textsc{Joseffsson, J.}: \emph{The base16, base32, and base64
+{[}99{]} \textsc{Joseffsson, J.}: \emph{The base16, base32, and base64
 data encodings}. URL
 \url{https://tools.ietf.org/html/rfc4648\#section-5}. - retrieved
 2017-02-22
 
 \hypertarget{ref-web_spec_hmac}{}
-{[}99{]} \textsc{Krawczyk, H.}\,; \textsc{Bellare, M.}\,;
+{[}100{]} \textsc{Krawczyk, H.}\,; \textsc{Bellare, M.}\,;
 \textsc{Canetti, R.}: \emph{HMAC: Keyed-hashing for message
 authentication}. URL \url{https://tools.ietf.org/html/rfc2104}. -
 retrieved 2017-03-01
 
 \hypertarget{ref-web_spec_json-web-encryption}{}
-{[}100{]} \textsc{Hildebrand, Joe}\,; \textsc{Jones, Michael}:
+{[}101{]} \textsc{Hildebrand, Joe}\,; \textsc{Jones, Michael}:
 \emph{JSON web encryption (JWE)}. URL
 \url{https://tools.ietf.org/html/rfc7516}. - retrieved 2016-12-17
 
 \hypertarget{ref-web_spec_json-web-signature}{}
-{[}101{]} \textsc{Bradley, John}\,; \textsc{Sakimura, Nat}\,;
+{[}102{]} \textsc{Bradley, John}\,; \textsc{Sakimura, Nat}\,;
 \textsc{Jones, Michael}: \emph{JSON web signature (JWS)}. URL
 \url{https://tools.ietf.org/html/rfc7515}. - retrieved 2016-12-17
 
 \hypertarget{ref-web_2012_problem-with-oauth-for-authentication}{}
-{[}102{]} \textsc{Bradley, John}: \emph{The problem with OAuth for
+{[}103{]} \textsc{Bradley, John}: \emph{The problem with OAuth for
 authentication.} URL
 \url{http://www.thread-safe.com/2012/01/problem-with-oauth-for-authentication.html}.
 - retrieved 2016-12-17
 
 \hypertarget{ref-web_spec_oauth-1a}{}
-{[}103{]} \emph{OAuth core 1.0a}. URL
+{[}104{]} \emph{OAuth core 1.0a}. URL
 \url{https://oauth.net/core/1.0a/}. - retrieved 2016-12-18
 
 \hypertarget{ref-web_spec_oauth-2}{}
-{[}104{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+{[}105{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
 framework}. URL \url{https://tools.ietf.org/html/rfc6749}. - retrieved
 2016-12-18
 
 \hypertarget{ref-web_2016_oauth-2}{}
-{[}105{]} \textsc{WG, IETF OAuth}: \emph{OAuth 2.0}. URL
+{[}106{]} \textsc{WG, IETF OAuth}: \emph{OAuth 2.0}. URL
 \url{https://oauth.net/2/}. - retrieved 2016-12-16
 
 \hypertarget{ref-web_spec_openid-spec-index}{}
-{[}106{]} \emph{Specifications \& developer information OpenID}. URL
+{[}107{]} \emph{Specifications \& developer information OpenID}. URL
 \url{https://openid.net/developers/specs/}. - retrieved 2017-02-10
 
 \hypertarget{ref-web_spec_openid-connect-1}{}
-{[}107{]} \emph{OpenID connect core 1.0 incorporating errata set 1}. URL
+{[}108{]} \emph{OpenID connect core 1.0 incorporating errata set 1}. URL
 \url{https://openid.net/specs/openid-connect-core-1_0.html}. - retrieved
 2016-12-17
 
+\hypertarget{ref-web_docs_facebook-login}{}
+{[}109{]} \emph{Facebook login - documentation. Facebook for
+developers}. URL
+\url{https://developers.facebook.com/docs/facebook-login}. - retrieved
+2017-03-05
+
+\hypertarget{ref-web_2017_wikipedia_facebook-connect}{}
+{[}110{]} Facebook connect. \emph{Wikipedia}.
+
 \hypertarget{ref-web_2017_wikipedia_openid-vs-pseudo-oauth}{}
-{[}108{]} \emph{OpenID - openid vs. pseudo-authentication using oauth}.
+{[}111{]} \emph{OpenID - openid vs. pseudo-authentication using oauth}.
 URL
 \url{https://en.wikipedia.org/w/index.php?title=OpenID\&oldid=763047614\#OpenID_vs._pseudo-authentication_using_OAuth}.
 - retrieved 2017-02-10. ---~Page Version ID: 763047614
 
 \hypertarget{ref-web_spec_rest}{}
-{[}109{]} \textsc{Fielding, Thomas}: Representational state transfer
+{[}112{]} \textsc{Fielding, Thomas}: Representational state transfer
 (REST). In: \emph{Architectural styles and the design of network-based
 software architectures}~: University of California, Irvine, 2000,
 pp.~76--106
 
 \hypertarget{ref-web_spec_http-methods}{}
-{[}110{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
+{[}113{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
 \textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
 \textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{HTTP
 methods}. URL \url{https://tools.ietf.org/html/rfc2616\#section-9}. -
 retrieved 2016-12-18
 
 \hypertarget{ref-web_2015_cgroup-doc}{}
-{[}111{]} \textsc{Heo, Tejun}: \emph{Control group (v2) documentation}.
+{[}114{]} \textsc{Heo, Tejun}: \emph{Control group (v2) documentation}.
 URL \url{https://www.kernel.org/doc/Documentation/cgroup-v2.txt}. -
 retrieved 2016-12-20
 
 \hypertarget{ref-web_2016_kernel-namespace}{}
-{[}112{]} \emph{Overview of linux namespaces}. URL
+{[}115{]} \emph{Overview of linux namespaces}. URL
 \url{http://man7.org/linux/man-pages/man7/namespaces.7.html}. -
 retrieved 2016-12-20
 
 \hypertarget{ref-web_2016_open-container-initiative}{}
-{[}113{]} \emph{Open container initiative}. URL
+{[}116{]} \emph{Open container initiative}. URL
 \url{https://www.opencontainers.org/}. - retrieved 2016-12-20
 
 \hypertarget{ref-web_oci-spec_runtime}{}
-{[}114{]} \emph{Container runtime specification (v1.0.0-rc3)}. URL
+{[}117{]} \emph{Container runtime specification (v1.0.0-rc3)}. URL
 \url{https://github.com/opencontainers/runtime-spec/tree/v1.0.0-rc3}. -
 retrieved 2016-12-20
 
 \hypertarget{ref-web_oci-spec_image}{}
-{[}115{]} \emph{Container image specification (v1.0.0-rc3)}. URL
+{[}118{]} \emph{Container image specification (v1.0.0-rc3)}. URL
 \url{https://github.com/opencontainers/image-spec/tree/v1.0.0-rc3}. -
 retrieved 2016-12-20
 
 \hypertarget{ref-web_spec_graphql}{}
-{[}116{]} \emph{GraphQL}. URL \url{https://facebook.github.io/graphql/}.
+{[}119{]} \emph{GraphQL}. URL \url{https://facebook.github.io/graphql/}.
 - retrieved 2016-12-17
 
 \hypertarget{ref-web_2016_w3c_semantic-web-activity}{}
-{[}117{]} \emph{Semantic web - w3c}. URL
+{[}120{]} \emph{Semantic web - w3c}. URL
 \url{https://www.w3.org/standards/semanticweb/}. - retrieved 2017-02-10
 
 \hypertarget{ref-web_w3c-tr_rdf}{}
-{[}118{]} \textsc{Beckett, Dave}\,; \textsc{McBride, Brian}:
+{[}121{]} \textsc{Beckett, Dave}\,; \textsc{McBride, Brian}:
 \emph{RDF/XML syntax specification (revised)}. URL
 \url{https://www.w3.org/TR/REC-rdf-syntax/}. - retrieved 2016-12-19
 
 \hypertarget{ref-web_w3c-tr_owl}{}
-{[}119{]} \textsc{W3C OWL Working Group}: \emph{OWL 2 web ontology
+{[}122{]} \textsc{W3C OWL Working Group}: \emph{OWL 2 web ontology
 language document overview (second edition)}. URL
 \url{https://www.w3.org/TR/owl2-overview/}. - retrieved 2016-12-19
 
 \hypertarget{ref-web_w3c-tr_sparql}{}
-{[}120{]} \textsc{Harris, Steve}\,; \textsc{Seaborne, Andy}\,;
+{[}123{]} \textsc{Harris, Steve}\,; \textsc{Seaborne, Andy}\,;
 \textsc{Prud'hommeaux, Eric}: \emph{SPARQL 1.1 query language}. URL
 \url{https://www.w3.org/TR/sparql11-query/}. - retrieved 2016-12-19
 
 \hypertarget{ref-web_w3c-draft_webid}{}
-{[}121{]} \emph{WebID specifications}. URL
+{[}124{]} \emph{WebID specifications}. URL
 \url{https://www.w3.org/2005/Incubator/webid/spec/}. - retrieved
 2016-12-19
 
 \hypertarget{ref-web_spec_solid}{}
-{[}122{]} \emph{Solid specification}. URL
+{[}125{]} \emph{Solid specification}. URL
 \url{https://github.com/solid/solid-spec}. - retrieved 2016-12-17
 
 \hypertarget{ref-web_2016_wiki_webaccesscontrol}{}
-{[}123{]} \emph{WebAccessControl - w3c wiki}. URL
+{[}126{]} \emph{WebAccessControl - w3c wiki}. URL
 \url{https://www.w3.org/wiki/WebAccessControl}. - retrieved 2016-12-19
 
 \hypertarget{ref-web_2016_demo_databox}{}
-{[}124{]} \emph{Databox.me}. URL \url{https://databox.me/}. - retrieved
+{[}127{]} \emph{Databox.me}. URL \url{https://databox.me/}. - retrieved
 2016-12-19
 
 \hypertarget{ref-paper_2004_distributed-mapreduce}{}
-{[}125{]} \textsc{Dean, Jeffrey}\,; \textsc{Ghemawat, Sanjay}:
+{[}128{]} \textsc{Dean, Jeffrey}\,; \textsc{Ghemawat, Sanjay}:
 MapReduce: Simplified data processing on large clusters. In:
 \emph{Proceedings of the 6th conference on symposium on opearting
 systems design \& implementation - volume 6}, \emph{OSDI'04}. Berkeley,
 CA, USA~: USENIX Association, 2004, pp.~10--10
 
 \hypertarget{ref-web_spec_tls-12_client-auth}{}
-{[}126{]} \textsc{Dierks, Tim}: \emph{The transport layer security (TLS)
+{[}129{]} \textsc{Dierks, Tim}: \emph{The transport layer security (TLS)
 protocol version 1.2}. URL
 \url{https://tools.ietf.org/html/rfc5246\#section-7.4.6}. - retrieved
 2017-01-09
 
+\hypertarget{ref-web_spec_basic-auth}{}
+{[}130{]} \textsc{Reschke, J.}: \emph{The 'basic' http authentication
+scheme}. URL \url{https://tools.ietf.org/html/rfc7617}. - retrieved
+2017-03-05
+
+\hypertarget{ref-web_spec_cookie}{}
+{[}131{]} \textsc{Barth, A.}: \emph{HTTP state management mechanism}.
+URL \url{https://tools.ietf.org/html/rfc6265}. - retrieved 2017-03-05
+
 \hypertarget{ref-web_2017_wikipedia_mutual-auth}{}
-{[}127{]} \emph{Mutual authentication}. URL
+{[}132{]} \emph{Mutual authentication}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Mutual_authentication\&oldid=737409981}.
 - retrieved 2017-01-10. ---~Page Version ID: 737409981
 
 \hypertarget{ref-book_2013_networking-101_tls-session-resumption}{}
-{[}128{]} \emph{Networking 101: Transport layer security (TLS) - high
+{[}133{]} \emph{Networking 101: Transport layer security (TLS) - high
 performance browser networking (o'Reilly). High performance browser
 networking}. URL
 \url{https://hpbn.co/transport-layer-security-tls/\#tls-session-resumption}.
 - retrieved 2017-01-12
 
 \hypertarget{ref-web_spec_tls-session-ticket-resumption}{}
-{[}129{]} \textsc{Joseph Salowey, P. Eronen, \textnormal{H. Zhou}}:
+{[}134{]} \textsc{Joseph Salowey, P. Eronen, \textnormal{H. Zhou}}:
 \emph{Transport layer security (TLS) session resumption without
 server-side state}. URL \url{https://tools.ietf.org/html/rfc5077}. -
 retrieved 2017-01-12
 
 \hypertarget{ref-book_2014_chapter-10-5-asym-random-number-gen}{}
-{[}130{]} \textsc{Stallings, William}: 9.1 public-key infrastructure.
+{[}135{]} \textsc{Stallings, William}: 9.1 public-key infrastructure.
 In: \emph{Cryptography and network security: Principles and practice}.
 Seventh edition. ed. Boston~: Pearson, 2014 ---~ISBN~978-0-13-335469-0,
 p.~307
 
 \hypertarget{ref-web_bsi-spec_eid}{}
-{[}131{]} \emph{BSI - technische richtlinien des BSI - BSI TR-03130
+{[}136{]} \emph{BSI - technische richtlinien des BSI - BSI TR-03130
 eID-server}. URL
 \url{https://www.bsi.bund.de/DE/Publikationen/TechnischeRichtlinien/tr03130/tr-03130.html}.
 - retrieved 2017-01-06
 
 \hypertarget{ref-web_2017_npa-eid-server}{}
-{[}132{]} \emph{Personalausweisportal - eID-server}. URL
+{[}137{]} \emph{Personalausweisportal - eID-server}. URL
 \url{https://personalausweisportal.de/DE/Wirtschaft/Technik/eID-Server/eID-Server_node.html}.
 - retrieved 2017-01-06
 
 \hypertarget{ref-statement_2013_de-mail}{}
-{[}133{]} \textsc{Linus Neumann (Press Spokespersion, Chaos Computer
+{[}138{]} \textsc{Linus Neumann (Press Spokespersion, Chaos Computer
 Club)}: \emph{Stellungnahme zum elektronischen rechtsverkehr}. URL
 \url{https://ccc.de/system/uploads/128/original/demail_april2013.pdf}
 
 \hypertarget{ref-web_spec_http-error-codes}{}
-{[}134{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
+{[}139{]} \textsc{Leach, Paul J.}\,; \textsc{Berners-Lee, Tim}\,;
 \textsc{Mogul, Jeffrey C.}\,; \textsc{Masinter, Larry}\,;
 \textsc{Fielding, Roy T.}\,; \textsc{Gettys, James}: \emph{Hypertext
 transfer protocol -- HTTP/1.1}. URL
@@ -8801,129 +8986,129 @@ transfer protocol -- HTTP/1.1}. URL
 2017-01-20
 
 \hypertarget{ref-web_spec_oauth-1a_client-reg}{}
-{[}135{]} \emph{OAuth core 1.0a}. URL
+{[}140{]} \emph{OAuth core 1.0a}. URL
 \url{https://oauth.net/core/1.0a/\#rfc.section.4.2}. - retrieved
 2016-11-01
 
 \hypertarget{ref-web_spec_oauth-2_client-reg}{}
-{[}136{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+{[}141{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
 framework}. URL \url{https://tools.ietf.org/html/rfc6749\#section-2}. -
 retrieved 2016-11-01
 
 \hypertarget{ref-web_spec_oauth-1a_access-verification}{}
-{[}137{]} \emph{OAuth core 1.0a}. URL
+{[}142{]} \emph{OAuth core 1.0a}. URL
 \url{https://oauth.net/core/1.0a/\#rfc.section.7}. - retrieved
 2016-11-01
 
 \hypertarget{ref-web_spec_oauth-2_access-verification}{}
-{[}138{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
+{[}143{]} \textsc{Hardt, Dick}: \emph{The OAuth 2.0 authorization
 framework}. URL \url{https://tools.ietf.org/html/rfc6749\#section-7}. -
 retrieved 2016-11-01
 
 \hypertarget{ref-web_w3c-tr_rdf-schemas}{}
-{[}139{]} \textsc{Brickley, Dan}\,; \textsc{Guha, R.V.}: \emph{RDF
+{[}144{]} \textsc{Brickley, Dan}\,; \textsc{Guha, R.V.}: \emph{RDF
 schema 1.1}. URL \url{https://www.w3.org/TR/rdf-schema/}. - retrieved
 2017-02-12
 
 \hypertarget{ref-web_spec_data-schemas_ehr}{}
-{[}140{]} \textsc{Foundation}: \emph{OpenEHR - EHR information model}.
+{[}145{]} \textsc{Foundation}: \emph{OpenEHR - EHR information model}.
 URL \url{http://www.openehr.org/releases/RM/latest/docs/ehr/ehr.html}. -
 retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_data-schemas_poi}{}
-{[}141{]} \textsc{W3C}: \emph{Points of interest core}. URL
+{[}146{]} \textsc{W3C}: \emph{Points of interest core}. URL
 \url{https://www.w3.org/TR/poi-core/}. - retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_data-schemas_bank-transfer}{}
-{[}142{]} \textsc{Authority, ISO 20022 Registration}: \emph{ISO 20022 -
+{[}147{]} \textsc{Authority, ISO 20022 Registration}: \emph{ISO 20022 -
 universal financial industry message scheme}. URL
 \url{https://www.iso20022.org/}. - retrieved 2017-01-28
 
 \hypertarget{ref-web_spec_xml_types}{}
-{[}143{]} \textsc{W3C}: \emph{XML schema part 2: Datatypes second
+{[}148{]} \textsc{W3C}: \emph{XML schema part 2: Datatypes second
 edition}. URL
 \url{https://www.w3.org/TR/xmlschema-2/\#built-in-primitive-datatypes}.
 - retrieved 2017-01-29
 
 \hypertarget{ref-web_spec_graphql_types}{}
-{[}144{]} \textsc{Facebook, Inc.}: \emph{GraphQL Specification}. URL
+{[}149{]} \textsc{Facebook, Inc.}: \emph{GraphQL Specification}. URL
 \url{https://facebook.github.io/graphql/\#sec-Input-Values}. - retrieved
 2017-01-29
 
 \hypertarget{ref-web_2016_wikipedia_separation-of-concerns}{}
-{[}145{]} \emph{Separation of concerns}. URL
+{[}150{]} \emph{Separation of concerns}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Separation_of_concerns\&oldid=747272729}.
 - retrieved 2017-01-24. ---~Page Version ID: 747272729
 
 \hypertarget{ref-web_spec_acme}{}
-{[}146{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
+{[}151{]} \textsc{Kasten, James}\,; \textsc{Barnes, Richard}\,;
 \textsc{Hoffman-Andrews, Jacob}: \emph{Automatic certificate management
 environment (ACME)}. URL
 \url{https://tools.ietf.org/html/draft-ietf-acme-acme-04}. - retrieved
 2017-01-11
 
 \hypertarget{ref-web_2009-success-of-facebook-connect}{}
-{[}147{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
+{[}152{]} \textsc{Carlson, Nicholas}: \emph{Facebook connect is a huge
 success -- by the numbers}. URL
 \url{http://www.businessinsider.com/six-months-in-facebook-connect-is-a-huge-success-2009-7}.
 - retrieved 2016-12-16
 
 \hypertarget{ref-web_2017_wikipedia_os-market-share}{}
-{[}148{]} \emph{Usage share of operating systems}. URL
+{[}153{]} \emph{Usage share of operating systems}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Usage_share_of_operating_systems\&oldid=764383522\#Public_servers_on_the_Internet}.
 - retrieved 2017-02-12. ---~Page Version ID: 764383522
 
 \hypertarget{ref-web_2016_wikipedia_accordion-gui}{}
-{[}149{]} \emph{Accordion (GUI)}. URL
+{[}154{]} \emph{Accordion (GUI)}. URL
 \url{https://en.wikipedia.org/w/index.php?title=Accordion_(GUI)\&oldid=758084292}.
 - retrieved 2017-02-01. ---~Page Version ID: 758084292
 
 \hypertarget{ref-court-decision_1983_census-act-germany}{}
-{[}150{]} \textsc{self-organizing}\,; \textsc{group)}: Census act,
+{[}155{]} \textsc{self-organizing}\,; \textsc{group)}: Census act,
 BVerfGE 65, 1 --- English translation of essential parts of the german
 ``volkszählungsurteil'' from 15 december 1983, which established in
 germany the basic right on informational self-determination~: German
 Konrad-Adenauer-Stiftung, 2013. ---~1. Headnote
 
 \hypertarget{ref-web_2016_bnd-weltraumtheorie}{}
-{[}151{]} \textsc{Biselli, Anna}: \emph{Interne dokumente zur
+{[}156{]} \textsc{Biselli, Anna}: \emph{Interne dokumente zur
 weltraumtheorie: Wie sich BND und kanzleramt vor der öffentlichkeit
 fürchteten. Netzpolitik.org}. URL
 \url{https://netzpolitik.org/2016/interne-dokumente-zur-weltraumtheorie-wie-sich-bnd-und-kanzleramt-vor-der-oeffentlichkeit-fuerchteten/}.
 - retrieved 2017-03-03
 
 \hypertarget{ref-web_2017_facebook_building-global-community}{}
-{[}152{]} \textsc{Zuckerberg, Mark}: \emph{Building global community}.
+{[}157{]} \textsc{Zuckerberg, Mark}: \emph{Building global community}.
 URL
 \url{https://www.facebook.com/notes/mark-zuckerberg/building-global-community/10154544292806634}.
 - retrieved 2017-02-27
 
 \hypertarget{ref-web_2017_encouraging-individual-sovereignty}{}
-{[}153{]} \textsc{Balkan, Aral}: \emph{Encouraging individual
+{[}158{]} \textsc{Balkan, Aral}: \emph{Encouraging individual
 sovereignty and a healthy commons}. URL
 \url{https://ar.al/notes/encouraging-individual-sovereignty-and-a-healthy-commons/}.
 - retrieved 2017-02-27
 
 \hypertarget{ref-web_2016_insurance-discount-in-return-of-data}{}
-{[}154{]} \textsc{Wilkens, Andreas}: \emph{Allianz will autoversicherung
+{[}159{]} \textsc{Wilkens, Andreas}: \emph{Allianz will autoversicherung
 mit überwachtem fahrverhalten anbieten. Heise online}. URL
 \url{http://www.heise.de/newsticker/meldung/Allianz-will-Autoversicherung-mit-ueberwachtem-Fahrverhalten-anbieten-3164069.html}.
 - retrieved 2017-03-02
 
 \hypertarget{ref-web_2017_distributed-future-is-personal}{}
-{[}155{]} \textsc{Searls, Doc}: \emph{The distributed future is
+{[}160{]} \textsc{Searls, Doc}: \emph{The distributed future is
 personal. ProjectVRM - blog}. URL
 \url{https://blogs.harvard.edu/vrm/2017/01/18/the-distributed-future-is-personal/}.
 - retrieved 2017-03-03
 
 \hypertarget{ref-paper_2015_decentralizing-privacy-using-blockchain-to-protect-personal-data}{}
-{[}156{]} \textsc{Zyskind, Guy}\,; \textsc{Nathan, Oz}\,;
+{[}161{]} \textsc{Zyskind, Guy}\,; \textsc{Nathan, Oz}\,;
 \textsc{others}: Decentralizing privacy: Using blockchain to protect
 personal data. In: \emph{Security and privacy workshops (SPW), 2015
 IEEE}~: IEEE, 2015, pp.~180--184
 
 \hypertarget{ref-web_2017_repo_node-simple-schema}{}
-{[}157{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
+{[}162{]} \emph{Aldeed/node-simple-schema. GitHub}. URL
 \url{https://github.com/aldeed/node-simple-schema}. - retrieved
 2017-01-29
 

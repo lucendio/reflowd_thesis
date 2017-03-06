@@ -95,7 +95,7 @@ to access those movement data, but at a resolution the data subject is comfortab
 ### Architectural Overview
 
 The architecture design (see Fig. @fig:spec_arch_simplifier) defines three different platforms 
-where components of the system could run. While *desktop* and *mobile* platforms are 
+where components of the system could run. While *web* and *mobile* platforms are 
 primarily meant to serve as the front end of the system and to present the operator with GUIs, the 
 *mobile* platform in particular might host the *Personal Data Storage*. However, that data storage 
 can be located on any platform. This is enabled by abstracting the storage through the 

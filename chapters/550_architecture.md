@@ -12,31 +12,32 @@ The foundation of this project is a server-client Architecture, which is chosen 
 availability ([S.A.05](#sa05)) and (B) separating concerns 
 [@web_2016_wikipedia_separation-of-concerns]. Such a distributed system provides various locations
 to place these concerns, which are, in fact, different environments with different properties. Those 
-combinations of locations and environments are herein after called *platforms*. To further describe 
-these *platforms*, characteristics such as architectural layer and access possibilities to its 
-internals are taken into account. The resulting three *platform* types are shown in Table
-@tbl:platforms-characteristics.
+combinations of locations and environment properties are herein after called *platforms*. To further 
+describe these *platforms*, characteristics such as architectural layer and access possibilities to 
+its host einvironment are taken into account. The resulting four *platform* types are shown in 
+Table @tbl:platforms-characteristics. All platform are considered to be controlled by the data 
+subject. Here, *trusted* refers to how likely it is that the host environment, and maybe even the 
+platform, is unintentionally accessed by third parties, whereas *host access* describes the 
+possibilities to access the host environment from within the platform (e.g. filesystem to store 
+data).
 
-Here, *trusted* means that the host environment can be fully accessed and controlled, whereas 
-*private* refers to restricted access to non-shared resources from a component's perspective. 
 
+| Platform Type    | trusted | Host Access |  Layer   | Purpose                        |
+|:---------|:-------:|:-------:|:--------|:--------------------------------------------|
+| Server   | yes     | yes     | back    | - business logic                            |
+|   $\ $   |   $\ $  |   $\ $  | end     | - third-party interfaces                    |
+|   $\ $   |   $\ $  |   $\ $  |   $\ $  | - data storage                              |
+|   $\ $   |   $\ $  |   $\ $  |   $\ $  | $\ $                                        |
+| Mobile   | cond.   | yes     | front   | - based on host-specific native             |
+|   $\ $   |   $\ $  |   $\ $  | end     | $\ $ technologies                           |
+|   $\ $   |   $\ $  |   $\ $  |   $\ $  | - graphical user interface                  |
+|   $\ $   |   $\ $  |   $\ $  |   $\ $  | - data storage                              |
+|   $\ $   |   $\ $  |   $\ $  |   $\ $  | $\ $                                        |
+| Web      | no      | rest.   | front   | - browser                                   |
+|   $\ $   |   $\ $  |   $\ $  | end     | - based on web technologies                 |
+|   $\ $   |   $\ $  |   $\ $  |   $\ $  | - graphical user interface                  |
 
-| Type    | trusted | private | controlled by | Layer   | Purpose                               |
-|:--------|:-------:|:-------:|:--------------|:--------|:--------------------------------------|
-| Server  | yes     | yes     | data          | back    | - business logic                      |
-|   $\ $  |   $\ $  |   $\ $  | subject       | end     | - third-party interfaces              |
-|   $\ $  |   $\ $  |   $\ $  |   $\ $        |   $\ $  | - data storage                        |
-|   $\ $  |   $\ $  |   $\ $  |   $\ $        |   $\ $  | $\ $                                  |
-| Desktop | no      | no      | data          | front   | - based on web                        |
-|   $\ $  |   $\ $  |   $\ $  | subject       | end     | $\ $ technologies                     |
-|   $\ $  |   $\ $  |   $\ $  |   $\ $        |   $\ $  | $\ $                                  |
-| Mobile  | no      | cond.   | data          | front   | - typically mobiles                   |
-|   $\ $  |   $\ $  |   $\ $  | subject       | end     |   $\ $ devices                        |
-|   $\ $  |   $\ $  |   $\ $  |   $\ $        |   $\ $  | - based on host-specific              |
-|   $\ $  |   $\ $  |   $\ $  |   $\ $        |   $\ $  | $\ $ native technologies              |
-|   $\ $  |   $\ $  |   $\ $  |   $\ $        |   $\ $  | - data storage                        |
-
-Table: All platform types where components of the *PDaaS* architecture can be placed 
+Table: Platform types on which components of the *PDaaS* architecture can be placed 
     {#tbl:platforms-characteristics}
 
 
@@ -56,12 +57,12 @@ underlying technologies, and relation(s) to each other.
 +   revers proxying certain traffic to different components
 +   en- & decrypt HTTPS traffic, thus authenticate *consumers*
 +   load balancing (if necessary)
-+   desktop notification
++   web notification
 +   spam protection
 
 *Relations:*
 +   operator, consumers, third parties
-+   any front end platform (Desktop, Mobile)
++   any front end platform (Mobile, Web)
 
 *Technologies:*
 +   HTTP
@@ -232,7 +233,7 @@ underlying technologies, and relation(s) to each other.
 
 #### User Interface {-}
 
-*Platform:* Desktop, Mobile
+*Platform:* Mobile, Web
 
 *Tasks:*
 +   access restricted to *operator* only
@@ -264,34 +265,50 @@ the other involves more platform types and outlines a certain flexibility.
 
 
 The main difference between the two compositions is the non-existence of the mobile platform in the 
-centralized approach (Figure @fig:composition-centralized). Although *centralized* only refers to 
+centralized approach (Figure @fig:composition-centralized). Although *centralized* (or monolithic) 
+only refers to 
 the components arrangement on a *server* platform, originally consisting of a single process that 
 contains all components and is thus is responsible for every task. 
 It is also imaginable that all server components are note necessarily placed into one server 
 environment, but being distributed over several virtual machines or containers, so that they can 
 scale and run more independently. This can improve *redundancy* as well.
 
-In theory, a possible version of the arrangement would be to move all components to either the 
-desktop or the mobile platform. This comes along with some downsides and major issues though, that 
-are far from trivial to solve. Nevertheless, to not only ensure nearly 100% uptime and discovery in 
-a landscape where NAT [^abbr_nat] and dynamic IPs are still common practice, for mobile platforms as 
-well as on the desktop, all components but the user interface need to be implemented natively. From 
-a *operator's* perspective that would mean, to have all components at hand and therefore full 
-control over the *PDaaS*. It still would still raise security concerns, though.
+In theory, it's indeed possible to arrange the components in such a way that they are all located on 
+the mobile platform, or even to a desktop device, which are henceforth considered equally in their 
+platform properties. This comes along with some downsides and major issues though, that are far from 
+trivial to solve. Nevertheless, to not only ensure nearly 100% uptime and discovery in a landscape 
+where NAT [^abbr_nat] and dynamic IPs are still common practice, for mobile platforms as 
+well as on the desktop, all components but the user interface are therefor needed to be implemented 
+natively. From an *operator's* perspective that would mean, to have all components at hand and 
+therefore full control over the *PDaaS*. It still would raise security concerns, though.
 
-Aside from providing the *operator* with a non-stationary and instantly accessible interface to her 
-*PDaaS*, involving a *mobile platform* primarily has the purpose of enabling the *data subject* to 
+Aside from providing the operator with a non-stationary and instantly accessible interface to her 
+*PDaaS*, involving a *mobile* platform primarily has the purpose of enabling the data subject to 
 carry all her sensitive data along. This is considered a major advantage over the centralized 
 approach, were all the personal data is located in the *'cloud'*. Depending on the perspective, it 
 can either be seen as a *single source of truth* or a *single point of failure*. Regardless of that, 
 it introduces the demand of a backup or some redundancy concept, which has briefly been touched on 
 in the discussion about database system requirements within the [section on *data*](#data). 
-A mobile platform as part of the system makes it more easier for the data subject to establish a 
-security concept in which the relation between *personal data storage* and the rest of the system 
-is much more liberated, so that all access attempts only happen under full supervision.
+A *mobile* platform as part of the system makes it more easier for the data subject to establish a 
+security concept in which the relation between *Personal Data Storage (PDS)* and the rest of the 
+system is much more liberated, so that all access attempts only happen under full supervision.
 It is debatable whether to place the *permission profiles* in the *persistence layer* among all 
 other domain-related information, put it into the *personal data storage* too, or define it as 
 having its own storage component, in order to be flexible in its placing.
+
+The process of obtaining personal data determines that the *PDS* only is accessed by a component
+located on the server (*Storage Connector*). Now, moving the *PDS* away form the *server* makes it
+more difficult to access. Assuming the host environment provides a simple mechanism to configure its
+firewall and listen on a port for incoming connections, which is not very likely, because of 
+host-wide security policies, the *Storage Connector* would still need the IP form the device, and 
+even then the already mentioned practise of NAT and dynamic IPs would require a signaling process,
+through which a connection to the *Storage Connector* is established.  
+Two approaches are proposed to circumvent this issue. Either an ongoing bidirectional connection 
+(e.g. WebSockets) can be utilized to push data queries from the *server* platform, or the 
+*Storage Connector* queues the queries and informs the operator via Push Notification on pending
+attempts to access the *PDS* located on her mobile device, so that she can then actively pull
+the queries and push the results back to the *Storage Connector*. Those are two general distinct 
+approaches, details may vary.
 
 Authenticating *consumers* is performed based on TLS by the web server and its configured subdomains 
 including their individual keys and certificates provided by the *PKI*. The *operator* 

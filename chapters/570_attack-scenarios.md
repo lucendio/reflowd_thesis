@@ -52,7 +52,8 @@ to be ensured.
 
 Another aspect of the system that could be vulnerable to certain attacks is the authentication 
 mechanism used by the data subject to log into her management tool. A JSON Web Token, which contains 
-all session information, serves as the key. As mentioned before, such connections are forced to be 
+all session information, serves as the key. As mentioned before, any connection between components is 
+forced to be 
 established only by TLS. So from this perspective the JWT is no less or more secure than any other 
 type of credentials. However, this doesn't prevent the token from being usable to the attacker once 
 it is stolen. A short expiration date, equal to a session timeout, and token invalidation cycle, 
@@ -66,6 +67,12 @@ this issue means to abandon external resources providing parts of the interface 
 content on the server platform instead, serving it with the system's own web server. Even if that 
 means an increased load time caused by the browser constraints of how content is loaded, this isn't 
 an issue in HTTPS/2 anymore.
+Even though connections are based on TLS, a *Replay Attack* [^desc_replay-attack] is still a 
+possible scenario. Using a unique identifier for a JWT (`jti`) is not able to prevent this attack, 
+but if suspicious behaviour is detected, it can help to identify the related JWT and act 
+accordingly (e.g invalidate token). Depending on the implementation, this strategy may ultimately
+make the server stateful. Thus, a more detailed analysis of such scenario is required to make an
+adequate decision on this topic. 
 
 The approach of running consumer-provided programs locally in order to prevent personal data from 
 leaving the system represents a key part in this work, but it also raises major security concerns. 
@@ -120,3 +127,8 @@ convenience in user interaction.
 It essentially comes down to an act of balance between security and convenience. It is hardly 
 possible to simplify or abstract security measures without violating other (general) values. The key 
 is to find the right compromise for the right motive.
+
+
+
+[^desc_replay-attack]: delaying or repeating transmissions, so that the recipient is deluded with 
+    wrong assumptions, for example, being securely authenticated

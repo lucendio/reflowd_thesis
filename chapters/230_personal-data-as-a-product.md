@@ -57,7 +57,7 @@ or emergency situations where attendees might become endangered and require help
 
 (F) Making more accurate diagnostics to improve a patient's therapy 
 [@the-practice-of-predictive-analytics-in-healthcare_2013]
-(
+
 G) Finding patterns in climate changes, which would otherwise not have been detected 
 [@data-collection-for-climate-changes_2014]
 

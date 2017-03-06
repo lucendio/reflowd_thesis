@@ -6,7 +6,7 @@
 
 The primary GUI of the system is the operator's *Management Tool*, which is used to administrate
 the system, to control and manage data access, and to maintain personal data. The tool MAY be 
-available on mobile platforms, but MUST at least be provided for *desktop* platforms. The following 
+available on mobile platforms, but MUST at least be provided for *web* platforms. The following 
 lists show briefly, which features the tool provides to the operator. 
 
 

@@ -112,8 +112,8 @@ From a technical point of view, two different ways of computing the score are im
 would be to just transfer the plain data including expiry date and information about how reliable 
 the data is. However, the actual computations and analytics to obtain the score happen within the 
 infrastructure of the credit institute. When this process has finished, all the personal data that 
-have been transferred must be erased. An alternative, though, could prevent the data from leaving 
-the *PDaaS*. Therefore, the institute's request won't contain a data query. Instead it comes along 
+have been transferred must be erased. An alternative, though, that would prevent the data from 
+leaving the *PDaaS*, could be if the institute's request won't contain a data query, but instead coming along 
 with some software and information on how to run it. The *PDaaS* server will provide an isolated 
 runtime in which the software can be executed. After that process is finished, the result is sent 
 back to the credit institute's infrastructure.

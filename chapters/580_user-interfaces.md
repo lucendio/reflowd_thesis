@@ -56,11 +56,11 @@ limited, because it's the one interface that the *PDaaS* exposes to third partie
 Table: Features that should be supported by the given user interfaces {#tbl:ui-features} 
 
 
-The architectural design includes *desktop* and *mobile* platforms. While prioritizing a web-based 
+The architectural design includes *web* and *mobile* platforms. While prioritizing a web-based 
 *GUI*, the management tool for the *operator* also needs to be natively implemented for common 
 mobile systems ([P.VIU.02](#pviu02)); in this case Android and iOS. This enables real-time 
 notifications ([P.I.03](#pi03), [P.B.02](#pb02)) on mobile platforms, whereas the same feature is 
-added to *desktop* platforms by providing WebSocket-based connections. 
+added to *web* platforms by providing WebSocket-based connections. 
 Since screen sizes can vary - in particular on *mobile* platforms - the *GUI* is required to be 
 highly responsive and has to adapt ([P.VIU.01](#pviu01)) to various screen sizes. Given the 
 capabilities of the management tool, an inaccurate or error-prone rendered *GUI* can quickly cause
@@ -101,13 +101,13 @@ and other software to interact with the *PDaaS* interfaces are mandatory. Primar
 those interfaces are complete functionality, security precautions and restrictions, as well as 
 comprehensive documentation. Visual user interfaces also need to provide reliable and adaptive 
 rendering, a consistent and encouraging interaction design.
-*GUIs* need to be provided for all *desktop* and *mobile* platforms, primarily to provide an 
+*GUIs* need to be provided for all front end platforms, primarily to provide an 
 efficient user experience for the operator. The operator is the only role with permissions to access 
 a *GUI*. Components on the *server* platform should provide *CLIs*, at least when no other technical 
 option exist to interact with them. Also accessing the database from command line could be 
 appreciated at some point. APIs are mostly meant for data consumers to interact with the *PDaaS*, 
-and perhaps for automated data contribution (based on *operator* role; e.g. browser plugin). 
-*Desktop* platforms might use those *APIs* as well. In any case, *APIs* must be separated according 
+and perhaps for automated data contribution (based on the *operator* role; e.g. browser plugin). 
+*Web* platforms might use those *APIs* as well. In any case, *APIs* must be separated according 
 to the *roles*.
 
 These are all vital characteristics whose details need to be addressed by the *specification*. Their 

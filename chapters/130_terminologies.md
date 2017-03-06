@@ -4,10 +4,9 @@
 
 Web Service:
 
-: A service, that is accessible by electronic devices over the internet. This makes it almost 
-  effortless to use a service which would otherwise be out of reach or unavailable. Interactions 
-  with a service usually happen through enriched websites or other web-compatible applications and 
-  interfaces.
+: A service, accessible by electronic devices over the internet, which would otherwise be out of 
+  reach or unavailable (from the current location). Interactions with a service usually happen 
+  through enriched websites or other web-compatible applications and interfaces.
 
 
 Open Specification:

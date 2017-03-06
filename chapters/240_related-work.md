@@ -127,28 +127,26 @@ topic of *personal data*:
 
 __Research__
 
-+   Higgins [https://www.eclipse.org/higgins/]
-+   Hub-of-All-Things [http://hubofallthings.com/what-is-the-hat/]
-+   ownyourinfo [http://www.ownyourinfo.com]
-+   PAGORA [http://www.paoga.com]
-+   PRIME/PrimeLife [https://www.prime-project.eu, http://primelife.
-    ercim.eu/]
++   [Higgins](https://www.eclipse.org/higgins)
++   [Hub-of-All-Things](http://hubofallthings.com/what-is-the-hat)
++   [ownyourinfo](http://www.ownyourinfo.com)
++   [PAGORA](http://www.paoga.com)
++   [PRIME](https://www.prime-project.eu)/[PrimeLife](http://primelife.ercim.eu)
 +   databox.me (reference implementation of the *[Solid framework](https://github.com/solid/solid)*)
-+   Polis (greek research project from 2008) [http://polis.ee.duth.gr/Polis]
++   [Polis](http://polis.ee.duth.gr/Polis) (greek research project from 2008)
 
 
 __Organisations__
 
-+   Open Identity Exchange [http://openidentityexchange.org/resources
-    /white-papers/]
-+   Qiy Foundation [https://www.qiyfoundation.org/]
++   [Open Identity Exchange](http://openidentityexchange.org/resources/white-papers)
++   [Qiy Foundation](https://www.qiyfoundation.org/)
 
 
 __Commercial Products__
 
-+   MyData [https://mydatafi.wordpress.com/]
-+   RESPECT network [https://www.respectnetwork.com/]
-+   aWise AEGIS [http://www.ewise.com/aegis]
++   [MyData ](https://mydatafi.wordpress.com)
++   [RESPECT network](https://www.respectnetwork.com)
++   [aWise AEGIS](http://www.ewise.com/aegis)
 
 
 [^more-infos_zxid]: more information on the project, the code and the author, Sampo Kellomäki, can

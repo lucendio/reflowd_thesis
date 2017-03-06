@@ -51,7 +51,7 @@ bullet list items are exclusive (logical *or*).
 [Platform]{#spec_term_platform}:
 
 : combination of environment capabilities and common role characteristics, which can be inherited 
-  from its hardware/device properties; possible values: *desktop*, *server*, *mobile*
+  from its hardware/device properties; possible values: *web*, *server*, *mobile*
   
   
 [Component]{#spec_term_component}:
