@@ -22,18 +22,18 @@ lang: 'en'
 
 
 abstract: >
-    Often data is referred to as *the oil of the 21st century*. But recovering petroleum or coal is
-    governed by certain rules and legislation, while vast amounts of personal data are harvested
-    from all sorts of resources with no working restrictions or asking for permission. Well
-    air-conditioned data centers are mining around the clock via dozens of CPUs. Eager to discover
+    Often data are referred to as *the oil of the 21st century*. But recovering petroleum or coal is
+    governed by rules and legislation, whereas vast amounts of personal data are harvested
+    from a variety of resources with no working restrictions or asking for permission. Well
+    air-conditioned data centers are mining these data around the clock via dozens of CPUs, eager to discover
     even the tiniest correlations worth interpreting in enormous haystacks that are filled with data
-    belonging to millions of individuals, who have no knowledge of those computations. But these
-    very computations, and thus their developers, almost inevitably and without restraints
+    belonging to millions of individuals who have no knowledge of those computations. But these
+    very computations, and thus their developers, almost inevitably, and without restraints,
     discriminate against these so called *data subjects*. Such practices cannot be accepted because
-    these haystacks contain actual identities of human beings including their personalities but
-    still getting recklessly monetized.
+    these haystacks contain actual identities of human beings, including their personalities, but are
+    nonetheless being recklessly monetized.
     To address this issue and reduce the possibility of discrimination, third parties have to be
-    supplied only with a minimum of data, so they remain. That is, data owners must be in charge of
+    supplied with only a minimum of data. That is, data owners must be in charge of
     deciding which entity has access to what personal data of theirs.\
 
     This project aims to specify a personal data service that empowers its user to regain full
@@ -46,31 +46,31 @@ abstract: >
 
 
 acknowledgement: >
-    A rather quiet thought at the beginning, emerged to something that felt right to do, but was
-    still missing a clear outline. It took a while, for both of us, to understand what this work is
-    about and where it would lead. But regardless of that he gave me the space to write about this
+    An initial, quiet thought emerged as something that felt right to do, but lacked
+    a clear outline. It took a while for both of us to understand what this work was
+    about and where it would lead. Despite this, he gave me the space to write about this
     rather unconventional topic. A great thanks to my Supervisor for having all these constructive
-    discussions and for not getting tiered of making me rethink my thoughts.
+    discussions and for not getting tired of making me rethink my thoughts.
     \
 
     \
 
-    I challenged myself to write this thesis not in my native language. What at first might sound
-    insane turned out to be a huge learning, but I would have never be able to come this fare just
-    on my own. Thanks to Jag, a college of mine, who lent me his mother tongue from time to time.
+    I challenged myself to write this thesis outside my native language. What at first might sound
+    insane turned out to be a huge learning process, but I would have never be able to come this far
+    on my own. Thanks to Jag, a colleague of mine, who lent me his mother tongue from time to time.
     Without him I would have not be able to reach this level of improvement/proficiency.
     \
 
     \
 
-    Further more, I want to acknowledge all the amazing work that's been done to make the internet
+    Furthermore, I want to acknowledge all the amazing work that's been done to make the internet
     such an extraordinary common good. Thanks to everyone for contributing and sharing their
     knowledge and expertise to the rest of the world.
     \
 
     \
 
-    Thanks to Bruno and Eugen, great minds, to which I am honored to call them friends, who have
+    Thanks to Bruno and Eugen, great minds, who I am honored to call friends, who have
     helped to review this work, making me change perspectives and rightfully forcing me to question
     my approaches.
     \
@@ -83,7 +83,7 @@ acknowledgement: >
     the temporary downgrade of some priorities. Everything comes to an end.
     \
 
-    Finally I would like to thank my parents for allowing me to get this fare.
+    Finally I would like to thank my parents for allowing me to get this far.
 
 ...
 

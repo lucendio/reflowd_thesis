@@ -88,14 +88,14 @@ that the received or accessed data actually relates to the represented individua
 Several approaches to address this have been discussed in 
 *[Chapter 5 - Data Reliability](#data-reliability)*. As a result, a however implemented signing 
 procedure, involving the administration or an official documents *(eID-card)*, was stated as a 
-feasible solution. Although, both require an additional but diverging level of effort for the data 
+feasible solution. Although both require an additional but diverging level of effort for the data 
 owner, the QES-based eID-card version is not widely used and the *Recurring Certification* performed 
 by the administration is a rather theoretical concept.
 However, the question, is an individual willing to depend on the government well-disposition, may 
 remain. Since for both solutions a public key infrastructure to verify the signatures is mandatory,
 a more liberal and open approach like the *web-of-trust* could be a valuable alternative solution.
 
-Retaining integrity of the personal data, that's being stored, but also maintaining those, becomes 
+Retaining integrity of stored and maintained personal data becomes 
 rather complex when introducing flexibility. That is, allowing the owner to change underlying
 data *structs* at any time, results in running a background data migration after every structure 
 change, regardless of where the *Personal Data Storage* is located at that moment. In order to 
@@ -200,8 +200,8 @@ During concept development, it appears to become necessary to define an addition
 called *data contributors* can be a plugin, client or even just a dedicated account that is 
 authorized by the *operator* to only push data into the *PDaaS*. This concept was merely touched on 
 and requires additional work invested to outline the details.
-Two major enhancements but rather independent to all the other components are obviously the 
-inclusion of an *OpenID Provider* supporting 2-Factor-Authentication, but only for that individual
+Two major enhancements that are rather independent to all the other components are obviously the 
+inclusion of an *OpenID Provider*, and supporting 2-Factor-Authentication for the individual
 represented by the *PDaaS*.
 
 The next steps to push the development forward are finalizing the specification by outlining each 
