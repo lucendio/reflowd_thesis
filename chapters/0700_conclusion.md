@@ -3,7 +3,7 @@ Conclusion
 
 
 
-The *Right to privacy* is a fundamental right, found in numerous national 
+The *Right to privacy* is a fundamental right found in numerous national 
 constitutions and confirmed by court decisions, stating that:
  
 >   Given the context of modern data processing, the protection of individuals against unlimited 
@@ -32,9 +32,9 @@ In *Chapter 2* -
 and 
 *[Personal Data as a Product](#personal-data-as-a-product)*
 it is described what impact personal data has in today's society and, in particular, the economy. Data as
-a commercial good has led to humans become the product. Those, who collect, analyze and 
+a commercial good has led to humans becoming the product. Those, who collect, analyze and 
 interpret personal data using algorithms to uncover hidden information that may help determine people's motives and patterns in order to forecast their behaviour, with the purpose of 
-improving their services and ultimately increase revenue. What is often overlooked is that 
+improving their services and ultimately increasing revenue. What is often overlooked is that 
 correlation is no proof of causation. Furthermore, those algorithms naturally inherit the 
 bias of their creators. Together, this leads to privacy violations, and worse, discrimination. 
 
@@ -50,16 +50,16 @@ society.
 
 While trying to prevent our personal data from being read by men in the middle during transfer 
 (HTTPS), we have missed cutting out the middle-men between our data and those who are utilizing them.
-Thus, every individual must be re-enabled, so that they can fully decide on their own what level of 
+Thus, every individual must be re-enabled, so that they can fully decide, on their own, what level of 
 privacy they are willing to share and under what conditions other parties are permitted to access 
 their personal data. 
-The hereby software proposed can help to counter massive and unimpeded data collection and minimize the 
+The software proposed here can help to counter massive and unimpeded data collection and minimize the 
 possibility of discrimination. However these issues can be addressed only partially by these means. As 
 mentioned before, bias, causing discrimination, is naturally inherited and therefore needs to be 
 acknowledged by raising awareness and teaching involved authors and developers about these issues 
 and how to avoid them or at least address them properly. For example, by reducing questionable 
 data items, considering possible consequences for data subjects of their interpretations, or by 
-keeping indirect correlations in mind. Only both approaches combined, can help to remove the greater 
+keeping indirect correlations in mind. Only a combination of both approaches can remove the greater 
 part of bias, embedded not only in those machines but in all of us.
 
 
@@ -68,7 +68,7 @@ part of bias, embedded not only in those machines but in all of us.
 
 As touched on before, the motivation for this work was to overcome discrimination and 
 privacy violation experienced by data owners and caused through large scale data collection, to 
-prevent data from being collected in the fist place. This turns out to be a major challenge, because 
+prevent data from being collected in the first place. This turns out to be a major challenge, because 
 third parties still require personal data, at least for basic processes such as ordering or payment 
 (e.g address), and therefore raw data needs to be transmitted, which is, by the 
 nature of information technology, a process of duplicating data. Thus, the definition of ownership, 

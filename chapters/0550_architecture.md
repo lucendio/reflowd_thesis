@@ -279,9 +279,9 @@ and major issues that are far from trivial to solve. Nevertheless, to not only e
 uptime and discovery in a landscape where NAT [^abbr_nat] and dynamic IPs are still common practice,
 for mobile platforms as well as on the desktop, all components except the user interface are
 therefore required to be implemented natively. From an operator's perspective, that would mean to
-have all components at hand and, therefore, full control over the *PDaaS*. It still would raise
+have all components at hand and, therefore, full control over the *PDaaS*. It would still raise
 security concerns, though, because the devices mentioned before might serve various distinct 
-purposes and would therefore introduces potentially vulnerabilities. 
+purposes and would therefore introduce potentially vulnerabilities. 
 
 Aside from providing the operator with a non-stationary and instantly accessible interface to her 
 *PDaaS*, involving a *mobile* platform primarily has the purpose of enabling the data subject to 

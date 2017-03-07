@@ -89,10 +89,10 @@ returned by the software back to the outer environment.
 c) __Plain Forwarding [default]__; retrieve data from the storage, quick-checking the result, adding 
 an expiration date and forwarding it directly into response.
 
-In case the data consumer provides no preferred access type, a fallback type must be applied, so 
-that the data won't leave the system, unless it's absolutely necessary to pursue the goal of the 
-access request. The overall confidentiality of all personal data is still preserved, though, because
-all communications to and from the *PDaaS* are generally happening over HTTPS anyway, so that the
+In case the data consumer provides no preferred access type, a fallback type must be applied so 
+that the data won't leave the system unless it's absolutely necessary to pursue the goal of the 
+access request. The overall confidentiality of all personal data is still preserved, however, because
+all communications to and from the *PDaaS* are happening over HTTPS, which means the
 data is encrypted during the transport.
 
 
