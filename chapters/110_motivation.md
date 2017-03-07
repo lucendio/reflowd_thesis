@@ -19,9 +19,9 @@ might find correlations. This is also known as *discrimination*, which
 >   minority, without regard to individual merit 
 >   [@paper_2008_discrimination-aware-data-mining, p. 1]. 
 
-When interacting - directly as well as indirectly - with each other, discrimination of human beings 
-is a serious issue in our society, but also when humans leverage computers and algorithms to uncover 
-formerly unnoticed information in order to inform their decision making. For example, when 
+Discrimination is a serious issue in our society, caused by humans interacting, directly or 
+indirectly, between each other, but also when they leverage computers and algorithms to uncover
+formerly unnoticed information in order to improve their decision making. For example, when 
 qualifying for a loan, hiring employees, investigating crimes or renting flats. The decision to 
 approve or deny is based on computed data about the individuals in question
 [@book_2015_ethical-it-innovation, chap. 5.6], which is merely 

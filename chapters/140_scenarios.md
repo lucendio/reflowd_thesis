@@ -10,8 +10,8 @@ to become more relevant when new technologies and business models will occur, th
 new desires for data.
 
 *NOTICE: The subsequent phrasing is intentionally written in colloquial language in order to 
-facilitate comprehensibility and to convey a pictorial idea of what it would look like to use such 
-technology in everyday situation.*
+facilitate comprehensibility and to convey a visualizable idea of what it would look like to use 
+such technology in everyday situations.*
 
 
 
