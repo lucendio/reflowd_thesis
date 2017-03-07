@@ -32,10 +32,10 @@ In *Chapter 2* -
 and 
 *[Personal Data as a Product](#personal-data-as-a-product)*
 it is described what impact personal data has in today's society and, in particular, the economy. Data as
-a commercial good has led to humans become the product. Collector of data analyze and 
+a commercial good has led to humans become the product. Those, who collect, analyze and 
 interpret personal data using algorithms to uncover hidden information that may help determine people's motives and patterns in order to forecast their behaviour, with the purpose of 
 improving their services and ultimately increase revenue. What is often overlooked is that 
-correlation is by far from causation. Furthermore, those algorithms naturally inherit the 
+correlation is no proof of causation. Furthermore, those algorithms naturally inherit the 
 bias of their creators. Together, this leads to privacy violations, and worse, discrimination. 
 
 These 'side effects' are not acceptable in a society where tolerance and solidarity are desirable
@@ -58,7 +58,7 @@ possibility of discrimination. However these issues can be addressed only partia
 mentioned before, bias, causing discrimination, is naturally inherited and therefore needs to be 
 acknowledged by raising awareness and teaching involved authors and developers about these issues 
 and how to avoid them or at least address them properly. For example, by reducing questionable 
-data, considering possible consequences for data subjects of their interpretations, or by 
+data items, considering possible consequences for data subjects of their interpretations, or by 
 keeping indirect correlations in mind. Only both approaches combined, can help to remove the greater 
 part of bias, embedded not only in those machines but in all of us.
 
@@ -83,8 +83,10 @@ The *PDaaS* may be valued as the digital representation of a human being. Hence,
 are interacting with the digital self, want to be able to trust, rely upon, and maybe even verify, 
 that the received or accessed data actually relates to the represented individual.
 Several approaches to address this have been discussed in 
-*[Chapter 5 - Data Reliability](#data-reliability)*. The conclusion was to use a signing 
-procedure involving the administration or an official document *(eID-card)*. Although both require an additional but diverging level of effort for the data 
+*[Chapter 5 - Data Reliability](#data-reliability)*. The proposed solution was a procedure involving 
+the administration (or another party with similar properties) or an official document *(eID-card)*
+that signs and certifies the data in question, which can then serve a verifiable proof for the data
+consumer. Although both require an additional but diverging level of effort for the data 
 owner, the QES-based eID-card version is not widely used and the *Recurring Certification* performed 
 by the administration is a rather theoretical concept.
 However, the question of an individual's willingness to depend on the government's good intentions may 
@@ -121,8 +123,8 @@ still want to be able to access their personal data.
 
 An imaginable opportunity for a viable business model is to provide commercial services around 
 the proposed system. Developing and implementing the specification yields expertise, that may 
-lead to, for example, high-quality hosting of *PDaaS* instances for end users, or to 
-custom implementations in order to adapt to special scenarios, or to assistance with integrations. 
+qualify, for example, to offer high-quality hosting of *PDaaS* instances for end users, or to 
+customize implementations in order to adapt to special scenarios, or to assist with integrations. 
 Even though the underlying technology is open source, history shows various examples of successful 
 businesses based on open source technology, such as 
 [Meteor](https://meteor.com),
@@ -172,10 +174,9 @@ On the one hand, looking back and re-evaluating past research mentioned in
 *[Chapter 2 - Related Work](#related-work)* can give the impression that only minor progress has 
 been made in this field, despite following a reasonable approach that is more relevant today than 
 ever before. Only a few projects have managed to last beyond a prototype or case study, to which the 
-problem of user adoption rate might have contributed. On the other hand, we have examples like the 
-project *openPDS/SafeAnswers*, whose specification has, in part, followed similar 
-approaches, is fairly new and matches with the latest opinions of experts 
-[@web_2017_distributed-future-is-personal].
+problem of user adoption rate might have contributed. On the other hand, the *openPDS/SafeAnswers*
+project, for example, whose specification has, in part, followed similar approaches, is fairly new 
+and matches with the latest opinions of experts [@web_2017_distributed-future-is-personal].
 
 The critique, which the specification is partially able to address, is the lack of control of our 
 own personal data while it's being collected. The existence and utilization of data 
@@ -183,8 +184,7 @@ analytics per se is a huge advantage for our society because of the ability to d
 information and relationships we would otherwise not be able to uncover. This allows us to draw conclusions and 
 thereby evolve. The *PDaaS* is a tool that provides a foundation to do exactly that, but on a 
 smaller and individual scope, and only if we choose to do so. However, this requires an additional stack 
-of components to be 
-integrated with the *PDaaS*, i.a. for data mining and machine learning.
+of components to be integrated with the *PDaaS*, i.a. data mining and machine learning.
 
 The concept of *Supervised Code Execution* can be enhanced by migrating the 
 *Personal Data Storage (PDS)* and execution to a *Blockchain*-based approach 
@@ -196,9 +196,9 @@ During concept development, it appeared necessary to define an additional role. 
 called *data contributors* can be a plugin, client, or even just a dedicated account that is 
 authorized by the *operator* to only push data into the *PDaaS*. This concept was merely touched on 
 and requires additional work invested to outline the details.
-Two major, but rather independent, enhancements to the other components are obviously the 
-inclusion of an *OpenID Provider* supporting 2-Factor-Authentication, but only for that individual
-represented by the *PDaaS*.
+Two major, but rather independent, enhancements to the other components, that seem natural to include,
+are an *OpenID Provider*, and supporting 2-Factor-Authentication for that individual represented by 
+the *PDaaS*.
 
 The next steps to push development forward are, finalizing the specification by outlining each 
 component so that the minimum viable set of features discussed in this work are supported, and then 
@@ -207,7 +207,7 @@ typically goes along with finding and addressing flaws in the specification, whi
 process. Mobile components have to follow shortly and additional features such as those just 
 mentioned may come afterwards.
 
-To reiterate, the concept proposed here is far from being the ultimate 
+In conclusion, the concept proposed here is far from being the ultimate 
 solution, but it is nonetheless an improvement over the current situation, It definitely 
 has its weaknesses and needs further development, but they are worth investing in, in order to reach the 
 overall goals of increasing privacy and empowering individuals to control their own data.
