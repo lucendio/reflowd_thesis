@@ -68,7 +68,7 @@ part of bias, embedded not only in those machines but in all of us.
 
 As touched on before, the motivation for this work was to overcome discrimination and 
 privacy violation experienced by data owners and caused through large scale data collection, to 
-prevent data from being collected in the fist place. This turns out to be a major challenge, because 
+prevent data from being collected in the first place. This turns out to be a major challenge, because 
 third parties still require personal data, at least for basic processes such as ordering or payment 
 (e.g address), and therefore raw data needs to be transmitted, which is, by the 
 nature of information technology, a process of duplicating data. Thus, the definition of ownership, 
