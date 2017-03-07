@@ -294,23 +294,23 @@
 \begin{document}
 \input{./assets/pages/titlepage.tex}
 \begin{abstract}
-Often data is referred to as \emph{the oil of the 21st century}. But
-recovering petroleum or coal is governed by certain rules and
-legislation, while vast amounts of personal data are harvested from all
-sorts of resources with no working restrictions or asking for
-permission. Well air-conditioned data centers are mining around the
-clock via dozens of CPUs. Eager to discover even the tiniest
-correlations worth interpreting in enormous haystacks that are filled
-with data belonging to millions of individuals, who have no knowledge of
-those computations. But these very computations, and thus their
-developers, almost inevitably and without restraints discriminate
-against these so called \emph{data subjects}. Such practices cannot be
-accepted because these haystacks contain actual identities of human
-beings including their personalities but still getting recklessly
-monetized. To address this issue and reduce the possibility of
-discrimination, third parties have to be supplied only with a minimum of
-data, so they remain. That is, data owners must be in charge of deciding
-which entity has access to what personal data of theirs.\\
+Often data are referred to as \emph{the oil of the 21st century}. But
+recovering petroleum or coal is governed by rules and legislation,
+whereas vast amounts of personal data are harvested from a variety of
+resources with no working restrictions or asking for permission. Well
+air-conditioned data centers are mining these data around the clock via
+dozens of CPUs, eager to discover even the tiniest correlations worth
+interpreting in enormous haystacks that are filled with data belonging
+to millions of individuals who have no knowledge of those computations.
+But these very computations, and thus their developers, almost
+inevitably, and without restraints, discriminate against these so called
+\emph{data subjects}. Such practices cannot be accepted because these
+haystacks contain actual identities of human beings, including their
+personalities, but are nonetheless being recklessly monetized. To
+address this issue and reduce the possibility of discrimination, third
+parties have to be supplied with only a minimum of data. That is, data
+owners must be in charge of deciding which entity has access to what
+personal data of theirs.\\
 This project aims to specify a personal data service that empowers its
 user to regain full control over her personal data. It facilitates the
 regulation of data flows and provides detailed information on where the
@@ -326,33 +326,32 @@ developed transparently in public, which also encourages self-hosting.
 \pagenumbering{Roman}
 \addcontentsline{toc}{chapter}{Acknowledgement}
 \section*{Acknowledgement}
-A rather quiet thought at the beginning, emerged to something that felt
-right to do, but was still missing a clear outline. It took a while, for
-both of us, to understand what this work is about and where it would
-lead. But regardless of that he gave me the space to write about this
-rather unconventional topic. A great thanks to my Supervisor for having
-all these constructive discussions and for not getting tiered of making
-me rethink my thoughts.\\[2\baselineskip]I challenged myself to write
-this thesis not in my native language. What at first might sound insane
-turned out to be a huge learning, but I would have never be able to come
-this fare just on my own. Thanks to Jag, a college of mine, who lent me
-his mother tongue from time to time. Without him I would have not be
-able to reach this level of
-improvement/proficiency.\\[2\baselineskip]Further more, I want to
-acknowledge all the amazing work that's been done to make the internet
-such an extraordinary common good. Thanks to everyone for contributing
-and sharing their knowledge and expertise to the rest of the
-world.\\[2\baselineskip]Thanks to Bruno and Eugen, great minds, to which
-I am honored to call them friends, who have helped to review this work,
+A quiet thought in the beginning emerged as something that felt right to
+do, but was still missing a clear outline. It took a while for both of
+us to understand what this work was about and where it would lead.
+Despite this, he gave me the space to write about this rather
+unconventional topic. A great thanks to my Supervisor for having all
+these constructive discussions and for not getting tired of making me
+rethink my thoughts.\\[2\baselineskip]I challenged myself to write this
+thesis not in my native language. What at first might sound insane
+turned out to be a huge learning process, but I would have never be able
+to come this far on my own. Thanks to Jag, a colleague of mine, who lent
+me his mother tongue from time to time. Without him I would have not be
+able to reach this level of proficiency.\\[2\baselineskip]Furthermore, I
+want to acknowledge all the amazing work that's been done to make the
+internet such an extraordinary common good. Thanks to everyone for
+contributing and sharing their knowledge and expertise to the rest of
+the world.\\[2\baselineskip]Thanks to Bruno and Eugen, great minds, who
+I am honored to call friends, who have helped to review this work,
 making me change perspectives and rightfully forcing me to question my
 approaches.\\
 And thanks to another great wizard who helped me fighting a widely known
 markup language to layout this document.\\
-My other/better half (significant other) for having my back through the
-whole time, withstanding the temporary downgrade of some priorities.
-Everything comes to an end.\\
+I'm especially thankful to the one person having my back through the
+whole process. Tenaciously but very kindly bearing the temporary
+downgrade. All things come to an end, thanks to you, Liebste.\\
 Finally I would like to thank my parents for allowing me to get this
-fare.
+far.
 \newpage
 % moved from cover 20170204 <--
 
@@ -423,13 +422,13 @@ merit
 p. 1{]}.
 \end{quote}
 
-When interacting - directly as well as indirectly - with each other,
-discrimination of human beings is a serious issue in our society, but
-also when humans leverage computers and algorithms to uncover formerly
-unnoticed information in order to inform their decision making. For
-example, when qualifying for a loan, hiring employees, investigating
-crimes or renting flats. The decision to approve or deny is based on
-computed data about the individuals in question
+Discrimination is a serious issue in our society, caused by humans
+interacting, directly or indirectly, between each other, but also when
+they leverage computers and algorithms to uncover formerly unnoticed
+information in order to improve their decision making. For example, when
+qualifying for a loan, hiring employees, investigating crimes or renting
+flats. The decision to approve or deny is based on computed data about
+the individuals in question
 {[}\protect\hyperlink{ref-book_2015_ethical-it-innovation}{3}, Chap.
 5.6{]}, which is merely discrimination on a much larger scale and with
 less effort (almost parenthetically). The described phenomenon is
@@ -640,8 +639,8 @@ new desires for data.
 
 \emph{NOTICE: The subsequent phrasing is intentionally written in
 colloquial language in order to facilitate comprehensibility and to
-convey a pictorial idea of what it would look like to use such
-technology in everyday situation.}
+convey a visualizable idea of what it would look like to use such
+technology in everyday situations.}
 
 \subsubsection*{Ordering a product on the
 internet}\label{ordering-a-product-on-the-internet}
@@ -777,12 +776,13 @@ information about how reliable the data is. However, the actual
 computations and analytics to obtain the score happen within the
 infrastructure of the credit institute. When this process has finished,
 all the personal data that have been transferred must be erased. An
-alternative, though, that would prevent the data from leaving the
-\emph{PDaaS}, could be if the institute's request won't contain a data
-query, but instead coming along with some software and information on
-how to run it. The \emph{PDaaS} server will provide an isolated runtime
-in which the software can be executed. After that process is finished,
-the result is sent back to the credit institute's infrastructure.
+possible alternative that would prevent the data from leaving the
+\emph{PDaaS}, could be that the institute's request doesn't contain a
+data query, but instead coming along with some software and information
+on how to run it. The \emph{PDaaS} server will provide an isolated
+runtime in which the software can be executed. After that process is
+finished, the result is sent back to the credit institute's
+infrastructure.
 
 \subsubsection*{Maintain and provide its own medical
 record}\label{maintain-and-provide-its-own-medical-record}
@@ -2376,8 +2376,8 @@ collectively improve the project in a variety of ways.
 \chapter{Requirement Analysis}\label{requirement-analysis}
 
 Derived from the \protect\hyperlink{core-principles}{Core Principles},
-this chapter, first, describes the perspectives of various target
-groups, and secondly, based on all preceding work, formalizes the
+this chapter begins by describing the perspectives of various target
+groups, and continues, based on all preceding work, by formalizing the
 requirements, which then build the foundation of further discussions.
 
 \hypertarget{target-groups-perspective}{\section{Target Groups
@@ -2392,27 +2392,27 @@ statements are meant as a generalized addition to the
 1}}.
 
 \emph{NOTICE: The following statements are written in first-person
-perspective for stylistic purpose only. They do not necessarily reflect
-the sole perspective of the author, but should be understood as a
-general opinions from the respective user types.}
+perspective for stylistic purposes only. They do not necessarily reflect
+the sole perspective of the author, but should be understood as general
+opinions of the respective user types.}
 
-As a data subject, for me, privacy is a major concern. With this
-software I would not only have one single place to maintain all my
-personal and sensitive data while carrying the actual data with me, but
-I would also be able to control on a very precise level and under my
-conditions which vendor has what data on me or is able to access. I
-myself can even collect and submit data to my system, completely
-automated, whether it's movement data, my browsing history or any other
-data I am creating. And since I have full control over the system I
-could even analyze the date about me myself. It's not my concern in
-particular how exactly the \emph{PDaaS} works, but it needs to be
-reliable and I have to be able to trust it with my data. Furthermore, I
-like to control my \emph{PDaaS} regardless of where I am. If somebody
-wants to access my data, I would like to get informed about that and
-would like to decide on my own how to proceed. A convenient setup and
+As a data subject, privacy is a major concern for me. With this software
+I would not only have one single place to maintain all my personal and
+sensitive data while carrying the actual data with me, but I would also
+be able to control, on a very precise level and under my conditions,
+which vendor has what data about me or access to that data. I, myself,
+can even collect and submit data to my system, completely automated,
+whether it's movement data, my browsing history or any other data I am
+creating. And since I have full control over the system I could even
+analyze the data about me independently. It's of no particular concern
+to me how exactly the \emph{PDaaS} works, but it needs to be reliable
+and I have to be able to trust it with my data. Furthermore, I like to
+be able to control my \emph{PDaaS} regardless of where I am. If somebody
+wants to access my data, I would like to be informed about that and
+would like to decide, on my own, how to proceed. Convenient setup and
 usage is vital, otherwise I would probably resign before I got it to
-work. If those demands the \emph{PDaaS} is capable to provide, then I
-would definably like to use it, because it gives me freedom of my data.
+work. If the \emph{PDaaS} can meet these demands, then I would
+definitely want to use it, because it maintains my data's freedom.
 
 From a developer's perspective, the most important aspects of an open
 source project are, in my opinion, a friendly and cooperative community
@@ -2426,16 +2426,16 @@ involved. The software can still have many components though, but the
 complexity of the relations between them should be simple and explicit.
 The barriers for participation or contribution must be as low as
 possible. For example, instructions on how to setup a local development
-environment with only little external dependencies can be very helpful
-and time-saving. The specification can either be restrictive or more
-flexible in its description. So, it depends on the developer's personal
-preferences which is preferred. Though, it must describe very precise
-how the internal interfaces between components as well as external
-should look like, in order to enable several people to work on different
-components at the same time. Implementations based on different
-languages can not only increase user adoption but also encourage
+environment with few external dependencies can be very helpful and
+time-saving. The specification can either be restrictive or more
+flexible in its description. It depends on the developer's personal
+preferences which is preferred. But it must describe very precisely how
+the internal interfaces between components and external interfaces
+should look like. This is needed in order to enable several people to
+work on different components at the same time. Implementations based on
+different languages can increase user adoption and also encourage
 developers from other communities to join. Alternative implementations
-can serve as templates or inspirations of new ones. Those aspects not
+can serve as templates or inspirations for new ones. Those aspects not
 only apply to core developers but also to those who write \emph{consumer
 clients}, which is a library that abstracts the consumer-system-relation
 and should provide effortless integration into the consumer's existing
@@ -2443,33 +2443,31 @@ infrastructure. Here it is particularly important to provide those who
 are going to integrate the client with detailed instructions and
 documentations to prevent misunderstandings and mistakes during
 integration. If all those aspects, especially detailed and useful
-documentation as well as a helping community, are in place, I as a
-developer and probably many more would gladly like contribute to this
-project.
+documentation and a helping community, are in place, I, as a developer,
+and probably many like me, would gladly contribute to this project.
 
 As a data consumer, it would only be reasonable for me to support
-interoperability with a system that prevents me from collecting data but
-still provides access to it, if my business model is not contrary to
-that behaviour. For example, directly monetizing the collected data
-won't be possible anymore, unless the data subject enables me to do so
-by giving me raw data. If I instead want, for example, to enrich and
-improve my service(s) or product(s), this approach is, to me, as equal
-as storing the data on my own. Furthermore, this strategy may indirectly
-reduce resources and therefore expense, because it's essentially the
-same to the procedure of outsourcing. The amount of effort to integrate
-the required interface must be appropriate. Support from the community
-may become necessary. In order to not violate the constrains for
-\emph{Supervised Code Execution} a detailed description as well as a
-group of different examples should be available. It can get frustrating
-after several attempts, if I am still not be able to get such a
-procedure to work. This again may hamper the adoption progress. The most
-important aspects for me are reliability in any regards as well a trust.
-The possible latency between requesting data and actually obtaining them
-could become an issue. Therefore either, I have to adjust my process
-design so that it's not time-critical or if it's inevitable though, the
-data subject needs to be informed about such constraint, so that she can
-try to adapt to this, or a data resource controlled by the data owner
-might not be an adequate alternative to my current approach.
+interoperability with a system that regulates my access to user data if
+my business model is not contrary to that behaviour. For example,
+directly monetizing the collected data won't be possible anymore, unless
+the data subject enables me to do so by giving me raw data. If, instead,
+I wanted to enrich and improve my service(s) or product(s), for example,
+this approach is, to me, equal to storing the data on my own.
+Furthermore, this strategy may indirectly reduce resources and therefore
+expense, because it's essentially the equivalent to the procedure of
+outsourcing. The amount of effort needed to integrate the required
+interface must be appropriate. Support from the community may be
+necessary. In order to not violate the constrains for \emph{Supervised
+Code Execution}, a detailed description, as well as a diverse set of
+examples, should be available. Failing repeatedly to get this procedure
+to work can be very frustrating, which may discourage adoption. The most
+important aspects for me are reliability and trust. The possible latency
+between requesting data and actually obtaining them could become an
+issue. Therefore I have to either adjust my process design so that it's
+not time-critical or, if it's unavoidable, the data subject needs to be
+informed about such sensitivities, so she can try to adapt to this, or a
+data resource controlled by the data owner might not be an adequate
+alternative to my current approach.
 
 \hypertarget{requirements}{\section{Requirements}\label{requirements}}
 
@@ -2765,7 +2763,7 @@ Discussion}\label{design-discussion}}
 
 The following chapter contains the greater part of the project's
 conceptual work. It documents the processes of a variety of design
-decisions, examines possible issues emerging alongside, and discuses
+decisions, examines possible issues emerging alongside, and discusses
 different solutions obtained from several perspectives in order to
 evaluate their advantages and disadvantages. Not every issue gets its
 deserved room, but major aspects will be addressed.
@@ -2781,7 +2779,7 @@ Chapter 4}}, the system has to support two
 \protect\hyperlink{sa03}{roles}. Only one of these roles is assigned to
 an entity, hence entities that are trying to authenticate to the system
 might have different intentions depending on the characteristics of
-those roles. When inheriting the \emph{operator role} an entity gains
+those roles. When inheriting the \emph{operator role}, an entity gains
 further capabilities to interact with the system, such as data
 manipulation. Another common scenario for the operator is to access the
 system from different devices in order to review \emph{permission
@@ -2830,22 +2828,22 @@ TLS and \protect\hyperlink{def--jwt}{authentication based on web-token}
 are associated with the latter (B).\\
 \emph{Basic Auth} is natively provided by the \emph{http-agent} and
 requires, in its original form, username and password, and a state on
-the server; at least when the system has to provide multitenancy. If
-instead just a common access restriction for certain requests would
-suffice, no state is required, because no user-related data have to be
-exist on the server. One of the most common implementations of a
-user-specific state is a \emph{session} on the server, that contains one
-or more values representing the state and a unique identifier, with
-which an entity can be associated. A client has to provide that session
-ID in order to be provided with all session-related data hold by the
-server. This is typically done in a HTTP header, whether as \emph{Basic
-Auth} value, a \emph{Cookie}, which is domain-specific, or in some other
-custom header.\\
+the server; at least when the system has to provide multitenancy. If,
+instead, common access restriction for certain requests would suffice,
+no state is required, because no user-related data have to exist on the
+server. One of the most common implementations of a user-specific state
+is a \emph{session} on the server, that contains one or more values
+representing the state and a unique identifier, with which an entity can
+be associated. A client has to provide that session ID in order to be
+provided with all session-related data hold by the server. This is
+typically done in a HTTP header, whether as \emph{Basic Auth} value, a
+\emph{Cookie}, which is domain-specific, or in some other custom
+header.\\
 The \emph{two-way authentication} is performed based on files containing
-keys and certificates, which are typically not very fluctuant in its
-contents or state required to get tracked in order to authenticate a
-user. Therefore this procedure is categorized as stateless. Order or
-origin of incoming requests have no impact on the result of the actual
+keys and certificates, whose contents rarely change and don't typically
+require their state to be tracked in order to authenticate a user.
+Therefore this procedure is categorized as stateless. Order or origin of
+incoming requests have no impact on the result of the actual
 authentication process. The same applies to TLS features such as
 \emph{Session ID Resumption} and \emph{Session Ticket Resumption}
 {[}\protect\hyperlink{ref-book_2013_networking-101_tls-session-resumption}{133}{]},
@@ -2854,11 +2852,11 @@ performance optimization. Similar to the \emph{Session Ticket
 Resumption}
 {[}\protect\hyperlink{ref-web_spec_tls-session-ticket-resumption}{134}{]}
 a web token, namely the \protect\hyperlink{def--jwt}{JSON Web Token},
-also moves the state towards the client. A \emph{JWT} carries all, for
-the context relevant information, including possible states, and if
-necessary the token is symmetrical encrypted by the server. That is,
+also moves the state towards the client. A \emph{JWT} carries all
+context relevant information, including possible states, and, if
+necessary, the token is symmetrically encrypted by the server. That is,
 only the server is able to see the actual data contained by JWT and
-therefore reacting accordingly.
+therefore react accordingly.
 
 Keeping track of one or multiple states on the server and maintaining
 the synchronization of involved data between server and client is, in
@@ -2866,15 +2864,16 @@ regards to the additional required resources, expensive and far from
 trivial, because this pattern requires the server to be aware of all
 current states (sessions) and has to have them accessible at all times.
 A request might depend on preceding requests and their incoming order,
-which thus can have an impact on its response. Furthermore those session
-data have to be stored from time to time. Otherwise, if the server fails
-to run at some point, data only existing in the memory would be gone
-with no chance to be recovered. With stateless authentication, none of
-those aspects applies. Certificates and keys as well as web tokens are
-both carrying all necessary information with them. Even though stateless
-authentications, similar to stateful complement, require an initial step
-to obtain some sort of token that is used to authenticate all subsequent
-requests, which can be considered a disadvantage.\\
+which thus can have an impact on its response. Furthermore, those
+session data have to be stored from time to time. Otherwise, if the
+server fails to run at some point, data only existing in the memory
+would be gone with no chance to be recovered. With stateless
+authentication, none of those aspects applies. Certificates and keys as
+well as web tokens are both carrying all necessary information with
+them. Even though stateless authentications, similar to stateful
+complement, require an initial step to obtain some sort of token that is
+used to authenticate all subsequent requests, which can be considered a
+disadvantage.\\
 Another aspect of resources are the computations based on asymmetric
 cryptography, which are usually slower than the ones based on symmetric
 cryptography
@@ -2891,14 +2890,14 @@ authentication processes.
 
 Except for \emph{two-way authentication}, the initial step in all
 authentication technologies, as mentioned before, is a one-time
-procedure to obtains a token, that is used to authenticate all
+procedure to obtains a token, which is used to authenticate all
 subsequent requests. This step lasts as long as the token is valid. The
-reason for such an approach is to increase the convenience, otherwise
-the user is required to provide credentials on any request, which is
+reason for such an approach is to increase convenience. Otherwise, the
+user is required to provide credentials on any request, which is
 considered an unacceptable solution. Even though the \emph{two-way
 authentication} also requires an initial step, that step is different to
 the one just mentioned. Instead of obtaining a token that proves the
-possession of the credentials, a certificate is obtained that is used be
+possession of the credentials, a certificate is obtained that is used to
 prove the identity of the communicating partner.\\
 The step to obtain a token is commonly known as \emph{sign in} and
 requires the entity to be authenticated to provide some credentials
@@ -2913,14 +2912,14 @@ cards are (A) to let the \emph{operator} login to the \emph{PDaaS}
 management tool or (B) to authorize \emph{access requests}. How the
 actual login process (A) would look like partially depends on the
 \emph{eID card}'s implementation, but in general, both are reasonable
-scenarios to utilize an \emph{eID card}. When considering, for example,
-the german implementation \emph{(nPA)}, authenticating to the management
-tool either requires a card reader, preferably with an integrated
-hardware keypad, or a device able to communicate with the RFID-chip,
-which would reduce the interaction duration to a minimum. Both scenarios
-(A and B) require the \emph{nPA} to have the \emph{eID} feature enabled.
-If a service wants to provide \emph{nPA}-based online authentication
-\emph{(eID-Service)}, which is defined as a
+scenarios to utilize an \emph{eID card}. When considering the german
+implementation \emph{(nPA)} as an example, authenticating to the
+management tool requires either a card reader, preferably with an
+integrated hardware keypad, or a device able to communicate with the
+RFID-chip, which would reduce the interaction duration to a minimum.
+Both scenarios (A and B) require the \emph{nPA} to have the \emph{eID}
+feature enabled. If a service wants to provide \emph{nPA}-based online
+authentication \emph{(eID-Service)}, which is defined as a
 \emph{non-sovereign}\footnote{in ger. ``nicht hoheitlich''} feature, it
 has to comply with several requirements
 {[}\protect\hyperlink{ref-web_bsi-spec_eid}{136}{]} starting with
@@ -2992,9 +2991,9 @@ authentication} is that the token can be used on multiple clients at the
 same time. Or an account that a token is associated with, can actually
 have more than one token. Whereas during the asymmetric
 cryptography-based \emph{two-way authentication} the client's private
-key is required, which results in 1:1 relation. So if it's likely that a
-\emph{operator} has several clients, the same private key has to be on
-those clients. A private key typically should not leave its current
+key is required, which results in 1:1 relation. So if it's likely that
+an \emph{operator} has several clients, the same private key has to be
+on those clients. A private key typically should not leave its current
 system or exist in multiple systems at the same time in order to prevent
 exposure, which any action of duplication implies. To reduce those
 risks, it's common practice to generate a private key at the location
@@ -3002,7 +3001,7 @@ where it is going to be used.
 
 An already existing specification explicitly addressing user
 authentication is \emph{OpenID}, which could be adapted to integrate
-operator as well as consumer authentication. But although it utilizes
+operator as well as consumer authentication. Although it utilizes
 (sub)domains as entity identifiers, which is similar to how the relation
 between data consumer and \emph{PDaaS} in \emph{two-way authentication}
 works, OpenID is underpinned by another motivation, which is providing
@@ -3024,29 +3023,28 @@ CAs should be suitable for communication between the system and the
 \emph{\protect\hyperlink{def--jwt}{JSON Web Tokens}}, because the
 session state is preserved within the token rather then having the
 system itself keeping track of it. Furthermore, authenticating the
-\emph{operator} is also doable on the TLS layer; but this approach is on
-a web platform (browser) rather inconvenient, if even possible, because
-a client certificate not only needs to be transferred to the server and
+\emph{operator} is also doable on the TLS layer; but this approach on a
+web platform (browser) rather inconvenient, if possible, because a
+client certificate not only needs to be transferred to the server and
 probably signed before it and the corresponding private key gets
 installed manually by the operator. For a mobile platform this approach
-might be more feasible, because during the application installation,
-this step can be automated. Addressing the requirement of
-\emph{consumers} to verify whether the certificate presented by the
-\emph{PDaaS} can be trusted or not, both solutions, providing a
-self-signed certificate on a secure channel upfront, or using
-certificates certified by publicly trusted entities, are legitimate.
-However, the latter requires an automation depending on an external
-service that provides a new signed certificate whenever a new \emph{data
-consumer} registers, such external dependencies should be kept to an
-absolute minimum. To strengthen an authentication procedure, one or more
-factors are often added, such as an \emph{eID card} or one-time
-password. This adds complexity to the procedure and thus increases the
-effort that is needed to perform a successful attack. But equally it
-also increases the effort to support those factors in the first place.
-Using multi-factor authentication is generally valued and will be
-briefly noted as an optional security enhancement for the \emph{operator
-role}. However detailed discussions regarding this topic are left to
-follow-up work on the specification.
+might be more feasible because this step can be automated during the
+application installation. Addressing the requirement of \emph{consumers}
+to verify whether the certificate presented by the \emph{PDaaS} can be
+trusted or not, both solutions, providing a self-signed certificate on a
+secure channel upfront, or using certificates certified by publicly
+trusted entities, are legitimate. However, the latter requires an
+automation depending on an external service that provides a new signed
+certificate whenever a new \emph{data consumer} registers, such external
+dependencies should be kept to an absolute minimum. To strengthen an
+authentication procedure, one or more factors are often added, such as
+an \emph{eID card} or one-time password. This adds complexity to the
+procedure and thus increases the effort that is needed to perform a
+successful attack. But equally it also increases the effort to support
+those factors in the first place. Using multi-factor authentication is
+generally valued and will be briefly noted as an optional security
+enhancement for the \emph{operator role}. However detailed discussions
+regarding this topic are left to follow-up work on the specification.
 
 \hypertarget{data-reliability}{\section{Data
 Reliability}\label{data-reliability}}
@@ -3080,8 +3078,8 @@ mistakes made in conception and legislation are outlined in a statement
 from the CCC\footnote{Chaos Computer Club e.V.}
 {[}\protect\hyperlink{ref-statement_2013_de-mail}{138}{]}, who has been
 consulted during the development of that law. As a consequence, DE-Mail
-as a technology has in general no relevance to this project. One aspect
-that can be noted though, is the concept of letting a server sign
+as a technology has, in general, no relevance to this project. One
+aspect that can be noted though, is the concept of letting a server sign
 outgoing data. While in the case of DE-Mail the server is controlled by
 a potentially not trusted party and is typically multi-tenancy capable,
 the \emph{PDaaS}, including its back end, relates to one individual, who
@@ -3101,11 +3099,11 @@ should be designed in a self-contained way. If it's not required,
 though, to provide information to prove data reliability, this aspect
 won't be an issue. The information about data reliability can be defined
 in a response as an optional property. Within the request the \emph{data
-consumer} has to indicate whether the response should contain these
+consumer} has to indicate whether the response should contain this
 information or not. Depending on what data is requested, the
-\emph{PDaaS} then decides whether to provide prove of reliability or
-not. Based on the procedures that are available, the data reliability
-can the be verified by the data consumer verified.
+\emph{PDaaS} decides whether to provide proof of reliability or not.
+Based on the procedures that are available, the data reliability can
+then be verified by the data consumer.
 
 But how would this reliability check look like? It comes down to two
 general steps. The first is matching the actual data involved in that
@@ -3144,9 +3142,9 @@ focus here.
   of certain data. Using the german implementation \emph{(nPA)} as an
   example, the \emph{eID} feature would provide access to the owner's
   basic profile data, which can then be used to match against those data
-  items that are both, held by that \emph{nPA} and affected by the
-  \emph{access request} and therefore originated in the \emph{PDaaS}. If
-  the result of that matching procedure is positive, the related data
+  items that are both held by that \emph{nPA} and affected by the
+  \emph{access request}, and therefore originated in the \emph{PDaaS}.
+  If the result of that matching procedure is positive, the related data
   then gets signed with a \emph{QES} courtesy of the \emph{data
   subject's} \emph{nPA}. That signature gets included in the response as
   well.
@@ -3165,26 +3163,26 @@ focus here.
   \textbf{Recurring Certification}\\
   The following method describes a modification of (3), but instead of
   signing every data access, the current state of the overall data is
-  certified on a recurring basis. This does not necessarily mean, that
-  during the certification procedure all data items get checked. Instead
-  only those data items are matched to be known reliable by the external
-  third party. This is done by either literally looking at the data or
-  by automatically processing and matching against the own database. If
-  that party is satisfied, a certificate for the corresponding data will
-  be issued. This certificate contains an expiration date, which implies
-  the consequence of going through this process again in the future,
-  much like an issuing process of a common \emph{Certificate Authority}.
-  This certificate is installed on the \emph{PDaaS} and served as part
-  of a response.\\
-  Until this point, the consumer can only decrypt the signature provided
-  in the certificate, which, if its successful, just states that the
-  issuer has verified the truthfulness and relation between the operator
-  and some data stored in the corresponding \emph{PDaaS}. Optionally,
-  and only if the exact data items involved in the certification
-  procedure, are part of the response as well, the consumer is able to
-  completely verify the certificate, and thus the data reliability, by
-  hashing that data on its own and matching the result against the one
-  contained in the certificate.
+  certified on a recurring basis. This does not necessarily mean that
+  all data items get checked during the certification procedure. Rather,
+  only those data items known to be reliable by the external third party
+  are matched. This is done by either literally looking at the data or
+  by automatically processing and matching against their own database.
+  If that party is satisfied, a certificate for the corresponding data
+  will be issued. This certificate contains an expiration date, which
+  implies the consequence of going through this process again in the
+  future, much like an issuing process of a common \emph{Certificate
+  Authority}. This certificate is installed on the \emph{PDaaS} and
+  served as part of a response.\\
+  Until now, the consumer can only decrypt the signature provided in the
+  certificate, which, if it's successful, just states that the issuer
+  has verified the truthfulness and relation between the operator and
+  some data stored in the corresponding \emph{PDaaS}. Optionally, and
+  only if the exact data items involved in the certification procedure
+  are part of the response as well, the consumer is able to completely
+  verify the certificate, and thus the data reliability, by hashing that
+  data on its own and matching the result against the one contained in
+  the certificate.
 \end{enumerate}
 
 Only one method per request should be used to verify data reliability,
@@ -3219,7 +3217,7 @@ it was rejected because of those dependencies and because of the
 inconvenience mentioned before, that verification method ultimately is
 not going to be supported in the specification. Furthermore, the signing
 procedure based on the \emph{QES} can easily be spoofed by the data
-subject regardless of the matching result, because it would proof that
+subject regardless of the matching result, because it would prove that
 the \emph{PDaaS} really represents that individual (authorship of the
 response), but not the reliability of that data.
 
@@ -4182,7 +4180,7 @@ are herein after called \emph{platforms}. To further describe these
 \emph{platforms}, characteristics such as architectural layer and access
 possibilities to its host einvironment are taken into account. The
 resulting four \emph{platform} types are shown in Table
-\ref{tbl:platforms-characteristics}. All platform are considered to be
+\ref{tbl:platforms-characteristics}. All platforms are considered to be
 controlled by the data subject. Here, \emph{trusted} refers to how
 likely it is that the host environment, and maybe even the platform, is
 unintentionally accessed by third parties, whereas \emph{host access}
@@ -4683,18 +4681,17 @@ independently. This can improve \emph{redundancy} as well.
 In theory, it's indeed possible to arrange the components in such a way
 that they are all located on the mobile platform, or even to a desktop
 device, which are henceforth considered equally in their platform
-properties. This comes along with some downsides and major issues
-though, that are far from trivial to solve. Nevertheless, to not only
-ensure nearly 100\% uptime and discovery in a landscape where
-NAT\footnote{Network Address Translation; practice of routing traffic
-  between and through distinct networks address spaces by remapping IPs
-  from those different networks onto each other (e.g.~by utilizing
-  ports)} and dynamic IPs are still common practice, for mobile
-platforms as well as on the desktop, all components but the user
-interface are therefor needed to be implemented natively. From an
-\emph{operator's} perspective that would mean, to have all components at
-hand and therefore full control over the \emph{PDaaS}. It still would
-raise security concerns, though.
+properties. However, this comes with downsides and major issues that are
+far from trivial to solve. Nevertheless, to not only ensure nearly 100\%
+uptime and discovery in a landscape where NAT\footnote{Network Address
+  Translation; practice of routing traffic between and through distinct
+  networks address spaces by remapping IPs from those different networks
+  onto each other (e.g.~by utilizing ports)} and dynamic IPs are still
+common practice, for mobile platforms as well as on the desktop, all
+components except the user interface are therefore required to be
+implemented natively. From an \emph{operator's} perspective, that would
+mean to have all components at hand and, therefore, full control over
+the \emph{PDaaS}. It still would raise security concerns, though.
 
 Aside from providing the operator with a non-stationary and instantly
 accessible interface to her \emph{PDaaS}, involving a \emph{mobile}
@@ -4724,8 +4721,8 @@ makes it more difficult to access. Assuming the host environment
 provides a simple mechanism to configure its firewall and listen on a
 port for incoming connections, which is not very likely, because of
 host-wide security policies, the \emph{Storage Connector} would still
-need the IP form the device, and even then the already mentioned
-practise of NAT and dynamic IPs would require a signaling process,
+need the IP form the device, and even then, the already mentioned
+practice of NAT and dynamic IPs would require a signaling process,
 through which a connection to the \emph{Storage Connector} is
 established.\\
 Two approaches are proposed to circumvent this issue. Either an ongoing
@@ -4734,7 +4731,7 @@ queries from the \emph{server} platform, or the \emph{Storage Connector}
 queues the queries and informs the operator via Push Notification on
 pending attempts to access the \emph{PDS} located on her mobile device,
 so that she can then actively pull the queries and push the results back
-to the \emph{Storage Connector}. Those are two general distinct
+to the \emph{Storage Connector}. Those are two distinct general
 approaches, details may vary.
 
 Authenticating \emph{consumers} is performed based on TLS by the web
@@ -7734,9 +7731,8 @@ Recommendations}\label{software-recommendations}
 
 \chapter{Conclusion}\label{conclusion}
 
-Even though the \emph{Right to privacy} is a fundamental right, stated
-by numerous national constitutions and confirmed by court decisions,
-stating that
+The \emph{Right to privacy} is a fundamental right, found in numerous
+national constitutions and confirmed by court decisions, stating that:
 
 \begin{quote}
 Given the context of modern data processing, the protection of
@@ -7750,20 +7746,20 @@ personal data.
 p. 3{]}
 \end{quote}
 
-It is demonstrated in \emph{\protect\hyperlink{fundamentals}{Chapter 2 -
-Fundamentals}}, that these legislation encounter not much recognition
-nowadays. Secret agencies simply ignore or reinterpret
-{[}\protect\hyperlink{ref-web_2016_bnd-weltraumtheorie}{156}{]} them and
-private organisations are usually out of jurisdiction. But since it
-still is valid law, individuals have not only a reasonable desire, but
-as stated above, the right to protect their personal data. A web
-service, controlled only by themselves, can contribute moving into this
-direction. Representing her digital counterpart, it encourages the data
-subject to effortlessly maintain all her personal data. Furthermore,
-making them explicitly and selectively available to third parties, while
-carrying them around, stored in her mobile device. This software enables
+However, this legislation goes largely unrecognized today, as
+demonstrated in \emph{\protect\hyperlink{fundamentals}{Chapter 2 -
+Fundamentals}}. Secret agencies simply ignore or reinterpret
+{[}\protect\hyperlink{ref-web_2016_bnd-weltraumtheorie}{156}{]} such
+laws, and private organisations are usually out of jurisdiction. But
+since it is still valid law, individuals have not only a reasonable
+desire but, as stated above, the right to protect their personal data. A
+web service, controlled only by themselves, can contribute to a move in
+this direction. It acts as her digital counterpart, encouraging the data
+subject to effortlessly maintain all her personal data. She can
+explicitly and selectively make them available to third parties, while
+carrying and storing them on her mobile device. This software enables
 the data owner to keep track of her data flows, while at the same time
-trying to be as trustworthy and secure as possible. The specification
+endeavors to be as trustworthy and secure as possible. The specification
 for such a service is hereby available as a first \emph{Working Draft}
 and is attached to this work.
 
@@ -7774,44 +7770,43 @@ In \emph{Chapter 2} -
 Data in the context of the Big Data Movement}} and
 \emph{\protect\hyperlink{personal-data-as-a-product}{Personal Data as a
 Product}} it is described what impact personal data has in today's
-society and especially the economy. Data as a commercial good has lead
-to humans become the product. Those actors, who collect, analyze and
-interpret personal date, using algorithms to unwind invisible
-information that might help to figure out people's motives and patterns
-in order to forecast their behaviour, with the purpose of improving
-their services to ultimately increase revenue. Here it is often failed
-to notice, that correlation is by far no proof of causation.
-Furthermore, those algorithms naturally inherit the bias of their
-creators. This in conjunction leads to privacy violations and worse,
-discrimination.
+society and, in particular, the economy. Data as a commercial good has
+led to humans become the product. Those, who collect, analyze and
+interpret personal data using algorithms to uncover hidden information
+that may help determine people's motives and patterns in order to
+forecast their behaviour, with the purpose of improving their services
+and ultimately increase revenue. What is often overlooked is that
+correlation is no proof of causation. Furthermore, those algorithms
+naturally inherit the bias of their creators. Together, this leads to
+privacy violations, and worse, discrimination.
 
 These `side effects' are not acceptable in a society where tolerance and
-solidarity are desirable values. Hence, we, as individuals, have to move
-away from being the product and start to become self-determined again.
-The answer to what platform do we want for a global community, like the
-one envisioned by Mr.~Zuckerberg
+solidarity are desirable values. Therefore we, as individuals, have to
+move away from being the product and start to become self-determined
+again. The answer to what platform we want for a global community, like
+the one envisioned by Mr.~Zuckerberg
 {[}\protect\hyperlink{ref-web_2017_facebook_building-global-community}{157}{]},
-must not be \emph{facebook}. Instead the answer should be build on
+must not be \emph{facebook}. Instead the answer should be built on
 openness and neutrality, and on an infrastructure that is accessible to
 everyone and owned by everyone - like the origins of the internet,
 \emph{``an Internet of People''}
 {[}\protect\hyperlink{ref-web_2017_encouraging-individual-sovereignty}{158},
-Sec. 5{]}. The here proposed software can conduce in reclaiming the
-internet as the platform for a global community - our society.
+Sec. 5{]}. The software proposed here can aid in reclaiming the internet
+as the platform for a global community - our society.
 
 While trying to prevent our personal data from being read by men in the
-middle during transfer (HTTPS), we have missed to cut out the middle-men
-between our data and those who are utilizing them. Thus, every
-individual must be re-enabled, so that they can fully decide on their
-own what level of privacy they are willing to share and under what
+middle during transfer (HTTPS), we have missed cutting out the
+middle-men between our data and those who are utilizing them. Thus,
+every individual must be re-enabled, so that they can fully decide on
+their own what level of privacy they are willing to share and under what
 conditions other parties are permitted to access their personal data.
-The here proposed software can help to counter massive and unimpeded
-data collection in minimize the possibility of discrimination. In this
-way, though, these issues can be addressed only partially. As mentioned
-before, bias, causing discrimination, is naturally inherited and
-therefore needs to be acknowledged by raising awareness and teaching
+The hereby software proposed can help to counter massive and unimpeded
+data collection and minimize the possibility of discrimination. However
+these issues can be addressed only partially by these means. As
+mentioned before, bias, causing discrimination, is naturally inherited
+and therefore needs to be acknowledged by raising awareness and teaching
 involved authors and developers about these issues and how to avoid them
-or at least address them properly. For example by reducing questionable
+or at least address them properly. For example, by reducing questionable
 data items, considering possible consequences for data subjects of their
 interpretations, or by keeping indirect correlations in mind. Only both
 approaches combined, can help to remove the greater part of bias,
@@ -7819,53 +7814,54 @@ embedded not only in those machines but in all of us.
 
 \section{Challenges \& Solutions}\label{challenges-solutions}
 
-As touched on before, the motivation and basic idea for this work was to
-overcome discrimination and privacy violation experienced by data owners
-and caused through large scale data collection, to prevent data from
-being collected in the fist place. This turns out to be a major
-challenge, because third parties still require personal data, at least
-for basic processes such as ordering or payment (e.g address), and
-therefore raw data needs to be transmitted, which is, by the nature of
-information technology, a process of duplicating data. Thus, the
-definition of ownership, at least on a technical level, cannot be
-applied anymore (see \emph{\protect\hyperlink{def--ownership}{Chapter 2
-- Digital Identity, Personal Data and Ownership}}). Where legislation
-has already failed to address the issues mentioned above, technology as
-well has its limitations. Although, certain scenarios, such as check
-creditworthiness or calculating recommendation, are able - from a
-conceptional perspective - to support \emph{Supervised Code Execution},
-which allows the data to stay within the \emph{PDaaS}. However, just
-being able to control access or at least having an overview of who has
-access to what data, is already a major advantage.
+As touched on before, the motivation for this work was to overcome
+discrimination and privacy violation experienced by data owners and
+caused through large scale data collection, to prevent data from being
+collected in the fist place. This turns out to be a major challenge,
+because third parties still require personal data, at least for basic
+processes such as ordering or payment (e.g address), and therefore raw
+data needs to be transmitted, which is, by the nature of information
+technology, a process of duplicating data. Thus, the definition of
+ownership, at least on a technical level, cannot be applied anymore (see
+\emph{\protect\hyperlink{def--ownership}{Chapter 2 - Digital Identity,
+Personal Data and Ownership}}). Where legislation has already failed to
+address the issues mentioned above, technology has its own limitations.
+Certain scenarios, such as creditworthiness checks or calculating
+recommendation, are able - from a conceptional perspective - to support
+\emph{Supervised Code Execution}, which allows the data to stay within
+the \emph{PDaaS}. However, even when data cannot be completely contained
+in the \emph{PDaaS}, being able to control access, or have an overview
+of who has access to what data, is already a major advantage.
 
 The \emph{PDaaS} may be valued as the digital representation of a human
 being. Hence, third parties, who are interacting with the digital self,
-want to be able to trust and rely, and maybe even verify, that the
+want to be able to trust, rely upon, and maybe even verify, that the
 received or accessed data actually relates to the represented
 individual. Several approaches to address this have been discussed in
 \emph{\protect\hyperlink{data-reliability}{Chapter 5 - Data
-Reliability}}. As a result, a however implemented signing procedure,
-involving the administration or an official documents \emph{(eID-card)},
-was stated as a feasible solution. Although, both require an additional
-but diverging level of effort for the data owner, the QES-based eID-card
-version is not widely used and the \emph{Recurring Certification}
-performed by the administration is a rather theoretical concept.
-However, the question, is an individual willing to depend on the
-government well-disposition, may remain. Since for both solutions a
-public key infrastructure to verify the signatures is mandatory, a more
-liberal and open approach like the \emph{web-of-trust} could be a
-valuable alternative solution.
+Reliability}}. The proposed solution was a procedure involving the
+administration (or another party with similar properties) or an official
+document \emph{(eID-card)} that signs and certifies the data in
+question, which can then serve a verifiable proof for the data consumer.
+Although both require an additional but diverging level of effort for
+the data owner, the QES-based eID-card version is not widely used and
+the \emph{Recurring Certification} performed by the administration is a
+rather theoretical concept. However, the question of an individual's
+willingness to depend on the government's good intentions may remain,
+since both solutions require a public key infrastructure to verify the
+signatures. A more liberal and open approach like the
+\emph{web-of-trust} could be a valuable alternative solution.
 
 Retaining integrity of the personal data, that's being stored, but also
-maintaining those, becomes rather complex when introducing flexibility.
-That is, allowing the owner to change underlying data \emph{structs} at
-any time, results in running a background data migration after every
-structure change, regardless of where the \emph{Personal Data Storage}
-is located at that moment. In order to simplify that process, one
-solution is to create a new database next to the existing one, execute
-every query in the write history and adjust the affected data items
-according to the new type structure on the fly in those queries during
-the mirroring process.
+maintaining that data, becomes rather complex when allowing a flexible
+data structuring. That is, allowing the owner to change underlying data
+\emph{structs} at any time, results in running a background data
+migration after every structure change, regardless of where the
+\emph{Personal Data Storage} is located at that moment. In order to
+simplify that process, one solution is to create a new database next to
+the existing one, execute every query in the write history and adjust
+the affected data items according to the new type structure on the fly
+in those queries during the mirroring process.
 
 While reviewing the different scenarios described in
 \emph{\protect\hyperlink{scenarios}{Chapter 1}} and comparing them with
@@ -7873,55 +7869,55 @@ the established capabilities of the \emph{PDaaS}, it can be observed
 that the developed system is able to provide a reasonable foundation for
 all of them. Even though it requires the willingness of all sorts of
 third parties to integrate with the proposed specification and a
-rethinking and change of perspective of how personal data is obtained
-and utilized until now. It is questionable, though, how the industry
-might respond to such fundamental changes, but this is a secondary
-issue, though. First, it must be focused on increasing the adoption rate
-of data subjects. Problems and benefits, as mentioned in the
-\emph{\href{ethical-social-relevance}{Ethical \& Social Relevance}}
-before, must be outlined. It is vital to create a trustworthy and
-easy-to-use system, which can be archived through public development and
-an active and healthy community. Ultimately the result has to provide a
-great user experiences, which primarily refers to installation and setup
-procedures as well as data management and a seamless mobile integration,
-which emphasises the benefit of \emph{`carry your data with you'}. If
-the acceptance has reached a critical minimum, \emph{data subjects}
-might be able to demand potential \emph{data consumers} to start
-adapting the specification, if they still want to be able to access
-their personal data.
+rethinking and change of perspective of how personal data has been
+obtained and utilized until now. How the industry might respond to such
+fundamental changes is an open question, but this is a secondary issue.
+First, the focus must be on increasing the adoption rate of data
+subjects. Problems and benefits, as mentioned in the
+\emph{\href{ethical-social-relevance}{Ethical \& Social Relevance}},
+must be outlined. It is vital to create a trustworthy and easy-to-use
+system, which can be archived through public development and an active
+and healthy community. Ultimately the result has to provide a great user
+experience, which primarily refers to installation and setup procedures
+as well as data management and a seamless mobile integration, which
+emphasizes the benefit of \emph{`carrying your data with you'}. If the
+acceptance has reached a critical minimum, \emph{data subjects} might be
+able to demand potential \emph{data consumers} to start adopting the
+specification if they still want to be able to access their personal
+data.
 
 \section{Business Models \&
 Monetization}\label{business-models-monetization}
 
-An imaginable opportunity for a viable business model can be to provide
+An imaginable opportunity for a viable business model is to provide
 commercial services around the proposed system. Developing and
-implementing the specification yields to expertise, that may qualify,
-for example, to provide high-quality hosting of \emph{PDaaS} instances
-for end users, or to customize implementations in order to adapt for
-special scenarios, or to assist with integrations. Even though the
-underlying technology is open source, history shows various examples of
-successful businesses based on open source technology, such as
+implementing the specification yields expertise, that may qualify, for
+example, to offer high-quality hosting of \emph{PDaaS} instances for end
+users, or to customize implementations in order to adapt to special
+scenarios, or to assist with integrations. Even though the underlying
+technology is open source, history shows various examples of successful
+businesses based on open source technology, such as
 \href{https://meteor.com}{Meteor},
 \href{https://www.mozilla.org}{Mozilla Foundation},
 \href{https://www.redhat.com}{Red Hat}, or
-\href{https://wordpress.org}{Wordpress}. It allows to drive the
-development forward and to contribute back to the ecosystem, from which
-the whole community eventually benefits from, and while following the
-specification, interoperability remains preserved on all levels.
+\href{https://wordpress.org}{Wordpress}. It allows the development to be
+driven forward and to contribute back to the ecosystem from which the
+whole community eventually benefits from. Additionally, because there is
+a specification, interoperability remains preserved on all levels.
 
-As another, very distinct way of monetization is the possibility and
+Another, very distinct, way of monetization is the possibility and
 willingness of data subjects to sell their personal data to third
-parties, under their conditions. This can mean to actually hand over the
-raw data, but also to just license the access, which is the business
-model of data brokers. Of course, this requires further specification,
+parties, on their own terms. This can mean to actually hand over the raw
+data, but also to simply license the access, which is the business model
+of data brokers. Of course, this requires further specification,
 additional infrastructure i.a. for anonymization and payment transfer,
 and probably a marketplace as well. But for now let's take a step back
-and reevaluate this idea. An negative scenario may result in people
+and reevaluate this idea. A negative scenario may result in people
 trying to make a living by selling all their data to everybody, or
 worse, having no other option than doing so. In contrast, other
 individuals, who don't want to monetize their digital identity could
 therefore be discriminated. Or data consumers who previously depended on
-gratis data, for what ever reason and however obtained, may now run dry,
+gratis data, for whatever reason and however obtained, may now run dry,
 because if people are able to charge for their data, they do it. The
 market may be not stable and data becomes inflationary. On the other
 hand, a positive scenario may bring more quality data to various places
@@ -7933,67 +7929,65 @@ middle-men whose business model is to collect and monetize personal
 data, or at least it could result in a fair revenue share between them
 and data owners. This could also lead to data consumers become more
 aware of what data they collect and what parts they actually need.
-Either way, those are all just excerpts of possible outcomes, and even a
-mixture between both directions is conceivable. So to conclude, certain
-scenarios may need to be restricted by law. For example an insurance
+Either way, those are all just excerpts of possible outcomes, and a
+mixture of both directions is conceivable. In conclusion, certain
+scenarios may need to be restricted by law. For example, an insurance
 company should not be allowed to give those members, who permit the
 company to access their data, an advantage (or discount) over those who
 don't. This is a simple case of discrimination. In general, if
 individuals don't want to monetize their personal data, they must not
 experience any disadvantages. This work originates i.a. in the attempt
 of preventing this in the first place. It must not create something that
-encourages discrimination, though. From that point of view, it is
-questionable to equip data subjects with such capabilities. On the other
-hand, though, regardless of this work or such feature, such discount
-offers as described before are already start to occur
+encourages discrimination. From that point of view, it is questionable
+to equip data subjects with such capabilities. On the other hand,
+though, regardless of this work or such feature, such discount offers as
+described before are already starting to occur
 {[}web\_2015\_health-insurance-discount-in-return-of-data{]}
 {[}\protect\hyperlink{ref-web_2016_insurance-discount-in-return-of-data}{159}{]}.
 
 \section{Future Work}\label{future-work}
 
-On the on side, looking back and re-evaluating past research mentioned
+On the one hand, looking back and re-evaluating past research mentioned
 in \emph{\protect\hyperlink{related-work}{Chapter 2 - Related Work}} can
-give the impression of only minor progress that has been made in this
-field despite following a reasonable approach that is more relevant
-today then ever before. Only a few projects have managed to last beyond
+give the impression that only minor progress has been made in this
+field, despite following a reasonable approach that is more relevant
+today than ever before. Only a few projects have managed to last beyond
 a prototype or case study, to which the problem of user adoption rate
-might have contributed. On the other side, though, for example the
-project \emph{openPDS/SafeAnswers}, of which the specification has in
-part followed similar approaches, is fairly new and matches with the
-latest opinions of experts
+might have contributed. On the other hand, the
+\emph{openPDS/SafeAnswers} project, for example, whose specification
+has, in part, followed similar approaches, is fairly new and matches
+with the latest opinions of experts
 {[}\protect\hyperlink{ref-web_2017_distributed-future-is-personal}{160}{]}.
 
 The critique, which the specification is partially able to address, is
 the lack of control of our own personal data while it's being collected.
-Where instead the existence and utilization of data analytics per see is
-a huge advantage for our society, because the ability of discovering
-information and relationships we would otherwise not be able to uncover,
-lets us conclude and therefore evolve. The \emph{PDaaS} is a tool that
-again is the foundation to do exactly that but on a smaller and
-individual scope, and only if we choose to do so. But this requires an
-additional stack of components, including i.a. for data mining and
-machine learning, which therefore need to be integrate with the
-\emph{PDaaS}.
+The existence and utilization of data analytics per se is a huge
+advantage for our society because of the ability to discover information
+and relationships we would otherwise not be able to uncover. This allows
+us to draw conclusions and thereby evolve. The \emph{PDaaS} is a tool
+that provides a foundation to do exactly that, but on a smaller and
+individual scope, and only if we choose to do so. However, this requires
+an additional stack of components to be integrated with the
+\emph{PDaaS}, i.a. data mining and machine learning.
 
 The concept of \emph{Supervised Code Execution} can be enhanced by
 migrating the \emph{Personal Data Storage (PDS)} and execution to a
-\emph{Bockchain}-based approach
+\emph{Blockchain}-based approach
 {[}\protect\hyperlink{ref-paper_2015_decentralizing-privacy-using-blockchain-to-protect-personal-data}{161}{]}
 as proposed in the \href{http://www.enigma.co}{Enigma} Project. In
 general the idea of encrypting the \emph{PDS} might be a reasonable
-step, which would introduce new challenges as well. Therefore it
-requires a reevaluation of its necessity. During concept development, it
-appears to become necessary to define an additional role. The so called
-\emph{data contributors} can be a plugin, client or even just a
-dedicated account that is authorized by the \emph{operator} to only push
-data into the \emph{PDaaS}. This concept was merely touched on and
-requires additional work invested to outline the details. Two major
-enhancements but rather independent to all the other components are
-obviously the inclusion of an \emph{OpenID Provider} supporting
-2-Factor-Authentication, but only for that individual represented by the
-\emph{PDaaS}.
+step, although it would introduce new challenges. Therefore it requires
+a reevaluation of its necessity. During concept development, it appeared
+necessary to define an additional role. The so called \emph{data
+contributors} can be a plugin, client, or even just a dedicated account
+that is authorized by the \emph{operator} to only push data into the
+\emph{PDaaS}. This concept was merely touched on and requires additional
+work invested to outline the details. Two major, but rather independent,
+enhancements, that seem natural to include, are an \emph{OpenID
+Provider}, and support of 2-Factor-Authentication for the individual
+represented by the \emph{PDaaS}.
 
-The next steps to push the development forward are finalizing the
+The next steps to push development forward are, finalizing the
 specification by outlining each component so that the minimum viable set
 of features discussed in this work are supported, and then starting to
 develop the first components until a working prototype appears. The
@@ -8002,12 +7996,12 @@ the specification, which is an iterative process. Mobile components have
 to follow shortly and additional features such as those just mentioned
 may come afterwards.
 
-It remains conclusive to say, that the here proposed concept is fare
-from being the ultimate solution, but it is in any regards an
-improvement considering the current situation, It definitely has its
-weaknesses and needs further development, but they are worth to invest
-in order ro reach the overall goals of increasing privacy and empowering
-individuals to control their own data.
+In conclusion, the concept proposed here is far from being the ultimate
+solution, but it is nonetheless an improvement over the current
+situation, It definitely has its weaknesses and needs further
+development, but they are worth investing in, in order to reach the
+overall goals of increasing privacy and empowering individuals to
+control their own data.
 
 \chapter*{Source Code}\label{source-code}
 \addcontentsline{toc}{chapter}{Source Code}

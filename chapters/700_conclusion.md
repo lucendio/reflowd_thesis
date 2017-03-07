@@ -53,7 +53,7 @@ While trying to prevent our personal data from being read by men in the middle d
 Thus, every individual must be re-enabled, so that they can fully decide on their own what level of 
 privacy they are willing to share and under what conditions other parties are permitted to access 
 their personal data. 
-The software proposed here can help to counter massive and unimpeded data collection and minimize the 
+The hereby software proposed can help to counter massive and unimpeded data collection and minimize the 
 possibility of discrimination. However these issues can be addressed only partially by these means. As 
 mentioned before, bias, causing discrimination, is naturally inherited and therefore needs to be 
 acknowledged by raising awareness and teaching involved authors and developers about these issues 
