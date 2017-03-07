@@ -93,8 +93,8 @@ However, the question of an individual's willingness to depend on the government
 remain, since  both solutions require a public key infrastructure to verify the signatures.
 A more liberal and open approach like the *web-of-trust* could be a valuable alternative solution.
 
-Retaining integrity of the personal data that's being stored, but also maintaining those, becomes 
-rather complex when introducing flexibility. That is, allowing the owner to change underlying
+Retaining integrity of the personal data, that's being stored, but also maintaining that data, 
+becomes rather complex when allowing a flexible data structuring. That is, allowing the owner to change underlying
 data *structs* at any time, results in running a background data migration after every structure 
 change, regardless of where the *Personal Data Storage* is located at that moment. In order to 
 simplify that process, one solution is to create a new database next to the existing one, execute 
@@ -196,8 +196,8 @@ During concept development, it appeared necessary to define an additional role. 
 called *data contributors* can be a plugin, client, or even just a dedicated account that is 
 authorized by the *operator* to only push data into the *PDaaS*. This concept was merely touched on 
 and requires additional work invested to outline the details.
-Two major, but rather independent, enhancements to the other components, that seem natural to include,
-are an *OpenID Provider*, and supporting 2-Factor-Authentication for that individual represented by 
+Two major, but rather independent, enhancements, that seem natural to include,
+are an *OpenID Provider*, and support of 2-Factor-Authentication for the individual represented by 
 the *PDaaS*.
 
 The next steps to push development forward are, finalizing the specification by outlining each 
