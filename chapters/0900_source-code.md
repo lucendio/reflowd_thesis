@@ -1,10 +1,6 @@
 Source Code {-}
 ==========================================
 
-\pagenumbering{Roman}
-\setcounter{page}{6}
-\pagestyle{plain}
-
 
 
 __[Code 01: Example query in SPARQL]{#code-01_sparql-query}:__
