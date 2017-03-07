@@ -3,18 +3,18 @@
 
 
 This project strives to involve well known and commonly used standards, instead of reinventing 
-technologies that are already exist, to acknowledge the work that's been done, and to increase the 
-chances of interoperability and to lower the required effort to integrate with third parties or 
-other APIs. The following section describes briefly potentially used technologies and outlines the 
+technologies that already exist, to acknowledge the work that's been done, to increase the 
+chances of interoperability, and to lower the required effort to integrate with third parties or 
+other APIs. The following section briefly describes potential technologies and outlines the 
 purposes they might serve and why.
 
 
 
 As it is assumed that data is transferred over a non-private channel, several features might be 
-desired in order to provide a trustworthy and secure communication. One important aspect might be 
-that no one else except sender and receiver are able to know and see what the actual data are.
+desired in order to provide trustworthy and secure communication. One important aspect might be 
+that no one except sender and receiver are able to know and see what the actual data are.
 Utilizing cryptographic technologies can provide such properties.
-__Symmetrical Cryptography__, as one of those, provides a possible solution. It states that sender 
+__Symmetrical Cryptography__, as one option, provides a possible solution. It states that sender 
 and receiver arrange a common secret, which is used to encrypt as well as to decrypt the data. 
 Anyone who is not allowed to access that information must not be in possession of the secret. 
 To agree on a secret without compromising it during that process, both entities 
@@ -43,7 +43,7 @@ the *Application Layer* in the *Open Systems Interconnection model (OSI model)*
 [@web_2017_wikipedia_osi-model], is one of key technologies the *World Wide Web* is based
 on. This stateless protocol is mainly used to transfer any media type reliably between internet 
 endpoints. It most likely will fulfill the same purpose in the context of 
-this work, because it implements a server-client pattern in its very core. This results in a 
+this work, because it implements a server-client pattern at its very core. This results in a 
 communication scenario with a one-to-one relationship.
 Whether internal components, locally on the same host or as part of a distributed system, talk to 
 each other or data consumers interact with the system, this protocol transfers the data that needs 
@@ -72,15 +72,15 @@ via HTTP(S). The result is a connection *upgrade*, which enables both protocols 
 on the same server port. This makes it also possible to use TLS for encrypting connections.
 So, instead of mimic real-time data exchange and pending remote procedure call responses with 
 long-polling over HTTP, the secure WebSocket protocol (*wss*) provides such patterns. It is 
-conceivable to use *WebSockets* as transport technology to communicate between the system's 
-components of even with external parties.
+conceivable to use *WebSockets* as the transport technology to communicate between the system's 
+components and even with external parties.
 
 While the transport of email-based communication is also underpinned by *TLS*, the emails themselves 
-still exist in plain text at all time. Utilizing end-to-end encryption for such communication is 
+still exist in plain text at all times. Utilizing end-to-end encryption for such communication is 
 another example of applying *public-key cryptography*.
 Here, a more decentralized and liberal approach of a *PKI* is enforced. Instead of a *trust chain* 
 structure, public keys are typically signed or cross-signed with no hierarchical order, such as 
-known form the *PKIX (or PKI based on X.509)*. This approach, known as __web of trust__, consists of 
+known from the *PKIX (or PKI based on X.509)*. This approach, known as __web of trust__, consists of 
 multiple *public key servers*, in which all entities (user; senders and recipients) are signing each other's 
 public keys. The more users have signed a public key, the higher the level of trust is that the 
 encrypted content can only be read by whom the signed key-pair belongs to. Public keys are simply uploaded by 
@@ -138,7 +138,7 @@ __[JSON Web Token (JWT)]{#def--jwt}__ [@web_spec_json-web-token]. A *JWT* is for
 but URL-safe encoded with *base64url* [@web_spec_base64url], a version of the widely used *Base64* 
 encoding, before it gets transferred.
 The token itself contains the state. Here is where the use of *HTTP* comes in handy because the 
-token can be stored within the HTTP header, which consists of addition meta information about the 
+token can be stored within the HTTP header, which consists of additional meta information about the 
 HTTP connection and data that is exchanged between client and server. Therefore the token can be 
 passed through all communication points, where the data can then be extracted and verified. Such a 
 token typically consists of three parts: (A) information about itself *(header)*, (B) a *payload*, 
