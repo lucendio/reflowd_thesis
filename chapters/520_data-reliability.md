@@ -23,7 +23,7 @@ server, and finally that this described implementation results in a legally bind
 definition of that law. The varying levels of mistakes made in conception and legislation are 
 outlined in a statement from the CCC [^abbr_ccc] [@statement_2013_de-mail], who has been consulted 
 during the development of that law.
-As a consequence, DE-Mail as a technology has in general no relevance to this project. One aspect that can 
+As a consequence, DE-Mail as a technology has, in general, no relevance to this project. One aspect that can 
 be noted though, is the concept of letting a server sign outgoing data. While in the case of DE-Mail
 the server is controlled by a potentially not trusted party and is typically multi-tenancy capable,
 the *PDaaS*, including its back end, relates to one individual, who is also in control of the 
@@ -37,10 +37,10 @@ question. Depending on the design, that process can be in direct contrast to the
 [authentication system](#authentication) and why it should be designed in a self-contained way. If
 it's not required, though, to provide information to prove data reliability, this aspect won't be an issue. 
 The information about data reliability can be defined in a response as an optional property. Within 
-the request the *data consumer* has to indicate whether the response should contain these 
-information or not. Depending on what data is requested, the *PDaaS* then decides whether to provide 
-prove of reliability or not. Based on the procedures that are available, the data reliability 
-can the be verified by the data consumer verified.
+the request the *data consumer* has to indicate whether the response should contain this 
+information or not. Depending on what data is requested, the *PDaaS* decides whether to provide 
+proof of reliability or not. Based on the procedures that are available, the data reliability 
+can then be verified by the data consumer.
 
 But how would this reliability check look like? It comes down to two general steps. The first is 
 matching the actual data involved in that request against a reference dataset. The second step
@@ -68,8 +68,8 @@ response.
 An electronic ID card can serve as an authentication token for the *operator*, but it can also be 
 utilized to verify the reliability of certain data. Using the german implementation *(nPA)* as an 
 example, the *eID* feature would provide access to the owner's basic profile data, which can then
-be used to match against those data items that are both, held by that *nPA* and affected by the 
-*access request* and therefore originated in the *PDaaS*. If the result of that matching 
+be used to match against those data items that are both held by that *nPA* and affected by the 
+*access request*, and therefore originated in the *PDaaS*. If the result of that matching 
 procedure is positive, the related data then gets signed with a *QES* courtesy of the 
 *data subject's* *nPA*. That signature gets included in the response as well.
 
@@ -83,18 +83,17 @@ The party then hands everything back to the *PDaaS* for further processing.
 
 (4) __Recurring Certification__\
 The following method describes a modification of (3), but instead of signing every data access, the
-current state of the overall data is certified on a recurring basis. This does not necessarily mean, 
-that during the certification procedure all data items get checked. Instead only those data items
-are matched to be known reliable by the external third party. This is done by either literally 
-looking at the data or by automatically processing and matching against the own database. If that 
+current state of the overall data is certified on a recurring basis. This does not necessarily mean 
+that all data items get checked during the certification procedure. Rather, only those data items known to be reliable by the external third party are matched. This is done by either literally 
+looking at the data or by automatically processing and matching against their own database. If that 
 party is satisfied, a certificate for the corresponding data will be issued. This certificate 
 contains an expiration date, which implies the consequence of going through this process again in 
 the future, much like an issuing process of a common *Certificate Authority*. This certificate is 
 installed on the *PDaaS* and served as part of a response.  
-Until this point, the consumer can only decrypt the signature provided in the certificate, which, if 
-its successful, just states that the issuer has verified the truthfulness and relation between the 
+Until now, the consumer can only decrypt the signature provided in the certificate, which, if 
+it's successful, just states that the issuer has verified the truthfulness and relation between the 
 operator and some data stored in the corresponding *PDaaS*. Optionally, and only if the exact data 
-items involved in the certification procedure, are part of the response as well, the consumer is
+items involved in the certification procedure are part of the response as well, the consumer is
 able to completely verify the certificate, and thus the data reliability, by hashing that data on 
 its own and matching the result against the one contained in the certificate.
 
@@ -123,7 +122,7 @@ method has the same dependencies mentioned in the previous discussion about requ
 dependencies and because of the inconvenience mentioned before, that verification method ultimately 
 is not going to be supported in the specification. Furthermore, the signing procedure based on the 
 *QES* can easily be spoofed by the data subject regardless of the matching result, because it would
-proof that the *PDaaS* really represents that individual (authorship of the response), but not the
+prove that the *PDaaS* really represents that individual (authorship of the response), but not the
 reliability of that data.
 
 The *Remote Verification and signing (3)* method would require the external party to be an official
