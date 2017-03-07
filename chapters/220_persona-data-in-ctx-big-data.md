@@ -9,17 +9,17 @@ standalone computer systems and storage-capacity. Instead of reducing the overal
 are addressed by utilizing distributed storing and parallel computing. Aside from challenges in 
 logistic and resource management when for example information retrieval needs to get automated on a 
 large scale [@web_2016_wikipedia_definition_big-data], this strategy still doesn't answer the 
-question of how to extract useful information from such deep "data lakes". What questions need to be 
+question of how to extract useful information from such deep 'data lakes. What questions need to be 
 asked to get answers whose usefulness has yet to be known of? To discover knowledge in order to back 
-decision-making processes, technologies from the fields of *data mining*, *artificial intelligence* 
-and *machine learning* (e.g. neural networks) have been adapted. Taken together, this is nowadays 
+decision-making processes, technologies from the fields of *Data Mining*, *Artificial Intelligence* 
+and *Machine Learning* (e.g. Neural Networks) have been adapted. Taken together, this is nowadays 
 known as *Big Data (Analytics)*. Additionally it is a collective term for the practice or approach, 
 described here, as well as the attitude of massively collecting data while tending to neglect 
 people's privacy.
  
 Big Data analytics serve the prior purpose of extracting useful information, whose results depend on 
 the question initially being asked as well as what datasets the corpus contains. General steps 
-involved in such a knowledge discovery process, can be outlined as follows 
+involved in such a *Knowledge Discovery* process, can be outlined as follows 
 [@chapter_2007_the-knowledge-discovery-process] 
 [@paper_2009_a-data-mining-knowledge-discovery-process-model], 
 1.  find and understand problems; formalize question(s) which the results have to answer
@@ -27,7 +27,7 @@ involved in such a knowledge discovery process, can be outlined as follows
 3.  collect and prepare data
 4.  process data (data mining)
 5.  analyse and interpret results 
-6.  use discovered knowledge (e.g. make appropriate business decisions) 
+6.  utilize discovered knowledge (e.g. make appropriate business decisions) 
 
 In general, the majority of businesses are required to have customer relationships. Such relations 
 are based on the transfer of valued goods (e.g. services, products, etc.) in exchange for 
@@ -37,13 +37,14 @@ customers, are considered to be human beings, such information most likely inclu
 *[Personal Data](#digital-identity-personal-data-and-ownership)*.
 A business normally is eager to grow and, if it has commercial interests as well, it aims for profit
 maximization. So the business needs to improve and, therefore, it requires the knowledge of what and 
-where its flaws are and how it can improve. To gain such knowledge, analytics based on Big Data 
-approaches are part of various business strategies. But this also means that a lot of Personal Data 
-get collected as part of those analytics, since that data is part of many business processes.
+where its flaws are and how it can improve. To gain such knowledge, analytics based on *Big Data* 
+approaches are part of various business strategies. But this also means that a lot of 
+Personal Data get collected as part of those analytics, since that data is part of many business 
+processes.
 
 As a result of humans being primarily responsible for all money flow in this globalized environment, 
 they also decide on the success of business. This basically means, every process analysis with an 
-underlying commercial dependency somehow involves personal data
+underlying commercial dependency somehow involves Personal Data
 [@web_2016_facebook-utilizes-98-data-points] [@web_2016_big-data-types-of-data-used-in-analytics]
 [@book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining]
 [@web_2013_big-data-collection-collides-with-privacy-concerns], whether this data is mandatory in 
@@ -55,14 +56,14 @@ Depending on the data item though, those data might not be easy to collect. In g
 businesses obtain data from within their own platforms. Some data might even be in the customer's 
 range of control (e.g. customer or profile data), but most of the data is created during direct 
 (content creation, inputs) or indirect (transactions, meta information) interaction with the
-business. The sensitivity level of involved personal data is determined by how big the benefit is
+business. The sensitivity level of involved Personal Data is determined by how big the benefit is
 for the customer in comparison to what the vendor's demand is from the customer's commitment (e.g. 
 required inputs, or usage requires access to location information).
 
-From a technical perspective, collecting indirectly created data is as simple as integrating 
-logging or debugging statements in the program logic. Since most vendors and organisations nowadays 
-have a business that is partially happening through the internet or is even completely based on it, 
-most scenarios of transactions utilize server-client architectures.
+From a technical perspective, collecting indirectly created data is as simple as integrating logging 
+or debugging statements in the program logic. Since most vendors and organisations nowadays have a 
+business that is partially happening through the internet or is even completely based on it, most 
+scenarios of transactions utilize server-client architectures.
 Furthermore, the *always-on* philosophy has evolved to an imperative and implicit state of devices. 
 Standalone software, installed on a personal computer, calls the vendor's infrastructure that is 
 located in the cloud on a regular basis, just to make sure that its user behaves properly while,
@@ -79,8 +80,8 @@ designated place where they are finally stored and probably never removed, waiti
 some day.
 
 Within *Big Data Communities* sometimes the *big* is misinterpreted as, regardless of what the 
-problem is that needs to be solved, speculatively gathering as many data items as possible with
-the hope that, in the future, those data might become valuable. 
+problem is that needs to be solved, speculatively gathering as many data items as possible with the 
+hope that, in the future, those data might become valuable. 
 This mindset is reflected by the oft-cited concept of the three *Vs* (Volume, Velocity, Variety) 
 [@report_2001_3d-data-management-controlling-data-volume-velocity-and-variety]. It is not entirely 
 wrong though, because it's the nature of pattern and correlation discovery to provide increasing 
@@ -94,15 +95,15 @@ more and diverse research occurs that might uncover such issues. Only then can t
 properly and on different levels - technical, political, and social. Hence, the *Big Data Community* 
 itself is able to evolve, too.
 
-Big Data and Knowledge Discovery is a balancing act between respecting the user's privacy and having 
-enough data at hand so that initial questioning can be satisfied by the computed results. 
+*Big Data* and *Knowledge Discovery* is a balancing act between respecting the user's privacy and 
+having enough data at hand so that initial questioning can be satisfied by the computed results. 
 Aside from having specific domain knowledge of the used technologies, people working in these fields 
 need to be aware of downsides or pitfalls and also have to be sensible about the ramifications of 
 their approaches and doings.
 Such improvements are already happening, not only originating from the community's forward thinkers
 [@web_2016_the-state-of-big-data], but also advocated by governments and consumer rights 
 organisations, as stated in the previous section (see 
-*[legislation](#digital-identity-personal-data-and-ownership)*. Even leading Tech-Companies have 
+*[Legislation](#digital-identity-personal-data-and-ownership)*. Even leading Tech-Companies have 
 begun trying to do better [@web_2016_apple_customer-letter] [@web_2016_what-is-differential-privacy] 
 [@web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption]. 
 
@@ -119,5 +120,5 @@ It is the logical conclusion to distribute and scale horizontal when the data de
 hardware capacity and capability, but it's no justification for thoughtless data collecting.
 Ultimately, it's not the amount of data that counts, but how it is handled (to not loose its 
 usefulness); what data flows into those data lakes is up to the questioner, which might not act in 
-the interest of everyone. Therefore *data subjects* need to regain control and actively participate 
+the interest of everyone. Therefore data subjects need to regain control and actively participate 
 in formulating these questions. 

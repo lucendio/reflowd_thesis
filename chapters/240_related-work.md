@@ -15,12 +15,12 @@ closing its door from time to time to either put something important to her insi
 important information for someone else.
 In the mid and late 2000s the growth of computer performance and capacity crossed its zenith (see 
 Moore's Law [@paper_1965_moors-law]). At the same time, the internet started to become a key part in 
-many people's lives and in society as a whole. Facilitated by these circumstances, *cloud computing* 
+many people's lives and in society as a whole. Facilitated by these circumstances, *Cloud Computing* 
 has been on the rise ever since, causing the shift towards distributed processing and patterns 
 alike, thereby making it possible to rethink solutions from the past and try to go new ways, namely 
-a breakthrough 2007 in *neuronal networks* courtesy of G. Hinton 
-[@podcast_2015_cre-neuronale-netze]. As a result, fields like *data mining*, *machine learning*, 
-*artificial intelligence* and most recently combined under the collective term called *Big Data*, 
+a breakthrough 2007 in *Neuronal Networks* courtesy of G. Hinton 
+[@podcast_2015_cre-neuronale-netze]. As a result, fields like *Data Mining*, *Machine Learning*, 
+*Artificial Intelligence* and most recently combined under the collective term called *Big Data*, 
 have gained a wide range of attention as tools for knowledge discovery. In almost any industry a 
 greater amount of resources is invested in these areas 
 [@web_2016_industries-intention-to-invest-in-big-data]. 
@@ -48,7 +48,7 @@ following list shows some of them *(alphabetical order)*:
 
 One of the first occurring research projects was *ProjectVRM*, which originated from *Berkman Center 
 for Internet & Society* at *Harvard University*. As its name suggests, it was inspired by the idea 
-of turning the concept of a *Customer Relationship Management* (CRM) upside down. This puts the 
+of turning the concept of a *Customer Relationship Management (CRM)* upside down. This puts the 
 vendor's customers back in charge of their data previously managed by vendors. It also solves the 
 problem of unintended data redundancy - from the customers perspective. Over time the project has 
 grown to the largest and most influential one in this research field. It has transformed into an 
@@ -57,7 +57,7 @@ umbrella and hub for all kinds of projects and research related to that topic
 (e.g. privacy protection), reference implementations, applications, software or hardware components. 
 *VRM* became more and more a synonym for a set of principles, for example *"Customers must have 
 control of data they generate and gather. [They] must be able to assert their own terms of 
-engagement."* [@web_2016_projectvrm_principles, para. 3-4] These principles can be found in various 
+engagement"* [@web_2016_projectvrm_principles, para. 3-4]. These principles can be found in various 
 forms across much work done in this area of research.
 
 Another work of research worth mentioning, because of the foundational work it has done, is the 
@@ -79,22 +79,22 @@ referenced, i.a. by the IEEE [@paper_2014_personal-data-store-approach].
 
 A research project, which is probably the closest to what this work aims to create, bears the name 
 *openPDS* [@paper_2012_openpds_on-trusted-use-of-large-scale-personal-data] and is done by 
-*Humans Dynamics Lab* [@web_mit_openpds-safeanswers-project-page], which again is part of *MIT Media 
-Laboratories*. Despite the usual concepts of a *PDS*, it introduces multi-platform components and 
-user interfaces including mobile devices, and also separates the persistence layer physically. This 
-approach enables place- and time-independent administrative access for the data subject. Moreover, 
-with their idea of *SafeAnswers* 
+*Humans Dynamics Lab* [@web_mit_openpds-safeanswers-project-page], which again is part of 
+*MIT Media Laboratories*. Despite the usual concepts of a *openPDS*, it introduces multi-platform
+components and user interfaces including mobile devices, and also separates the persistence layer 
+physically. This approach enables place- and time-independent administrative access for the data
+subject. Moreover, with their idea of *SafeAnswers* 
 [@paper_2014_openpds_protecting-privacy-of-meta-data-through-safeanswers], the team goes a step 
 further. The concept behind that idea is based around *remote code execution*, briefly described in 
 [one of the user stories in the first chapter](#header-applying-for-a-loan-and-checking-creditworthiness). 
 It abstracts the concept of a data request to a more human-understandable level: a simple question.
 This question consists of two representations: (A) a human-readable question of a third party, 
 and (B) a code-based representation of that question, which gets executed in a sandbox on the data 
-subjects's *PDS* system with the required data as arguments. The data, used as arguments, is 
+subjects's *openPDS* system with the required data as arguments. The data, used as arguments, is 
 implicitly defined trough (A). The output of that execution represents both answer and response. 
 
 Aside from all the research projects done within the academic context, applications with a 
-commercial interest have also started to occur in a variety of sectors. Microsoft's HealthVault
+commercial interest have also started to occur in a variety of sectors. Microsoft's *HealthVault*
 [@web_microsoft_healthvault], for example, which aims to replace the patient's paper-based medical 
 records and combine them in one digital version. This results in a patient-centered medical data and 
 document archive, helping doctors to make more accurate decisions on medical treatment, because they 
@@ -116,11 +116,12 @@ private companies like *PricewaterhouseCoopers AG*, *Volkswagen AG*, *thyssenkru
 The project unifies both, research and commercial interests and runs over a time period of three 
 years until the third quarter of 2018. It aims *"[...] to facilitate the secure exchange and easy 
 linkage of data in business ecosystems"*, where at the same time *"[...] ensuring digital 
-sovereignty of data owners"* [@whitepaper_2016_industrial-data-space, p. 4]. It will be interesting
-to see how these two related but distinct objectives come together in the future. Based on the white 
-paper, the project's focus mainly seems to lie in enabling and standardizing the way companies 
-collect, exchange and aggregate data with each other across process chains to ensure high 
-interoperability and accessibility.
+sovereignty of data owners"* [@whitepaper_2016_industrial-data-space, p. 4]. Here, "data owners" 
+seems not referring to *data subjects*, but to organisations who are in possession of the demanded 
+data. So, it will be interesting to see how these two related but distinct objectives come together 
+in the future. Based on the white paper, the project's focus mainly seems to lie in enabling and 
+standardizing the way companies collect, exchange and aggregate data with each other across process 
+chains to ensure high interoperability and accessibility.
 
 The following is a list of further research projects, work and commercial products regarding the 
 topic of *personal data*:

@@ -23,19 +23,18 @@ lang: 'en'
 
 abstract: >
     Often data are referred to as *the oil of the 21st century*. But recovering petroleum or coal is
-    governed by rules and legislation, whereas vast amounts of personal data are harvested
-    from a variety of resources with no working restrictions or asking for permission. Well
-    air-conditioned data centers are mining these data around the clock via dozens of CPUs, eager to discover
-    even the tiniest correlations worth interpreting in enormous haystacks that are filled with data
-    belonging to millions of individuals who have no knowledge of those computations. But these
-    very computations, and thus their developers, almost inevitably, and without restraints,
-    discriminate against these so called *data subjects*. Such practices cannot be accepted because
-    these haystacks contain actual identities of human beings, including their personalities, but are
+    governed by rules and legislation, whereas vast amounts of personal data are harvested from a
+    variety of resources with no working restrictions or asking for permission. Well air-conditioned
+    data centers are mining these data around the clock via dozens of CPUs, eager to discover even
+    the tiniest correlations worth interpreting in enormous haystacks that are filled with data
+    belonging to millions of individuals who have no knowledge of those computations. But these very
+    computations, and thus their developers, almost inevitably, and without restraints, discriminate
+    against these so called *data subjects*. Such practices cannot be accepted because these
+    haystacks contain actual identities of human beings, including their personalities, but are
     nonetheless being recklessly monetized.
     To address this issue and reduce the possibility of discrimination, third parties have to be
-    supplied with only a minimum of data. That is, data owners must be in charge of
-    deciding which entity has access to what personal data of theirs.\
-
+    supplied with only a minimum of data. That is, data owners must be in charge of deciding which
+    entity has access to what personal data of theirs.
     This project aims to specify a personal data service that empowers its user to regain full
     control over her personal data. It facilitates the regulation of data flows and provides
     detailed information on where the data goes so that a *data subject* can become her own data
@@ -46,10 +45,10 @@ abstract: >
 
 
 acknowledgement: >
-    A quiet thought in the beginning emerged as something that felt right to do, but was still missing
-    a clear outline. It took a while for both of us to understand what this work was
-    about and where it would lead. Despite this, he gave me the space to write about this
-    rather unconventional topic. A great thanks to my Supervisor for having all these constructive
+    A quiet thought in the beginning emerged as something that felt right to do, but was still
+    missing a clear outline. It took a while for both of us to understand what this work was about
+    and where it would lead. Despite this, he gave me the space to write about this rather
+    unconventional topic. A great thanks to my Supervisor for having all these constructive
     discussions and for not getting tired of making me rethink my thoughts.
     \
 
@@ -70,13 +69,10 @@ acknowledgement: >
 
     \
 
-    Thanks to Bruno and Eugen, great minds, who I am honored to call friends, who have
-    helped to review this work, making me change perspectives and rightfully forcing me to question
-    my approaches.
-    \
-
-    And thanks to another great wizard who helped me fighting a widely known markup language to
-    layout this document.
+    Thanks to Bruno and Eugen, two great minds, who I am honored to call friends, who have helped to
+    review this work, making me change perspectives and rightfully forcing me to question my
+    approaches. And thanks to another great wizard who helped me fighting a widely known markup
+    language to layout this document.
     \
 
     I'm especially thankful to the one person having my back through the whole process. Tenaciously

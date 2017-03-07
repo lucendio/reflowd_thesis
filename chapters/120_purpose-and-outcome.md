@@ -9,28 +9,27 @@ helpful therapies and more secure environments.
 Gathering and processing data is essentially just mathematics and computer technologies. How those 
 tools are utilized and what purposed they serve is within the decision of their developers. However, 
 what data items are used and how they get processed should be determined by the data creators. 
-Thereby allowing them an influence on the results of these processes and thus on decisions made 
-upon them that impact their lives.
+Thereby allowing them an influence on the results of these processes and thus on decisions made upon 
+them that impact their lives.
 
 To address the described issue, the initial idea here is to (1) equip individuals with the ability 
 to control and maintain their entire personal data distribution, in order to (2) reduce the amount 
 of *potentially discriminatory* [@paper_2008_discrimination-aware-data-mining] attributes that could 
 leak into arbitrary computations. For that, people need a reliable and trustworthy tool, which helps 
-them to manage all their *personal data* and provides an interface for third parties to access their 
+them to manage all their personal data and provides an interface for third parties to access their 
 data, but on their own terms. The parties that would be responsible for such a tool would likely 
-have the most accurate and reliable one-stop resource to an individuals' *personal data* at hand, 
+have the most accurate and reliable one-stop resource to an individuals' personal data at hand, 
 while simultaneously being urged to respect their privacy. This approach comes along also with some 
 downsides related to security and potential data loss. Elaborating on these issues and discussing 
-potential solutions is part of the [design process](#design-discussion).
+potential solutions is part of the [design process](#design-discussion) (see *Chapter 5*).
 
 This way of addressing the described dilemma about personal data analysis is not new (see 
-[Related Work](#related-work)). Early work done in this field can be dated back to the Mid-2000s 
-when studies were conducted, for example, about recent developments in the industry (e.g targeted 
-ads) and the user's concerns about privacy 
+*[Chapter 2 - Related Work](#related-work)*). Early work done in this field can be dated back to the 
+Mid-2000s when studies were conducted, for example, about recent developments in the industry 
+(e.g targeted ads) and the user's concerns about privacy 
 [@study_2004_architecture-for-privacy-sensitive-ubiquitous-computing]. At that time, the term 
 *Vendor Relationship Management (VRM)* was first used within the context of user-centric personal 
-data management, which then also led into the *ProjectVRM* [@web_2010_projectvrm_about] started by 
-the *Berkman Klein Center for Internet & Society* at *Harvard University*. 
+data management, which then also led into the *ProjectVRM* [@web_2010_projectvrm_about]. 
 A great amount of effort has gone into this area of research since then. In parallel, commercial 
 products and business models try to solve some of the problems related to this. For instance, with 
 concepts like the *Personal Data Store (PDS)* 

@@ -51,7 +51,7 @@ Personal Data as a Service (PDaaS):
 [Operator]{#terminologies--operator}:
 
 : A *data subject* that uses a *PDaaS* to control (and probably host) her personal data; sometimes 
-  referred to as data controller or data owner.
+  referred to as (data) controller or (data) owner.
 
 
 [(Data) Consumer]{#terminologies--consumer}:

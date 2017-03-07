@@ -6,21 +6,21 @@ The *Big Data* paradigm itself, as mentioned before, merely provides a structure
 technically-based method to uncover non-obvious or non-visible information from self-made data silos 
 in order to assist in making (correct) (business) decisions. Though, when asking data collectors 
 about their actual motivation, most likely the answer would be something along the lines of typical 
-PR-phrasing like *"we want to have a better understanding of our customers"*. In the long run, this 
-means to increase revenue, but in the short term, to do what exactly? Maybe to predict what might be 
-the next thing people are supposed to buy, or what things they would probably like to consume but do 
-not yet know of?
+PR-phrasing such as *"we want to have a better understanding of our customers"*. In the long run, 
+this means to increase revenue, but in the short term, to do what exactly? Maybe to predict what 
+might be the next thing people are supposed to buy, or what things they would probably like to 
+consume but do not yet know of?
 
 In order to try comprehending such perspective, let's take a look at some examples.
 
-(A) An advertising service utilizes tracking data for targeted advertising. The more information the 
+A) An advertising service utilizes tracking data for targeted advertising. The more information the 
 service has on an individual, the more accurate decisions it is able to make about what ads are the 
 ones that the individual most likely will click on and disclose with a successful purchase. As a 
 result the placed advertisement becomes more valuable to the advertiser, because of its high 
 precision. This again causes the service to increase the charges for serving and presenting the ad, 
 because the overall quality of its service - the product - has improved.
 
-(B) Content recommendation engines of large streaming providers, regardless of the content, serve as 
+B) Content recommendation engines of large streaming providers, regardless of the content, serve as 
 another example. This feature is also underpinned by extensive data aggregation of customer
 information (user profiling), such as consumption histories (e.g. watch list), favoured content, 
 friend's consumption, or any kind of trackable platform interaction. This means that the more 
@@ -28,7 +28,7 @@ information the service has on the user, the more precise are the assumptions ab
 taste and interests, which leads to more suitable recommendations. At the end the user feels well 
 taken care of and therefore values the service.
 
-(C) Another example is *Google Traffic* [@web_2007_introducing-google-traffic] 
+C) Another example is *Google Traffic* [@web_2007_introducing-google-traffic] 
 [@web_2016_wikipedia_google-traffic], a service that is integrated as a feature in *Google Maps*, 
 a web-based mapping service from Google. *Google Traffic* visualises real-time traffic conditions, 
 while using *Maps* as a navigation assistant in order to provide the user with a selection of 
@@ -48,23 +48,23 @@ The impact on the society of the first group of examples might be questionable a
 proper applications even exist. However, an adjustment of perspective reveals additional categories 
 of scenarios, for example:
 
-(D) Planning and managing human resources for special occasions with big crowds, such as huge events 
+D) Planning and managing human resources for special occasions with big crowds, such as huge events 
 or emergency situations where attendees might become endangered and require help 
 [@estimating-the-locations-of-emergency-events-from-twitter-streams_2014]
 
-(E) Predicting infrastructure workloads (e.g. power grid) 
+E) Predicting infrastructure workloads (e.g. power grid) 
 [@paper_2015_improving-power-grid-monitoring-data-quality-an-efficient-machine-learning-framework-for-missing-data-prediction]
 
-(F) Making more accurate diagnostics to improve a patient's therapy 
+F) Making more accurate diagnostics to improve a patient's therapy 
 [@the-practice-of-predictive-analytics-in-healthcare_2013]
 
 G) Finding patterns in climate changes, which would otherwise not have been detected 
 [@data-collection-for-climate-changes_2014]
 
-Even though the described examples require a large corpus of data and utilization of Knowledge 
-Discovery, some of them might not necessarily depend on Personal Data. For other scenarios, Personal 
-Data are indispensable, and still other scenarios only implicitly rely on data collected from 
-individuals. As noted in the 
+Even though the described examples require a large corpus of data and utilization of 
+*Knowledge Discovery*, some of them might not necessarily depend on *Personal Data*. For other 
+scenarios, Personal Data are indispensable, and still other scenarios only implicitly rely on data 
+collected from individuals. As noted in the 
 [previous section on Big Data](personal-data-in-the-context-of-the-big-data-movement), it depends on 
 the purpose, which can be defined i.a. through a existing *business model*. But at least in those 
 examples it seems to be common motivation to primarily improve and enhance the collector's product 
@@ -81,8 +81,9 @@ side by side, it appears to be that at least seven [^industries-as-data-collecto
 industries can be identified as data collectors, whereas less then a half 
 [^industries-as-data-brokers] are participating in being a 
 [Data Broker](#terminologies--data-broker), but almost all of them are suspected to target people's 
-Personal Data, whether obtained by themselves or acquired from *Data Brokers* (for more examples, 
-see [@video_2016_corporate-surveillance-digital-tracking-big-data-privacy]).
+Personal Data, whether obtained by themselves or acquired from *Data Brokers* (more examples are 
+mentioned in *Corporate surveillance, digital tracking, big data & privacy* 
+[@video_2016_corporate-surveillance-digital-tracking-big-data-privacy]).
 Therefore, it's safe to say that Personal Data is considered either as the direct product, 
 especially from a Data Broker's point of view, or an indirect product due to its essential part in 
 *Big Data* approaches. The former generates direct revenue by selling these data and the latter 

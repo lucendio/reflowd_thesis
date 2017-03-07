@@ -45,8 +45,8 @@ at this shop before and probably won't do it again, she decides to grant access 
 specific occasion. The shop-system is then notified of the decision result. If the result is 
 positive - which is the case here - the data can be obtained and the order can be further processed. 
 As a result, the data subject receives an email, containing information regarding her order, 
-including the shop owner's bank details, which enables her to pay the due amount. 
-After the shop-system receives the payment, the toaster is shipped.
+including the shop owner's bank details, which enables her to pay the due amount. After the 
+shop-system receives the payment, the toaster is shipped.
 
 In order to get a full impression of how the whole process would look like if the data subject
 would have chosen another payment method, the differences are described below.
@@ -57,7 +57,7 @@ Paying with invoice, would have been possible only if the *PDaaS* initially had 
 certified profile data, which necessarily would have been rated trustworthy. That again would have 
 reduced the risk taken by shop owner and would have enabled her to take action in cases of fraud or 
 misuse.
-Choosing to involve an online payment service provider as a *middleman* for processing the payment
+Choosing to involve an online payment service provider as a middleman for processing the payment
 would have required the data subject to have granted the provider access to her *PDaaS* upfront. In 
 that case, the shop-system would have asked for her payment provider account identifier, so that the 
 system could have requested the payment directly from that payment service provider. This would have 
@@ -113,10 +113,10 @@ would be to just transfer the plain data including expiry date and information a
 the data is. However, the actual computations and analytics to obtain the score happen within the 
 infrastructure of the credit institute. When this process has finished, all the personal data that 
 have been transferred must be erased. An possible alternative that would prevent the data from 
-leaving the *PDaaS*, could be that the institute's request doesn't contain a data query, but instead coming along 
-with some software and information on how to run it. The *PDaaS* server will provide an isolated 
-runtime in which the software can be executed. After that process is finished, the result is sent 
-back to the credit institute's infrastructure.
+leaving the *PDaaS*, could be that the institute's request doesn't contain a data query, but instead 
+coming along with some software and information on how to run it. The *PDaaS* server will provide an 
+isolated runtime in which the software can be executed. After that process is finished, the result 
+is sent back to the credit institute's infrastructure.
 
 
 #### Maintain and provide its own medical record {-}
@@ -139,10 +139,10 @@ includes access to all the data originating from the time after her accident. A 
 receptionist confirms now being able to see all necessary data. 
 The data subject takes a seat in the waiting room. While passing time, she decides to take a deeper 
 look into her list of data consumers. Some of them she couldn't even remember and for others she was 
-surprised by which data items she had granted access to. She starts to restrict certain 
-permissions, as she desires. She even removes some of the entries entirely. The appointment with her 
-doctor went great. The doctor even had to review the x-ray images in order to make an adequate 
-differential diagnosis. 
+surprised by which data items she had granted access to. She starts to restrict certain permissions, 
+as she desires. She even removes some of the entries entirely. The appointment with her doctor went 
+great. The doctor even had to review the x-ray images in order to make an adequate differential 
+diagnosis. 
 After the visit, she makes a quick stop at a pharmacy along the way to pickup the drugs her doctor 
 had prescribed to reduce the pain. She has to wait in the queue since two other customers are in 
 front of her. She realizes that it's the first time she's in this store. So she prepares a new entry 

@@ -42,7 +42,7 @@ intellectual property (e.g. posts, images, videos or comments) ever created, and
 tracking data, interaction monitoring and metadata, that is used to manually or automatically enrich 
 content (e.g. geo-location attached to a tweet as meta information). Moreover, it refers to data 
 that is captured by someone or something from within the individual's private living space or 
-property. *Personal data* is basically understood as every data item reflecting the individual as 
+property. *Personal Data* is basically understood as every data item reflecting the individual as 
 such and her personality - partially or as a whole.
 
 The european "Data Protection Regulations", on the other hand, defines 
@@ -79,9 +79,9 @@ social security number and so on.
 Aside from government legislation, several third-party organisations in the U.S. are also allowed to 
 define rules and policies that can overwrite existing laws, namely the 
 *Federal Communications Commission (FCC)*, which recently released "Rules to Protect Broadband 
-Consumer Privacy" for ISPs [^abbr_isp] including a list of categories of sensitive information
-[@rules_2016_fcc_to-protect-broadband-consumer-privacy_sensitive-types-of-data]. Thereby the FCC
-wants *Personally Identifiable Information* (alias *Personal Data*) to be understood as:
+Consumer Privacy" for *Internet Service Provider (ISP)* including a list of categories of sensitive 
+information [@rules_2016_fcc_to-protect-broadband-consumer-privacy_sensitive-types-of-data]. Thereby 
+the FCC wants *Personally Identifiable Information* (alias *Personal Data*) to be understood as:
     
 >   [...] any information that is linked or linkable to an individual. [...] information is 
 >   “linked” or “linkable” to an individual if it can be used on its own, in context, or in 
@@ -90,7 +90,7 @@ wants *Personally Identifiable Information* (alias *Personal Data*) to be unders
 >   [@rules_2016_fcc_to-protect-broadband-consumer-privacy_personally-identifiable-information, sec. 60-61].
 
 Despite minor difference in details, the FCC has a serious idea of what is included in 
-*personal data* and to whom they belong. Although the FCC's legal participation might be somewhat 
+*Personal Data* and to whom they belong. Although the FCC's legal participation might be somewhat 
 debatable regarding limitation to certain topics, the "Communications Act" as a U.S. federal law 
 qualifies the FCC to regulate and legislate within its boundaries.
 
@@ -115,7 +115,7 @@ legal situation, rather then a contract, which the user would be forced to read 
 revealing her data; otherwise known from procedures like software installations, where the user 
 might have to accept terms of use or license agreements.
 With a *Privacy Policy* at hand, it's up to each individual to decide if the benefits the service 
-offers are worth sharing part(s) of her *personal data*, while at the same time reluctantly 
+offers are worth sharing part(s) of her *Personal Data*, while at the same time reluctantly 
 tolerating potential downsides concerning the privacy of that data.
 When the vendor considers its policies accepted by a user, her personal data must be processed as 
 stated in those policies but also according to the law. If the policies violate existing law or the 
@@ -126,7 +126,7 @@ a fine, or have its license revoked.
 
 Not only privacy laws, but every legal jurisdiction has its limitations - such as its territorial 
 nature - which makes it an inappropriate tool for addressing existing issues and strengthening 
-individuals' privacy and rights in a global context like the *world wide web*. 
+individuals' privacy and rights in a global context like the *World Wide Web*. 
 Whereas the EU has approved extensive regulations, mentioned above, that are supposed to provide 
 privacy protection and defines the handling of personal data, the U.S., on the other hand, has only 
 subject-specific rules which merely apply to its own citizens.
@@ -143,9 +143,9 @@ contract partners with or without legal foundation [@web_2017_privacy-shield_faq
 While the legislation mentioned above is in place, *[Ownership]{#def--ownership}* of *Personal Data* 
 has no legal basis whatsoever. The concepts of intellectual property protection and copyright might 
 intuitively be applicable, because the data that is defined through the sole existence of the 
-*data subject* (Digital Identity) and the data that is created by her seems to be her *intellectual 
+data subject (Digital Identity) and the data that is created by her seems to be her *intellectual 
 property* as well. Such property implies that it is the result of a creative process, but 
-unfortunately facts, which most *personal data* are, don't show a *threshold of originality* 
+unfortunately facts, which most *Personal Data* are, don't show a *threshold of originality* 
 [@paper_2014_who-owns-yours-data]. Thus, the legal concept of *intellectual property* does not 
 apply.
 However, [Ownership]{#def--ownership} in the context of this work, is understood as a concept of 
@@ -158,7 +158,7 @@ case some effort might be required in order to preserve ownership as described, 
 general characteristics that data has.
 
 The european "Data Protection Regulations" mentioned before contain only one occurrence of the word 
-*ownership*, and it's not even related to the context of *personal data* or the *data subject*. It 
+*Ownership*, and it's not even related to the context of *Personal Data* or the data subject. It 
 merely states that *"Natural persons should have control of their own personal data"* 
 [@regulation_2016_eu_general-data-protection-regulation_ownership, sec. 7]. 
 Whereas Commissioner J. Rosenworcel of the FCC wants *"consumers [...] to [...] take some ownership 
@@ -166,7 +166,7 @@ of what is done with their personal information."*
 [@rules_2016_fcc_to-protect-broadband-consumer-privacy_ownership, p. 207] Despite those two
 exceptions, elaborations on *data ownership* are almost non-existant in current legislation. 
 Instead, the question is typically addressed in *Terms of Service (ToS)* provided by 
-*data consumers*, which an individual might have to accept in order to establish a (legal) 
+data consumers, which an individual might have to accept in order to establish a (legal) 
 relationship with its author. The individual should keep in mind, that *Terms of Services* can 
 change over time; not necessarily to the users advantage. The contents of a *ToS* must not violate 
 any applicable or related law, otherwise the terms might not be legally recognized. Taking for 
@@ -191,19 +191,19 @@ that the user grants the author a worldwide license to do almost any imaginable 
 In case of Apple for example, if the user is *"submitting or posting [...] Content on areas of the 
 Service that are accessible by the public or other users with whom [the user] consent to share [...] 
 Content"* [@web_2016_apple-icloud_terms-of-service, para. H1].
-It is worth to be noted though, that every *ToS* only refers to the content created by the 
-*data subject* instead of all her personal data. As mentioned above, personal information are not 
-the subject of intellectual property, but still play an important role in data analytics. Which is 
-why *privacy policies* are in place, to ensure at least some enlightenment on the whereabouts of the
+It is worth to be noted though, that every *ToS* only refers to the content created by the data 
+subject instead of all her personal data. As mentioned above, personal information are not the 
+subject of intellectual property, but still play an important role in data analytics. Which is why 
+*Privacy Policies* are in place, to ensure at least some enlightenment on the whereabouts of the
 user's personal data, even though it doesn't compensate the absence of control.
-Additionally, neither the meaning of *ownership*, to which the quoted terms refer to, is 
+Additionally, neither the meaning of *Ownership*, to which the quoted terms refer to, is 
 sufficiently outlined, which results in ambiguity, and thus leaves room for interpretation, nor the
-proposed definition of *ownership*, [as described earlier]{#def--ownership}, is applicable to these 
-*Terms of services*, since the *data subject* loses all its control by design. Handing over data to 
+proposed definition of *Ownership*, [as described earlier]{#def--ownership}, is applicable to these 
+*Terms of Services*, since the data subject loses all its control by design. Handing over data to 
 a consumer effectively disables the exclusive control over the data and eliminates the ability to 
-assign such control. Hence, the *ownership* to that data doesn't exist any further. That is, no 
-(legislation based) way exists to establish a feasible concept of *ownership*, unless the data 
-consumer has a motivation to promote the *data subject* to the sole owner of her data and to honour 
+assign such control. Hence, the *Ownership* to that data doesn't exist any further. That is, no 
+(legislation based) way exists to establish a feasible concept of *Ownership*, unless the data 
+consumer has a motivation to promote the data subject to the sole owner of her data and to honour 
 these privileges.
 
 Leaving the legislation aside for a moment to move away from the top view; data consumers might 
@@ -223,20 +223,20 @@ It is followed by (B) an ongoing and recurring process of collecting, aggregatin
 actively and passively created data and metadata (e.g. food delivery history or platform 
 interactions and tracking).
 According to the definition of *[Personal Data](#def--personal-data-as-of-legis)* through 
-legislation, it appears to be only a fraction of the data, namely *personal information*, that is 
+legislation, it appears to be only a fraction of the data, namely personal information, that is 
 involved in these kind of processes. The larger part, which is defined as the subject's 
-*[digital footprint](#terminologies--digital-footprint)*, consists of highly valuable metadata 
+*[Digital Footprint](#terminologies--digital-footprint)*, consists of highly valuable metadata 
 [@web_2013_why-metadata-matters] [@web_2016_why-you-need-metadata-for-big-data-to-success], but is 
-not covered by law. If the *data subject* ends the relationship with a collector, at the very least, 
+not covered by law. If the data subject ends the relationship with a collector, at the very least, 
 the personal information should be erased and all remaining data sufficiently anonymized or even 
-handed back. Which again can currently be enforced only by legislation because the *data subject* 
-has no access to the collector's infrastructure where the data about her is stored. 
+handed back. Which again can currently be enforced only by legislation because the data subject has 
+no access to the collector's infrastructure where the data about her is stored. 
 
 In summary, approaching the issues from a legislative angle has shown to be fraught with problems 
 on a variety of levels. Not least because it can hardly be proven that vendors behave accordingly. 
-Thus *data subjects* should not depend on the collector's willingness to respect *Ownership* of 
-*Personal Data* as stated here. Instead a technical approach is proposed to embrace the 
-*data subject* as the origin of her personal data and to proactively regain control.
+Thus data subjects should not depend on the collector's willingness to respect *Ownership* of 
+*Personal Data* as stated here. Instead a technical approach is proposed to embrace the data subject 
+as the origin of her personal data and to proactively regain control.
 
 
 
@@ -245,5 +245,3 @@ Thus *data subjects* should not depend on the collector's willingness to respect
     
 [^eu-data-protection-regulation_informing-data-subject]: according to article 12-14 of the "EU
     General Data Protection Regulation 2016/679"
-    
-[^abbr_isp]: Internet Service Provider
