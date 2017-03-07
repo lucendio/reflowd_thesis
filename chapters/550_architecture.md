@@ -15,7 +15,7 @@ to place these concerns, which are, in fact, different environments with differe
 combinations of locations and environment properties are herein after called *platforms*. To further 
 describe these *platforms*, characteristics such as architectural layer and access possibilities to 
 its host einvironment are taken into account. The resulting four *platform* types are shown in 
-Table @tbl:platforms-characteristics. All platform are considered to be controlled by the data 
+Table @tbl:platforms-characteristics. All platforms are considered to be controlled by the data 
 subject. Here, *trusted* refers to how likely it is that the host environment, and maybe even the 
 platform, is unintentionally accessed by third parties, whereas *host access* describes the 
 possibilities to access the host environment from within the platform (e.g. filesystem to store 
@@ -275,12 +275,12 @@ scale and run more independently. This can improve *redundancy* as well.
 
 In theory, it's indeed possible to arrange the components in such a way that they are all located on 
 the mobile platform, or even to a desktop device, which are henceforth considered equally in their 
-platform properties. This comes along with some downsides and major issues though, that are far from 
+platform properties. However, this comes with downsides and major issues that are far from 
 trivial to solve. Nevertheless, to not only ensure nearly 100% uptime and discovery in a landscape 
 where NAT [^abbr_nat] and dynamic IPs are still common practice, for mobile platforms as 
-well as on the desktop, all components but the user interface are therefor needed to be implemented 
-natively. From an *operator's* perspective that would mean, to have all components at hand and 
-therefore full control over the *PDaaS*. It still would raise security concerns, though.
+well as on the desktop, all components except the user interface are therefore required to be implemented 
+natively. From an *operator's* perspective, that would mean to have all components at hand and, 
+therefore, full control over the *PDaaS*. It still would raise security concerns, though.
 
 Aside from providing the operator with a non-stationary and instantly accessible interface to her 
 *PDaaS*, involving a *mobile* platform primarily has the purpose of enabling the data subject to 
@@ -301,13 +301,13 @@ located on the server (*Storage Connector*). Now, moving the *PDS* away form the
 more difficult to access. Assuming the host environment provides a simple mechanism to configure its
 firewall and listen on a port for incoming connections, which is not very likely, because of 
 host-wide security policies, the *Storage Connector* would still need the IP form the device, and 
-even then the already mentioned practise of NAT and dynamic IPs would require a signaling process,
+even then, the already mentioned practice of NAT and dynamic IPs would require a signaling process,
 through which a connection to the *Storage Connector* is established.  
 Two approaches are proposed to circumvent this issue. Either an ongoing bidirectional connection 
 (e.g. WebSockets) can be utilized to push data queries from the *server* platform, or the 
 *Storage Connector* queues the queries and informs the operator via Push Notification on pending
 attempts to access the *PDS* located on her mobile device, so that she can then actively pull
-the queries and push the results back to the *Storage Connector*. Those are two general distinct 
+the queries and push the results back to the *Storage Connector*. Those are two distinct general
 approaches, details may vary.
 
 Authenticating *consumers* is performed based on TLS by the web server and its configured subdomains 
