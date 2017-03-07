@@ -21,8 +21,8 @@ To agree on a secret without compromising it during that process, both entities
 either need to switch to a private medium (e.g meet physically and exchange) or have to use a 
 procedure in which the entire key is not exposed to others at any single point in time. 
 Such a procedure could be, among others, the __Diffie-Hellman-Key-Exchange__ 
-[@paper_1976_d-h-key-exchange] and is based on 
-the mathematical discrete logarithm problem. It allows to parties to to agree on a common *secret* 
+[@paper_1976_d-h-key-exchange], which is based on 
+the mathematical discrete logarithm problem. It allows two parties to agree on a common *secret* 
 while using a non-private channel. The data exchanged during the process alone cannot be used to 
 exploit the secret.
 The possibility to securely communicate on a non-private channel is also one of the strengths of
@@ -35,8 +35,8 @@ The *public* key is used to *encrypt* the data, and only the *private* key can b
 asymmetrical cryptography, it's even possible to switch the roles of the keys, meaning regardless of 
 which key is used to encrypt the data, only the corresponding part is able to decrypt the cipher. If 
 this technique is combined with the concept of digital signatures (encrypted fingerprints from 
-data), the result is a so called certificate, that provides integrity and authentication. It is
-the *public key* attached with owner information and a digital signature of that key.
+data), the result is a so called certificate, that provides integrity and authentication. It consists
+of the *public key* attached with owner information and a digital signature of that key.
 
 *Hypertext Transfer Protocol (__[HTTP]{#def--http}__)* [@web_spec_http1], commonly known as part of 
 the *Application Layer* in the *Open Systems Interconnection model (OSI model)* 
@@ -56,12 +56,14 @@ TLS provides encryption during data transport, which reduces the vulnerability t
 *man-in-the-middle* attacks and thus ensures not only confidentiality, but data integrity too. 
 *Asymmetric cryptography* is the foundation for the connection establishment in *TLS*, hence it also 
 allows to verify the relation between the identity of the communicating party and the presented 
-certificate. This procedure can be performed by both parties. Depending on the integration, it could even be used to authenticate that party. 
+certificate. This procedure can be performed by both parties. Depending on the integration, it could 
+even be used to authenticate that party. 
 Though relying on those cryptographic concepts requires additional infrastructure. Such an 
 infrastructure is known as *Public Key Infrastructure (PKI)* [@book_2014_chapter-14-5-pki]. It 
 manages and provides keys and certificates for a dedicated scope of entities in a directory, 
 including information related to their owners. *PKI*s are commonly utilize a hierarchical chain of 
-trust, although cross signing is possible as well. A *Certificate Authority (CA)*, as part of that infrastructure, 
+trust, although cross-signing is possible as well. A *Certificate Authority (CA)*, as part of that 
+infrastructure, 
 issues, maintains and revokes digital certificates. The infrastructure that is needed to provide 
 secure HTTP connections for the internet is one of those *PKI*s - a public one and probably one of 
 the largest. It is based on the widely used IETF [^abbr_ietf] standard *X.509* [@web_spec_x509].
@@ -71,9 +73,9 @@ connections on top of a TCP [^abbr_tcp] connection, though connection establishm
 via HTTP(S). The result is a connection *upgrade*, which enables both protocols running side by side 
 on the same server port. This makes it also possible to use TLS for encrypting connections.
 So, instead of mimic real-time data exchange and pending remote procedure call responses with 
-long-polling over HTTP, the secure WebSocket protocol (*wss*) provides such patterns. It is 
-conceivable to use *WebSockets* as the transport technology to communicate between the system's 
-components and even with external parties.
+long-polling over HTTP, the secure WebSocket protocol (*wss*) provides such patterns as well, but in 
+a more efficient way. It is conceivable to use *WebSockets* as the transport technology to communicate 
+between the system's components and even with external parties.
 
 While the transport of email-based communication is also underpinned by *TLS*, the emails themselves 
 still exist in plain text at all times. Utilizing end-to-end encryption for such communication is 
@@ -84,7 +86,7 @@ known from the *PKIX (or PKI based on X.509)*. This approach, known as __web of 
 multiple *public key servers*, in which all entities (user; senders and recipients) are signing each other's 
 public keys. The more users have signed a public key, the higher the level of trust is that the 
 encrypted content can only be read by whom the signed key-pair belongs to. Public keys are simply uploaded by 
-its owners to those key servers mentioned before. If someone wants to write an email to others, for 
+its owners to the key servers mentioned before. If someone wants to write an email to others, for 
 every recipient the relating public key can be obtained from these public servers, so that the email
 is then encrypted with those keys - for every recipient individually. Therefore the email is only 
 readable by the owner of the key's private part.
@@ -105,8 +107,8 @@ As an official document, the card has one major advantage over inherent, self-co
 generated secrets like passwords, fingerprints or TANs [^abbr_tan]. It is *signed* by design, which 
 means, by creating this document and handing it over to the related citizen, the third party 
 (or *'authority'*) - in this case the government - has verified the authenticity of that individual.
-Although, this procedure does not guarantee that the third party has no copy of the private key, 
-that is stored on the *eID card*.
+Although, this procedure does not guarantee that the third party has no copy of the private key(s) 
+stored on the *eID card*.
 
 Another technology emerging as part of the *e-government* development, is the german 
 __[De-Mail]{#def--de-mail}__ [@web_2017_about-de-mail]. It's an email service that is meant to 
@@ -124,9 +126,9 @@ utilize *end-to-end* for complete confidentiality, or *Qualified Electronic Sign
 identity.
 
 __JSON__ [^abbr_json] is an alternative to the *Extensible Markup Language (XML)*, which in this 
-context it is only referred to as another data serialization format. Unlike XML, JSON is more 
-readable. The JSON-syntax is 
-inspired by the JavaScript object-literal notation. It's heavily used in web contexts to transfer 
+context it is only referred to as another text-based data serialization format. The JSON-syntax is 
+inspired by the JavaScript object-literal notation and is therefore more readable compared to XML. 
+It's heavily used in web contexts to transfer 
 data via *HTTP*. Like XML, its structuring mechanisms allow i.a. type preservation and nesting, 
 which enable the representation of more complex data structures, including relations.
 
@@ -144,8 +146,9 @@ passed through all communication points, where the data can then be extracted an
 token typically consists of three parts: (A) information about itself *(header)*, (B) a *payload*, 
 which can be arbitrary data such as user or state information, and (C) the so called *signature*, 
 which effectively is a *hash-based message authentication code (HMAC)* [@web_spec_hmac] preserving the 
-integrity of header and payload. All three parts are separated with a period. Additional standards define encryption *(JWE [^abbr_jwe])* to ensure 
-confidentiality, and digital signatures *(JWS [^abbr_jws])*, which enables others than the signer to 
+integrity of header and payload. All three parts are separated with a period. Additional standards 
+define encryption *(JWE [^abbr_jwe])* to ensure 
+confidentiality, and digital signatures *(JWS [^abbr_jws])*, which enables others than only the signer to 
 validate the *signature*.
 Using a *JWT* for authentication purposes is described as *stateless authentication*, because the 
 verifying entity doesn't need to be aware of session IDs nor any other information about a session. 
@@ -167,7 +170,7 @@ OAuth *version 1.0a* [@web_spec_oauth-1a], which is rather considered a protocol
 confidentiality by encrypting data before it gets transferred, and integrity of transferred data by 
 using signatures. Whereas *Version 2.0* [@web_spec_oauth-2], labeled as a framework, requires a 
 *TLS* encrypted communication channel
-and thus passes on the responsibility for confidentiality to the transport layer below. It also 
+and thus passes on the responsibility for confidentiality and integrity to the transport layer below. It also 
 supports additional process flows for scenarios involving specific platforms such as 
 *"web applications, desktop applications, mobile phones, and living room devices"* 
 [@web_2016_oauth-2, para. 1].
@@ -205,7 +208,7 @@ or hierarchical order between data items, it involves a rudimentary vocabulary [
 HTTP requests to provide basic CRUD-operations [^abbr_crud] across distributed systems. The entire 
 request needs to contain everything that is required to be processed on the REST-server, for example
 state information and possibly authentication parameters. 
-A restful API typically has the purpose of exposing certain features provided through the platform 
+A RESTful API typically has the purpose of exposing certain features provided through the platform 
 or service to third parties in order to synergistically integrate with them. But utilizing these
 principals for all internal server-client interaction is also very common.
 This concept can also be understood as a proxy to the actual business logic in the back end.
@@ -256,12 +259,12 @@ moves it into a second layer. The so called *GraphQL* server is responsible for 
 executing queries. 
 
 The term __[Semantic Web]{#def--semantic-web}__ bundles a conglomerate of standards released by the 
-W3C [^abbr_w3c]. It is based on an idea called *web of linked data*, which aims to *"enable people 
-to create data stores on the Web, build vocabularies, and write rules for handling data"* 
-[@web_2016_w3c_semantic-web-activity, para. 1]. The standards address syntax, schemas, formats, 
+*World Wide Web Consortium (W3C)* [^abbr_w3c]. It is based on an idea called *web of linked data*, 
+which aims to *"enable people to create data stores on the Web, build vocabularies, and write rules 
+for handling data"* [@web_2016_w3c_semantic-web-activity, para. 1]. The standards address syntax, schemas, formats, 
 access control and integrations for several scopes and contexts. Among others, the following three 
 technologies are essential for the *Semantic Web*.
-RDF [^abbr_rdf] basically defines the syntax. OWL [^abbr_owl] provides the guidelines on how the 
+*RDF* [^abbr_rdf] basically defines the syntax. *OWL* [^abbr_owl] provides the guidelines on how the 
 semantics and schemas (vocabulary) should be defined and with [SPARQL]{#def--sparql} 
 [@web_w3c-tr_sparql], the query language, data can be retrieved.
 The idea of the *Semantic Web* tries to utilize the web as a database of queryable data with URIs that are embedded 
@@ -272,7 +275,7 @@ together embedded in an imprint of a website. This information can then be queri
 the unique identifier of that person *(URI)* is known. 
 While defining the standards, a main focus was to design a syntax that is at the same time valid 
 markup. The vision behind this: embracing the concept of a single source of truth (per entity) and 
-embedding or linking data items rather then creating new instances of the same data that might only
+embedding or linking data items rather then creating new instances of the same data that might be only
 valid at that point in time - in short, preventing redundant work and outdated data.
 Related to the *Semantic Web* is the a project called __Solid__ [^abbr_solid]. Backed by the 
 *WebAccessControl* [@web_2016_wiki_webaccesscontrol] system and based on the *Linked Data* 
@@ -307,7 +310,7 @@ called *databox* [@web_2016_demo_databox] follows the specification process.
     
 [^abbr_crud]: Create, Read, Update, Delete
     
-[^abbr_w3c]: World Wide Web Consortium; international community that develops standards for the web  
+[^abbr_w3c]: international community that develops standards for the web  
     
 [^abbr_rdf]: Resource Description Framework [@web_w3c-tr_rdf]
 

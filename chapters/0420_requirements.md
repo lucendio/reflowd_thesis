@@ -25,22 +25,22 @@ be possible to build a distributed system, which may require the placement of so
 different environments/devices/platforms. 
 
 __*[S.A.03]{#sa03}* - Roles__\
-The system has to define two types of roles (see also [Terminologies](#terminologies)). The first 
-one is the [operator](#terminologies--operator), who is in control of the system and, depending on 
-the architecture, must be at least one individual but could be more. The operator maintains all the 
-data that gets provided through the system and decides which third parties get access to what data. 
-The second type is a [consumers](#terminologies--consumer). These consumers are external third 
-parties that desire access to certain data about or from the operator. 
-While the consumer has to interact with the system only via plain HTTP requests, the operator must 
-be provided with graphical user interfaces, possibly for multiple platforms.
+The system has to define two types of roles (see *[Chapter 1 - Terminologies](#terminologies)*). The
+first one is the *[operator](#terminologies--operator)*, who is in control of the system and, 
+depending on the architecture, must be at least one individual but could be more. The *operator* 
+maintains all the data that gets provided through the system and decides which third parties get 
+access to what data. The second type is a *[consumer](#terminologies--consumer)*. These *consumers* 
+are external third parties that desire access to certain data about or from the *operator*. 
+While the consumer has to interact with the system only via plain HTTP API, the operator must be 
+provided with graphical user interfaces, possibly for multiple platforms.
 
 __*[S.A.04]{#sa04}* - Authenticity__\
 Since they have to rely on the data, both entities - everyone who belongs to one of the 
-*[roles](#sa03)* - must be able able to verify the authenticity of the other's identity as well 
-as of the received data, in order to be certain that this data is real and belongs to the sender.
-It should be possible to opt out to that level of reliability if it's not necessary, or to opt-in 
-selectively for certain types of data. However, if one of the parties demands the other to provide 
-such a level but the other doesn't, then the access attempt has to fail.
+[roles (S.A.03)](#sa03) - must be able able to verify the authenticity of the other's identity as 
+well as of the received data, in order to be certain that this data is real and belongs to the
+sender. It should be possible to opt out to that level of reliability if it's not necessary, or to
+opt-in selectively for certain types of data. However, if one of the parties demands the other to
+provide such a level but the other doesn't, then the access attempt has to fail.
 
 __*[S.A.05]{#sa05}* - Availability__\
 When third parties are requesting data, it's very likely that those procedures are triggered 
@@ -138,7 +138,7 @@ All graphical user interfaces must be implemented based on web technologies, whi
 by a server and available on any system that comes with a modern browser. To enable additional 
 features and deeper integration with the surrounding environment, it is recommended - at least for 
 mobile devices - to build user interfaces upon natively supported technologies, such as *Swift* and 
-*Java*. The operator would benefit from capabilities such as *push notifications* and storing data 
+*Java*. The operator would benefit from capabilities such as *Push Notifications* and storing data 
 on that device.
 
 __*[P.VIU.03]{#pviu03}* - Permission Profiles__\
@@ -150,7 +150,7 @@ __*[P.VIU.04]{#pviu04}* - Access History__\
 The operator must be provided with a list of all past *permission and access requests*, in order to 
 monitor who is accessing what data and when, and thus being capable of evaluating and eventually 
 stopping certain access and data usage. Such tool should have filter, search and sort capabilities. 
-It is built upon and therefore requires the [access logging](#pb01) functionality.
+It is built upon and therefore requires the [access logging (P.B.01)](#pb01) functionality.
 
 
 #### Interactions: {-}
@@ -171,11 +171,11 @@ elements should be positioned within the area related to that context.
 
 __*[P.I.03]{#pi03}* - Notifications__\
 The user should be notified about every interaction with the system originated by a third party 
-immediately after its occurrence, and she has to be notified, at least, about every *permission
-request*. This behaviour should be configurable; depending on the *permission type* and on every 
-*permission profile*. Regardless of the configuration, notifications themselves must show up 
-decently and pending user interactions must be indicated in the user interface. Notifications do not 
-necessarily require a reaction by the operator. 
+immediately after its occurrence, and she has to be notified, at least, about every 
+*permission request*. This behaviour should be configurable; depending on the *permission type* and 
+on every *permission profile*. Regardless of the configuration, notifications themselves must show
+up decently and pending user interactions must be indicated in the user interface. Notifications do
+not necessarily require a reaction by the operator. 
 
 __*[P.I.04]{#pi04}* - Permission Request & Review__\
 A process involving data transaction must be always initiated by the data subjects. So, before a 
@@ -193,13 +193,13 @@ decide between three *permission types*:
 +   *one-time-only*
 +   *expires-on-date*
 +   *until-further-notice*
-After creating the profile, a response must be sent to the *data consumer*, which should contain
-the review result and the determined permission type. 
+After creating the profile, the *data consumer* must be provided with a response, which should 
+contain the review result and the determined *permission type*. 
 
 __*[P.I.05]{#pi05}* - Templating__\
 The operator should be able to create templates for *permission profiles* and *permission rules* in 
-order to (A) apply a set of configurations in advance before a *permission request* arrives and (B) 
-reduce recurring redundant configurations and interactions.
+order to apply a set of configurations in advance before a *permission request* arrives and reduce 
+recurring redundant configurations and interactions.
 
 
 #### Behaviour: {-}
@@ -213,8 +213,8 @@ __*[P.B.02]{#pb02}* - Real time__\
 Real time communication might be essential for time-critical data transaction. Hence graphical user 
 interfaces should be communicating with the server through an ongoing connection to enable real time 
 support. 
-Consider the following example scenario: a permission request is reviewed on a mobile device, but the
-notification indicator in the desktop browser still reflects 'pending'. 
+Consider the following example scenario: a permission request is reviewed on a mobile device, but
+the notification indicator in the desktop browser still reflects 'pending'. 
 If just one of the user interfaces does not have real-time capabilities but all the others do, the 
 user interface might get into an undefined state presenting the user with wrong information, which 
 will decrease user experience dramatically. This means, either all user interfaces have to provide 

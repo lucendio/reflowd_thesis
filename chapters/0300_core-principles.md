@@ -12,12 +12,13 @@ and will be explained further within the following sections.
 ## Data Ownership
 
 Depending on the perspective, the question about ownership of certain data might not be trivial to 
-answer. As stated in a [previous section](#digital-identity-personal-data-and-ownership), ownership 
-requires a certain amount of originality to become intellectual property, which is not the case for 
-personal data - at least for all the non-creative content. Thus, there is no legal ground for an 
-individual to license those data that obviously belong to her. Switching the perspective from the 
-*data subject* to the data *consumer*; for them, several laws exist addressing conditions and rules 
-regarding data acquisition, processing and usage.
+answer. As stated in 
+*[Chapter 3 - Digital Identity, Personal Data and Ownership](#digital-identity-personal-data-and-ownership)*, 
+[ownership](#def--ownership) requires a certain amount of originality to become intellectual 
+property, which is not the case for personal data - at least for all the non-creative content. Thus, 
+there is no legal ground for an individual to license those data that obviously belong to her. 
+Switching the perspective from the *data subject* to the *data consumer*; for them, several laws 
+exist addressing conditions and rules regarding data acquisition, processing and usage.  
 Putting aside the absence of legislation regarding data ownership, it cannot be denied that it seems 
 unnatural to not be the owner of all the data that reflect a person's identity and the person as an 
 individual. So instead of defining rules meant to protect data subjects but demand data consumers to 
@@ -65,7 +66,7 @@ authenticity, so that they themselves can decide if and how to proceed.
 Controlling its own data might be the most important ability of such a system, because the data 
 owner is enabled to grant permission to any entity who wants to obtain certain information, in a 
 potentially automated way, about her. She can authorize, as precisely as desired, how long and what 
-data (sets, points or fields) are accessible by a single entity. Thereby, the data owner is able to 
+data (sets, items or fields) are accessible by a single entity. Thereby, the data owner is able to 
 change the *access permissions* for any entity at any point in time, for example, when motivated by 
 a noticed incident. 
 
@@ -80,7 +81,7 @@ environment, computing only a fraction of a larger computation initiated by the 
 beforehand; similar to a distributed Map-Reduce concept [@paper_2004_distributed-mapreduce]. The 
 opposite, but also conceivable, approach would be to provide either some software to the 
 *data consumer*, which is required in order to access the contents of a response, or a runtime 
-environment that queries the system by itself.
+environment that queries the system by itself.  
 In general, it is not very likely that data consumers, who have been granted certain access, would 
 renounce their privileges. Thus it is vital that the data owner is the one in charge of canceling 
 access permissions or applying appropriate changes to them. Supervising methods provide an 

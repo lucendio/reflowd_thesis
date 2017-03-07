@@ -8,13 +8,13 @@ together in an overall system architecture that is organized in either a distrib
 centralized manner. The outcome of this section should not impact results or conclusions from other 
 topics related to the behaviour of the system's interfaces from a user point of view. 
 
-The foundation of this project is a server-client Architecture, which is chosen for (A) providing 
-availability ([S.A.05](#sa05)) and (B) separating concerns 
-[@web_2016_wikipedia_separation-of-concerns]. Such a distributed system provides various locations
-to place these concerns, which are, in fact, different environments with different properties. Those 
+The foundation of this project is a server-client Architecture, which is chosen for providing 
+availability ([S.A.05](#sa05)) and separating concerns [@web_2016_wikipedia_separation-of-concerns].
+Such a distributed system provides various locations to place these concerns, which are, in fact,
+different environments with different properties. Those 
 combinations of locations and environment properties are herein after called *platforms*. To further 
 describe these *platforms*, characteristics such as architectural layer and access possibilities to 
-its host einvironment are taken into account. The resulting four *platform* types are shown in 
+its host environment are taken into account. The resulting three *platform* types are shown in 
 Table @tbl:platforms-characteristics. All platforms are considered to be controlled by the data 
 subject. Here, *trusted* refers to how likely it is that the host environment, and maybe even the 
 platform, is unintentionally accessed by third parties, whereas *host access* describes the 
@@ -37,7 +37,7 @@ data).
 |   $\ $   |   $\ $  |   $\ $  | end     | - based on web technologies                 |
 |   $\ $   |   $\ $  |   $\ $  |   $\ $  | - graphical user interface                  |
 
-Table: Platform types on which components of the *PDaaS* architecture can be placed 
+Table: Platform types for the different components of the *PDaaS* architecture 
     {#tbl:platforms-characteristics}
 
 
@@ -47,7 +47,7 @@ about which platforms they could be in, as well as further details about their m
 underlying technologies, and relation(s) to each other.
 
 
-#### Web server {-}
+#### Web Server {-}
 
 *Platform:* Server
 
@@ -55,7 +55,7 @@ underlying technologies, and relation(s) to each other.
 +   serve web-based user interface(s)
 +   handle all in- & outgoing traffic (outmost layer)
 +   revers proxying certain traffic to different components
-+   en- & decrypt HTTPS traffic, thus authenticate *consumers*
++   en- & decrypt HTTPS traffic, thus authenticate consumers
 +   load balancing (if necessary)
 +   web notification
 +   spam protection
@@ -113,7 +113,7 @@ underlying technologies, and relation(s) to each other.
 *Platform:* Server
 
 *Tasks:*
-+   abstracts to system agnostic Query Language
++   abstracts to system agnostic query language
 +   queries personal data, regardless of where it's located
 
 *Relations:*
@@ -128,7 +128,7 @@ underlying technologies, and relation(s) to each other.
 *Platform:* Server
 
 *Tasks:*
-+   authenticates *operator*
++   authenticates operator
 +   writes personal data through Storage Connector 
 +   provides relevant data, such as history
 +   system configuration
@@ -150,7 +150,7 @@ underlying technologies, and relation(s) to each other.
 *Platform:* Server
 
 *Tasks:*
-+   isolated runtime (sandbox) for computations/programs provided by *consumers*
++   isolated runtime (sandbox) for computations/programs provided by consumers
 +   restrict interaction with outer environment to absolute minimum (e.g. no shared filesystem 
     or network)
 +   one-time use
@@ -161,7 +161,7 @@ underlying technologies, and relation(s) to each other.
 +   Permission Manager
 
 *Technologies:*
-+   Virtualization
++   Hypervisor
 +   Container (OCI)
 
 
@@ -220,15 +220,15 @@ underlying technologies, and relation(s) to each other.
 *Platform:* Server
 
 *Tasks:*
-+   notifies about everything that needs *operator's* approval (e.g. new registrations, new 
++   notifies about everything that needs operator's approval (e.g. new registrations, new 
     *permission requests*)
     
 *Relations:*
-+   Web server
++   Web Server
 
 *Technologies:*
-+   WebSockets for web UIs via local web server
-+   mobile device manufacturer's Push Notification server for mobile apps 
++   WebSockets for web UIs via local Web Server
++   mobile device manufacturer's Push Notification Service for mobile apps 
 
 
 #### User Interface {-}
@@ -236,14 +236,14 @@ underlying technologies, and relation(s) to each other.
 *Platform:* Mobile, Web
 
 *Tasks:*
-+   access restricted to *operator* only
++   access restricted to operator only
 +   access & permission management
 +   data management (editor, types & import)
 +   history and log viewer
 +   system monitoring
 
 *Relations:*
-+   Web server
++   Web Server
 +   Push Notification Service
 
 *Technologies:*
@@ -266,21 +266,22 @@ the other involves more platform types and outlines a certain flexibility.
 
 The main difference between the two compositions is the non-existence of the mobile platform in the 
 centralized approach (Figure @fig:composition-centralized). Although *centralized* (or monolithic) 
-only refers to 
-the components arrangement on a *server* platform, originally consisting of a single process that 
-contains all components and is thus is responsible for every task. 
+only refers to the components arrangement on a *server* platform, originally consisting of a single
+process that contains all components and is thus is responsible for every task.   
 It is also imaginable that all server components are note necessarily placed into one server 
 environment, but being distributed over several virtual machines or containers, so that they can 
 scale and run more independently. This can improve *redundancy* as well.
 
 In theory, it's indeed possible to arrange the components in such a way that they are all located on 
 the mobile platform, or even to a desktop device, which are henceforth considered equally in their 
-platform properties. However, this comes with downsides and major issues that are far from 
-trivial to solve. Nevertheless, to not only ensure nearly 100% uptime and discovery in a landscape 
-where NAT [^abbr_nat] and dynamic IPs are still common practice, for mobile platforms as 
-well as on the desktop, all components except the user interface are therefore required to be implemented 
-natively. From an *operator's* perspective, that would mean to have all components at hand and, 
-therefore, full control over the *PDaaS*. It still would raise security concerns, though.
+platform properties (as of Table @tbl:platforms-characteristics). However, this comes with downsides
+and major issues that are far from trivial to solve. Nevertheless, to not only ensure nearly 100%
+uptime and discovery in a landscape where NAT [^abbr_nat] and dynamic IPs are still common practice,
+for mobile platforms as well as on the desktop, all components except the user interface are
+therefore required to be implemented natively. From an operator's perspective, that would mean to
+have all components at hand and, therefore, full control over the *PDaaS*. It still would raise
+security concerns, though, because the devices mentioned before might serve various distinct 
+purposes and would therefore introduces potentially vulnerabilities. 
 
 Aside from providing the operator with a non-stationary and instantly accessible interface to her 
 *PDaaS*, involving a *mobile* platform primarily has the purpose of enabling the data subject to 
@@ -288,13 +289,13 @@ carry all her sensitive data along. This is considered a major advantage over th
 approach, were all the personal data is located in the *'cloud'*. Depending on the perspective, it 
 can either be seen as a *single source of truth* or a *single point of failure*. Regardless of that, 
 it introduces the demand of a backup or some redundancy concept, which has briefly been touched on 
-in the discussion about database system requirements within the [section on *data*](#data). 
-A *mobile* platform as part of the system makes it more easier for the data subject to establish a 
-security concept in which the relation between *Personal Data Storage (PDS)* and the rest of the 
-system is much more liberated, so that all access attempts only happen under full supervision.
-It is debatable whether to place the *permission profiles* in the *persistence layer* among all 
-other domain-related information, put it into the *personal data storage* too, or define it as 
-having its own storage component, in order to be flexible in its placing.
+in the discussion about database system requirements within the [section on *data*](#data) (see 
+*Chapter 5*). A *mobile* platform as part of the system makes it more easier for the data subject to
+establish a security concept in which the relation between *Personal Data Storage (PDS)* and the
+rest of the system is much more liberated, so that all access attempts only happen under full
+supervision. It is debatable whether to place the *permission profiles* in the *Persistence Layer*
+among all other domain-related information, put it into the *PDS* too, or define it as having its
+own storage component, in order to be flexible in its placing.
 
 The process of obtaining personal data determines that the *PDS* only is accessed by a component
 located on the server (*Storage Connector*). Now, moving the *PDS* away form the *server* makes it
@@ -310,15 +311,15 @@ attempts to access the *PDS* located on her mobile device, so that she can then 
 the queries and push the results back to the *Storage Connector*. Those are two distinct general
 approaches, details may vary.
 
-Authenticating *consumers* is performed based on TLS by the web server and its configured subdomains 
-including their individual keys and certificates provided by the *PKI*. The *operator* 
-authentication is done either by the *Operator API* or by the *web server*, depending on the *web 
-server's* capabilities. Though, it makes more sense to entrust the *web server* with that task, 
-because it's the outermost component and it would prevent unauthorized and potentially malicious 
-requests from getting further into the system. And since a native front end on a mobile platform is 
-considered *private* as well, it is reasonable in that case to change the *operator* authentication 
-from JWT-based to TLS-based *two-way authentication*, which would otherwise be inconvenient when 
-using web-based front ends.
+Authenticating consumers is performed based on TLS by the Web Server and its configured subdomains 
+including their individual keys and certificates provided by the *PKI*. The operator authentication
+is done either by the *Operator API* or by the *Web Server*, depending on the *Web Server's* 
+capabilities. Though, it makes more sense to entrust the *Web Server* with that task, because it's
+the outermost component and it would prevent unauthorized and potentially malicious requests from 
+getting further into the system. And as mentioned in the conclusion of 
+*[Chapter 5 - Authentication](#authentication)* it is reasonable for *mobile* platforms to change
+the operator authentication from JWT-based to TLS-based *two-way authentication*, which would
+otherwise be inconvenient when using web-based front ends.
  
 If components are placed only on the server and require communication with each other but are 
 separated into independent processes, then some inter-process communication need to be established 
@@ -328,19 +329,19 @@ therefore be feasible in some cases. Components that can vary in terms of their 
 communicate to other components via *HTTPS*.
 
 The architecture implicitly distinguishes between two different groups of endpoints. These endpoints
-that are made available by the *web server*, which reverse-proxys incoming connections to 
-role-related (operator* or data consumer) components. Starting from that, this separation can be 
+that are made available by the *Web Server*, which reverse-proxys incoming connections to 
+role-related (operator or data consumer) components. Starting from that, this separation can be 
 driven further by simply encapsulating those components into services, that are related to one of
-the roles or used by both. This basically results in the *web server* communicating with the two 
+the roles or used by both. This basically results in the *Web Server* communicating with the two 
 role-grouped services in a bidirectional manner.
-The group of endpoints for *data consumers* mainly consists of those through which *access requests* 
+The group of endpoints for data consumers mainly consists of those through which *access requests* 
 and *permission requests* are coming in and the public one, that is used for when consumers apply 
-for registration. The other one is a small group of endpoints required for all tools the *operator* 
+for registration. The other one is a small group of endpoints required for all tools the operator 
 might need; from data API or notification to authentication and web-based user interface. 
 Furthermore, it might be considered to partially apply the principles of a RESTful design. However, 
-this makes the API potentially more complicated and insufficient, since the *Operator API* 
-does not follow the concept of resources. Instead, it requires a rather functional design, which 
-makes *Remote Procedure Calls* or a *Publish-Subscribe* pattern, for example, more appropriate to use.
+this makes the API potentially more complicated and insufficient, since the *Operator API* does not
+follow the concept of resources. Instead, it requires a rather functional design, which makes, for 
+example, *Remote Procedure Calls* or a *Publish-Subscribe* pattern more appropriate to use.
 
 Considering the rapid growth of emerging website and applications, which all require user 
 registration, users are getting tired of creating new accounts. Hence they tend to reuse their 
@@ -349,23 +350,23 @@ third party authentication services, which not only makes that feature almost ef
 implement, but also leaves the responsibility as well as the accessibility to those service owners. 
 Whereas users get the benefit of just using one account for all their apps - a universal key so to 
 say, but only one exemplar. So the downside here is, in reality only a handful of third parties 
-[@web_2009-success-of-facebook-connect] provide those authentication services.  
-OpenID is designed with a very specific type of scenarios in mind, namely the one just described - 
+[@web_2009-success-of-facebook-connect] provide those authentication services.    
+*OpenID* is designed with a very specific type of scenarios in mind, namely the one just described - 
 bringing decentralization to the market of authentication services - which differs from the ones 
-addressed by the *PDaaS*; at least when it comes to *data consumer* interactions. The *PDaaS* has 
-the ability to become the digital representation of its *operator*, therefore it can and should also 
+addressed by the *PDaaS*; at least when it comes to data consumer interactions. The *PDaaS* has 
+the ability to become the digital representation of its operator, therefore it can and should also 
 be used to authenticate that individual against external parties.
 
 
 
 *__Conclusions:__*
-Considering the amount of effort a single-platform composition, namely *desktop* or *mobile*, would 
-take to get fully operational with respect to the specification, it is not only reasonable but also 
+Considering the amount of effort a single-platform composition, namely on a desktop or mobile device, 
+would take to get fully operational with respect to the specification, it is not only reasonable but also 
 more secure to involve a server platform with proper security measures, a static IP, and high
 availability, even if that server is a local machine connected to the operator's private network. 
 That said, it is sufficient to start with the *centralized* approach and as suitable mobile 
 applications emerge that are supporting major administration features, notifications, and 
-*personal data storage*, it should be possible to migrate effortlessly towards the *distributed* 
+*Personal Sata Storage*, it should be possible to migrate effortlessly towards the *distributed* 
 approach that brings a higher level of confidence because all the sensitive personal data is not on 
 some computer machine somewhere on the internet, but right in the hands of its owner.
 By the proposed architecture, all components (or groups of components) are portable and therefore

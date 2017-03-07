@@ -7,7 +7,7 @@ motivation, why they would or would not use the proposed system or participate i
 software, and what circumstances may lead to their decision. Those statements are meant as a 
 generalized addition to the [*Scenarios* describe in *Chapter 1*](#scenarios).  
 
-*NOTICE: The following statements are written in first-person perspective for stylistic purposes 
+*NOTICE: The following statements are written in first-person perspective for empathizing purposes 
 only. They do not necessarily reflect the sole perspective of the author, but should be understood 
 as general opinions of the respective user types.*
 
@@ -58,12 +58,11 @@ example, directly monetizing the collected data won't be possible anymore, unles
 enables me to do so by giving me raw data. If, instead, I wanted to enrich and improve my service(s) 
 or product(s), for example, this approach is, to me, equal to storing the data on my own. 
 Furthermore, this strategy may indirectly reduce resources and therefore expense, because it's 
-essentially the equivalent to the procedure of outsourcing. 
-The amount of effort needed to integrate the required interface must be appropriate. Support from 
-the community may be necessary. In order to not violate the constrains for 
-*Supervised Code Execution*, a detailed description, as well as a diverse set of examples, should 
-be available. Failing repeatedly to get this procedure to work can be very frustrating, which may 
-discourage adoption. 
+essentially the equivalent to the procedure of outsourcing. The amount of effort needed to integrate 
+the required interface must be appropriate. Support from the community may be necessary. In order to 
+not violate the constrains for *Supervised Code Execution*, a detailed description, as well as a 
+diverse set of examples, should be available. Failing repeatedly to get this procedure to work can 
+be very frustrating, which may discourage adoption. 
 The most important aspects for me are reliability and trust. The possible latency between requesting 
 data and actually obtaining them could become an issue. Therefore I have to either adjust my process 
 design so that it's not time-critical or, if it's unavoidable, the data subject needs to be informed 
