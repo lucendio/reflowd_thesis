@@ -40,7 +40,7 @@ Data Subject:
   to as (data) owner.
 
 
-Personal Data as a Service (PDaaS):
+Data Reservoir Flow Control (ReFlowd):
 
 : A *web service* that is controlled, owned, and maybe even hosted by an individual. It provides 
   access to the *data subject's* personal data and offers permission management as well as 
@@ -50,14 +50,14 @@ Personal Data as a Service (PDaaS):
 
 [Operator]{#terminologies--operator}:
 
-: A *data subject* that uses a *PDaaS* to control (and probably host) her personal data; sometimes 
+: A *data subject* that uses *ReFlowd* to control (and probably host) her personal data; sometimes 
   referred to as (data) controller or (data) owner.
 
 
 [(Data) Consumer]{#terminologies--consumer}:
 
 : Third party who requests permission or is already allowed to access parts of the *operator's* 
-  personal data through her *PDaaS*; sometimes referred to as (data) collector or vendor.
+  personal data through *ReFlowd*; sometimes referred to as (data) collector or vendor.
 
 
 [Data Broker]{#terminologies--data-broker}:
@@ -70,7 +70,7 @@ Personal Data as a Service (PDaaS):
 Permission Request:
 
 : A formalized attempt made by a third party to request permissions in order to access certain data 
-  items on the *PDaaS*. The request has to include all the data items to which access is being 
+  items on *ReFlowd*. The request has to include all the data items to which access is being 
   demanded, as well as sufficient information about its underlying purpose. It requires the third 
   party to already be registered as *data consumer*.
 
@@ -84,7 +84,7 @@ Permission Profile:
 
 Access Request:
 
-: An attempt to actually access data provided by a *PDaaS*. The request primarily consists of a 
+: An attempt to actually access data provided by *ReFlowd*. The request primarily consists of a 
   query that defines what data items are tried to be accessed. The access is only permitted if
   the query matches against the *permission profiles*.
 

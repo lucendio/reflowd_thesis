@@ -13,7 +13,7 @@ as possible counter-measures are discussed in detail within this section.
 Before that, however, is to work out what motivation(s) would drive such attacks. The first, and 
 probably most dangerous motivation, appears to be *Digital Identity Theft*. Meaning that the 
 attacker impersonates the individual that was originally associated with the system. Then data 
-consumers are misled into believing that everything the intruder does with the *PDaaS* is happening 
+consumers are misled into believing that everything the intruder does with the *ReFlowd* is happening 
 on behalf of the data owner herself. Such control can be abused for vicious data changes to harm the 
 physical counterpart or the access can simply be exploited to unopposedly extract the individual's 
 personal data. The more data the system contains and the more purposes it serves, the more power 
@@ -61,7 +61,7 @@ expiration date, equal to a session timeout, and token invalidation cycle, which
 forced logout, can reduce the potential harm an incident like this may cause.   
 Furthermore the integration of 2-factor authentication hardens the authentication procedure. But in 
 order to not introduce another dependency, namely an external service providing such functionality, 
-2-factor authentication is only supported when a mobile device is associated to the *PDaaS*.  
+2-factor authentication is only supported when a mobile device is associated to the *ReFlowd*.  
 Further precautions can be taken by preventing attackers from getting close to such token, referring 
 to *cross-site scripting (XSS)*, to which web-based graphical interfaces are vulnerable. Approaching
 this issue means to abandon external resources providing parts of the interface and storing all 
@@ -91,7 +91,7 @@ When it comes to personal data, existing social networks and other large platfor
 user-generated content have already become de facto data silos, and thus a single point of failure.
 A more decentralized approach, for example, the concept proposed here, diminishes the impact of 
 potential security breaches those platforms may experience. While, from an global perspective, this 
-can be valued as a step in the right direction, from the perspective of a data subject, a *PDaaS* 
+can be valued as a step in the right direction, from the perspective of a data subject, a *ReFlowd* 
 instance still represents a single point of failure as well. But in order to provide maximum control 
 over her own personal data, this design choice appears to be the logical consequence. Additionally, 
 several system components are highly portable so that more sensitive parts, like the 

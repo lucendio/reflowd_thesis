@@ -37,7 +37,7 @@ data).
 |   $\ $   |   $\ $  |   $\ $  | end     | - based on web technologies                 |
 |   $\ $   |   $\ $  |   $\ $  |   $\ $  | - graphical user interface                  |
 
-Table: Platform types for the different components of the *PDaaS* architecture 
+Table: Platform types for the different components of the *ReFlowd* architecture 
     {#tbl:platforms-characteristics}
 
 
@@ -259,9 +259,9 @@ a result, two more or less distinct designs are proposed. One is a rather centra
 the other involves more platform types and outlines a certain flexibility.
 
 
-![PDaaS Architecture, centralized composition](./assets/figures/pdaas_component-composition_centralized.png){#fig:composition-centralized}
+![ReFlowd Architecture, centralized composition](./assets/figures/reflowd_component-composition_centralized.png){#fig:composition-centralized}
 
-![PDaaS Architecture, distributed composition](./assets/figures/pdaas_component-composition_distributed.png){#fig:composition-distributed}
+![ReFlowd Architecture, distributed composition](./assets/figures/reflowd_component-composition_distributed.png){#fig:composition-distributed}
 
 
 The main difference between the two compositions is the non-existence of the mobile platform in the 
@@ -279,12 +279,12 @@ and major issues that are far from trivial to solve. Nevertheless, to not only e
 uptime and discovery in a landscape where NAT [^abbr_nat] and dynamic IPs are still common practice,
 for mobile platforms as well as on the desktop, all components except the user interface are
 therefore required to be implemented natively. From an operator's perspective, that would mean to
-have all components at hand and, therefore, full control over the *PDaaS*. It would still raise
+have all components at hand and, therefore, full control over the *ReFlowd*. It would still raise
 security concerns, though, because the devices mentioned before might serve various distinct 
 purposes and would therefore introduce potentially vulnerabilities. 
 
 Aside from providing the operator with a non-stationary and instantly accessible interface to her 
-*PDaaS*, involving a *mobile* platform primarily has the purpose of enabling the data subject to 
+*ReFlowd*, involving a *mobile* platform primarily has the purpose of enabling the data subject to 
 carry all her sensitive data along. This is considered a major advantage over the centralized 
 approach, were all the personal data is located in the *'cloud'*. Depending on the perspective, it 
 can either be seen as a *single source of truth* or a *single point of failure*. Regardless of that, 
@@ -353,7 +353,7 @@ say, but only one exemplar. So the downside here is, in reality only a handful o
 [@web_2009-success-of-facebook-connect] provide those authentication services.    
 *OpenID* is designed with a very specific type of scenarios in mind, namely the one just described - 
 bringing decentralization to the market of authentication services - which differs from the ones 
-addressed by the *PDaaS*; at least when it comes to data consumer interactions. The *PDaaS* has 
+addressed by the *ReFlowd*; at least when it comes to data consumer interactions. The *ReFlowd* has 
 the ability to become the digital representation of its operator, therefore it can and should also 
 be used to authenticate that individual against external parties.
 
@@ -371,12 +371,12 @@ approach that brings a higher level of confidence because all the sensitive pers
 some computer machine somewhere on the internet, but right in the hands of its owner.
 By the proposed architecture, all components (or groups of components) are portable and therefore
 relocatable among the suggested platforms; and with the introduced authentication methods for 
-operators, multiple front ends for the same *PDaaS* are thereby supported and can be implemented 
+operators, multiple front ends for the same *ReFlowd* are thereby supported and can be implemented 
 with almost no effort, which, in return, covers more use cases.
 As a supplement, an *identity provider* based on the OpenID standard would fit nicely into the 
 existing arrangement and does not interfere with the other components. However, it is beyond the 
 scope of this work to elaborate on this topic. For now it is stated as a feasible and logical 
-addition to the *PDaaS*.
+addition to the *ReFlowd*.
 
 
 

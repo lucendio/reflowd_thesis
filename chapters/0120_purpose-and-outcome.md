@@ -40,8 +40,8 @@ called *Meeco* [@web_2016_meeco-how-it-works], which are all be covered in detai
 chapter.
 
 The research work done for this thesis constitutes the foundation for an *Open Specification*, which 
-is a manual for implementing a concept called *Personal Data as a Service*, henceforth called 
-*PDaaS*. Examining important topics like the architecture, where data can be stored, how to obtain 
+is a manual for implementing a concept called *Data Reservoir Flow Control*, henceforth called 
+*ReFlowd*. Examining important topics like the architecture, where data can be stored, how to obtain 
 data from the exposed API or what requirements have to be met by a user interface for personal data 
 management, is part of this work. By the time this document has been submitted, most of the core 
 issues should have already been addressed and can thus be outlined in a first draft of the 
@@ -55,7 +55,7 @@ and might even help to spot flaws or perhaps trigger improvements of the specifi
 
 To create confidence in this project and the software built upon it, it's vital to make all 
 development processes fully transparent and encourage people to get involved. For this reason all 
-related software and documents [@repo_2016_pdaas-spec] are open source from day one.
+related software and documents [@repo_2016_reflowd-spec] are open source from day one.
 
 In summary, this document lays the ground work and is intended to be the initial step in a 
 development process fabricating a tool to manage personal data. The tool is controlled and 

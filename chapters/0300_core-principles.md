@@ -4,7 +4,7 @@ Core Principles
 
 
 Right from the start, a set of principles have been built as the cornerstones and orientation marks
-of the idea behind the *PDaaS*. These are meant to be reflected by the upcoming *Open Specification* 
+of the idea behind the *ReFlowd*. These are meant to be reflected by the upcoming *Open Specification* 
 and will be explained further within the following sections.
 
 
@@ -28,8 +28,8 @@ who can access her data and what accessors are allowed to do with it. This would
 Although, it is to be noted, that the legislation for data consumers mentioned before, remains 
 highly important since this project is not able to cover every single use case that might occur.
 
-Promoted from the data subject to the data owner and therefore being the center of the *PDaaS*, the 
-*operator* of the *PDaaS* gains the ability to have as much control as possible over all the data 
+Promoted from the data subject to the data owner and therefore being the center of the *ReFlowd*, the 
+*operator* of the *ReFlowd* gains the ability to have as much control as possible over all the data 
 related to her, in order to determine, in a very precise way, what data of hers can be accessed by 
 third parties at any point in time and also to literally carry all her personal data with her. 
 
@@ -37,7 +37,7 @@ third parties at any point in time and also to literally carry all her personal 
 
 ## Identity Verification
 
-If an instance of such a system *(PDaaS)* is going to be the digital counterpart of an individuals 
+If an instance of such a system *(ReFlowd)* is going to be the digital counterpart of an individuals 
 identity or her *"personal agent"* [@book_2015_ethical-it-innovation, p. 46], then everyone who 
 relies on the information that agent provides must also be able to trust the source from where that 
 data originates and vice versa; the *operator* too need to verify the authenticity of the requesting

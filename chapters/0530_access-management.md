@@ -3,7 +3,7 @@
 
 
 The subsequent section will discuss how several processes surrounding the topic of 
-*data consumers accessing data on the PDaaS* can be modeled, what consequences certain variations 
+*data consumers accessing data on the ReFlowd* can be modeled, what consequences certain variations 
 might have, and what issues need to be addressed.
   
 Below, a general design is proposed of how *data consumers* get authorized and thereby are able to 
@@ -77,12 +77,12 @@ a) __Supervised Code Execution__; *access requests* additionally come with an ex
 binary or source code - potentially including information about provisioning. After the required 
 data is retrieved from the storage, the program gets invoked with the data locally on the system but 
 within a completely separated environment *(sandbox)*. The result of that invocation gets returned 
-to the outer system (*PDaaS*).
+to the outer system (*ReFlowd*).
 b) __Data DRM [^abbr_drm]__; after data is retrieved from the storage it gets encrypted. The cipher 
 is included in the response. Upfront, data consumers are equipped with a small program that can 
-connect to the *PDaaS* and has to wrap the consumer's own software that is meant to process the 
+connect to the *ReFlowd* and has to wrap the consumer's own software that is meant to process the 
 requested data. Now, when consumers receive the response, the program needs to get invoked with the 
-cipher, so that, by priorly fetching the key from the *PDaaS*, the cipher can be decrypted from 
+cipher, so that, by priorly fetching the key from the *ReFlowd*, the cipher can be decrypted from 
 within the invocation. Thus the data is made available to the wrapped software and only during 
 runtime. After the invocation has finished, the program needs to propagate the results that are 
 returned by the software back to the outer environment.
@@ -92,7 +92,7 @@ an expiration date and forwarding it directly into response.
 In case the data consumer provides no preferred access type, a fallback type must be applied so 
 that the data won't leave the system unless it's absolutely necessary to pursue the goal of the 
 access request. The overall confidentiality of all personal data is still preserved, however, because
-all communications to and from the *PDaaS* are happening over HTTPS, which means the
+all communications to and from the *ReFlowd* are happening over HTTPS, which means the
 data is encrypted during the transport.
 
 
@@ -119,7 +119,7 @@ either one of the following:
 profiles at any point in time.*
 
 Among other information, an access request contains the *data query* that shows very precisely what 
-data items are affected by that request. So if an *access request* arrives at the *PDaaS*, assuming 
+data items are affected by that request. So if an *access request* arrives at the *ReFlowd*, assuming 
 the data consumer has been authenticated sufficiently, the system (0) searches for a permission 
 profile that corresponds to the data consumer and the requested data items. If it fails to find 
 one, the access request is refused. But if it does, then it checks (1) if the permission type 
@@ -176,7 +176,7 @@ According to the documentations [@web_spec_oauth-1a_client-reg] [@web_spec_oauth
 OAuth versions (1.0a and 2) require the client (here *data consumer*) to register to the 
 authorization server upfront (to obtain a `client_id`), before initializing the authorization 
 process. However, as stated earlier, the concept of the data subject 'pulling' a data consumer 
-towards the *PDaaS* is preferred over letting data consumers try to 'push' themselves towards the 
+towards the *ReFlowd* is preferred over letting data consumers try to 'push' themselves towards the 
 system. The reason to prevent undesired registration attempts is that they all have to be reviewed 
 by the data subject. Furthermore, it is not within the scope of the OAuth Specification to define 
 how this should be accomplished. Thus, such step needs to be added in addition to an entire 
@@ -189,7 +189,7 @@ Further investigations show that the semantic of an `access_token` from the pers
 resource server consists of authentication *(Does this token exist?)* and authorization 
 *(Is this token valid and what does it permit?)*. Those aspects are in part already provided by the 
 proposed way of using the TLS layer. Because every data consumer has its own endpoint to connect 
-with the *PDaaS* and the certificate used by the consumer is signed by a signature only used for 
+with the *ReFlowd* and the certificate used by the consumer is signed by a signature only used for 
 that endpoint. This means the consumer is already authenticated when the TLS connection has been
 successfully established. And since *permission profiles* relate to a specific endpoint, it would 
 make providing an `access_token` obsolete.  
@@ -206,7 +206,7 @@ b)  OAuth 2 and HTTPS (public Certification and PKI)
 c)  HTTP over TLS with *two-way authentication*, private PKI, sub-domains as dedicated endpoints
 
 The solutions a) and b) require an extra step in which data consumers need to register themselves at 
-the *PDaaS*. This already must be done on a secure channel to prevent man-in-the-middle attacks. 
+the *ReFlowd*. This already must be done on a secure channel to prevent man-in-the-middle attacks. 
 Furthermore, in that step, option a) obtain a symmetric key for creating signatures used to ensure 
 confidentiality and integrity in subsequent steps. All those cryptographic procedures need to be 
 adopted when implementing the here proposed specification and also when interacting with those 
@@ -222,7 +222,7 @@ and thereby the same *permission profiles*.
 Combining b) and c) would result in significant redundancy, since both solutions have much overlap 
 in their provided features, even though b) aims to be a framework for authorization. The process 
 description in the beginning of this section is used as the foundation of *access management* in the 
-*PDaaS*. Implementing OAuth based on this design would leave nothing from the framework but a simple 
+*ReFlowd*. Implementing OAuth based on this design would leave nothing from the framework but a simple 
 request returning an identifier associated with permissions.
 And even these identifiers are obsolete when combining TLS with dedicated consumer-specific 
 endpoints, as c) states. So there is not much benefit in using OAuth, other than developers might be 
@@ -251,14 +251,14 @@ When implementing this approach, two directions might need to be considered. Alo
 executable program, data consumers either provide all dependencies so that everything is bundled up,
 or don't provide any dependencies at all. The latter is preferred, because it reduces the amount of
 potentially malicious, flawed, or needless components, so that the data subject, supported by her
-*PDaaS*, has more supervising capabilities and thus more control over her personal data.  
+*ReFlowd*, has more supervising capabilities and thus more control over her personal data.  
 Since the overall goal here is to prevent the data subject from losing control over her data, it is 
 conceivable that certain categories of personal data, representing a higher level of sensitivity, 
 require a minimum viable *access type*. If the data consumer does not comply, access will be 
 refused.  
-Also, depending on which category the personal data relates to, the *PDaaS* might somehow anonymize 
+Also, depending on which category the personal data relates to, the *ReFlowd* might somehow anonymize 
 certain types of data, if it is even capable of doing so, because the consumer at least supposedly 
-knows what individual is behind the *PDaaS* it is currently interacting with. The field of 
+knows what individual is behind the *ReFlowd* it is currently interacting with. The field of 
 *data anonymization* is a large research area on its own, which recently started to gain a lot of 
 traction due to emerging privacy concerns about *Big Data*. Thus it will be left for future work.
 

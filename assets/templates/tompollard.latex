@@ -271,7 +271,6 @@ $endif$
 % added 20170204 -->
 % moved from cover to separate page
 $if(acknowledgement)$
-\pagenumbering{Roman}
 \addcontentsline{toc}{chapter}{Acknowledgement}
 \section*{Acknowledgement}
 $acknowledgement$

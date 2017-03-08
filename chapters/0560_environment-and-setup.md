@@ -3,7 +3,7 @@
 
 
 As stated in the project's [core principles](#core-principles) *(Chapter 3)*, *Open Development* is
-vital for the project to gain trust. Interestingly, this has a significant impact on how a *PDaaS* 
+vital for the project to gain trust. Interestingly, this has a significant impact on how a *ReFlowd* 
 might be deployed or installed. All its components can just be grabbed and used as it suits everyone's needs, 
 while respecting their licenses. Furthermore, enforcing *portability* ([S.A.02](#sa02)) leads to a
 more simplified and independent development process that can be organized in a way so that the 
@@ -31,7 +31,7 @@ system resources but is also capable of emulating a whole network infrastructure
 routing). Thereby, it is utilized to determine how certain containers (and their contained 
 components) are allowed to communicate and what resource are accessible from the inside (e.g. 
 filesystem). This complete abstraction to the surrounding environment effectively means it's the 
-only dependency the *PDaaS* would have, regardless of how its components are implemented. They just 
+only dependency the *ReFlowd* would have, regardless of how its components are implemented. They just 
 have to be *'containerizable'* - by satisfying the 
 *[container image specification](#def--container)* [@web_oci-spec_image]. This concept can also be 
 utilized for the *[Supervised Code Execution](#supervised-data-access)* ([S.A.01](#sa01)) mentioned 
@@ -40,17 +40,17 @@ before without any restraints.
 Migrating from a server-located *Personal Data Storage* to a *mobile* based version introduces 
 another challenge. The subsequent approach is a first and more general solution to that problem.
 
-*NOTICE: it is assumed that a running instance of a *PDaaS* is in place, the operator owns a 
-modern mobile device and on this device a *PDaaS* mobile application is installed.*
+*NOTICE: it is assumed that a running instance of a *ReFlowd* is in place, the operator owns a 
+modern mobile device and on this device a *ReFlowd* mobile application is installed.*
 
 1.  After starting the app, the operator needs to establish a connection between server and mobile 
     application. Therefore, the operator has to scan a QR-Code with the help of that app. The 
-    QR-Code is presented to the operator within the management tool of the *PDaaS* running in a 
+    QR-Code is presented to the operator within the management tool of the *ReFlowd* running in a 
     browser. Alternatively, the operator inserts her credentials into a form presented by the mobile 
     application.
 
 2.  After the connection is established, the operator can trigger a progress that duplicates all her 
-    personal data to the device that has just been associated with the *PDaaS*.
+    personal data to the device that has just been associated with the *ReFlowd*.
     
 3.  At this point, one of two paths can follow, depending on whether a complete write log for the 
     *personal data* ([see discussion about backup strategies in *Chapter 5 - Data*](#data)) exists 
@@ -75,7 +75,7 @@ modern mobile device and on this device a *PDaaS* mobile application is installe
         queries are transferred to the target environment, where those incoming queries get executed 
         until all data is migrated.
 
-5.  After the duplication process has finished, the operator can decide which PDS the *PDaaS* should 
+5.  After the duplication process has finished, the operator can decide which PDS the *ReFlowd* should 
     use to serve *access requests* and what should happen with the other storage(s).
 
 To conclude, a migration process like moving personal data from one platform to another can be 
@@ -87,18 +87,18 @@ imaginable.
 
 
 *__Conclusions:__*
-Installing a *PDaaS* should be straightforward with the least possible effort being spent for 
+Installing a *ReFlowd* should be straightforward with the least possible effort being spent for 
 preparations. Package managers of all popular operating systems should offer (semi-)automated 
 installations. Additionally, components themselves and the project as whole have to provide detailed 
 documentations for various ways of how those parts or the entire system need to be installed.
 Alternatively, data subjects might be willing to entrust external third parties with hosting a 
-*PDaaS* instance for them. In that case, the distributed approach involving a *mobile* platform 
+*ReFlowd* instance for them. In that case, the distributed approach involving a *mobile* platform 
 might come in handy, so that the actual data is not stored somewhere beyond their reach.
-The *PDaaS* as an open source development encourages anybody who is interested or even wants to 
+The *ReFlowd* as an open source development encourages anybody who is interested or even wants to 
 contribute to checkout the source code of the various implementations, get it to run, and play 
 around with it. Therefore, at least the components of the *server* platform are required to document 
 what other software they depend on, so that the target environment can be prepared properly.
-Aside from hardware, on which the *PDaaS* needs to run, the only other requirement is owning an
+Aside from hardware, on which the *ReFlowd* needs to run, the only other requirement is owning an
 internet domain that is registered on a public DNS [^abbr_dns] server and has no subdomains 
 configured yet.
 

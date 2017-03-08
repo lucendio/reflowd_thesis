@@ -44,10 +44,10 @@ provide such a level but the other doesn't, then the access attempt has to fail.
 
 __*[S.A.05]{#sa05}* - Availability__\
 When third parties are requesting data, it's very likely that those procedures are triggered 
-automatically or at least machine-supported. Hence those requests can arrive at the *PDaaS* at any 
-point in time. Therefore the *PDaaS*, or at least parts of it, should be available all the time. 
+automatically or at least machine-supported. Hence those requests can arrive at the *ReFlowd* at any 
+point in time. Therefore the *ReFlowd*, or at least parts of it, should be available all the time. 
 Even if the request can't be processed completely, the system is still able to inform the 
-*data subject* about that event; somewhat like an answering machine. This also enhances the *PDaaS* 
+*data subject* about that event; somewhat like an answering machine. This also enhances the *ReFlowd* 
 as a serious and reliable data source. It also relates to the topic of 
 *failure safety and redundancy*.
 
@@ -183,7 +183,7 @@ A process involving data transaction must be always initiated by the data subjec
 party by either telling him (per URL) where to register or asking him to provide all information 
 required for a registration process upfront encoded in QR-Code. Both solutions need a secure channel
 for transport, which refers to *TLS*. The latter has to be ensured by the applying third party 
-alone, whereas the first option requires the *PDaaS* to provide a TLS-supporting endpoint as well.
+alone, whereas the first option requires the *ReFlowd* to provide a TLS-supporting endpoint as well.
 After a successful registration, the consumer can submit a *request permission*, which has to 
 include information about the *consumer*, what data he wants to access, for what purpose, and how 
 long or how often the data needs to be accessed. The operator then reviews this information and 

@@ -26,7 +26,7 @@ shopping cart, despite the fact that she never bought something from that online
 she proceeds to checkout so that she can place her order. The shop-interface asks her to either 
 insert her credentials, proceed without registration or sign-in, or allow the shop to obtain all 
 required data on its own by either scanning a QR-Code displayed below or insert a URL to her 
-*Personal Data as a Service*. She opens up the management panel of her *PDaaS* in a new browser 
+*Personal Data as a Service*. She opens up the management panel of her *ReFlowd* in a new browser 
 window and authenticates herself to the system. Afterwards she creates a new entry in a list of 
 *data consumers* who already get permitted to access certain characteristics of her personal data. 
 As a result, she gets prompted with a URL, which she inserts as the shop interface requests her to 
@@ -35,7 +35,7 @@ connection (HTTPS). Moving on to the next step after submitting the URL, the dat
 to decide how she would like to pay. The choices are: credit card, invoice, online payment or bank 
 transfer. She chooses the last one, submits her selection and thereby completes the order process.
 She goes back to the kitchen. After some time, a push notification appears on her mobile device. 
-The notification is about a *permission request* which has just arrived at her *PDaaS*, asking her 
+The notification is about a *permission request* which has just arrived at her *ReFlowd*, asking her 
 to grant permissions to the shop-system, where she earlier placed the order. The shop wants to 
 access her full name, address and email, which are required to proceed with the order. Based on the 
 information given in the request, she creates a new *permission profile* for the shop. Additionally, 
@@ -53,26 +53,26 @@ would have chosen another payment method, the differences are described below.
 If the data subject had wanted to pay with her credit card, the shop-system would have asked to also 
 access her credit card as well as its associated secret. When sending the email, the system would 
 have omitted the information about the shop's bank details.
-Paying with invoice, would have been possible only if the *PDaaS* initially had been able to provide 
+Paying with invoice, would have been possible only if the *ReFlowd* initially had been able to provide 
 certified profile data, which necessarily would have been rated trustworthy. That again would have 
 reduced the risk taken by shop owner and would have enabled her to take action in cases of fraud or 
 misuse.
 Choosing to involve an online payment service provider as a middleman for processing the payment
-would have required the data subject to have granted the provider access to her *PDaaS* upfront. In 
+would have required the data subject to have granted the provider access to her *ReFlowd* upfront. In 
 that case, the shop-system would have asked for her payment provider account identifier, so that the 
 system could have requested the payment directly from that payment service provider. This would have 
-caused the service provider to consult the *PDaaS*, which would have resulted in a second 
+caused the service provider to consult the *ReFlowd*, which would have resulted in a second 
 notification asking the data subject for permission to proceed. After a successful payment transfer, 
 the shipment would have been initiated.
 
 
 #### Interacting with a social network {-}
 
-The first entry to a social network requires either a URL to the data subject's *PDaaS*, which has 
+The first entry to a social network requires either a URL to the data subject's *ReFlowd*, which has 
 uniquely been generated for that purpose, or a QR-Code provided by the social network. The data 
-subject receives a notification on her mobile device send from her *PDaaS*, revealing what data that 
+subject receives a notification on her mobile device send from her *ReFlowd*, revealing what data that 
 network wants to access and maybe even why. If her mobile device is currently not at hand, she can 
-also use the management panel provided by her *PDaaS*, which is accessible with a web browser on 
+also use the management panel provided by her *ReFlowd*, which is accessible with a web browser on 
 every internet-enabled device. Within that panel pending permission reviews are indicated.
 Regardless of whether the data subject has already reviewed the request, she should still be able to 
 login. After doing so, she would see all her information, unless she has not yet granted permissions 
@@ -80,12 +80,12 @@ to the social network to access her data *until-further-notice*. If this is done
 moment and then reloading the browser session, all her data should then show up. So every time 
 someone on that network tries to access her information, with whom she has allowed to see that 
 information, managed by each user within the network, the network pulls the required data from her 
-*PDaaS* as long as it is permitted to do so. It is also conceivable that the social network does 
-provide a back-channel to the *PDaaS*, so that all content she creates within that network, 
-including all interactions with other users, can be stored in her *PDaaS*, allowing it to be 
+*ReFlowd* as long as it is permitted to do so. It is also conceivable that the social network does 
+provide a back-channel to the *ReFlowd*, so that all content she creates within that network, 
+including all interactions with other users, can be stored in her *ReFlowd*, allowing it to be 
 provided to other *data consumers*. The network itself only stores references to all these content 
 objects. Whether it is an image, a post, or comment on somebody else's post, the actual content to 
-be displayed is fetched from the corresponding *PDaaS*. 
+be displayed is fetched from the corresponding *ReFlowd*. 
 
 
 #### Applying for a loan and checking creditworthiness {-}
@@ -94,7 +94,7 @@ The data subject would like to buy an apartment. In order to finance the acquisi
 funding which, in her case, is based on a loan. During a conversation in a credit institute of her 
 choice, an account consultant describes to her what data is required in order to decide her 
 creditworthiness. While nodding consensually, she takes out her smartphone and brings up the 
-management panel of her *PDaaS*. 
+management panel of her *ReFlowd*. 
 The consultant flips his screen showing a QR-Code and the *data subject* scans it. The tool displays 
 some information about the institute including a reference to this assignment and a list of all data 
 points the institute would like to access in order to calculate her score, such as address, monthly 
@@ -113,8 +113,8 @@ would be to just transfer the plain data including expiry date and information a
 the data is. However, the actual computations and analytics to obtain the score happen within the 
 infrastructure of the credit institute. When this process has finished, all the personal data that 
 have been transferred must be erased. An possible alternative that would prevent the data from 
-leaving the *PDaaS*, could be that the institute's request doesn't contain a data query, but instead 
-coming along with some software and information on how to run it. The *PDaaS* server will provide an 
+leaving the *ReFlowd*, could be that the institute's request doesn't contain a data query, but instead 
+coming along with some software and information on how to run it. The *ReFlowd* server will provide an 
 isolated runtime in which the software can be executed. After that process is finished, the result 
 is sent back to the credit institute's infrastructure.
 
@@ -126,7 +126,7 @@ leg. She went to a hospital and straight into surgery, where the surgeon where a
 injury. Time went by and the leg healed completely. When she woke up today, she felt pain coming 
 from the area where her leg was broken. She decided to call in sick and went straight to a doctor 
 nearby. During her recovery she had been visiting that doctor regularly. At the reception desk, she 
-opens up the *PDaaS*'s management panel on her smartphone and searches through the list of data 
+opens up the *ReFlowd*'s management panel on her smartphone and searches through the list of data 
 consumers. After she finds the entry for this clinic, she flips her phone to show the receptionist 
 the corresponding QR-Code, which the receptionist scans immediately. However the receptionist was 
 not able to see any data on the screen, because the access has already expired. The data subject 
@@ -166,9 +166,9 @@ which utilizes the uplink from the mobile device to the internet. Secondly, the 
 use the uplink to open up connections so it can emit or receive data from the internet. As a result
 the device owner gains full control over any data the car might want to transfer. And this again 
 would allow two things: (A) permission management for all outgoing data and (B) funnel all data 
-generated and provided by the car towards the *PDaaS* that is associated with the linked device. It 
+generated and provided by the car towards the *ReFlowd* that is associated with the linked device. It 
 might be feasible as well to deny certain connections the car tries to open. Data will then be 
-stored only in the *PDaaS*. If a third party is interested in that data they have to ask for access 
+stored only in the *ReFlowd*. If a third party is interested in that data they have to ask for access 
 permission.
 That same concept of movement tracking and vehicle data aggregation could be applied to driving 
 motorcycles and bicycles as well.

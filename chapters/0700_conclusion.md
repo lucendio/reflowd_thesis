@@ -78,9 +78,9 @@ at least on a technical level, cannot be applied anymore
 legislation has already failed to address the issues mentioned above, technology has its own
 limitations. Certain scenarios, such as creditworthiness checks or calculating 
 recommendation, are able - from a conceptional perspective - to support *Supervised Code Execution*, 
-which allows the data to stay within the *PDaaS*. However, even when data cannot be completely contained in the *PDaaS*, being able to control access, or have an overview of who has access to what data, is already a major advantage.
+which allows the data to stay within the *ReFlowd*. However, even when data cannot be completely contained in the *ReFlowd*, being able to control access, or have an overview of who has access to what data, is already a major advantage.
 
-The *PDaaS* may be valued as the digital representation of a human being. Hence, third parties, who
+The *ReFlowd* may be valued as the digital representation of a human being. Hence, third parties, who
 are interacting with the digital self, want to be able to trust, rely upon, and maybe even verify, 
 that the received or accessed data actually relates to the represented individual.
 Several approaches to address this have been discussed in 
@@ -103,7 +103,7 @@ one, execute every query in the write history and adjust the affected data items
 new type structure on the fly in those queries during the mirroring process.
 
 While reviewing the different scenarios described in *[Chapter 1](#scenarios)* and comparing them 
-with the established capabilities of the *PDaaS*, it can be observed that the developed system is 
+with the established capabilities of the *ReFlowd*, it can be observed that the developed system is 
 able to provide a reasonable foundation for all of them. Even though it requires the willingness of 
 all sorts of third parties to integrate with the proposed specification and a rethinking and change 
 of perspective of how personal data has been obtained and utilized until now.
@@ -124,7 +124,7 @@ still want to be able to access their personal data.
 
 An imaginable opportunity for a viable business model is to provide commercial services around 
 the proposed system. Developing and implementing the specification yields expertise, that may 
-qualify, for example, to offer high-quality hosting of *PDaaS* instances for end users, or to 
+qualify, for example, to offer high-quality hosting of *ReFlowd* instances for end users, or to 
 customize implementations in order to adapt to special scenarios, or to assist with integrations. 
 Even though the underlying technology is open source, history shows various examples of successful 
 businesses based on open source technology, such as 
@@ -183,9 +183,9 @@ The critique, which the specification is partially able to address, is the lack 
 own personal data while it's being collected. The existence and utilization of data analytics per se 
 is a huge advantage for our society because of the ability to discover information and relationships
 we would otherwise not be able to uncover. This allows us to draw conclusions and thereby evolve. 
-The *PDaaS* is a tool that provides a foundation to do exactly that, but on a smaller and individual 
+The *ReFlowd* is a tool that provides a foundation to do exactly that, but on a smaller and individual 
 scope, and only if we choose to do so. However, this requires an additional stack of components to 
-be integrated with the *PDaaS*, i.a. *Data Mining* and *Machine Learning*.
+be integrated with the *ReFlowd*, i.a. *Data Mining* and *Machine Learning*.
 
 The concept of *Supervised Code Execution* can be enhanced by migrating the 
 *Personal Data Storage (PDS)* and execution to a *Blockchain*-based approach 
@@ -195,11 +195,11 @@ reasonable step, although it would introduce new challenges. Therefore it requir
 its necessity.  
 During concept development, it appeared necessary to define an additional role. The so called 
 *data contributors* can be a plugin, client, or even just a dedicated account that is authorized by 
-the *operator* to only push data into the *PDaaS*. This concept was merely touched on and requires
+the *operator* to only push data into the *ReFlowd*. This concept was merely touched on and requires
 additional work invested to outline the details.  
 Two major, but rather independent, enhancements, that seem natural to include, are an 
 *OpenID Provider*, and support of 2-Factor-Authentication for the individual represented by the 
-*PDaaS*.
+*ReFlowd*.
 
 The next steps to push development forward are, finalizing the specification by outlining each 
 component so that the minimum viable set of features discussed in this work are supported, and then 

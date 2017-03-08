@@ -69,6 +69,6 @@ changes/fixes, e.g.
 
 ### Links and Resources
 
-+   [news feed](https://github.com/lucendio/pdaas_thesis/issues/16)
-+   [naming things](https://github.com/lucendio/pdaas_thesis/issues/17)
++   [news feed](https://github.com/lucendio/reflowd_thesis/issues/16)
++   [naming things](https://github.com/lucendio/reflowd_thesis/issues/17)
 +   [current version of the thesis document](./dist/index.pdf)

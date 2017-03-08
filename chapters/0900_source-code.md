@@ -6,10 +6,10 @@ Source Code {-}
 __[Code 01: Example query in SPARQL]{#code-01_sparql-query}:__
 ``` {.sql .numberLines}
 # query 1: obtain the first and last name fof data subject
-PREFIX person: <http://pdaas.tld/schemas/person>
+PREFIX person: <http://reflowd.tld/schemas/person>
 
 SELECT $firstname $lastname
-FROM <https://unique-consumer-endpoint.pdaas.tld/sparql/profile>
+FROM <https://unique-consumer-endpoint.reflowd.tld/sparql/profile>
 WHERE {
     $person person:firstname $firstname .
     $person person:lastname $lastname .
@@ -18,10 +18,10 @@ WHERE {
 
 # query 2: obtain all bank accounts that are available for 
 # online payment
-PREFIX bank-account: <http://pdaas.tld/schemas/bank-account>
+PREFIX bank-account: <http://reflowd.tld/schemas/bank-account>
 
 SELECT $accountId $bankName $paymentMethod
-FROM <https://unique-consumer-endpoint.pdaas.tld/sparql/finance>
+FROM <https://unique-consumer-endpoint.reflowd.tld/sparql/finance>
 WHERE {
     $bank-account bank-account:payment-method "online-service" .
     $bank-account bank-account:payment-method $paymentMethod .
@@ -92,7 +92,7 @@ __[Code 02: Results of Code 01 in JSON]{#code-02_sparql-query-results}:__
 
 __[Code 03: Example query in GraphQL]{#code-03_graphql-query}:__
 ``` {.javascript .numberLines}
-# URL: https://unique-consumer-endpoint.pdaas.tld/graphql
+# URL: https://unique-consumer-endpoint.reflowd.tld/graphql
 
 query {
     profile {

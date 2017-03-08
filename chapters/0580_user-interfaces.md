@@ -2,10 +2,10 @@
 
 
 
-Designing graphical user interfaces is beyond the scope of this work and the *PDaaS* specification 
+Designing graphical user interfaces is beyond the scope of this work and the *ReFlowd* specification 
 as well. 
 Nevertheless this section shall be understood as a collection of proposed ideas addressing the 
-questions of what types of user interfaces the *PDaaS* should provide and which features they might 
+questions of what types of user interfaces the *ReFlowd* should provide and which features they might 
 need to support.
 
 The most notable characteristic used to distinguish user interfaces from each other are those 
@@ -32,7 +32,7 @@ Table @tbl:ui-features provides a list of features and associates the different 
 interfaces mentioned before, which indicates if they should be supported by a certain type. It is 
 notable that the *GUI* provides the operator with a powerful tool. Hence it requires reliable 
 protection mechanisms *([Chapter 5 - Authentication](#authentication))*. Whereas *API* capabilities
-are very limited, because it's the one interface that the *PDaaS* exposes to third parties.
+are very limited, because it's the one interface that the *ReFlowd* exposes to third parties.
 
 
 | Feature                                             |   GUI   |   CLI   |   API   |
@@ -47,7 +47,7 @@ are very limited, because it's the one interface that the *PDaaS* exposes to thi
 | create & maintain templates ([P.I.05](#pi05))       |  __X__  |    -    |    -    |
 | adjust precision of data ([P.I.06](#pi06))          |  __X__  |    -    |  __X__  |
 | introduce new data structs                          |  __X__  |    -    |  __X__  |
-| configure *PDaaS*                                   |  __X__  |    -    |    -    |
+| configure *ReFlowd*                                   |  __X__  |    -    |    -    |
 | import personal data                                |  __X__  |    -    |  __X__  |
 | read/access personal data                           |  __X__  |  __X__  |  __X__  |
 | manipulate personal data                            |  __X__  |  __X__  |    -    |
@@ -95,8 +95,8 @@ containing data series, and position information, as mentioned before.
 The most important aspect, when interacting with something or someone, is being provided with 
 feedback. An action typically causes - and is therefore *expected* to cause - a reaction. The result 
 is an interaction, unless no reaction occurred.  
-The discussion above outlines the relevance of those interactions for the *PDaaS*. Thus, for users 
-and other software to interact with the *PDaaS* interfaces are mandatory. Primary characteristics of 
+The discussion above outlines the relevance of those interactions for the *ReFlowd*. Thus, for users 
+and other software to interact with the *ReFlowd* interfaces are mandatory. Primary characteristics of 
 those interfaces are complete functionality, security precautions and restrictions, as well as 
 comprehensive documentation. Visual user interfaces also need to provide reliable and adaptive 
 rendering, a consistent and encouraging interaction design. *GUIs* need to be provided for all front
@@ -104,7 +104,7 @@ end platforms, primarily to provide an efficient user experience for the operato
 the only role with permissions to access a *GUI*.  
 Components on the *server* platform should provide *CLIs*, at least when no other technical option 
 exist to interact with them. Also accessing the database from command line could be appreciated at 
-some point. APIs are mostly meant for data consumers to interact with the *PDaaS*, and perhaps for 
+some point. APIs are mostly meant for data consumers to interact with the *ReFlowd*, and perhaps for 
 automated data contribution (based on the operator role; e.g. browser plugin). *Web* platforms might
 use those *APIs* as well. In any case, *APIs* must be separated according to the roles.
 

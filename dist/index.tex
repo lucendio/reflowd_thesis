@@ -323,7 +323,6 @@ encourages self-hosting.
 
 % added 20170204 -->
 % moved from cover to separate page
-\pagenumbering{Roman}
 \addcontentsline{toc}{chapter}{Acknowledgement}
 \section*{Acknowledgement}
 A quiet thought in the beginning emerged as something that felt right to
@@ -402,16 +401,15 @@ about something; humans are particular targets of choice for the
 {[}\protect\hyperlink{ref-web_2016_privacy-international-about-big-data}{1}{]}.
 Since humans are all individuals, they are distinct from each other.
 While subsets of individuals might share a minor set of attributes, the
-majority is still very unique to an individual, given that the overall
-variety of attributes is complex. That small amount of similarity might
-seem to be less important, due to the nature of inflationary occurrence,
-but the opposite turns out to be true. These similarities allow to
-determine the individuals who are part of a subset and the ones who
-aren't. Stereotypical patterns are applied to these subsets and thus to
-all related individuals. This enriched information is then used to help
-predict outcomes of problems or questions related to these individuals.
-In other words, searching for causation where in best the case one might
-find correlations. This is also known as \emph{discrimination}, which
+majority is still very unique compared to an individual, given that the
+overall variety of attributes is complex. That small amount of
+similarity might seem to be of less importance, due to the nature of
+inflationary occurrence, but the opposite turns out to be true. These
+similarities allow the determination of whether or not individuals are
+part of a subset. Stereotypical patterns are applied to these subsets
+and thus to all related individuals. This enriched information is then
+used to help predict outcomes of problems or questions related to these
+individuals. This is also known as \emph{discrimination}, which
 
 \begin{quote}
 {[}\ldots{}{]} refers to unfair or unequal treatment of people based on
@@ -422,16 +420,17 @@ p. 1{]}.
 \end{quote}
 
 Discrimination is a serious issue in our society, caused by humans
-interacting, directly or indirectly, between each other, but also when
-they leverage computers and algorithms to uncover formerly unnoticed
+interacting with each other, directly or indirectly, but also when they
+leverage computers and algorithms to uncover formerly unnoticed
 information in order to improve their decision making. For example, when
 qualifying for a loan, hiring employees, investigating crimes or renting
 flats. The decision to approve or deny is based on computed data about
 the individuals in question
 {[}\protect\hyperlink{ref-book_2015_ethical-it-innovation}{3}, Chap.
 5.6{]}, which is merely discrimination on a much larger scale and with
-less effort (almost parenthetically). The described phenomenon is
-originally referred to as \emph{Bias in computer systems}
+less effort (almost parenthetically).\\
+The described phenomenon is originally referred to as \emph{Bias in
+computer systems}
 {[}\protect\hyperlink{ref-paper_1996_bias-in-computer-systems}{4}{]}.
 What at first seems like machines going rouge on humans is, in fact, the
 \emph{cognitive bias}
@@ -449,17 +448,17 @@ result, already gigantic databases grow ever larger, waiting to be
 harvested, collected, aggregated, analyzed and finally interpreted. The
 crux here is, the more data being made available
 {[}\protect\hyperlink{ref-video_2015_big-data-and-deep-learning_discrimination}{7}{]}
-to mine on, the higher the chances to isolate datasets (clusters) that
-differ from each other but are coherent within themselves. By defining
-those datasets, instead of distinguishing on an individual level, humans
-are being reduced to these set-defining characteristics in order to fit
-in these clusters.
+for mining, the higher the chances of isolating datasets (clusters) that
+differ from each other but are internally coherent. By defining those
+datasets, instead of distinguishing on an individual level, humans are
+being reduced to these set-defining characteristics in order to fit in
+these clusters.
 
 In order to lower potential discrimination, either the responsible parts
 in these machines need to be erased while simultaneously raising
 awareness and teaching people about this issue of discrimination, or all
 the personal data needs to be prevented from falling into these data
-silos in the fist place. Although both approaches are valid and should
+silos in the first place. Although both approaches are valid and should
 be pursued simultaneously, the latter will be addressed in this work.
 
 \section{Purpose \& Outcome}\label{purpose-outcome}
@@ -492,12 +491,12 @@ while simultaneously being urged to respect their privacy. This approach
 comes along also with some downsides related to security and potential
 data loss. Elaborating on these issues and discussing potential
 solutions is part of the \protect\hyperlink{design-discussion}{design
-process} (see \emph{Chapter 5}).
+process} \emph{(Chapter 5)}.
 
 This way of addressing the described dilemma about personal data
-analysis is not new (see \emph{\protect\hyperlink{related-work}{Chapter
-2 - Related Work}}). Early work done in this field can be dated back to
-the Mid-2000s when studies were conducted, for example, about recent
+analysis is not new \emph{(\protect\hyperlink{related-work}{Chapter 2 -
+Related Work})}. Early work done in this field can be dated back to the
+Mid-2000s when studies were conducted, for example, about recent
 developments in the industry (e.g targeted ads) and the user's concerns
 about privacy
 {[}\protect\hyperlink{ref-study_2004_architecture-for-privacy-sensitive-ubiquitous-computing}{8}{]}.
@@ -518,8 +517,8 @@ all be covered in detail in the following chapter.
 
 The research work done for this thesis constitutes the foundation for an
 \emph{Open Specification}, which is a manual for implementing a concept
-called \emph{Personal Data as a Service}, henceforth called
-\emph{PDaaS}. Examining important topics like the architecture, where
+called \emph{Data Reservoir Flow Control}, henceforth called
+\emph{ReFlowd}. Examining important topics like the architecture, where
 data can be stored, how to obtain data from the exposed API or what
 requirements have to be met by a user interface for personal data
 management, is part of this work. By the time this document has been
@@ -538,8 +537,8 @@ specification.
 To create confidence in this project and the software built upon it,
 it's vital to make all development processes fully transparent and
 encourage people to get involved. For this reason all related software
-and documents {[}\protect\hyperlink{ref-repo_2016_pdaas-spec}{13}{]} are
-open source from day one.
+and documents {[}\protect\hyperlink{ref-repo_2016_reflowd-spec}{13}{]}
+are open source from day one.
 
 In summary, this document lays the ground work and is intended to be the
 initial step in a development process fabricating a tool to manage
@@ -580,19 +579,19 @@ parties without the individual's knowledge.
 \item[Data Subject:]
 An individual who first and foremost is the owner of all of her personal
 data; sometimes referred to as (data) owner.
-\item[Personal Data as a Service (PDaaS):]
+\item[Data Reservoir Flow Control (ReFlowd):]
 A \emph{web service} that is controlled, owned, and maybe even hosted by
 an individual. It provides access to the \emph{data subject's} personal
 data and offers permission management as well as maintainability for
 those data. It can be seen as her personal agent; sometimes also
 referred to as the system.
 \item[\protect\hypertarget{terminologies--operator}{}{Operator}:]
-A \emph{data subject} that uses a \emph{PDaaS} to control (and probably
+A \emph{data subject} that uses \emph{ReFlowd} to control (and probably
 host) her personal data; sometimes referred to as (data) controller or
 (data) owner.
 \item[\protect\hypertarget{terminologies--consumer}{}{(Data) Consumer}:]
 Third party who requests permission or is already allowed to access
-parts of the \emph{operator's} personal data through her \emph{PDaaS};
+parts of the \emph{operator's} personal data through \emph{ReFlowd};
 sometimes referred to as (data) collector or vendor.
 \item[\protect\hypertarget{terminologies--data-broker}{}{Data Broker}:]
 Third party with commercial interests in collecting, aggregating and
@@ -602,9 +601,9 @@ other organisations
 {[}\protect\hyperlink{ref-report_2014_data-brokers}{14}{]}.
 \item[Permission Request:]
 A formalized attempt made by a third party to request permissions in
-order to access certain data items on the \emph{PDaaS}. The request has
-to include all the data items to which access is being demanded, as well
-as sufficient information about its underlying purpose. It requires the
+order to access certain data items on \emph{ReFlowd}. The request has to
+include all the data items to which access is being demanded, as well as
+sufficient information about its underlying purpose. It requires the
 third party to already be registered as \emph{data consumer}.
 \item[Permission Profile:]
 A set of access rules and configuration tied to a \emph{data consumer}.
@@ -612,7 +611,7 @@ It determines what data is accessible by the related \emph{data
 consumer} and for how long. The profile is the result of a reviewed and
 granted \emph{permission request}.
 \item[Access Request:]
-An attempt to actually access data provided by a \emph{PDaaS}. The
+An attempt to actually access data provided by \emph{ReFlowd}. The
 request primarily consists of a query that defines what data items are
 tried to be accessed. The access is only permitted if the query matches
 against the \emph{permission profiles}.
@@ -658,11 +657,11 @@ place her order. The shop-interface asks her to either insert her
 credentials, proceed without registration or sign-in, or allow the shop
 to obtain all required data on its own by either scanning a QR-Code
 displayed below or insert a URL to her \emph{Personal Data as a
-Service}. She opens up the management panel of her \emph{PDaaS} in a new
-browser window and authenticates herself to the system. Afterwards she
-creates a new entry in a list of \emph{data consumers} who already get
-permitted to access certain characteristics of her personal data. As a
-result, she gets prompted with a URL, which she inserts as the shop
+Service}. She opens up the management panel of her \emph{ReFlowd} in a
+new browser window and authenticates herself to the system. Afterwards
+she creates a new entry in a list of \emph{data consumers} who already
+get permitted to access certain characteristics of her personal data. As
+a result, she gets prompted with a URL, which she inserts as the shop
 interface requests her to do, only after she has convinced herself that
 the data exchange with the shop is based on a secure connection (HTTPS).
 Moving on to the next step after submitting the URL, the data subject is
@@ -671,7 +670,7 @@ invoice, online payment or bank transfer. She chooses the last one,
 submits her selection and thereby completes the order process. She goes
 back to the kitchen. After some time, a push notification appears on her
 mobile device. The notification is about a \emph{permission request}
-which has just arrived at her \emph{PDaaS}, asking her to grant
+which has just arrived at her \emph{ReFlowd}, asking her to grant
 permissions to the shop-system, where she earlier placed the order. The
 shop wants to access her full name, address and email, which are
 required to proceed with the order. Based on the information given in
@@ -695,49 +694,51 @@ with her credit card, the shop-system would have asked to also access
 her credit card as well as its associated secret. When sending the
 email, the system would have omitted the information about the shop's
 bank details. Paying with invoice, would have been possible only if the
-\emph{PDaaS} initially had been able to provide certified profile data,
-which necessarily would have been rated trustworthy. That again would
-have reduced the risk taken by shop owner and would have enabled her to
-take action in cases of fraud or misuse. Choosing to involve an online
-payment service provider as a middleman for processing the payment would
-have required the data subject to have granted the provider access to
-her \emph{PDaaS} upfront. In that case, the shop-system would have asked
-for her payment provider account identifier, so that the system could
-have requested the payment directly from that payment service provider.
-This would have caused the service provider to consult the \emph{PDaaS},
-which would have resulted in a second notification asking the data
-subject for permission to proceed. After a successful payment transfer,
-the shipment would have been initiated.
+\emph{ReFlowd} initially had been able to provide certified profile
+data, which necessarily would have been rated trustworthy. That again
+would have reduced the risk taken by shop owner and would have enabled
+her to take action in cases of fraud or misuse. Choosing to involve an
+online payment service provider as a middleman for processing the
+payment would have required the data subject to have granted the
+provider access to her \emph{ReFlowd} upfront. In that case, the
+shop-system would have asked for her payment provider account
+identifier, so that the system could have requested the payment directly
+from that payment service provider. This would have caused the service
+provider to consult the \emph{ReFlowd}, which would have resulted in a
+second notification asking the data subject for permission to proceed.
+After a successful payment transfer, the shipment would have been
+initiated.
 
 \subsubsection*{Interacting with a social
 network}\label{interacting-with-a-social-network}
 \addcontentsline{toc}{subsubsection}{Interacting with a social network}
 
 The first entry to a social network requires either a URL to the data
-subject's \emph{PDaaS}, which has uniquely been generated for that
+subject's \emph{ReFlowd}, which has uniquely been generated for that
 purpose, or a QR-Code provided by the social network. The data subject
-receives a notification on her mobile device send from her \emph{PDaaS},
-revealing what data that network wants to access and maybe even why. If
-her mobile device is currently not at hand, she can also use the
-management panel provided by her \emph{PDaaS}, which is accessible with
-a web browser on every internet-enabled device. Within that panel
-pending permission reviews are indicated. Regardless of whether the data
-subject has already reviewed the request, she should still be able to
-login. After doing so, she would see all her information, unless she has
-not yet granted permissions to the social network to access her data
-\emph{until-further-notice}. If this is done, after waiting a moment and
-then reloading the browser session, all her data should then show up. So
-every time someone on that network tries to access her information, with
-whom she has allowed to see that information, managed by each user
-within the network, the network pulls the required data from her
-\emph{PDaaS} as long as it is permitted to do so. It is also conceivable
-that the social network does provide a back-channel to the \emph{PDaaS},
-so that all content she creates within that network, including all
-interactions with other users, can be stored in her \emph{PDaaS},
-allowing it to be provided to other \emph{data consumers}. The network
-itself only stores references to all these content objects. Whether it
-is an image, a post, or comment on somebody else's post, the actual
-content to be displayed is fetched from the corresponding \emph{PDaaS}.
+receives a notification on her mobile device send from her
+\emph{ReFlowd}, revealing what data that network wants to access and
+maybe even why. If her mobile device is currently not at hand, she can
+also use the management panel provided by her \emph{ReFlowd}, which is
+accessible with a web browser on every internet-enabled device. Within
+that panel pending permission reviews are indicated. Regardless of
+whether the data subject has already reviewed the request, she should
+still be able to login. After doing so, she would see all her
+information, unless she has not yet granted permissions to the social
+network to access her data \emph{until-further-notice}. If this is done,
+after waiting a moment and then reloading the browser session, all her
+data should then show up. So every time someone on that network tries to
+access her information, with whom she has allowed to see that
+information, managed by each user within the network, the network pulls
+the required data from her \emph{ReFlowd} as long as it is permitted to
+do so. It is also conceivable that the social network does provide a
+back-channel to the \emph{ReFlowd}, so that all content she creates
+within that network, including all interactions with other users, can be
+stored in her \emph{ReFlowd}, allowing it to be provided to other
+\emph{data consumers}. The network itself only stores references to all
+these content objects. Whether it is an image, a post, or comment on
+somebody else's post, the actual content to be displayed is fetched from
+the corresponding \emph{ReFlowd}.
 
 \subsubsection*{Applying for a loan and checking
 creditworthiness}\label{applying-for-a-loan-and-checking-creditworthiness}
@@ -749,7 +750,7 @@ acquisition, she needs funding which, in her case, is based on a loan.
 During a conversation in a credit institute of her choice, an account
 consultant describes to her what data is required in order to decide her
 creditworthiness. While nodding consensually, she takes out her
-smartphone and brings up the management panel of her \emph{PDaaS}. The
+smartphone and brings up the management panel of her \emph{ReFlowd}. The
 consultant flips his screen showing a QR-Code and the \emph{data
 subject} scans it. The tool displays some information about the
 institute including a reference to this assignment and a list of all
@@ -775,9 +776,9 @@ computations and analytics to obtain the score happen within the
 infrastructure of the credit institute. When this process has finished,
 all the personal data that have been transferred must be erased. An
 possible alternative that would prevent the data from leaving the
-\emph{PDaaS}, could be that the institute's request doesn't contain a
+\emph{ReFlowd}, could be that the institute's request doesn't contain a
 data query, but instead coming along with some software and information
-on how to run it. The \emph{PDaaS} server will provide an isolated
+on how to run it. The \emph{ReFlowd} server will provide an isolated
 runtime in which the software can be executed. After that process is
 finished, the result is sent back to the credit institute's
 infrastructure.
@@ -794,7 +795,7 @@ by and the leg healed completely. When she woke up today, she felt pain
 coming from the area where her leg was broken. She decided to call in
 sick and went straight to a doctor nearby. During her recovery she had
 been visiting that doctor regularly. At the reception desk, she opens up
-the \emph{PDaaS}'s management panel on her smartphone and searches
+the \emph{ReFlowd}'s management panel on her smartphone and searches
 through the list of data consumers. After she finds the entry for this
 clinic, she flips her phone to show the receptionist the corresponding
 QR-Code, which the receptionist scans immediately. However the
@@ -847,13 +848,13 @@ the uplink to open up connections so it can emit or receive data from
 the internet. As a result the device owner gains full control over any
 data the car might want to transfer. And this again would allow two
 things: (A) permission management for all outgoing data and (B) funnel
-all data generated and provided by the car towards the \emph{PDaaS} that
-is associated with the linked device. It might be feasible as well to
-deny certain connections the car tries to open. Data will then be stored
-only in the \emph{PDaaS}. If a third party is interested in that data
-they have to ask for access permission. That same concept of movement
-tracking and vehicle data aggregation could be applied to driving
-motorcycles and bicycles as well.
+all data generated and provided by the car towards the \emph{ReFlowd}
+that is associated with the linked device. It might be feasible as well
+to deny certain connections the car tries to open. Data will then be
+stored only in the \emph{ReFlowd}. If a third party is interested in
+that data they have to ask for access permission. That same concept of
+movement tracking and vehicle data aggregation could be applied to
+driving motorcycles and bicycles as well.
 
 \hypertarget{fundamentals}{\chapter{Fundamentals}\label{fundamentals}}
 
@@ -1376,7 +1377,7 @@ from the community's forward thinkers
 {[}\protect\hyperlink{ref-web_2016_the-state-of-big-data}{50}{]}, but
 also advocated by governments and consumer rights organisations, as
 stated in the previous section (see
-\emph{\protect\hyperlink{digital-identity-personal-data-and-ownership}{Legislation}}.
+\emph{\protect\hyperlink{digital-identity-personal-data-and-ownership}{Legislation}}).
 Even leading Tech-Companies have begun trying to do better
 {[}\protect\hyperlink{ref-web_2016_apple_customer-letter}{51}{]}
 {[}\protect\hyperlink{ref-web_2016_what-is-differential-privacy}{52}{]}
@@ -2213,10 +2214,10 @@ specification process.
 Principles}\label{core-principles}}
 
 Right from the start, a set of principles have been built as the
-cornerstones and orientation marks of the idea behind the \emph{PDaaS}.
-These are meant to be reflected by the upcoming \emph{Open
-Specification} and will be explained further within the following
-sections.
+cornerstones and orientation marks of the idea behind the
+\emph{ReFlowd}. These are meant to be reflected by the upcoming
+\emph{Open Specification} and will be explained further within the
+following sections.
 
 \section{Data Ownership}\label{data-ownership}
 
@@ -2246,7 +2247,7 @@ consumers mentioned before, remains highly important since this project
 is not able to cover every single use case that might occur.
 
 Promoted from the data subject to the data owner and therefore being the
-center of the \emph{PDaaS}, the \emph{operator} of the \emph{PDaaS}
+center of the \emph{ReFlowd}, the \emph{operator} of the \emph{ReFlowd}
 gains the ability to have as much control as possible over all the data
 related to her, in order to determine, in a very precise way, what data
 of hers can be accessed by third parties at any point in time and also
@@ -2254,7 +2255,7 @@ to literally carry all her personal data with her.
 
 \section{Identity Verification}\label{identity-verification}
 
-If an instance of such a system \emph{(PDaaS)} is going to be the
+If an instance of such a system \emph{(ReFlowd)} is going to be the
 digital counterpart of an individuals identity or her \emph{``personal
 agent''} {[}\protect\hyperlink{ref-book_2015_ethical-it-innovation}{3},
 p. 46{]}, then everyone who relies on the information that agent
@@ -2374,7 +2375,7 @@ collectively improve the project in a variety of ways.
 \chapter{Requirement Analysis}\label{requirement-analysis}
 
 Derived from the \emph{\protect\hyperlink{core-principles}{Core
-Principles} (Chapter 3)}, this chapter begins by describing the
+Principles}} \emph{(Chapter 3)}, this chapter begins by describing the
 perspectives of various target groups, and continues, based on all
 preceding work, by formalizing the requirements, which then build the
 foundation of further discussions.
@@ -2404,13 +2405,13 @@ can even collect and submit data to my system, completely automated,
 whether it's movement data, my browsing history or any other data I am
 creating. And since I have full control over the system I could even
 analyze the data about me independently. It's of no particular concern
-to me how exactly the \emph{PDaaS} works, but it needs to be reliable
+to me how exactly the \emph{ReFlowd} works, but it needs to be reliable
 and I have to be able to trust it with my data. Furthermore, I like to
-be able to control my \emph{PDaaS} regardless of where I am. If somebody
-wants to access my data, I would like to be informed about that and
-would like to decide, on my own, how to proceed. Convenient setup and
-usage is vital, otherwise I would probably resign before I got it to
-work. If the \emph{PDaaS} can meet these demands, then I would
+be able to control my \emph{ReFlowd} regardless of where I am. If
+somebody wants to access my data, I would like to be informed about that
+and would like to decide, on my own, how to proceed. Convenient setup
+and usage is vital, otherwise I would probably resign before I got it to
+work. If the \emph{ReFlowd} can meet these demands, then I would
 definitely want to use it, because it maintains my data's freedom.
 
 From a developer's perspective, the most important aspects of an open
@@ -2497,8 +2498,8 @@ build a distributed system, which may require the placement of some
 components into different environments/devices/platforms.
 
 \textbf{\emph{\protect\hypertarget{sa03}{}{S.A.03}} - Roles}\\
-The system has to define two types of roles (see
-\emph{\protect\hyperlink{terminologies}{Chapter 1 - Terminologies}}).
+The system has to define two types of roles
+\emph{(\protect\hyperlink{terminologies}{Chapter 1 - Terminologies})}.
 The first one is the
 \emph{\protect\hyperlink{terminologies--operator}{operator}}, who is in
 control of the system and, depending on the architecture, must be at
@@ -2526,13 +2527,13 @@ to fail.
 \textbf{\emph{\protect\hypertarget{sa05}{}{S.A.05}} - Availability}\\
 When third parties are requesting data, it's very likely that those
 procedures are triggered automatically or at least machine-supported.
-Hence those requests can arrive at the \emph{PDaaS} at any point in
-time. Therefore the \emph{PDaaS}, or at least parts of it, should be
+Hence those requests can arrive at the \emph{ReFlowd} at any point in
+time. Therefore the \emph{ReFlowd}, or at least parts of it, should be
 available all the time. Even if the request can't be processed
 completely, the system is still able to inform the \emph{data subject}
 about that event; somewhat like an answering machine. This also enhances
-the \emph{PDaaS} as a serious and reliable data source. It also relates
-to the topic of \emph{failure safety and redundancy}.
+the \emph{ReFlowd} as a serious and reliable data source. It also
+relates to the topic of \emph{failure safety and redundancy}.
 
 \textbf{\emph{\protect\hypertarget{sa06}{}{S.A.06}} - Communication}\\
 To elaborate on \protect\hyperlink{sa01}{S.A.01} and
@@ -2709,8 +2710,8 @@ party by either telling him (per URL) where to register or asking him to
 provide all information required for a registration process upfront
 encoded in QR-Code. Both solutions need a secure channel for transport,
 which refers to \emph{TLS}. The latter has to be ensured by the applying
-third party alone, whereas the first option requires the \emph{PDaaS} to
-provide a TLS-supporting endpoint as well. After a successful
+third party alone, whereas the first option requires the \emph{ReFlowd}
+to provide a TLS-supporting endpoint as well. After a successful
 registration, the consumer can submit a \emph{request permission}, which
 has to include information about the \emph{consumer}, what data he wants
 to access, for what purpose, and how long or how often the data needs to
@@ -2792,7 +2793,7 @@ different authentication mechanisms that don't necessarily have a lot in
 common.
 
 With respect to the requirements (\protect\hyperlink{sa01}{S.A.01}), the
-most appropriate way to communicate with the \emph{PDaaS} over the
+most appropriate way to communicate with the \emph{ReFlowd} over the
 internet would be by using \emph{\protect\hyperlink{def--http}{HTTP}}.
 Thus, to preserve confidentiality on all in- and outgoing data
 (\protect\hyperlink{sp01}{S.P.01}) the most convenient solution in this
@@ -2880,7 +2881,7 @@ cryptography, which are usually slower than the ones based on symmetric
 cryptography
 {[}\protect\hyperlink{ref-book_2014_chapter-10-5-asym-random-number-gen}{135}{]},
 but since there are no timing constraints when interacting with the
-\emph{PDaaS}, regardless of whether it's external communication with
+\emph{ReFlowd}, regardless of whether it's external communication with
 data consumers or internal between components, parameters, that
 influence the level of security the underlying cryptographic procedures
 provide, can be as costly as the system resources allow them to be, thus
@@ -2909,7 +2910,7 @@ password or some other secret bit sequence (e.g.~stored on and provided
 by a USB stick).\\
 An \emph{\protect\hyperlink{def--eid-card}{eID card}} could possibly be
 used as secret (or private key) as well. Suitable use cases for such
-cards are (A) to let the operator login to the \emph{PDaaS} management
+cards are (A) to let the operator login to the \emph{ReFlowd} management
 tool or (B) to authorize \emph{access requests}. How the actual login
 process (A) would look like partially depends on the \emph{eID card}'s
 implementation, but in general, both are reasonable scenarios to utilize
@@ -2945,7 +2946,7 @@ system. Both scenarios are fairly similar, insofar as they would use the
 same token (eID card) to initially authenticate to the system.
 
 The concept of web tokens is fairly straightforward to integrate into
-the \emph{PDaaS}. But since web tokens ensure integrity and optional
+the \emph{ReFlowd}. But since web tokens ensure integrity and optional
 confidentiality only of their own carriage, not for the entire HTTP
 payload, the two requirements need to be addressed separately. Serving
 HTTP over \emph{TLS} solves that issue though. For connections that use
@@ -2955,27 +2956,27 @@ the token itself. However, the situation is different if \emph{two-way
 authentication} is used instead. In this case, the system has to provide
 its own \emph{PKI} including a Certificate Authority that issues
 certificates for data consumers, because not only the \emph{endpoints}
-on the \emph{PDaaS} (server) need to be certified, all data consumers
-(clients) need to present a certificate as well. Only the \emph{PDaaS}
+on the \emph{ReFlowd} (server) need to be certified, all data consumers
+(clients) need to present a certificate as well. Only the \emph{ReFlowd}
 verifies and thus determines (supervised by the \emph{operator}) who is
 authorized to get access to the system. Hence the \emph{PKI} needs to be
 self-contained and private in order to function independently so that
 only invited parties can be involved.\\
 Referring to the statement mentioned above, data consumers also have to
-be able to verify the identity of the \emph{PDaaS}, in order to prevent
-man-in-the-middle attacks. Addressing this issue basically means, data
-consumers have to verify the certificate presented by the \emph{PDaaS}.
-This can be done in two ways. One way is by a certificate having been
-installed on the \emph{PDaaS} that is certified by a trustworthy public
-CA, as mentioned above. Then consumers use the CA's certificate to
-verify the \emph{PDaaS} certificate. The other way is to let the
-\emph{PDaaS} create an asymmetric key-pair including a certificate and
-sign it by itself. Before \emph{consumers} are presented with the
-self-signed certificate of the \emph{PDaaS} during the initiation of the
-TLS connection, they already have to be aware of that certificate. That
-is, \emph{consumers} need to be provided with that certificate on a
-private channel upfront. Otherwise the process would still be vulnerable
-to man-in-the-middle attacks.
+be able to verify the identity of the \emph{ReFlowd}, in order to
+prevent man-in-the-middle attacks. Addressing this issue basically
+means, data consumers have to verify the certificate presented by the
+\emph{ReFlowd}. This can be done in two ways. One way is by a
+certificate having been installed on the \emph{ReFlowd} that is
+certified by a trustworthy public CA, as mentioned above. Then consumers
+use the CA's certificate to verify the \emph{ReFlowd} certificate. The
+other way is to let the \emph{ReFlowd} create an asymmetric key-pair
+including a certificate and sign it by itself. Before \emph{consumers}
+are presented with the self-signed certificate of the \emph{ReFlowd}
+during the initiation of the TLS connection, they already have to be
+aware of that certificate. That is, \emph{consumers} need to be provided
+with that certificate on a private channel upfront. Otherwise the
+process would still be vulnerable to man-in-the-middle attacks.
 
 In summary, if a certificate-based connection, performing a
 \emph{two-way authentication}, establishes successfully, it implies that
@@ -3005,13 +3006,14 @@ An already existing specification explicitly addressing user
 authentication is \emph{OpenID}, which could be adapted to integrate
 operator as well as consumer authentication. Although it utilizes
 (sub)domains as entity identifiers, which is similar to how the relation
-between data consumer and \emph{PDaaS} in \emph{two-way authentication}
-works, OpenID is underpinned by another motivation, which is providing
-decentralized authentications as a service, and that is contrary to the
-independent and self-contained model this project follows. Trying to
-adopt the standard might result in various adjustments to \emph{OpenID}
-leading to an implementation that shares not much compliance to its
-origin, which is not the intention of a standard.
+between data consumer and \emph{ReFlowd} in \emph{two-way
+authentication} works, OpenID is underpinned by another motivation,
+which is providing decentralized authentications as a service, and that
+is contrary to the independent and self-contained model this project
+follows. Trying to adopt the standard might result in various
+adjustments to \emph{OpenID} leading to an implementation that shares
+not much compliance to its origin, which is not the intention of a
+standard.
 
 \emph{\textbf{Conclusions:}} Based on the several requirements
 (\protect\hyperlink{sa03}{S.A.03}, \protect\hyperlink{sa04}{S.A.04},
@@ -3032,7 +3034,7 @@ the corresponding private key gets installed manually by the operator.
 For a mobile platform this approach might be more feasible because this
 step can be automated during the application installation.\\
 Addressing the requirement of consumers to verify whether the
-certificate presented by the \emph{PDaaS} can be trusted or not, both
+certificate presented by the \emph{ReFlowd} can be trusted or not, both
 solutions, providing a self-signed certificate on a secure channel
 upfront, or using certificates certified by publicly trusted entities,
 are legitimate. However, the latter requires an automation depending on
@@ -3058,11 +3060,12 @@ implicit advantages of confidentiality and integrity of transferred
 data. The techniques described therein are assigned to the different
 types of motivations to interact with the system and therefore to the
 roles and their various users, although authenticity of the actual data
-a \emph{PDaaS} provides has yet to be provided. Data reliability here
+a \emph{ReFlowd} provides has yet to be provided. Data reliability here
 refers to authentic and reliable data, which means (A) the data really
-represent the entity that is associated to the originating \emph{PDaaS}
-and is thus owned by that entity, and (B) the data are truthful at that
-moment when the data being accessed are queried from within the system.
+represent the entity that is associated to the originating
+\emph{ReFlowd} and is thus owned by that entity, and (B) the data are
+truthful at that moment when the data being accessed are queried from
+within the system.
 
 The verification process of authorship and content validity in the
 context of the DE-Mail technology as described in
@@ -3084,9 +3087,9 @@ as a technology has, in general, no relevance to this project. One
 aspect that can be noted though, is the concept of letting a server sign
 outgoing data. While in the case of DE-Mail the server is controlled by
 a potentially not trusted party and is typically multi-tenancy capable,
-the \emph{PDaaS}, including its back end, relates to one individual, who
-is also in control of the system. Thus, in order to provide a method to
-consumers, which enables them to verify if the received data is
+the \emph{ReFlowd}, including its back end, relates to one individual,
+who is also in control of the system. Thus, in order to provide a method
+to consumers, which enables them to verify if the received data is
 authentic while keeping the overhead for the operator to a minimum, a
 solution involving an automated signing procedure on the server can be
 reasonable.
@@ -3103,8 +3106,8 @@ won't be an issue.\\
 The information about data reliability can be defined in a response as
 an optional property. Within the request the data consumer has to
 indicate whether the response should contain this information or not.
-Depending on what data is requested, the \emph{PDaaS} decides whether to
-provide proof of reliability or not. Based on the procedures that are
+Depending on what data is requested, the \emph{ReFlowd} decides whether
+to provide proof of reliability or not. Based on the procedures that are
 available, the data reliability can then be verified by the data
 consumer.
 
@@ -3140,7 +3143,7 @@ focus here.
   example, the \emph{eID} feature would provide access to the owner's
   basic profile data, which can then be used to match against those data
   items that are both held by that \emph{nPA} and affected by the
-  \emph{access request}, and therefore originated in the \emph{PDaaS}.
+  \emph{access request}, and therefore originated in the \emph{ReFlowd}.
   If the result of that matching procedure is positive, the related data
   then gets signed with a \emph{QES} courtesy of the data subject's
   \emph{nPA}. That signature gets included in the response as well.
@@ -3154,7 +3157,7 @@ focus here.
   positive outcome. Signing the whole response, or at least a replicable
   dataset that contains the data that were initially requested to
   access, is required. The party then hands everything back to the
-  \emph{PDaaS} for further processing.
+  \emph{ReFlowd} for further processing.
 \item
   \textbf{Recurring Certification}\\
   The following method describes a modification of (3). Instead of
@@ -3168,12 +3171,12 @@ focus here.
   will be issued. This certificate contains an expiration date, which
   implies the consequence of going through this process again in the
   future, much like an issuing process of a common \emph{Certificate
-  Authority}. The certificate is installed on the \emph{PDaaS} and
+  Authority}. The certificate is installed on the \emph{ReFlowd} and
   served as part of a response.\\
   Until now, the consumer can only decrypt the signature provided in the
   certificate, which, if it's successful, just states that the issuer
   has verified the truthfulness and relation between the operator and
-  some data stored in the corresponding \emph{PDaaS}. Optionally, and
+  some data stored in the corresponding \emph{ReFlowd}. Optionally, and
   only if the exact data items involved in the certification procedure
   are also part of the response, the consumer is able to completely
   verify the certificate, and thus the data reliability, by hashing that
@@ -3195,11 +3198,11 @@ met. It will be left to future work, however.
 
 \emph{\textbf{Conclusions:}} A signing procedure as part of the local
 verification method (2) involves private key and certificate stored on
-the operator's \emph{eID card}. Every time the \emph{PDaaS} verifies
+the operator's \emph{eID card}. Every time the \emph{ReFlowd} verifies
 data reliability that procedure has to be performed. Thus the
-\emph{operator} is forced to interact wit the \emph{PDaaS}. Otherwise,
+\emph{operator} is forced to interact wit the \emph{ReFlowd}. Otherwise,
 the operator's private key needs to be stored somewhere within the
-\emph{PDaaS}. No matter where or how, this would potentially expose a
+\emph{ReFlowd}. No matter where or how, this would potentially expose a
 highly confidential part of a cryptographic procedure. Not only would
 this reduce the overall security level of the system, it also makes
 every task this method is involved in vulnerable to certain attacks.
@@ -3214,7 +3217,7 @@ inconvenience mentioned before, that verification method ultimately is
 not going to be supported in the specification. Furthermore, the signing
 procedure based on the \emph{QES} can easily be spoofed by the data
 subject regardless of the matching result, because it would indeed prove
-that the \emph{PDaaS} really represents that individual (authorship of
+that the \emph{ReFlowd} really represents that individual (authorship of
 the response), but not the reliability of that data.
 
 The \emph{Remote Verification and signing (3)} method requires the
@@ -3231,43 +3234,44 @@ can provide a trustworthy certification.
 Finally, the first method, \emph{Local Verification by matching (1)},
 which just performs a matching of two datasets against each other, that
 does not provide any proof to verify reliability of that. Those datasets
-are obtained from the same \emph{PDaaS} storage, but at different times;
-right before the request finally is sent on, though. The primary purpose
-of addressing the issue of data reliability rests on the data consumer's
-concern of accessing data that is intentionally tampered with (e.g.~by
-the data subject), since integrity during transport is already ensured.
-In this light, even if the whole system would be compromised, which in
-that case might need more urgent addressing then ensuring data
+are obtained from the same \emph{ReFlowd} storage, but at different
+times; right before the request finally is sent on, though. The primary
+purpose of addressing the issue of data reliability rests on the data
+consumer's concern of accessing data that is intentionally tampered with
+(e.g.~by the data subject), since integrity during transport is already
+ensured. In this light, even if the whole system would be compromised,
+which in that case might need more urgent addressing then ensuring data
 reliability, it won't mitigate the fact that the operator is the only
 one able to change data. Hence it provides the lowest level of
 reliability.
 
-Certain fields of application of a \emph{PDaaS} as a data resource might
-already impose constraints about the level of reliability and maybe even
-how it can be provided. Violation of those constraints or other relevant
-legislation might prevent the \emph{PDaaS} from being put in use. Others
-- depending on their guidelines and business model - don't rely on a
-certain level of confidence. In general, data consumers are expected to
-already have a basic confidence in a \emph{PDaaS} and in the data
-originating there. Regardless of that, providing an indication on the
-reliability of data is valued as a first and important, but still not
-mandatory step towards a fully working feature. All of the proposed
-verification methods have some downsides, though, the \emph{Recurring
-Certification (4)} method would be the least invasive and therewith an
-adequate choice, even though it might only provide trust rather than
-verifiable proof.
+Certain fields of application of a \emph{ReFlowd} as a data resource
+might already impose constraints about the level of reliability and
+maybe even how it can be provided. Violation of those constraints or
+other relevant legislation might prevent the \emph{ReFlowd} from being
+put in use. Others - depending on their guidelines and business model -
+don't rely on a certain level of confidence. In general, data consumers
+are expected to already have a basic confidence in a \emph{ReFlowd} and
+in the data originating there. Regardless of that, providing an
+indication on the reliability of data is valued as a first and
+important, but still not mandatory step towards a fully working feature.
+All of the proposed verification methods have some downsides, though,
+the \emph{Recurring Certification (4)} method would be the least
+invasive and therewith an adequate choice, even though it might only
+provide trust rather than verifiable proof.
 
-A primary goal for the \emph{PDaaS} is to preserve all data owned by the
-data subject and giving her control over where the data might go; not
-providing sufficient proof for the data reliability. Although it is
+A primary goal for the \emph{ReFlowd} is to preserve all data owned by
+the data subject and giving her control over where the data might go;
+not providing sufficient proof for the data reliability. Although it is
 still important to provide data consumers with an information about the
 level of reliability, it's up to them how to rate that information and
 how to act on that.
 
-\section{Access Management}\label{access-management}
+\hypertarget{access-management}{\section{Access
+Management}\label{access-management}}
 
 The subsequent section will discuss how several processes surrounding
-the topic of \emph{data consumers accessing data on the PDaaS} can be
+the topic of \emph{data consumers accessing data on the ReFlowd} can be
 modeled, what consequences certain variations might have, and what
 issues need to be addressed.
 
@@ -3275,9 +3279,9 @@ Below, a general design is proposed of how \emph{data consumers} get
 authorized and thereby are able to access the \emph{data subject's}
 personal data, and how
 \protect\hyperlink{standards-specifications-and-related-technologies}{previous
-mentioned technologies} \emph{(see Chapter 2)} can be assembled in order
-to meet the specified \protect\hyperlink{requirements}{requirements}
-\emph{(see Chapter 4)}.
+mentioned technologies} \emph{(Chapter 2)} can be assembled in order to
+meet the specified \protect\hyperlink{requirements}{requirements}
+\emph{(Chapter 4)}.
 
 \subsection*{Part One: consumer
 registration}\label{part-one-consumer-registration}
@@ -3381,7 +3385,7 @@ starting with the most sufficient solution:
   required data is retrieved from the storage, the program gets invoked
   with the data locally on the system but within a completely separated
   environment \emph{(sandbox)}. The result of that invocation gets
-  returned to the outer system (\emph{PDaaS}).
+  returned to the outer system (\emph{ReFlowd}).
 \item
   \textbf{Data DRM\footnote{\emph{Digital Rights Management} - set of
     technologies, that are used to control access to data or content
@@ -3389,10 +3393,10 @@ starting with the most sufficient solution:
     streaming)}}; after data is retrieved from the storage it gets
   encrypted. The cipher is included in the response. Upfront, data
   consumers are equipped with a small program that can connect to the
-  \emph{PDaaS} and has to wrap the consumer's own software that is meant
-  to process the requested data. Now, when consumers receive the
+  \emph{ReFlowd} and has to wrap the consumer's own software that is
+  meant to process the requested data. Now, when consumers receive the
   response, the program needs to get invoked with the cipher, so that,
-  by priorly fetching the key from the \emph{PDaaS}, the cipher can be
+  by priorly fetching the key from the \emph{ReFlowd}, the cipher can be
   decrypted from within the invocation. Thus the data is made available
   to the wrapped software and only during runtime. After the invocation
   has finished, the program needs to propagate the results that are
@@ -3404,11 +3408,11 @@ starting with the most sufficient solution:
 \end{enumerate}
 
 In case the data consumer provides no preferred access type, a fallback
-type must be applied, so that the data won't leave the system, unless
-it's absolutely necessary to pursue the goal of the access request. The
-overall confidentiality of all personal data is still preserved, though,
-because all communications to and from the \emph{PDaaS} are generally
-happening over HTTPS anyway, so that the data is encrypted during the
+type must be applied so that the data won't leave the system unless it's
+absolutely necessary to pursue the goal of the access request. The
+overall confidentiality of all personal data is still preserved,
+however, because all communications to and from the \emph{ReFlowd} are
+happening over HTTPS, which means the data is encrypted during the
 transport.
 
 The concept of authorizing a data consumer for the ability to access
@@ -3440,7 +3444,7 @@ operator can change all permission profiles at any point in time.}
 
 Among other information, an access request contains the \emph{data
 query} that shows very precisely what data items are affected by that
-request. So if an \emph{access request} arrives at the \emph{PDaaS},
+request. So if an \emph{access request} arrives at the \emph{ReFlowd},
 assuming the data consumer has been authenticated sufficiently, the
 system (0) searches for a permission profile that corresponds to the
 data consumer and the requested data items. If it fails to find one, the
@@ -3453,7 +3457,7 @@ faster response-time, if operation (1) already results negative. If all
 operations have a positive result, access is granted.
 
 As stated in the section about \protect\hyperlink{data-reliability}{data
-reliability} (see \emph{Chapter 5}), the data subject is able to add,
+reliability} \emph{(Chapter 5)}, the data subject is able to add,
 change, or remove all her data or even the permission profiles at any
 point in time. This raises the question of how to solve the situation
 were access requests are being processed while those changes are
@@ -3520,7 +3524,7 @@ OAuth versions (1.0a and 2) require the client (here \emph{data
 consumer}) to register to the authorization server upfront (to obtain a
 \texttt{client\_id}), before initializing the authorization process.
 However, as stated earlier, the concept of the data subject `pulling' a
-data consumer towards the \emph{PDaaS} is preferred over letting data
+data consumer towards the \emph{ReFlowd} is preferred over letting data
 consumers try to `push' themselves towards the system. The reason to
 prevent undesired registration attempts is that they all have to be
 reviewed by the data subject. Furthermore, it is not within the scope of
@@ -3538,7 +3542,7 @@ consists of authentication \emph{(Does this token exist?)} and
 authorization \emph{(Is this token valid and what does it permit?)}.
 Those aspects are in part already provided by the proposed way of using
 the TLS layer. Because every data consumer has its own endpoint to
-connect with the \emph{PDaaS} and the certificate used by the consumer
+connect with the \emph{ReFlowd} and the certificate used by the consumer
 is signed by a signature only used for that endpoint. This means the
 consumer is already authenticated when the TLS connection has been
 successfully established. And since \emph{permission profiles} relate to
@@ -3565,7 +3569,7 @@ provide authorization and access management:
 \end{enumerate}
 
 The solutions a) and b) require an extra step in which data consumers
-need to register themselves at the \emph{PDaaS}. This already must be
+need to register themselves at the \emph{ReFlowd}. This already must be
 done on a secure channel to prevent man-in-the-middle attacks.
 Furthermore, in that step, option a) obtain a symmetric key for creating
 signatures used to ensure confidentiality and integrity in subsequent
@@ -3587,19 +3591,19 @@ Combining b) and c) would result in significant redundancy, since both
 solutions have much overlap in their provided features, even though b)
 aims to be a framework for authorization. The process description in the
 beginning of this section is used as the foundation of \emph{access
-management} in the \emph{PDaaS}. Implementing OAuth based on this design
-would leave nothing from the framework but a simple request returning an
-identifier associated with permissions. And even these identifiers are
-obsolete when combining TLS with dedicated consumer-specific endpoints,
-as c) states. So there is not much benefit in using OAuth, other than
-developers might be familiar with the API. This can be addressed by a
-detailed specification for this project, hence c) is preferred over b).
-In the end, the only suitable use case from OAuth this work would
-consists of just a request that obtains a token after authenticating
-with the provided credentials. OAuth only provides a framework for how
-to authorize third parties to access external resources, leaving the
-procedure of how to actually verify those access attempts up to its
-implementers
+management} in the \emph{ReFlowd}. Implementing OAuth based on this
+design would leave nothing from the framework but a simple request
+returning an identifier associated with permissions. And even these
+identifiers are obsolete when combining TLS with dedicated
+consumer-specific endpoints, as c) states. So there is not much benefit
+in using OAuth, other than developers might be familiar with the API.
+This can be addressed by a detailed specification for this project,
+hence c) is preferred over b). In the end, the only suitable use case
+from OAuth this work would consists of just a request that obtains a
+token after authenticating with the provided credentials. OAuth only
+provides a framework for how to authorize third parties to access
+external resources, leaving the procedure of how to actually verify
+those access attempts up to its implementers
 {[}\protect\hyperlink{ref-web_spec_oauth-1a_access-verification}{142}{]}
 {[}\protect\hyperlink{ref-web_spec_oauth-2_access-verification}{143}{]}.
 In the context of this project OAuth does not comply with the rest of
@@ -3626,18 +3630,18 @@ considered. Alongside the executable program, data consumers either
 provide all dependencies so that everything is bundled up, or don't
 provide any dependencies at all. The latter is preferred, because it
 reduces the amount of potentially malicious, flawed, or needless
-components, so that the data subject, supported by her \emph{PDaaS}, has
-more supervising capabilities and thus more control over her personal
-data.\\
+components, so that the data subject, supported by her \emph{ReFlowd},
+has more supervising capabilities and thus more control over her
+personal data.\\
 Since the overall goal here is to prevent the data subject from losing
 control over her data, it is conceivable that certain categories of
 personal data, representing a higher level of sensitivity, require a
 minimum viable \emph{access type}. If the data consumer does not comply,
 access will be refused.\\
 Also, depending on which category the personal data relates to, the
-\emph{PDaaS} might somehow anonymize certain types of data, if it is
+\emph{ReFlowd} might somehow anonymize certain types of data, if it is
 even capable of doing so, because the consumer at least supposedly knows
-what individual is behind the \emph{PDaaS} it is currently interacting
+what individual is behind the \emph{ReFlowd} it is currently interacting
 with. The field of \emph{data anonymization} is a large research area on
 its own, which recently started to gain a lot of traction due to
 emerging privacy concerns about \emph{Big Data}. Thus it will be left
@@ -3645,16 +3649,16 @@ for future work.
 
 \hypertarget{data}{\section{Data}\label{data}}
 
-The core task of a \emph{PDaaS} is providing data, \emph{Personal Data},
-which is the digital manifestation of an individual, a person. One party
-creates the data, another one obtains and processes it. Thus, both need
-to agree, or at least need to know, how that data looks like, how is it
-structured, and what their semantics are. The following section is
-intended to discuss different technologies used to create queries that
-obtain desired data items. Further on, it describes some basic data
-types and schemas, that might be useful in the context of \emph{Personal
-Data} and also for previously introduced
-\protect\hyperlink{scenarios}{scenarios} (see \emph{Chapter 1}).
+The core task of a \emph{ReFlowd} is providing data, \emph{Personal
+Data}, which is the digital manifestation of an individual, a person.
+One party creates the data, another one obtains and processes it. Thus,
+both need to agree, or at least need to know, how that data looks like,
+how is it structured, and what their semantics are. The following
+section is intended to discuss different technologies used to create
+queries that obtain desired data items. Further on, it describes some
+basic data types and schemas, that might be useful in the context of
+\emph{Personal Data} and also for previously introduced
+\protect\hyperlink{scenarios}{scenarios} \emph{(Chapter 1)}.
 
 First of all, to address the need of portability, which has to be
 satisfied by those components that are storing and providing
@@ -3734,7 +3738,7 @@ language is not capable of grabbing and presenting them. Thus the result
 (\protect\hyperlink{code-02_sparql-query-results}{Code 02}) only
 consists of two dimensions.
 
-It is crucial for the \emph{PDaaS} to provide the data subject with
+It is crucial for the \emph{ReFlowd} to provide the data subject with
 abilities to create her own data types and schemas
 (\protect\hyperlink{sp03}{S.P.03}). Thereby she is enabled to serve data
 items according to her own needs and terms. In order to interact with
@@ -3756,7 +3760,7 @@ are based on common standards, for example \emph{medical record}
 \emph{bank transfer}
 {[}\protect\hyperlink{ref-web_spec_data-schemas_bank-transfer}{147}{]}.
 With that approach those data types can be viewed as something like a
-plugin or add-on to the \emph{PDaaS} ecosystem.
+plugin or add-on to the \emph{ReFlowd} ecosystem.
 
 In order to avoid confusion about the differences between types and
 schemas and to simplify their relations, the following two definitions
@@ -3777,7 +3781,7 @@ Based on these two concepts almost any imaginable data type can be
 modeled. A selection of such types can be found in the list of
 \protect\hyperlink{list-01_suggested-structs}{suggested structs (List
 01)}, whereas an extract of (sub-)categories that might be useful in a
-\emph{PDaaS} are specified in a list of
+\emph{ReFlowd} are specified in a list of
 \protect\hyperlink{list-02_data-categories}{data categories (List 02)}.
 Additional examples for \emph{structs} are a
 \protect\hyperlink{code-05_struct_profile}{\emph{data subject's} profile
@@ -3785,7 +3789,7 @@ Additional examples for \emph{structs} are a
 06)} and bare \protect\hyperlink{code-07_struct_position}{position
 information (Code 07)}. All those examples and lists are only to be
 understood as a starting point that should cover basic scenarios as well
-as to give a first impression of what data types a \emph{PDaaS} could
+as to give a first impression of what data types a \emph{ReFlowd} could
 provide.
 
 \textbf{\protect\hypertarget{list-01_suggested-structs}{}{List 01:
@@ -4052,7 +4056,7 @@ to handle schema changes. Database systems whose storage engine is built
 upon a document-oriented approach are a more suitable choice.\\
 Replication can be utilized for horizontal scaling, federation, or
 backups (\protect\hyperlink{sp05}{S.P.05}). The focus here is on the
-latter, because without \emph{PL} the \emph{PDaaS} wont be able to
+latter, because without \emph{PL} the \emph{ReFlowd} wont be able to
 function. In case of irreversible data loss, the whole system state is
 gone, which then has to be reconfigured and reproduced from the ground
 up. Such effort can be spared by introducing a reliable backup strategy.
@@ -4067,7 +4071,7 @@ chronological order that have somehow changed the data. Therefore the
 current state can be restored just by running those queries against the
 \emph{PDS}. It is reasonable to store the queries of the abstracted
 query language not the ones the query language is transformed into. If a
-mobile device is part of the \emph{PDaaS}, another approach for the
+mobile device is part of the \emph{ReFlowd}, another approach for the
 operator could be to perform regular device backups. Those strategies
 are all just initial thoughts which might be sufficient only as a
 starting point. Other solutions are imaginable. Though, elaborating on
@@ -4081,7 +4085,7 @@ to key files, which are typically accessed as files, or configuration
 files for certain technologies. In any case, both \emph{PL} and
 \emph{PDS}, have to be able to store files of any kind, which is
 required, for instance, to support the scenario of medical records. File
-size restriction should be mandatory though, because the \emph{PDaaS}
+size restriction should be mandatory though, because the \emph{ReFlowd}
 has no intention to replace existing \emph{file hosting} solutions.
 
 Being able to undo changes to certain data items or to review the
@@ -4105,7 +4109,7 @@ Before serving data, it needs to be at first inserted into the
   The data subject uses forms provided by the graphical user interface
   to insert data about her, for example her
   \protect\hyperlink{code-05_struct_profile}{profile information (Code
-  05)}. This data is then submitted into the \emph{PDaaS} which takes
+  05)}. This data is then submitted into the \emph{ReFlowd} which takes
   care of storing it.
 \item
   The data subject is in possession of file(s) or string(s) containing a
@@ -4116,8 +4120,8 @@ Before serving data, it needs to be at first inserted into the
   to provide more information on the context of those data.
 \item
   Third party software, for example a browser plugin, is used to provide
-  the \emph{PDaaS} with data; in this case, a browser history. This
-  software uses a restricted API provided by the \emph{PDaaS} to let
+  the \emph{ReFlowd} with data; in this case, a browser history. This
+  software uses a restricted API provided by the \emph{ReFlowd} to let
   data flow into the system.
 \end{enumerate}
 
@@ -4130,7 +4134,7 @@ third party software to submit data, appropriate authentication and
 permission mechanisms must be in place. That software is classed like
 all other operator front ends, but without permissions to obtain data.
 According to the \protect\hyperlink{authentication}{discussion on
-authentication} (see \emph{Chapter 5}), these mechanisms thus can be
+authentication} \emph{(Chapter 5)}, these mechanisms thus can be
 implemented through \emph{JWT}.
 
 \emph{\textbf{Conclusions:}} In order to gain flexibility in choosing
@@ -4157,11 +4161,12 @@ the data API for consumers, too.
 
 When it comes to creating new structs, engaging a user community can
 compensate the lack of certain types. Examples for a potential starting
-point of \emph{PDaaS}-supported data types were showed before. Data
+point of \emph{ReFlowd}-supported data types were showed before. Data
 Modelling in general is a large research field to its own. With regards
-to the \emph{PDaaS} it needs much more attention, though it's beyond the
-scope of this work. The basic approaches within this section should only
-be viewed as an introduction that gives an outlook of how it's imagined.
+to the \emph{ReFlowd} it needs much more attention, though it's beyond
+the scope of this work. The basic approaches within this section should
+only be viewed as an introduction that gives an outlook of how it's
+imagined.
 
 \section{Architecture}\label{architecture}
 
@@ -4192,8 +4197,9 @@ describes the possibilities to access the host environment from within
 the platform (e.g.~filesystem to store data).
 
 \begin{longtable}[]{@{}lccll@{}}
-\caption{Platform types for the different components of the \emph{PDaaS}
-architecture \label{tbl:platforms-characteristics}}\tabularnewline
+\caption{Platform types for the different components of the
+\emph{ReFlowd} architecture
+\label{tbl:platforms-characteristics}}\tabularnewline
 \toprule
 Platform Type & trusted & Host Access & Layer & Purpose\tabularnewline
 \midrule
@@ -4230,9 +4236,9 @@ task(s), underlying technologies, and relation(s) to each other.
 \subsubsection*{Web Server}\label{web-server}
 \addcontentsline{toc}{subsubsection}{Web Server}
 
-\emph{Platform:} Server
+Platform: Server
 
-\emph{Tasks:}
+Tasks:
 
 \begin{itemize}
 \tightlist
@@ -4252,7 +4258,7 @@ task(s), underlying technologies, and relation(s) to each other.
   spam protection
 \end{itemize}
 
-\emph{Relations:}
+Relations:
 
 \begin{itemize}
 \tightlist
@@ -4262,7 +4268,7 @@ task(s), underlying technologies, and relation(s) to each other.
   any front end platform (Mobile, Web)
 \end{itemize}
 
-\emph{Technologies:}
+Technologies:
 
 \begin{itemize}
 \tightlist
@@ -4277,9 +4283,9 @@ task(s), underlying technologies, and relation(s) to each other.
 \subsubsection*{Permission Manager}\label{permission-manager}
 \addcontentsline{toc}{subsubsection}{Permission Manager}
 
-\emph{Platform:} Server
+Platform: Server
 
-\emph{Tasks:}
+Tasks:
 
 \begin{itemize}
 \tightlist
@@ -4293,7 +4299,7 @@ task(s), underlying technologies, and relation(s) to each other.
   queue \emph{consumer} requests
 \end{itemize}
 
-\emph{Relations:}
+Relations:
 
 \begin{itemize}
 \tightlist
@@ -4309,7 +4315,7 @@ task(s), underlying technologies, and relation(s) to each other.
   Code Execution Environment
 \end{itemize}
 
-\emph{Technologies:}
+Technologies:
 
 \begin{itemize}
 \tightlist
@@ -4320,9 +4326,9 @@ task(s), underlying technologies, and relation(s) to each other.
 \subsubsection*{PKI}\label{pki}
 \addcontentsline{toc}{subsubsection}{PKI}
 
-\emph{Platform:} Server
+Platform: Server
 
-\emph{Tasks:}
+Tasks:
 
 \begin{itemize}
 \tightlist
@@ -4334,7 +4340,7 @@ task(s), underlying technologies, and relation(s) to each other.
   obtain trusted certificates from public CAs
 \end{itemize}
 
-\emph{Relations:}
+Relations:
 
 \begin{itemize}
 \tightlist
@@ -4342,7 +4348,7 @@ task(s), underlying technologies, and relation(s) to each other.
   Web Server
 \end{itemize}
 
-\emph{Technologies:}
+Technologies:
 
 \begin{itemize}
 \tightlist
@@ -4355,9 +4361,9 @@ task(s), underlying technologies, and relation(s) to each other.
 \subsubsection*{Storage Connector}\label{storage-connector}
 \addcontentsline{toc}{subsubsection}{Storage Connector}
 
-\emph{Platform:} Server
+Platform: Server
 
-\emph{Tasks:}
+Tasks:
 
 \begin{itemize}
 \tightlist
@@ -4367,7 +4373,7 @@ task(s), underlying technologies, and relation(s) to each other.
   queries personal data, regardless of where it's located
 \end{itemize}
 
-\emph{Relations:}
+Relations:
 
 \begin{itemize}
 \tightlist
@@ -4375,7 +4381,7 @@ task(s), underlying technologies, and relation(s) to each other.
   Personal Data Storage
 \end{itemize}
 
-\emph{Technologies:}
+Technologies:
 
 \begin{itemize}
 \tightlist
@@ -4386,9 +4392,9 @@ task(s), underlying technologies, and relation(s) to each other.
 \subsubsection*{Operator API}\label{operator-api}
 \addcontentsline{toc}{subsubsection}{Operator API}
 
-\emph{Platform:} Server
+Platform: Server
 
-\emph{Tasks:}
+Tasks:
 
 \begin{itemize}
 \tightlist
@@ -4404,7 +4410,7 @@ task(s), underlying technologies, and relation(s) to each other.
   automated data inflow
 \end{itemize}
 
-\emph{Relations:}
+Relations:
 
 \begin{itemize}
 \tightlist
@@ -4420,7 +4426,7 @@ task(s), underlying technologies, and relation(s) to each other.
   Permission Manager
 \end{itemize}
 
-\emph{Technologies:}
+Technologies:
 
 \begin{itemize}
 \tightlist
@@ -4432,9 +4438,9 @@ task(s), underlying technologies, and relation(s) to each other.
 Environment}\label{code-execution-environment}
 \addcontentsline{toc}{subsubsection}{Code Execution Environment}
 
-\emph{Platform:} Server
+Platform: Server
 
-\emph{Tasks:}
+Tasks:
 
 \begin{itemize}
 \tightlist
@@ -4452,7 +4458,7 @@ Environment}\label{code-execution-environment}
   examine and test the provided software
 \end{itemize}
 
-\emph{Relations:}
+Relations:
 
 \begin{itemize}
 \tightlist
@@ -4460,7 +4466,7 @@ Environment}\label{code-execution-environment}
   Permission Manager
 \end{itemize}
 
-\emph{Technologies:}
+Technologies:
 
 \begin{itemize}
 \tightlist
@@ -4473,9 +4479,9 @@ Environment}\label{code-execution-environment}
 \subsubsection*{Tracker}\label{tracker}
 \addcontentsline{toc}{subsubsection}{Tracker}
 
-\emph{Platform:} Server
+Platform: Server
 
-\emph{Tasks:}
+Tasks:
 
 \begin{itemize}
 \tightlist
@@ -4487,7 +4493,7 @@ Environment}\label{code-execution-environment}
   log all \emph{access requests}
 \end{itemize}
 
-\emph{Relations:}
+Relations:
 
 \begin{itemize}
 \tightlist
@@ -4495,7 +4501,7 @@ Environment}\label{code-execution-environment}
   Persistence Layer
 \end{itemize}
 
-\emph{Technologies:}
+Technologies:
 
 \begin{itemize}
 \tightlist
@@ -4506,9 +4512,9 @@ Environment}\label{code-execution-environment}
 \subsubsection*{Personal Data Storage}\label{personal-data-storage}
 \addcontentsline{toc}{subsubsection}{Personal Data Storage}
 
-\emph{Platform:} Server, Mobile
+Platform: Server, Mobile
 
-\emph{Tasks:}
+Tasks:
 
 \begin{itemize}
 \tightlist
@@ -4516,7 +4522,7 @@ Environment}\label{code-execution-environment}
   stores the \emph{operator's} personal data
 \end{itemize}
 
-\emph{Relations:}
+Relations:
 
 \begin{itemize}
 \tightlist
@@ -4524,7 +4530,7 @@ Environment}\label{code-execution-environment}
   Storage Connector
 \end{itemize}
 
-\emph{Technologies:}
+Technologies:
 
 \begin{itemize}
 \tightlist
@@ -4537,9 +4543,9 @@ Environment}\label{code-execution-environment}
 \subsubsection*{Persistence Layer}\label{persistence-layer}
 \addcontentsline{toc}{subsubsection}{Persistence Layer}
 
-\emph{Platform:} Server
+Platform: Server
 
-\emph{Tasks:}
+Tasks:
 
 \begin{itemize}
 \tightlist
@@ -4552,7 +4558,7 @@ Environment}\label{code-execution-environment}
   holds keys
 \end{itemize}
 
-\emph{Relations:}
+Relations:
 
 \begin{itemize}
 \tightlist
@@ -4562,7 +4568,7 @@ Environment}\label{code-execution-environment}
   Permission Manager
 \end{itemize}
 
-\emph{Technologies:}
+Technologies:
 
 \begin{itemize}
 \tightlist
@@ -4576,9 +4582,9 @@ Environment}\label{code-execution-environment}
 Infrastructure}\label{notification-infrastructure}
 \addcontentsline{toc}{subsubsection}{Notification Infrastructure}
 
-\emph{Platform:} Server
+Platform: Server
 
-\emph{Tasks:}
+Tasks:
 
 \begin{itemize}
 \tightlist
@@ -4587,7 +4593,7 @@ Infrastructure}\label{notification-infrastructure}
   registrations, new \emph{permission requests})
 \end{itemize}
 
-\emph{Relations:}
+Relations:
 
 \begin{itemize}
 \tightlist
@@ -4595,7 +4601,7 @@ Infrastructure}\label{notification-infrastructure}
   Web Server
 \end{itemize}
 
-\emph{Technologies:}
+Technologies:
 
 \begin{itemize}
 \tightlist
@@ -4608,9 +4614,9 @@ Infrastructure}\label{notification-infrastructure}
 \subsubsection*{User Interface}\label{user-interface}
 \addcontentsline{toc}{subsubsection}{User Interface}
 
-\emph{Platform:} Mobile, Web
+Platform: Mobile, Web
 
-\emph{Tasks:}
+Tasks:
 
 \begin{itemize}
 \tightlist
@@ -4626,7 +4632,7 @@ Infrastructure}\label{notification-infrastructure}
   system monitoring
 \end{itemize}
 
-\emph{Relations:}
+Relations:
 
 \begin{itemize}
 \tightlist
@@ -4636,7 +4642,7 @@ Infrastructure}\label{notification-infrastructure}
   Push Notification Service
 \end{itemize}
 
-\emph{Technologies:}
+Technologies:
 
 \begin{itemize}
 \tightlist
@@ -4658,15 +4664,15 @@ platform types and outlines a certain flexibility.
 
 \begin{figure}
 \centering
-\includegraphics{./assets/figures/pdaas_component-composition_centralized.png}
-\caption{PDaaS Architecture, centralized
+\includegraphics{./assets/figures/reflowd_component-composition_centralized.png}
+\caption{ReFlowd Architecture, centralized
 composition\label{fig:composition-centralized}}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics{./assets/figures/pdaas_component-composition_distributed.png}
-\caption{PDaaS Architecture, distributed
+\includegraphics{./assets/figures/reflowd_component-composition_distributed.png}
+\caption{ReFlowd Architecture, distributed
 composition\label{fig:composition-distributed}}
 \end{figure}
 
@@ -4694,13 +4700,13 @@ discovery in a landscape where NAT\footnote{Network Address Translation;
 practice, for mobile platforms as well as on the desktop, all components
 except the user interface are therefore required to be implemented
 natively. From an operator's perspective, that would mean to have all
-components at hand and, therefore, full control over the \emph{PDaaS}.
-It still would raise security concerns, though, because the devices
+components at hand and, therefore, full control over the \emph{ReFlowd}.
+It would still raise security concerns, though, because the devices
 mentioned before might serve various distinct purposes and would
-therefore introduces potentially vulnerabilities.
+therefore introduce potentially vulnerabilities.
 
 Aside from providing the operator with a non-stationary and instantly
-accessible interface to her \emph{PDaaS}, involving a \emph{mobile}
+accessible interface to her \emph{ReFlowd}, involving a \emph{mobile}
 platform primarily has the purpose of enabling the data subject to carry
 all her sensitive data along. This is considered a major advantage over
 the centralized approach, were all the personal data is located in the
@@ -4709,9 +4715,9 @@ the centralized approach, were all the personal data is located in the
 Regardless of that, it introduces the demand of a backup or some
 redundancy concept, which has briefly been touched on in the discussion
 about database system requirements within the
-\protect\hyperlink{data}{section on \emph{data}} (see \emph{Chapter 5}).
-A \emph{mobile} platform as part of the system makes it more easier for
-the data subject to establish a security concept in which the relation
+\protect\hyperlink{data}{section on \emph{data}} \emph{(Chapter 5)}. A
+\emph{mobile} platform as part of the system makes it more easy for the
+data subject to establish a security concept in which the relation
 between \emph{Personal Data Storage (PDS)} and the rest of the system is
 much more liberated, so that all access attempts only happen under full
 supervision. It is debatable whether to place the \emph{permission
@@ -4799,8 +4805,8 @@ provide those authentication services.\\
 \emph{OpenID} is designed with a very specific type of scenarios in
 mind, namely the one just described - bringing decentralization to the
 market of authentication services - which differs from the ones
-addressed by the \emph{PDaaS}; at least when it comes to data consumer
-interactions. The \emph{PDaaS} has the ability to become the digital
+addressed by the \emph{ReFlowd}; at least when it comes to data consumer
+interactions. The \emph{ReFlowd} has the ability to become the digital
 representation of its operator, therefore it can and should also be used
 to authenticate that individual against external parties.
 
@@ -4820,23 +4826,23 @@ not on some computer machine somewhere on the internet, but right in the
 hands of its owner. By the proposed architecture, all components (or
 groups of components) are portable and therefore relocatable among the
 suggested platforms; and with the introduced authentication methods for
-operators, multiple front ends for the same \emph{PDaaS} are thereby
+operators, multiple front ends for the same \emph{ReFlowd} are thereby
 supported and can be implemented with almost no effort, which, in
 return, covers more use cases. As a supplement, an \emph{identity
 provider} based on the OpenID standard would fit nicely into the
 existing arrangement and does not interfere with the other components.
 However, it is beyond the scope of this work to elaborate on this topic.
 For now it is stated as a feasible and logical addition to the
-\emph{PDaaS}.
+\emph{ReFlowd}.
 
 \section{Environment and Setup}\label{environment-and-setup}
 
 As stated in the project's \protect\hyperlink{core-principles}{core
-principles}, \emph{Open Development} is vital for the project to gain
-trust. Interestingly, this has a significant impact on how a
-\emph{PDaaS} might be deployed or installed. All its components can just
-be grabbed and used as it suits everyone's needs, while respecting their
-licenses. Furthermore, enforcing \emph{portability}
+principles} \emph{(Chapter 3)}, \emph{Open Development} is vital for the
+project to gain trust. Interestingly, this has a significant impact on
+how a \emph{ReFlowd} might be deployed or installed. All its components
+can just be grabbed and used as it suits everyone's needs, while
+respecting their licenses. Furthermore, enforcing \emph{portability}
 (\protect\hyperlink{sa02}{S.A.02}) leads to a more simplified and
 independent development process that can be organized in a way so that
 the primary division into components can be leveraged.
@@ -4849,8 +4855,8 @@ platform is POSIX-compliant.\footnote{Portable Operating System
   Interface; a collection of standards released by the IEEE Computer
   Society to preserve compatibility between operating systems} When it
 comes to \emph{mobile} platforms the market is far less diverse. Native
-applications are either developed in \emph{Java} (for Google's Android)
-or in Swift (for Apple's iOS). Whereas the host systems have nearly no
+applications are either developed in Java (for Google's Android) or in
+Swift (for Apple's iOS). Whereas the host systems have nearly no
 relevance for \emph{web} platforms, other then the screen size and maybe
 which browser and version the environment system runs. But that's a
 condition the user can change if necessary.
@@ -4863,34 +4869,35 @@ to run. Either way, it is also important not to forget all the
 dependencies a component itself might have. Such constraints can be
 avoided by abstracting the runtime of those components and either embed
 every required software dependency or provide them in separate runtimes,
-if possible. Depending on the used technologies, this concept is
-commonly known as \emph{virtualization} or \emph{containerization}. It
-isolates software by putting them into a so called \emph{container}. But
-since those container-wrapped components still have to interact with
-each other, they need to be supervised or at least managed. This is done
-by an orchestration software, which not only allocates system resources
+if possible.\\
+Depending on the used technologies, this concept is commonly known as
+\emph{virtualization} or \emph{containerization}. It isolates software
+by putting them into a so called \emph{container}. But since those
+container-wrapped components still have to interact with each other,
+they need to be supervised or at least managed. This is done by an
+\emph{orchestration} software, which not only allocates system resources
 but is also capable of emulating a whole network infrastructure
 (e.g.~DNS, TCP/IP, routing). Thereby, it is utilized to determine how
 certain containers (and their contained components) are allowed to
 communicate and what resource are accessible from the inside (e.g.
 filesystem). This complete abstraction to the surrounding environment
-effectively means it's the only dependency the \emph{PDaaS} would have,
-regardless of how its components are implemented. They just have to be
-\emph{`containerizable'} - by satisfying the
+effectively means it's the only dependency the \emph{ReFlowd} would
+have, regardless of how its components are implemented. They just have
+to be \emph{`containerizable'} - by satisfying the
 \emph{\protect\hyperlink{def--container}{container image specification}}
 {[}\protect\hyperlink{ref-web_oci-spec_image}{118}{]}. This concept can
 also be utilized for the
-\emph{\protect\hyperlink{supervised-data-access}{supervised code
-execution}} (\protect\hyperlink{sa01}{S.A.01}) mentioned before without
+\emph{\protect\hyperlink{supervised-data-access}{Supervised Code
+Execution}} (\protect\hyperlink{sa01}{S.A.01}) mentioned before without
 any restraints.
 
-Migrating from a server-located \emph{personal data storage} to a
+Migrating from a server-located \emph{Personal Data Storage} to a
 \emph{mobile} based version introduces another challenge. The subsequent
 approach is a first and more general solution to that problem.
 
-\emph{NOTICE: it is assumed that a running instance of a }PDaaS* is in
-place, the \emph{operator} owns a modern mobile device and on this
-device a \emph{PDaaS} mobile application is installed.*
+\emph{NOTICE: it is assumed that a running instance of a }ReFlowd* is in
+place, the operator owns a modern mobile device and on this device a
+\emph{ReFlowd} mobile application is installed.*
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4898,90 +4905,91 @@ device a \emph{PDaaS} mobile application is installed.*
   After starting the app, the operator needs to establish a connection
   between server and mobile application. Therefore, the operator has to
   scan a QR-Code with the help of that app. The QR-Code is presented to
-  the operator within the management tool of the \emph{PDaaS} running in
-  a browser. Alternatively, the operator inserts her credentials into a
-  form presented by the mobile application.
+  the operator within the management tool of the \emph{ReFlowd} running
+  in a browser. Alternatively, the operator inserts her credentials into
+  a form presented by the mobile application.
 \item
   After the connection is established, the operator can trigger a
   progress that duplicates all her personal data to the device that has
-  just been associated with the \emph{PDaaS}.
+  just been associated with the \emph{ReFlowd}.
 \item
   At this point, one of two paths can follow, depending on whether a
   complete write log for the \emph{personal data}
-  (\protect\hyperlink{data}{see discussion about backup strategies}
-  exists or not.
+  (\protect\hyperlink{data}{see discussion about backup strategies in
+  \emph{Chapter 5 - Data}}) exists or not.
 
   \begin{enumerate}
   \def\labelenumii{\alph{enumii})}
   \tightlist
   \item
-    If \emph{{[}LOG-EXISTS{]}}, query by query the whole log is obtained
-    from the existing storage and is then again executed in
-    chronological order by the query language abstraction, starting with
-    the oldest. The only difference here is that the target storage, on
-    which that query is actually performed on, is located on that newly
-    introduced platform.
+    If \emph{log exists}, query by query the whole log is obtained from
+    the existing storage and is then again executed in chronological
+    order by the query language abstraction, starting with the oldest.
+    The only difference here is that the target storage, on which that
+    query is actually performed on, is located on that newly introduced
+    platform.
   \item
-    If \emph{{[}LOG-NOT-EXISTS{]}}, the situation is more complicated if
+    If \emph{log does not exist}, the situation is more complicated if
     the database systems are not based on exactly the same technology.
     This would mean additional migration software is required. If both
     database systems provide import and export mechanisms that support
     at least one interoperable data format, the migration software can
     leverage these features simply by exporting all the data and saving
     it to the filesystem. The software then transfers the dump to the
-    target environment and triggers the import process. When this is not
-    the case, the software not only needs to be aware of both database
-    systems and their native query language, it also has to have a
-    comprehensive understanding of how their data structuring concepts
-    work, in order to reliably transform one into the another. So, to be
-    more specific, at first the software has to analyse the structure of
-    the source database. Based on this result it might need to perform
-    some configuration on the target database before actually obtaining
-    the data from there. Received data then needs to be transformed into
-    queries that are supported by the target database system. Those
-    transformed queries are transferred to the target environment, where
-    those incoming queries get executed until all data is migrated.
+    target environment and triggers the import process.\\
+    When this is not the case, the software not only needs to be aware
+    of both database systems and their native query language, it also
+    has to have a comprehensive understanding of how their data
+    structuring concepts work, in order to reliably transform one into
+    the other. So, to be more specific, at first the software has to
+    analyse the structure of the source database. Based on this result
+    it might need to perform some configuration on the target database
+    before actually obtaining the data from there. Received data then
+    needs to be transformed into queries that are supported by the
+    target database system. Those transformed queries are transferred to
+    the target environment, where those incoming queries get executed
+    until all data is migrated.
   \end{enumerate}
 \item
   After the duplication process has finished, the operator can decide
-  which PDS the \emph{PDaaS} should use to serve \emph{access requests}
-  and what should happen with the other storage(s).
+  which PDS the \emph{ReFlowd} should use to serve \emph{access
+  requests} and what should happen with the other storage(s).
 \end{enumerate}
 
-To conclude, a migration process like moving \emph{personal data} from
-one platform instance to another can be further simplified and robust if
-a complete query log would exist. It is also worth mentioning that the
-migration process described above is not restricted to exactly this
-source or migration direction. As long as target and source are either a
+To conclude, a migration process like moving personal data from one
+platform to another can be further simplified and robust if a complete
+query log would exist. It is also worth mentioning that the migration
+process described above is not restricted to exactly this source or
+migration direction. As long as target and source are either a
 \emph{server} or a \emph{mobile} platform, any variant is imaginable.
 
-\emph{\textbf{Conclusions:}} Installing a \emph{PDaaS} should be
+\emph{\textbf{Conclusions:}} Installing a \emph{ReFlowd} should be
 straightforward with the least possible effort being spent for
 preparations. Package managers of all popular operating systems should
 offer (semi-)automated installations. Additionally, components
 themselves and the project as whole have to provide detailed
 documentations for various ways of how those parts or the entire system
-need to be installed. Alternatively, \emph{data subjects} might be
-willing to entrust external third parties with hosting a \emph{PDaaS}
-instance for them. In that case, the distributed approach involving a
+need to be installed. Alternatively, data subjects might be willing to
+entrust external third parties with hosting a \emph{ReFlowd} instance
+for them. In that case, the distributed approach involving a
 \emph{mobile} platform might come in handy, so that the actual data is
-not stored somewhere beyond their reach. The \emph{PDaaS} as an open
+not stored somewhere beyond their reach. The \emph{ReFlowd} as an open
 source development encourages anybody who is interested or even wants to
 contribute to checkout the source code of the various implementations,
 get it to run, and play around with it. Therefore, at least the
 components of the \emph{server} platform are required to document what
 other software they depend on, so that the target environment can be
-prepared properly. Aside from hardware, on which the \emph{PDaaS} needs
-to run, the only other requirement is owning an internet domain that is
-registered on a public DNS\footnote{Domain Name System; decentralized
-  open directory that associates readable (domain) names with IP
-  addresses} server and has no subdomains configured yet.
+prepared properly. Aside from hardware, on which the \emph{ReFlowd}
+needs to run, the only other requirement is owning an internet domain
+that is registered on a public DNS\footnote{Domain Name System;
+  decentralized open directory that associates readable (domain) names
+  with IP addresses} server and has no subdomains configured yet.
 
 If a component needs to get segregated from its host environment,
 \emph{containerization} is the recommended technique since it causes
 less overhead compared to \emph{virtualization} and is generally a
 lightweight approach. Although additional abstraction might also
-introduce new problems instead of solving them.
+introduce new problems, in form of complexity, instead of solving them.
 
 \section{Attack Scenarios}\label{attack-scenarios}
 
@@ -4998,15 +5006,15 @@ attacks. The first, and probably most dangerous motivation, appears to
 be \emph{Digital Identity Theft}. Meaning that the attacker impersonates
 the individual that was originally associated with the system. Then data
 consumers are misled into believing that everything the intruder does
-with the \emph{PDaaS} is happening on behalf of the data owner herself.
-Such control can be abused for vicious data changes to harm the physical
-counterpart or the access can simply be exploited to unopposedly extract
-the individual's personal data. The more data the system contains and
-the more purposes it serves, the more power that can be gained by
-controlling it. Those motivations are extrinsically driven by third
-parties, whereas intrinsic and mostly unintended damage can be caused by
-system or human failure, which may lead, for example, to data loss or
-irrecoverable system access.
+with the \emph{ReFlowd} is happening on behalf of the data owner
+herself. Such control can be abused for vicious data changes to harm the
+physical counterpart or the access can simply be exploited to
+unopposedly extract the individual's personal data. The more data the
+system contains and the more purposes it serves, the more power that can
+be gained by controlling it. Those motivations are extrinsically driven
+by third parties, whereas intrinsic and mostly unintended damage can be
+caused by system or human failure, which may lead, for example, to data
+loss or irrecoverable system access.
 
 As the name states, in a man-in-the-middle attack, the transferred
 content of a communication is intercepted and possibly tampered with
@@ -5019,66 +5027,69 @@ connection. This upgrade procedure involves the
 certification based on \emph{asymmetrical cryptography} for
 authentication. The procedure starts i.a. with the server-role
 presenting the client-role with its certificate \emph{while the
-connection is still insecure}. At this critical point, because the
-connection is still insecure, which makes a man-in-the-middle attack
-possible. In order to prevent this and to ensure the trustworthiness of
-the certificate, the client has to verify the certificate. This is done
-by using an installed certificate issued by trusted public CA, which has
-therefore trusted the server's certificate, to examine its chain of
-trust. But since HTTPS connections between data consumers and the system
-use certificates that are issued by the system itself instead of relying
-on CA-certified certificates, there is no chain of commonly trusted
+connection is still insecure}. Therefore, at this critical point, it is
+vulnerable to man-in-the-middle attacks. In order to prevent this and to
+ensure the trustworthiness of the certificate, the client has to verify
+the certificate. This is done by using an installed certificate issued
+by trusted public CA, which has therefore trusted the server's
+certificate, to examine its chain of trust.\\
+But since HTTPS connections between data consumers and the system use
+certificates that are issued by the system itself instead of relying on
+CA-certified certificates, there is no chain of commonly trusted
 entities that can verify the presented certificates. So, in order to
 still trust those certificates despite being sent on a insecure channel
 during the connection establishment, they have to be handed over in
-private sometime before. This is defined in the registration process,
-where the consumer either presents a QR-Code served via publicly
-certified HTTPS, which he is responsible for but can easily be verified
-by the data subject, or submits the registration request including the
-CSR to a URL provided by the data subject that is also reachable only by
-publicly certified HTTPS. The server then issues the certificate and
-sends it - alongside with its own certificate - back to the consumer
-also via publicly certified HTTPS. The consumer is able to trust the
-server certificate and can even pin it to detect fictitious certificates
-he might get presented with. This approach enables not only
-confidentiality and integrity of the data exchanged between consumer and
-data subject, but by enforcing \emph{two-way authentication}
-authenticity of the respective opposite is provides to both parties as
-well. While other HTTP connections via TLS may still rely on
-certificates signed by publicly trusted CAs, regular key change and
-certificate renewal has therefor to be ensured.
+private sometime before. This is defined in the registration process in
+\emph{\protect\hyperlink{access-management}{Chapter 5 - Access
+Management}}, where the consumer either presents a QR-Code served via
+publicly certified HTTPS, which he is responsible for but can easily be
+verified by the data subject, or submits the registration request
+including the CSR to a URL provided by the data subject that is also
+reachable only by publicly certified HTTPS. The server then issues the
+certificate and sends it - alongside with its own certificate - back to
+the consumer also via publicly certified HTTPS. The consumer is able to
+trust the server certificate and can even pin it to detect fictitious
+certificates it might get presented with.\\
+This approach enables not only confidentiality and integrity of the data
+exchanged between consumer and data subject, but by enforcing
+\emph{two-way authentication} authenticity of the respective opposite is
+provides to both parties as well. While other HTTP connections via TLS
+may still rely on certificates signed by publicly trusted CAs, regular
+key change and certificate renewal has therefor to be ensured.
 
 Another aspect of the system that could be vulnerable to certain attacks
 is the authentication mechanism used by the data subject to log into her
-management tool. A JSON Web Token, which contains all session
-information, serves as the key. As mentioned before, any connection
-between components is forced to be established only by TLS. So from this
-perspective the JWT is no less or more secure than any other type of
-credentials. However, this doesn't prevent the token from being usable
-to the attacker once it is stolen. A short expiration date, equal to a
-session timeout, and token invalidation cycle, which is the same as
-forced logout, can reduce the potential harm an incident like this may
-cause. Furthermore the integration of 2-factor authentication hardens
-the authentication procedure. But in order to not introduce another
+management tool. A \emph{JSON Web Token (JWT)}, which contains all
+session information, serves as the key. As mentioned before, any
+connection between components is forced to be established only by TLS.\\
+So from this perspective the JWT is no less or more secure than any
+other type of credentials. However, this doesn't prevent the token from
+being usable to the attacker once it is stolen. A short expiration date,
+equal to a session timeout, and token invalidation cycle, which is the
+same as forced logout, can reduce the potential harm an incident like
+this may cause.\\
+Furthermore the integration of 2-factor authentication hardens the
+authentication procedure. But in order to not introduce another
 dependency, namely an external service providing such functionality,
 2-factor authentication is only supported when a mobile device is
-associated to the \emph{PDaaS}. Further precautions can be taken by
-preventing attackers from getting close to such token, referring to
-\emph{cross-site scripting (XSS)}, to which web-based graphical
-interfaces are vulnerable. Approaching this issue means to abandon
-external resources providing parts of the interface and storing all
-content on the server platform instead, serving it with the system's own
-web server. Even if that means an increased load time caused by the
-browser constraints of how content is loaded, this isn't an issue in
-HTTPS/2 anymore. Even though connections are based on TLS, a
-\emph{Replay Attack}\footnote{delaying or repeating transmissions, so
-  that the recipient is deluded with wrong assumptions, for example,
-  being securely authenticated} is still a possible scenario. Using a
-unique identifier for a JWT (\texttt{jti}) is not able to prevent this
-attack, but if suspicious behaviour is detected, it can help to identify
-the related JWT and act accordingly (e.g invalidate token). Depending on
-the implementation, this strategy may ultimately make the server
-stateful. Thus, a more detailed analysis of such scenario is required to
+associated to the \emph{ReFlowd}.\\
+Further precautions can be taken by preventing attackers from getting
+close to such token, referring to \emph{cross-site scripting (XSS)}, to
+which web-based graphical interfaces are vulnerable. Approaching this
+issue means to abandon external resources providing parts of the
+interface and storing all content on the server platform instead,
+serving it with the system's own web server. Even if that means an
+increased load time caused by the browser constraints of how content is
+loaded, this isn't an issue in HTTPS/2 anymore.\\
+Even though connections are based on TLS, a \emph{Replay
+Attack}\footnote{delaying or repeating transmissions, so that the
+  recipient is deluded with wrong assumptions, for example, being
+  securely authenticated} is still a possible scenario. Using a unique
+identifier for a JWT (\texttt{jti}) is not able to prevent this attack,
+but if suspicious behaviour is detected, it can help to identify the
+related JWT and act accordingly (e.g invalidate token). Depending on the
+implementation, this strategy may ultimately make the server stateful.
+Thus, a more detailed analysis of such scenario is required in order to
 make an adequate decision on this topic.
 
 The approach of running consumer-provided programs locally in order to
@@ -5090,21 +5101,21 @@ restriction of resource access, such as network, filesystem, or
 computing power, to the required minimum. This concept, previously
 introduced as \emph{Supervised Code Execution} forms a containment layer
 preventing security breaches towards the host environment, which
-ultimately means a great security enhancement. Nevertheless, it makes
-involved components and dependencies vulnerable to almost any security
-flaw that they might carry in. Therefore it is vital to keep all related
-software up to date, which probably means enabling automated update
-mechanisms. That again introduces yet another type of attack vector,
-which can be lessened by only using signed and trusted software and
-resources.
+ultimately means a great security enhancement.\\
+Nevertheless, it makes involved components and dependencies vulnerable
+to almost any security flaw that they might carry in. Therefore it is
+vital to keep all related software up to date, which probably means
+enabling automated update mechanisms. That again introduces yet another
+type of attack vector, which can be lessened by only using signed and
+trusted software and resources.
 
-When it comes to personal data, existing social networks and other great
+When it comes to personal data, existing social networks and other large
 platforms founded on user-generated content have already become de facto
 data silos, and thus a single point of failure. A more decentralized
 approach, for example, the concept proposed here, diminishes the impact
 of potential security breaches those platforms may experience. While,
 from an global perspective, this can be valued as a step in the right
-direction, from the perspective of a data subject, a \emph{PDaaS}
+direction, from the perspective of a data subject, a \emph{ReFlowd}
 instance still represents a single point of failure as well. But in
 order to provide maximum control over her own personal data, this design
 choice appears to be the logical consequence. Additionally, several
@@ -5143,7 +5154,7 @@ is already part of the system architecture, facilitated by the
 storage encryption to the \emph{Personal Data Storage}, which would
 result in major security improvements. Therefore, when the personal data
 is located on the server, it should stay secure even if the system is
-compromised. As a result, the system might lose convenience in user
+compromised. As a downside, the system might lose convenience in user
 interaction. It essentially comes down to an act of balance between
 security and convenience. It is hardly possible to simplify or abstract
 security measures without violating other (general) values. The key is
@@ -5152,10 +5163,10 @@ to find the right compromise for the right motive.
 \section{User Interfaces}\label{user-interfaces}
 
 Designing graphical user interfaces is beyond the scope of this work and
-the \emph{PDaaS} specification as well. Nevertheless this section shall
-be understood as a collection of proposed ideas addressing the questions
-of what types of user interfaces the \emph{PDaaS} should provide and
-which features they might need to support.
+the \emph{ReFlowd} specification as well. Nevertheless this section
+shall be understood as a collection of proposed ideas addressing the
+questions of what types of user interfaces the \emph{ReFlowd} should
+provide and which features they might need to support.
 
 The most notable characteristic used to distinguish user interfaces from
 each other are those interfaces that are visible and the ones that
@@ -5174,7 +5185,8 @@ an input is made and submitted, the program then proceeds. The group of
 interfaces whose interactions can be programed and thereby fully
 automated can be called \emph{application programming interfaces (API)}.
 Depending on the transport technologies, it's not unusual that
-\emph{API} interactions consist of just one action causing one reaction.
+\emph{API} interactions consist of just one action causing one
+reaction.\\
 Non-graphical interfaces enable interactions on a lower level. Even
 though they provide more functionality and can be more time efficient,
 they are more rudimentary and often less secure. While \emph{GUIs} are
@@ -5188,14 +5200,14 @@ requests against those interfaces.
 Table \ref{tbl:ui-features} provides a list of features and associates
 the different types of user interfaces mentioned before, which indicates
 if they should be supported by a certain type. It is notable that the
-\emph{GUI} provides the \emph{operator} with a powerful tool Hence it
-requires reliable protection mechanisms (see
-\protect\hyperlink{authentication}{Authentication}). Whereas \emph{API}
-capabilities are very limited, because it's the one interface that the
-\emph{PDaaS} exposes to third parties.
+\emph{GUI} provides the operator with a powerful tool. Hence it requires
+reliable protection mechanisms
+\emph{(\protect\hyperlink{authentication}{Chapter 5 - Authentication})}.
+Whereas \emph{API} capabilities are very limited, because it's the one
+interface that the \emph{ReFlowd} exposes to third parties.
 
 \begin{longtable}[]{@{}lccc@{}}
-\caption{Features that should be supported by the given user interfaces
+\caption{Features supported by the given user interfaces
 \label{tbl:ui-features}}\tabularnewline
 \toprule
 Feature & GUI & CLI & API\tabularnewline
@@ -5220,7 +5232,7 @@ create \& maintain templates (\protect\hyperlink{pi05}{P.I.05}) &
 adjust precision of data (\protect\hyperlink{pi06}{P.I.06}) & \textbf{X}
 & - & \textbf{X}\tabularnewline
 introduce new data structs & \textbf{X} & - & \textbf{X}\tabularnewline
-configure \emph{PDaaS} & \textbf{X} & - & -\tabularnewline
+configure \emph{ReFlowd} & \textbf{X} & - & -\tabularnewline
 import personal data & \textbf{X} & - & \textbf{X}\tabularnewline
 read/access personal data & \textbf{X} & \textbf{X} &
 \textbf{X}\tabularnewline
@@ -5232,9 +5244,9 @@ run supervised code execution & - & \textbf{X} &
 
 The architectural design includes \emph{web} and \emph{mobile}
 platforms. While prioritizing a web-based \emph{GUI}, the management
-tool for the \emph{operator} also needs to be natively implemented for
-common mobile systems (\protect\hyperlink{pviu02}{P.VIU.02}); in this
-case Android and iOS. This enables real-time notifications
+tool for the operator also needs to be natively implemented for common
+mobile systems (\protect\hyperlink{pviu02}{P.VIU.02}); in this case
+Android and iOS. This enables real-time notifications
 (\protect\hyperlink{pi03}{P.I.03}, \protect\hyperlink{pb02}{P.B.02}) on
 mobile platforms, whereas the same feature is added to \emph{web}
 platforms by providing WebSocket-based connections. Since screen sizes
@@ -5260,15 +5272,15 @@ navigation; moving alongside relations just by expanding and folding in
 data items.
 
 Since other parts of the system have to provide the mechanisms for
-increasing or reducing the precision of data due to privacy protection,
-the challenge here is to find the right design concepts for the data
-subject to facilitate those adjustments. Precision adjustments can be
-achieved by either changing the sampling rate in a dataset containing a
-series of data items, or by rounding values to a certain extent.
-Examples are cutting fractional digits of the latitude and longitude
-values in a position, or removing all position information obtained
-between every quarter from a full day tracking period. Whether data
-subjects can choose from an abstracted precision grading (e.g.
+increasing or reducing the \emph{precision} of data due to privacy
+protection, the challenge here is to find the right design concepts for
+the data subject to facilitate those adjustments. Precision adjustments
+can be achieved by either changing the sampling rate in a dataset
+containing a series of data items, or by rounding values to a certain
+extent. Examples are cutting fractional digits of the latitude and
+longitude values in a position, or removing all position information
+obtained between every quarter from a full day tracking period. Whether
+data subjects can choose from an abstracted precision grading (e.g.
 \emph{high}, \emph{mid}, and \emph{low}) or they set specific type or
 unit related filter mechanisms, configurable defaults on a system-wide
 level should be provided by \emph{GUIs} in any case. The following data
@@ -5280,47 +5292,46 @@ information, as mentioned before.
 \emph{\textbf{Conclusions:}} The most important aspect, when interacting
 with something or someone, is being provided with feedback. An action
 typically causes - and is therefore \emph{expected} to cause - a
-reaction. The result is an interaction, unless no reaction occurred.
-
+reaction. The result is an interaction, unless no reaction occurred.\\
 The discussion above outlines the relevance of those interactions for
-the \emph{PDaaS}. Thus, for users and other software to interact with
-the \emph{PDaaS} interfaces are mandatory. Primary characteristics of
+the \emph{ReFlowd}. Thus, for users and other software to interact with
+the \emph{ReFlowd} interfaces are mandatory. Primary characteristics of
 those interfaces are complete functionality, security precautions and
 restrictions, as well as comprehensive documentation. Visual user
 interfaces also need to provide reliable and adaptive rendering, a
 consistent and encouraging interaction design. \emph{GUIs} need to be
 provided for all front end platforms, primarily to provide an efficient
 user experience for the operator. The operator is the only role with
-permissions to access a \emph{GUI}. Components on the \emph{server}
-platform should provide \emph{CLIs}, at least when no other technical
-option exist to interact with them. Also accessing the database from
-command line could be appreciated at some point. APIs are mostly meant
-for data consumers to interact with the \emph{PDaaS}, and perhaps for
-automated data contribution (based on the \emph{operator} role;
-e.g.~browser plugin). \emph{Web} platforms might use those \emph{APIs}
-as well. In any case, \emph{APIs} must be separated according to the
-\emph{roles}.
+permissions to access a \emph{GUI}.\\
+Components on the \emph{server} platform should provide \emph{CLIs}, at
+least when no other technical option exist to interact with them. Also
+accessing the database from command line could be appreciated at some
+point. APIs are mostly meant for data consumers to interact with the
+\emph{ReFlowd}, and perhaps for automated data contribution (based on
+the operator role; e.g.~browser plugin). \emph{Web} platforms might use
+those \emph{APIs} as well. In any case, \emph{APIs} must be separated
+according to the roles.
 
-These are all vital characteristics whose details need to be addressed
-by the \emph{specification}. Their implementation details are not the
-concern of this specification, as long as every stated requirement is
-being acknowledged.
+These are all vital characteristics that need to be outlined in the
+\emph{specification}. Their implementation details are not the concern
+of this specification, as long as every stated requirement is being
+acknowledged.
 
 \chapter{Specification}\label{specification}
 
-Based on all ideas from preceding discussions a first draft of the
-\emph{PDaaS} Specification has been developed, which can be found as an
-\protect\hyperlink{spec-draft}{attachment} to this work. Not every
-concluded decision has yet been applied but various important aspects
-are already outlined, so that first implementations can start to be
-built upon them, but it still leaves much room for followup work. It
-must be recognized though, that in its current state it has no claim of
-completeness, continuity or accuracy at this time. Frequent changes are
-to be expected in the future.
+Based on all preceding discussions, a first draft of the \emph{ReFlowd}
+Specification has been developed, which can be found as an
+\protect\hyperlink{reflowd-working-draft}{attachment} to this work. Not
+every conclusion has been applied, but various important aspects are
+already outlined so that first implementations can start to be built
+upon them. The draft leaves room for followup work.\\
+It must be recognized, however, that in its current state it has no
+claim of completeness, continuity or accuracy. Frequent changes are to
+be expected in the future.
 
 \chapter{Conclusion}\label{conclusion}
 
-The \emph{Right to privacy} is a fundamental right, found in numerous
+The \emph{Right to privacy} is a fundamental right found in numerous
 national constitutions and confirmed by court decisions, stating that:
 
 \begin{quote}
@@ -5352,7 +5363,8 @@ endeavors to be as trustworthy and secure as possible. The specification
 for such a service is hereby available as a first \emph{Working Draft}
 and is attached to this work.
 
-\section{Ethical \& Social Relevance}\label{ethical-social-relevance}
+\hypertarget{ethical-social-relevance}{\section{Ethical \& Social
+Relevance}\label{ethical-social-relevance}}
 
 In \emph{Chapter 2} -
 \emph{\protect\hyperlink{personal-data-in-the-context-of-the-big-data-movement}{Personal
@@ -5360,11 +5372,11 @@ Data in the context of the Big Data Movement}} and
 \emph{\protect\hyperlink{personal-data-as-a-product}{Personal Data as a
 Product}} it is described what impact personal data has in today's
 society and, in particular, the economy. Data as a commercial good has
-led to humans become the product. Those, who collect, analyze and
+led to humans becoming the product. Those, who collect, analyze and
 interpret personal data using algorithms to uncover hidden information
 that may help determine people's motives and patterns in order to
 forecast their behaviour, with the purpose of improving their services
-and ultimately increase revenue. What is often overlooked is that
+and ultimately increasing revenue. What is often overlooked is that
 correlation is no proof of causation. Furthermore, those algorithms
 naturally inherit the bias of their creators. Together, this leads to
 privacy violations, and worse, discrimination.
@@ -5386,46 +5398,48 @@ as the platform for a global community - our society.
 While trying to prevent our personal data from being read by men in the
 middle during transfer (HTTPS), we have missed cutting out the
 middle-men between our data and those who are utilizing them. Thus,
-every individual must be re-enabled, so that they can fully decide on
-their own what level of privacy they are willing to share and under what
-conditions other parties are permitted to access their personal data.
-The hereby software proposed can help to counter massive and unimpeded
-data collection and minimize the possibility of discrimination. However
-these issues can be addressed only partially by these means. As
-mentioned before, bias, causing discrimination, is naturally inherited
-and therefore needs to be acknowledged by raising awareness and teaching
-involved authors and developers about these issues and how to avoid them
-or at least address them properly. For example, by reducing questionable
-data items, considering possible consequences for data subjects of their
-interpretations, or by keeping indirect correlations in mind. Only both
-approaches combined, can help to remove the greater part of bias,
-embedded not only in those machines but in all of us.
+every individual must be re-enabled, so that they can fully decide, on
+their own, what level of privacy they are willing to share and under
+what conditions other parties are permitted to access their personal
+data. The software proposed here can help to counter massive and
+unimpeded data collection and minimize the possibility of
+discrimination. However these issues can be addressed only partially by
+these means. As mentioned before, bias, causing discrimination, is
+naturally inherited and therefore needs to be acknowledged by raising
+awareness and teaching involved authors and developers about these
+issues and how to avoid them or at least address them properly. For
+example, by reducing questionable data items, considering possible
+consequences for data subjects of their interpretations, or by keeping
+indirect correlations in mind. Only a combination of both approaches can
+remove the greater part of bias, embedded not only in those machines but
+in all of us.
 
 \section{Challenges \& Solutions}\label{challenges-solutions}
 
 As touched on before, the motivation for this work was to overcome
 discrimination and privacy violation experienced by data owners and
 caused through large scale data collection, to prevent data from being
-collected in the fist place. This turns out to be a major challenge,
-because third parties still require personal data, at least for basic
-processes such as ordering or payment (e.g address), and therefore raw
-data needs to be transmitted, which is, by the nature of information
-technology, a process of duplicating data. Thus, the definition of
-ownership, at least on a technical level, cannot be applied anymore (see
-\emph{\protect\hyperlink{def--ownership}{Chapter 2 - Digital Identity,
-Personal Data and Ownership}}). Where legislation has already failed to
-address the issues mentioned above, technology has its own limitations.
-Certain scenarios, such as creditworthiness checks or calculating
-recommendation, are able - from a conceptional perspective - to support
-\emph{Supervised Code Execution}, which allows the data to stay within
-the \emph{PDaaS}. However, even when data cannot be completely contained
-in the \emph{PDaaS}, being able to control access, or have an overview
-of who has access to what data, is already a major advantage.
+collected in the first place. This turns out to be a major challenge,
+because third parties may still require to possess personal data, at
+least for basic processes such as ordering or payment (e.g address), and
+therefore raw data needs to be transmitted, which is, by the nature of
+information technology, a process of duplicating data. Thus, the
+definition of ownership, at least on a technical level, cannot be
+applied anymore \emph{(\protect\hyperlink{def--ownership}{Chapter 2 -
+Digital Identity, Personal Data and Ownership})}. Where legislation has
+already failed to address the issues mentioned above, technology has its
+own limitations. Certain scenarios, such as creditworthiness checks or
+calculating recommendation, are able - from a conceptional perspective -
+to support \emph{Supervised Code Execution}, which allows the data to
+stay within the \emph{ReFlowd}. However, even when data cannot be
+completely contained in the \emph{ReFlowd}, being able to control
+access, or have an overview of who has access to what data, is already a
+major advantage.
 
-The \emph{PDaaS} may be valued as the digital representation of a human
-being. Hence, third parties, who are interacting with the digital self,
-want to be able to trust, rely upon, and maybe even verify, that the
-received or accessed data actually relates to the represented
+The \emph{ReFlowd} may be valued as the digital representation of a
+human being. Hence, third parties, who are interacting with the digital
+self, want to be able to trust, rely upon, and maybe even verify, that
+the received or accessed data actually relates to the represented
 individual. Several approaches to address this have been discussed in
 \emph{\protect\hyperlink{data-reliability}{Chapter 5 - Data
 Reliability}}. The proposed solution was a procedure involving the
@@ -5454,7 +5468,7 @@ in those queries during the mirroring process.
 
 While reviewing the different scenarios described in
 \emph{\protect\hyperlink{scenarios}{Chapter 1}} and comparing them with
-the established capabilities of the \emph{PDaaS}, it can be observed
+the established capabilities of the \emph{ReFlowd}, it can be observed
 that the developed system is able to provide a reasonable foundation for
 all of them. Even though it requires the willingness of all sorts of
 third parties to integrate with the proposed specification and a
@@ -5463,17 +5477,17 @@ obtained and utilized until now. How the industry might respond to such
 fundamental changes is an open question, but this is a secondary issue.
 First, the focus must be on increasing the adoption rate of data
 subjects. Problems and benefits, as mentioned in the
-\emph{\href{ethical-social-relevance}{Ethical \& Social Relevance}},
-must be outlined. It is vital to create a trustworthy and easy-to-use
-system, which can be archived through public development and an active
-and healthy community. Ultimately the result has to provide a great user
-experience, which primarily refers to installation and setup procedures
-as well as data management and a seamless mobile integration, which
-emphasizes the benefit of \emph{`carrying your data with you'}. If the
-acceptance has reached a critical minimum, \emph{data subjects} might be
-able to demand potential \emph{data consumers} to start adopting the
-specification if they still want to be able to access their personal
-data.
+\emph{\protect\hyperlink{ethical-social-relevance}{Ethical \& Social
+Relevance}}, must be outlined. It is vital to create a trustworthy and
+easy-to-use system, which can be archived through public development and
+an active and healthy community. Ultimately the result has to provide a
+great user experience, which primarily refers to installation and setup
+procedures as well as data management and a seamless mobile integration,
+which emphasizes the benefit of \emph{`carrying your data with you'}. If
+the acceptance has reached a critical minimum, \emph{data subjects}
+might be able to demand potential \emph{data consumers} to start
+adopting the specification if they still want to be able to access their
+personal data.
 
 \section{Business Models \&
 Monetization}\label{business-models-monetization}
@@ -5481,8 +5495,8 @@ Monetization}\label{business-models-monetization}
 An imaginable opportunity for a viable business model is to provide
 commercial services around the proposed system. Developing and
 implementing the specification yields expertise, that may qualify, for
-example, to offer high-quality hosting of \emph{PDaaS} instances for end
-users, or to customize implementations in order to adapt to special
+example, to offer high-quality hosting of \emph{ReFlowd} instances for
+end users, or to customize implementations in order to adapt to special
 scenarios, or to assist with integrations. Even though the underlying
 technology is open source, history shows various examples of successful
 businesses based on open source technology, such as
@@ -5500,24 +5514,26 @@ parties, on their own terms. This can mean to actually hand over the raw
 data, but also to simply license the access, which is the business model
 of data brokers. Of course, this requires further specification,
 additional infrastructure i.a. for anonymization and payment transfer,
-and probably a marketplace as well. But for now let's take a step back
-and reevaluate this idea. A negative scenario may result in people
-trying to make a living by selling all their data to everybody, or
-worse, having no other option than doing so. In contrast, other
-individuals, who don't want to monetize their digital identity could
-therefore be discriminated. Or data consumers who previously depended on
-gratis data, for whatever reason and however obtained, may now run dry,
-because if people are able to charge for their data, they do it. The
-market may be not stable and data becomes inflationary. On the other
-hand, a positive scenario may bring more quality data to various places
-where they are eagerly needed to improve our social co-existence.
-Studies and research might be able to reveal otherwise hidden solutions
-(e.g.~health care, public sector, government, etc) that could be
-commonly relevant. Furthermore this approach would cut out current
-middle-men whose business model is to collect and monetize personal
-data, or at least it could result in a fair revenue share between them
-and data owners. This could also lead to data consumers become more
-aware of what data they collect and what parts they actually need.
+and probably a marketplace as well. But let's take a step back for a
+moment and reevaluate this idea.\\
+A negative scenario may result in people trying to make a living by
+selling all their data to everybody, or worse, having no other option
+than doing so. In contrast, other individuals, who don't want to
+monetize their digital identity could therefore be discriminated. Or
+data consumers who previously depended on gratis data, for whatever
+reason and however obtained, may now run dry, because if people are able
+to charge for their data, they do it. The market may be not stable and
+data becomes inflationary.\\
+On the other hand, a positive scenario may bring more quality data to
+various places where they are eagerly needed to improve our social
+co-existence. Studies and research might be able to reveal otherwise
+hidden solutions (e.g.~health care, public sector, government, etc) that
+could be commonly relevant. Furthermore this approach would cut out
+current middle-men whose business model is to collect and monetize
+personal data, or at least it could result in a fair revenue share
+between them and data owners. This may also lead to data consumers
+become more aware of what data they collect and what parts they actually
+need.\\
 Either way, those are all just excerpts of possible outcomes, and a
 mixture of both directions is conceivable. In conclusion, certain
 scenarios may need to be restricted by law. For example, an insurance
@@ -5553,28 +5569,30 @@ the lack of control of our own personal data while it's being collected.
 The existence and utilization of data analytics per se is a huge
 advantage for our society because of the ability to discover information
 and relationships we would otherwise not be able to uncover. This allows
-us to draw conclusions and thereby evolve. The \emph{PDaaS} is a tool
+us to draw conclusions and thereby evolve. The \emph{ReFlowd} is a tool
 that provides a foundation to do exactly that, but on a smaller and
 individual scope, and only if we choose to do so. However, this requires
 an additional stack of components to be integrated with the
-\emph{PDaaS}, i.a. data mining and machine learning.
+\emph{ReFlowd}, i.a. \emph{Data Mining} and \emph{Machine Learning}.
 
 The concept of \emph{Supervised Code Execution} can be enhanced by
 migrating the \emph{Personal Data Storage (PDS)} and execution to a
 \emph{Blockchain}-based approach
 {[}\protect\hyperlink{ref-paper_2015_decentralizing-privacy-using-blockchain-to-protect-personal-data}{161}{]}
-as proposed in the \href{http://www.enigma.co}{Enigma} Project. In
-general the idea of encrypting the \emph{PDS} might be a reasonable
-step, although it would introduce new challenges. Therefore it requires
-a reevaluation of its necessity. During concept development, it appeared
-necessary to define an additional role. The so called \emph{data
-contributors} can be a plugin, client, or even just a dedicated account
-that is authorized by the \emph{operator} to only push data into the
-\emph{PDaaS}. This concept was merely touched on and requires additional
-work invested to outline the details. Two major, but rather independent,
-enhancements, that seem natural to include, are an \emph{OpenID
-Provider}, and support of 2-Factor-Authentication for the individual
-represented by the \emph{PDaaS}.
+as proposed in the \href{http://www.enigma.co}{Enigma} Project. Further
+on, idea of encrypting the \emph{PDS} might be a reasonable step,
+although it would introduce new challenges. Therefore it requires a
+reevaluation of its necessity.\\
+During concept development, it appeared necessary to define an
+additional role. The so called \emph{data contributors} can be a plugin,
+client, or even just a dedicated account that is authorized by the
+\emph{operator} to only push data into the \emph{ReFlowd}. This concept
+was merely touched on and requires additional work invested to outline
+the details.\\
+Two major, but rather independent, enhancements, that seem natural to
+include, are an \emph{OpenID Provider}, and support of
+2-Factor-Authentication for the individual represented by the
+\emph{ReFlowd}.
 
 The next steps to push development forward are, finalizing the
 specification by outlining each component so that the minimum viable set
@@ -5592,13 +5610,12 @@ development, but they are worth investing in, in order to reach the
 overall goals of increasing privacy and empowering individuals to
 control their own data.
 
-\hypertarget{spec-draft}{\chapter*{\texorpdfstring{Spec
-\emph{(Draft)}}{Spec (Draft)}}\label{spec-draft}}
-\addcontentsline{toc}{chapter}{Spec \emph{(Draft)}}
+\hypertarget{reflowd-working-draft}{\chapter*{\texorpdfstring{ReFlowd
+\emph{(Working
+Draft)}}{ReFlowd (Working Draft)}}\label{reflowd-working-draft}}
+\addcontentsline{toc}{chapter}{ReFlowd \emph{(Working Draft)}}
 
 \hfill~ \emph{Version 0.1.0}
-
-\pagenumbering{Roman} \setcounter{page}{6} \pagestyle{plain}
 
 \setcounter{section}{0}
 \renewcommand*{\theHsection}{chY.\the\value{section}}
@@ -5613,10 +5630,11 @@ individual, is primarily meant. This individual manages all data
 relating to her in an online platform operated by her, which exposes a
 service making those data selectively accessible to third parties that
 might be interested. Meanwhile, the system tries to ensure that no
-personal data ever leaves the system. The overall flexibility and
-portability of the system enables the individual to store her data on a
-mobile phone, for example, so that she is able to carry all her personal
-data along while providing the access to her data at all times.
+personal data ever leaves the system.\\
+The overall flexibility and portability of the system enables the
+individual to store her data on a mobile phone, for example, so that she
+is able to carry all her personal data along while providing the access
+to her data at all times.
 
 \subsection*{Notation and Conventions}\label{notation-and-conventions}
 \addcontentsline{toc}{subsection}{Notation and Conventions}
@@ -5656,8 +5674,8 @@ serves a unique purpose within the system
 \item[\protect\hypertarget{spec_term_operator}{}{Operator}:]
 data subject and owner, not necessarily provider or host; individual,
 represented by the system and whose personal data can be accessed
-through the system; also referred to as \emph{data controller},
-\emph{data subject}, or \emph{data owner}
+through the system; also referred to as \emph{(data) controller},
+\emph{(data) subject}, or \emph{(data) owner}
 \item[\protect\hypertarget{spec_term_third-party}{}{Third Party}:]
 external entity or vendor, who is yet to become registered as a
 \emph{consumer} to the system
@@ -5696,10 +5714,11 @@ encourages an individual to manage and maintain all the data relating to
 her in one place, and on the other hand, enables third parties to access
 such data if they are permitted by the individual to do so, preferably
 through supervised code execution instead of just handing over the raw
-data items. The result is a one-to-many relation between the data owner
-- the individual - and all those who might require some data to, for
-example, process a purchase initiated by the operator or make a proper
-decision on her medical treatment.
+data items.\\
+The result is a one-to-many relation between the data owner - the
+individual - and all those who might require some data to, for example,
+process a purchase initiated by the operator or make a proper decision
+on her medical treatment.
 
 The system architecture is designed with flexibility and portability in
 mind while still preserving simplicity and security. The result supports
@@ -5835,12 +5854,12 @@ data MUST solely consist of the query language provided by
 \begin{figure}
 \centering
 \includegraphics[width=12.00000cm]{./assets/figures/spec_arch_simplifierd.png}
-\caption{System Architecture,
-simplified\label{fig:spec_arch_simplifier}}
+\caption{System Architecture
+(simplified)\label{fig:spec_arch_simplifier}}
 \end{figure}
 
-\subsection{General Process
-Description}\label{general-process-description}
+\subsection{Abstract Process
+Description}\label{abstract-process-description}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -5899,7 +5918,7 @@ validation procedure
 {[}1:n{]}}\label{storage-connectorpersonal-data-storage-1n}
 
 the \emph{Storage Connector} MUST be able to access at least one or more
-\emph{Personal Data Storage}, regardless of its location (platform)
+\emph{Personal Data Storages}, regardless of their location (platform)
 
 \subsection{Depending Technologies and
 Standards}\label{depending-technologies-and-standards}
@@ -6265,11 +6284,11 @@ socket connection for web-based GUIs. If a browser does not support this
 natively, a fallback SHALL be provided by the GUI. Furthermore, those
 GUIs SHOULD be served with HTTP/2.
 
-The subsequent examples show two Nginx configurations for the \emph{web
-server} component, implementing the specifications from above.
+The subsequent examples show two \emph{Nginx} configurations for the
+\emph{web server} component, implementing the specifications from above.
 
 \textbf{\protect\hypertarget{spec_code-01_nginx-config-web-gui}{}{Code
-01: web server configuration for a web-based GUI (excerpt)}:}
+01: Web server configuration for a web-based GUI (excerpt)}:}
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
@@ -6305,7 +6324,7 @@ server} component, implementing the specifications from above.
 ~~
 
 \textbf{\protect\hypertarget{spec_code-01_nginx-config-consumer-endpoint}{}{Code
-02: web server configuration for a consumer endpoint (excerpt)}:}
+02: Web server configuration for a consumer endpoint (excerpt)}:}
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
@@ -6362,14 +6381,14 @@ MUST generate a key-pair and sign it by itself. With the resulting
 certificate, the system becomes a private Certificate Authority
 primarily responsible for signing certificates that are required for
 every endpoint and maybe even for connections between mobile and server
-platforms. The key-pair for a specific endpoint is then used to issue a
-certificate based on the \emph{Certificate Signing Request (CSR)}
-supplied by the consumer who is associated to that very endpoint. The
-certified certificate and the endpoint's certificate MUST then be
-transferred back to the consumer on a secure channel, which the consumer
-is responsible to provide (e.g.~HTTP over TLS certified by trusted
-public CA, or by a self-signed certificate provided with the
-registration).
+platforms.\\
+The key-pair for a specific endpoint is then used to issue a certificate
+based on the \emph{Certificate Signing Request (CSR)} supplied by the
+consumer who is associated to that very endpoint. The certified
+certificate and the endpoint's certificate MUST then be transferred back
+to the consumer on a secure channel, which the consumer is responsible
+to provide (e.g.~HTTP over TLS certified by trusted public CA, or by a
+self-signed certificate provided with the registration).
 
 In order to use TLS for bidirectional authentication, not only the
 client (consumer) MUST be able to verify the server's (endpoint)
@@ -6433,8 +6452,7 @@ header):
   \texttt{"A256KW"} (recommended key length: 2048 bits)
 \end{itemize}
 
-\hypertarget{system-architecture}{\subsection{System
-Architecture}\label{system-architecture}}
+\subsection{System Architecture}\label{system-architecture}
 
 The centralized version of the system architecture places every
 component on the server platform. Even the web-based management tool,
@@ -6468,9 +6486,8 @@ manage all containers.
 
 When running programs on the server platform provided by consumers, it
 is REQUIRED to execute them only after putting them into an application
-container (see \protect\hyperlink{system-architecture}{System
-Architecture}). This implies that the container is provisioned first,
-and then invoked by providing the requested data items as arguments. The
+container. This implies that the container is provisioned first, and
+then invoked by providing the requested data items as arguments. The
 container MUST NOT be allowed to access the host's filesystem or
 network. Before running the container with the actual data, it MUST be
 executed several times with generated test data. If the program is
@@ -6490,7 +6507,7 @@ defined in \protect\hyperlink{data-and-types}{Data and Types})}:
 \item
   Access Requests (regardless of its success)
 \item
-  failed Access Verifications
+  Failed Access Verifications
 \item
   Registrations of consumers (regardless of its success)
 \item
@@ -6500,7 +6517,7 @@ defined in \protect\hyperlink{data-and-types}{Data and Types})}:
 \item
   SCE (regardless of its success)
 \item
-  any third party request attempt arriving at the web server
+  Any third party request attempt arriving at the web server
 \item
   Server Resources (continually)
 \end{itemize}
@@ -6508,13 +6525,13 @@ defined in \protect\hyperlink{data-and-types}{Data and Types})}:
 To make sure that these data are collected, other components MUST
 provide the \emph{Tracker} with such information. Therefore, components
 such as \emph{Operator API}, \emph{Permission Manager} and \emph{Web
-server}, MUST push information towards the \emph{Tracker}. By performing
-pattern recognition \& anomaly detection, the \emph{Tracker} is then
-able to recognize abnormal behaviour or occurrences, for example, by
-monitoring the IP of an access request origin, which normally should not
-change very often. Such data MAY also help to prevent spam requests. If
-the \emph{Tracker} finds suspicious patterns, the operator MUST be
-notified via email and push notification.
+server}, MUST push information towards the \emph{Tracker}.\\
+By performing pattern recognition \& anomaly detection, the
+\emph{Tracker} is then able to recognize abnormal behaviour or
+occurrences, for example, by monitoring the IP of an access request
+origin, which normally should not change very often. Such data MAY also
+help to prevent spam requests. If the \emph{Tracker} finds suspicious
+patterns, the operator MUST be notified via email and push notification.
 
 \section{Protocols}\label{protocols}
 
@@ -6742,8 +6759,8 @@ the system, he MUST first request those permission(s).}
       \emph{operator} creates new \emph{Permission Profile} by either
       applying a prepared template/draft, importing configurations from
       an existing profile, or filling out an empty, or pre-filled with
-      provided information, profile. When saving the new profile, it
-      gets associated to the requester's \emph{endpoint}
+      provided information, profile When saving the new profile, it gets
+      associated to the requester's \emph{endpoint}
     \item
       respond which data items are permitted to be accessed, how often,
       and how long this permission lasts
@@ -7053,7 +7070,7 @@ obtained from the PDS.}
   \begin{itemize}
   \tightlist
   \item
-    it's empty
+    it is empty
 
     \begin{enumerate}
     \def\labelenumii{\arabic{enumii})}
@@ -7124,8 +7141,8 @@ obtained from the PDS.}
 The system is aware of two different classes of data - personal data and
 system data. The latter are stored within the \emph{Persistence Layer}
 and represent the current state of the system, whereas all the personal
-data, which reflects the Digital Identity of the operator, is maintained
-and also provided by the \emph{Personal Data Store}.
+data, which reflects the \emph{Digital Identity} of the operator, is
+maintained and also provided by the \emph{Personal Data Store}.
 
 \subsection{Personal Data}\label{personal-data}
 
@@ -7447,7 +7464,7 @@ Service}
   \texttt{sce} (supervised code execution)
 \item
   \texttt{program:\ String\ \textbar{}\textbar{}\ Object} - {[}MUST if
-  \texttt{type\ ==\ \textquotesingle{}sec\textquotesingle{}}{]}
+  \texttt{type\ ==\ \textquotesingle{}sce\textquotesingle{}}{]}
   filesystem path or file content that facilitates supervised code
   execution
 \item
@@ -7669,14 +7686,15 @@ The lists of GUI features implicitly define what the \emph{Operator API}
 must be capable of, whereas interactions originated by third parties and
 data consumers are described below. These descriptions show the behavior
 of all major API endpoints that are required to access personal data,
-which is hosted by the system. The payload MUST be transmitted with HTTP
-requests, secured by TLS, declared as \emph{POST} method, unless
-otherwise outlined. It MUST be serialized in JSON and constitute the
-complete request body. When sending data originating from certain
-formats (e.g.~PEM-formatted file content or binary streams) as string
-values that are a part of a URL or JSON, \emph{bas64url} MUST be used
-for encoding. Furthermore, it is to be noted, that requests are
-asynchronous and MAY take several hours up to a few days to be answered.
+which is hosted by the system.\\
+The payload MUST be transmitted with HTTP requests, secured by TLS,
+declared as \emph{POST} method, unless otherwise outlined. It MUST be
+serialized in JSON and constitute the complete request body. When
+sending data originating from certain formats (e.g.~PEM-formatted file
+content or binary streams) as string values that are a part of a URL or
+JSON, \emph{base64url} MUST be used for encoding. Furthermore, it is to
+be noted, that requests are asynchronous and MAY take several hours up
+to a few days to be answered.
 
 \paragraph{Registration Request}\label{spec_api_registration-request}
 
@@ -7841,7 +7859,7 @@ not reject access.
   \texttt{sce}
 \item
   \texttt{program:\ Object} - {[}MUST if
-  \texttt{type\ ==\ \textquotesingle{}sec\textquotesingle{}}{]}
+  \texttt{type\ ==\ \textquotesingle{}sce\textquotesingle{}}{]}
 
   \begin{itemize}
   \tightlist
@@ -7952,8 +7970,8 @@ Recommendations}
 \item
   A vendor, who hosts for multiple data subjects, one system instance
   each, SHOULD NOT locate all of them in one environment, but rather
-  deploy another operating system virtualization for every instance, or
-  separate them physically on different machines.
+  deploy a distinct operating system (virtualization) for every
+  instance, or separate them physically on different machines.
 \item
   The host environment (for the system's server components) SHOULD offer
   measures for detecting security violations and breaches.
@@ -8031,10 +8049,10 @@ query in SPARQL}:}
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
 \NormalTok{# }\KeywordTok{query} \DecValTok{1}\NormalTok{: obtain }\KeywordTok{the} \FunctionTok{first} \KeywordTok{and} \FunctionTok{last}\NormalTok{ name fof }\KeywordTok{data}\NormalTok{ subject}
-\NormalTok{PREFIX person: <http://pdaas.tld/schemas/person>}
+\NormalTok{PREFIX person: <http://reflowd.tld/schemas/person>}
 
 \KeywordTok{SELECT}\NormalTok{ $firstname $lastname}
-\KeywordTok{FROM}\NormalTok{ <https://unique-consumer-endpoint.pdaas.tld/sparql/profile>}
+\KeywordTok{FROM}\NormalTok{ <https://unique-consumer-endpoint.reflowd.tld/sparql/profile>}
 \KeywordTok{WHERE}\NormalTok{ \{}
 \NormalTok{    $person person}\CharTok{:firstname}\NormalTok{ $firstname .}
 \NormalTok{    $person person}\CharTok{:lastname}\NormalTok{ $lastname .}
@@ -8043,10 +8061,10 @@ query in SPARQL}:}
 
 \NormalTok{# }\KeywordTok{query} \DecValTok{2}\NormalTok{: obtain }\KeywordTok{all}\NormalTok{ bank accounts that are available }\KeywordTok{for} 
 \NormalTok{# }\KeywordTok{online}\NormalTok{ payment}
-\NormalTok{PREFIX bank-account: <http://pdaas.tld/schemas/bank-account>}
+\NormalTok{PREFIX bank-account: <http://reflowd.tld/schemas/bank-account>}
 
 \KeywordTok{SELECT}\NormalTok{ $accountId $bankName $paymentMethod}
-\KeywordTok{FROM}\NormalTok{ <https://unique-consumer-endpoint.pdaas.tld/sparql/finance>}
+\KeywordTok{FROM}\NormalTok{ <https://unique-consumer-endpoint.reflowd.tld/sparql/finance>}
 \KeywordTok{WHERE}\NormalTok{ \{}
 \NormalTok{    $bank-account bank-account}\CharTok{:payment}\NormalTok{-method }\OtherTok{"online-service"}\NormalTok{ .}
 \NormalTok{    $bank-account bank-account}\CharTok{:payment}\NormalTok{-method $paymentMethod .}
@@ -8125,7 +8143,7 @@ query in GraphQL}:}
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
-\NormalTok{# URL}\OperatorTok{:}\NormalTok{ https}\OperatorTok{:}\CommentTok{//unique-consumer-endpoint.pdaas.tld/graphql}
+\NormalTok{# URL}\OperatorTok{:}\NormalTok{ https}\OperatorTok{:}\CommentTok{//unique-consumer-endpoint.reflowd.tld/graphql}
 
 \NormalTok{query }\OperatorTok{\{}
 \NormalTok{    profile }\OperatorTok{\{}
@@ -8167,7 +8185,7 @@ Result of Code 03 in JSON}:}
 
 \emph{NOTICE: schema notation is based on the rules underpinning the
 schema definition provided by the SimpleSchema project
-{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{162}{]}.}
+{[}\protect\hyperlink{ref-web_2017_repo_node-simple-schema}{162}{]}}
 
 \textbf{\protect\hypertarget{code-05_struct_profile}{}{Code 05: Struct -
 Profile (example)}}
@@ -8290,10 +8308,10 @@ Communications (2015), pp.~1--12 ---~ISBN~978-952-243-455-5
 {[}12{]} \emph{Meeco how it works}. URL
 \url{https://meeco.me/how-it-works.html}. - retrieved 2016-11-09
 
-\hypertarget{ref-repo_2016_pdaas-spec}{}
-{[}13{]} \emph{Open specification of the concept called personal data as
-a service (pdaas). GitHub}. URL
-\url{https://github.com/lucendio/pdaas_spec}. - retrieved 2016-11-11
+\hypertarget{ref-repo_2016_reflowd-spec}{}
+{[}13{]} \emph{Open specification of the concept called data reservoir
+flow control (reflowd). GitHub}. URL
+\url{https://github.com/lucendio/reflowd_spec}. - retrieved 2016-11-11
 
 \hypertarget{ref-report_2014_data-brokers}{}
 {[}14{]} \textsc{USA, Federal Trade Commission}: \emph{Data brokers},

@@ -13,7 +13,7 @@ sequentially. Those very distinct groups of scenarios would make it possible to 
 authentication mechanisms that don't necessarily have a lot in common.
 
 With respect to the requirements ([S.A.01](#sa01)), the most appropriate way to communicate with the 
-*PDaaS* over the internet would be by using *[HTTP](#def--http)*. Thus, to preserve confidentiality 
+*ReFlowd* over the internet would be by using *[HTTP](#def--http)*. Thus, to preserve confidentiality 
 on all in- and outgoing data ([S.P.01](#sp01)) the most convenient solution in this case is to use 
 *HTTP* on top of the asymmetric cryptography based *TLS* (HTTPS). 
 During connection establishment, the initial handshake requires a certificate issued and signed by a 
@@ -71,7 +71,7 @@ used to authenticate all subsequent requests, which can be considered a disadvan
 Another aspect of resources are the computations based on asymmetric cryptography, which are usually 
 slower than the ones based on symmetric cryptography 
 [@book_2014_chapter-10-5-asym-random-number-gen], but since there are no timing constraints when 
-interacting with the *PDaaS*, regardless of whether it's external communication with data consumers 
+interacting with the *ReFlowd*, regardless of whether it's external communication with data consumers 
 or internal between components, parameters, that influence the level of security 
 the underlying cryptographic procedures provide, can be as costly as the system resources allow them
 to be, thus the level of security can be increased.  
@@ -92,7 +92,7 @@ relates to the entity but doesn't have to be private, and another part that only
 has. Typically that's a username or email address and a password or some other secret bit sequence 
 (e.g. stored on and provided by a USB stick).  
 An *[eID card](#def--eid-card)* could possibly be used as secret (or private key) as well. 
-Suitable use cases for such cards are (A) to let the operator login to the *PDaaS* management tool 
+Suitable use cases for such cards are (A) to let the operator login to the *ReFlowd* management tool 
 or (B) to authorize *access requests*. How the actual login process (A) would look like partially 
 depends on the *eID card*'s implementation, but in general, both are reasonable scenarios to utilize
 an *eID card*. When considering the german implementation *(nPA)* as an example, authenticating to 
@@ -115,7 +115,7 @@ supporting the *nPA*, which would not only add an additional dependency, but als
 Both scenarios are fairly similar, insofar as they would use the same token (eID card) to initially 
 authenticate to the system.
 
-The concept of web tokens is fairly straightforward to integrate into the *PDaaS*. But since web
+The concept of web tokens is fairly straightforward to integrate into the *ReFlowd*. But since web
 tokens ensure integrity and optional confidentiality only of their own carriage, not for the entire
 HTTP payload, the two requirements need to be addressed separately. Serving HTTP over *TLS* solves
 that issue though.
@@ -123,19 +123,19 @@ For connections that use a web token, it should be sufficient to rely on the pub
 information required for the actual authentication are provided by the token itself. However, the
 situation is different if *two-way authentication* is used instead. In this case, the system has to
 provide its own *PKI* including a Certificate Authority that issues certificates for data consumers,
-because not only the *endpoints* on the *PDaaS* (server) need to be certified, all data consumers 
-(clients) need to present a certificate as well. Only the *PDaaS* verifies and thus determines 
+because not only the *endpoints* on the *ReFlowd* (server) need to be certified, all data consumers 
+(clients) need to present a certificate as well. Only the *ReFlowd* verifies and thus determines 
 (supervised by the *operator*) who is authorized to get access to the system. Hence the *PKI* needs
 to be self-contained and private in order to function independently so that only invited parties can
 be involved.  
 Referring to the statement mentioned above, data consumers also have to be able to verify the 
-identity of the *PDaaS*, in order to prevent man-in-the-middle attacks. Addressing this issue 
-basically means, data consumers have to verify the certificate presented by the *PDaaS*. This can
-be done in two ways. One way is by a certificate having been installed on the *PDaaS* that is 
+identity of the *ReFlowd*, in order to prevent man-in-the-middle attacks. Addressing this issue 
+basically means, data consumers have to verify the certificate presented by the *ReFlowd*. This can
+be done in two ways. One way is by a certificate having been installed on the *ReFlowd* that is 
 certified by a trustworthy public CA, as mentioned above. Then consumers use the CA's certificate to
-verify the *PDaaS* certificate. The other way is to let the *PDaaS* create an asymmetric key-pair
+verify the *ReFlowd* certificate. The other way is to let the *ReFlowd* create an asymmetric key-pair
 including a certificate and sign it by itself. Before *consumers* are presented with the self-signed
-certificate of the *PDaaS* during the initiation of the TLS connection, they already have to be
+certificate of the *ReFlowd* during the initiation of the TLS connection, they already have to be
 aware of that certificate. That is, *consumers* need to be provided with that certificate on a
 private channel upfront. Otherwise the process would still be vulnerable to man-in-the-middle
 attacks. 
@@ -160,7 +160,7 @@ risks, it's common practice to generate a private key at the location where it's
 An already existing specification explicitly addressing user authentication is *OpenID*, which could 
 be adapted to integrate operator as well as consumer authentication. Although it utilizes 
 (sub)domains as entity identifiers, which is similar to how the relation between data consumer and
-*PDaaS* in *two-way authentication* works, OpenID is underpinned by another motivation, which 
+*ReFlowd* in *two-way authentication* works, OpenID is underpinned by another motivation, which 
 is providing decentralized authentications as a service, and that is contrary to the independent and 
 self-contained model this project follows. Trying to adopt the standard might result in various 
 adjustments to *OpenID* leading to an implementation that shares not much compliance to its 
@@ -181,7 +181,7 @@ platform (browser) is rather inconvenient, if even possible, because a client ce
 needs to be transferred to the server and probably signed before it and the corresponding private
 key gets installed manually by the operator. For a mobile platform this approach might be more
 feasible because this step can be automated during the application installation.  
-Addressing the requirement of consumers to verify whether the certificate presented by the *PDaaS*
+Addressing the requirement of consumers to verify whether the certificate presented by the *ReFlowd*
 can be trusted or not, both solutions, providing a self-signed certificate on a secure channel 
 upfront, or using certificates certified by publicly trusted entities, are legitimate. However, the
 latter requires an automation depending on an external service that provides a new signed

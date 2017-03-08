@@ -20,12 +20,12 @@ has what data about me or access to that data. I, myself, can even collect and s
 system, completely automated, whether it's movement data, my browsing history or any other data I am 
 creating. And since I have full control over the system I could even analyze the data about me 
 independently.
-It's of no particular concern to me how exactly the *PDaaS* works, but it needs to be reliable and I 
-have to be able to trust it with my data. Furthermore, I like to be able to control my *PDaaS* 
+It's of no particular concern to me how exactly the *ReFlowd* works, but it needs to be reliable and I 
+have to be able to trust it with my data. Furthermore, I like to be able to control my *ReFlowd* 
 regardless of where I am. If somebody wants to access my data, I would like to be informed about 
 that and would like to decide, on my own, how to proceed. Convenient setup and usage is vital, 
 otherwise I would probably resign before I got it to work. 
-If the *PDaaS* can meet these demands, then I would definitely want to use it, because it maintains 
+If the *ReFlowd* can meet these demands, then I would definitely want to use it, because it maintains 
 my data's freedom.
 
 From a developer's perspective, the most important aspects of an open source project are, in my 
