@@ -49,9 +49,9 @@ underlying technologies, and relation(s) to each other.
 
 #### Web Server {-}
 
-*Platform:* Server
+Platform: Server
 
-*Tasks:*
+Tasks:
 +   serve web-based user interface(s)
 +   handle all in- & outgoing traffic (outmost layer)
 +   revers proxying certain traffic to different components
@@ -60,11 +60,11 @@ underlying technologies, and relation(s) to each other.
 +   web notification
 +   spam protection
 
-*Relations:*
+Relations:
 +   operator, consumers, third parties
 +   any front end platform (Mobile, Web)
 
-*Technologies:*
+Technologies:
 +   HTTP
 +   TLS
 +   WebSockets
@@ -72,84 +72,84 @@ underlying technologies, and relation(s) to each other.
 
 #### Permission Manager {-}
 
-*Platform:* Server
+Platform: Server
 
-*Tasks:*
+Tasks:
 *   creating *permission profiles*
 +   access verification
 +   examine data queries 
 +   queue *consumer* requests
 
-*Relations:*
+Relations:
 +   Storage Connector
 +   Notification Infrastructure
 +   Persistence Layer
 +   Tracker
 +   Code Execution Environment
 
-*Technologies:*
+Technologies:
 +   any modern language/framework capable of parallel computing 
 
 
 #### PKI {-}
 
-*Platform:* Server
+Platform: Server
 
-*Tasks:*
+Tasks:
 +   CA
 +   manage keys and certificates per *endpoint*
 +   obtain trusted certificates from public CAs
 
-*Relations:*
+Relations:
 +   Web Server
 
-*Technologies:*
+Technologies:
 +   X.509
 +   ACME [@web_spec_acme] (Let's Encrypt)
 
 
 #### Storage Connector {-}
 
-*Platform:* Server
+Platform: Server
 
-*Tasks:*
+Tasks:
 +   abstracts to system agnostic query language
 +   queries personal data, regardless of where it's located
 
-*Relations:*
+Relations:
 +   Personal Data Storage
 
-*Technologies:*
+Technologies:
 +   driver for used database 
 
 
 #### Operator API {-}
 
-*Platform:* Server
+Platform: Server
 
-*Tasks:*
+Tasks:
 +   authenticates operator
 +   writes personal data through Storage Connector 
 +   provides relevant data, such as history
 +   system configuration
 +   automated data inflow
 
-*Relations:*
+Relations:
 +   Storage Connector
 +   Notification Infrastructure
 +   PKI
 +   Tracker
 +   Permission Manager
 
-*Technologies:*
+Technologies:
 +   JWT
 
 
 #### Code Execution Environment {-}
 
-*Platform:* Server
+Platform: Server
 
-*Tasks:*
+Tasks:
 +   isolated runtime (sandbox) for computations/programs provided by consumers
 +   restrict interaction with outer environment to absolute minimum (e.g. no shared filesystem 
     or network)
@@ -157,96 +157,96 @@ underlying technologies, and relation(s) to each other.
 +   monitor sandbox during computation 
 +   examine and test the provided software
 
-*Relations:*
+Relations:
 +   Permission Manager
 
-*Technologies:*
+Technologies:
 +   Hypervisor
 +   Container (OCI)
 
 
 #### Tracker {-}
 
-*Platform:* Server
+Platform: Server
 
-*Tasks:*
+Tasks:
 +   log all changes made with *Storage Connector*
 +   tracks states for ongoing consumer requests
 +   log all *access requests*
 
-*Relations:*
+Relations:
 +   Persistence Layer
 
-*Technologies:*
+Technologies:
 +   any modern language/framework capable of parallel computing
 
 
 #### Personal Data Storage {-}
 
-*Platform:* Server, Mobile
+Platform: Server, Mobile
 
-*Tasks:*
+Tasks:
 +   stores the *operator's* personal data
 
-*Relations:*
+Relations:
 +   Storage Connector
 
-*Technologies:*
+Technologies:
 +   non relational database
 +   depending on host environment
 
 
 #### Persistence Layer {-}
 
-*Platform:* Server
+Platform: Server
 
-*Tasks:*
+Tasks:
 +   stores Permission Profiles, History, Tokens, Configurations and other application data
 +   cache runtime data and information
 +   holds keys
 
-*Relations:*
+Relations:
 +   Operator API
 +   Permission Manager
 
 
-*Technologies:*
+Technologies:
 +   non relational database
 +   Filesystem
 
 
 #### Notification Infrastructure {-}
 
-*Platform:* Server
+Platform: Server
 
-*Tasks:*
+Tasks:
 +   notifies about everything that needs operator's approval (e.g. new registrations, new 
     *permission requests*)
     
-*Relations:*
+Relations:
 +   Web Server
 
-*Technologies:*
+Technologies:
 +   WebSockets for web UIs via local Web Server
 +   mobile device manufacturer's Push Notification Service for mobile apps 
 
 
 #### User Interface {-}
 
-*Platform:* Mobile, Web
+Platform: Mobile, Web
 
-*Tasks:*
+Tasks:
 +   access restricted to operator only
 +   access & permission management
 +   data management (editor, types & import)
 +   history and log viewer
 +   system monitoring
 
-*Relations:*
+Relations:
 +   Web Server
 +   Push Notification Service
 
-*Technologies:*
+Technologies:
 +   HTML, CSS, Javascript
 +   Java
 +   Swift, Objective-C
@@ -289,8 +289,8 @@ carry all her sensitive data along. This is considered a major advantage over th
 approach, were all the personal data is located in the *'cloud'*. Depending on the perspective, it 
 can either be seen as a *single source of truth* or a *single point of failure*. Regardless of that, 
 it introduces the demand of a backup or some redundancy concept, which has briefly been touched on 
-in the discussion about database system requirements within the [section on *data*](#data) (see 
-*Chapter 5*). A *mobile* platform as part of the system makes it more easier for the data subject to
+in the discussion about database system requirements within the [section on *data*](#data)
+*(Chapter 5)*. A *mobile* platform as part of the system makes it more easy for the data subject to 
 establish a security concept in which the relation between *Personal Data Storage (PDS)* and the
 rest of the system is much more liberated, so that all access attempts only happen under full
 supervision. It is debatable whether to place the *permission profiles* in the *Persistence Layer*

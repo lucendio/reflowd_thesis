@@ -20,7 +20,7 @@ provide a certain level of interactivity. A running program can pause in order t
 with an input request. If an input is made and submitted, the program then proceeds. The group of 
 interfaces whose interactions can be programed and thereby fully automated can be called 
 *application programming interfaces (API)*. Depending on the transport technologies, it's not 
-unusual that *API* interactions consist of just one action causing one reaction. 
+unusual that *API* interactions consist of just one action causing one reaction.  
 Non-graphical interfaces enable interactions on a lower level. Even though they provide more 
 functionality and can be more time efficient, they are more rudimentary and often less secure.
 While *GUIs* are normally meant for end users to interact with applications on a more sophisticated 
@@ -30,9 +30,9 @@ enable software developers to program automated requests against those interface
 
 Table @tbl:ui-features provides a list of features and associates the different types of user 
 interfaces mentioned before, which indicates if they should be supported by a certain type. It is 
-notable that the *GUI* provides the *operator* with a powerful tool Hence it requires reliable 
-protection mechanisms (see [Authentication](#authentication)). Whereas *API* capabilities are very 
-limited, because it's the one interface that the *PDaaS* exposes to third parties.
+notable that the *GUI* provides the operator with a powerful tool. Hence it requires reliable 
+protection mechanisms *([Chapter 5 - Authentication](#authentication))*. Whereas *API* capabilities
+are very limited, because it's the one interface that the *PDaaS* exposes to third parties.
 
 
 | Feature                                             |   GUI   |   CLI   |   API   |
@@ -53,11 +53,11 @@ limited, because it's the one interface that the *PDaaS* exposes to third partie
 | manipulate personal data                            |  __X__  |  __X__  |    -    |
 | run supervised code execution                       |    -    |  __X__  |  __X__  |
 
-Table: Features that should be supported by the given user interfaces {#tbl:ui-features} 
+Table: Features supported by the given user interfaces {#tbl:ui-features} 
 
 
 The architectural design includes *web* and *mobile* platforms. While prioritizing a web-based 
-*GUI*, the management tool for the *operator* also needs to be natively implemented for common 
+*GUI*, the management tool for the operator also needs to be natively implemented for common 
 mobile systems ([P.VIU.02](#pviu02)); in this case Android and iOS. This enables real-time 
 notifications ([P.I.03](#pi03), [P.B.02](#pb02)) on mobile platforms, whereas the same feature is 
 added to *web* platforms by providing WebSocket-based connections. 
@@ -77,8 +77,8 @@ subsequent data structure. The interaction then might look like tree-structured 
 alongside relations just by expanding and folding in data items. 
 
 Since other parts of the system have to provide the mechanisms for increasing or reducing the 
-precision of data due to privacy protection, the challenge here is to find the right design concepts 
-for the data subject to facilitate those adjustments. 
+*precision* of data due to privacy protection, the challenge here is to find the right design
+concepts for the data subject to facilitate those adjustments. 
 Precision adjustments can be achieved by either changing the sampling rate in a dataset containing a 
 series of data items, or by rounding values to a certain extent. Examples are cutting fractional 
 digits of the latitude and longitude values in a position, or removing all position information 
@@ -94,22 +94,20 @@ containing data series, and position information, as mentioned before.
 *__Conclusions:__*
 The most important aspect, when interacting with something or someone, is being provided with 
 feedback. An action typically causes - and is therefore *expected* to cause - a reaction. The result 
-is an interaction, unless no reaction occurred. 
-
+is an interaction, unless no reaction occurred.  
 The discussion above outlines the relevance of those interactions for the *PDaaS*. Thus, for users 
 and other software to interact with the *PDaaS* interfaces are mandatory. Primary characteristics of 
 those interfaces are complete functionality, security precautions and restrictions, as well as 
 comprehensive documentation. Visual user interfaces also need to provide reliable and adaptive 
-rendering, a consistent and encouraging interaction design.
-*GUIs* need to be provided for all front end platforms, primarily to provide an 
-efficient user experience for the operator. The operator is the only role with permissions to access 
-a *GUI*. Components on the *server* platform should provide *CLIs*, at least when no other technical 
-option exist to interact with them. Also accessing the database from command line could be 
-appreciated at some point. APIs are mostly meant for data consumers to interact with the *PDaaS*, 
-and perhaps for automated data contribution (based on the *operator* role; e.g. browser plugin). 
-*Web* platforms might use those *APIs* as well. In any case, *APIs* must be separated according 
-to the *roles*.
+rendering, a consistent and encouraging interaction design. *GUIs* need to be provided for all front
+end platforms, primarily to provide an efficient user experience for the operator. The operator is 
+the only role with permissions to access a *GUI*.  
+Components on the *server* platform should provide *CLIs*, at least when no other technical option 
+exist to interact with them. Also accessing the database from command line could be appreciated at 
+some point. APIs are mostly meant for data consumers to interact with the *PDaaS*, and perhaps for 
+automated data contribution (based on the operator role; e.g. browser plugin). *Web* platforms might
+use those *APIs* as well. In any case, *APIs* must be separated according to the roles.
 
-These are all vital characteristics whose details need to be addressed by the *specification*. Their 
+These are all vital characteristics that need to be outlined in the *specification*. Their 
 implementation details are not the concern of this specification, as long as every stated 
 requirement is being acknowledged.

@@ -25,7 +25,7 @@ be possible to build a distributed system, which may require the placement of so
 different environments/devices/platforms. 
 
 __*[S.A.03]{#sa03}* - Roles__\
-The system has to define two types of roles (see *[Chapter 1 - Terminologies](#terminologies)*). The
+The system has to define two types of roles *([Chapter 1 - Terminologies](#terminologies))*. The
 first one is the *[operator](#terminologies--operator)*, who is in control of the system and, 
 depending on the architecture, must be at least one individual but could be more. The *operator* 
 maintains all the data that gets provided through the system and decides which third parties get 

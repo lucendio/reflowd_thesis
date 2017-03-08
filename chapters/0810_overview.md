@@ -6,7 +6,7 @@ The overall purpose of this specification is to provide detailed instructions fo
 service that, on the one hand, encourages an individual to manage and maintain all the data relating 
 to her in one place, and on the other hand, enables third parties to access such data if they are 
 permitted by the individual to do so, preferably through supervised code execution instead of just 
-handing over the raw data items.
+handing over the raw data items.  
 The result is a one-to-many relation between the data owner - the individual - and all those who 
 might require some data to, for example, process a purchase initiated by the operator or make a 
 proper decision on her medical treatment. 
@@ -94,32 +94,32 @@ to access those movement data, but at a resolution the data subject is comfortab
 
 ### Architectural Overview
 
-The architecture design (see Fig. @fig:spec_arch_simplifier) defines three different platforms 
-where components of the system could run. While *web* and *mobile* platforms are 
-primarily meant to serve as the front end of the system and to present the operator with GUIs, the 
-*mobile* platform in particular might host the *Personal Data Storage*. However, that data storage 
-can be located on any platform. This is enabled by abstracting the storage through the 
-*Storage Connector* on the *server* platform.
+The architecture design (see Fig. @fig:spec_arch_simplifier) defines three different platforms where 
+components of the system could run. While *web* and *mobile* platforms are primarily meant to serve 
+as the front end of the system and to present the operator with GUIs, the *mobile* platform in 
+particular might host the *Personal Data Storage*. However, that data storage can be located on any 
+platform. This is enabled by abstracting the storage through the *Storage Connector* on the *server* 
+platform.
 
 That *server* platform also provides an external API for accessing personal data. Incoming requests 
 from third parties and consumers are then processed by the *Permission Manager*, which i.a. decides
-if and how data can be accessed. For every consumer a dedicated exposed endpoint is provided 
-that consists of a subdomain (e.g. `CONSUMER_ID.system.tld`). Other components are i.a. a 
+if and how data can be accessed. For every consumer a dedicated exposed endpoint is provided that 
+consists of a subdomain (e.g. `CONSUMER_ID.system.tld`). Other components are i.a. a 
 *Code Execution Environment*, a *PKI* that provides and issues certificates and key-pairs to 
 facilitate authentication at the endpoints. The *Persistence Layer* is represented by potentially 
 multiple technologies, such as databases or filesystem. A *Notification Infrastructure* streamlines 
 the different ways and technologies to notify the operator about certain events (e.g. system 
 receives new registration). Probably one of the most important components is the *Operator API*, 
 through which the operator i.a. is able to configure the system or manage permissions and the API 
-is granted read/write permissions at the *Storage Connector*. The *Operator API* MAY partially 
-be designed RESTfully, but accessing data MUST solely consist of the query language provided by 
+is granted read/write permissions at the *Storage Connector*. The *Operator API* MAY partially be 
+designed RESTfully, but accessing data MUST solely consist of the query language provided by 
 *GraphQL*.
 
-![System Architecture, simplified](./assets/figures/spec_arch_simplifierd.png){#fig:spec_arch_simplifier width=12cm}
+![System Architecture (simplified)](./assets/figures/spec_arch_simplifierd.png){#fig:spec_arch_simplifier width=12cm}
 
 
 
-### General Process Description
+### Abstract Process Description
 
 0.  *Prerequisites: the data subject has an up-and-running system; existing third party aims to 
     access personal data on the system*
@@ -132,9 +132,8 @@ be designed RESTfully, but accessing data MUST solely consist of the query langu
 2.  Operator reviews the registration. On a positive outcome a new endpoint gets defined and, 
     depending on the content of the registration request, a permission profile is optionally 
     created and configured by the operator. If the outcome instead is negative, an error message is 
-    prepared. In any case, the third party is then informed about the outcome via callback 
-    URL and optionally provided with additional information that is required for further 
-    interactions.
+    prepared. In any case, the third party is then informed about the outcome via callback URL and 
+    optionally provided with additional information that is required for further interactions.
     
 3.  After the consumer has set up a client according to the documentation and the information he has
     been provided with, and after he successfully authenticates to the system, he then submits a 
@@ -162,8 +161,8 @@ zero or more *permission profiles* are associated to one *endpoint* and are ther
 and included in the query validation procedure
 
 ##### storage-connector:personal-data-storage [1:n] 
-the *Storage Connector* MUST be able to access at least one or more *Personal Data Storage*, 
-regardless of its location (platform)
+the *Storage Connector* MUST be able to access at least one or more *Personal Data Storages*, 
+regardless of their location (platform)
 
 
 

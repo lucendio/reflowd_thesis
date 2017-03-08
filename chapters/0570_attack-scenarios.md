@@ -28,22 +28,23 @@ implemented by the *Transport Layer Security (TLS)*. The crux here is to move fr
 an encrypted connection. This upgrade procedure involves the *Diffie-Hellman-Key-Exchange* to agree 
 on a pre-shared key and certification based on *asymmetrical cryptography* for authentication. The 
 procedure starts i.a. with the server-role presenting the client-role with its certificate 
-*while the connection is still insecure*. At this critical point, because the connection is still 
-insecure, which makes a man-in-the-middle attack possible. In order to prevent this and to ensure 
-the trustworthiness of the certificate, the client has to verify the certificate. This is done by 
-using an installed certificate issued by trusted public CA, which has therefore trusted the server's 
-certificate, to examine its chain of trust.
+*while the connection is still insecure*. Therefore, at this critical point, it is vulnerable to 
+man-in-the-middle attacks. In order to prevent this and to ensure the trustworthiness of the 
+certificate, the client has to verify the certificate. This is done by using an installed 
+certificate issued by trusted public CA, which has therefore trusted the server's certificate, to 
+examine its chain of trust.  
 But since HTTPS connections between data consumers and the system use certificates that are issued 
 by the system itself instead of relying on CA-certified certificates, there is no chain of commonly 
 trusted entities that can verify the presented certificates. So, in order to still trust those 
 certificates despite being sent on a insecure channel during the connection establishment, they have 
-to be handed over in private sometime before. This is defined in the registration process, where the 
-consumer either presents a QR-Code served via publicly certified HTTPS, which he is responsible for 
-but can easily be verified by the data subject, or submits the registration request including the 
-CSR to a URL provided by the data subject that is also reachable only by publicly certified HTTPS. 
-The server then issues the certificate and sends it - alongside with its own certificate - back to 
-the consumer also via publicly certified HTTPS. The consumer is able to trust the server certificate 
-and can even pin it to detect fictitious certificates he might get presented with. 
+to be handed over in private sometime before. This is defined in the registration process in
+*[Chapter 5 - Access Management](#access-management)*, where the consumer either presents a QR-Code
+served via publicly certified HTTPS, which he is responsible for but can easily be verified by the 
+data subject, or submits the registration request including the CSR to a URL provided by the data
+subject that is also reachable only by publicly certified HTTPS. The server then issues the 
+certificate and sends it - alongside with its own certificate - back to the consumer also via 
+publicly certified HTTPS. The consumer is able to trust the server certificate and can even pin it 
+to detect fictitious certificates it might get presented with.  
 This approach enables not only confidentiality and integrity of the data exchanged between consumer 
 and data subject, but by enforcing *two-way authentication* authenticity of the respective opposite 
 is provides to both parties as well. While other HTTP connections via TLS may still rely on 
@@ -51,28 +52,28 @@ certificates signed by publicly trusted CAs, regular key change and certificate 
 to be ensured.
 
 Another aspect of the system that could be vulnerable to certain attacks is the authentication 
-mechanism used by the data subject to log into her management tool. A JSON Web Token, which contains 
-all session information, serves as the key. As mentioned before, any connection between components is 
-forced to be 
-established only by TLS. So from this perspective the JWT is no less or more secure than any other 
-type of credentials. However, this doesn't prevent the token from being usable to the attacker once 
-it is stolen. A short expiration date, equal to a session timeout, and token invalidation cycle, 
-which is the same as forced logout, can reduce the potential harm an incident like this may cause. 
+mechanism used by the data subject to log into her management tool. A *JSON Web Token (JWT)*, which 
+contains all session information, serves as the key. As mentioned before, any connection between
+components is forced to be established only by TLS.  
+So from this perspective the JWT is no less or more secure than any other type of credentials. 
+However, this doesn't prevent the token from being usable to the attacker once it is stolen. A short 
+expiration date, equal to a session timeout, and token invalidation cycle, which is the same as 
+forced logout, can reduce the potential harm an incident like this may cause.   
 Furthermore the integration of 2-factor authentication hardens the authentication procedure. But in 
 order to not introduce another dependency, namely an external service providing such functionality, 
-2-factor authentication is only supported when a mobile device is associated to the *PDaaS*.
+2-factor authentication is only supported when a mobile device is associated to the *PDaaS*.  
 Further precautions can be taken by preventing attackers from getting close to such token, referring 
 to *cross-site scripting (XSS)*, to which web-based graphical interfaces are vulnerable. Approaching
 this issue means to abandon external resources providing parts of the interface and storing all 
 content on the server platform instead, serving it with the system's own web server. Even if that 
 means an increased load time caused by the browser constraints of how content is loaded, this isn't 
-an issue in HTTPS/2 anymore.
+an issue in HTTPS/2 anymore.  
 Even though connections are based on TLS, a *Replay Attack* [^desc_replay-attack] is still a 
 possible scenario. Using a unique identifier for a JWT (`jti`) is not able to prevent this attack, 
 but if suspicious behaviour is detected, it can help to identify the related JWT and act 
 accordingly (e.g invalidate token). Depending on the implementation, this strategy may ultimately
-make the server stateful. Thus, a more detailed analysis of such scenario is required to make an
-adequate decision on this topic. 
+make the server stateful. Thus, a more detailed analysis of such scenario is required in order to 
+make an adequate decision on this topic. 
 
 The approach of running consumer-provided programs locally in order to prevent personal data from 
 leaving the system represents a key part in this work, but it also raises major security concerns. 
@@ -80,13 +81,13 @@ To address those concerns, such a program is executed in an application containe
 encapsulates the runtime from the host environment and allows the restriction of resource access, 
 such as network, filesystem, or computing power, to the required minimum. This concept, previously 
 introduced as *Supervised Code Execution* forms a containment layer preventing security breaches 
-towards the host environment, which ultimately means a great security enhancement.
+towards the host environment, which ultimately means a great security enhancement.  
 Nevertheless, it makes involved components and dependencies vulnerable to almost any security flaw 
 that they might carry in. Therefore it is vital to keep all related software up to date, which 
 probably means enabling automated update mechanisms. That again introduces yet another type of 
 attack vector, which can be lessened by only using signed and trusted software and resources.
 
-When it comes to personal data, existing social networks and other great platforms founded on 
+When it comes to personal data, existing social networks and other large platforms founded on 
 user-generated content have already become de facto data silos, and thus a single point of failure.
 A more decentralized approach, for example, the concept proposed here, diminishes the impact of 
 potential security breaches those platforms may experience. While, from an global perspective, this 
@@ -122,7 +123,7 @@ by containers. Monitoring transactions and events on the application-level is al
 system architecture, facilitated by the *Tracker* component.
 Furthermore it is considered to apply full storage encryption to the *Personal Data Storage*, which 
 would result in major security improvements. Therefore, when the personal data is located on the 
-server, it should stay secure even if the system is compromised. As a result, the system might lose 
+server, it should stay secure even if the system is compromised. As a downside, the system might lose 
 convenience in user interaction.
 It essentially comes down to an act of balance between security and convenience. It is hardly 
 possible to simplify or abstract security measures without violating other (general) values. The key 

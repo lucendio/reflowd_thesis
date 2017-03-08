@@ -20,8 +20,8 @@ corresponding law decided that it's sufficient to prove the author's identity ba
 credentials when handing over the DE-Mail to the server, and that it's reasonable to let the 
 provider sign the document on the DE-Mail server, and finally that this described implementation
 results in a legally binding document by definition of that law. The varying levels of mistakes made
-in conception and legislation are outlined in a statement from the CCC 
-[^abbr_ccc] [@statement_2013_de-mail], who has been consulted during the development of that law.
+in conception and legislation are outlined in a statement from the CCC [^abbr_ccc] 
+[@statement_2013_de-mail], who has been consulted during the development of that law.
 As a consequence, DE-Mail as a technology has, in general, no relevance to this project. One aspect
 that can be noted though, is the concept of letting a server sign outgoing data. While in the case
 of DE-Mail the server is controlled by a potentially not trusted party and is typically

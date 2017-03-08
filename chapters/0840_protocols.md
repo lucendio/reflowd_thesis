@@ -103,7 +103,7 @@ those permission(s).*
     +   *Accept*
         1)  *operator* creates new *Permission Profile* by either applying a prepared 
             template/draft, importing configurations from an existing profile, or filling out an 
-            empty, or pre-filled with provided information, profile. 
+            empty, or pre-filled with provided information, profile 
             When saving the new profile, it gets associated to the requester's *endpoint*
         3)  respond which data items are permitted to be accessed, how often, and how long this 
             permission lasts
@@ -140,10 +140,9 @@ those permission(s).*
 
 
 ##### Access Request
-*After requesting permission to access data and having this granted, a consumer actually access
-data items by either getting them forwarded or by providing a program that is invoked
-with the data items as arguments. The result of that invocation is then sent back to the 
-originating data consumer.*
+*After requesting permission to access data and having this granted, a consumer actually access data 
+items by either getting them forwarded or by providing a program that is invoked with the data items 
+as arguments. The result of that invocation is then sent back to the originating data consumer.*
 
 *Preconditions:*
 +   successfully requested permission
@@ -231,7 +230,7 @@ and data is obtained from the PDS.*
     b)  have a valid *permission type* at that moment
 
 3.  check resulting subset and if ...
-    +   it's empty
+    +   it is empty
         1)  return with a negative result (`false`)
     
     +   not all requested data items are addressed among those profiles

@@ -31,11 +31,11 @@ Cross-site scripting (XSS) attacks. The *web server* MUST facilitate a web socke
 web-based GUIs. If a browser does not support this natively, a fallback SHALL be provided by the 
 GUI. Furthermore, those GUIs SHOULD be served with HTTP/2.
 
-The subsequent examples show two Nginx configurations for the *web server* component, implementing 
+The subsequent examples show two *Nginx* configurations for the *web server* component, implementing 
 the specifications from above.
 
-__[Code 01: web server configuration for a web-based GUI (excerpt)]{#spec_code-01_nginx-config-web-gui}:__
-``` {.ngix .numberLines}
+__[Code 01: Web server configuration for a web-based GUI (excerpt)]{#spec_code-01_nginx-config-web-gui}:__
+``` {.nginx .numberLines}
 server {
     server_name gui.system.tld;
 
@@ -66,7 +66,7 @@ server {
 
 \ \ 
 
-__[Code 02: web server configuration for a consumer endpoint (excerpt)]{#spec_code-01_nginx-config-consumer-endpoint}:__
+__[Code 02: Web server configuration for a consumer endpoint (excerpt)]{#spec_code-01_nginx-config-consumer-endpoint}:__
 ``` {.nginx .numberLines}
 server {
     server_name CONSUMER_ID.system.tld;
@@ -119,7 +119,7 @@ implemented either by email or with a mobile platform, if it is part of the syst
 Before the first consumer tries to register on the system, the system MUST generate a key-pair and 
 sign it by itself. With the resulting certificate, the system becomes a private Certificate 
 Authority primarily responsible for signing certificates that are required for every endpoint and 
-maybe even for connections between mobile and server platforms.
+maybe even for connections between mobile and server platforms.  
 The key-pair for a specific endpoint is then used to issue a certificate based on the 
 *Certificate Signing Request (CSR)* supplied by the consumer who is associated to that very 
 endpoint. The certified certificate and the endpoint's certificate MUST then be transferred back to 
@@ -189,14 +189,14 @@ putting components into application containers. The latter is RECOMMENDED and MU
 
 ### Supervised Code Execution *(SCE)*
 
-When running programs on the server platform provided by consumers, it is REQUIRED to execute 
-them only after putting them into an application container (see 
-[System Architecture](#system-architecture)). This implies that the container is provisioned first, 
-and then invoked by providing the requested data items as arguments. The container MUST NOT be 
-allowed to access the host's filesystem or network. Before running the container with the actual 
-data, it MUST be executed several times with generated test data. If the program is provided as 
-source code, it MUST be automatically inspected and reviewed. If one of those test layers results 
-are insufficient, processing the access request MUST abort and return with failure information.
+When running programs on the server platform provided by consumers, it is REQUIRED to execute them 
+only after putting them into an application container. This implies that the container is 
+provisioned first, and then invoked by providing the requested data items as arguments. The 
+container MUST NOT be allowed to access the host's filesystem or network. Before running the 
+container with the actual data, it MUST be executed several times with generated test data. If the
+program is provided as source code, it MUST be automatically inspected and reviewed. If one of those
+test layers results are insufficient, processing the access request MUST abort and return with
+failure information.
 
 
 
@@ -206,17 +206,17 @@ The *Tracker* component MUST ensure that the following information is being pers
 fields for this information is defined in [Data and Types](#data-and-types))*:
 
 +   Access Requests (regardless of its success)
-+   failed Access Verifications
++   Failed Access Verifications
 +   Registrations of consumers (regardless of its success)
 +   Results of operator Authentications
 +   Permission Profile creation, manipulation, and deletion
 +   SCE (regardless of its success)
-+   any third party request attempt arriving at the web server
++   Any third party request attempt arriving at the web server
 +   Server Resources (continually)
  
 To make sure that these data are collected, other components MUST provide the *Tracker* with such 
 information. Therefore, components such as *Operator API*, *Permission Manager* and *Web server*, 
-MUST push information towards the *Tracker*. 
+MUST push information towards the *Tracker*.  
 By performing pattern recognition & anomaly detection, the *Tracker* is then able to recognize 
 abnormal behaviour or occurrences, for example, by monitoring the IP of an access request origin, 
 which normally should not change very often. Such data MAY also help to prevent spam requests. If 

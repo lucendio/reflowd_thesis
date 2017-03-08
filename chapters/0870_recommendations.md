@@ -18,8 +18,8 @@ implementing (parts of) this specification.
     applications in the same environment side by side.
 
 +   A vendor, who hosts for multiple data subjects, one system instance each, SHOULD NOT locate all 
-    of them in one environment, but rather deploy another operating system virtualization for every 
-    instance, or separate them physically on different machines.
+    of them in one environment, but rather deploy a distinct operating system (virtualization) for
+    every instance, or separate them physically on different machines.
     
 +   The host environment (for the system's server components) SHOULD offer measures for detecting 
     security violations and breaches.

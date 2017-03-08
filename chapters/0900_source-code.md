@@ -129,7 +129,7 @@ __[Code 04: Result of Code 03 in JSON]{#code-04_graphql-query-result}:__
 \newpage
 
 *NOTICE: schema notation is based on the rules underpinning the schema definition provided by the 
-SimpleSchema project [@web_2017_repo_node-simple-schema].*
+SimpleSchema project [@web_2017_repo_node-simple-schema]*
 
 __[Code 05: Struct - Profile (example)]{#code-05_struct_profile}__
 ``` {.javascript .numberLines}

@@ -21,11 +21,11 @@ data, but on their own terms. The parties that would be responsible for such a t
 have the most accurate and reliable one-stop resource to an individuals' personal data at hand, 
 while simultaneously being urged to respect their privacy. This approach comes along also with some 
 downsides related to security and potential data loss. Elaborating on these issues and discussing 
-potential solutions is part of the [design process](#design-discussion) (see *Chapter 5*).
+potential solutions is part of the [design process](#design-discussion) *(Chapter 5)*.
 
-This way of addressing the described dilemma about personal data analysis is not new (see 
-*[Chapter 2 - Related Work](#related-work)*). Early work done in this field can be dated back to the 
-Mid-2000s when studies were conducted, for example, about recent developments in the industry 
+This way of addressing the described dilemma about personal data analysis is not new
+*([Chapter 2 - Related Work](#related-work))*. Early work done in this field can be dated back to
+the Mid-2000s when studies were conducted, for example, about recent developments in the industry 
 (e.g targeted ads) and the user's concerns about privacy 
 [@study_2004_architecture-for-privacy-sensitive-ubiquitous-computing]. At that time, the term 
 *Vendor Relationship Management (VRM)* was first used within the context of user-centric personal 

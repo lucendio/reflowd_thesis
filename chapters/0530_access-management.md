@@ -8,8 +8,8 @@ might have, and what issues need to be addressed.
   
 Below, a general design is proposed of how *data consumers* get authorized and thereby are able to 
 access the *data subject's* personal data, and how 
-[previous mentioned technologies](#standards-specifications-and-related-technologies) *(see Chapter 2)*
-can be assembled in order to meet the specified [requirements](#requirements) *(see Chapter 4)*.
+[previous mentioned technologies](#standards-specifications-and-related-technologies) *(Chapter 2)*
+can be assembled in order to meet the specified [requirements](#requirements) *(Chapter 4)*.
 
  
 ### Part One: consumer registration {-}
@@ -128,7 +128,7 @@ profile as well. Here, the order matters because it is imaginable that the opera
 less complex then operation (2). Running (1) before (2) can result in a faster response-time, if 
 operation (1) already results negative. If all operations have a positive result, access is granted.
 
-As stated in the section about [data reliability](#data-reliability) (see *Chapter 5*), the data 
+As stated in the section about [data reliability](#data-reliability) *(Chapter 5)*, the data 
 subject is able to add, change, or remove all her data or even the permission profiles at any point
 in time. This raises the question of how to solve the situation were access requests are being 
 processed while those changes are happening and might affect the result of those requests. The first

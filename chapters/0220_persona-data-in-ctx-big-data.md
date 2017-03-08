@@ -103,7 +103,7 @@ their approaches and doings.
 Such improvements are already happening, not only originating from the community's forward thinkers
 [@web_2016_the-state-of-big-data], but also advocated by governments and consumer rights 
 organisations, as stated in the previous section (see 
-*[Legislation](#digital-identity-personal-data-and-ownership)*. Even leading Tech-Companies have 
+*[Legislation](#digital-identity-personal-data-and-ownership)*). Even leading Tech-Companies have 
 begun trying to do better [@web_2016_apple_customer-letter] [@web_2016_what-is-differential-privacy] 
 [@web_2016_eff_whatsapp-rolls-out-emd-to-end-encryption]. 
 

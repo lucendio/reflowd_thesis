@@ -51,11 +51,11 @@ lists show briefly, which features the tool provides to the operator.
 The lists of GUI features implicitly define what the *Operator API* must be capable of, whereas 
 interactions originated by third parties and data consumers are described below. These descriptions
 show the behavior of all major API endpoints that are required to access personal data, which is 
-hosted by the system. 
+hosted by the system.  
 The payload MUST be transmitted with HTTP requests, secured by TLS, declared as *POST* method, 
 unless otherwise outlined. It MUST be serialized in JSON and constitute the complete request body. 
 When sending data originating from certain formats (e.g. PEM-formatted file content or binary 
-streams) as string values that are a part of a URL or JSON, *bas64url* MUST be used for encoding. 
+streams) as string values that are a part of a URL or JSON, *base64url* MUST be used for encoding. 
 Furthermore, it is to be noted, that requests are asynchronous and MAY take several hours up to a 
 few days to be answered.
 
@@ -163,7 +163,7 @@ reject access.
 +   `query: String`             -   data query representing the data that is requested to be 
                                     accessed
 +   `type: String`              -   [OPTIONAL] access type: `fwd` or `sce`
-+   `program: Object`           -   [MUST if `type == 'sec'`]
++   `program: Object`           -   [MUST if `type == 'sce'`]
     -   `mimeType: String`      -   MIME-Type (see [RFC 2046](https://tools.ietf.org/html/rfc2046))
     -   `extension: String`     -   file extension
     -   `file: String`          -   base64url-encoded file content

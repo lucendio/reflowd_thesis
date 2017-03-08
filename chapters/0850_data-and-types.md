@@ -4,8 +4,8 @@
 
 The system is aware of two different classes of data - personal data and system data. The latter are
 stored within the *Persistence Layer* and represent the current state of the system, whereas all the 
-personal data, which reflects the Digital Identity of the operator, is maintained and also provided 
-by the *Personal Data Store*.
+personal data, which reflects the *Digital Identity* of the operator, is maintained and also
+provided by the *Personal Data Store*.
 
 
 
@@ -27,8 +27,8 @@ current state of the personal data.
 
 *Additional requirement(s) are:*
 
-a)  precision of data accessed by consumers must be adjustable (e.g. cut fractional digits, 
-    decrease sampling rate of time series datasets)    
+a)  precision of data accessed by consumers must be adjustable (e.g. cut fractional digits, decrease 
+    sampling rate of time series datasets)    
 b)  store and fetch binary data
     
     
@@ -49,8 +49,8 @@ b)  store and fetch binary data
 
 ### System Data
 
-The *PL* consists of multiple storage technologies and MUST be placed on a trusted platform type - 
-a server. At least two technologies MUST be supported: the platform's filesystem, which SHOULD be 
+The *PL* consists of multiple storage technologies and MUST be placed on a trusted platform type - a 
+server. At least two technologies MUST be supported: the platform's filesystem, which SHOULD be 
 accessible by other components on the same platform, and a document-oriented storage system that 
 provides high flexibility through a schema-free approach and MUST also be shared among several 
 components. It is OPTIONAL, if the *Tracker* uses the same storage system, multiple ones or a 
@@ -198,7 +198,7 @@ be used.*
 +   `tsout: Number`             -   timestamp of response
 +   `type: String`              -   access type: `fwd` (plain forward) or `sce` (supervised code 
                                     execution)
-+   `program: String || Object` -   [MUST if `type == 'sec'`] filesystem path or file content that 
++   `program: String || Object` -   [MUST if `type == 'sce'`] filesystem path or file content that 
                                     facilitates supervised code execution
 +   `data: [String]`            -   [MUST if `query == undefined`] list of permitted data endpoints
 +   `query: Object || String`   -   [MUST if `data == undefined`] query representing permitted data 
