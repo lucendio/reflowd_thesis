@@ -7,8 +7,8 @@ implicit advantages of confidentiality and integrity of transferred data. The te
 therein are assigned to the different types of motivations to interact with the system and therefore
 to the roles and their various users, although authenticity of the actual data a *ReFlowd* provides
 has yet to be provided. Data reliability here refers to authentic and reliable data, which means (A)
-the data really represent the entity that is associated to the originating *ReFlowd* and is thus owned
-by that entity, and (B) the data are truthful at that moment when the data being accessed are
+the data really represent the entity that is associated to the originating *ReFlowd* and is thus
+owned by that entity, and (B) the data are truthful at that moment when the data being accessed are
 queried from within the system.
 
 The verification process of authorship and content validity in the context of the DE-Mail 
@@ -21,10 +21,10 @@ credentials when handing over the DE-Mail to the server, and that it's reasonabl
 provider sign the document on the DE-Mail server, and finally that this described implementation
 results in a legally binding document by definition of that law. The varying levels of mistakes made
 in conception and legislation are outlined in a statement from the CCC [^abbr_ccc] 
-[@statement_2013_de-mail], who has been consulted during the development of that law.
-As a consequence, DE-Mail as a technology has, in general, no relevance to this project. One aspect
-that can be noted though, is the concept of letting a server sign outgoing data. While in the case
-of DE-Mail the server is controlled by a potentially not trusted party and is typically
+[@statement_2013_de-mail], who has been consulted during the development of that law. As a
+consequence, DE-Mail as a technology has, in general, no relevance to this project.  
+One aspect that can be noted though, is the concept of letting a server sign outgoing data. While
+in the case of DE-Mail the server is controlled by a potentially not trusted party and is typically
 multi-tenancy capable, the *ReFlowd*, including its back end, relates to one individual, who is also
 in control of the system. Thus, in order to provide a method to consumers, which enables them to
 verify if the received data is authentic while keeping the overhead for the operator to a minimum,
@@ -35,7 +35,7 @@ mandatory process where, for example, a trustworthy third party verifies the rel
 in question. Depending on the design, that process can be in direct contrast to the discussion about
 the [authentication system](#authentication) and why it should be designed in a self-contained way.
 If it's not required, though, to provide information to prove data reliability, this aspect won't be
-an issue.   
+an issue.  
 The information about data reliability can be defined in a response as an optional property. Within 
 the request the data consumer has to indicate whether the response should contain this information 
 or not. Depending on what data is requested, the *ReFlowd* decides whether to provide proof of 
@@ -43,17 +43,17 @@ reliability or not. Based on the procedures that are available, the data reliabi
 verified by the data consumer.
 
 But how would this reliability check look like? It comes down to two general steps. The first is 
-matching the actual data involved in that request against a reference dataset. The second step
-is to hand over the information about the audit and its result to the data consumer. Depending on
-what information the consumer is provided with, it can then be used to verify that information.
-The data consumer decides on the value of that given information. 
+matching the actual data involved in that request against a reference dataset. The second step is
+to hand over the information about the audit and its result to the data consumer. Depending on what
+information the consumer is provided with, it can then be used to verify that information. The data
+consumer decides on the value of that given information. 
 
 The following proposed methods vary in the provided level of reliability as well as in the amount of 
 effort to support them and in the possible impact to their surrounding systems. Not all data items 
 are necessary to test for reliability. Profile data for example are more likely to be tested, 
 whereas consumption lists or location histories are more difficult to verify, because currently 
 there is no reliable way to verify the origin of those datasets, and they are also not a primary 
-focus here. 
+focus here.
 
 (1) __Local Verification by matching__\
 Probably the simplest and, at the same time, least reliable method is to just look at the existing 
@@ -65,9 +65,9 @@ An electronic ID card can serve as an authentication token for the operator, but
 utilized to verify the reliability of certain data. Using the german implementation *(nPA)* as an 
 example, the *eID* feature would provide access to the owner's basic profile data, which can then
 be used to match against those data items that are both held by that *nPA* and affected by the 
-*access request*, and therefore originated in the *ReFlowd*. If the result of that matching procedure
-is positive, the related data then gets signed with a *QES* courtesy of the data subject's *nPA*.
-That signature gets included in the response as well.
+*access request*, and therefore originated in the *ReFlowd*. If the result of that matching
+procedure is positive, the related data then gets signed with a *QES* courtesy of the data subject's
+*nPA*. That signature gets included in the response as well.
 
 (3) __Remote Verification and signing__\
 Another method involves a trusted third party who also has the same data that need to be proved. The
@@ -87,8 +87,8 @@ party is satisfied, a certificate for the corresponding data will be issued. Thi
 contains an expiration date, which implies the consequence of going through this process again in 
 the future, much like an issuing process of a common *Certificate Authority*. The certificate is 
 installed on the *ReFlowd* and served as part of a response.  
-Until now, the consumer can only decrypt the signature provided in the certificate, which, if 
-it's successful, just states that the issuer has verified the truthfulness and relation between the 
+Until now, the consumer can only decrypt the signature provided in the certificate, which, if it's
+successful, just states that the issuer has verified the truthfulness and relation between the 
 operator and some data stored in the corresponding *ReFlowd*. Optionally, and only if the exact data 
 items involved in the certification procedure are also part of the response, the consumer is able to
 completely verify the certificate, and thus the data reliability, by hashing that data on its own 
@@ -105,6 +105,7 @@ met. It will be left to future work, however.
 
 
 *__Conclusions:__*
+\ \
 A signing procedure as part of the local verification method (2) involves private key and
 certificate stored on the operator's *eID card*. Every time the *ReFlowd* verifies data reliability
 that procedure has to be performed. Thus the *operator* is forced to interact wit the *ReFlowd*.
@@ -113,14 +114,14 @@ where or how, this would potentially expose a highly confidential part of a cryp
 Not only would this reduce the overall security level of the system, it also makes every task this 
 method is involved in vulnerable to certain attacks. Aside from that, it's highly unlikely that an 
 *eID card* would allow extraction of the private keys it contains. This all results in increased 
-inconvenience which is inevitable for this proposed method. The *Local Verification and signing (2)* 
-method has the same dependencies mentioned in the previous discussion about requirements for using
-the (german) *eID card* as an authentication token. And since it was rejected because of those 
-dependencies and because of the inconvenience mentioned before, that verification method ultimately 
-is not going to be supported in the specification. Furthermore, the signing procedure based on the 
-*QES* can easily be spoofed by the data subject regardless of the matching result, because it would
-indeed prove that the *ReFlowd* really represents that individual (authorship of the response), but
-not the reliability of that data.
+inconvenience which is inevitable for this proposed method.  
+The *Local Verification and signing (2)* method has the same dependencies mentioned in the previous
+discussion about requirements for using the (german) *eID card* as an authentication token. And
+since it was rejected because of those dependencies and because of the inconvenience mentioned
+before, that verification method ultimately is not going to be supported in the specification.
+Furthermore, the signing procedure based on the *QES* can easily be spoofed by the data subject
+regardless of the matching result, because it would indeed prove that the *ReFlowd* really
+represents that individual (authorship of the response), but not the reliability of that data.
 
 The *Remote Verification and signing (3)* method requires the external party to be an official 
 authority, because no other entity has the data in question (primarily profile data), which makes
@@ -132,8 +133,8 @@ manually, but also automatically. Nevertheless, both can provide a trustworthy c
 
 Finally, the first method, *Local Verification by matching (1)*, which just performs a matching of 
 two datasets against each other, that does not provide any proof to verify reliability of that.
-Those datasets are obtained from the same *ReFlowd* storage, but at different times; right before the
-request finally is sent on, though.
+Those datasets are obtained from the same *ReFlowd* storage, but at different times; right before
+the request finally is sent on, though.  
 The primary purpose of addressing the issue of data reliability rests on the data consumer's 
 concern of accessing data that is intentionally tampered with (e.g. by the data subject), since 
 integrity during transport is already ensured. In this light, even if the whole system would be 
@@ -143,8 +144,8 @@ the lowest level of reliability.
 
 Certain fields of application of a *ReFlowd* as a data resource might already impose constraints 
 about the level of reliability and maybe even how it can be provided. Violation of those constraints 
-or other relevant legislation might prevent the *ReFlowd* from being put in use. Others - depending on 
-their guidelines and business model - don't rely on a certain level of confidence. In general, 
+or other relevant legislation might prevent the *ReFlowd* from being put in use. Others - depending
+on their guidelines and business model - don't rely on a certain level of confidence. In general, 
 data consumers are expected to already have a basic confidence in a *ReFlowd* and in the data 
 originating there.
 Regardless of that, providing an indication on the reliability of data is valued as a first and 

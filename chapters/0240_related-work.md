@@ -12,7 +12,7 @@ The idea of a digital vault, controlled and maintained by the data subject, is n
 most sensitive and valuable collections of bits and bytes, protected from all the data brokers, 
 collectors and authorities, while interacting with the digital and physical world, opening and 
 closing its door from time to time to either put something important to her inside or releases 
-important information for someone else.
+important information for someone else.  
 In the mid and late 2000s the growth of computer performance and capacity crossed its zenith (see 
 Moore's Law [@paper_1965_moors-law]). At the same time, the internet started to become a key part in 
 many people's lives and in society as a whole. Facilitated by these circumstances, *Cloud Computing* 
@@ -34,6 +34,8 @@ hardware devices, a great variety of approaches have started to appear in the mi
 to this day. However a side effect was, over time, various research teams and projects have invented 
 and coined different terms, which, in the end, all refer to the same (or similar) concept. The 
 following list shows some of them *(alphabetical order)*:
+
+\newpage
 
 +   Databox
 +   Identity Manager
@@ -71,11 +73,11 @@ framework. Due to these requirements the architecture ended up being rather comp
 [@graphic_2011_architecture_components-of-organization-domain]. The implementation, called *ZXID*, 
 involves several standards, for example SAML 2.0 [^abbr_saml2] and XACML [^abbr_xacml], and has just 
 three third-party dependencies, *OpenSSL*, *cURL (libcurl)* and *zlib*. As of now it even supports 
-Java, PHP and Perl.
+Java, PHP and Perl.  
 The project has lasted for a period of 4 years. After completion in 2011, research has continued 
 i.a. by the *Liberty Alliance Project*. It is now part of the *Kantara Initiative* 
 [@web_kantara-initiative], including all documents and results. These results are occasionally 
-referenced, i.a. by the IEEE [@paper_2014_personal-data-store-approach].
+referenced, i.a. by the IEEE [@paper_2013_the-personal-data-store-approach-to-personal-data-security_2013].
 
 A research project, which is probably the closest to what this work aims to create, bears the name 
 *openPDS* [@paper_2012_openpds_on-trusted-use-of-large-scale-personal-data] and is done by 
@@ -97,11 +99,11 @@ Aside from all the research projects done within the academic context, applicati
 commercial interest have also started to occur in a variety of sectors. Microsoft's *HealthVault*
 [@web_microsoft_healthvault], for example, which aims to replace the patient's paper-based medical 
 records and combine them in one digital version. This results in a patient-centered medical data and 
-document archive, helping doctors to make more accurate decisions on medical treatment, because they 
-have more knowledge obtained, for example, from a personal medical history.
+document archive, helping doctors, for example, to make more accurate decisions on medical
+treatment.
 
 *Meeco* [@web_meeco_how-it-works] [@slides_2015_meeco-case-study], based on the MyData-Project 
-[whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing], 
+[@whitepaper_2014_mydata-a-nordic-model-for-human-centered-personal-data-management-and-processing], 
 essentially just replaces platform-agnostic advertisement service providers with a closed 
 environment and serves ads on its own. Although data subjects in this environment are provided with 
 more control over what information they reveal, this approach doesn't take the eagerly demanded next 
@@ -122,6 +124,8 @@ data. So, it will be interesting to see how these two related but distinct objec
 in the future. Based on the white paper, the project's focus mainly seems to lie in enabling and 
 standardizing the way companies collect, exchange and aggregate data with each other across process 
 chains to ensure high interoperability and accessibility.
+
+\newpage
 
 The following is a list of further research projects, work and commercial products regarding the 
 topic of *personal data*:
@@ -156,3 +160,5 @@ __Commercial Products__
 [^abbr_saml2]: Security Assertion Markup Language 2.0
 
 [^abbr_xacml]: eXtensible Access Control Markup Language
+
+\newpage

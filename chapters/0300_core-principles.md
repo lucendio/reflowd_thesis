@@ -4,8 +4,8 @@ Core Principles
 
 
 Right from the start, a set of principles have been built as the cornerstones and orientation marks
-of the idea behind the *ReFlowd*. These are meant to be reflected by the upcoming *Open Specification* 
-and will be explained further within the following sections.
+of the idea behind the *ReFlowd*. These are meant to be reflected by the upcoming
+*Open Specification* and will be explained further within the following sections.
 
 
 
@@ -18,7 +18,7 @@ answer. As stated in
 property, which is not the case for personal data - at least for all the non-creative content. Thus, 
 there is no legal ground for an individual to license those data that obviously belong to her. 
 Switching the perspective from the *data subject* to the *data consumer*; for them, several laws 
-exist addressing conditions and rules regarding data acquisition, processing and usage.  
+exist addressing conditions and rules regarding data acquisition, processing and usage.    
 Putting aside the absence of legislation regarding data ownership, it cannot be denied that it seems 
 unnatural to not be the owner of all the data that reflect a person's identity and the person as an 
 individual. So instead of defining rules meant to protect data subjects but demand data consumers to 
@@ -28,10 +28,10 @@ who can access her data and what accessors are allowed to do with it. This would
 Although, it is to be noted, that the legislation for data consumers mentioned before, remains 
 highly important since this project is not able to cover every single use case that might occur.
 
-Promoted from the data subject to the data owner and therefore being the center of the *ReFlowd*, the 
-*operator* of the *ReFlowd* gains the ability to have as much control as possible over all the data 
-related to her, in order to determine, in a very precise way, what data of hers can be accessed by 
-third parties at any point in time and also to literally carry all her personal data with her. 
+Promoted from the data subject to the data owner and therefore being the center of the *ReFlowd*,
+the *operator* of the *ReFlowd* gains the ability to have as much control as possible over all the
+data related to her, in order to determine, in a very precise way, what data of hers can be accessed
+by third parties at any point in time and also to literally carry all her personal data with her. 
 
 
 
@@ -103,10 +103,10 @@ Together, these lead also to an overall security improvement, or at least it ena
 improve those aspects. Furthermore, allows for more versatile and diverse scenarios, like storing 
 data decentralized, scaling during unexpected workloads, or getting used as a medical record due to 
 higher security precautions. The convenience of precisely assigned environment resources might also 
-become relevant for cases where a device's hardware specification are poor. Building a system upon a 
-container-based philosophy and enclosing components in their own environment offers a variety of 
-design and architectural possibilities without the necessity of increasing the overall system 
-complexity.
+become relevant for cases where a device's hardware specification are poor.  
+Building a system upon a container-based philosophy and enclosing components in their own
+environment offers a variety of design and architectural possibilities without the necessity of
+increasing the overall system complexity.
 
 
 
@@ -121,12 +121,12 @@ makes it possible for anyone who is interested to participate or even to contrib
 Thus, to lower the barrier, usable and meaningful documentation is vital. Such an openness ensures 
 the possibility of people looking into the source code and getting a picture of what the program 
 actually does and how it works. This allows source code review to become feasible, and any security 
-flaw thus uncovered can be fixed immediately.
+flaw thus uncovered can be fixed immediately.  
 Furthermore, this approach allows data subjects to setup their own infrastructure and host such a 
 system by themselves, which gains even more control over the data and increases the level of trust, 
 instead of using a *SaaS* [^app_saas] solution that is hosted by a possibly untrusted entity. It 
 also encourages any kind of adjustments or customization to the software in order to serve 
-operator's own needs.
+operator's own needs.  
 Enabling an open development enables users and contributors working together and collectively 
 improve the project in a variety of ways.
 

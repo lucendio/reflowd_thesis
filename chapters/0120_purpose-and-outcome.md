@@ -39,6 +39,8 @@ of the *MyData* concept
 called *Meeco* [@web_2016_meeco-how-it-works], which are all be covered in detail in the following 
 chapter.
 
+\ \
+
 The research work done for this thesis constitutes the foundation for an *Open Specification*, which 
 is a manual for implementing a concept called *Data Reservoir Flow Control*, henceforth called 
 *ReFlowd*. Examining important topics like the architecture, where data can be stored, how to obtain 

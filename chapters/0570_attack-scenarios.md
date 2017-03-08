@@ -5,21 +5,21 @@
 Previous sections have already touched upon a few potential attack types and vulnerabilities of the 
 system, such as man-in-the-middle attacks that are possible during connection establishment and data 
 transfer, and session hijacking, which can be done by stealing the JWT used to authenticate 
-privileged entities to the system. Attack vectors responsible for these and other scenarios as well 
-as possible counter-measures are discussed in detail within this section.
+privileged entities. Attack vectors responsible for these and other scenarios as well as possible
+counter-measures are discussed in detail within this section.
 
 
 
 Before that, however, is to work out what motivation(s) would drive such attacks. The first, and 
 probably most dangerous motivation, appears to be *Digital Identity Theft*. Meaning that the 
 attacker impersonates the individual that was originally associated with the system. Then data 
-consumers are misled into believing that everything the intruder does with the *ReFlowd* is happening 
-on behalf of the data owner herself. Such control can be abused for vicious data changes to harm the 
-physical counterpart or the access can simply be exploited to unopposedly extract the individual's 
-personal data. The more data the system contains and the more purposes it serves, the more power 
-that can be gained by controlling it. Those motivations are extrinsically driven by third parties, 
-whereas intrinsic and mostly unintended damage can be caused by system or human failure, which may 
-lead, for example, to data loss or irrecoverable system access.
+consumers are misled into believing that everything the intruder does with the *ReFlowd* is
+happening on behalf of the data owner herself. Such control can be abused for vicious data changes
+to harm the physical counterpart or the access can simply be exploited to unopposedly extract the
+individual's personal data. The more data the system contains and the more purposes it serves, the
+more power that can be gained by controlling it. Those motivations are extrinsically driven by third
+parties, whereas intrinsic and mostly unintended damage can be caused by system or human failure,
+which may lead, for example, to data loss or irrecoverable system access.
 
 As the name states, in a man-in-the-middle attack, the transferred content of a communication is 
 intercepted and possibly tampered with while the participants remain unaware. A common solution here 
@@ -54,8 +54,8 @@ to be ensured.
 Another aspect of the system that could be vulnerable to certain attacks is the authentication 
 mechanism used by the data subject to log into her management tool. A *JSON Web Token (JWT)*, which 
 contains all session information, serves as the key. As mentioned before, any connection between
-components is forced to be established only by TLS.  
-So from this perspective the JWT is no less or more secure than any other type of credentials. 
+components is forced to be established only by TLS. So from this perspective the JWT is no less or
+more secure than any other type of credentials.   
 However, this doesn't prevent the token from being usable to the attacker once it is stolen. A short 
 expiration date, equal to a session timeout, and token invalidation cycle, which is the same as 
 forced logout, can reduce the potential harm an incident like this may cause.   
@@ -107,6 +107,7 @@ allowing vulnerabilities to be easily disclosed and hence addressed immediately.
 
 
 *__Conclusions:__*
+\ \
 Securing data transport and storage are the two pivotal aspects to focus on. Choosing self-singed 
 certificates over publicly trusted CAs in order to not only encrypt but also reasonably authenticate 
 the consumer-system communication needs to make sure that the preliminary transfer of the 

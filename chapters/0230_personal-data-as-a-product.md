@@ -33,7 +33,7 @@ C) Another example is *Google Traffic* [@web_2007_introducing-google-traffic]
 a web-based mapping service from Google. *Google Traffic* visualises real-time traffic conditions, 
 while using *Maps* as a navigation assistant in order to provide the user with a selection of 
 possible paths. These paths are enriched with a duration that takes the traffic conditions into 
-account. 
+account.
 The data required to offer such information is supplied by mobile devices, constantly sending its 
 current position including a timestamp to Google's infrastructure. This however, is only possible, 
 because Google's services are widely used in addition to the significant market share of mobile 

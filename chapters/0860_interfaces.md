@@ -183,7 +183,7 @@ reject access.
 }
 ```
 
-*Response: [if `respond == 'push'`]*
+*Response:* [if `respond == 'push'`]
 
 +   `pickup: String`    -   URL where to find the actual response
 +   `duration: Number`  -   estimated time in seconds until response SHOULD be available

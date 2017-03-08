@@ -11,13 +11,13 @@ topics related to the behaviour of the system's interfaces from a user point of 
 The foundation of this project is a server-client Architecture, which is chosen for providing 
 availability ([S.A.05](#sa05)) and separating concerns [@web_2016_wikipedia_separation-of-concerns].
 Such a distributed system provides various locations to place these concerns, which are, in fact,
-different environments with different properties. Those 
-combinations of locations and environment properties are herein after called *platforms*. To further 
-describe these *platforms*, characteristics such as architectural layer and access possibilities to 
-its host environment are taken into account. The resulting three *platform* types are shown in 
-Table @tbl:platforms-characteristics. All platforms are considered to be controlled by the data 
-subject. Here, *trusted* refers to how likely it is that the host environment, and maybe even the 
-platform, is unintentionally accessed by third parties, whereas *host access* describes the 
+different environments with different properties.
+Those combinations of locations and environment properties are herein after called *platforms*. To
+further describe these *platforms*, characteristics such as architectural layer and access
+possibilities to its host environment are taken into account. The resulting three *platform* types
+are shown in Table @tbl:platforms-characteristics. All platforms are considered to be controlled by
+the data subject. Here, *trusted* refers to how likely it is that the host environment, and maybe
+even the platform, is unintentionally accessed by third parties, whereas *host access* describes the 
 possibilities to access the host environment from within the platform (e.g. filesystem to store 
 data).
 
@@ -37,8 +37,7 @@ data).
 |   $\ $   |   $\ $  |   $\ $  | end     | - based on web technologies                 |
 |   $\ $   |   $\ $  |   $\ $  |   $\ $  | - graphical user interface                  |
 
-Table: Platform types for the different components of the *ReFlowd* architecture 
-    {#tbl:platforms-characteristics}
+Table: Architecture - available platform types for system components {#tbl:platforms-characteristics}
 
 
 The next step is to determine all the components that are required in order to cover most of the 
@@ -79,6 +78,8 @@ Tasks:
 +   access verification
 +   examine data queries 
 +   queue *consumer* requests
+
+\newpage
 
 Relations:
 +   Storage Connector
@@ -230,6 +231,7 @@ Technologies:
 +   WebSockets for web UIs via local Web Server
 +   mobile device manufacturer's Push Notification Service for mobile apps 
 
+\newpage
 
 #### User Interface {-}
 
@@ -307,8 +309,8 @@ through which a connection to the *Storage Connector* is established.
 Two approaches are proposed to circumvent this issue. Either an ongoing bidirectional connection 
 (e.g. WebSockets) can be utilized to push data queries from the *server* platform, or the 
 *Storage Connector* queues the queries and informs the operator via Push Notification on pending
-attempts to access the *PDS* located on her mobile device, so that she can then actively pull
-the queries and push the results back to the *Storage Connector*. Those are two distinct general
+attempts to access the *PDS* located on her mobile device, so that she can then actively pull the
+queries and push the results back to the *Storage Connector*. Those are two distinct general 
 approaches, details may vary.
 
 Authenticating consumers is performed based on TLS by the Web Server and its configured subdomains 
@@ -333,11 +335,11 @@ that are made available by the *Web Server*, which reverse-proxys incoming conne
 role-related (operator or data consumer) components. Starting from that, this separation can be 
 driven further by simply encapsulating those components into services, that are related to one of
 the roles or used by both. This basically results in the *Web Server* communicating with the two 
-role-grouped services in a bidirectional manner.
+role-grouped services in a bidirectional manner.  
 The group of endpoints for data consumers mainly consists of those through which *access requests* 
 and *permission requests* are coming in and the public one, that is used for when consumers apply 
 for registration. The other one is a small group of endpoints required for all tools the operator 
-might need; from data API or notification to authentication and web-based user interface. 
+might need; from data API or notification to authentication and web-based user interface.  
 Furthermore, it might be considered to partially apply the principles of a RESTful design. However, 
 this makes the API potentially more complicated and insufficient, since the *Operator API* does not
 follow the concept of resources. Instead, it requires a rather functional design, which makes, for 
@@ -350,7 +352,7 @@ third party authentication services, which not only makes that feature almost ef
 implement, but also leaves the responsibility as well as the accessibility to those service owners. 
 Whereas users get the benefit of just using one account for all their apps - a universal key so to 
 say, but only one exemplar. So the downside here is, in reality only a handful of third parties 
-[@web_2009-success-of-facebook-connect] provide those authentication services.    
+[@web_2009-success-of-facebook-connect] provide those authentication services.  
 *OpenID* is designed with a very specific type of scenarios in mind, namely the one just described - 
 bringing decentralization to the market of authentication services - which differs from the ones 
 addressed by the *ReFlowd*; at least when it comes to data consumer interactions. The *ReFlowd* has 
@@ -360,19 +362,21 @@ be used to authenticate that individual against external parties.
 
 
 *__Conclusions:__*
-Considering the amount of effort a single-platform composition, namely on a desktop or mobile device, 
-would take to get fully operational with respect to the specification, it is not only reasonable but also 
-more secure to involve a server platform with proper security measures, a static IP, and high
-availability, even if that server is a local machine connected to the operator's private network. 
-That said, it is sufficient to start with the *centralized* approach and as suitable mobile 
-applications emerge that are supporting major administration features, notifications, and 
-*Personal Sata Storage*, it should be possible to migrate effortlessly towards the *distributed* 
-approach that brings a higher level of confidence because all the sensitive personal data is not on 
-some computer machine somewhere on the internet, but right in the hands of its owner.
+\ \
+Considering the amount of effort a single-platform composition, namely on a desktop or mobile
+device, would take to get fully operational with respect to the specification, it is not only
+reasonable but also more secure to involve a server platform with proper security measures, a static
+IP, and high availability, even if that server is a local machine connected to the operator's
+private network. That said, it is sufficient to start with the *centralized* approach and as
+suitable mobile applications emerge that are supporting major administration features,
+notifications, and *Personal Sata Storage*, it should be possible to migrate effortlessly towards
+the *distributed* approach that brings a higher level of confidence because all the sensitive
+personal data is not on some computer machine somewhere on the internet, but right in the hands of
+its owner.  
 By the proposed architecture, all components (or groups of components) are portable and therefore
 relocatable among the suggested platforms; and with the introduced authentication methods for 
 operators, multiple front ends for the same *ReFlowd* are thereby supported and can be implemented 
-with almost no effort, which, in return, covers more use cases.
+with almost no effort, which, in return, covers more use cases.  
 As a supplement, an *identity provider* based on the OpenID standard would fit nicely into the 
 existing arrangement and does not interfere with the other components. However, it is beyond the 
 scope of this work to elaborate on this topic. For now it is stated as a feasible and logical 

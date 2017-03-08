@@ -6,7 +6,7 @@ The overall purpose of this specification is to provide detailed instructions fo
 service that, on the one hand, encourages an individual to manage and maintain all the data relating 
 to her in one place, and on the other hand, enables third parties to access such data if they are 
 permitted by the individual to do so, preferably through supervised code execution instead of just 
-handing over the raw data items.  
+handing over the raw data items.
 The result is a one-to-many relation between the data owner - the individual - and all those who 
 might require some data to, for example, process a purchase initiated by the operator or make a 
 proper decision on her medical treatment. 
@@ -52,7 +52,7 @@ In order to proceed with checkout, a shop requires some personal data from the u
 shipping address, email, and payment information. Either the shop is already a data consumer, then
 it would access the system in the background to check if any data has changed, or the shop has to 
 register as a consumer first. After the registration process has been initiated, if needed, the user 
-is forwarded to complete the checkout. 
+is forwarded to complete the checkout.
 After reviewing the registration and the data that are attempted to be accessed, the user is 
 informed via email that the order has been processed and the shipment has started.
 
@@ -115,7 +115,7 @@ is granted read/write permissions at the *Storage Connector*. The *Operator API*
 designed RESTfully, but accessing data MUST solely consist of the query language provided by 
 *GraphQL*.
 
-![System Architecture (simplified)](./assets/figures/spec_arch_simplifierd.png){#fig:spec_arch_simplifier width=12cm}
+![System Architecture (simplified)](./assets/figures/spec_arch_simplifierd.png){#fig:spec_arch_simplifier width=12cm labelformat=empty}
 
 
 
@@ -148,7 +148,7 @@ designed RESTfully, but accessing data MUST solely consist of the query language
 5.  Finally, the query result is returned to the consumer, either directly or self-obtained later 
     on.
 
-
+\newpage
 
 ### Relations
 

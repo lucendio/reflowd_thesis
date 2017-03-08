@@ -4,10 +4,10 @@
 
 As stated in the project's [core principles](#core-principles) *(Chapter 3)*, *Open Development* is
 vital for the project to gain trust. Interestingly, this has a significant impact on how a *ReFlowd* 
-might be deployed or installed. All its components can just be grabbed and used as it suits everyone's needs, 
-while respecting their licenses. Furthermore, enforcing *portability* ([S.A.02](#sa02)) leads to a
-more simplified and independent development process that can be organized in a way so that the 
-primary division into components can be leveraged. 
+might be deployed or installed. All its components can just be grabbed and used as it suits
+everyone's needs, while respecting their licenses. Furthermore, enforcing *portability*
+([S.A.02](#sa02)) leads to a more simplified and independent development process that can be
+organized in a way so that the primary division into components can be leveraged. 
 
 The range of host systems for *server* platforms is highly diverse but the main shares
 [@web_2017_wikipedia_os-market-share] belong to either the UNIX or LINUX family, even though almost 
@@ -26,13 +26,13 @@ software dependency or provide them in separate runtimes, if possible.
 Depending on the used technologies, this concept is commonly known as *virtualization* or 
 *containerization*. It isolates software by putting them into a so called *container*. But since 
 those container-wrapped components still have to interact with each other, they need to be 
-supervised or at least managed. This is done by an *orchestration* software, which not only allocates 
-system resources but is also capable of emulating a whole network infrastructure (e.g. DNS, TCP/IP, 
-routing). Thereby, it is utilized to determine how certain containers (and their contained 
-components) are allowed to communicate and what resource are accessible from the inside (e.g. 
-filesystem). This complete abstraction to the surrounding environment effectively means it's the 
-only dependency the *ReFlowd* would have, regardless of how its components are implemented. They just 
-have to be *'containerizable'* - by satisfying the 
+supervised or at least managed. This is done by an *orchestration* software, which not only
+allocates system resources but is also capable of emulating a whole network infrastructure (e.g.
+DNS, TCP/IP, routing). Thereby, it is utilized to determine how certain containers (and their
+contained components) are allowed to communicate and what resource are accessible from the inside
+(e.g. filesystem). This complete abstraction to the surrounding environment effectively means it's
+the only dependency the *ReFlowd* would have, regardless of how its components are implemented. They
+just have to be *'containerizable'* - by satisfying the 
 *[container image specification](#def--container)* [@web_oci-spec_image]. This concept can also be 
 utilized for the *[Supervised Code Execution](#supervised-data-access)* ([S.A.01](#sa01)) mentioned 
 before without any restraints.
@@ -75,8 +75,8 @@ modern mobile device and on this device a *ReFlowd* mobile application is instal
         queries are transferred to the target environment, where those incoming queries get executed 
         until all data is migrated.
 
-5.  After the duplication process has finished, the operator can decide which PDS the *ReFlowd* should 
-    use to serve *access requests* and what should happen with the other storage(s).
+5.  After the duplication process has finished, the operator can decide which PDS the *ReFlowd*
+    should use to serve *access requests* and what should happen with the other storage(s).
 
 To conclude, a migration process like moving personal data from one platform to another can be 
 further simplified and robust if a complete query log would exist. It is also worth mentioning that 
@@ -84,16 +84,17 @@ the migration process described above is not restricted to exactly this source o
 direction. As long as target and source are either a *server* or a *mobile* platform, any variant is
 imaginable.
  
-
+\newpage
 
 *__Conclusions:__*
-Installing a *ReFlowd* should be straightforward with the least possible effort being spent for 
+\ \
+Installing a *ReFlowd* instance should be straightforward with the least possible effort being spent for 
 preparations. Package managers of all popular operating systems should offer (semi-)automated 
 installations. Additionally, components themselves and the project as whole have to provide detailed 
 documentations for various ways of how those parts or the entire system need to be installed.
 Alternatively, data subjects might be willing to entrust external third parties with hosting a 
 *ReFlowd* instance for them. In that case, the distributed approach involving a *mobile* platform 
-might come in handy, so that the actual data is not stored somewhere beyond their reach.
+might come in handy, so that the actual data is not stored somewhere beyond their reach.  
 The *ReFlowd* as an open source development encourages anybody who is interested or even wants to 
 contribute to checkout the source code of the various implementations, get it to run, and play 
 around with it. Therefore, at least the components of the *server* platform are required to document 

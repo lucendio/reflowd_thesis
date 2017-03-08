@@ -3,26 +3,26 @@
 
 
 Designing graphical user interfaces is beyond the scope of this work and the *ReFlowd* specification 
-as well. 
-Nevertheless this section shall be understood as a collection of proposed ideas addressing the 
-questions of what types of user interfaces the *ReFlowd* should provide and which features they might 
-need to support.
+as well. Nevertheless this section shall be understood as a collection of proposed ideas addressing
+the questions of what types of user interfaces the *ReFlowd* should provide and which features they
+might need to support.
 
 The most notable characteristic used to distinguish user interfaces from each other are those 
 interfaces that are visible and the ones that arn't. For example a *graphical user interface (GUI)*, 
 composed of visually separated areas with a certain semantic and assembled with meaningful objects 
 on which the user can physically act, for example by touching them. The interface then reacts on 
 those actions by changing its appearance. In this way the user can recognize and comprehend her 
-actions. Whereas non-graphical user interfaces don't provide the user with objects or surfaces to 
-interact with. Instead, the primary medium is text, regardless if it's human-readable or not.
-But *command line interfaces (CLI)*, available mainly in command line environments or shells, still 
+actions.
+Whereas non-graphical user interfaces don't provide the user with objects or surfaces to interact
+with. Instead, the primary medium is text, regardless if it's human-readable or not. But 
+*command line interfaces (CLI)*, available mainly in command line environments or shells, still 
 provide a certain level of interactivity. A running program can pause in order to prompt the user 
-with an input request. If an input is made and submitted, the program then proceeds. The group of 
-interfaces whose interactions can be programed and thereby fully automated can be called 
-*application programming interfaces (API)*. Depending on the transport technologies, it's not 
-unusual that *API* interactions consist of just one action causing one reaction.  
-Non-graphical interfaces enable interactions on a lower level. Even though they provide more 
-functionality and can be more time efficient, they are more rudimentary and often less secure.
+with an input request. If an input is made and submitted, the program then proceeds.  
+The group of interfaces whose interactions can be programed and thereby fully automated can be
+called *application programming interfaces (API)*. Depending on the transport technologies, it's not 
+unusual that *API* interactions consist of just one action causing one reaction. Non-graphical
+interfaces enable interactions on a lower level. Even though they provide more functionality and can
+be more time efficient, they are more rudimentary and often less secure.  
 While *GUIs* are normally meant for end users to interact with applications on a more sophisticated 
 level, *CLIs* are used during development, for automation, or for server environment administration;
 probably remotely since they are typically headless. Whereas *APIs*, documented by their providers, 
@@ -47,20 +47,20 @@ are very limited, because it's the one interface that the *ReFlowd* exposes to t
 | create & maintain templates ([P.I.05](#pi05))       |  __X__  |    -    |    -    |
 | adjust precision of data ([P.I.06](#pi06))          |  __X__  |    -    |  __X__  |
 | introduce new data structs                          |  __X__  |    -    |  __X__  |
-| configure *ReFlowd*                                   |  __X__  |    -    |    -    |
+| configure *ReFlowd*                                 |  __X__  |    -    |    -    |
 | import personal data                                |  __X__  |    -    |  __X__  |
 | read/access personal data                           |  __X__  |  __X__  |  __X__  |
 | manipulate personal data                            |  __X__  |  __X__  |    -    |
 | run supervised code execution                       |    -    |  __X__  |  __X__  |
 
-Table: Features supported by the given user interfaces {#tbl:ui-features} 
+Table: User Interfaces - supported features by provided interface types {#tbl:ui-features} 
 
 
 The architectural design includes *web* and *mobile* platforms. While prioritizing a web-based 
 *GUI*, the management tool for the operator also needs to be natively implemented for common 
 mobile systems ([P.VIU.02](#pviu02)); in this case Android and iOS. This enables real-time 
 notifications ([P.I.03](#pi03), [P.B.02](#pb02)) on mobile platforms, whereas the same feature is 
-added to *web* platforms by providing WebSocket-based connections. 
+added to *web* platforms by providing WebSocket-based connections.
 Since screen sizes can vary - in particular on *mobile* platforms - the *GUI* is required to be 
 highly responsive and has to adapt ([P.VIU.01](#pviu01)) to various screen sizes. Given the 
 capabilities of the management tool, an inaccurate or error-prone rendered *GUI* can quickly cause
@@ -92,12 +92,13 @@ containing data series, and position information, as mentioned before.
 
 
 *__Conclusions:__*
+\ \
 The most important aspect, when interacting with something or someone, is being provided with 
 feedback. An action typically causes - and is therefore *expected* to cause - a reaction. The result 
 is an interaction, unless no reaction occurred.  
 The discussion above outlines the relevance of those interactions for the *ReFlowd*. Thus, for users 
-and other software to interact with the *ReFlowd* interfaces are mandatory. Primary characteristics of 
-those interfaces are complete functionality, security precautions and restrictions, as well as 
+and other software to interact with the *ReFlowd* interfaces are mandatory. Primary characteristics
+of those interfaces are complete functionality, security precautions and restrictions, as well as 
 comprehensive documentation. Visual user interfaces also need to provide reliable and adaptive 
 rendering, a consistent and encouraging interaction design. *GUIs* need to be provided for all front
 end platforms, primarily to provide an efficient user experience for the operator. The operator is 

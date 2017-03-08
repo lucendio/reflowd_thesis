@@ -9,6 +9,9 @@ Web Service:
   through enriched websites or other web-compatible applications and interfaces.
 
 
+\ \
+
+
 Open Specification:
 
 : A specification is a formal and very detailed way of describing a technology, its internals, and 
@@ -58,6 +61,10 @@ Data Reservoir Flow Control (ReFlowd):
 
 : Third party who requests permission or is already allowed to access parts of the *operator's* 
   personal data through *ReFlowd*; sometimes referred to as (data) collector or vendor.
+
+
+\ \
+\ \
 
 
 [Data Broker]{#terminologies--data-broker}:

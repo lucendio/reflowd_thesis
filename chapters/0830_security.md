@@ -34,6 +34,8 @@ GUI. Furthermore, those GUIs SHOULD be served with HTTP/2.
 The subsequent examples show two *Nginx* configurations for the *web server* component, implementing 
 the specifications from above.
 
+\newpage
+
 __[Code 01: Web server configuration for a web-based GUI (excerpt)]{#spec_code-01_nginx-config-web-gui}:__
 ``` {.nginx .numberLines}
 server {
@@ -64,7 +66,7 @@ server {
 }
 ```
 
-\ \ 
+\newpage
 
 __[Code 02: Web server configuration for a consumer endpoint (excerpt)]{#spec_code-01_nginx-config-consumer-endpoint}:__
 ``` {.nginx .numberLines}
@@ -173,7 +175,7 @@ probably out of reach, and potentially vulnerable to unauthorized access. Wherea
 approach allows, for example, the relocation of the *Personal Data Store* component to a mobile 
 platform, which could also be used by the operator to manage the system. The general approach of a 
 more distributed deployment of components SHOULD reduce the vulnerability for certain scenarios and 
-makes it harder for entities to compromise (parts of) the system. 
+makes it harder for entities to compromise (parts of) the system.
 As long as all requirements are met and every component is completely functional, and thus the 
 system as a whole, any component MAY be located on whatever platform is sufficient.
 
@@ -216,7 +218,7 @@ fields for this information is defined in [Data and Types](#data-and-types))*:
  
 To make sure that these data are collected, other components MUST provide the *Tracker* with such 
 information. Therefore, components such as *Operator API*, *Permission Manager* and *Web server*, 
-MUST push information towards the *Tracker*.  
+MUST push information towards the *Tracker*.
 By performing pattern recognition & anomaly detection, the *Tracker* is then able to recognize 
 abnormal behaviour or occurrences, for example, by monitoring the IP of an access request origin, 
 which normally should not change very often. Such data MAY also help to prevent spam requests. If 

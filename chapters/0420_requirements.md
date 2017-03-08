@@ -10,7 +10,7 @@ Other chapters may contain references to specific requirements listed below.
 
 
 
-#### Architecture & Design: {-}
+### Architecture & Design: {-}
 
 __*[S.A.01]{#sa01}* - Accessibility & Compatibility__\
 Since the internet is one of the most widely used infrastructures for data transfer and 
@@ -30,7 +30,7 @@ first one is the *[operator](#terminologies--operator)*, who is in control of th
 depending on the architecture, must be at least one individual but could be more. The *operator* 
 maintains all the data that gets provided through the system and decides which third parties get 
 access to what data. The second type is a *[consumer](#terminologies--consumer)*. These *consumers* 
-are external third parties that desire access to certain data about or from the *operator*. 
+are external third parties that desire access to certain data about or from the *operator*.   
 While the consumer has to interact with the system only via plain HTTP API, the operator must be 
 provided with graphical user interfaces, possibly for multiple platforms.
 
@@ -57,7 +57,7 @@ communication between components has to happen on HTTPS, in case they don't run 
 environment.
 
 
-#### Persistence: {-}
+### Persistence: {-}
 
 __*[S.P.01]{#sp01}* - Data Outflow__\
 Data may leave the system only if it's absolutely necessary and no other option exists to retain the 
@@ -66,8 +66,8 @@ consumer, must be able to access that data. Confidentiality has to be preserved 
 
 __*[S.P.02]{#sp02}* - Data Relationship__\
 Data structures and data models must show high flexibility and may not consist of strong relations 
-and serration. If the syntax of the data representation also provides structural elements then it 
-should be utilized to also embed semantics.
+and serration. If the syntax of the data representation provides structural elements then it 
+should be used to embed semantics.
 
 __*[S.P.03]{#sp03}* - Schema and Structure__\
 The operator can create new data types (based on a schema) in order to extend the capabilities of
@@ -101,7 +101,7 @@ data. That is, adjustments have to be made after the data is fetched but before 
 processed.
 
 
-#### Interfaces: {-}
+### Interfaces: {-}
 
 __*[S.I.01]{#si01}* - Documentation__\
 The interfaces from all components have to be documented and well specified so that the components 
@@ -112,7 +112,7 @@ required arguments and result structure.
 __*[S.I.02]{#si02}* - External Data Query__\
 Data consumer can request a schema in order to know how the response data will actually look like,
 since certain parts of the data structure might change over time (see [S.P.03](#sp03), 
-[S.P.04](#sp04)).
+[S.P.04](#sp04)).  
 In order to check if the access request is permitted, the system first parses and validates the 
 query, and eventually proceeds to execution. When querying data from the system, the *data consumer* 
 might be required to provide a schema, which should force him to be as precise as possible about 
@@ -127,7 +127,7 @@ place, all data send back and forth should be serialized/structured in a JSON or
 structure.
 
 
-#### Graphical User Interface: {-}
+### Graphical User Interface: {-}
 
 __*[P.VIU.01]{#pviu01}* - Responsive user interface__\
 The graphical user interface has to be responsive to the available space, in order to acknowledge
@@ -153,7 +153,7 @@ stopping certain access and data usage. Such tool should have filter, search and
 It is built upon and therefore requires the [access logging (P.B.01)](#pb01) functionality.
 
 
-#### Interactions: {-}
+### Interactions: {-}
     
 __*[P.I.01]{#pi01}* - Effort__\
 Common interactions for use cases such as changing *profile data*, importing datasets or managing
@@ -169,6 +169,8 @@ for the user to operate. Thus, it is important, for example, to use meaningful i
 labels. This also refers to a flat and not crammed menu navigation. Context related interaction 
 elements should be positioned within the area related to that context.
 
+\newpage
+
 __*[P.I.03]{#pi03}* - Notifications__\
 The user should be notified about every interaction with the system originated by a third party 
 immediately after its occurrence, and she has to be notified, at least, about every 
@@ -183,7 +185,8 @@ A process involving data transaction must be always initiated by the data subjec
 party by either telling him (per URL) where to register or asking him to provide all information 
 required for a registration process upfront encoded in QR-Code. Both solutions need a secure channel
 for transport, which refers to *TLS*. The latter has to be ensured by the applying third party 
-alone, whereas the first option requires the *ReFlowd* to provide a TLS-supporting endpoint as well.
+alone, whereas the first option requires the *ReFlowd* to provide a TLS-supporting endpoint as
+well.  
 After a successful registration, the consumer can submit a *request permission*, which has to 
 include information about the *consumer*, what data he wants to access, for what purpose, and how 
 long or how often the data needs to be accessed. The operator then reviews this information and 
@@ -193,8 +196,9 @@ decide between three *permission types*:
 +   *one-time-only*
 +   *expires-on-date*
 +   *until-further-notice*
+
 After creating the profile, the *data consumer* must be provided with a response, which should 
-contain the review result and the determined *permission type*. 
+contain review result and determined *permission type*. 
 
 __*[P.I.05]{#pi05}* - Templating__\
 The operator should be able to create templates for *permission profiles* and *permission rules* in 
@@ -202,7 +206,7 @@ order to apply a set of configurations in advance before a *permission request* 
 recurring redundant configurations and interactions.
 
 
-#### Behaviour: {-}
+### Behavior: {-}
 
 __*[P.B.01]{#pb01}* - Access Logging__\
 All interactions and changes in the persistence layer should be logged. All data requests must be 
@@ -212,7 +216,7 @@ of occurring accesses and look up past ones.
 __*[P.B.02]{#pb02}* - Real time__\
 Real time communication might be essential for time-critical data transaction. Hence graphical user 
 interfaces should be communicating with the server through an ongoing connection to enable real time 
-support. 
+support.   
 Consider the following example scenario: a permission request is reviewed on a mobile device, but
 the notification indicator in the desktop browser still reflects 'pending'. 
 If just one of the user interfaces does not have real-time capabilities but all the others do, the 

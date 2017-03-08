@@ -12,7 +12,7 @@ access the *data subject's* personal data, and how
 can be assembled in order to meet the specified [requirements](#requirements) *(Chapter 4)*.
 
  
-### Part One: consumer registration {-}
+#### Part One: consumer registration {-}
 
 0)  The *operator* creates a new, unique URL in the system
 
@@ -46,13 +46,15 @@ feedback channel about the decisions and is also provided with further details r
 actual data.
 
 
-### Part Two: obtain data {-}
+#### Part Two: obtain data {-}
 
 0)  A *successful registration* as a data consumer is required.
 
 1)  __Send request__; the data consumer sends the *access request* to the system, containing all 
 information about what data is needed, how to process the data, and what the response should 
 contain.
+
+\ \
 
 2)  __Parse and check request__; after the system has received an *access request*, it first  
 authenticates the data consumer and checks related *permission profiles*. According to the defined 
@@ -78,6 +80,7 @@ binary or source code - potentially including information about provisioning. Af
 data is retrieved from the storage, the program gets invoked with the data locally on the system but 
 within a completely separated environment *(sandbox)*. The result of that invocation gets returned 
 to the outer system (*ReFlowd*).
+
 b) __Data DRM [^abbr_drm]__; after data is retrieved from the storage it gets encrypted. The cipher 
 is included in the response. Upfront, data consumers are equipped with a small program that can 
 connect to the *ReFlowd* and has to wrap the consumer's own software that is meant to process the 
@@ -86,17 +89,18 @@ cipher, so that, by priorly fetching the key from the *ReFlowd*, the cipher can 
 within the invocation. Thus the data is made available to the wrapped software and only during 
 runtime. After the invocation has finished, the program needs to propagate the results that are 
 returned by the software back to the outer environment.
+
 c) __Plain Forwarding [default]__; retrieve data from the storage, quick-checking the result, adding 
 an expiration date and forwarding it directly into response.
 
-In case the data consumer provides no preferred access type, a fallback type must be applied so 
-that the data won't leave the system unless it's absolutely necessary to pursue the goal of the 
-access request. The overall confidentiality of all personal data is still preserved, however, because
-all communications to and from the *ReFlowd* are happening over HTTPS, which means the
-data is encrypted during the transport.
+In case the data consumer provides no preferred access type, a fallback type must be applied so that
+the data won't leave the system unless it's absolutely necessary to pursue the goal of the access
+request. The overall confidentiality of all personal data is still preserved, however, because all
+communications to and from the *ReFlowd* are happening over HTTPS, which means the data is encrypted
+during the transport.
 
 
-The concept of authorizing a data consumer for the ability to access personal data is fairly 
+The concept of authorizing a data consumer for the ability to access personal data is fairly
 trivial. During (or after) the *registration*, consumers have to provide detailed information about 
 their intentions so that the operator is confident about the required permissions when reviewing 
 them. The created *permission profile* reflects the result of that review. Such a permission profile 
@@ -121,23 +125,23 @@ profiles at any point in time.*
 Among other information, an access request contains the *data query* that shows very precisely what 
 data items are affected by that request. So if an *access request* arrives at the *ReFlowd*, assuming 
 the data consumer has been authenticated sufficiently, the system (0) searches for a permission 
-profile that corresponds to the data consumer and the requested data items. If it fails to find 
-one, the access request is refused. But if it does, then it checks (1) if the permission type 
-suffices at that moment and (2) if the query only contains data items that are enabled in the 
-profile as well. Here, the order matters because it is imaginable that the operation behind (1) is 
-less complex then operation (2). Running (1) before (2) can result in a faster response-time, if 
-operation (1) already results negative. If all operations have a positive result, access is granted.
+profile that corresponds to the data consumer and the requested data items. If it fails to find one,
+the access request is refused. But if it does, then it checks (1) if the permission type suffices at
+that moment and (2) if the query only contains data items that are enabled in the profile as well.
+Here, the order matters because it is imaginable that the operation behind (1) is less complex then
+operation (2). Running (1) before (2) can result in a faster response-time, if operation (1) already
+results negative. If all operations have a positive result, access is granted.
 
-As stated in the section about [data reliability](#data-reliability) *(Chapter 5)*, the data 
-subject is able to add, change, or remove all her data or even the permission profiles at any point
-in time. This raises the question of how to solve the situation were access requests are being 
-processed while those changes are happening and might affect the result of those requests. The first
-and simplest approach would be to not address this issue at all, but that would be unreasonable
-because providing data to the consumer normally means for the data subject to get something in
-return or to somehow benefit from that. So that approach is not an option. Using a failure of
-reliability verifications as a mechanism to re-request data won't work either in that case, because
-it would be based on a wrong assumption, since that failure can have multiple causes, not only the
-issue here in question.  
+As stated in the section about [data reliability](#data-reliability) *(Chapter 5)*, the data subject
+is able to add, change, or remove all her data or even the permission profiles at any point in time.
+This raises the question of how to solve the situation were access requests are being processed
+while those changes are happening and might affect the result of those requests. The first and
+simplest approach would be to not address this issue at all, but that would be unreasonable because
+providing data to the consumer normally means for the data subject to get something in return or to
+somehow benefit from that. So that approach is not an option. Using a failure of reliability
+verifications as a mechanism to re-request data won't work either in that case, because it would be
+based on a wrong assumption, since that failure can have multiple causes, not only the issue here in
+question.  
 A stateless solution seems to not fit due to the time-related dependency. So the only currently 
 perceivable way is to keep track of all momentarily processing or pending *access requests* to 
 detect those who are affected by the changes so that each of them can be aborted and processed 
@@ -152,18 +156,18 @@ It is up to data consumers to decide which data they are requesting to access, b
 know what data can be requested? The only option is to expose information about data availability
 ([S.I.02](#si02)), which can be done in a variety of ways. First, that information can be made 
 publicly available via URL, providing a machine-readable format so that information can be processed 
-automatically by consumers. It is also feasible to restrict that access to registered consumers 
-only, in order to prevent that information from being crawled. They could be valuable as meta data 
-and therefore used in undesired processing that could raise privacy concerns. It is imaginable to 
-allow operators to restrict the access to such availability information on an individual 
-consumer-basis or system-wide, and furthermore, to set default configurations for this behaviour. 
-Depending on those configurations a request might fail, thus the requester needs to be provided with 
-meaningful errors. Http error codes [@web_spec_http-error-codes] might be a sufficient fit for this 
-purpose.
+automatically by consumers.  
+It is also feasible to restrict that access to registered consumers only, in order to prevent that
+information from being crawled. They could be valuable as meta data and therefore used in undesired
+processing that could raise privacy concerns. It is imaginable to allow operators to restrict the
+access to such availability information on an individual consumer-basis or system-wide, and
+furthermore, to set default configurations for this behaviour. Depending on those configurations a
+request might fail, thus the requester needs to be provided with meaningful errors. Http error codes
+[@web_spec_http-error-codes] might be a sufficient fit for this purpose.
 
 An already standardized way to implement authorization is the [OAuth](#def--oauth) Specification. 
 And since the TLS layer is already in place to handle authentication, the choice would be to use 
-version 2 of the standard, because it relies on HTTPS.
+version 2 of the standard, because it relies on HTTPS.  
 Only two of the four *grant types* provided by OAuth would match with the process design introduced 
 earlier. The types are `password` and `client_credentials`, which basically require identifier(s) 
 and secret or credentials to directly obtain a `token`. The other two types define additional steps 
@@ -199,6 +203,7 @@ by the combination of *two-way authentication* in TLS, dedicated endpoints and c
 
 
 *__Conclusions:__* 
+\ \
 In the preceding text, various solutions were examined, resulting in the following three 
 available options to provide authorization and access management:
 a)  OAuth 1.0a and HTTP
@@ -227,7 +232,7 @@ request returning an identifier associated with permissions.
 And even these identifiers are obsolete when combining TLS with dedicated consumer-specific 
 endpoints, as c) states. So there is not much benefit in using OAuth, other than developers might be 
 familiar with the API. This can be addressed by a detailed specification for this project, hence c) 
-is preferred over b). 
+is preferred over b).   
 In the end, the only suitable use case from OAuth this work would consists of just a request that
 obtains a token after authenticating with the provided credentials. OAuth only provides a framework
 for how to authorize third parties to access external resources, leaving the procedure of how to
@@ -256,10 +261,10 @@ Since the overall goal here is to prevent the data subject from losing control o
 conceivable that certain categories of personal data, representing a higher level of sensitivity, 
 require a minimum viable *access type*. If the data consumer does not comply, access will be 
 refused.  
-Also, depending on which category the personal data relates to, the *ReFlowd* might somehow anonymize 
-certain types of data, if it is even capable of doing so, because the consumer at least supposedly 
-knows what individual is behind the *ReFlowd* it is currently interacting with. The field of 
-*data anonymization* is a large research area on its own, which recently started to gain a lot of 
+Also, depending on which category the personal data relates to, the *ReFlowd* might somehow
+anonymize certain types of data, if it is even capable of doing so, because the consumer at least
+supposedly knows what individual is behind the *ReFlowd* it is currently interacting with. The field
+of *data anonymization* is a large research area on its own, which recently started to gain a lot of 
 traction due to emerging privacy concerns about *Big Data*. Thus it will be left for future work.
 
 

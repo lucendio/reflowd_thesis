@@ -34,13 +34,12 @@ are based on the transfer of valued goods (e.g. services, products, etc.) in exc
 compensation (e.g. money). In order to process such a transfer, the vendor requires certain 
 information about the involved customer. Since all entities related to this concept, including the 
 customers, are considered to be human beings, such information most likely includes 
-*[Personal Data](#digital-identity-personal-data-and-ownership)*.
+*[Personal Data](#digital-identity-personal-data-and-ownership)*.  
 A business normally is eager to grow and, if it has commercial interests as well, it aims for profit
 maximization. So the business needs to improve and, therefore, it requires the knowledge of what and 
 where its flaws are and how it can improve. To gain such knowledge, analytics based on *Big Data* 
-approaches are part of various business strategies. But this also means that a lot of 
-Personal Data get collected as part of those analytics, since that data is part of many business 
-processes.
+approaches are part of various business strategies. But this also means that a lot of Personal Data
+get collected as part of those analytics, since that data is part of many business processes.
 
 As a result of humans being primarily responsible for all money flow in this globalized environment, 
 they also decide on the success of business. This basically means, every process analysis with an 
@@ -48,22 +47,22 @@ underlying commercial dependency somehow involves Personal Data
 [@web_2016_facebook-utilizes-98-data-points] [@web_2016_big-data-types-of-data-used-in-analytics]
 [@book-chapter_1999_Principles-of-knowledge-discovery-in-databases_introduction-to-data-mining]
 [@web_2013_big-data-collection-collides-with-privacy-concerns], whether this data is mandatory in 
-that process or additionally obtained to,for example, measure and analyze customer behaviour. 
+that process or additionally obtained to,for example, measure and analyze customer behaviour.  
 Common data items involved in big data analytics start with gender, age, residency or income, goes 
 on with time series events like changing current geo-location or web search history and continues 
-all the way up to health data and self-created content like posts, images, or videos.
-Depending on the data item though, those data might not be easy to collect. In general, most 
-businesses obtain data from within their own platforms. Some data might even be in the customer's 
-range of control (e.g. customer or profile data), but most of the data is created during direct 
-(content creation, inputs) or indirect (transactions, meta information) interaction with the
-business. The sensitivity level of involved Personal Data is determined by how big the benefit is
-for the customer in comparison to what the vendor's demand is from the customer's commitment (e.g. 
-required inputs, or usage requires access to location information).
+all the way up to health data and self-created content like posts, images, or videos. Depending on 
+the data item though, those data might not be easy to collect. In general, most businesses obtain 
+data from within their own platforms. Some data might even be in the customer's range of control 
+(e.g. customer or profile data), but most of the data is created during direct (content creation, 
+inputs) or indirect (transactions, meta information) interaction with the business. The sensitivity
+level of involved Personal Data is determined by how big the benefit is for the customer in 
+comparison to what the vendor's demand is from the customer's commitment (e.g. required inputs, or 
+usage requires access to location information).
 
 From a technical perspective, collecting indirectly created data is as simple as integrating logging 
 or debugging statements in the program logic. Since most vendors and organisations nowadays have a 
 business that is partially happening through the internet or is even completely based on it, most 
-scenarios of transactions utilize server-client architectures.
+scenarios of transactions utilize server-client architectures.  
 Furthermore, the *always-on* philosophy has evolved to an imperative and implicit state of devices. 
 Standalone software, installed on a personal computer, calls the vendor's infrastructure that is 
 located in the cloud on a regular basis, just to make sure that its user behaves properly while,
@@ -72,7 +71,7 @@ common narrative that requests happen sporadically in the background, although t
 But when it comes to native mobile applications, it's almost impossible [@web_2016_answers-io] to 
 notice such behaviour or even prevent them from exposing potentially sensitive information. Those 
 developments in architecture design have enabled a system-wide collection of potentially useful 
-information on a large scale [@web_2016_big-data-enthusiasts-should-not-ignore].
+information on a large scale [@web_2016_big-data-enthusiasts-should-not-ignore].  
 Logging transactions triggered by the user on the client and forwarding the resulting logs to the 
 back end infrastructure, or keeping track of all sorts of transactions directly in the back end; all 
 these collected chunks of data are then enriched with meta information before running together in a 
@@ -81,12 +80,12 @@ some day.
 
 Within *Big Data Communities* sometimes the *big* is misinterpreted as, regardless of what the 
 problem is that needs to be solved, speculatively gathering as many data items as possible with the 
-hope that, in the future, those data might become valuable. 
+hope that, in the future, those data might become valuable.
 This mindset is reflected by the oft-cited concept of the three *Vs* (Volume, Velocity, Variety) 
 [@report_2001_3d-data-management-controlling-data-volume-velocity-and-variety]. It is not entirely 
 wrong though, because it's the nature of pattern and correlation discovery to provide increasing 
 quality results [@paper_2015_big-data-for-development-a-review-of-promises-and-challenges:more-data], 
-when the overall data corpus is enriched with larger and more precise datasets.
+when the overall data corpus is enriched with larger and more precise datasets.  
 When new technologies emerge and are hyped, questioning their downsides and potential negative mid- 
 or long-term impacts is typically not a high priority. The focus is instead to experiment and try to 
 reach and perhaps breach boundaries while beginning to evolve. Non-technical aspects such as privacy 

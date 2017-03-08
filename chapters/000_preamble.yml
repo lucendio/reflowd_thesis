@@ -91,7 +91,7 @@ acknowledgement: >
 \begin{center}
 \thispagestyle{empty}
 \setcounter{page}{0}
-*\emph{This page intentionally left blank}*
+\emph{This page intentionally left blank}
 \end{center}
 \vspace*{\fill}
 \newpage
